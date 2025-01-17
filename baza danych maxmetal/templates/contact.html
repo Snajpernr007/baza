@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lump Store</title>
+    <link rel="icon" href="../static/img/LumpLogo.png">
+    <link rel="stylesheet" href="../static/style.css">
+    <!-- <script>
+        function backhome() {
+            setTimeout(() => {
+                window.location.href = 'index.html';
+            }, 500);
+        }
+    </script> -->
+</head>
+<body>
+    <div id="strona">
+        <div id="banner">
+            <div id="menu-main">
+                <nav role="navigation">
+                    <div id="menuToggle">
+                        <input type="checkbox" id="menuCheckbox">
+
+                        <span></span>
+                        <span></span>
+                        <span></span>
+
+                        <ul id="menu">
+                            {% if not g.user %}
+                        
+                            <li>
+                                <a href="{{ url_for('login') }}"><label for="menuCheckbox" onclick="this.parentNode.click();">Zaloguj się!</label></a>
+                            </li>
+                        
+                            <li>
+                                <a href="{{ url_for('register') }}"><label for="menuCheckbox" onclick="this.parentNode.click();">Zarejestruj się!</label></a>
+                            </li>
+                        {% else %}
+                        <li>
+                            <a href="{{ url_for('logout') }}"><label for="menuCheckbox" onclick="this.parentNode.click();">Wyloguj się</label></a>
+                        </li>
+                        {% endif %}
+                            
+                            <li>
+                                <a href="{{ url_for('contact') }}">
+                                    <label for="menuCheckbox" onclick="this.parentNode.click();">Kontakt do nas!</label>
+                                </a>
+                            </li>
+                            <li>
+                                <a href=javascript:history.back();><label for="menuCheckbox" onclick="this.parentNode.click();">Powrót</label></a>
+                            </li>
+                            <li>
+                                <img id="logo1" src="../static/img/logo-duże.png" alt="" >
+                            </li>
+                        </ul>   
+                    </div>
+                </nav>
+                <div id="logo-banner">
+                    <a href="{{ url_for('home') }}"><img id="logo-duże" src="../static/img/logo-duże.png" alt="logo"></a>
+                </div>
+                <div id="avatar">
+                    {% if g.user %}
+                        {% if g.user.zdj_profilowe_base64 %}
+                            <a href="{{url_for('uzytkownik')}}"><img id="user" src="data:image/jpeg;base64,{{ g.user.zdj_profilowe_base64 }}" alt="Zdjęcie profilowe" /></a>
+                        {% else %}
+                            <a href="{{url_for('uzytkownik')}}"><img id="user" src="../static/img/user.jpg" alt="Zdjęcie domyślne" /></a>
+                        {% endif %}
+                {% else %}
+                    <a href="{{ url_for('login') }}"><img id="user" src="../static/img/nie zalogowany.png" alt="Zdjęcie domyślne" /></a>
+                {% endif %}
+                </div>
+            </div>
+        </div>
+        <div id="title"><h1>Skontaktuj się z nami!</h1></div>
+        <div align="center">
+            <form action="/feedback" method="POST"  autocomplete="off" >
+                <label for="email">Adres E-mail:</label><br>
+                <input type="email" id="email" name="email" placeholder="Wpisz swój E-mail" value="{{ g.user.email if g.user else '' }}" required><br>
+                <label for="comments">Napisz swoje uwagi:</label><br>
+                <textarea id="comments" name="comments" rows="4" cols="50" placeholder="Wpisz swoje uwagi dotyczące naszego sklepu"></textarea><br><br>
+                <button class="button" class="button" onclick="window.history.back()">Powrót</button>
+                <input type="reset" class="button" value="Wyczyść">
+                <input type="submit" class="button" value="Wyślij">
+            </form>
+        </div>
+    </div>
+</body>
+</html>

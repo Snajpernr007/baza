@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lump Store</title>
+    <link rel="icon" href="../static/img/LumpLogo.png">
+    <link rel="stylesheet" href="../static/style.css">
+</head>
+<body>
+    <div id="strona">
+        <div id="banner">
+            <div id="logo-banner">
+                <a href="{{ url_for('home') }}"><img id="logo-duże" src="../static/img/logo-duże.png" alt="logo"></a>
+            </div>
+        </div>
+        <div id="title">
+            <h2>Zaloguj się na naszej stronie!</h2>
+        </div>
+
+        <div id="login-div">
+            <form action="/login" method="POST" autocomplete="off">
+                <label>Podaj swój Email</label><br>
+                <input type="text" id="email" name="email" placeholder="Wpisz swój E-mail" required><br>
+                <label>Podaj swoje hasło</label><br>
+                    <input type="password" id="password" name="password" placeholder="Wpisz swoje hasło" required>
+                    <button type="button" id="togglepasswd">Pokaż hasło</button><br><br>
+                <label>
+                    <input type="checkbox" name="remember_me"> Zapamiętaj mnie
+                </label><br>
+                <button type="button" class="button" onclick="window.history.back()">Powrót</button>
+                <input type="reset" class="button" value="Wyczyść">
+                <input type="submit" class="button" value="Zatwierdź">
+            </form>
+        </div>
+    </div>
+
+    <script>
+                togglePasswordButton = document.getElementById('togglepasswd');
+                passwordInput = document.getElementById('password');
+
+            togglePasswordButton.addEventListener('click', function () {
+
+                type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+                passwordInput.setAttribute('type', type);
+
+                this.textContent = type === 'password' ? 'Pokaż hasło' : 'Ukryj hasło';
+            });
+    </script>
+</body>
+</html>

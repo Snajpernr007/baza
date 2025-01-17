@@ -1,0 +1,594 @@
+
+/* do wszystkiego */
+body{
+  margin: 0;
+  padding: 0;
+  color: #000000;
+  font-family: "Avenir Next", "Avenir", sans-serif;
+  background: #e6dfdf;
+  z-index: 2;
+}
+
+* hr{
+  margin:0%;
+  height: 2px;
+  border: none;
+  background-color: black;
+}
+
+#strona{
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+li{
+  list-style-type: none;
+}
+
+footer{
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  bottom: 0;
+  margin-top: auto  ;
+}
+
+#footer1{
+  display: block;
+  justify-content: center;
+  align-items: center;
+  background-color: #3f395d;
+  color: white;
+  height: 190px;
+  bottom: 0;
+  width: 100%;
+}
+
+#footer2{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #282a2b;
+  color: white;
+  height: 70px;
+  bottom: 0;
+  width: 100%;
+}
+
+#kontakt-mail p{
+  padding: 3px;
+  margin: 20px;
+  font: italic, sans-serif, bold;
+}
+#kontakt-tel p{
+  padding: 3px;
+  margin: 20px;
+  font: italic, sans-serif, bold;
+}
+
+#footer1 h3{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 15px;
+}
+
+#footer1 div{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+} 
+
+
+
+
+/* Index */
+
+/* napis "kup co chcesz" */
+
+#title{
+  padding-top:115px;
+  display: flex;
+  justify-content: center;
+}
+
+
+
+/* logo w menu */
+#logo1{
+  width: 50%;
+  height: 50%;
+}
+
+/* czarny pasek na górze */
+#banner{
+  color:rgb(0, 0, 0);
+  height: 115px;
+  background-color: rgb(255, 255, 255);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position:fixed;
+  bottom: 100%;
+  top: 0%;
+  right: 0%;
+  left: 0%;
+  -webkit-user-select: none;
+  user-select: none;
+  z-index: 2;
+}
+
+#logo-duże{
+  max-height: 115px;
+}
+
+#avatar{
+  display: flex;
+  width: 115px;
+  height: 115px;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+
+#user{
+  width:50px;
+  height: 50px;
+  background: black;
+}
+/* zawartość strony */
+
+#witaj{
+  display: flex;
+  font-family: "Avenir Next", "Avenir", sans-serif;
+  justify-content: center;
+}
+
+.dzial{
+  padding-left: 20px;
+}
+
+.cena{
+  color:black;
+}
+.man-container, .women-container, .boys-container, .girls-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* Cztery produkty w rzędzie */
+  gap: 16px; /* Odstępy między elementami */
+  padding: 25px;
+  justify-items: center; /* Wyśrodkowanie elementów w siatce */
+}
+
+.grid-container div {
+  text-align: center;
+  padding: 10px;
+}
+.grid-container p {
+  margin-top: 10px;
+  font-weight: bold;
+}
+
+
+
+/* zdjęcia koszulek(można dodać do każdego zdjęcia z odzieżą) */
+/* ------------------------------------------------------------------------------------------------------------------------- */
+.product-card {
+  background: #f9f9f9;
+  width: 293px;
+  height: 289px;
+  padding: 16px;
+  border-radius: 8px;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  display: flex;
+  cursor: pointer;
+  
+}
+
+
+.product-card img {
+  width: 225px; /* Obraz zajmuje całą szerokość karty */
+  height: 225px; /* Zachowuje proporcje */
+  background-color: transparent;
+  padding: 16px; /* Odstęp wewnętrzny wokół obrazu */
+}
+
+.box{
+  width:40px;
+  height:30px;
+  background-color: black;
+  color: white;
+}
+
+/* przyciski */
+.button {
+  width: 110px;
+  height: 45px;
+  border: 2px solid black;
+  background-color: black;
+  color: white;
+  cursor: pointer;
+}
+
+.button-index {
+  display: flex;
+  align-items: center;
+  padding-left: 10%;
+  height: 90px;
+}
+
+.button:hover {
+  background-color: white;
+  color: black;
+}
+
+.button index
+
+/* do wszystkiego */
+
+/* menu */
+#menu-main{
+  width: 115px;
+  height: 115px;
+
+}
+
+
+#menuToggle{
+  display: block; /* ten element będzie występować tak samo jak i <div> */
+  position: fixed;  /* zafikksowanie pozycji */
+  top: 50px;
+  left: 50px;
+  z-index: 1;   /* górne tło */
+  -webkit-user-select: none;  /* nie można zaznaczyć użytkownikem */
+  user-select: none; /* to samo co webkit */
+  min-height: 100vh;
+  pointer-events: none; /* nie można kliknąć w ten element */
+}
+
+#menuToggle a
+{
+  text-decoration: none;
+  color: #232323;
+  transition: color 0.3s ease; /* zmiena koloru następuje ciągle w ciągu 0.3 sekundy */ 
+}
+
+#menuToggle input
+{
+  display: block;
+  width: 40px;
+  height: 32px;
+  position: absolute;
+  top: -7px;
+  left: -5px;
+  cursor: pointer; /* robi z kkursora myszy łapkę */ 
+  opacity: 0; /* robi element całkiem przezroczysty*/
+  z-index: 2; /* przenosi na najwyższą warstwę */
+  -webkit-touch-callout: none; /* użytkownik nie może ani sopiować ani nic z tym zrobić przy naciśnięciu prawego przycisku myszy */
+  pointer-events: all;
+}
+
+
+#menuToggle span
+{
+  position: absolute;
+  display: block;
+  width: 33px;
+  height: 4px;
+  margin-bottom: 5px;
+  position: block; /* zmiana położenia tego obiektu następuje od jego pierwotnego położenia */
+  background: darkgrey;
+  border-radius: 3px;
+  z-index: 1;
+}
+
+#menuToggle span:nth-child(1)
+{
+  top: 0px;
+}
+
+#menuToggle span:nth-child(2)
+{
+  top: 10px;
+}
+
+#menuToggle span:nth-child(3)
+{
+  top: -10px;
+}
+
+
+
+#menu
+{
+  position: absolute;
+  max-width: 400px;
+  width: 100vw;
+  height: 100vh;
+  margin: -100px 0 0 -50px;
+  padding: 50px;
+  padding-top: 125px;
+  box-sizing: border-box;
+  overflow-y: auto;
+  background: #ededed;
+  list-style-type: none;
+  transform-origin: 0% 0%;
+  transform: translate(-100%, 0);
+  transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0);
+  pointer-events: all;
+}
+
+#menu li
+{
+  padding: 10px 0;
+  font-size: 22px;
+}
+
+#menu li label
+{
+  cursor: pointer;
+}
+
+#menuToggle input:checked ~ ul
+{
+  transform: none;
+}
+/* -------------------------------------------------------------------------------------------------------------- */
+/* formularze */
+
+form {
+  background-color: #fff;
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+label {
+  font-weight: bold;
+  display: block;
+  margin-bottom: 5px;
+  color: #333;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="number"],
+input[type="date"],
+input[type="time"],
+input[type="url"],
+input[type="color"],
+input[type="range"],
+input[type="tel"],
+select,
+textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+  box-sizing: border-box;
+}
+
+input[type="radio"],
+input[type="checkbox"] {
+  margin-right: 10px;
+}
+
+input[type="file"] {
+  border: none;
+}
+
+
+input[type="color"] {
+  padding: 0.2rem;
+}
+
+/* ------------------------------------------------------------------------------------------------------- */
+
+/* login */
+
+#login-div{
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  
+}
+
+/* register */
+
+#register{
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  
+}
+/* ------------------------------------------------------------------------------------------------------------------- */
+/* product details */
+
+#product-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#product-image, #form-pd, #size {
+  margin: 0 10px;
+}
+
+#product-image {
+  background: #f9f9f9;
+  width: 293px;
+  height: 289px;
+  padding: 16px;
+  border-radius: 8px;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  display: flex;
+  cursor: pointer;
+  margin-left: 30px;
+}
+
+
+#product-image img {
+  width: 225px; /* Obraz zajmuje całą szerokość karty */
+  height: 225px; /* Zachowuje proporcje */
+  background-color: transparent;
+  padding: 16px; /* Odstęp wewnętrzny wokół obrazu */
+}
+
+#size {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-left: 30px;
+  margin: 20px;
+}
+
+#product-details{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 115px;
+  max-height: 115px;
+}
+
+#product-info{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin: 0%;
+}
+
+#product-name{
+  font-size: 20px;
+  font-weight: bold;
+}
+
+
+#form-pd{
+  display: block;
+  max-width: 30vh;
+}
+
+#dodaj_do_koszyka{
+  margin: 0 auto;
+  padding: 20px;
+  border-radius: 10px;
+  display: block;
+  text-align: center;
+  max-width: 30vh;
+}
+
+textarea {
+  width: 100%;
+  min-height: 100px;
+  max-height: 400px;
+  box-sizing: border-box;
+  padding: 10px;
+  margin: 0;
+  resize: vertical;
+  overflow-y: auto;
+}
+#opis{
+  display: flex;
+  justify-content: center;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+#opis-rozmiar{
+  display: flex;
+  justify-content: center;
+  max-width: 50%;
+  margin: 10px;
+  border: 1.5px solid black;
+  border-radius: 20px;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  background-color: #ffffff;
+  color: black;
+}
+
+#opis-rozmiar p{
+  padding: 10px;
+  margin: 10px;
+}
+/* ------------------------------------------------------------------------------------------------ */
+
+/* uzytkownik */
+
+#form-user{
+    background-color: #fff;
+    min-width: 600px;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    margin-bottom: 50px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+
+
+/* ----------------------------------------------------------------------------------------------------------------------------- */
+/* cart (koszyk) */
+
+#main{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.main-cart{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#cart-form{
+  max-width: 150px;
+}
+
+#cart-info{
+  padding: 20px;
+}
+
+#final{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 50px;
+  position: fixed;
+  bottom: 300px;
+}
+
+#footer-cart{
+  position: fixed;
+  min-width: 100%;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

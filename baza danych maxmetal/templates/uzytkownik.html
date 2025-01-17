@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lump Store</title>
+    <link rel="icon" href="../static/img/LumpLogo.png">
+    <link rel="stylesheet" href="../static/style.css">
+</head>
+<body>
+    <div id="strona">
+        <div id="banner">
+            <nav role="navigation">
+                <div id="menuToggle">
+                    <input type="checkbox" id="menuCheckbox">
+
+                    <span></span>
+                    <span></span>
+                    <span></span>
+
+                    <ul id="menu">
+                        
+                        <li>
+                            <a href="{{ url_for('contact') }}">
+                                <label for="menuCheckbox" onclick="this.parentNode.click();">Kontakt do nas!</label>
+                            </a>
+                        </li>
+                        <li>
+                            <a href=javascript:history.back();><label for="menuCheckbox" onclick="this.parentNode.click();">Powrót</label></a>
+                        </li>
+                    </ul>   
+                </div>
+            </nav>
+            <div id="logo-banner">
+                <a href="{{ url_for('home') }}"><img id="logo-duże" src="../static/img/logo-duże.png" alt="logo"></a>
+            </div>
+            <div id="avatar">
+                {% if g.user %}
+                    {% if g.user.zdj_profilowe_base64 %}
+                        <img id="user" src="data:image/jpeg;base64,{{ g.user.zdj_profilowe_base64 }}" alt="Zdjęcie profilowe" />
+                    {% else %}
+                        <img id="user" src="../static/img/user.jpg" alt="Zdjęcie domyślne" />
+                    {% endif %}
+            {% else %}
+                <a href="{{ url_for('login') }}"><img id="user" src="../static/img/nie zalogowany.png" alt="Zdjęcie domyślne" /></a>
+            {% endif %}
+            </div>
+        </div>
+        <br><br><br><br><br><br>
+        <div id="title"></div>
+        <div id="Użytkownik">
+        {% if user %}
+            <h3 id="witaj">Witaj, {{ user.imie }}!</h3>    
+        {% endif %}
+
+            <form action="{{ url_for('update_user') }}" method="POST" enctype="multipart/form-data" id="form-user">
+                <label>Twoje Dane</label><br>
+                <input type="text" id="imie" name="imie" placeholder="Wpisz swoje imię" value="{{ g.user.imie if g.user else '' }}"><br>
+                <input type="text" id="nazwisko" name="nazwisko" placeholder="Wpisz swoje nazwisko" value="{{ g.user.nazwisko if g.user else '' }}"><br>
+                <input type="tel" id="tel" name="tel" placeholder="Wpisz swój nr telefonu" value="{{ g.user.tel if g.user else '' }}"><br>
+                <input type="email" id="email" name="email" placeholder="Wpisz swój E-mail" value="{{ g.user.email if g.user else '' }}"><br>
+                <input type="password" id="password" name="password" placeholder="Wpisz swoje nowe hasło (pozostaw puste, jeśli nie chcesz zmieniać)"><br>
+                <label>Zdjęcie profilowe</label>
+
+                <div>
+                    {% if g.user %}
+                        {% if g.user.zdj_profilowe_base64 %}
+                            <img id="user" src="data:image/jpeg;base64,{{ g.user.zdj_profilowe_base64 }}" alt="Zdjęcie profilowe" />
+                        {% else %}
+                            <img id="user" src="../static/img/user.jpg" alt="Zdjęcie domyślne" />
+                        {% endif %}
+                {% else %}
+                    <a href="{{ url_for('login') }}"><img id="user" src="../static/img/nie zalogowany.png" alt="Zdjęcie domyślne" /></a>
+                {% endif %}
+                </div>
+
+                <label for="zdj_profilowe">Wybierz Plik:</label>
+                <p>Dostępne rozszerzenia: .jpg .png .gif</p>
+                <p>Maksymalny rozmair: 16MB</p>
+                <input type="file" name="zdj_profilowe"><br><br>
+                <input type="submit" class="button" value="zatwierdź">
+                <a href="{{ url_for('logout') }}">
+                    <input type="button" class="button" value="Wyloguj się" >
+                </a>
+            </form>
+        </div>
+            <footer id="footer">
+                <div id="footer1">
+                    <h3>Kontakt bezpośredni</h3>
+                    <div id="kontakt-mail">
+                        <p> E-mail:</p> 
+                        <p>a.grobelny@zset.leszno.pl</p>
+                        <p>j.kaczmarek@zset.leszno.pl</p>
+                        <p>d.bondar@zset.leszno.pl</p>
+                    </div>
+                    <div id="kontakt-tel">
+                        <p>Tel:</p> 
+                        <p>+48 608 344 209</p>
+                        <p>+48 609 578 204</p>
+                        <p>+48 731 571 182</p>
+                    </div>
+                </div>
+                <div id="footer2">
+                    <p>Copyright © 2025 Lump Store. Wszelkie prawa autorskie zastrzeżone. Jakiekolwiek rozpowszechnianie informacji i tekstów zabronione</p>
+                </div>
+            </footer>
+    </div>
+</body>
+</html>

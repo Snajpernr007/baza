@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lump Store</title>
+    <link rel="icon" href="../static/img/LumpLogo.png">
+    <link rel="stylesheet" href="../static/style.css">
+</head>
+<body>
+    <div id="banner">
+        <div id="logo-banner">
+            <a href="{{ url_for('home') }}"><img id="logo-duże" src="../static/img/logo-duże.png" alt="logo"></a>
+        </div>
+    </div>
+        <div id="title">
+            <h2>Zarejestruj się na naszej stronie!</h2>
+        </div>
+    <div id="register">
+        <form action="/rejestracja_do_bazy" method="POST"  autocomplete="off">
+            <label for="option-mail">E-mail</label>
+            <input type="email" id="email" name="email" placeholder="Wpisz swój E-mail" required><br>
+            <label>Hasło</label>
+            <input type="password" id="password" name="password" placeholder="Wpisz swoje hasło"  min="6">
+            <button type="button" id="togglepasswd">Pokaż hasło</button><br><br>
+            <label for="phone">Telefon</label>
+            <input type="tel" id="phone" name="phone" placeholder="Wpisz swój numer telefonu"  max="9"><br></br>
+            <label>
+                <input type="checkbox" id="regulations" name="regulations" required>Zaakceptuj <a href="{{url_for('regulamin')}}">regulamin</a> naszej strony
+            </label><br>
+            <button class="button" onclick="window.history.back()">Powrót</button>
+            <input type="reset" class="button" value="Wyczyść">
+            <input type="submit" class="button" value="Zarejestruj się">
+        </form>
+    </div>
+
+    <script>
+        togglePasswordButton = document.getElementById('togglepasswd');
+        passwordInput = document.getElementById('password');
+
+    togglePasswordButton.addEventListener('click', function () {
+
+        type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+        passwordInput.setAttribute('type', type);
+
+        this.textContent = type === 'password' ? 'Pokaż hasło' : 'Ukryj hasło';
+    });
+</script>
+</body>
+</html>

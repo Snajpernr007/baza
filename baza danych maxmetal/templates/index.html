@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lump Store</title>
+    <link rel="icon" href="../static/img/LumpLogo.png">
+    <link rel="stylesheet" href="../static/style.css">
+</head>
+<body>
+    <div id="strona">
+        <div id="banner">
+            <div id="menu-main">
+                <nav role="navigation">
+                    <div id="menuToggle">
+                        <input type="checkbox" id="menuCheckbox">
+
+                        <span></span>
+                        <span></span>
+                        <span></span>
+
+                        <ul id="menu">
+                            {% if not g.user %}
+                        
+                            <li>
+                                <a href="{{ url_for('login') }}"><label for="menuCheckbox" onclick="this.parentNode.click();">Zaloguj się!</label></a>
+                            </li>
+                        
+                            <li>
+                                <a href="{{ url_for('register') }}"><label for="menuCheckbox" onclick="this.parentNode.click();">Zarejestruj się!</label></a>
+                            </li>
+                        {% else %}
+                        <li>
+                            <a href="{{ url_for('logout') }}"><label for="menuCheckbox" onclick="this.parentNode.click();">Wyloguj się</label></a>
+                        </li>
+                        {% endif %}
+                            
+                            
+                            <li>
+                                <a href="{{ url_for('contact') }}">
+                                    <label for="menuCheckbox" onclick="this.parentNode.click();">Kontakt do nas!</label>
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <img id="logo1" src="../static/img/logo-duże.png" alt="" >
+                            </li>
+                        </ul>   
+                    </div>
+                </nav>
+                <div id="logo-banner">
+                    <img id="logo-duże" src="../static/img/logo-duże.png" alt="logo">
+                </div>
+                <div id="avatar">
+                    {% if g.user %}
+                        {% if g.user.zdj_profilowe_base64 %}
+                            <a href="{{url_for('uzytkownik')}}"><img id="user" src="data:image/jpeg;base64,{{ g.user.zdj_profilowe_base64 }}" alt="Zdjęcie profilowe" /></a>
+                        {% else %}
+                            <a href="{{url_for('uzytkownik')}}"><img id="user" src="../static/img/user.jpg" alt="Zdjęcie domyślne" /></a>
+                        {% endif %}
+                {% else %}
+                    <a href="{{ url_for('login') }}"><img id="user" src="../static/img/nie zalogowany.png" alt="Zdjęcie domyślne" /></a>
+                {% endif %}
+                </div>
+            </div>
+        </div>
+        <div id="content">
+            <div id="title">
+                <h2>Kup co zechcesz</h2>
+            </div>
+            {% if user %}
+                <h3 id="witaj">Witaj, {{ user.imie }}!</h3>    
+            {% endif %}
+
+        </div>
+                <hr>
+        
+        <footer id="footer">
+            <div id="footer1"> 
+                <h3>Kontakt bezpośredni</h3>
+                <div id="kontakt-mail">
+                    <p> E-mail:</p> 
+                    <p>a.grobelny@zset.leszno.pl</p>
+                    <p>j.kaczmarek@zset.leszno.pl</p>
+                    <p>d.bondar@zset.leszno.pl</p>
+                </div>
+                <div id="kontakt-tel">
+                    <p>Tel:</p> 
+                    <p>+48 608 344 209</p>
+                    <p>+48 609 578 204</p>
+                    <p>+48 731 571 182</p>
+                </div>
+            </div>
+            <div id="footer2">
+                <p>Copyright © 2025 Lump Store. Wszelkie prawa autorskie zastrzeżone. Jakiekolwiek rozpowszechnianie informacji i tekstów zabronione</p>
+            </div>
+        </footer>
+    </div>
+</body>
+</html> 
