@@ -63,6 +63,23 @@ class Uprawnienia(db.Model):
     nazwa = db.Column(db.String(255), nullable=False)
 
     uzytkownicy = db.relationship('Uzytkownik', back_populates='uprawnienia')
+class Tasma(db.Model):
+    __tablename__ = 'tasma'
+    id = db.Column(db.Integer, primary_key=True, autoincrement=True)
+    nazwa_dostawcy = db.Column(db.String(255), nullable=False)
+    nazwa_materialu = db.Column(db.String(255), nullable=False)
+    data_z_etykiety_na_kregu = db.Column(db.Date, nullable=False)
+    grubosc = db.Column(db.Numeric(10, 2), nullable=False)
+    szerokosc = db.Column(db.Numeric(10, 2), nullable=False)
+    waga_kregu = db.Column(db.Numeric(10, 2), nullable=False)
+    nr_etykieta_paletowa = db.Column(db.String(255), nullable=False)
+    nr_z_etykiety_na_kregu = db.Column(db.String(255), nullable=False)
+    lokalizacja = db.Column(db.String(255), nullable=False)
+    nr_faktury_dostawcy = db.Column(db.String(255), nullable=False)
+    data_dostawy = db.Column(db.Date, nullable=False)
+
+    def __repr__(self):
+        return f"<Tasma {self.id} - {self.nazwa_materialu}>"
 
 
 
@@ -293,7 +310,11 @@ def register():
 def regulamin():
     return render_template("regulamin.html")
 
-
-
+@app.route('/tasma')
+def tasma():
+     return render_template("tasma.html",user=g.user)
+@app.route('/profil')
+def profil():
+     return render_template("profil.html",user=g.user)
 if __name__ == "__main__":
     app.run(debug=True)

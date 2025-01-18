@@ -37,7 +37,9 @@
                             <a href="{{ url_for('register') }}"><label for="menuCheckbox" onclick="this.parentNode.click();">Zarejestruj się!</label></a>
                         </li>
                         {% endif %}
-                            
+                        <li>
+                            <a href=javascript:history.back();><label for="menuCheckbox" onclick="this.parentNode.click();">Powrót</label></a>
+                        </li>  
                             <li>
                                 <a href="{{ url_for('contact') }}">
                                     <label for="menuCheckbox" onclick="this.parentNode.click();">Kontakt do nas!</label>
@@ -45,13 +47,13 @@
                             </li>
                             
                             <li>
-                                <img id="logo1" src="../static/img/logo-duże.png" alt="" >
+                                <img id="logo1" src="../static/img/logo-duże.png" alt="logo">
                             </li>
                         </ul>   
                     </div>
                 </nav>
                 <div id="logo-banner">
-                    <img id="logo-duże" src="../static/img/logo-duże.png" alt="logo">
+                    <a href="{{ url_for('home') }}"><img id="logo-duże" src="../static/img/logo-duże.png" alt="logo"></a>
                 </div>
                 <div id="avatar">
                     {% if g.user %}
@@ -68,12 +70,17 @@
         </div>
         <div id="content">
             <div id="title">
-                <h2>Miejsce na napis</h2>
-            </div>
-            {% if user %}
-                <h3 id="witaj">Witaj, {{ user.imie }}!</h3>    
+                {% if user %}
+                <h2 id="witaj">Witaj, {{ user.imie }}!</h2>    
             {% endif %}
+            </div>
+            
 
+        </div>
+        <hr>
+        <div class="man-container">
+            <button onclick="window.location.href='{{ url_for('tasma') }}'">tasma</button>
+            <button onclick="window.location.href='{{ url_for('profil') }}'">profil</button>
         </div>
                 <hr>
         
