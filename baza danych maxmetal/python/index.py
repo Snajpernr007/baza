@@ -87,7 +87,8 @@ def load_logged_in_user():
 
 @app.route('/')
 def home():
-    
+    if not g.user:
+        return render_template('login.html', user=g.user)
     resp = make_response(render_template('index.html', user=g.user))
     resp.set_cookie('last', request.path)  # Zapisz ostatni URL
 
