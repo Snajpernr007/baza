@@ -6,6 +6,35 @@
     <title>Profile MaxMetal</title>
     <link rel="icon" href="../static/img/logo-duże.png">
     <link rel="stylesheet" href="../static/style.css">
+    <script>
+        function filterTable() {
+    // Pobierz wartość z pola filtrowania
+    let input = document.getElementById("filterInput");
+    let filter = input.value.toLowerCase();
+    let table = document.getElementById("tabela");
+    let rows = table.getElementsByTagName("tr");
+
+    // Iteracja przez wszystkie wiersze tabeli (pomijając nagłówki)
+    for (let i = 1; i < rows.length; i++) {
+        let cells = rows[i].getElementsByTagName("td");
+        let match = false;
+
+        // Przejdź przez każdą komórkę w wierszu
+        for (let j = 0; j < cells.length; j++) {
+            if (cells[j]) {
+                let cellValue = cells[j].textContent || cells[j].innerText;
+                if (cellValue.toLowerCase().includes(filter)) {
+                    match = true;
+                    break;
+                }
+            }
+        }
+
+        // Pokaż lub ukryj wiersz na podstawie wyniku
+        rows[i].style.display = match ? "" : "none";
+    }
+}
+    </script>
 </head>
 <body>
     <div id="strona">
@@ -74,10 +103,55 @@
                 <h2 id="witaj">Witaj, {{ user.imie }}!</h2>    
             {% endif %}
             </div>
-            
+            <input type="text" id="filterInput" placeholder="Filtruj dane..." onkeyup="filterTable()" style="margin-bottom: 10px; width: 100%; padding: 10px;">
+            <hr>
+           <div>
+            <table id="tabela">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Nazwa Dostawcy</th>
+                        <th>Nazwa Materiału</th>
+                        <th>Data z Etykiety na Kręgu</th>
+                        <th>Grubość</th>
+                        <th>Szerokość</th>
+                        <th>Waga Kręgu</th>
+                        <th>Nr Etykieta Paletowa</th>
+                        <th>Nr z Etykiety na Kręgu</th>
+                        <th>Lokalizacja</th>
+                        <th>Nr Faktury Dostawcy</th>
+                        <th>Data Dostawy</th>
+                        <th>Imie Pracownika</th>
+                        <th>Nazwisko Pracownika</th>
+                        <th>Edycja</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for tasmy in tasma %}
+                    <tr>
+                        <td>{{ tasmy.id }}</td>
+                        <td>{{ tasmy.nazwa_dostawcy }}</td>
+                        <td>{{ tasmy.nazwa_materialu }}</td>
+                        <td>{{ tasmy.data_z_etykiety_na_kregu }}</td>
+                        <td>{{ tasmy.grubosc }}</td>
+                        <td>{{ tasmy.szerokosc }}</td>
+                        <td>{{ tasmy.waga_kregu }}</td>
+                        <td>{{ tasmy.nr_etykieta_paletowa }}</td>
+                        <td>{{ tasmy.nr_z_etykiety_na_kregu }}</td>
+                        <td>{{ tasmy.lokalizacja }}</td>
+                        <td>{{ tasmy.nr_faktury_dostawcy }}</td>
+                        <td>{{ tasmy.data_dostawy }}</td>
+                        <td>{{ tasmy.pracownik.imie }}</td>
+                        <td>{{ tasmy.pracownik.nazwisko }}</td>
+                        <td><button>Edytuj</button></td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+           </div> 
 
         </div>
-                <hr>
+                
         
         <footer id="footer">
             <div id="footer1"> 

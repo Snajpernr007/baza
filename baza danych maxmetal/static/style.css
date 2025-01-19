@@ -80,9 +80,24 @@ footer{
   align-items: center;
 } 
 
+#tabela {
+  border-collapse: collapse; /* Łączy granice komórek */
+  width: 100%; /* Opcjonalnie: pełna szerokość */
+}
+
+#tabela, #tabela th, #tabela td {
+  border: 1px solid black; /* Czarna ramka */
+}
+
+#tabela th, #tabela td {
+  padding: 8px; /* Dodanie odstępu wewnętrznego */
+  text-align: left; /* Wyrównanie tekstu */
+}
 
 
-
+#tabela tr:first-child th {
+  border: 3px solid black; /* Grubsza ramka */
+}
 /* Index */
 
 /* napis "kup co chcesz" */

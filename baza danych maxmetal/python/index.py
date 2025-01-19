@@ -54,7 +54,7 @@ class Uzytkownik(db.Model):
     id_uprawnienia = db.Column(db.Integer, db.ForeignKey('uprawnienia.id_uprawnienia'), nullable=False, default=2)
 
     uprawnienia = db.relationship('Uprawnienia', back_populates='uzytkownicy')
-    
+    tasma = db.relationship('Tasma', back_populates='pracownik')
 
 
 class Uprawnienia(db.Model):
@@ -63,6 +63,8 @@ class Uprawnienia(db.Model):
     nazwa = db.Column(db.String(255), nullable=False)
 
     uzytkownicy = db.relationship('Uzytkownik', back_populates='uprawnienia')
+
+
 class Tasma(db.Model):
     __tablename__ = 'tasma'
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)
@@ -77,6 +79,10 @@ class Tasma(db.Model):
     lokalizacja = db.Column(db.String(255), nullable=False)
     nr_faktury_dostawcy = db.Column(db.String(255), nullable=False)
     data_dostawy = db.Column(db.Date, nullable=False)
+    pracownik_id = db.Column(db.Integer, db.ForeignKey('uzytkownicy.id'), nullable=True)
+
+    # Relacja z tabelą 'uzytkownicy'
+    pracownik = db.relationship('Uzytkownik', back_populates='tasma')
 
     def __repr__(self):
         return f"<Tasma {self.id} - {self.nazwa_materialu}>"
@@ -312,9 +318,15 @@ def regulamin():
 
 @app.route('/tasma')
 def tasma():
-     return render_template("tasma.html",user=g.user)
+     if not g.user:
+        return render_template('login.html', user=g.user)
+     tasma = Tasma.query.all()
+     
+     return render_template("tasma.html",user=g.user,tasma=tasma)
 @app.route('/profil')
 def profil():
+     if not g.user:
+        return render_template('login.html', user=g.user)
      return render_template("profil.html",user=g.user)
 if __name__ == "__main__":
     app.run(debug=True)
