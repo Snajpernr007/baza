@@ -7,32 +7,84 @@
     <link rel="icon" href="../static/img/logo-duże.png">
     <link rel="stylesheet" href="../static/style.css">
     <script>
-        function filterTable() {
-    // Pobierz wartość z pola filtrowania
-    let input = document.getElementById("filterInput");
-    let filter = input.value.toLowerCase();
+function filterColumn(columnIndex) {
     let table = document.getElementById("tabela");
-    let rows = table.getElementsByTagName("tr");
+    let filterInputs = table.querySelectorAll("thead input");
+    let filter = filterInputs[columnIndex].value.toLowerCase();
+    let rows = table.getElementsByTagName("tbody")[0].getElementsByTagName("tr");
 
-    // Iteracja przez wszystkie wiersze tabeli (pomijając nagłówki)
-    for (let i = 1; i < rows.length; i++) {
+    for (let i = 0; i < rows.length; i++) {
         let cells = rows[i].getElementsByTagName("td");
-        let match = false;
+        if (cells[columnIndex]) {
+            let cellValue = cells[columnIndex].textContent || cells[columnIndex].innerText;
+            rows[i].style.display = cellValue.toLowerCase().includes(filter) ? "" : "none";
+        }
+    }
+}
+function resetFilters() {
+    let table = document.getElementById("tabela");
+    let filterInputs = table.querySelectorAll("thead input");
+    let rows = table.getElementsByTagName("tbody")[0].getElementsByTagName("tr");
 
-        // Przejdź przez każdą komórkę w wierszu
-        for (let j = 0; j < cells.length; j++) {
-            if (cells[j]) {
-                let cellValue = cells[j].textContent || cells[j].innerText;
-                if (cellValue.toLowerCase().includes(filter)) {
-                    match = true;
-                    break;
-                }
+    // Resetuj wszystkie pola filtrów
+    filterInputs.forEach(input => input.value = "");
+
+    // Przywróć widoczność wszystkich wierszy
+    for (let i = 0; i < rows.length; i++) {
+        rows[i].style.display = "";
+    }
+}
+let sortStates = []; // Tablica przechowująca stan sortowania dla każdej kolumny
+
+function sortTable(columnIndex) {
+    const table = document.getElementById("tabela");
+    const rows = Array.from(table.rows).slice(2); // Pobieramy wszystkie wiersze poza nagłówkami
+    const tbody = table.tBodies[0];
+
+    // Sprawdzamy, czy kolumna już istnieje w tablicy sortStates
+    const existingSortIndex = sortStates.findIndex(sort => sort.columnIndex === columnIndex);
+
+    if (existingSortIndex !== -1) {
+        // Jeśli kolumna jest już sortowana, zmieniamy jej kierunek
+        sortStates[existingSortIndex].ascending = !sortStates[existingSortIndex].ascending;
+    } else {
+        // Jeśli kolumna nie jest jeszcze sortowana, dodajemy ją na początek tablicy
+        sortStates.unshift({ columnIndex, ascending: true });
+    }
+
+    // Sortowanie wierszy na podstawie stanu w tablicy sortStates
+    rows.sort((rowA, rowB) => {
+        for (const sort of sortStates) {
+            const cellA = rowA.cells[sort.columnIndex]?.innerText.toLowerCase() || "";
+            const cellB = rowB.cells[sort.columnIndex]?.innerText.toLowerCase() || "";
+
+            if (!isNaN(cellA) && !isNaN(cellB)) {
+                // Sortowanie liczb
+                const comparison = sort.ascending ? cellA - cellB : cellB - cellA;
+                if (comparison !== 0) return comparison;
+            } else {
+                // Sortowanie tekstowe
+                const comparison = sort.ascending
+                    ? cellA.localeCompare(cellB)
+                    : cellB.localeCompare(cellA);
+                if (comparison !== 0) return comparison;
             }
         }
+        return 0; // Jeśli wszystkie kolumny są równe, nie zmieniamy kolejności
+    });
 
-        // Pokaż lub ukryj wiersz na podstawie wyniku
-        rows[i].style.display = match ? "" : "none";
-    }
+    // Przypisanie posortowanych wierszy do tabeli
+    tbody.innerHTML = "";
+    rows.forEach(row => tbody.appendChild(row));
+
+    // Resetowanie strzałek i ustawienie odpowiednich w nagłówkach
+    Array.from(table.tHead.rows[1].cells).forEach((cell, index) => {
+        cell.innerHTML = cell.innerHTML.replace(/ ▲| ▼/g, '');
+        const sortState = sortStates.find(sort => sort.columnIndex === index);
+        if (sortState) {
+            cell.innerHTML += sortState.ascending ? ' ▲' : ' ▼';
+        }
+    });
 }
     </script>
 </head>
@@ -97,33 +149,51 @@
                 </div>
             </div>
         </div>
-        <div id="content">
-            <div id="title">
-                {% if user %}
-                <h2 id="witaj">Witaj, {{ user.imie }}!</h2>    
-            {% endif %}
+        
+            <div id="content">
+                <div id="title">
+                    {% if user %}
+                    <h2 id="witaj">Witaj, {{ user.imie }}!</h2>    
+                {% endif %}
+                </div>
             </div>
-            <input type="text" id="filterInput" placeholder="Filtruj dane..." onkeyup="filterTable()" style="margin-bottom: 10px; width: 100%; padding: 10px;">
             <hr>
            <div>
             <table id="tabela">
                 <thead>
                     <tr>
-                        <th>ID</th>
-                        <th>Nazwa Dostawcy</th>
-                        <th>Nazwa Materiału</th>
-                        <th>Data z Etykiety na Kręgu</th>
-                        <th>Grubość</th>
-                        <th>Szerokość</th>
-                        <th>Waga Kręgu</th>
-                        <th>Nr Etykieta Paletowa</th>
-                        <th>Nr z Etykiety na Kręgu</th>
-                        <th>Lokalizacja</th>
-                        <th>Nr Faktury Dostawcy</th>
-                        <th>Data Dostawy</th>
-                        <th>Imie Pracownika</th>
-                        <th>Nazwisko Pracownika</th>
-                        <th>Edycja</th>
+                        <th><input type="text" placeholder="Filtruj ID" onkeyup="filterColumn(0)"></th>
+                        <th><input type="text" placeholder="Filtruj Dostawcę" onkeyup="filterColumn(1)"></th>
+                        <th><input type="text" placeholder="Filtruj Materiał" onkeyup="filterColumn(2)"></th>
+                        <th><input type="text" placeholder="Filtruj Datę Kręgu" onkeyup="filterColumn(3)"></th>
+                        <th><input type="text" placeholder="Filtruj Grubość" onkeyup="filterColumn(4)"></th>
+                        <th><input type="text" placeholder="Filtruj Szerokość" onkeyup="filterColumn(5)"></th>
+                        <th><input type="text"     placeholder="Filtruj Wagę" onkeyup="filterColumn(6)"></th>
+                        <th><input type="text" placeholder="Filtruj Etyk. Paletową" onkeyup="filterColumn(7)"></th>
+                        <th><input type="text" placeholder="Filtruj Etyk. Kręgu" onkeyup="filterColumn(8)"></th>
+                        <th><input type="text" placeholder="Filtruj Lokalizację" onkeyup="filterColumn(9)"></th>
+                        <th><input type="text" placeholder="Filtruj Fakturę" onkeyup="filterColumn(10)"></th>
+                        <th><input type="text" placeholder="Filtruj Datę Dostawy" onkeyup="filterColumn(11)"></th>
+                        <th><input type="text" placeholder="Filtruj Imię" onkeyup="filterColumn(12)"></th>
+                        <th><input type="text" placeholder="Filtruj Nazwisko" onkeyup="filterColumn(13)"></th>
+                        <th><button onclick="resetFilters()">Usuń Filtry</button></th>
+                    </tr>
+                    <tr>
+                        <th onclick="sortTable(0)">ID &#9650;&#9660;</th>
+            <th onclick="sortTable(1)">Nazwa Dostawcy &#9650;&#9660;</th>
+            <th onclick="sortTable(2)">Nazwa Materiału &#9650;&#9660;</th>
+            <th onclick="sortTable(3)">Data z Etykiety na Kręgu &#9650;&#9660;</th>
+            <th onclick="sortTable(4)">Grubość &#9650;&#9660;</th>
+            <th onclick="sortTable(5)">Szerokość &#9650;&#9660;</th>
+            <th onclick="sortTable(6)">Waga Kręgu &#9650;&#9660;</th>
+            <th onclick="sortTable(7)">Nr Etykieta Paletowa &#9650;&#9660;</th>
+            <th onclick="sortTable(8)">Nr z Etykiety na Kręgu &#9650;&#9660;</th>
+            <th onclick="sortTable(9)">Lokalizacja &#9650;&#9660;</th>
+            <th onclick="sortTable(10)">Nr Faktury Dostawcy &#9650;&#9660;</th>
+            <th onclick="sortTable(11)">Data Dostawy &#9650;&#9660;</th>
+            <th onclick="sortTable(12)">Imię Pracownika &#9650;&#9660;</th>
+            <th onclick="sortTable(13)">Nazwisko Pracownika &#9650;&#9660;</th>
+            <th>Edycja</th>
                     </tr>
                 </thead>
                 <tbody>
