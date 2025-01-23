@@ -134,9 +134,10 @@ def rejestracja_do_bazy():
         email = request.form.get('email')
         haslo = request.form.get('password')
         tel = request.form.get('phone')
-
+        imie = request.form.get('imie')
+        nazwisko = request.form.get('nazwisko')
         # Debugowanie: sprawdź, co zostało odebrane
-        logger.info(f"Odebrane dane: email={email}, tel={tel}, haslo={haslo}")
+        
 
         # Walidacja danych
         if not email or not haslo or not tel:
@@ -149,7 +150,7 @@ def rejestracja_do_bazy():
             return render_template('register.html', error="Użytkownik z tym e-mailem już istnieje.")
 
         # Dodanie danych do bazy danych
-        nowy_uzytkownik = Uzytkownik(email=email, haslo=generate_password_hash(haslo), tel=tel)
+        nowy_uzytkownik = Uzytkownik(email=email, haslo=generate_password_hash(haslo), tel=tel, imie=imie, nazwisko=nazwisko)
         db.session.add(nowy_uzytkownik)
 
         try:
@@ -310,6 +311,8 @@ def update_user():
 
 @app.route('/register')
 def register():
+     if g.user.id_uprawnienia != 1:
+        return redirect(url_for('home'))
      return render_template("register.html")
 
 @app.route('/regulamin')
@@ -323,6 +326,30 @@ def tasma():
      tasma = Tasma.query.all()
      
      return render_template("tasma.html",user=g.user,tasma=tasma)
+@app.route('/update-record', methods=['POST'])
+def update_record():
+    data = request.json
+    record = Tasma.query.get(data['id'])
+    if record:
+        record.nazwa_dostawcy = data['nazwa_dostawcy']
+        record.nazwa_materialu = data['nazwa_materialu']
+        record.data_z_etykiety_na_kregu = data['data_z_etykiety_na_kregu']
+        record.grubosc = data['grubosc']
+        record.szerokosc = data['szerokosc']
+        record.waga_kregu = data['waga_kregu']
+        record.nr_etykieta_paletowa = data['nr_etykieta_paletowa']
+        record.nr_z_etykiety_na_kregu = data['nr_z_etykiety_na_kregu']
+        record.lokalizacja = data['lokalizacja']
+        record.nr_faktury_dostawcy = data['nr_faktury_dostawcy']
+        record.data_dostawy = data['data_dostawy']
+        record.pracownik_imie = data['pracownik_imie']
+        record.pracownik_nazwisko = data['pracownik_nazwisko']
+
+        db.session.commit()
+        return jsonify({'message': 'Record updated successfully!'})
+    else:
+        return jsonify({'message': 'Record not found!'}), 404
+
 @app.route('/profil')
 def profil():
      if not g.user:

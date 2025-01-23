@@ -14,17 +14,21 @@
         </div>
     </div>
         <div id="title">
-            <h2>Zarejestruj się na naszej stronie!</h2>
+            <h2>Zarejestruj się użytkownika</h2>
         </div>
     <div id="register">
         <form action="/rejestracja_do_bazy" method="POST"  autocomplete="off">
-            <label for="option-mail">E-mail</label>
-            <input type="email" id="email" name="email" placeholder="Wpisz swój E-mail" required><br>
+            <label for="option-mail">Login</label>
+            <input type="text" id="email" name="email" placeholder="Wpisz login" required><br>
             <label>Hasło</label>
-            <input type="password" id="password" name="password" placeholder="Wpisz swoje hasło"  min="6">
+            <input type="password" id="password" name="password" placeholder="Wpisz hasło"  min="6">
             <button type="button" id="togglepasswd">Pokaż hasło</button><br><br>
             <label for="phone">Telefon</label>
-            <input type="tel" id="phone" name="phone" placeholder="Wpisz swój numer telefonu"  max="9"><br></br>
+            <input type="tel" id="phone" name="phone" placeholder="Wpisz numer telefonu"  max="9"><br>
+            <label for="imie">Imie</label>
+            <input type="text" id="imie" name="imie" placeholder="Wpisz imie"  ><br>
+            <label for="phone">Nazwisko</label>
+            <input type="text" id="nazwisko" name="nazwisko" placeholder="Wpisz nazwisko"  ><br></br>
             <label>
                 <input type="checkbox" id="regulations" name="regulations" required>Zaakceptuj <a href="{{url_for('regulamin')}}">regulamin</a> naszej strony
             </label><br>
