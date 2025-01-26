@@ -242,7 +242,7 @@ footer{
   width: 110px;
   height: 45px;
   border: 2px solid black;
-  background-color: black;
+  background-color: #3f395d;
   color: white;
   cursor: pointer;
 }

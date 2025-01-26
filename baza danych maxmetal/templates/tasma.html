@@ -87,51 +87,50 @@ function sortTable(columnIndex) {
     });
 }
 function openEditModal(row) {
-    const cells = row.getElementsByTagName('td');
-    
-    document.getElementById('editId').value = cells[0].textContent.trim();
-    document.getElementById('editNazwaDostawcy').value = cells[1].textContent.trim();
-    document.getElementById('editNazwaMaterialu').value = cells[2].textContent.trim();
-    document.getElementById('editDataKregu').value = cells[3].textContent.trim();
-    document.getElementById('editGrubosc').value = cells[4].textContent.trim();
-    document.getElementById('editSzerokosc').value = cells[5].textContent.trim();
-    document.getElementById('editWaga').value = cells[6].textContent.trim();
-    document.getElementById('editNrEtykietaPaletowa').value = cells[7].textContent.trim();
-    document.getElementById('editNrEtykietaKregu').value = cells[8].textContent.trim();
-    document.getElementById('editLokalizacja').value = cells[9].textContent.trim();
-    document.getElementById('editNrFaktury').value = cells[10].textContent.trim();
-    document.getElementById('editDataDostawy').value = cells[11].textContent.trim();
-    document.getElementById('editImie').value = cells[12].textContent.trim();
-    document.getElementById('editNazwisko').value = cells[13].textContent.trim();
+    const cells = row.querySelectorAll("td");
+    const editButton = row.querySelector("button");
 
-    // Pokaż modal
-    document.getElementById('editModal').style.display = 'block';
-    document.getElementById('overlay').style.display = 'block';
+    if (editButton.innerText === "Edytuj") {
+        // Zamień edytowalne komórki na pola formularza
+        cells.forEach((cell, index) => {
+            if (index > 0 && index < cells.length - 3) { // Edytowalne: 1 do przedostatniej
+                const value = cell.innerText;
+                cell.innerHTML = `<input type="text" value="${value}" style="width: 100%;">`;
+            }
+        });
+        editButton.innerText = "Zapisz";
+    } else if (editButton.innerText === "Zapisz") {
+        // Zbierz dane z formularza
+        const updatedData = {};
+        let isValid = true;
+        
+        cells.forEach((cell, index) => {
+            if (index > 0 && index < cells.length - 3) {
+                const input = cell.querySelector("input");
+                if (input) {
+                    const value = input.value.trim();
+                    if (!value) {
+                        isValid = false; // Walidacja: sprawdź, czy pole nie jest puste
+                    }
+                    updatedData[`column_${index}`] = value;
+                    cell.innerText = value; // Zapisz nowe wartości
+                }
+            } else if (index === 0 || index >= cells.length - 3) {
+                updatedData[`column_${index}`] = cell.innerText;
+            }
+        });
+
+        if (isValid) {
+            sendDataToBackend(updatedData);
+            editButton.innerText = "Edytuj";
+        } else {
+            alert("Proszę wypełnić wszystkie edytowalne pola.");
+        }
+    }
 }
 
-function closeModal() {
-    document.getElementById('editModal').style.display = 'none';
-    document.getElementById('overlay').style.display = 'none';
-}
-function saveChanges() {
-    const data = {
-        id: document.getElementById('editId').value,
-        nazwa_dostawcy: document.getElementById('editNazwaDostawcy').value,
-        nazwa_materialu: document.getElementById('editNazwaMaterialu').value,
-        data_z_etykiety_na_kregu: document.getElementById('editDataKregu').value,
-        grubosc: document.getElementById('editGrubosc').value,
-        szerokosc: document.getElementById('editSzerokosc').value,
-        waga_kregu: document.getElementById('editWaga').value,
-        nr_etykieta_paletowa: document.getElementById('editNrEtykietaPaletowa').value,
-        nr_z_etykiety_na_kregu: document.getElementById('editNrEtykietaKregu').value,
-        lokalizacja: document.getElementById('editLokalizacja').value,
-        nr_faktury_dostawcy: document.getElementById('editNrFaktury').value,
-        data_dostawy: document.getElementById('editDataDostawy').value,
-        pracownik_imie: document.getElementById('editImie').value,
-        pracownik_nazwisko: document.getElementById('editNazwisko').value,
-    };
-
-    fetch('/save', {
+function sendDataToBackend(data) {
+    fetch('/update-row', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
@@ -140,121 +139,52 @@ function saveChanges() {
     })
     .then(response => response.json())
     .then(result => {
-        if (result.success) {
-            alert('Dane zostały zapisane.');
-            location.reload(); // Odśwież tabelę po zapisaniu
-        } else {
-            alert('Wystąpił błąd przy zapisywaniu danych.');
-        }
-    });
-
-    closeModal();
-}
-let isDragging = false; // Czy okno jest przeciągane
-let offsetX, offsetY;   // Przesunięcie kursora względem okna
-
-const modal = document.getElementById('editModal');
-const header = document.getElementById('modalHeader');
-
-// Funkcja uruchamiana po rozpoczęciu przeciągania
-header.addEventListener('mousedown', (e) => {
-    isDragging = true;
-    offsetX = e.clientX - modal.offsetLeft;
-    offsetY = e.clientY - modal.offsetTop;
-    document.body.style.userSelect = 'none'; // Zablokowanie zaznaczania tekstu
-    e.preventDefault(); // Zapobieganie domyślnemu zachowaniu
-});
-
-// Funkcja uruchamiana podczas przeciągania
-document.addEventListener('mousemove', (e) => {
-    if (isDragging) {
-        modal.style.left = `${e.clientX - offsetX}px`;
-        modal.style.top = `${e.clientY - offsetY}px`;
-        modal.style.transform = 'none'; // Wyłącz domyślną transformację
-    }
-});
-
-// Funkcja kończąca przeciąganie
-document.addEventListener('mouseup', () => {
-    isDragging = false;
-    document.body.style.userSelect = ''; // Przywrócenie możliwości zaznaczania tekstu
-});
-// Funkcja do załadowania danych do formularza
-function editRecord(record) {
-    document.getElementById("editId").value = record.id;
-    document.getElementById("editNazwaDostawcy").value = record.nazwa_dostawcy;
-    document.getElementById("editNazwaMaterialu").value = record.nazwa_materialu;
-    document.getElementById("editDataKregu").value = record.data_z_etykiety_na_kregu;
-    document.getElementById("editGrubosc").value = record.grubosc;
-    document.getElementById("editSzerokosc").value = record.szerokosc;
-    document.getElementById("editWaga").value = record.waga_kregu;
-    document.getElementById("editNrEtykietaPaletowa").value = record.nr_etykieta_paletowa;
-    document.getElementById("editNrEtykietaKregu").value = record.nr_z_etykiety_na_kregu;
-    document.getElementById("editLokalizacja").value = record.lokalizacja;
-    document.getElementById("editNrFaktury").value = record.nr_faktury_dostawcy;
-    document.getElementById("editDataDostawy").value = record.data_dostawy;
-    document.getElementById("editImie").value = record.pracownik_imie;
-    document.getElementById("editNazwisko").value = record.pracownik_nazwisko;
-    
-    // Wyświetlenie modala
-    document.getElementById("editModal").style.display = "block";
-}
-
-// Funkcja do zapisywania zmian
-function saveChanges() {
-    const id = document.getElementById("editId").value;
-    const nazwa_dostawcy = document.getElementById("editNazwaDostawcy").value;
-    const nazwa_materialu = document.getElementById("editNazwaMaterialu").value;
-    const data_z_etykiety_na_kregu = document.getElementById("editDataKregu").value;
-    const grubosc = document.getElementById("editGrubosc").value;
-    const szerokosc = document.getElementById("editSzerokosc").value;
-    const waga_kregu = document.getElementById("editWaga").value;
-    const nr_etykieta_paletowa = document.getElementById("editNrEtykietaPaletowa").value;
-    const nr_z_etykiety_na_kregu = document.getElementById("editNrEtykietaKregu").value;
-    const lokalizacja = document.getElementById("editLokalizacja").value;
-    const nr_faktury_dostawcy = document.getElementById("editNrFaktury").value;
-    const data_dostawy = document.getElementById("editDataDostawy").value;
-    const pracownik_imie = document.getElementById("editImie").value;
-    const pracownik_nazwisko = document.getElementById("editNazwisko").value;
-
-    // Wysłanie danych do serwera
-    fetch('/update-record', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({
-            id,
-            nazwa_dostawcy,
-            nazwa_materialu,
-            data_z_etykiety_na_kregu,
-            grubosc,
-            szerokosc,
-            waga_kregu,
-            nr_etykieta_paletowa,
-            nr_z_etykiety_na_kregu,
-            lokalizacja,
-            nr_faktury_dostawcy,
-            data_dostawy,
-            pracownik_imie,
-            pracownik_nazwisko
-        })
-    })
-    .then(response => response.json())
-    .then(data => {
-        console.log(data);
-        // Możesz dodać kod do aktualizacji UI po zapisaniu zmian
-        closeModal(); // Zamknięcie modala
+        console.log("Wynik z backendu:", result);
+        alert("Dane zostały pomyślnie zapisane!");
     })
     .catch(error => {
-        console.error('Error:', error);
+        console.error("Błąd podczas wysyłania danych:", error);
+        alert("Wystąpił błąd podczas zapisywania danych!");
     });
 }
+function openMultipleWindows() {
+        // URL, który ma być otwierany w nowych oknach
+        const url = "{{ url_for('dodaj_tasma') }}"; // Podmień na odpowiedni URL
 
-// Funkcja do zamykania modala
-function closeModal() {
-    document.getElementById("editModal").style.display = "none";
+// Parametry dla każdego nowego okna
+const windowFeatures = 'width=800,height=600,scrollbars=yes,menubar=no,toolbar=no,status=no'; 
+
+// Otwieranie nowego okna za każdym razem, gdy klikniesz w etykietę
+window.open(url, '_blank', windowFeatures); // '_blank' otworzy nowe okno/tab
+    }
+function printID(id) {
+    // Tworzymy nowy div, który będzie zawierał ID do wydruku
+    const printDiv = document.createElement('div');
+    printDiv.style.position = 'fixed';
+    printDiv.style.top = '0';
+    printDiv.style.left = '0';
+    printDiv.style.width = '100%';
+    printDiv.style.height = '100%';
+    printDiv.style.backgroundColor = 'white';
+    printDiv.style.zIndex = '1000';
+    printDiv.style.display = 'flex';
+    printDiv.style.justifyContent = 'center';
+    printDiv.style.alignItems = 'center';
+    printDiv.style.fontSize = '2em';
+    printDiv.innerText = `${id}`; // Ustawiamy ID do wydruku
+
+    document.body.appendChild(printDiv);
+
+    // Wywołujemy dialog drukowania
+    window.print();
+
+    // Usuwamy div po zakończeniu drukowania
+    window.onafterprint = () => {
+        document.body.removeChild(printDiv);
+        window.onafterprint = null; // resetowanie zdarzenia, aby nie wywoływało się wielokrotnie
+    };
 }
+    
     </script>
 </head>
 <body>
@@ -291,9 +221,7 @@ function closeModal() {
                             <a href=javascript:history.back();><label for="menuCheckbox" onclick="this.parentNode.click();">Powrót</label></a>
                         </li>
                             <li>
-                                <a href="{{ url_for('contact') }}">
-                                    <label for="menuCheckbox" onclick="this.parentNode.click();">Kontakt do nas!</label>
-                                </a>
+                                <label style="cursor: pointer;" onclick="openMultipleWindows();">Dodaj materiał</label>
                             </li>
                             
                             <li>
@@ -337,7 +265,7 @@ function closeModal() {
                         <th><input type="text" placeholder="Filtruj Datę Kręgu" onkeyup="filterColumn(3)"></th>
                         <th><input type="text" placeholder="Filtruj Grubość" onkeyup="filterColumn(4)"></th>
                         <th><input type="text" placeholder="Filtruj Szerokość" onkeyup="filterColumn(5)"></th>
-                        <th><input type="text"     placeholder="Filtruj Wagę" onkeyup="filterColumn(6)"></th>
+                        <th><input type="text" placeholder="Filtruj Wagę" onkeyup="filterColumn(6)"></th>
                         <th><input type="text" placeholder="Filtruj Etyk. Paletową" onkeyup="filterColumn(7)"></th>
                         <th><input type="text" placeholder="Filtruj Etyk. Kręgu" onkeyup="filterColumn(8)"></th>
                         <th><input type="text" placeholder="Filtruj Lokalizację" onkeyup="filterColumn(9)"></th>
@@ -345,51 +273,32 @@ function closeModal() {
                         <th><input type="text" placeholder="Filtruj Datę Dostawy" onkeyup="filterColumn(11)"></th>
                         <th><input type="text" placeholder="Filtruj Imię" onkeyup="filterColumn(12)"></th>
                         <th><input type="text" placeholder="Filtruj Nazwisko" onkeyup="filterColumn(13)"></th>
-                        <th><button onclick="resetFilters()">Usuń Filtry</button></th>
+                        <th><button class="button" onclick="resetFilters()">Usuń Filtry</button></th>
                     </tr>
                     <tr>
                         <th onclick="sortTable(0)">ID &#9650;&#9660;</th>
-            <th onclick="sortTable(1)">Nazwa Dostawcy &#9650;&#9660;</th>
-            <th onclick="sortTable(2)">Nazwa Materiału &#9650;&#9660;</th>
-            <th onclick="sortTable(3)">Data z Etykiety na Kręgu &#9650;&#9660;</th>
-            <th onclick="sortTable(4)">Grubość &#9650;&#9660;</th>
-            <th onclick="sortTable(5)">Szerokość &#9650;&#9660;</th>
-            <th onclick="sortTable(6)">Waga Kręgu &#9650;&#9660;</th>
-            <th onclick="sortTable(7)">Nr Etykieta Paletowa &#9650;&#9660;</th>
-            <th onclick="sortTable(8)">Nr z Etykiety na Kręgu &#9650;&#9660;</th>
-            <th onclick="sortTable(9)">Lokalizacja &#9650;&#9660;</th>
-            <th onclick="sortTable(10)">Nr Faktury Dostawcy &#9650;&#9660;</th>
-            <th onclick="sortTable(11)">Data Dostawy &#9650;&#9660;</th>
-            <th onclick="sortTable(12)">Imię Pracownika &#9650;&#9660;</th>
-            <th onclick="sortTable(13)">Nazwisko Pracownika &#9650;&#9660;</th>
-            <th>Edycja</th>
+                        <th onclick="sortTable(1)">Nazwa Dostawcy &#9650;&#9660;</th>
+                        <th onclick="sortTable(2)">Nazwa Materiału &#9650;&#9660;</th>
+                        <th onclick="sortTable(3)">Data z Etykiety na Kręgu &#9650;&#9660;</th>
+                        <th onclick="sortTable(4)">Grubość &#9650;&#9660;</th>
+                        <th onclick="sortTable(5)">Szerokość &#9650;&#9660;</th>
+                        <th onclick="sortTable(6)">Waga Kręgu &#9650;&#9660;</th>
+                        <th onclick="sortTable(7)">Nr Etykieta Paletowa &#9650;&#9660;</th>
+                        <th onclick="sortTable(8)">Nr z Etykiety na Kręgu &#9650;&#9660;</th>
+                        <th onclick="sortTable(9)">Lokalizacja &#9650;&#9660;</th>
+                        <th onclick="sortTable(10)">Nr Faktury Dostawcy &#9650;&#9660;</th>
+                        <th onclick="sortTable(11)">Data Dostawy &#9650;&#9660;</th>
+                        <th onclick="sortTable(12)">Imię Pracownika &#9650;&#9660;</th>
+                        <th onclick="sortTable(13)">Nazwisko Pracownika &#9650;&#9660;</th>
+                        <th>Edycja</th>
                     </tr>
                 </thead>
                 <tbody>
                     {% for tasmy in tasma %}
-                        {%if tasmy.pracownik.id_uprawnienia!=1%}
-                            {%if tasmy.pracownik.id==g.user.id%}
-                    <tr>
-                        <td>{{ tasmy.id }}</td>
-                        <td>{{ tasmy.nazwa_dostawcy }}</td>
-                        <td>{{ tasmy.nazwa_materialu }}</td>
-                        <td>{{ tasmy.data_z_etykiety_na_kregu }}</td>
-                        <td>{{ tasmy.grubosc }}</td>
-                        <td>{{ tasmy.szerokosc }}</td>
-                        <td>{{ tasmy.waga_kregu }}</td>
-                        <td>{{ tasmy.nr_etykieta_paletowa }}</td>
-                        <td>{{ tasmy.nr_z_etykiety_na_kregu }}</td>
-                        <td>{{ tasmy.lokalizacja }}</td>
-                        <td>{{ tasmy.nr_faktury_dostawcy }}</td>
-                        <td>{{ tasmy.data_dostawy }}</td>
-                        <td>{{ tasmy.pracownik.imie }}</td>
-                        <td>{{ tasmy.pracownik.nazwisko }}</td>
-                        <td><button onclick="openEditModal(this.parentElement.parentElement)">Edytuj</button></td>
-                    </tr>
-                            {%endif%}
-                        {%else%}
                         <tr>
-                            <td>{{ tasmy.id }}</td>
+                            <td>{{ tasmy.id }} <a href="javascript:void(0);" onclick="printID({{ tasmy.id }})">
+                                <img src="/static/img/drukarka.png" alt="drukuj" height="15" width="15">
+                            </a></td>
                             <td>{{ tasmy.nazwa_dostawcy }}</td>
                             <td>{{ tasmy.nazwa_materialu }}</td>
                             <td>{{ tasmy.data_z_etykiety_na_kregu }}</td>
@@ -403,66 +312,15 @@ function closeModal() {
                             <td>{{ tasmy.data_dostawy }}</td>
                             <td>{{ tasmy.pracownik.imie }}</td>
                             <td>{{ tasmy.pracownik.nazwisko }}</td>
-                            <td><button onclick="openEditModal(this.parentElement.parentElement)">Edytuj</button></td>
+                            <td><button type="button" class="button" onclick="openEditModal(this.parentElement.parentElement)">Edytuj</button></td>
                         </tr>
-                        {%endif%}
                     {% endfor %}
                 </tbody>
             </table>
            </div> 
 
         </div>
-        <div id="editModal" style="display:none; position:fixed; top:50%; left:50%; transform:translate(-50%, -50%); background:#fff; padding:20px; border:1px solid #ccc; box-shadow:0px 0px 10px rgba(0,0,0,0.5); z-index:1000; max-height:90%; overflow-y:auto;">
-            <div id="modalHeader" style="cursor:move; background:#f1f1f1; padding:10px; font-weight:bold;">Przeciągnij, aby przesunąć</div>
-            <form id="editForm">
-                <h3>Edytuj Wiersz</h3>
-                <label for="editId">ID:</label>
-                <input type="text" id="editId" name="id" readonly><br><br>
-                
-                <label for="editNazwaDostawcy">Nazwa Dostawcy:</label>
-                <input type="text" id="editNazwaDostawcy" name="nazwa_dostawcy"><br><br>
-                
-                <label for="editNazwaMaterialu">Nazwa Materiału:</label>
-                <input type="text" id="editNazwaMaterialu" name="nazwa_materialu"><br><br>
-                
-                <label for="editDataKregu">Data z Etykiety na Kręgu:</label>
-                <input type="text" id="editDataKregu" name="data_z_etykiety_na_kregu"><br><br>
-                
-                <label for="editGrubosc">Grubość:</label>
-                <input type="text" id="editGrubosc" name="grubosc"><br><br>
-                
-                <label for="editSzerokosc">Szerokość:</label>
-                <input type="text" id="editSzerokosc" name="szerokosc"><br><br>
-                
-                <label for="editWaga">Waga Kręgu:</label>
-                <input type="text" id="editWaga" name="waga_kregu"><br><br>
-                
-                <label for="editNrEtykietaPaletowa">Nr Etykieta Paletowa:</label>
-                <input type="text" id="editNrEtykietaPaletowa" name="nr_etykieta_paletowa"><br><br>
-                
-                <label for="editNrEtykietaKregu">Nr z Etykiety na Kręgu:</label>
-                <input type="text" id="editNrEtykietaKregu" name="nr_z_etykiety_na_kregu"><br><br>
-                
-                <label for="editLokalizacja">Lokalizacja:</label>
-                <input type="text" id="editLokalizacja" name="lokalizacja"><br><br>
-                
-                <label for="editNrFaktury">Nr Faktury Dostawcy:</label>
-                <input type="text" id="editNrFaktury" name="nr_faktury_dostawcy"><br><br>
-                
-                <label for="editDataDostawy">Data Dostawy:</label>
-                <input type="text" id="editDataDostawy" name="data_dostawy"><br><br>
-                
-                <label for="editImie">Imię Pracownika:</label>
-                <input type="text" id="editImie" name="pracownik_imie"><br><br>
-                
-                <label for="editNazwisko">Nazwisko Pracownika:</label>
-                <input type="text" id="editNazwisko" name="pracownik_nazwisko"><br><br>
-                
-                <button type="button" onclick="saveChanges()">Zapisz</button>
-                <button type="button" onclick="closeModal()">Anuluj</button>
-            </form>
-        </div>
-        <div id="overlay" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.5); z-index:999;" onclick="closeModal()"></div>       
+        
         
         <footer id="footer">
             <div id="footer1"> 

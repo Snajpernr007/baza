@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile MaxMetal</title>
+    <link rel="icon" href="../static/img/logo-duże.png">
+    <link rel="stylesheet" href="../static/style.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>  <!-- Dodaj jQuery -->
+
+<script>
+
+document.addEventListener('DOMContentLoaded', function() {
+            // Funkcja do formatowania czasu z sekundami (HH:MM:SS)
+            function formatTimeWithSeconds(date) {
+                const hours = String(date.getHours()).padStart(2, '0');
+                const minutes = String(date.getMinutes()).padStart(2, '0');
+                const seconds = String(date.getSeconds()).padStart(2, '0');
+                return `${hours}:${minutes}:${seconds}`;
+            }
+
+            // Ustaw aktualną datę i godzinę rozpoczęcia przy załadowaniu strony
+            const now = new Date();
+            const today = now.toISOString().split('T')[0]; // Format daty YYYY-MM-DD
+            const currentTimeWithSeconds = formatTimeWithSeconds(now);
+
+            // Ustaw wartości pól ukrytych
+            document.querySelector('input[name="data_produkcji"]').value = today;
+            document.querySelector('input[name="godz_min_rozpoczecia"]').value = currentTimeWithSeconds;
+
+            // Dodanie godziny zakończenia przy wysyłaniu formularza
+            const form = document.getElementById('myForm');
+            form.addEventListener('submit', function() {
+                const endTime = new Date();
+                document.querySelector('input[name="godz_min_zakonczenia"]').value = formatTimeWithSeconds(endTime);
+            });
+        });
+    </script>
+</head>
+<body>
+    <div id="strona">
+        <form id="myForm" action="{{ url_for('dodaj_profil_do_bazy') }}" method="post">
+            
+            <label for="id_tasmy">ID Taśmy:</label>
+            <select id="id_tasmy" name="id_tasmy" required>
+                {% for tasma in tasmy %}
+                {%if tasma.waga_kregu>0%}
+                    <option value="{{ tasma.id }}">{{ tasma.id }}</option>
+                {%endif%}
+                {% endfor %}
+            </select><br>
+            <!-- Automatyczne wartości (ukryte pola) -->
+            <input type="date" name="data_produkcji" readonly required hidden>
+            <input type="time" name="godz_min_rozpoczecia" readonly required hidden>
+            <input type="time" name="godz_min_zakonczenia" readonly required hidden>
+            
+            <label for="zwrot_na_magazyn_kg">Zwrot na Magazyn (kg):</label>
+            <input type="number" name="zwrot_na_magazyn_kg" required><br>
+        
+            <label for="nr_czesci_klienta">Nr Części Klienta:</label>
+            <input type="text" name="nr_czesci_klienta" required><br>
+        
+            <label for="nazwa_klienta_nr_zlecenia_PRODIO">Nazwa Klienta / Nr Zlecenia:</label>
+            <input type="text" name="nazwa_klienta_nr_zlecenia_PRODIO" required><br>
+        
+            <label for="etykieta_klienta">Etykieta Klienta:</label>
+            <input type="text" name="etykieta_klienta" required><br>
+        
+            <button type="reset" class="button">Wyczyść</button>
+            <button type="submit" class="button">Zapisz</button>
+        </form>
+    </div>
+</body>
+</html> 

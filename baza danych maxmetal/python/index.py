@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, redirect, url_for, g, make_response,flash
+from flask import Flask, render_template, request, redirect, url_for, g, make_response,flash,jsonify
 from flask_sqlalchemy import SQLAlchemy
 import logging
 from sqlalchemy import text
@@ -55,6 +55,7 @@ class Uzytkownik(db.Model):
 
     uprawnienia = db.relationship('Uprawnienia', back_populates='uzytkownicy')
     tasma = db.relationship('Tasma', back_populates='pracownik')
+    profil = db.relationship('Profil', back_populates='pracownik')
 
 
 class Uprawnienia(db.Model):
@@ -84,10 +85,32 @@ class Tasma(db.Model):
     # Relacja z tabelą 'uzytkownicy'
     pracownik = db.relationship('Uzytkownik', back_populates='tasma')
 
+    # Relacja z tabelą 'profil'
+    profil = db.relationship('Profil', back_populates='tasma', cascade='all, delete-orphan')
+
     def __repr__(self):
         return f"<Tasma {self.id} - {self.nazwa_materialu}>"
 
 
+class Profil(db.Model):
+    __tablename__ = 'profil'
+    id = db.Column(db.Integer, primary_key=True, autoincrement=True)
+    id_tasmy = db.Column(db.Integer, db.ForeignKey('tasma.id'), nullable=False)
+    data_produkcji = db.Column(db.Date, nullable=False)
+    godz_min_rozpoczecia = db.Column(db.Time, nullable=False)
+    godz_min_zakonczenia = db.Column(db.Time, nullable=False)
+    zwrot_na_magazyn_kg = db.Column(db.Numeric(10, 2), nullable=True)
+    nr_czesci_klienta = db.Column(db.String(50), nullable=False)
+    nazwa_klienta_nr_zlecenia_PRODIO = db.Column(db.String(100), nullable=True)
+    etykieta_klienta = db.Column(db.String(50), nullable=False)
+    id_pracownika = db.Column(db.Integer, db.ForeignKey('uzytkownicy.id'), nullable=False)
+
+    # Relacje
+    tasma = db.relationship('Tasma', back_populates='profil')
+    pracownik = db.relationship('Uzytkownik', back_populates='profil')
+
+    def __repr__(self):
+        return f"<Profil {self.id} - {self.nr_czesci_klienta}>"
 
 
 @app.before_request
@@ -321,39 +344,174 @@ def regulamin():
 
 @app.route('/tasma')
 def tasma():
-     if not g.user:
+    if not g.user:
         return render_template('login.html', user=g.user)
-     tasma = Tasma.query.all()
-     
-     return render_template("tasma.html",user=g.user,tasma=tasma)
-@app.route('/update-record', methods=['POST'])
-def update_record():
-    data = request.json
-    record = Tasma.query.get(data['id'])
-    if record:
-        record.nazwa_dostawcy = data['nazwa_dostawcy']
-        record.nazwa_materialu = data['nazwa_materialu']
-        record.data_z_etykiety_na_kregu = data['data_z_etykiety_na_kregu']
-        record.grubosc = data['grubosc']
-        record.szerokosc = data['szerokosc']
-        record.waga_kregu = data['waga_kregu']
-        record.nr_etykieta_paletowa = data['nr_etykieta_paletowa']
-        record.nr_z_etykiety_na_kregu = data['nr_z_etykiety_na_kregu']
-        record.lokalizacja = data['lokalizacja']
-        record.nr_faktury_dostawcy = data['nr_faktury_dostawcy']
-        record.data_dostawy = data['data_dostawy']
-        record.pracownik_imie = data['pracownik_imie']
-        record.pracownik_nazwisko = data['pracownik_nazwisko']
+
+    # Jeśli użytkownik ma uprawnienia 1, pobierz wszystkie wpisy
+    if g.user.uprawnienia.id_uprawnienia == 1:
+        tasma = Tasma.query.all()
+    else:
+        # W przeciwnym razie pobierz tylko te wpisy, które stworzył zalogowany użytkownik
+        tasma = Tasma.query.filter_by(pracownik_id=g.user.id).all()
+    
+    return render_template("tasma.html", user=g.user, tasma=tasma)
+@app.route('/update-row', methods=['POST'])
+def update_row():
+    try:
+        dane = request.get_json()
+        logging.info(f'Otrzymane dane: {dane}')
+
+        # Użyj column_0 jako id
+        id = dane.get('column_0')  # Zmiana tutaj
+        if id is None:
+            return jsonify({'message': 'Id jest wymagane!'}), 400  # Błąd, gdy id jest None
+
+        tasma = Tasma.query.get(id)
+        if tasma is None:
+            return jsonify({'message': 'Rekord nie znaleziony!'}), 404  # Błąd, gdy rekord nie istnieje
+
+        # Aktualizacja danych
+        tasma.nazwa_dostawcy = dane.get('column_1', tasma.nazwa_dostawcy)
+        tasma.nazwa_materialu = dane.get('column_2', tasma.nazwa_materialu)
+        tasma.data_z_etykiety_na_kregu = dane.get('column_3', tasma.data_z_etykiety_na_kregu)
+        tasma.grubosc = dane.get('column_4', tasma.grubosc)
+        tasma.szerokosc = dane.get('column_5', tasma.szerokosc)
+        tasma.waga_kregu = dane.get('column_6', tasma.waga_kregu)
+        tasma.nr_etykieta_paletowa = dane.get('column_7', tasma.nr_etykieta_paletowa)
+        tasma.nr_z_etykiety_na_kregu = dane.get('column_8', tasma.nr_z_etykiety_na_kregu)
+        tasma.lokalizacja = dane.get('column_9', tasma.lokalizacja)
+        tasma.nr_faktury_dostawcy = dane.get('column_10', tasma.nr_faktury_dostawcy)
+        tasma.data_dostawy = dane.get('column_11', tasma.data_dostawy)
 
         db.session.commit()
-        return jsonify({'message': 'Record updated successfully!'})
-    else:
-        return jsonify({'message': 'Record not found!'}), 404
+        return jsonify({'message': 'Rekord zaktualizowany pomyślnie!'})
+    except Exception as e:
+        db.session.rollback()
+        return jsonify({'message': 'Wystąpił błąd podczas aktualizacji!', 'error': str(e)}), 500
+@app.route('/dodaj_tasma')
+def dodaj_tasma():
+    return render_template("dodaj_tasma.html", user=g.user)
+@app.route('/dodaj_tasma_do_bazy', methods=['POST'])
+def dodaj_tasma_do_bazy():
+    if request.method == 'POST':
+        # Odbierz dane z formularza
+        
+        
+        nazwa_dostawcy = request.form.get('nazwa_dostawcy')
+        nazwa_materialu = request.form.get('nazwa_materialu')
+        data_z_etykiety_na_kregu = request.form.get('data_z_etykiety_na_kregu')
+        grubosc = request.form.get('grubosc')
+        szerokosc = request.form.get('szerokosc')
+        waga_kregu = request.form.get('waga_kregu')
+        nr_etykieta_paletowa = request.form.get('nr_etykieta_paletowa')
+        nr_z_etykiety_na_kregu = request.form.get('nr_z_etykiety_na_kregu')
+        lokalizacja = request.form.get('lokalizacja')
+        nr_faktury_dostawcy = request.form.get('nr_faktury_dostawcy')
+        data_dostawy = request.form.get('data_dostawy')
+        pracownik_id = g.user.id
+
+        
+
+        # Dodanie danych do bazy danych
+        nowy_uzytkownik = Tasma(nazwa_dostawcy=nazwa_dostawcy, nazwa_materialu=nazwa_materialu, data_z_etykiety_na_kregu=data_z_etykiety_na_kregu, grubosc=grubosc, szerokosc=szerokosc, waga_kregu=waga_kregu, nr_etykieta_paletowa=nr_etykieta_paletowa, nr_z_etykiety_na_kregu=nr_z_etykiety_na_kregu, lokalizacja=lokalizacja, nr_faktury_dostawcy=nr_faktury_dostawcy, data_dostawy=data_dostawy, pracownik_id=pracownik_id)
+        db.session.add(nowy_uzytkownik)
+
+        try:
+            db.session.commit()
+            logger.info("Dane zostały pomyślnie zapisane w bazie danych.")
+            return jsonify({"status": "success"})  # Zwracamy status sukcesu jako JSON
+        except Exception as e:
+            db.session.rollback()
+            logger.error(f"Nie udało się zapisać danych: {e}")
+            return jsonify({"status": "error", "message": "Wystąpił błąd przy zapisywaniu danych."})
 
 @app.route('/profil')
 def profil():
-     if not g.user:
+    if not g.user:
         return render_template('login.html', user=g.user)
-     return render_template("profil.html",user=g.user)
+    if g.user.uprawnienia.id_uprawnienia == 1 or g.user.uprawnienia.id_uprawnienia == 2:
+        profil = Profil.query.all()
+    else:
+        # W przeciwnym razie pobierz tylko te wpisy, które stworzył zalogowany użytkownik
+        profil = Profil.query.filter_by(pracownik_id=g.user.id).all()
+    return render_template("profil.html", user=g.user,profil=profil)
+# @app.route('/update-row_profil', methods=['POST'])
+# def update_row_profil():
+#     try:
+#         dane = request.get_json()
+#         logging.info(f'Otrzymane dane: {dane}')
+
+#         # Użyj column_0 jako id
+#         id = dane.get('column_0')  # Zmiana tutaj
+#         if id is None:
+#             return jsonify({'message': 'Id jest wymagane!'}), 400  # Błąd, gdy id jest None
+
+#         tasma = Tasma.query.get(id)
+#         if tasma is None:
+#             return jsonify({'message': 'Rekord nie znaleziony!'}), 404  # Błąd, gdy rekord nie istnieje
+
+#         # Aktualizacja danych
+#         tasma.nazwa_dostawcy = dane.get('column_1', tasma.nazwa_dostawcy)
+#         tasma.nazwa_materialu = dane.get('column_2', tasma.nazwa_materialu)
+#         tasma.data_z_etykiety_na_kregu = dane.get('column_3', tasma.data_z_etykiety_na_kregu)
+#         tasma.grubosc = dane.get('column_4', tasma.grubosc)
+#         tasma.szerokosc = dane.get('column_5', tasma.szerokosc)
+#         tasma.waga_kregu = dane.get('column_6', tasma.waga_kregu)
+#         tasma.nr_etykieta_paletowa = dane.get('column_7', tasma.nr_etykieta_paletowa)
+#         tasma.nr_z_etykiety_na_kregu = dane.get('column_8', tasma.nr_z_etykiety_na_kregu)
+#         tasma.lokalizacja = dane.get('column_9', tasma.lokalizacja)
+#         tasma.nr_faktury_dostawcy = dane.get('column_10', tasma.nr_faktury_dostawcy)
+#         tasma.data_dostawy = dane.get('column_11', tasma.data_dostawy)
+
+#         db.session.commit()
+#         return jsonify({'message': 'Rekord zaktualizowany pomyślnie!'})
+#     except Exception as e:
+#         db.session.rollback()
+#         return jsonify({'message': 'Wystąpił błąd podczas aktualizacji!', 'error': str(e)}), 500
+@app.route('/dodaj_profil')
+def dodaj_profil():
+    tasmy = Tasma.query.all()
+    return render_template("dodaj_profil.html", user=g.user,tasmy=tasmy)
+@app.route('/dodaj_profil_do_bazy', methods=['POST'])
+def dodaj_profil_do_bazy():
+    
+    if request.method == 'POST':
+        # Odbierz dane z formularza
+        id_tasmy = request.form.get('id_tasmy')  
+        data_produkcji = request.form.get('data_produkcji')
+        godz_min_rozpoczecia = request.form.get('godz_min_rozpoczecia')
+        godz_min_zakonczenia = request.form.get('godz_min_zakonczenia')
+        zwrot_na_magazyn_kg = request.form.get('zwrot_na_magazyn_kg')
+        nr_czesci_klienta = request.form.get('nr_czesci_klienta')
+        nazwa_klienta_nr_zlecenia_PRODIO = request.form.get('nazwa_klienta_nr_zlecenia_PRODIO')
+        etykieta_klienta = request.form.get('etykieta_klienta')
+        pracownik_id = g.user.id  # ID pracownika z sesji
+
+        # Dodanie danych do bazy danych
+        nowy_profil = Profil(
+            id_tasmy=id_tasmy,
+            data_produkcji=data_produkcji,
+            godz_min_rozpoczecia=godz_min_rozpoczecia,
+            godz_min_zakonczenia=godz_min_zakonczenia,
+            zwrot_na_magazyn_kg=zwrot_na_magazyn_kg,
+            nr_czesci_klienta=nr_czesci_klienta,
+            nazwa_klienta_nr_zlecenia_PRODIO=nazwa_klienta_nr_zlecenia_PRODIO,
+            etykieta_klienta=etykieta_klienta,
+            id_pracownika=pracownik_id
+        )
+        tasma = Tasma.query.get(id_tasmy)
+        if tasma:
+            tasma.waga_kregu = zwrot_na_magazyn_kg
+        db.session.add(nowy_profil)
+
+    try:
+        db.session.commit()
+        logger.info("Dane zostały pomyślnie zapisane w bazie danych.")
+        return redirect(url_for('profil'))  # Przekierowanie na stronę główną
+    except Exception as e:
+        db.session.rollback()
+        logger.error(f"Nie udało się zapisać danych: {e}")
+        return render_template('profil.html', error="Wystąpił błąd przy zapisywaniu danych.", user=g.user)
+
 if __name__ == "__main__":
     app.run(debug=True)

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile MaxMetal</title>
+    <link rel="icon" href="../static/img/logo-duże.png">
+    <link rel="stylesheet" href="../static/style.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>  <!-- Dodaj jQuery -->
+
+<script>
+    $(document).ready(function() {
+        $('#myForm').submit(function(event) {
+            event.preventDefault(); // Zatrzymaj standardowe wysyłanie formularza
+
+            $.ajax({
+                type: 'POST',
+                url: $(this).attr('action'),
+                data: $(this).serialize(),
+                success: function(response) {
+                    if (response.status === 'success') {
+                        alert("Dane zostały pomyślnie zapisane.");
+                        close(); // Zamknij okno
+                    } else {
+                        alert("Wystąpił błąd: " + response.message);
+                    }
+                },
+                error: function() {
+                    alert("Wystąpił błąd przy łączeniu z serwerem.");
+                }
+            });
+        });
+    });
+    function closeTHEwindow () {
+close();
+}
+</script>
+</head>
+<body>
+    <div id="strona">
+        <form action="{{ url_for('dodaj_tasma_do_bazy') }}" method="post">
+            <label for="nazwa_dostawcy">Nazwa dostawcy:</label>
+    <input type="text" name="nazwa_dostawcy" required><br>
+
+    <label for="nazwa_materialu">Nazwa materiału:</label>
+    <input type="text" name="nazwa_materialu" required><br>
+
+    <label for="data_z_etykiety_na_kregu">Data z etykiety na kręgu:</label>
+    <input type="date" name="data_z_etykiety_na_kregu" required><br>
+
+    <label for="grubosc">Grubość:</label>
+    <input type="number" name="grubosc" step="0.01" required><br>
+
+    <label for="szerokosc">Szerokość:</label>
+    <input type="number" name="szerokosc" step="0.01" required><br>
+
+    <label for="waga_kregu">Waga kręgu:</label>
+    <input type="number" name="waga_kregu" step="0.01" required><br>
+
+    <label for="nr_etykieta_paletowa">Nr etykieta paletowa:</label>
+    <input type="text" name="nr_etykieta_paletowa" required><br>
+
+    <label for="nr_z_etykiety_na_kregu">Nr z etykiety na kręgu:</label>
+    <input type="text" name="nr_z_etykiety_na_kregu" required><br>
+
+    <label for="lokalizacja">Lokalizacja:</label>
+    <input type="text" name="lokalizacja" required><br>
+
+    <label for="nr_faktury_dostawcy">Nr faktury dostawcy:</label>
+    <input type="text" name="nr_faktury_dostawcy" required><br>
+
+    <label for="data_dostawy">Data dostawy:</label>
+    <input type="date" name="data_dostawy" required><br>
+    <button type="reset" class="button">Wyczyść</button>
+
+    <button type="submit" class="button"onclick="closeTHEwindow()">Dodaj</button>
+
+
+        </form>
+    </div>
+</body>
+</html> 
