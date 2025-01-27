@@ -435,39 +435,39 @@ def profil():
         # W przeciwnym razie pobierz tylko te wpisy, które stworzył zalogowany użytkownik
         profil = Profil.query.filter_by(pracownik_id=g.user.id).all()
     return render_template("profil.html", user=g.user,profil=profil)
-# @app.route('/update-row_profil', methods=['POST'])
-# def update_row_profil():
-#     try:
-#         dane = request.get_json()
-#         logging.info(f'Otrzymane dane: {dane}')
+@app.route('/update-row_profil', methods=['POST'])
+def update_row_profil():
+    try:
+        dane = request.get_json()
+        logging.info(f'Otrzymane dane: {dane}')
 
-#         # Użyj column_0 jako id
-#         id = dane.get('column_0')  # Zmiana tutaj
-#         if id is None:
-#             return jsonify({'message': 'Id jest wymagane!'}), 400  # Błąd, gdy id jest None
+        # Użyj column_0 jako id
+        id = dane.get('column_0')  # Zmiana tutaj
+        if id is None:
+            return jsonify({'message': 'Id jest wymagane!'}), 400  # Błąd, gdy id jest None
 
-#         tasma = Tasma.query.get(id)
-#         if tasma is None:
-#             return jsonify({'message': 'Rekord nie znaleziony!'}), 404  # Błąd, gdy rekord nie istnieje
+        profil = Profil.query.get(id)
+        if profil is None:
+            return jsonify({'message': 'Rekord nie znaleziony!'}), 404  # Błąd, gdy rekord nie istnieje
 
-#         # Aktualizacja danych
-#         tasma.nazwa_dostawcy = dane.get('column_1', tasma.nazwa_dostawcy)
-#         tasma.nazwa_materialu = dane.get('column_2', tasma.nazwa_materialu)
-#         tasma.data_z_etykiety_na_kregu = dane.get('column_3', tasma.data_z_etykiety_na_kregu)
-#         tasma.grubosc = dane.get('column_4', tasma.grubosc)
-#         tasma.szerokosc = dane.get('column_5', tasma.szerokosc)
-#         tasma.waga_kregu = dane.get('column_6', tasma.waga_kregu)
-#         tasma.nr_etykieta_paletowa = dane.get('column_7', tasma.nr_etykieta_paletowa)
-#         tasma.nr_z_etykiety_na_kregu = dane.get('column_8', tasma.nr_z_etykiety_na_kregu)
-#         tasma.lokalizacja = dane.get('column_9', tasma.lokalizacja)
-#         tasma.nr_faktury_dostawcy = dane.get('column_10', tasma.nr_faktury_dostawcy)
-#         tasma.data_dostawy = dane.get('column_11', tasma.data_dostawy)
+        # Aktualizacja danych
+        tasma.nazwa_dostawcy = dane.get('column_1', tasma.nazwa_dostawcy)
+        tasma.nazwa_materialu = dane.get('column_2', tasma.nazwa_materialu)
+        tasma.data_z_etykiety_na_kregu = dane.get('column_3', tasma.data_z_etykiety_na_kregu)
+        tasma.grubosc = dane.get('column_4', tasma.grubosc)
+        tasma.szerokosc = dane.get('column_5', tasma.szerokosc)
+        tasma.waga_kregu = dane.get('column_6', tasma.waga_kregu)
+        tasma.nr_etykieta_paletowa = dane.get('column_7', tasma.nr_etykieta_paletowa)
+        tasma.nr_z_etykiety_na_kregu = dane.get('column_8', tasma.nr_z_etykiety_na_kregu)
+        tasma.lokalizacja = dane.get('column_9', tasma.lokalizacja)
+        tasma.nr_faktury_dostawcy = dane.get('column_10', tasma.nr_faktury_dostawcy)
+        tasma.data_dostawy = dane.get('column_11', tasma.data_dostawy)
 
-#         db.session.commit()
-#         return jsonify({'message': 'Rekord zaktualizowany pomyślnie!'})
-#     except Exception as e:
-#         db.session.rollback()
-#         return jsonify({'message': 'Wystąpił błąd podczas aktualizacji!', 'error': str(e)}), 500
+        db.session.commit()
+        return jsonify({'message': 'Rekord zaktualizowany pomyślnie!'})
+    except Exception as e:
+        db.session.rollback()
+        return jsonify({'message': 'Wystąpił błąd podczas aktualizacji!', 'error': str(e)}), 500
 @app.route('/dodaj_profil')
 def dodaj_profil():
     tasmy = Tasma.query.all()
@@ -514,4 +514,4 @@ def dodaj_profil_do_bazy():
         return render_template('profil.html', error="Wystąpił błąd przy zapisywaniu danych.", user=g.user)
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run (debug=True)
