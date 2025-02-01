@@ -152,6 +152,8 @@ def go_back():
 
 @app.route('/rejestracja_do_bazy', methods=['POST'])
 def rejestracja_do_bazy():
+    if not g.user:
+        return render_template('login.html', user=g.user)
     if request.method == 'POST':
         # Odbierz dane z formularza
         email = request.form.get('email')
@@ -265,6 +267,8 @@ def feedback():
 
 @app.route('/uzytkownik')
 def uzytkownik():
+    if not g.user:
+        return render_template('login.html', user=g.user)
     return render_template("uzytkownik.html", user=g.user)   
 import base64
 from flask import request, flash, redirect, url_for, render_template, g
@@ -334,6 +338,8 @@ def update_user():
 
 @app.route('/register')
 def register():
+     if not g.user:
+        return render_template('login.html', user=g.user)
      if g.user.id_uprawnienia != 1:
         return redirect(url_for('home'))
      return render_template("register.html")
@@ -357,6 +363,8 @@ def tasma():
     return render_template("tasma.html", user=g.user, tasma=tasma)
 @app.route('/update-row', methods=['POST'])
 def update_row():
+    if not g.user:
+        return render_template('login.html', user=g.user)
     try:
         dane = request.get_json()
         logging.info(f'Otrzymane dane: {dane}')
@@ -390,9 +398,13 @@ def update_row():
         return jsonify({'message': 'Wystąpił błąd podczas aktualizacji!', 'error': str(e)}), 500
 @app.route('/dodaj_tasma')
 def dodaj_tasma():
+    if not g.user:
+        return render_template('login.html', user=g.user)
     return render_template("dodaj_tasma.html", user=g.user)
 @app.route('/dodaj_tasma_do_bazy', methods=['POST'])
 def dodaj_tasma_do_bazy():
+    if not g.user:
+        return render_template('login.html', user=g.user)
     if request.method == 'POST':
         # Odbierz dane z formularza
         
@@ -427,6 +439,7 @@ def dodaj_tasma_do_bazy():
 
 @app.route('/profil')
 def profil():
+    
     if not g.user:
         return render_template('login.html', user=g.user)
     if g.user.uprawnienia.id_uprawnienia == 1 or g.user.uprawnienia.id_uprawnienia == 2:
@@ -437,6 +450,8 @@ def profil():
     return render_template("profil.html", user=g.user,profil=profil)
 @app.route('/update-row_profil', methods=['POST'])
 def update_row_profil():
+    if not g.user:
+        return render_template('login.html', user=g.user)
     try:
         dane = request.get_json()
         logging.info(f'Otrzymane dane: {dane}')
@@ -470,10 +485,14 @@ def update_row_profil():
         return jsonify({'message': 'Wystąpił błąd podczas aktualizacji!', 'error': str(e)}), 500
 @app.route('/dodaj_profil')
 def dodaj_profil():
+    if not g.user:
+        return render_template('login.html', user=g.user)
     tasmy = Tasma.query.all()
     return render_template("dodaj_profil.html", user=g.user,tasmy=tasmy)
 @app.route('/dodaj_profil_do_bazy', methods=['POST'])
 def dodaj_profil_do_bazy():
+    if not g.user:
+        return render_template('login.html', user=g.user)
     
     if request.method == 'POST':
         # Odbierz dane z formularza
