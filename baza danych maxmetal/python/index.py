@@ -122,42 +122,48 @@ def zapisz_wszystkie_dane_do_plikow():
 
 def zapisz_do_pliku_sql(numer_pliku):
     """Zapisz dane z tabel do jednego pliku SQL w formacie INSERT jako kopię zapasową."""
-    tabelki = ['uzytkownicy', 'uprawnienia', 'tasma', 'profil']  # Lista tabel
+    tabelki = ['uprawnienia', 'uzytkownicy', 'tasma', 'profil']  # Upewnij się, że klucze obce są poprawnie zapisane
     nazwa_pliku = f'kopie_zapasowe_bazy_{numer_pliku}.sql'
 
     try:
-        with app.app_context():  # Użyj kontekstu aplikacji
-            with open(nazwa_pliku, 'w') as plik:
+        with app.app_context():
+            with open(nazwa_pliku, 'w', encoding='utf-8') as plik:
                 # Zapisz CREATE TABLE dla każdej tabeli
                 for tabela in tabelki:
                     # Pobierz definicję tabeli
                     create_table_query = f"SHOW CREATE TABLE {tabela};"
                     create_table_result = db.session.execute(text(create_table_query))
                     create_table_statement = create_table_result.fetchone()[1]  # Pobierz definicję CREATE TABLE
-                    
-                    plik.write(f"{create_table_statement};\n\n")  # Zapisz CREATE TABLE
+
+                    # Zapisz CREATE TABLE
+                    plik.write(f"{create_table_statement};\n\n")
 
                 # Zapisz dane do pliku
                 for tabela in tabelki:
-                    query = db.session.execute(text(f"SELECT * FROM {tabela}"))  # Użycie text() dla zapytania
+                    query = db.session.execute(text(f"SELECT * FROM {tabela}"))
                     wyniki = query.fetchall()  # Pobranie wyników
                     kolumny = query.keys()  # Uzyskanie nazw kolumn
 
                     if wyniki:
                         plik.write(f"-- Dane z tabeli {tabela}\n")
                         for wiersz in wyniki:
-                            # Generowanie instrukcji INSERT
-                            wartosci = ', '.join([f"'{str(val).replace('\'', '\'\'')}'" if val is not None else 'NULL' for val in wiersz])
+                            wartosci = ', '.join(
+                                [f"'{str(val).replace('\'', '\'\'')}'" if isinstance(val, str) or isinstance(val, bytes) else
+                                 'NULL' if val is None else 
+                                 f"'{val.strftime('%Y-%m-%d')}'" if isinstance(val, datetime.date) else
+                                 f"'{val}'" if isinstance(val, datetime.datetime) else
+                                 str(val)
+                                 for val in wiersz]
+                            )
                             plik.write(f"INSERT INTO {tabela} ({', '.join(kolumny)}) VALUES ({wartosci});\n")  # Zapisz instrukcję INSERT
                         plik.write("\n")  # Dodaj nową linię między tabelami
                     else:
                         logger.warning(f"Tabela {tabela} jest pusta. Brak danych do zapisania.")
 
             logger.info(f"Dane zapisano do pliku: {nazwa_pliku}")
-            
+
     except Exception as e:
         logger.error(f"Wystąpił błąd podczas zapisu do pliku: {e}")
-
 # Uruchom wątek do zapisu danych
 zapisywanie_thread = threading.Thread(target=zapisz_wszystkie_dane_do_plikow)
 zapisywanie_thread.start()
@@ -581,4 +587,4 @@ def dodaj_profil_do_bazy():
         return render_template('profil.html', error="Wystąpił błąd przy zapisywaniu danych.", user=g.user)
 
 if __name__ == "__main__":
-    app.run (debug=True)
+    app.run (host='0.0.0.0',port=5000,debug=True)
