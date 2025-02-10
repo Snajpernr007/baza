@@ -93,7 +93,7 @@
         if (editButton.innerText === "Edytuj") {
             // Zamień edytowalne komórki na pola formularza
             cells.forEach((cell, index) => {
-                if (index > 0 && index < cells.length - 3) { // Edytowalne: 1 do przedostatniej
+                if (index > 0 && index < cells.length - 3 && index !== 2 && index !== 3 && index !== 4) { // Edytowalne: 1 do przedostatniej
                     const value = cell.innerText;
                     cell.innerHTML = `<input type="text" value="${value}" style="width: 100%;">`;
                 }
@@ -105,7 +105,7 @@
             let isValid = true;
             
             cells.forEach((cell, index) => {
-                if (index > 0 && index < cells.length - 3) {
+                if (index > 0 && index < cells.length - 3 && index !== 2 && index !== 3 && index !== 4) {
                     const input = cell.querySelector("input");
                     if (input) {
                         const value = input.value.trim();
@@ -130,7 +130,7 @@
     }
     
     function sendDataToBackend(data) {
-        fetch('/update-row', {
+        fetch('/update-row_profil', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -197,17 +197,7 @@
                 <div id="logo-banner">
                     <a href="{{ url_for('home') }}"><img id="logo-duże" src="../static/img/logo-duże.png" alt="logo"></a>
                 </div>
-                <div id="avatar">
-                    {% if g.user %}
-                        {% if g.user.zdj_profilowe_base64 %}
-                            <a href="{{url_for('uzytkownik')}}"><img id="user" src="data:image/jpeg;base64,{{ g.user.zdj_profilowe_base64 }}" alt="Zdjęcie profilowe" /></a>
-                        {% else %}
-                            <a href="{{url_for('uzytkownik')}}"><img id="user" src="../static/img/user.jpg" alt="Zdjęcie domyślne" /></a>
-                        {% endif %}
-                {% else %}
-                    <a href="{{ url_for('login') }}"><img id="user" src="../static/img/nie zalogowany.png" alt="Zdjęcie domyślne" /></a>
-                {% endif %}
-                </div>
+                
             </div>
         </div>
         <div id="content">
@@ -278,26 +268,7 @@
         </div>
                 <hr>
         
-        <footer id="footer">
-            <div id="footer1"> 
-                <h3>Kontakt bezpośredni</h3>
-                <div id="kontakt-mail">
-                    <p> E-mail:</p> 
-                    <p>a.grobelny@zset.leszno.pl</p>
-                    <p>j.kaczmarek@zset.leszno.pl</p>
-                    <p>d.bondar@zset.leszno.pl</p>
-                </div>
-                <div id="kontakt-tel">
-                    <p>Tel:</p> 
-                    <p>+48 608 344 209</p>
-                    <p>+48 609 578 204</p>
-                    <p>+48 731 571 182</p>
-                </div>
-            </div>
-            <div id="footer2">
-                <p>Copyright © 2025 Lump Store. Wszelkie prawa autorskie zastrzeżone. Jakiekolwiek rozpowszechnianie informacji i tekstów zabronione</p>
-            </div>
-        </footer>
+        
     </div>
 </body>
 </html> 

@@ -46,7 +46,7 @@
                             {% endif %}
                             <li>
                                 <a href="{{ url_for('contact') }}">
-                                    <label for="menuCheckbox" onclick="this.parentNode.click();">Kontakt do nas!</label>
+                                    <label for="menuCheckbox" onclick="this.parentNode.click();">Zgłoś błąd!</label>
                                 </a>
                             </li>
                             <li>
@@ -61,17 +61,7 @@
                 <div id="logo-banner">
                     <a href="{{ url_for('home') }}"><img id="logo-duże" src="../static/img/logo-duże.png" alt="logo"></a>
                 </div>
-                <div id="avatar">
-                    {% if g.user %}
-                        {% if g.user.zdj_profilowe_base64 %}
-                            <a href="{{url_for('uzytkownik')}}"><img id="user" src="data:image/jpeg;base64,{{ g.user.zdj_profilowe_base64 }}" alt="Zdjęcie profilowe" /></a>
-                        {% else %}
-                            <a href="{{url_for('uzytkownik')}}"><img id="user" src="../static/img/user.jpg" alt="Zdjęcie domyślne" /></a>
-                        {% endif %}
-                {% else %}
-                    <a href="{{ url_for('login') }}"><img id="user" src="../static/img/nie zalogowany.png" alt="Zdjęcie domyślne" /></a>
-                {% endif %}
-                </div>
+                
             </div>
         </div>
         <div id="title"><h1>Skontaktuj się z nami!</h1></div>

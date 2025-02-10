@@ -52,7 +52,7 @@ class Uzytkownik(db.Model):
     nazwisko = db.Column(db.String(50), nullable=True)
     haslo = db.Column(db.Text, nullable=False)
     tel = db.Column(db.String(9), nullable=True)
-    zdj_profilowe = db.Column(db.LargeBinary, nullable=True)
+    
     id_uprawnienia = db.Column(db.Integer, db.ForeignKey('uprawnienia.id_uprawnienia'), nullable=False, default=2)
 
     uprawnienia = db.relationship('Uprawnienia', back_populates='uzytkownicy')
@@ -172,10 +172,7 @@ def load_logged_in_user():
     user_id = request.cookies.get('user_id')
     if user_id:
         g.user = Uzytkownik.query.get(int(user_id))
-        if g.user and g.user.zdj_profilowe:
-            # Kodowanie zdjęcia profilowego do formatu base64
-            g.user.zdj_profilowe_base64 = base64.b64encode(g.user.zdj_profilowe).decode('utf-8')
-        logger.info(f"Zalogowany użytkownik: {g.user.imie if g.user else 'Brak użytkownika'}")
+        
     else:
         g.user = None
 
@@ -208,6 +205,8 @@ def go_back():
 def rejestracja_do_bazy():
     if not g.user:
         return render_template('login.html', user=g.user)
+    if g.user.id_uprawnienia != 1:
+        return redirect(url_for('home'))
     if request.method == 'POST':
         # Odbierz dane z formularza
         email = request.form.get('email')
@@ -323,9 +322,10 @@ def feedback():
 def uzytkownik():
     if not g.user:
         return render_template('login.html', user=g.user)
-    return render_template("uzytkownik.html", user=g.user)   
-import base64
-from flask import request, flash, redirect, url_for, render_template, g
+    if g.user.id_uprawnienia != 1:
+        return redirect(url_for('home'))
+    return render_template("uzytkownik.html", user=g.user, uzytkownicy=Uzytkownik.query.all())   
+
 
 @app.route('/update_user', methods=['POST'])
 def update_user():
@@ -336,7 +336,7 @@ def update_user():
     nazwisko = request.form.get('nazwisko')
     email = request.form.get('email')
     password = request.form.get('password')
-    zdj_profilowe = request.files.get('zdj_profilowe')
+    
     tel=request.form.get('tel')
     user = g.user
 
@@ -359,19 +359,7 @@ def update_user():
         user.email = email
 
     # Przetwarzanie zdjęcia profilowego
-    if zdj_profilowe:
-        if not zdj_profilowe.content_type.startswith('image/'):
-            flash('Przesłany plik nie jest obrazem.', 'error')
-            return redirect(url_for('uzytkownik'))
-
-        try:
-            image_data = zdj_profilowe.read()
-            user.zdj_profilowe = image_data  # Przechowuj jako binarny
-            print("Zdjęcie profilowe zostało zaktualizowane.")  # Debugging
-        except Exception as e:
-            flash('Wystąpił błąd podczas przetwarzania zdjęcia.', 'error')
-            print(f"Błąd podczas przetwarzania zdjęcia: {e}")  # Debugging
-            return redirect(url_for('uzytkownik'))
+    
 
     # Przetwarzanie hasła
     if password and len(password) >= 4:
@@ -520,17 +508,12 @@ def update_row_profil():
             return jsonify({'message': 'Rekord nie znaleziony!'}), 404  # Błąd, gdy rekord nie istnieje
 
         # Aktualizacja danych
-        tasma.nazwa_dostawcy = dane.get('column_1', tasma.nazwa_dostawcy)
-        tasma.nazwa_materialu = dane.get('column_2', tasma.nazwa_materialu)
-        tasma.data_z_etykiety_na_kregu = dane.get('column_3', tasma.data_z_etykiety_na_kregu)
-        tasma.grubosc = dane.get('column_4', tasma.grubosc)
-        tasma.szerokosc = dane.get('column_5', tasma.szerokosc)
-        tasma.waga_kregu = dane.get('column_6', tasma.waga_kregu)
-        tasma.nr_etykieta_paletowa = dane.get('column_7', tasma.nr_etykieta_paletowa)
-        tasma.nr_z_etykiety_na_kregu = dane.get('column_8', tasma.nr_z_etykiety_na_kregu)
-        tasma.lokalizacja = dane.get('column_9', tasma.lokalizacja)
-        tasma.nr_faktury_dostawcy = dane.get('column_10', tasma.nr_faktury_dostawcy)
-        tasma.data_dostawy = dane.get('column_11', tasma.data_dostawy)
+        profil.id_tasmy = dane.get('column_1', profil.id_tasmy)
+        profil.zwrot_na_magazyn_kg = dane.get('column_5', profil.zwrot_na_magazyn_kg)
+        profil.nr_czesci_klienta = dane.get('column_6', profil.nr_czesci_klienta)
+        profil.nazwa_klienta_nr_zlecenia_PRODIO = dane.get('column_7', profil.nazwa_klienta_nr_zlecenia_PRODIO)
+        profil.etykieta_klienta = dane.get('column_8', profil.etykieta_klienta)
+        
 
         db.session.commit()
         return jsonify({'message': 'Rekord zaktualizowany pomyślnie!'})
