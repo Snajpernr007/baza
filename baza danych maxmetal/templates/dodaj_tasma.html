@@ -38,7 +38,7 @@ close();
 </head>
 <body>
     <div id="strona">
-        <form action="{{ url_for('dodaj_tasma_do_bazy') }}" method="post">
+        <form action="{{ url_for('dodaj_tasma_do_bazy') }}"onsubmit="closeTHEwindow()" method="post">
             <label for="nazwa_dostawcy">Nazwa dostawcy:</label>
     <input type="text" name="nazwa_dostawcy" required><br>
 
@@ -73,7 +73,7 @@ close();
     <input type="date" name="data_dostawy" required><br>
     <button type="reset" class="button">Wyczyść</button>
 
-    <button type="submit" class="button"onclick="closeTHEwindow()">Dodaj</button>
+    <button type="submit" class="button">Dodaj</button>
 
 
         </form>

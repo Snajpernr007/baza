@@ -7,20 +7,41 @@
     <link rel="icon" href="../static/img/logo-duże.png">
     <link rel="stylesheet" href="../static/style.css">
     <script>
-    function filterColumn(columnIndex) {
-        let table = document.getElementById("tabela");
-        let filterInputs = table.querySelectorAll("thead input");
-        let filter = filterInputs[columnIndex].value.toLowerCase();
-        let rows = table.getElementsByTagName("tbody")[0].getElementsByTagName("tr");
-    
-        for (let i = 0; i < rows.length; i++) {
-            let cells = rows[i].getElementsByTagName("td");
+    function filterTable() {
+    let table = document.getElementById("tabela");
+    let filterInputs = table.querySelectorAll("thead input");
+    let rows = table.getElementsByTagName("tbody")[0].getElementsByTagName("tr");
+
+    // Pętla przez wszystkie wiersze tabeli
+    for (let i = 0; i < rows.length; i++) {
+        let cells = rows[i].getElementsByTagName("td");
+        let isRowVisible = true; // Flaga określająca, czy wiersz ma być widoczny
+
+        // Pętla przez wszystkie kolumny i odpowiednie filtry
+        for (let columnIndex = 0; columnIndex < filterInputs.length; columnIndex++) {
+            let filter = filterInputs[columnIndex].value.toLowerCase();
             if (cells[columnIndex]) {
                 let cellValue = cells[columnIndex].textContent || cells[columnIndex].innerText;
-                rows[i].style.display = cellValue.toLowerCase().includes(filter) ? "" : "none";
+                if (filter && !cellValue.toLowerCase().includes(filter)) {
+                    isRowVisible = false; // Ukryj wiersz, jeśli nie spełnia filtru
+                    break; // Przerywamy, gdy znajdziemy filtr, który nie pasuje
+                }
             }
         }
+        rows[i].style.display = isRowVisible ? "" : "none"; // Ustaw widoczność wiersza
     }
+}
+
+// Zaktualizuj wywołanie funkcji filterTable w inputach
+function setupFilters() {
+    let filterInputs = document.querySelectorAll("thead input");
+    filterInputs.forEach((input, index) => {
+        input.addEventListener("keyup", filterTable); // Używamy nowej funkcji filterTable
+    });
+}
+
+// Wywołaj setupFilters po załadowaniu strony
+document.addEventListener("DOMContentLoaded", setupFilters);
     function resetFilters() {
         let table = document.getElementById("tabela");
         let filterInputs = table.querySelectorAll("thead input");
