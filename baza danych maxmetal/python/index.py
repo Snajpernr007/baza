@@ -118,7 +118,7 @@ def zapisz_wszystkie_dane_do_plikow():
     while True:
         for i in range(5):
             zapisz_do_pliku_sql(i + 1)
-            time.sleep(120)  # Czekaj 4 godziny (14400 sekund)
+            time.sleep(14400)  # Czekaj 4 godziny (14400 sekund)
 
 def zapisz_do_pliku_sql(numer_pliku):
     """Zapisz dane z tabel do jednego pliku SQL w formacie INSERT jako kopię zapasową."""
