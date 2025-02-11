@@ -67,8 +67,8 @@
         <div id="title"><h1>Skontaktuj się z nami!</h1></div>
         <div align="center">
             <form action="/feedback" method="POST"  autocomplete="off" >
-                <label for="email">Adres E-mail:</label><br>
-                <input type="email" id="email" name="email" placeholder="Wpisz swój E-mail" value="{{ g.user.email if g.user else '' }}" required><br>
+                <label for="login">Adres E-mail:</label><br>
+                <input type="text" id="login" name="login" placeholder="Wpisz swój E-mail" value="{{ g.user.login if g.user else '' }}" required><br>
                 <label for="comments">Napisz swoje uwagi:</label><br>
                 <textarea id="comments" name="comments" rows="4" cols="50" placeholder="Wpisz swoje uwagi dotyczące naszego sklepu"></textarea><br><br>
                 <button class="button" class="button" onclick="window.history.back()">Powrót</button>

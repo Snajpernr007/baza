@@ -235,8 +235,8 @@ function sendDataToBackend(data) {
                             
                             
                             
-                            <th><input type="text" placeholder="Filtruj Numer telefonu" onkeyup="filterColumn(5)"></th>
-                            <th><input type="text" placeholder="Filtruj Uprawnienia" onkeyup="filterColumn(6)"></th>
+                            
+                            <th><input type="text" placeholder="Filtruj Uprawnienia" onkeyup="filterColumn(5)"></th>
                             <th><button class="button" onclick="resetFilters()">Usuń Filtry</button></th>
                         </tr>
                         <tr>
@@ -246,7 +246,7 @@ function sendDataToBackend(data) {
                             
                             <th onclick="sortTable(4)">Nazwisko &#9650;&#9660;</th>
                             <th onclick="sortTable(5)">Hasło &#9650;&#9660;</th>
-                            <th onclick="sortTable(6)">Numer telefonu &#9650;&#9660;</th>
+                            
                             <th onclick="sortTable(7)">Uprawnienia &#9650;&#9660;</th>
                             <th>Edycja</th>
                         </tr>
@@ -257,12 +257,14 @@ function sendDataToBackend(data) {
                                 
                                 
                                 <td>{{uzytkownik.id}}</td>
-                                <td>{{uzytkownik.email}}</td>
+                                <td>{{uzytkownik.login}}</td>
                                 <td>{{uzytkownik.imie}}</td>
                                 <td>{{uzytkownik.nazwisko}}</td>
                                 <td><input type="password" value="{{uzytkownik.hasło}}" readonly></td>
-                                <td>{{uzytkownik.tel}}</td>
-                                <td>{{uzytkownik.id_uprawnienia}}</td>
+                                
+                                <td>{%if uzytkownik.id_uprawnienia==1%}Administrator{%elif uzytkownik.id_uprawnienia==2%}Zaopatrzeniowiec {%elif uzytkownik.id_uprawnienia==3%}Pracownik{%endif%}</td>
+
+                                </td>
                                 
                             
                                 

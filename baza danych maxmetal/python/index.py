@@ -47,11 +47,11 @@ except Exception as e:
 class Uzytkownik(db.Model):
     __tablename__ = 'uzytkownicy'
     id = db.Column(db.Integer, primary_key=True)
-    email = db.Column(db.String(255), nullable=False)
+    login = db.Column(db.String(255), nullable=False)
     imie = db.Column(db.String(50), nullable=True)
     nazwisko = db.Column(db.String(50), nullable=True)
     haslo = db.Column(db.Text, nullable=False)
-    tel = db.Column(db.String(9), nullable=True)
+   
     
     id_uprawnienia = db.Column(db.Integer, db.ForeignKey('uprawnienia.id_uprawnienia'), nullable=False, default=2)
 
@@ -209,26 +209,26 @@ def rejestracja_do_bazy():
         return redirect(url_for('home'))
     if request.method == 'POST':
         # Odbierz dane z formularza
-        email = request.form.get('email')
+        login = request.form.get('login')
         haslo = request.form.get('password')
-        tel = request.form.get('phone')
+        
         imie = request.form.get('imie')
         nazwisko = request.form.get('nazwisko')
         # Debugowanie: sprawdź, co zostało odebrane
         
 
         # Walidacja danych
-        if not email or not haslo or not tel:
+        if not login or not haslo :
             logger.warning("Wszystkie pola są wymagane.")
             return render_template('register.html', error="Wszystkie pola są wymagane.")
 
         # Sprawdzenie unikalności e-maila
-        if Uzytkownik.query.filter_by(email=email).first():
+        if Uzytkownik.query.filter_by(login=login).first():
             logger.warning("Użytkownik z tym e-mailem już istnieje.")
             return render_template('register.html', error="Użytkownik z tym e-mailem już istnieje.")
 
         # Dodanie danych do bazy danych
-        nowy_uzytkownik = Uzytkownik(email=email, haslo=generate_password_hash(haslo), tel=tel, imie=imie, nazwisko=nazwisko)
+        nowy_uzytkownik = Uzytkownik(login=login, haslo=generate_password_hash(haslo),  imie=imie, nazwisko=nazwisko)
         db.session.add(nowy_uzytkownik)
 
         try:
@@ -242,11 +242,11 @@ def rejestracja_do_bazy():
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     if request.method == 'POST':
-        email = request.form.get('email')
+        login = request.form.get('login')
         password = request.form.get('password')
 
-        user = Uzytkownik.query.filter_by(email=email).first()
-        logger.info(f"Próba logowania dla emaila: {email}")
+        user = Uzytkownik.query.filter_by(login=login).first()
+        logger.info(f"Próba logowania dla logina: {login}")
 
         response = None
 
@@ -263,7 +263,7 @@ def login():
             return response
         else:
             logger.warning("Nieudana próba logowania.")
-            return render_template('login.html', error="Błędny email lub hasło")
+            return render_template('login.html', error="Błędny login lub hasło")
 
     return render_template('login.html')
 @app.route('/logout')
@@ -290,27 +290,27 @@ def contact():
 
 @app.route('/feedback', methods=['POST'])
 def feedback():
-    email = request.form['email']
+    login = request.form['login']
     comments = request.form['comments']
 
     # Dane serwera SMTP
     smtp_server = 'poczta.interia.pl'
     smtp_port = 465  # Dla SSL
-    sender_email = 'kontakt_lumpstore@interia.pl'
+    sender_login = 'kontakt_lumpstore@interia.pl'
     sender_password = 'LumpStore1@3'
 
     # Utwórz wiadomość e-mail
-    msg = EmailMessage()
+    msg = loginMessage()
     msg['Subject'] = 'Pomoc techniczna LumpStore'
-    msg['From'] = sender_email
-    msg['To'] = sender_email  # Możesz zmienić na adres obsługi klienta
-    msg.set_content(f"E-mail od: {email}\n\nTreść wiadomości:\n{comments}")
+    msg['From'] = sender_login
+    msg['To'] = sender_login  # Możesz zmienić na adres obsługi klienta
+    msg.set_content(f"E-mail od: {login}\n\nTreść wiadomości:\n{comments}")
 
     try:
         # Połączenie z serwerem SMTP z SSL
         context = ssl.create_default_context()
         with smtplib.SMTP_SSL(smtp_server, smtp_port, context=context) as smtp:
-            smtp.login(sender_email, sender_password)
+            smtp.login(sender_login, sender_password)
             smtp.send_message(msg)
         return redirect(url_for('home', success="Wiadomość została wysłana pomyślnie.",user=g.user ))
     except Exception as e:
@@ -334,7 +334,7 @@ def update_user():
 
     imie = request.form.get('imie')
     nazwisko = request.form.get('nazwisko')
-    email = request.form.get('email')
+    login = request.form.get('login')
     password = request.form.get('password')
     
     tel=request.form.get('tel')
@@ -351,12 +351,12 @@ def update_user():
             return redirect(url_for('uzytkownik'))
         user.tel = tel.strip()
     # Sprawdzenie i aktualizacja adresu e-mail
-    if email:
-        existing_user = Uzytkownik.query.filter_by(email=email).first()
+    if login:
+        existing_user = Uzytkownik.query.filter_by(login=login).first()
         if existing_user and existing_user.id != user.id:
             flash('E-mail jest już zajęty przez innego użytkownika.', 'error')
             return redirect(url_for('uzytkownik'))
-        user.email = email
+        user.login = login
 
     # Przetwarzanie zdjęcia profilowego
     
