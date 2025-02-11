@@ -26,13 +26,16 @@
             <label for="imie">Imie</label>
             <input type="text" id="imie" name="imie" placeholder="Wpisz imie"  ><br>
             <label for="phone">Nazwisko</label>
-            <input type="text" id="nazwisko" name="nazwisko" placeholder="Wpisz nazwisko"  ><br></br>
-            <label>
-                <input type="checkbox" id="regulations" name="regulations" required>Zaakceptuj <a href="{{url_for('regulamin')}}">regulamin</a> naszej strony
-            </label><br>
+            <input type="text" id="nazwisko" name="nazwisko" placeholder="Wpisz nazwisko"  ><br>
+            <label for="email">Uprawnienia</label>
+            <select name="id_uprawnienia" id="id_uprawnienia">
+                <option value="1">Administrator</option>
+                <option value="2">Zaopatrzeniowiec</option>
+                <option value="3">Pracownik</option>
+            
             <button class="button" onclick="window.history.back()">Powrót</button>
             <input type="reset" class="button" value="Wyczyść">
-            <input type="submit" class="button" value="Zarejestruj się">
+            <input type="submit" class="button" value="Zatwierdź">
         </form>
     </div>
 

@@ -33,7 +33,7 @@ CREATE TABLE `tasma` (
   PRIMARY KEY (`id`),
   KEY `fk_tasma_pracownik` (`pracownik_id`),
   CONSTRAINT `fk_tasma_pracownik` FOREIGN KEY (`pracownik_id`) REFERENCES `uzytkownicy` (`id`) ON DELETE SET NULL
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 CREATE TABLE `profil` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -70,6 +70,8 @@ INSERT INTO uzytkownicy (id, login, imie, nazwisko, haslo, id_uprawnienia) VALUE
 INSERT INTO tasma (id, nazwa_dostawcy, nazwa_materialu, data_z_etykiety_na_kregu, grubosc, szerokosc, waga_kregu, nr_etykieta_paletowa, nr_z_etykiety_na_kregu, lokalizacja, nr_faktury_dostawcy, data_dostawy, pracownik_id) VALUES (1, '1', '2025-02-01', '0000-00-00', 19.00, 0.00, 11.00, '4444', '1', '1', '12', '0000-00-00', NULL);
 INSERT INTO tasma (id, nazwa_dostawcy, nazwa_materialu, data_z_etykiety_na_kregu, grubosc, szerokosc, waga_kregu, nr_etykieta_paletowa, nr_z_etykiety_na_kregu, lokalizacja, nr_faktury_dostawcy, data_dostawy, pracownik_id) VALUES (2, '1', '1', '0001-01-01', 1.00, 1.00, 0.00, '1', '1', '1', '1', '0001-01-01', 1);
 INSERT INTO tasma (id, nazwa_dostawcy, nazwa_materialu, data_z_etykiety_na_kregu, grubosc, szerokosc, waga_kregu, nr_etykieta_paletowa, nr_z_etykiety_na_kregu, lokalizacja, nr_faktury_dostawcy, data_dostawy, pracownik_id) VALUES (3, '8', '8', '0008-08-08', 8.00, 8.00, 3.00, '4', '8', '8', '8', '0008-08-08', 1);
+INSERT INTO tasma (id, nazwa_dostawcy, nazwa_materialu, data_z_etykiety_na_kregu, grubosc, szerokosc, waga_kregu, nr_etykieta_paletowa, nr_z_etykiety_na_kregu, lokalizacja, nr_faktury_dostawcy, data_dostawy, pracownik_id) VALUES (4, '2342', '3424', '0034-04-04', 423.00, 234.00, 234.00, '234', '243', '243', '243', '0423-04-23', 1);
+INSERT INTO tasma (id, nazwa_dostawcy, nazwa_materialu, data_z_etykiety_na_kregu, grubosc, szerokosc, waga_kregu, nr_etykieta_paletowa, nr_z_etykiety_na_kregu, lokalizacja, nr_faktury_dostawcy, data_dostawy, pracownik_id) VALUES (5, '2', '2', '0022-02-22', 22.00, 2.00, 2.00, '2', '2', '22', '2', '0002-02-22', 1);
 
 -- Dane z tabeli profil
 INSERT INTO profil (id, id_tasmy, data_produkcji, godz_min_rozpoczecia, godz_min_zakonczenia, zwrot_na_magazyn_kg, nr_czesci_klienta, nazwa_klienta_nr_zlecenia_PRODIO, etykieta_klienta, id_pracownika) VALUES (1, 3, '2025-02-01', 19:17:51, 19:18:08, 0.00, '4', '7', '0.00', 1);

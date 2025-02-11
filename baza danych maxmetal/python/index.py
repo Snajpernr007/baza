@@ -214,7 +214,14 @@ def rejestracja_do_bazy():
         
         imie = request.form.get('imie')
         nazwisko = request.form.get('nazwisko')
+        uprawnienia = request.form.get('uprawnienia')
         # Debugowanie: sprawdź, co zostało odebrane
+        if uprawnienia == 'Administrator':
+            uprawnienia = 1
+        elif uprawnienia == 'Zaopatrzeniowiec':
+            uprawnienia = 2
+        elif uprawnienia == 'Pracownik':
+            uprawnienia = 3
         
 
         # Walidacja danych
@@ -224,11 +231,11 @@ def rejestracja_do_bazy():
 
         # Sprawdzenie unikalności e-maila
         if Uzytkownik.query.filter_by(login=login).first():
-            logger.warning("Użytkownik z tym e-mailem już istnieje.")
-            return render_template('register.html', error="Użytkownik z tym e-mailem już istnieje.")
+            logger.warning("Użytkownik z tym loginem już istnieje.")
+            return render_template('register.html', error="Użytkownik z tym loginem już istnieje.")
 
         # Dodanie danych do bazy danych
-        nowy_uzytkownik = Uzytkownik(login=login, haslo=generate_password_hash(haslo),  imie=imie, nazwisko=nazwisko)
+        nowy_uzytkownik = Uzytkownik(login=login, haslo=generate_password_hash(haslo),  imie=imie, nazwisko=nazwisko, id_uprawnienia=uprawnienia)
         db.session.add(nowy_uzytkownik)
 
         try:
@@ -484,11 +491,11 @@ def profil():
     
     if not g.user:
         return render_template('login.html', user=g.user)
-    if g.user.uprawnienia.id_uprawnienia == 1 or g.user.uprawnienia.id_uprawnienia == 2:
-        profil = Profil.query.all()
-    else:
+    #if g.user.uprawnienia.id_uprawnienia == 1 or g.user.uprawnienia.id_uprawnienia == 2:
+    profil = Profil.query.all()
+   # else:
         # W przeciwnym razie pobierz tylko te wpisy, które stworzył zalogowany użytkownik
-        profil = Profil.query.filter_by(pracownik_id=g.user.id).all()
+        #profil = Profil.query.filter_by(pracownik_id=g.user.id).all()
     return render_template("profil.html", user=g.user,profil=profil)
 @app.route('/update-row_profil', methods=['POST'])
 def update_row_profil():

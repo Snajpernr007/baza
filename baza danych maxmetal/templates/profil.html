@@ -168,6 +168,7 @@ document.addEventListener("DOMContentLoaded", setupFilters);
             alert("Wystąpił błąd podczas zapisywania danych!");
         });
     }
+    const currentDate = new Date().toISOString().split('T')[0];
 </script>
 </head>
 <body>
@@ -197,7 +198,7 @@ document.addEventListener("DOMContentLoaded", setupFilters);
                         {% endif %}
                         {% if g.user.id_uprawnienia==1 %}
                         <li>
-                            <a href="{{ url_for('register') }}"><label for="menuCheckbox" onclick="this.parentNode.click();">Zarejestruj się!</label></a>
+                            <a href="{{ url_for('register') }}"><label for="menuCheckbox" onclick="this.parentNode.click();">Dodaj pracownika</label></a>
                         </li>
                         {% endif %}
                         <li>
@@ -264,23 +265,37 @@ document.addEventListener("DOMContentLoaded", setupFilters);
                     </thead>
                     <tbody>
                         {% for profile in profil %}
-                            <tr>
-                                
-                                <td>{{profile.id}}</td>
-                                <td>{{profile.id_tasmy}}</td>
-                                <td>{{profile.data_produkcji}}</td>
-                                <td>{{profile.godz_min_rozpoczecia}}</td>
-                                <td>{{profile.godz_min_zakonczenia}}</td>
-                                <td>{{profile.zwrot_na_magazyn_kg}}</td>
-                                <td>{{profile.nr_czesci_klienta}}</td>
-                                <td>{{profile.nazwa_klienta_nr_zlecenia_PRODIO}}</td>
-                                <td>{{profile.etykieta_klienta}}</td>
-                                <td>{{profile.pracownik.imie}}</td>
-                                <td>{{profile.pracownik.nazwisko}}</td>
-                                
-                                
-                                <td><button type="button" class="button" onclick="openEditModal(this.parentElement.parentElement)">Edytuj</button></td>
-                            </tr>
+                            {% if profile.pracownik.id_uprawnienia != 1 and profile.data_produkcji == currentDate and profile.pracownik==g.user%}
+                                <tr>
+                                    <td>{{ profile.id }}</td>
+                                    <td>{{ profile.id_tasmy }}</td>
+                                    <td>{{ profile.data_produkcji }}</td>
+                                    <td>{{ profile.godz_min_rozpoczecia }}</td>
+                                    <td>{{ profile.godz_min_zakonczenia }}</td>
+                                    <td>{{ profile.zwrot_na_magazyn_kg }}</td>
+                                    <td>{{ profile.nr_czesci_klienta }}</td>
+                                    <td>{{ profile.nazwa_klienta_nr_zlecenia_PRODIO }}</td>
+                                    <td>{{ profile.etykieta_klienta }}</td>
+                                    <td>{{ profile.pracownik.imie }}</td>
+                                    <td>{{ profile.pracownik.nazwisko }}</td>
+                                    <td><button type="button" class="button" onclick="openEditModal(this.parentElement.parentElement)">Edytuj</button></td>
+                                </tr>
+                            {% elif profile.pracownik.id_uprawnienia == 1 %}
+                                <tr>
+                                    <td>{{ profile.id }}</td>
+                                    <td>{{ profile.id_tasmy }}</td>
+                                    <td>{{ profile.data_produkcji }}</td>
+                                    <td>{{ profile.godz_min_rozpoczecia }}</td>
+                                    <td>{{ profile.godz_min_zakonczenia }}</td>
+                                    <td>{{ profile.zwrot_na_magazyn_kg }}</td>
+                                    <td>{{ profile.nr_czesci_klienta }}</td>
+                                    <td>{{ profile.nazwa_klienta_nr_zlecenia_PRODIO }}</td>
+                                    <td>{{ profile.etykieta_klienta }}</td>
+                                    <td>{{ profile.pracownik.imie }}</td>
+                                    <td>{{ profile.pracownik.nazwisko }}</td>
+                                    <td><button type="button" class="button" onclick="openEditModal(this.parentElement.parentElement)">Edytuj</button></td>
+                                </tr>
+                            {% endif %}
                         {% endfor %}
                     </tbody>
                 </table>
