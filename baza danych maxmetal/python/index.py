@@ -214,14 +214,9 @@ def rejestracja_do_bazy():
         
         imie = request.form.get('imie')
         nazwisko = request.form.get('nazwisko')
-        uprawnienia = request.form.get('uprawnienia')
+        uprawnienia = request.form.get('id_uprawnienia')
         # Debugowanie: sprawdź, co zostało odebrane
-        if uprawnienia == 'Administrator':
-            uprawnienia = 1
-        elif uprawnienia == 'Zaopatrzeniowiec':
-            uprawnienia = 2
-        elif uprawnienia == 'Pracownik':
-            uprawnienia = 3
+        
         
 
         # Walidacja danych

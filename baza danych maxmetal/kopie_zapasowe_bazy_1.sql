@@ -10,11 +10,11 @@ CREATE TABLE `uzytkownicy` (
   `imie` text DEFAULT NULL,
   `nazwisko` text DEFAULT NULL,
   `haslo` text NOT NULL,
-  `id_uprawnienia` int(11) NOT NULL DEFAULT 2,
+  `id_uprawnienia` int(11) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `fk_uzytkownicy_uprawnienia` (`id_uprawnienia`),
   CONSTRAINT `fk_uzytkownicy_uprawnienia` FOREIGN KEY (`id_uprawnienia`) REFERENCES `uprawnienia` (`id_uprawnienia`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 CREATE TABLE `tasma` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -65,6 +65,13 @@ INSERT INTO uzytkownicy (id, login, imie, nazwisko, haslo, id_uprawnienia) VALUE
 INSERT INTO uzytkownicy (id, login, imie, nazwisko, haslo, id_uprawnienia) VALUES (4, 'a.grobelny@zset.leszno.pl', 'Aleksander', 'Grobelny', 'scrypt:32768:8:1$wQsdwzTflWGcNBFm$f1389568dd4d676de116c404271613a845b30602adea347e7d4d8daa18cc8b59cc8adaece0fa7b87b46e4309a7a3c863950000246f52ac556c2d7eee8dccd363', 1);
 INSERT INTO uzytkownicy (id, login, imie, nazwisko, haslo, id_uprawnienia) VALUES (5, 'd.bondar@zset.leszno.pl', NULL, NULL, 'scrypt:32768:8:1$CUMRya11xFSKhDJF$1006474992234514121ed983178d499ce31a620630b522b2c8524a684e5ff0cd622517c79e62523c161907f45d0658121f694de48c7acb650fe7daa170597c5b', 1);
 INSERT INTO uzytkownicy (id, login, imie, nazwisko, haslo, id_uprawnienia) VALUES (6, 'j.kaczmarek@zset.leszno.pl', 'Kuba', 'Kaczmarek', 'scrypt:32768:8:1$t8b71Ess1UGDFs0g$828d2f38a024cb97a35ab2ccb32bf1406d403d0f514cdbe872a0d409c47bbc26e21885c6c2a520f3a6b0f3ba784049457024444588997908a38c3d470bc3fa96', 2);
+INSERT INTO uzytkownicy (id, login, imie, nazwisko, haslo, id_uprawnienia) VALUES (7, 'M.Kowalski', 'Marek', 'Kowalski', 'scrypt:32768:8:1$NK0vYNg8CsuHAhuf$18787d7ed01fe01c29e5c816075442685e3131a25282557af9d4fc82846313da7e323894a1d30fb0b0e079a58feee18ad6ce108c19b36558de2932c1c39d4558', 2);
+INSERT INTO uzytkownicy (id, login, imie, nazwisko, haslo, id_uprawnienia) VALUES (8, 'j.kowalski', 'Jan', 'Kowalski', 'scrypt:32768:8:1$u7FQARGIMVhBv6uC$f51bc752950c8ccc3f2d953bf1216b070dfd94e3519f39032c477a71a48c9f62248681ed75962257a1f67c449151726c3539bd8d594d6c054ea70220ac303333', 2);
+INSERT INTO uzytkownicy (id, login, imie, nazwisko, haslo, id_uprawnienia) VALUES (9, 't.k', 'tomek', 'kaczmarczyk', 'scrypt:32768:8:1$XH3fGbio34pGoimx$8ec475a4a2932a0c778be441e2f546be9ddd88474bd9b721a75f03c9ae9084e981bc216c355af8f9a45aa672a164652ee1a0a62bf513b7137c5f980eda958a3c', 2);
+INSERT INTO uzytkownicy (id, login, imie, nazwisko, haslo, id_uprawnienia) VALUES (10, 't', 't', 't', 'scrypt:32768:8:1$9e5uF7FOrcPw0bic$b497c5481b82eacc7d3e02530a2859760a9692215e7fb34dc123b186423dced58c4811db2ee4296f85b3cf6480c37dd1c4704dcb2ecde09e7fa3d6e085c502ad', 2);
+INSERT INTO uzytkownicy (id, login, imie, nazwisko, haslo, id_uprawnienia) VALUES (11, '3', '3', '3', 'scrypt:32768:8:1$oDCqUy6xggC3rAC8$fba7321d22edef5e3ac4fed27bf5b0375d5ba56b747470819d5fb4f5589b564436a9a16b5b94f6f9333104bc3164b237f5c156c6726292ce7491f0e963701021', 2);
+INSERT INTO uzytkownicy (id, login, imie, nazwisko, haslo, id_uprawnienia) VALUES (12, '6', '6', '6', 'scrypt:32768:8:1$xYQtQuBQlCgK75QJ$6f7f8dc3f0ccfbd3443903943c602ecaebfbe96f8b3118ba2ec59b4fddabd13d3af4c512b5713c2af0ee9a677e1ab94542ddf44a67cb36812babc9a96b410ee3', 2);
+INSERT INTO uzytkownicy (id, login, imie, nazwisko, haslo, id_uprawnienia) VALUES (13, 'j.kaczmarek@zset.leszno.pl6', '6', '6', 'scrypt:32768:8:1$vdVczoqhWAbSZAl6$770cde5c99648d7fabaf8106efadf9a46e204572e4b2e40d47893d236c8504624855413cabe26786eea09a2483c557ad0c4d80ed7b1178b0d3d763e8a4ee91c7', 3);
 
 -- Dane z tabeli tasma
 INSERT INTO tasma (id, nazwa_dostawcy, nazwa_materialu, data_z_etykiety_na_kregu, grubosc, szerokosc, waga_kregu, nr_etykieta_paletowa, nr_z_etykiety_na_kregu, lokalizacja, nr_faktury_dostawcy, data_dostawy, pracownik_id) VALUES (1, '1', '2025-02-01', '0000-00-00', 19.00, 0.00, 11.00, '4444', '1', '1', '12', '0000-00-00', NULL);
