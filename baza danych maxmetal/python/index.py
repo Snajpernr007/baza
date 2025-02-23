@@ -390,7 +390,7 @@ def tasma():
         # W przeciwnym razie pobierz tylko te wpisy, które stworzył zalogowany użytkownik
         tasma = Tasma.query.filter_by(pracownik_id=g.user.id).all()
     
-    return render_template("tasma.html", user=g.user, tasma=tasma)
+    return render_template("tasma.html", user=g.user, tasma=tasma,uprawnienia=Uprawnienia.query.all())
 @app.route('/update-row', methods=['POST'])
 def update_row():
     if not g.user:
@@ -477,7 +477,7 @@ def profil():
    # else:
         # W przeciwnym razie pobierz tylko te wpisy, które stworzył zalogowany użytkownik
         #profil = Profil.query.filter_by(pracownik_id=g.user.id).all()
-    return render_template("profil.html", user=g.user,profil=profil)
+    return render_template("profil.html", user=g.user,profil=profil,uprawnienia=Uprawnienia.query.all())
 @app.route('/update-row_profil', methods=['POST'])
 def update_row_profil():
     if not g.user:

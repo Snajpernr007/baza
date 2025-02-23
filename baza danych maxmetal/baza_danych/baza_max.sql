@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 11, 2025 at 10:13 PM
+-- Generation Time: Feb 23, 2025 at 02:03 PM
 -- Wersja serwera: 10.4.32-MariaDB
 -- Wersja PHP: 8.2.12
 
@@ -50,7 +50,9 @@ INSERT INTO `profil` (`id`, `id_tasmy`, `data_produkcji`, `godz_min_rozpoczecia`
 (3, 1, '2025-02-02', '23:21:26', '23:21:40', 0.00, '333', '8', '8', 1),
 (4, 3, '2025-02-02', '23:21:44', '23:21:50', 3.00, '3', '3', '3', 1),
 (5, 1, '2025-02-10', '14:24:21', '14:24:27', 11.00, '11', '11', '11', 1),
-(6, 1, '2025-02-10', '14:42:49', '14:42:59', 11.00, '1', '1', '1', 1);
+(6, 1, '2025-02-10', '14:42:49', '14:42:59', 11.00, '1', '1', '1', 1),
+(7, 1, '2025-02-16', '19:20:41', '19:20:46', 0.00, '0', '0', '0', 1),
+(8, 3, '2025-02-16', '19:33:25', '19:33:33', 2.00, '4', '4', '4', 1);
 
 -- --------------------------------------------------------
 
@@ -79,11 +81,12 @@ CREATE TABLE `tasma` (
 --
 
 INSERT INTO `tasma` (`id`, `nazwa_dostawcy`, `nazwa_materialu`, `data_z_etykiety_na_kregu`, `grubosc`, `szerokosc`, `waga_kregu`, `nr_etykieta_paletowa`, `nr_z_etykiety_na_kregu`, `lokalizacja`, `nr_faktury_dostawcy`, `data_dostawy`, `pracownik_id`) VALUES
-(1, '1', '2025-02-01', '0000-00-00', 19.00, 0.00, 11.00, '4444', '1', '1', '12', '0000-00-00', NULL),
+(1, '1', '2025-02-01', '1111-01-12', 19.00, 0.00, 0.00, '4444', '1', '1', '12', '0000-00-00', 1),
 (2, '1', '1', '0001-01-01', 1.00, 1.00, 0.00, '1', '1', '1', '1', '0001-01-01', 1),
-(3, '8', '8', '0008-08-08', 8.00, 8.00, 3.00, '4', '8', '8', '8', '0008-08-08', 1),
+(3, '8', '8', '0008-08-08', 8.00, 8.00, 2.00, '4', '8', '8', '8', '0008-08-08', 1),
 (4, '2342', '3424', '0034-04-04', 423.00, 234.00, 234.00, '234', '243', '243', '243', '0423-04-23', 1),
-(5, '2', '2', '0022-02-22', 22.00, 2.00, 2.00, '2', '2', '22', '2', '0002-02-22', 1);
+(5, '2', '2', '0022-02-22', 22.00, 2.00, 2.00, '2', '2', '22', '2', '0002-02-22', 1),
+(6, '5', '5', '0005-05-05', 55.00, 55.00, 55.00, '55', '55', '55', '55', '0005-05-05', 1);
 
 -- --------------------------------------------------------
 
@@ -125,7 +128,8 @@ CREATE TABLE `uzytkownicy` (
 --
 
 INSERT INTO `uzytkownicy` (`id`, `login`, `imie`, `nazwisko`, `haslo`, `id_uprawnienia`) VALUES
-(1, 'Administrator', 'Administrator', 'Administrator', 'scrypt:32768:8:1$hFji6Y2E4ieYI6Bp$d019011fb8ea6f21b31c18f54dbbf95f664ed512a7ffc0bb4a2a9b28b709e5fd7b5766675d7a7223aacc24bfdae9b038c22d61f6a1d00a212611c80e068ec153', 1);
+(1, 'Administrator', 'Administrator', 'Administrator', 'scrypt:32768:8:1$hFji6Y2E4ieYI6Bp$d019011fb8ea6f21b31c18f54dbbf95f664ed512a7ffc0bb4a2a9b28b709e5fd7b5766675d7a7223aacc24bfdae9b038c22d61f6a1d00a212611c80e068ec153', 1),
+(14, 'test1', 'test1', 'test1', 'scrypt:32768:8:1$YseP8gquzVwpXKmm$5046981849f8a61e29b9d455c925c731d5d2d47b517403000678f651f2e215b0f26d9ea17d47b15fdbb29ccf41392672e1959f973adc56489e6b837655860445', 2);
 
 --
 -- Indeksy dla zrzutów tabel
@@ -167,13 +171,13 @@ ALTER TABLE `uzytkownicy`
 -- AUTO_INCREMENT for table `profil`
 --
 ALTER TABLE `profil`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `tasma`
 --
 ALTER TABLE `tasma`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `uprawnienia`
@@ -185,7 +189,7 @@ ALTER TABLE `uprawnienia`
 -- AUTO_INCREMENT for table `uzytkownicy`
 --
 ALTER TABLE `uzytkownicy`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- Constraints for dumped tables
