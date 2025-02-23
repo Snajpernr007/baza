@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 23, 2025 at 02:03 PM
+-- Generation Time: Feb 23, 2025 at 02:20 PM
 -- Wersja serwera: 10.4.32-MariaDB
 -- Wersja PHP: 8.2.12
 
@@ -24,6 +24,17 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+-- Struktura tabeli dla tabeli `dostawcy`
+--
+
+CREATE TABLE `dostawcy` (
+  `id` int(11) NOT NULL,
+  `nazwa` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Struktura tabeli dla tabeli `profil`
 --
 
@@ -40,19 +51,20 @@ CREATE TABLE `profil` (
   `id_pracownika` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+-- --------------------------------------------------------
+
 --
--- Dumping data for table `profil`
+-- Struktura tabeli dla tabeli `szablon`
 --
 
-INSERT INTO `profil` (`id`, `id_tasmy`, `data_produkcji`, `godz_min_rozpoczecia`, `godz_min_zakonczenia`, `zwrot_na_magazyn_kg`, `nr_czesci_klienta`, `nazwa_klienta_nr_zlecenia_PRODIO`, `etykieta_klienta`, `id_pracownika`) VALUES
-(1, 3, '2025-02-01', '19:17:51', '19:18:08', 0.00, '4', '7', '0.00', 1),
-(2, 2, '2025-02-02', '23:20:57', '23:21:14', 0.00, '6', '6', '6', 1),
-(3, 1, '2025-02-02', '23:21:26', '23:21:40', 0.00, '333', '8', '8', 1),
-(4, 3, '2025-02-02', '23:21:44', '23:21:50', 3.00, '3', '3', '3', 1),
-(5, 1, '2025-02-10', '14:24:21', '14:24:27', 11.00, '11', '11', '11', 1),
-(6, 1, '2025-02-10', '14:42:49', '14:42:59', 11.00, '1', '1', '1', 1),
-(7, 1, '2025-02-16', '19:20:41', '19:20:46', 0.00, '0', '0', '0', 1),
-(8, 3, '2025-02-16', '19:33:25', '19:33:33', 2.00, '4', '4', '4', 1);
+CREATE TABLE `szablon` (
+  `id` int(11) NOT NULL,
+  `nazwa` varchar(255) NOT NULL,
+  `rodzaj` varchar(255) NOT NULL,
+  `grubosc_i_oznaczenie_ocynku` varchar(50) NOT NULL,
+  `grubosc` decimal(10,2) NOT NULL,
+  `szerokosc` decimal(10,2) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -62,8 +74,6 @@ INSERT INTO `profil` (`id`, `id_tasmy`, `data_produkcji`, `godz_min_rozpoczecia`
 
 CREATE TABLE `tasma` (
   `id` int(11) NOT NULL,
-  `nazwa_dostawcy` varchar(255) NOT NULL,
-  `nazwa_materialu` varchar(255) NOT NULL,
   `data_z_etykiety_na_kregu` date NOT NULL,
   `grubosc` decimal(10,2) NOT NULL,
   `szerokosc` decimal(10,2) NOT NULL,
@@ -73,20 +83,10 @@ CREATE TABLE `tasma` (
   `lokalizacja` varchar(255) NOT NULL,
   `nr_faktury_dostawcy` varchar(255) NOT NULL,
   `data_dostawy` date NOT NULL,
-  `pracownik_id` int(11) DEFAULT NULL
+  `pracownik_id` int(11) DEFAULT NULL,
+  `dostawca_id` int(11) NOT NULL,
+  `szablon_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `tasma`
---
-
-INSERT INTO `tasma` (`id`, `nazwa_dostawcy`, `nazwa_materialu`, `data_z_etykiety_na_kregu`, `grubosc`, `szerokosc`, `waga_kregu`, `nr_etykieta_paletowa`, `nr_z_etykiety_na_kregu`, `lokalizacja`, `nr_faktury_dostawcy`, `data_dostawy`, `pracownik_id`) VALUES
-(1, '1', '2025-02-01', '1111-01-12', 19.00, 0.00, 0.00, '4444', '1', '1', '12', '0000-00-00', 1),
-(2, '1', '1', '0001-01-01', 1.00, 1.00, 0.00, '1', '1', '1', '1', '0001-01-01', 1),
-(3, '8', '8', '0008-08-08', 8.00, 8.00, 2.00, '4', '8', '8', '8', '0008-08-08', 1),
-(4, '2342', '3424', '0034-04-04', 423.00, 234.00, 234.00, '234', '243', '243', '243', '0423-04-23', 1),
-(5, '2', '2', '0022-02-22', 22.00, 2.00, 2.00, '2', '2', '22', '2', '0002-02-22', 1),
-(6, '5', '5', '0005-05-05', 55.00, 55.00, 55.00, '55', '55', '55', '55', '0005-05-05', 1);
 
 -- --------------------------------------------------------
 
@@ -136,6 +136,13 @@ INSERT INTO `uzytkownicy` (`id`, `login`, `imie`, `nazwisko`, `haslo`, `id_upraw
 --
 
 --
+-- Indeksy dla tabeli `dostawcy`
+--
+ALTER TABLE `dostawcy`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `nazwa` (`nazwa`);
+
+--
 -- Indeksy dla tabeli `profil`
 --
 ALTER TABLE `profil`
@@ -144,11 +151,20 @@ ALTER TABLE `profil`
   ADD KEY `id_pracownika` (`id_pracownika`);
 
 --
+-- Indeksy dla tabeli `szablon`
+--
+ALTER TABLE `szablon`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `nazwa` (`nazwa`);
+
+--
 -- Indeksy dla tabeli `tasma`
 --
 ALTER TABLE `tasma`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `fk_tasma_pracownik` (`pracownik_id`);
+  ADD KEY `fk_tasma_pracownik` (`pracownik_id`),
+  ADD KEY `fk_tasma_dostawca` (`dostawca_id`),
+  ADD KEY `fk_tasma_szablon` (`szablon_id`);
 
 --
 -- Indeksy dla tabeli `uprawnienia`
@@ -168,10 +184,22 @@ ALTER TABLE `uzytkownicy`
 --
 
 --
+-- AUTO_INCREMENT for table `dostawcy`
+--
+ALTER TABLE `dostawcy`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT for table `profil`
 --
 ALTER TABLE `profil`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+
+--
+-- AUTO_INCREMENT for table `szablon`
+--
+ALTER TABLE `szablon`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `tasma`
@@ -206,7 +234,9 @@ ALTER TABLE `profil`
 -- Constraints for table `tasma`
 --
 ALTER TABLE `tasma`
-  ADD CONSTRAINT `fk_tasma_pracownik` FOREIGN KEY (`pracownik_id`) REFERENCES `uzytkownicy` (`id`) ON DELETE SET NULL;
+  ADD CONSTRAINT `fk_tasma_dostawca` FOREIGN KEY (`dostawca_id`) REFERENCES `dostawcy` (`id`) ON DELETE CASCADE,
+  ADD CONSTRAINT `fk_tasma_pracownik` FOREIGN KEY (`pracownik_id`) REFERENCES `uzytkownicy` (`id`) ON DELETE SET NULL,
+  ADD CONSTRAINT `fk_tasma_szablon` FOREIGN KEY (`szablon_id`) REFERENCES `szablon` (`id`) ON DELETE CASCADE;
 
 --
 -- Constraints for table `uzytkownicy`

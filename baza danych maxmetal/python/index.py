@@ -51,13 +51,14 @@ class Uzytkownik(db.Model):
     imie = db.Column(db.String(50), nullable=True)
     nazwisko = db.Column(db.String(50), nullable=True)
     haslo = db.Column(db.Text, nullable=False)
-   
-    
     id_uprawnienia = db.Column(db.Integer, db.ForeignKey('uprawnienia.id_uprawnienia'), nullable=False, default=2)
 
     uprawnienia = db.relationship('Uprawnienia', back_populates='uzytkownicy')
     tasma = db.relationship('Tasma', back_populates='pracownik')
     profil = db.relationship('Profil', back_populates='pracownik')
+
+    def __repr__(self):
+        return f"<Użytkownik {self.id} - {self.login}>"
 
 
 class Uprawnienia(db.Model):
@@ -67,12 +68,13 @@ class Uprawnienia(db.Model):
 
     uzytkownicy = db.relationship('Uzytkownik', back_populates='uprawnienia')
 
+    def __repr__(self):
+        return f"<Uprawnienia {self.id_uprawnienia} - {self.nazwa}>"
+
 
 class Tasma(db.Model):
     __tablename__ = 'tasma'
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)
-    nazwa_dostawcy = db.Column(db.String(255), nullable=False)
-    nazwa_materialu = db.Column(db.String(255), nullable=False)
     data_z_etykiety_na_kregu = db.Column(db.Date, nullable=False)
     grubosc = db.Column(db.Numeric(10, 2), nullable=False)
     szerokosc = db.Column(db.Numeric(10, 2), nullable=False)
@@ -83,15 +85,16 @@ class Tasma(db.Model):
     nr_faktury_dostawcy = db.Column(db.String(255), nullable=False)
     data_dostawy = db.Column(db.Date, nullable=False)
     pracownik_id = db.Column(db.Integer, db.ForeignKey('uzytkownicy.id'), nullable=True)
+    dostawca_id = db.Column(db.Integer, db.ForeignKey('dostawcy.id'), nullable=False)
+    szablon_id = db.Column(db.Integer, db.ForeignKey('szablon.id'), nullable=False)
 
-    # Relacja z tabelą 'uzytkownicy'
     pracownik = db.relationship('Uzytkownik', back_populates='tasma')
-
-    # Relacja z tabelą 'profil'
     profil = db.relationship('Profil', back_populates='tasma', cascade='all, delete-orphan')
+    dostawca = db.relationship('Dostawcy', back_populates='tasma')
+    szablon = db.relationship('Szablon', back_populates='tasma')
 
     def __repr__(self):
-        return f"<Tasma {self.id} - {self.nazwa_materialu}>"
+        return f"<Tasma {self.id} - {self.nr_z_etykiety_na_kregu}>"
 
 
 class Profil(db.Model):
@@ -107,12 +110,37 @@ class Profil(db.Model):
     etykieta_klienta = db.Column(db.String(50), nullable=False)
     id_pracownika = db.Column(db.Integer, db.ForeignKey('uzytkownicy.id'), nullable=False)
 
-    # Relacje
     tasma = db.relationship('Tasma', back_populates='profil')
     pracownik = db.relationship('Uzytkownik', back_populates='profil')
 
     def __repr__(self):
         return f"<Profil {self.id} - {self.nr_czesci_klienta}>"
+
+
+class Dostawcy(db.Model):
+    __tablename__ = 'dostawcy'
+    id = db.Column(db.Integer, primary_key=True, autoincrement=True)
+    nazwa = db.Column(db.String(255), nullable=False)
+
+    tasma = db.relationship('Tasma', back_populates='dostawca')
+
+    def __repr__(self):
+        return f"<Dostawca {self.id} - {self.nazwa}>"
+
+
+class Szablon(db.Model):
+    __tablename__ = 'szablon'
+    id = db.Column(db.Integer, primary_key=True, autoincrement=True)
+    nazwa = db.Column(db.String(255), nullable=False)
+    rodzaj = db.Column(db.String(255), nullable=False)
+    grubosc_i_oznaczenie_ocynku = db.Column(db.String(50), nullable=False)
+    grubosc = db.Column(db.Numeric(10, 2), nullable=False)
+    szerokosc = db.Column(db.Numeric(10, 2), nullable=False)
+
+    tasma = db.relationship('Tasma', back_populates='szablon')
+
+    def __repr__(self):
+        return f"<Szablon {self.id} - {self.rodzaj}>"
 
 def zapisz_wszystkie_dane_do_plikow():
     while True:
