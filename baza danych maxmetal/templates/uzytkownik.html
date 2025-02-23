@@ -112,37 +112,47 @@ document.addEventListener("DOMContentLoaded", setupFilters);
     const editButton = row.querySelector("button");
 
     if (editButton.innerText === "Edytuj") {
-        // Zamień edytowalne komórki na pola formularza
-        cells.forEach((cell, index) => {
-            if (index > 0 && index < cells.length -1 ) { 
-                if (index === 4) { 
-                    // Pole hasła - edytowalne
-                    const value = cell.querySelector("input").value;
-                    cell.innerHTML = `<input type="text" value="${value}" style="width: 100%;">`;
-                } else {
-                    const value = cell.innerText;
-                    cell.innerHTML = `<input type="text" value="${value}" style="width: 100%;">`;
-                }
-            }
-        });
-        editButton.innerText = "Zapisz";
+        // Pobranie listy uprawnień z backendu
+        fetch('/get-uprawnienia')
+            .then(response => response.json())
+            .then(uprawnienia => {
+                let uprawnieniaOptions = uprawnienia.map(up => 
+                    `<option value="${up.nazwa}">${up.nazwa}</option>`
+                ).join("");
+
+                // Zamień edytowalne komórki na inputy
+                cells.forEach((cell, index) => {
+                    if (index > 0 && index < cells.length - 1) { 
+                        if (index === 4) { 
+                            cell.innerHTML = `<input type="password" value="" placeholder="Nowe hasło" style="width: 100%;">`;
+                        } else if (index === 5) {  
+                            // Uprawnienia jako <select>
+                            let currentValue = cell.innerText.trim();
+                            cell.innerHTML = `<select>${uprawnieniaOptions}</select>`;
+                            cell.querySelector("select").value = currentValue;
+                        } else {
+                            const value = cell.innerText;
+                            cell.innerHTML = `<input type="text" value="${value}" style="width: 100%;">`;
+                        }
+                    }
+                });
+                editButton.innerText = "Zapisz";
+            });
+
     } else if (editButton.innerText === "Zapisz") {
-        // Zbierz dane z formularza
         const updatedData = {};
         let isValid = true;
         
         cells.forEach((cell, index) => {
-            if (index > 0 && index < cells.length - 1 ) {
-                const input = cell.querySelector("input");
+            if (index > 0 && index < cells.length - 1) {
+                const input = cell.querySelector("input, select");
                 if (input) {
                     const value = input.value.trim();
-                    if (!value) {
-                        isValid = false; // Walidacja: sprawdź, czy pole nie jest puste
-                    }
+                    if (index === 4 && !value) return; 
                     updatedData[`column_${index}`] = value;
-                    cell.innerText = value; // Zapisz nowe wartości
+                    cell.innerText = index === 4 ? "••••••" : value;
                 }
-            } else if (index === 0 || index >= cells.length - 5) {
+            } else {
                 updatedData[`column_${index}`] = cell.innerText;
             }
         });
@@ -151,13 +161,14 @@ document.addEventListener("DOMContentLoaded", setupFilters);
             sendDataToBackend(updatedData);
             editButton.innerText = "Edytuj";
         } else {
-            alert("Proszę wypełnić wszystkie edytowalne pola.");
+            alert("Proszę wypełnić wszystkie pola.");
         }
     }
 }
 
+
 function sendDataToBackend(data) {
-    fetch('/update-row_profil', {
+    fetch('/update-row_uzytkownik', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
@@ -174,16 +185,7 @@ function sendDataToBackend(data) {
         alert("Wystąpił błąd podczas zapisywania danych!");
     });
 }
-    function togglePassword(button) {
-        let row = button.closest("tr"); // Znajdź wiersz, w którym kliknięto przycisk
-        let passwordInput = row.querySelector("input[type='password']"); // Pobierz pole hasła z tego wiersza
 
-        if (passwordInput) {
-            let type = passwordInput.getAttribute("type") === "password" ? "text" : "password";
-            passwordInput.setAttribute("type", type);
-            button.textContent = type === "password" ? "Pokaż hasło" : "Ukryj hasło";
-        }
-    }
 </script>
 </head>
 <body>
@@ -281,15 +283,19 @@ function sendDataToBackend(data) {
                                 <td>{{uzytkownik.login}}</td>
                                 <td>{{uzytkownik.imie}}</td>
                                 <td>{{uzytkownik.nazwisko}}</td>
-                                <td><input type="password" value="{{uzytkownik.hasło}}" readonly></td>
+                                <td></td>
                                 
-                                <td>{%if uzytkownik.id_uprawnienia==1%}Administrator{%elif uzytkownik.id_uprawnienia==2%}Zaopatrzeniowiec {%elif uzytkownik.id_uprawnienia==3%}Pracownik{%endif%}</td>
-
+                                <td>
+                                    {% for uprawnienie in uprawnienia %}
+                                        {% if uzytkownik.id_uprawnienia == uprawnienie.id_uprawnienia %}
+                                            {{ uprawnienie.nazwa }}
+                                        {% endif %}
+                                    {% endfor %}
                                 </td>
                                 
                             
                                 
-                                <td><button type="button" class="button" onclick="openEditModal(this.parentElement.parentElement)">Edytuj</button> <button type="button" class="button" onclick="togglePassword(this)">Pokaż hasło</button></td>
+                                <td><button type="button" class="button" onclick="openEditModal(this.parentElement.parentElement)">Edytuj</button> </td>
                             </tr>
                         {% endfor %}
                     </tbody>

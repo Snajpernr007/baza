@@ -241,6 +241,41 @@ def rejestracja_do_bazy():
             db.session.rollback()
             logger.error(f"Nie udało się zapisać danych: {e}")
             return render_template('register.html', error="Wystąpił błąd przy zapisywaniu danych.")
+@app.route('/get-uprawnienia', methods=['GET'])
+def get_uprawnienia():
+    uprawnienia = Uprawnienia.query.all()
+    return jsonify([{"id": u.id_uprawnienia, "nazwa": u.nazwa} for u in uprawnienia])
+
+@app.route('/update-row_uzytkownik', methods=['POST'])
+def update_user():
+    data = request.json
+    user_id = data.get("column_0")
+    login = data.get("column_1")
+    imie = data.get("column_2")
+    nazwisko = data.get("column_3")
+    haslo = data.get("column_4")  
+    uprawnienia_nazwa = data.get("column_5")  # Nazwa uprawnienia z formularza
+
+    user = Uzytkownik.query.get(user_id)
+    if not user:
+        return jsonify({"error": "Użytkownik nie istnieje"}), 404
+
+    user.login = login
+    user.imie = imie
+    user.nazwisko = nazwisko
+
+    # Znalezienie ID uprawnienia na podstawie nazwy
+    uprawnienie = Uprawnienia.query.filter_by(nazwa=uprawnienia_nazwa).first()
+    if not uprawnienie:
+        return jsonify({"error": "Nieprawidłowe uprawnienie"}), 400
+
+    user.id_uprawnienia = uprawnienie.id_uprawnienia  # Zapisywanie ID uprawnienia
+
+    if haslo:  
+        user.haslo = generate_password_hash(haslo)
+
+    db.session.commit()
+    return jsonify({"success": "Dane zaktualizowane pomyślnie!"})
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     if request.method == 'POST':
@@ -326,59 +361,10 @@ def uzytkownik():
         return render_template('login.html', user=g.user)
     if g.user.id_uprawnienia != 1:
         return redirect(url_for('home'))
-    return render_template("uzytkownik.html", user=g.user, uzytkownicy=Uzytkownik.query.all())   
+    return render_template("uzytkownik.html", user=g.user, uzytkownicy=Uzytkownik.query.all(),uprawnienia=Uprawnienia.query.all())   
 
 
-@app.route('/update_user', methods=['POST'])
-def update_user():
-    if not g.user:
-        return redirect(url_for('login'))
 
-    imie = request.form.get('imie')
-    nazwisko = request.form.get('nazwisko')
-    login = request.form.get('login')
-    password = request.form.get('password')
-    
-    tel=request.form.get('tel')
-    user = g.user
-
-    # Aktualizacja imienia
-    if imie and imie.strip():
-        user.imie = imie.strip()
-    if nazwisko and nazwisko.strip():
-        user.nazwisko = nazwisko.strip()
-    if tel and tel.strip():
-        if len(tel.strip()) != 9:
-            flash('Numer telefonu musi mieć 9 cyfr.', 'error')
-            return redirect(url_for('uzytkownik'))
-        user.tel = tel.strip()
-    # Sprawdzenie i aktualizacja adresu e-mail
-    if login:
-        existing_user = Uzytkownik.query.filter_by(login=login).first()
-        if existing_user and existing_user.id != user.id:
-            flash('E-mail jest już zajęty przez innego użytkownika.', 'error')
-            return redirect(url_for('uzytkownik'))
-        user.login = login
-
-    # Przetwarzanie zdjęcia profilowego
-    
-
-    # Przetwarzanie hasła
-    if password and len(password) >= 4:
-        user.haslo = generate_password_hash(password)
-    elif password:
-        flash('Hasło musi mieć co najmniej 4 znaki.', 'error')
-        return redirect(url_for('uzytkownik'))
-
-    try:
-        db.session.commit()
-        flash('Dane użytkownika zostały pomyślnie zaktualizowane.', 'success')
-    except Exception as e:
-        db.session.rollback()
-        print(f"Błąd przy zapisywaniu danych: {e}")  # Debugging
-        flash('Wystąpił błąd podczas zapisywania danych.', 'error')
-
-    return redirect(url_for('uzytkownik'))
 
 @app.route('/register')
 def register():

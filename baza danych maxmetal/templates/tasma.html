@@ -282,8 +282,8 @@ function printID(id) {
                         <th><input type="text" placeholder="Filtruj Lokalizację" onkeyup="filterColumn(9)"></th>
                         <th><input type="text" placeholder="Filtruj Fakturę" onkeyup="filterColumn(10)"></th>
                         <th><input type="text" placeholder="Filtruj Datę Dostawy" onkeyup="filterColumn(11)"></th>
-                        <th><input type="text" placeholder="Filtruj Imię" onkeyup="filterColumn(12)"></th>
-                        <th><input type="text" placeholder="Filtruj Nazwisko" onkeyup="filterColumn(13)"></th>
+                        <th><input type="text" placeholder="Filtruj Nazwę Stanowiska" onkeyup="filterColumn(12)"></th>
+                        
                         <th><button class="button" onclick="resetFilters()">Usuń Filtry</button></th>
                     </tr>
                     <tr>
@@ -299,8 +299,8 @@ function printID(id) {
                         <th onclick="sortTable(9)">Lokalizacja &#9650;&#9660;</th>
                         <th onclick="sortTable(10)">Nr Faktury Dostawcy &#9650;&#9660;</th>
                         <th onclick="sortTable(11)">Data Dostawy &#9650;&#9660;</th>
-                        <th onclick="sortTable(12)">Imię Pracownika &#9650;&#9660;</th>
-                        <th onclick="sortTable(13)">Nazwisko Pracownika &#9650;&#9660;</th>
+                        <th onclick="sortTable(12)">Nazwa Stanowiska &#9650;&#9660;</th>
+                        
                         <th>Edycja</th>
                     </tr>
                 </thead>
@@ -321,8 +321,8 @@ function printID(id) {
                             <td>{{ tasmy.lokalizacja }}</td>
                             <td>{{ tasmy.nr_faktury_dostawcy }}</td>
                             <td>{{ tasmy.data_dostawy }}</td>
-                            <td>{{ tasmy.pracownik.imie }}</td>
-                            <td>{{ tasmy.pracownik.nazwisko }}</td>
+                            <td>{{ tasmy.pracownik.login }}</td>
+                            
                             <td><button type="button" class="button" onclick="openEditModal(this.parentElement.parentElement)">Edytuj</button></td>
                         </tr>
                     {% endfor %}
