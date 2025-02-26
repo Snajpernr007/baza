@@ -7,6 +7,11 @@
     <link rel="icon" href="../static/img/logo-duże.png">
     <link rel="stylesheet" href="../static/style.css">
     <script>
+        // Odśwież stronę co 10 sekund
+setInterval(function() {
+    location.reload();
+}, 10000); // 10000 ms = 10 sekund
+
 function filterTable() {
     let table = document.getElementById("tabela");
     let filterInputs = table.querySelectorAll("thead input");
@@ -310,8 +315,8 @@ function printID(id) {
                             <td>{{ tasmy.id }} <a href="javascript:void(0);" onclick="printID({{ tasmy.id }})">
                                 <img src="/static/img/drukarka.png" alt="drukuj" height="15" width="15">
                             </a></td>
-                            <td>{{ tasmy.nazwa_dostawcy }}</td>
-                            <td>{{ tasmy.nazwa_materialu }}</td>
+                            <td>{{ tasmy.dostawca.nazwa }}</td>
+                            <td>{{ tasmy.szablon.nazwa }}</td>
                             <td>{{ tasmy.data_z_etykiety_na_kregu }}</td>
                             <td>{{ tasmy.grubosc }}</td>
                             <td>{{ tasmy.szerokosc }}</td>

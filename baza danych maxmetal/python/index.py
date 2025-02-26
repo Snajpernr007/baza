@@ -418,7 +418,7 @@ def tasma():
         # W przeciwnym razie pobierz tylko te wpisy, które stworzył zalogowany użytkownik
         tasma = Tasma.query.filter_by(pracownik_id=g.user.id).all()
     
-    return render_template("tasma.html", user=g.user, tasma=tasma,uprawnienia=Uprawnienia.query.all())
+    return render_template("tasma.html", user=g.user, tasma=tasma,uprawnienia=Uprawnienia.query.all(),szablon=Szablon.query.all(),dostawcy=Dostawcy.query.all())
 @app.route('/update-row', methods=['POST'])
 def update_row():
     if not g.user:
@@ -437,8 +437,8 @@ def update_row():
             return jsonify({'message': 'Rekord nie znaleziony!'}), 404  # Błąd, gdy rekord nie istnieje
 
         # Aktualizacja danych
-        tasma.nazwa_dostawcy = dane.get('column_1', tasma.nazwa_dostawcy)
-        tasma.nazwa_materialu = dane.get('column_2', tasma.nazwa_materialu)
+        tasma.dostawca_id = dane.get('column_1', tasma.nazwa_dostawcy)
+        tasma.szablon_id = dane.get('column_2', tasma.nazwa_materialu)
         tasma.data_z_etykiety_na_kregu = dane.get('column_3', tasma.data_z_etykiety_na_kregu)
         tasma.grubosc = dane.get('column_4', tasma.grubosc)
         tasma.szerokosc = dane.get('column_5', tasma.szerokosc)
@@ -458,7 +458,7 @@ def update_row():
 def dodaj_tasma():
     if not g.user:
         return render_template('login.html', user=g.user)
-    return render_template("dodaj_tasma.html", user=g.user)
+    return render_template("dodaj_tasma.html", user=g.user,dostawcy=Dostawcy.query.all(),nazwy_materiału=Szablon.query.all())
 @app.route('/dodaj_tasma_do_bazy', methods=['POST'])
 def dodaj_tasma_do_bazy():
     if not g.user:
@@ -466,12 +466,11 @@ def dodaj_tasma_do_bazy():
     if request.method == 'POST':
         # Odbierz dane z formularza
         
-        
-        nazwa_dostawcy = request.form.get('nazwa_dostawcy')
-        nazwa_materialu = request.form.get('nazwa_materialu')
+        dostawca_id = request.form.get('dostawcy')
+        szablon_id = int(request.form.get('nazwa_materiału'))
         data_z_etykiety_na_kregu = request.form.get('data_z_etykiety_na_kregu')
-        grubosc = request.form.get('grubosc')
-        szerokosc = request.form.get('szerokosc')
+        grubosc = Szablon.query.get(szablon_id).grubosc 
+        szerokosc = Szablon.query.get(szablon_id).szerokosc 
         waga_kregu = request.form.get('waga_kregu')
         nr_etykieta_paletowa = request.form.get('nr_etykieta_paletowa')
         nr_z_etykiety_na_kregu = request.form.get('nr_z_etykiety_na_kregu')
@@ -483,17 +482,18 @@ def dodaj_tasma_do_bazy():
         
 
         # Dodanie danych do bazy danych
-        nowy_uzytkownik = Tasma(nazwa_dostawcy=nazwa_dostawcy, nazwa_materialu=nazwa_materialu, data_z_etykiety_na_kregu=data_z_etykiety_na_kregu, grubosc=grubosc, szerokosc=szerokosc, waga_kregu=waga_kregu, nr_etykieta_paletowa=nr_etykieta_paletowa, nr_z_etykiety_na_kregu=nr_z_etykiety_na_kregu, lokalizacja=lokalizacja, nr_faktury_dostawcy=nr_faktury_dostawcy, data_dostawy=data_dostawy, pracownik_id=pracownik_id)
+        nowy_uzytkownik = Tasma(dostawca_id=dostawca_id, szablon_id=szablon_id, data_z_etykiety_na_kregu=data_z_etykiety_na_kregu, grubosc=grubosc, szerokosc=szerokosc, waga_kregu=waga_kregu, nr_etykieta_paletowa=nr_etykieta_paletowa, nr_z_etykiety_na_kregu=nr_z_etykiety_na_kregu, lokalizacja=lokalizacja, nr_faktury_dostawcy=nr_faktury_dostawcy, data_dostawy=data_dostawy, pracownik_id=pracownik_id)
         db.session.add(nowy_uzytkownik)
 
         try:
             db.session.commit()
             logger.info("Dane zostały pomyślnie zapisane w bazie danych.")
-            return jsonify({"status": "success"})  # Zwracamy status sukcesu jako JSON
+            # Nie zwracamy żadnej odpowiedzi, jeśli nie wystąpił błąd.
+            return "", 204  # Użycie kodu statusu 204 (No Content)
         except Exception as e:
             db.session.rollback()
             logger.error(f"Nie udało się zapisać danych: {e}")
-            return jsonify({"status": "error", "message": "Wystąpił błąd przy zapisywaniu danych."})
+            return jsonify({'message': 'Błąd{e}!'})
 
 @app.route('/profil')
 def profil():
