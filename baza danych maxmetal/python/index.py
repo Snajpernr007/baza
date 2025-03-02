@@ -584,6 +584,17 @@ def dodaj_profil_do_bazy():
         db.session.rollback()
         logger.error(f"Nie udało się zapisać danych: {e}")
         return render_template('profil.html', error="Wystąpił błąd przy zapisywaniu danych.", user=g.user)
-
+@app.route('/dostawcy')
+def dostawcy():
+    if not g.user:
+        return render_template('login.html', user=g.user)
+    dostawcy = Dostawcy.query.all()
+    return render_template("dostawcy.html", user=g.user, dostawcy=dostawcy)
+@app.route('/szablon')
+def szablon():
+    if not g.user:
+        return render_template('login.html', user=g.user)
+    szablon = Szablon.query.all()
+    return render_template("szablon.html", user=g.user, szablony=szablon)
 if __name__ == "__main__":
     app.run (host='0.0.0.0',port=5000,debug=True)

@@ -74,6 +74,12 @@
             {% if g.user.id_uprawnienia==1 %}
             <button class="button" onclick="window.location.href='{{ url_for('uzytkownik') }}'">uzytkownicy</button>
             {% endif %}
+            {% if g.user.id_uprawnienia==1 %}
+            <button class="button" onclick="window.location.href='{{ url_for('dostawcy') }}'">dostawcy</button>
+            {% if g.user.id_uprawnienia==1 %}
+            <button class="button" onclick="window.location.href='{{ url_for('szablon') }}'">Nazwy</button>
+            {% endif %}
+            {% endif %}
         </div>
                 <hr>
         

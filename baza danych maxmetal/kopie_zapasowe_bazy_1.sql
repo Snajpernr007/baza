@@ -37,7 +37,7 @@ CREATE TABLE `tasma` (
   CONSTRAINT `fk_tasma_dostawca` FOREIGN KEY (`dostawca_id`) REFERENCES `dostawcy` (`id`) ON DELETE CASCADE,
   CONSTRAINT `fk_tasma_pracownik` FOREIGN KEY (`pracownik_id`) REFERENCES `uzytkownicy` (`id`) ON DELETE SET NULL,
   CONSTRAINT `fk_tasma_szablon` FOREIGN KEY (`szablon_id`) REFERENCES `szablon` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=28 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 CREATE TABLE `profil` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -55,7 +55,7 @@ CREATE TABLE `profil` (
   KEY `id_pracownika` (`id_pracownika`),
   CONSTRAINT `profil_ibfk_1` FOREIGN KEY (`id_tasmy`) REFERENCES `tasma` (`id`) ON DELETE CASCADE,
   CONSTRAINT `profil_ibfk_2` FOREIGN KEY (`id_pracownika`) REFERENCES `uzytkownicy` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- Dane z tabeli uprawnienia
 INSERT INTO uprawnienia (id_uprawnienia, nazwa) VALUES (1, 'Administrator');
@@ -74,7 +74,7 @@ INSERT INTO tasma (id, data_z_etykiety_na_kregu, grubosc, szerokosc, waga_kregu,
 INSERT INTO tasma (id, data_z_etykiety_na_kregu, grubosc, szerokosc, waga_kregu, nr_etykieta_paletowa, nr_z_etykiety_na_kregu, lokalizacja, nr_faktury_dostawcy, data_dostawy, pracownik_id, dostawca_id, szablon_id) VALUES (11, '0111-11-11', 1.00, 1.00, 11.00, '111', '1111', '11111', '1111111', '0111-11-11', 1, 2, 2);
 INSERT INTO tasma (id, data_z_etykiety_na_kregu, grubosc, szerokosc, waga_kregu, nr_etykieta_paletowa, nr_z_etykiety_na_kregu, lokalizacja, nr_faktury_dostawcy, data_dostawy, pracownik_id, dostawca_id, szablon_id) VALUES (12, '0111-11-11', 1.00, 1.00, 11.00, '111', '1111', '11111', '1111111', '0111-11-11', 1, 2, 2);
 INSERT INTO tasma (id, data_z_etykiety_na_kregu, grubosc, szerokosc, waga_kregu, nr_etykieta_paletowa, nr_z_etykiety_na_kregu, lokalizacja, nr_faktury_dostawcy, data_dostawy, pracownik_id, dostawca_id, szablon_id) VALUES (13, '0011-11-21', 1.00, 2.00, 111.00, '11', '1111', '1111', '1111', '0001-11-11', 1, 1, 1);
-INSERT INTO tasma (id, data_z_etykiety_na_kregu, grubosc, szerokosc, waga_kregu, nr_etykieta_paletowa, nr_z_etykiety_na_kregu, lokalizacja, nr_faktury_dostawcy, data_dostawy, pracownik_id, dostawca_id, szablon_id) VALUES (14, '0011-11-11', 1.00, 2.00, 11.00, '11', '111', '11', '13', '0003-03-31', 1, 2, 1);
+INSERT INTO tasma (id, data_z_etykiety_na_kregu, grubosc, szerokosc, waga_kregu, nr_etykieta_paletowa, nr_z_etykiety_na_kregu, lokalizacja, nr_faktury_dostawcy, data_dostawy, pracownik_id, dostawca_id, szablon_id) VALUES (14, '0011-11-11', 1.00, 2.00, 1.00, '11', '111', '11', '13', '0003-03-31', 1, 2, 1);
 INSERT INTO tasma (id, data_z_etykiety_na_kregu, grubosc, szerokosc, waga_kregu, nr_etykieta_paletowa, nr_z_etykiety_na_kregu, lokalizacja, nr_faktury_dostawcy, data_dostawy, pracownik_id, dostawca_id, szablon_id) VALUES (15, '0001-11-11', 1.00, 1.00, 123.00, '3123', '213', '213', '123123', '0003-03-12', 1, 1, 2);
 INSERT INTO tasma (id, data_z_etykiety_na_kregu, grubosc, szerokosc, waga_kregu, nr_etykieta_paletowa, nr_z_etykiety_na_kregu, lokalizacja, nr_faktury_dostawcy, data_dostawy, pracownik_id, dostawca_id, szablon_id) VALUES (16, '0231-02-13', 1.00, 1.00, 213123.00, '213123', '213213', '2131312', '213213', '0002-03-21', 1, 2, 2);
 INSERT INTO tasma (id, data_z_etykiety_na_kregu, grubosc, szerokosc, waga_kregu, nr_etykieta_paletowa, nr_z_etykiety_na_kregu, lokalizacja, nr_faktury_dostawcy, data_dostawy, pracownik_id, dostawca_id, szablon_id) VALUES (17, '0012-03-12', 1.00, 1.00, 213.00, '312312', '123213123', '123213123', '1321312', '0123-03-12', 1, 2, 2);
@@ -83,4 +83,12 @@ INSERT INTO tasma (id, data_z_etykiety_na_kregu, grubosc, szerokosc, waga_kregu,
 INSERT INTO tasma (id, data_z_etykiety_na_kregu, grubosc, szerokosc, waga_kregu, nr_etykieta_paletowa, nr_z_etykiety_na_kregu, lokalizacja, nr_faktury_dostawcy, data_dostawy, pracownik_id, dostawca_id, szablon_id) VALUES (20, '0123-03-12', 1.00, 2.00, 123123.00, '123123', '3213', '123', '213', '0122-03-12', 1, 2, 1);
 INSERT INTO tasma (id, data_z_etykiety_na_kregu, grubosc, szerokosc, waga_kregu, nr_etykieta_paletowa, nr_z_etykiety_na_kregu, lokalizacja, nr_faktury_dostawcy, data_dostawy, pracownik_id, dostawca_id, szablon_id) VALUES (21, '0123-03-12', 1.00, 2.00, 123123.00, '123123', '3213', '123', '213', '0122-03-12', 1, 2, 1);
 INSERT INTO tasma (id, data_z_etykiety_na_kregu, grubosc, szerokosc, waga_kregu, nr_etykieta_paletowa, nr_z_etykiety_na_kregu, lokalizacja, nr_faktury_dostawcy, data_dostawy, pracownik_id, dostawca_id, szablon_id) VALUES (22, '0123-03-12', 1.00, 2.00, 123123.00, '123123', '3213', '123', '213', '0122-03-12', 1, 2, 1);
+INSERT INTO tasma (id, data_z_etykiety_na_kregu, grubosc, szerokosc, waga_kregu, nr_etykieta_paletowa, nr_z_etykiety_na_kregu, lokalizacja, nr_faktury_dostawcy, data_dostawy, pracownik_id, dostawca_id, szablon_id) VALUES (23, '0123-03-12', 1.00, 2.00, 123123.00, '123123', '3213', '123', '213', '0122-03-12', 1, 2, 1);
+INSERT INTO tasma (id, data_z_etykiety_na_kregu, grubosc, szerokosc, waga_kregu, nr_etykieta_paletowa, nr_z_etykiety_na_kregu, lokalizacja, nr_faktury_dostawcy, data_dostawy, pracownik_id, dostawca_id, szablon_id) VALUES (24, '0123-03-12', 1.00, 2.00, 123123.00, '123123', '3213', '123', '213', '0122-03-12', 1, 2, 1);
+INSERT INTO tasma (id, data_z_etykiety_na_kregu, grubosc, szerokosc, waga_kregu, nr_etykieta_paletowa, nr_z_etykiety_na_kregu, lokalizacja, nr_faktury_dostawcy, data_dostawy, pracownik_id, dostawca_id, szablon_id) VALUES (25, '3123-03-12', 1.00, 2.00, 123123.00, '2312313', '2313123', '1312313', '21312312', '0023-03-12', 1, 2, 1);
+INSERT INTO tasma (id, data_z_etykiety_na_kregu, grubosc, szerokosc, waga_kregu, nr_etykieta_paletowa, nr_z_etykiety_na_kregu, lokalizacja, nr_faktury_dostawcy, data_dostawy, pracownik_id, dostawca_id, szablon_id) VALUES (26, '3123-03-12', 1.00, 2.00, 123123.00, '2312313', '2313123', '1312313', '21312312ttt', '0023-03-12', 1, 2, 1);
+INSERT INTO tasma (id, data_z_etykiety_na_kregu, grubosc, szerokosc, waga_kregu, nr_etykieta_paletowa, nr_z_etykiety_na_kregu, lokalizacja, nr_faktury_dostawcy, data_dostawy, pracownik_id, dostawca_id, szablon_id) VALUES (27, '0002-12-12', 1.00, 1.00, 23123.00, '12313', '123312', '123123', '123213', '0213-03-12', 1, 1, 2);
+
+-- Dane z tabeli profil
+INSERT INTO profil (id, id_tasmy, data_produkcji, godz_min_rozpoczecia, godz_min_zakonczenia, zwrot_na_magazyn_kg, nr_czesci_klienta, nazwa_klienta_nr_zlecenia_PRODIO, etykieta_klienta, id_pracownika) VALUES (9, 14, '2025-02-26', 12:06:36, 12:06:43, 1.00, '1212', '1212', '212', 1);
 

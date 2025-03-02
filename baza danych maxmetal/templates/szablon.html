@@ -119,7 +119,7 @@ function openEditModal(row) {
     if (editButton.innerText === "Edytuj") {
         // Zamień edytowalne komórki na pola formularza
         cells.forEach((cell, index) => {
-            if (index > 0 && index < cells.length - 3) { // Edytowalne: 1 do przedostatniej
+            if (index > 0 && index < cells.length - 1) { // Edytowalne: 1 do przedostatniej
                 const value = cell.innerText;
                 cell.innerHTML = `<input type="text" value="${value}" style="width: 100%;">`;
             }
@@ -131,7 +131,7 @@ function openEditModal(row) {
         let isValid = true;
         
         cells.forEach((cell, index) => {
-            if (index > 0 && index < cells.length - 3) {
+            if (index > 0 && index < cells.length - 1) {
                 const input = cell.querySelector("input");
                 if (input) {
                     const value = input.value.trim();
@@ -141,7 +141,7 @@ function openEditModal(row) {
                     updatedData[`column_${index}`] = value;
                     cell.innerText = value; // Zapisz nowe wartości
                 }
-            } else if (index === 0 || index >= cells.length - 3) {
+            } else if (index === 0 || index >= cells.length - 1) {
                 updatedData[`column_${index}`] = cell.innerText;
             }
         });
@@ -183,33 +183,7 @@ const windowFeatures = 'width=800,height=600,scrollbars=yes,menubar=no,toolbar=n
 // Otwieranie nowego okna za każdym razem, gdy klikniesz w etykietę
 window.open(url, '_blank', windowFeatures); // '_blank' otworzy nowe okno/tab
     }
-function printID(id) {
-    // Tworzymy nowy div, który będzie zawierał ID do wydruku
-    const printDiv = document.createElement('div');
-    printDiv.style.position = 'fixed';
-    printDiv.style.top = '0';
-    printDiv.style.left = '0';
-    printDiv.style.width = '100%';
-    printDiv.style.height = '100%';
-    printDiv.style.backgroundColor = 'white';
-    printDiv.style.zIndex = '1000';
-    printDiv.style.display = 'flex';
-    printDiv.style.justifyContent = 'center';
-    printDiv.style.alignItems = 'center';
-    printDiv.style.fontSize = '2em';
-    printDiv.innerText = `${id}`; // Ustawiamy ID do wydruku
 
-    document.body.appendChild(printDiv);
-
-    // Wywołujemy dialog drukowania
-    window.print();
-
-    // Usuwamy div po zakończeniu drukowania
-    window.onafterprint = () => {
-        document.body.removeChild(printDiv);
-        window.onafterprint = null; // resetowanie zdarzenia, aby nie wywoływało się wielokrotnie
-    };
-}
     
     </script>
 </head>
@@ -276,57 +250,49 @@ function printID(id) {
                 <thead>
                     <tr>
                         <th><input type="text" placeholder="Filtruj ID" onkeyup="filterColumn(0)"></th>
-                        <th><input type="text" placeholder="Filtruj Dostawcę" onkeyup="filterColumn(1)"></th>
-                        <th><input type="text" placeholder="Filtruj Materiał" onkeyup="filterColumn(2)"></th>
-                        <th><input type="text" placeholder="Filtruj Datę Kręgu" onkeyup="filterColumn(3)"></th>
+                        <th><input type="text" placeholder="Filtruj Nazwę" onkeyup="filterColumn(1)"></th>
+                        <th><input type="text" placeholder="Filtruj Rodzaj" onkeyup="filterColumn(2)"></th>
+                        <th><input type="text" placeholder="Filtruj Grubosc i oznaczenie ocynku" onkeyup="filterColumn(3)"></th>
                         <th><input type="text" placeholder="Filtruj Grubość" onkeyup="filterColumn(4)"></th>
                         <th><input type="text" placeholder="Filtruj Szerokość" onkeyup="filterColumn(5)"></th>
-                        <th><input type="text" placeholder="Filtruj Wagę" onkeyup="filterColumn(6)"></th>
-                        <th><input type="text" placeholder="Filtruj Etyk. Paletową" onkeyup="filterColumn(7)"></th>
-                        <th><input type="text" placeholder="Filtruj Etyk. Kręgu" onkeyup="filterColumn(8)"></th>
-                        <th><input type="text" placeholder="Filtruj Lokalizację" onkeyup="filterColumn(9)"></th>
-                        <th><input type="text" placeholder="Filtruj Fakturę" onkeyup="filterColumn(10)"></th>
-                        <th><input type="text" placeholder="Filtruj Datę Dostawy" onkeyup="filterColumn(11)"></th>
-                        <th><input type="text" placeholder="Filtruj Nazwę Stanowiska" onkeyup="filterColumn(12)"></th>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
                         
                         <th><button class="button" onclick="resetFilters()">Usuń Filtry</button></th>
                     </tr>
                     <tr>
                         <th onclick="sortTable(0)">ID &#9650;&#9660;</th>
-                        <th onclick="sortTable(1)">Nazwa Dostawcy &#9650;&#9660;</th>
-                        <th onclick="sortTable(2)">Nazwa Materiału &#9650;&#9660;</th>
-                        <th onclick="sortTable(3)">Data z Etykiety na Kręgu &#9650;&#9660;</th>
+                        <th onclick="sortTable(1)">Nazwa &#9650;&#9660;</th>
+                        <th onclick="sortTable(2)">Rodzaj &#9650;&#9660;</th>
+                        <th onclick="sortTable(3)">Grubosc i oznaczenie ocynku &#9650;&#9660;</th>
                         <th onclick="sortTable(4)">Grubość &#9650;&#9660;</th>
                         <th onclick="sortTable(5)">Szerokość &#9650;&#9660;</th>
-                        <th onclick="sortTable(6)">Waga Kręgu &#9650;&#9660;</th>
-                        <th onclick="sortTable(7)">Nr Etykieta Paletowa &#9650;&#9660;</th>
-                        <th onclick="sortTable(8)">Nr z Etykiety na Kręgu &#9650;&#9660;</th>
-                        <th onclick="sortTable(9)">Lokalizacja &#9650;&#9660;</th>
-                        <th onclick="sortTable(10)">Nr Faktury Dostawcy &#9650;&#9660;</th>
-                        <th onclick="sortTable(11)">Data Dostawy &#9650;&#9660;</th>
-                        <th onclick="sortTable(12)">Nazwa Stanowiska &#9650;&#9660;</th>
                         
+                        
+                        
+                        
+                        
+                        
+                        
+                    
                         <th>Edycja</th>
                     </tr>
                 </thead>
                 <tbody>
-                    {% for tasmy in tasma %}
+                    {% for szablon in szablony %}
                         <tr>
-                            <td>{{ tasmy.id }} <a href="javascript:void(0);" onclick="printID({{ tasmy.id }})">
-                                <img src="/static/img/drukarka.png" alt="drukuj" height="15" width="15">
-                            </a></td>
-                            <td>{{ tasmy.dostawca.nazwa }}</td>
-                            <td>{{ tasmy.szablon.nazwa }}</td>
-                            <td>{{ tasmy.data_z_etykiety_na_kregu }}</td>
-                            <td>{{ tasmy.grubosc }}</td>
-                            <td>{{ tasmy.szerokosc }}</td>
-                            <td>{{ tasmy.waga_kregu }}</td>
-                            <td>{{ tasmy.nr_etykieta_paletowa }}</td>
-                            <td>{{ tasmy.nr_z_etykiety_na_kregu }}</td>
-                            <td>{{ tasmy.lokalizacja }}</td>
-                            <td>{{ tasmy.nr_faktury_dostawcy }}</td>
-                            <td>{{ tasmy.data_dostawy }}</td>
-                            <td>{{ tasmy.pracownik.login }}</td>
+                            <td>{{ szablon.id }} </td>
+                            <td>{{ szablon.nazwa }}</td>
+                            <td>{{ szablon.rodzaj }}</td>
+                            <td>{{ szablon,grubosc_i_oznaczenie_ocynku }}</td>
+                            <td>{{ szablon.grubosc }}</td>
+                            <td>{{ szablon.szerokosc }}</td>
+                            
                             
                             <td><button type="button" class="button" onclick="openEditModal(this.parentElement.parentElement)">Edytuj</button></td>
                         </tr>
