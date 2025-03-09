@@ -273,7 +273,14 @@ def rejestracja_do_bazy():
 def get_uprawnienia():
     uprawnienia = Uprawnienia.query.all()
     return jsonify([{"id": u.id_uprawnienia, "nazwa": u.nazwa} for u in uprawnienia])
-
+@app.route('/get-szanlon', methods=['GET'])
+def get_szablon():
+    szablon = Szablon.query.all()
+    return jsonify([{"id": s.id, "nazwa": s.nazwa} for s in szablon])
+@app.route('/get-dostawcy', methods=['GET'])
+def get_dostawcy(): 
+    dostawcy = Dostawcy.query.all()
+    return jsonify([{"id": d.id, "nazwa": d.nazwa} for d in dostawcy])
 @app.route('/update-row_uzytkownik', methods=['POST'])
 def update_user():
     data = request.json

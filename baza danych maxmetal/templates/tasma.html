@@ -8,9 +8,9 @@
     <link rel="stylesheet" href="../static/style.css">
     <script>
         // Odśwież stronę co 10 sekund
-setInterval(function() {
-    location.reload();
-}, 10000); // 10000 ms = 10 sekund
+// setInterval(function() {
+//     location.reload();
+// }, 10000); // 10000 ms = 10 sekund
 
 function filterTable() {
     let table = document.getElementById("tabela");
@@ -27,7 +27,7 @@ function filterTable() {
             let filter = filterInputs[columnIndex].value.toLowerCase();
             if (cells[columnIndex]) {
                 let cellValue = cells[columnIndex].textContent || cells[columnIndex].innerText;
-                if (filter && !cellValue.toLowerCase().includes(filter)) {
+                if (filter && !cellValue.toLowerCase().includes(filter)) {    
                     isRowVisible = false; // Ukryj wiersz, jeśli nie spełnia filtru
                     break; // Przerywamy, gdy znajdziemy filtr, który nie pasuje
                 }
@@ -47,19 +47,19 @@ function setupFilters() {
 
 // Wywołaj setupFilters po załadowaniu strony
 document.addEventListener("DOMContentLoaded", setupFilters);
-    function resetFilters() {
-        let table = document.getElementById("tabela");
-        let filterInputs = table.querySelectorAll("thead input");
-        let rows = table.getElementsByTagName("tbody")[0].getElementsByTagName("tr");
-    
-        // Resetuj wszystkie pola filtrów
-        filterInputs.forEach(input => input.value = "");
-    
-        // Przywróć widoczność wszystkich wierszy
-        for (let i = 0; i < rows.length; i++) {
-            rows[i].style.display = "";
-        }
+function resetFilters() {
+    let table = document.getElementById("tabela");
+    let filterInputs = table.querySelectorAll("thead input");
+    let rows = table.getElementsByTagName("tbody")[0].getElementsByTagName("tr");
+
+    // Resetuj wszystkie pola filtrów
+    filterInputs.forEach(input => input.value = "");
+
+    // Przywróć widoczność wszystkich wierszy
+    for (let i = 0; i < rows.length; i++) {
+        rows[i].style.display = "";
     }
+}
 let sortStates = []; // Tablica przechowująca stan sortowania dla każdej kolumny
 
 function sortTable(columnIndex) {
