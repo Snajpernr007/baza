@@ -133,7 +133,7 @@ class Szablon(db.Model):
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)
     nazwa = db.Column(db.String(255), nullable=False)
     rodzaj = db.Column(db.String(255), nullable=False)
-    grubosc_i_oznaczenie_ocynku = db.Column(db.String(50), nullable=False)
+    grubosc_i_oznaczenie_ocynku = db.Column(db.String(255), nullable=False)
     grubosc = db.Column(db.Numeric(10, 2), nullable=False)
     szerokosc = db.Column(db.Numeric(10, 2), nullable=False)
 
@@ -597,11 +597,65 @@ def dostawcy():
         return render_template('login.html', user=g.user)
     dostawcy = Dostawcy.query.all()
     return render_template("dostawcy.html", user=g.user, dostawcy=dostawcy)
+@app.route('/dodaj_dostawce')
+def dodaj_dostawce():
+    if not g.user:
+        return render_template('login.html', user=g.user)
+    return render_template("dodaj_dostawce.html", user=g.user)
+@app.route('/dodaj_dostawce_do_bazy', methods=['POST'])
+def dodaj_dostawce_do_bazy():
+    if not g.user:
+        return render_template('login.html', user=g.user)
+    if request.method == 'POST':
+        # Odbierz dane z formularza
+        nazwa = request.form.get('nazwa_dostawcy')
+
+        # Dodanie danych do bazy danych
+        nowy_dostawca = Dostawcy(nazwa=nazwa)
+        db.session.add(nowy_dostawca)
+
+        try:
+            db.session.commit()
+            logger.info("Dane zostały pomyślnie zapisane w bazie danych.")
+            return redirect(url_for('dostawcy'))  # Przekierowanie na stronę główną
+        except Exception as e:
+            db.session.rollback()
+            logger.error(f"Nie udało się zapisać danych: {e}")
+            return render_template('dostawcy.html', error="Wystąpił błąd przy zapisywaniu danych.", user=g.user)
+    return render_template("dostawcy.html", user=g.user)
 @app.route('/szablon')
 def szablon():
     if not g.user:
         return render_template('login.html', user=g.user)
     szablon = Szablon.query.all()
     return render_template("szablon.html", user=g.user, szablony=szablon)
+@app.route('/dodaj_szablon')
+def dodaj_szablon():
+    if not g.user:
+        return render_template('login.html', user=g.user)
+    return render_template("dodaj_szablon.html", user=g.user)
+@app.route('/dodaj_szablon_do_bazy', methods=['POST'])
+def dodaj_szablon_do_bazy():
+    if not g.user:
+        return render_template('login.html', user=g.user)
+    if request.method == 'POST':
+        rodzaj = request.form.get('rodzaj_tasmy')
+        grubosc_i_oznaczenie_ocynku = request.form.get('grubosc_i_oznaczenie_ocynku')
+        grubosc = request.form.get('grubosc')
+        szerokosc = request.form.get('szerokosc')
+        nazwa=rodzaj + " " + grubosc_i_oznaczenie_ocynku + " " + szerokosc + "x" +  grubosc
+        # Dodanie danych do bazy danych
+        nowy_szablon = Szablon(nazwa=nazwa, rodzaj=rodzaj, grubosc_i_oznaczenie_ocynku=grubosc_i_oznaczenie_ocynku, grubosc=grubosc, szerokosc=szerokosc)
+        db.session.add(nowy_szablon)
+        try:
+            db.session.commit()
+            logger.info("Dane zostały pomyślnie zapisane w bazie danych.")
+            return redirect(url_for('szablon'))  # Przekierowanie na stronę główną
+        except Exception as e:
+            db.session.rollback()
+            logger.error(f"Nie udało się zapisać danych: {e}")
+            return render_template('szablon.html', error="Wystąpił błąd przy zapisywaniu danych.", user=g.user)
+
+
 if __name__ == "__main__":
     app.run (host='0.0.0.0',port=5000,debug=True)

@@ -14,7 +14,7 @@ CREATE TABLE `uzytkownicy` (
   PRIMARY KEY (`id`),
   KEY `fk_uzytkownicy_uprawnienia` (`id_uprawnienia`),
   CONSTRAINT `fk_uzytkownicy_uprawnienia` FOREIGN KEY (`id_uprawnienia`) REFERENCES `uprawnienia` (`id_uprawnienia`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 CREATE TABLE `tasma` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -37,7 +37,7 @@ CREATE TABLE `tasma` (
   CONSTRAINT `fk_tasma_dostawca` FOREIGN KEY (`dostawca_id`) REFERENCES `dostawcy` (`id`) ON DELETE CASCADE,
   CONSTRAINT `fk_tasma_pracownik` FOREIGN KEY (`pracownik_id`) REFERENCES `uzytkownicy` (`id`) ON DELETE SET NULL,
   CONSTRAINT `fk_tasma_szablon` FOREIGN KEY (`szablon_id`) REFERENCES `szablon` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=33 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=35 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 CREATE TABLE `profil` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -65,6 +65,7 @@ INSERT INTO uprawnienia (id_uprawnienia, nazwa) VALUES (3, 'Pracownik');
 -- Dane z tabeli uzytkownicy
 INSERT INTO uzytkownicy (id, login, imie, nazwisko, haslo, id_uprawnienia) VALUES (1, 'Administrator', 'Administrator', 'Administrator', 'scrypt:32768:8:1$hFji6Y2E4ieYI6Bp$d019011fb8ea6f21b31c18f54dbbf95f664ed512a7ffc0bb4a2a9b28b709e5fd7b5766675d7a7223aacc24bfdae9b038c22d61f6a1d00a212611c80e068ec153', 1);
 INSERT INTO uzytkownicy (id, login, imie, nazwisko, haslo, id_uprawnienia) VALUES (14, 'test1', 'test1', 'test1', 'scrypt:32768:8:1$FhBeCDCIO9WLa0wi$bc9fe9f869161f96dd5d866f49efb293c30dfa2f194de45bcd6cba2e8c92a3d8a4e427e5b56e922c731b7acc22d9065733c238fff4faac4f099f8741cfcb1b67', 1);
+INSERT INTO uzytkownicy (id, login, imie, nazwisko, haslo, id_uprawnienia) VALUES (15, 'test2', '11', '11', 'scrypt:32768:8:1$JvEhFOfGKXFsubtK$93b751d380a48644fc95b961066fcc8acb0506d9efe94cbeca7b4f23449288e383b44240a2ce0a063a2060cdb28be524826a6e6f85a37346c11e6293240e1ee9', 3);
 
 -- Dane z tabeli tasma
 INSERT INTO tasma (id, data_z_etykiety_na_kregu, grubosc, szerokosc, waga_kregu, nr_etykieta_paletowa, nr_z_etykiety_na_kregu, lokalizacja, nr_faktury_dostawcy, data_dostawy, pracownik_id, dostawca_id, szablon_id) VALUES (7, '1111-11-11', 1.00, 2.00, 5.00, '11', '11', '11', '111', '0001-11-11', 1, 1, 1);
@@ -93,6 +94,8 @@ INSERT INTO tasma (id, data_z_etykiety_na_kregu, grubosc, szerokosc, waga_kregu,
 INSERT INTO tasma (id, data_z_etykiety_na_kregu, grubosc, szerokosc, waga_kregu, nr_etykieta_paletowa, nr_z_etykiety_na_kregu, lokalizacja, nr_faktury_dostawcy, data_dostawy, pracownik_id, dostawca_id, szablon_id) VALUES (30, '0002-02-22', 1.00, 2.00, 22.00, '22', '222', '222', '222', '0002-02-22', 1, 2, 1);
 INSERT INTO tasma (id, data_z_etykiety_na_kregu, grubosc, szerokosc, waga_kregu, nr_etykieta_paletowa, nr_z_etykiety_na_kregu, lokalizacja, nr_faktury_dostawcy, data_dostawy, pracownik_id, dostawca_id, szablon_id) VALUES (31, '0002-02-22', 1.00, 2.00, 22.00, '22', '222', '222', '222', '0002-02-22', 1, 2, 1);
 INSERT INTO tasma (id, data_z_etykiety_na_kregu, grubosc, szerokosc, waga_kregu, nr_etykieta_paletowa, nr_z_etykiety_na_kregu, lokalizacja, nr_faktury_dostawcy, data_dostawy, pracownik_id, dostawca_id, szablon_id) VALUES (32, '1231-03-21', 1.00, 1.00, 132213.00, '123123', '123123213123', '12312312312312', '1231231231', '0023-03-12', 1, 1, 2);
+INSERT INTO tasma (id, data_z_etykiety_na_kregu, grubosc, szerokosc, waga_kregu, nr_etykieta_paletowa, nr_z_etykiety_na_kregu, lokalizacja, nr_faktury_dostawcy, data_dostawy, pracownik_id, dostawca_id, szablon_id) VALUES (33, '0011-11-11', 1.00, 66.00, 1223.00, '23', '23', '43', '324', '0034-03-31', 1, 3, 3);
+INSERT INTO tasma (id, data_z_etykiety_na_kregu, grubosc, szerokosc, waga_kregu, nr_etykieta_paletowa, nr_z_etykiety_na_kregu, lokalizacja, nr_faktury_dostawcy, data_dostawy, pracownik_id, dostawca_id, szablon_id) VALUES (34, '0123-03-21', 8.20, 8.10, 12312.00, '312312', '123', '132', '123', '0312-03-12', 1, 4, 8);
 
 -- Dane z tabeli profil
 INSERT INTO profil (id, id_tasmy, data_produkcji, godz_min_rozpoczecia, godz_min_zakonczenia, zwrot_na_magazyn_kg, nr_czesci_klienta, nazwa_klienta_nr_zlecenia_PRODIO, etykieta_klienta, id_pracownika) VALUES (9, 14, '2025-02-26', 12:06:36, 12:06:43, 1.00, '1212', '1212', '212', 1);

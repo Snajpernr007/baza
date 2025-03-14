@@ -156,7 +156,7 @@ function openEditModal(row) {
 }
 
 function sendDataToBackend(data) {
-    fetch('/update-row', {
+    fetch('/update-row-dostawca', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
@@ -221,7 +221,7 @@ window.open(url, '_blank', windowFeatures); // '_blank' otworzy nowe okno/tab
                             <a href=javascript:history.back();><label for="menuCheckbox" onclick="this.parentNode.click();">Powrót</label></a>
                         </li>
                             <li>
-                                <label style="cursor: pointer;" onclick="openMultipleWindows();">Dodaj materiał</label>
+                                <a href="{{ url_for('dodaj_dostawce') }}";><label for="menuCheckbox" onclick="this.parentNode.click();">Dodaj</label></a>
                             </li>
                             
                             <li>

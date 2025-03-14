@@ -254,7 +254,7 @@ document.addEventListener("DOMContentLoaded", setupFilters);
                         </tr>
                         <tr>
                             <th onclick="sortTable(0)">ID &#9650;&#9660;</th>
-                            <th onclick="sortTable(1)">ID Materiału &#9650;&#9660;</th>
+                            <th onclick="sortTable(1)">Etykieta Materiału &#9650;&#9660;</th>
                             <th onclick="sortTable(2)">Data Produkcji &#9650;&#9660;</th>
                             
                             <th onclick="sortTable(4)">Godzina rozpoczęcia &#9650;&#9660;</th>
@@ -273,7 +273,7 @@ document.addEventListener("DOMContentLoaded", setupFilters);
                             {% if profile.pracownik.id_uprawnienia != 1 and profile.data_produkcji == currentDate and profile.pracownik==g.user%}
                                 <tr>
                                     <td>{{ profile.id }}</td>
-                                    <td>{{ profile.id_tasmy }}</td>
+                                    <td>{{ profile.tasma.nr_z_etykiety_na_kregu }}</td>
                                     <td>{{ profile.data_produkcji }}</td>
                                     <td>{{ profile.godz_min_rozpoczecia }}</td>
                                     <td>{{ profile.godz_min_zakonczenia }}</td>
