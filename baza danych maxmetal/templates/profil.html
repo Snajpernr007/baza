@@ -230,7 +230,7 @@ document.addEventListener("DOMContentLoaded", setupFilters);
         <div id="content">
             <div id="title">
                 {% if user %}
-                <h2 id="witaj">Witaj, {{ user.imie }}!</h2>    
+                <h2 id="witaj">Witaj, {{ user.login }}!</h2>    
             {% endif %}
             </div>
             <hr>
@@ -246,9 +246,9 @@ document.addEventListener("DOMContentLoaded", setupFilters);
                             <th><input type="text" placeholder="Filtruj Zwrot na magazyn" onkeyup="filterColumn(5)"></th>
                             <th><input type="text" placeholder="Filtruj Nr części Klienta" onkeyup="filterColumn(6)"></th>
                             <th><input type="text" placeholder="Filtruj Nazwę klienta Nr PRODIO" onkeyup="filterColumn(7)"></th>
-                            <th><input type="text" placeholder="Filtruj Etykietę klienta" onkeyup="filterColumn(8)"></th>
                             
-                            <th><input type="text" placeholder="Filtruj Nazwę Stanowiska" onkeyup="filterColumn(12)"></th>
+                            
+                            <th><input type="text" placeholder="Filtruj Nazwę Stanowiska" onkeyup="filterColumn(8)"></th>
                             
                             <th><button class="button" onclick="resetFilters()">Usuń Filtry</button></th>
                         </tr>
@@ -257,13 +257,13 @@ document.addEventListener("DOMContentLoaded", setupFilters);
                             <th onclick="sortTable(1)">Etykieta Materiału &#9650;&#9660;</th>
                             <th onclick="sortTable(2)">Data Produkcji &#9650;&#9660;</th>
                             
-                            <th onclick="sortTable(4)">Godzina rozpoczęcia &#9650;&#9660;</th>
-                            <th onclick="sortTable(5)">Godzina zakończenia &#9650;&#9660;</th>
-                            <th onclick="sortTable(6)">Zwrot na magazyn kg &#9650;&#9660;</th>
-                            <th onclick="sortTable(7)">Nr części klienta &#9650;&#9660;</th>
-                            <th onclick="sortTable(8)">Nazwa klienta Nr PRODIO &#9650;&#9660;</th>
-                            <th onclick="sortTable(9)">Etykieta klienta &#9650;&#9660;</th>
-                            <th onclick="sortTable(12)">Nazwa Stanowiska &#9650;&#9660;</th>
+                            <th onclick="sortTable(3)">Godzina rozpoczęcia &#9650;&#9660;</th>
+                            <th onclick="sortTable(4)">Godzina zakończenia &#9650;&#9660;</th>
+                            <th onclick="sortTable(5)">Zwrot na magazyn kg &#9650;&#9660;</th>
+                            <th onclick="sortTable(6)">Nr części klienta &#9650;&#9660;</th>
+                            <th onclick="sortTable(7)">Nazwa klienta Nr PRODIO &#9650;&#9660;</th>
+                            
+                            <th onclick="sortTable(8)">Nazwa Stanowiska &#9650;&#9660;</th>
                             
                             <th>Edycja</th>
                         </tr>
@@ -280,7 +280,7 @@ document.addEventListener("DOMContentLoaded", setupFilters);
                                     <td>{{ profile.zwrot_na_magazyn_kg }}</td>
                                     <td>{{ profile.nr_czesci_klienta }}</td>
                                     <td>{{ profile.nazwa_klienta_nr_zlecenia_PRODIO }}</td>
-                                    <td>{{ profile.etykieta_klienta }}</td>
+                                    
                                     <td>{{ profile.pracownik.login }}</td>
                                     
                                     <td><button type="button" class="button" onclick="openEditModal(this.parentElement.parentElement)">Edytuj</button></td>
@@ -288,14 +288,14 @@ document.addEventListener("DOMContentLoaded", setupFilters);
                             {% elif profile.pracownik.id_uprawnienia == 1 %}
                                 <tr>
                                     <td>{{ profile.id }}</td>
-                                    <td>{{ profile.id_tasmy }}</td>
+                                    <td>{{ profile.tasma.nr_z_etykiety_na_kregu }}</td>
                                     <td>{{ profile.data_produkcji }}</td>
                                     <td>{{ profile.godz_min_rozpoczecia }}</td>
                                     <td>{{ profile.godz_min_zakonczenia }}</td>
                                     <td>{{ profile.zwrot_na_magazyn_kg }}</td>
                                     <td>{{ profile.nr_czesci_klienta }}</td>
                                     <td>{{ profile.nazwa_klienta_nr_zlecenia_PRODIO }}</td>
-                                    <td>{{ profile.etykieta_klienta }}</td>
+                                    
                                     <td>{{ profile.pracownik.login }}</td>
                                     
                                     <td><button type="button" class="button" onclick="openEditModal(this.parentElement.parentElement)">Edytuj</button></td>

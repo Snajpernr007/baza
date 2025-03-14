@@ -240,7 +240,7 @@ window.open(url, '_blank', windowFeatures); // '_blank' otworzy nowe okno/tab
             <div id="content">
                 <div id="title">
                     {% if user %}
-                    <h2 id="witaj">Witaj, {{ user.imie }}!</h2>    
+                    <h2 id="witaj">Witaj, {{ user.login }}!</h2>    
                 {% endif %}
                 </div>
             </div>
@@ -289,7 +289,7 @@ window.open(url, '_blank', windowFeatures); // '_blank' otworzy nowe okno/tab
                             <td>{{ szablon.id }} </td>
                             <td>{{ szablon.nazwa }}</td>
                             <td>{{ szablon.rodzaj }}</td>
-                            <td>{{ szablon,grubosc_i_oznaczenie_ocynku }}</td>
+                            <td>{{ szablon.grubosc_i_oznaczenie_ocynku }}</td>
                             <td>{{ szablon.grubosc }}</td>
                             <td>{{ szablon.szerokosc }}</td>
                             

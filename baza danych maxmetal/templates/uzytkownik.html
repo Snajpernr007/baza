@@ -242,7 +242,7 @@ function sendDataToBackend(data) {
         <div id="content">
             <div id="title">
                 {% if user %}
-                <h2 id="witaj">Witaj, {{ user.imie }}!</h2>    
+                <h2 id="witaj">Witaj, {{ user.login }}!</h2>    
             {% endif %}
             </div>
             <hr>
@@ -252,25 +252,22 @@ function sendDataToBackend(data) {
                         <tr>
                             <th><input type="text" placeholder="Filtruj ID" onkeyup="filterColumn(0)"></th>
                             <th><input type="text" placeholder="Filtruj Login" onkeyup="filterColumn(1)"></th>
-                            <th><input type="text" placeholder="Filtruj Imię" onkeyup="filterColumn(2)"></th>
-                            <th><input type="text" placeholder="Filtruj Nazwisko" onkeyup="filterColumn(3)"></th>
-                            <th><input type="text" placeholder="Filtruj Hasło" onkeyup="filterColumn(4)"></th>
+                            
+                            <th><input type="text" placeholder="Filtruj Hasło" onkeyup="filterColumn(2)"></th>
                             
                             
                             
                             
-                            <th><input type="text" placeholder="Filtruj Uprawnienia" onkeyup="filterColumn(5)"></th>
+                            <th><input type="text" placeholder="Filtruj Uprawnienia" onkeyup="filterColumn(3)"></th>
                             <th><button class="button" onclick="resetFilters()">Usuń Filtry</button></th>
                         </tr>
                         <tr>
                             <th onclick="sortTable(0)">ID &#9650;&#9660;</th>
                             <th onclick="sortTable(1)">Login &#9650;&#9660;</th>
-                            <th onclick="sortTable(2)">Imię &#9650;&#9660;</th>
                             
-                            <th onclick="sortTable(4)">Nazwisko &#9650;&#9660;</th>
-                            <th onclick="sortTable(5)">Hasło &#9650;&#9660;</th>
+                            <th onclick="sortTable(2)">Hasło &#9650;&#9660;</th>
                             
-                            <th onclick="sortTable(7)">Uprawnienia &#9650;&#9660;</th>
+                            <th onclick="sortTable(3)">Uprawnienia &#9650;&#9660;</th>
                             <th>Edycja</th>
                         </tr>
                     </thead>
@@ -281,8 +278,7 @@ function sendDataToBackend(data) {
                                 
                                 <td>{{uzytkownik.id}}</td>
                                 <td>{{uzytkownik.login}}</td>
-                                <td>{{uzytkownik.imie}}</td>
-                                <td>{{uzytkownik.nazwisko}}</td>
+                                
                                 <td></td>
                                 
                                 <td>

@@ -47,6 +47,11 @@ function filtrujDostawcow() {
             option.style.display = text.includes(input) ? "" : "none";
         }
     }
+    function zamknijOkno() {
+        setTimeout(function() {
+            window.close();
+        }, 1000);
+    }
 </script>
 </head>
 <body>
@@ -101,7 +106,8 @@ function filtrujDostawcow() {
     <input type="date" name="data_dostawy" required><br>
     <button type="reset" class="button">Wyczyść</button>
 
-    <button type="submit" class="button" id="zamkni">Dodaj</button>
+    <button type="submit" class="button" id="zamkni" onclick="zamknijOkno()">Dodaj i zamknij</button>
+    <button type="submit" class="button" id="zamkni" >Dodaj</button>
     
 
 

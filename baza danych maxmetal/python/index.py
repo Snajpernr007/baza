@@ -48,8 +48,7 @@ class Uzytkownik(db.Model):
     __tablename__ = 'uzytkownicy'
     id = db.Column(db.Integer, primary_key=True)
     login = db.Column(db.String(255), nullable=False)
-    imie = db.Column(db.String(50), nullable=True)
-    nazwisko = db.Column(db.String(50), nullable=True)
+    
     haslo = db.Column(db.Text, nullable=False)
     id_uprawnienia = db.Column(db.Integer, db.ForeignKey('uprawnienia.id_uprawnienia'), nullable=False, default=2)
 
@@ -107,7 +106,7 @@ class Profil(db.Model):
     zwrot_na_magazyn_kg = db.Column(db.Numeric(10, 2), nullable=True)
     nr_czesci_klienta = db.Column(db.String(50), nullable=False)
     nazwa_klienta_nr_zlecenia_PRODIO = db.Column(db.String(100), nullable=True)
-    etykieta_klienta = db.Column(db.String(50), nullable=False)
+    
     id_pracownika = db.Column(db.Integer, db.ForeignKey('uzytkownicy.id'), nullable=False)
 
     tasma = db.relationship('Tasma', back_populates='profil')
@@ -240,8 +239,7 @@ def rejestracja_do_bazy():
         login = request.form.get('login')
         haslo = request.form.get('password')
         
-        imie = request.form.get('imie')
-        nazwisko = request.form.get('nazwisko')
+        
         uprawnienia = request.form.get('id_uprawnienia')
         # Debugowanie: sprawdź, co zostało odebrane
         
@@ -258,7 +256,7 @@ def rejestracja_do_bazy():
             return render_template('register.html', error="Użytkownik z tym loginem już istnieje.")
 
         # Dodanie danych do bazy danych
-        nowy_uzytkownik = Uzytkownik(login=login, haslo=generate_password_hash(haslo),  imie=imie, nazwisko=nazwisko, id_uprawnienia=uprawnienia)
+        nowy_uzytkownik = Uzytkownik(login=login, haslo=generate_password_hash(haslo),  id_uprawnienia=uprawnienia)
         db.session.add(nowy_uzytkownik)
 
         try:
@@ -286,8 +284,7 @@ def update_user():
     data = request.json
     user_id = data.get("column_0")
     login = data.get("column_1")
-    imie = data.get("column_2")
-    nazwisko = data.get("column_3")
+    
     haslo = data.get("column_4")  
     uprawnienia_nazwa = data.get("column_5")  # Nazwa uprawnienia z formularza
 
@@ -296,8 +293,7 @@ def update_user():
         return jsonify({"error": "Użytkownik nie istnieje"}), 404
 
     user.login = login
-    user.imie = imie
-    user.nazwisko = nazwisko
+    
 
     # Znalezienie ID uprawnienia na podstawie nazwy
     uprawnienie = Uprawnienia.query.filter_by(nazwa=uprawnienia_nazwa).first()
@@ -331,7 +327,7 @@ def login():
                 max_age = None
             
             response.set_cookie('user_id', str(user.id), httponly=True, secure=False, samesite='Strict', max_age=max_age)
-            logger.info(f"Użytkownik {user.imie} zalogowany pomyślnie.")
+            logger.info(f"Użytkownik {user.login} zalogowany pomyślnie.")
             return response
         else:
             logger.warning("Nieudana próba logowania.")
@@ -535,7 +531,7 @@ def update_row_profil():
         profil.zwrot_na_magazyn_kg = dane.get('column_5', profil.zwrot_na_magazyn_kg)
         profil.nr_czesci_klienta = dane.get('column_6', profil.nr_czesci_klienta)
         profil.nazwa_klienta_nr_zlecenia_PRODIO = dane.get('column_7', profil.nazwa_klienta_nr_zlecenia_PRODIO)
-        profil.etykieta_klienta = dane.get('column_8', profil.etykieta_klienta)
+        
         
 
         db.session.commit()
@@ -556,14 +552,14 @@ def dodaj_profil_do_bazy():
     
     if request.method == 'POST':
         # Odbierz dane z formularza
-        id_tasmy = request.form.get('id_tasmy')  
+        id_tasmy = request.form.get('etykieta')  
         data_produkcji = request.form.get('data_produkcji')
         godz_min_rozpoczecia = request.form.get('godz_min_rozpoczecia')
         godz_min_zakonczenia = request.form.get('godz_min_zakonczenia')
         zwrot_na_magazyn_kg = request.form.get('zwrot_na_magazyn_kg')
         nr_czesci_klienta = request.form.get('nr_czesci_klienta')
         nazwa_klienta_nr_zlecenia_PRODIO = request.form.get('nazwa_klienta_nr_zlecenia_PRODIO')
-        etykieta_klienta = request.form.get('etykieta_klienta')
+        
         pracownik_id = g.user.id  # ID pracownika z sesji
 
         # Dodanie danych do bazy danych
@@ -575,7 +571,7 @@ def dodaj_profil_do_bazy():
             zwrot_na_magazyn_kg=zwrot_na_magazyn_kg,
             nr_czesci_klienta=nr_czesci_klienta,
             nazwa_klienta_nr_zlecenia_PRODIO=nazwa_klienta_nr_zlecenia_PRODIO,
-            etykieta_klienta=etykieta_klienta,
+            
             id_pracownika=pracownik_id
         )
         tasma = Tasma.query.get(id_tasmy)
