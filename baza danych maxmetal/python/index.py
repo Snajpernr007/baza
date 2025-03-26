@@ -6,6 +6,7 @@ import base64
 import smtplib
 from email.message import EmailMessage
 from datetime import timedelta
+from datetime import date
 from werkzeug.security import generate_password_hash, check_password_hash
 from werkzeug.utils import secure_filename
 import json
@@ -279,8 +280,14 @@ def get_szablon():
 def get_dostawcy(): 
     dostawcy = Dostawcy.query.all()
     return jsonify([{"id": d.id, "nazwa": d.nazwa} for d in dostawcy])
+@app.route('/get-uzytkownicy')
+def get_uzytkownicy():
+    users = User.query.with_entities(User.login).all()  # Pobiera loginy użytkowników
+    return jsonify([{"login": user.login} for user in users])
 @app.route('/update-row_uzytkownik', methods=['POST'])
 def update_user():
+    if g.user.id_uprawnienia != 1:
+        return redirect(url_for('home'))
     data = request.json
     user_id = data.get("column_0")
     login = data.get("column_1")
@@ -411,8 +418,11 @@ def regulamin():
 
 @app.route('/tasma')
 def tasma():
+    
     if not g.user:
         return render_template('login.html', user=g.user)
+    if g.user.id_uprawnienia != 1:
+        return redirect(url_for('home'))
 
     # Jeśli użytkownik ma uprawnienia 1, pobierz wszystkie wpisy
     if g.user.uprawnienia.id_uprawnienia == 1:
@@ -426,6 +436,8 @@ def tasma():
 def update_row():
     if not g.user:
         return render_template('login.html', user=g.user)
+    if g.user.id_uprawnienia != 1:
+        return redirect(url_for('home'))
     try:
         dane = request.get_json()
         logging.info(f'Otrzymane dane: {dane}')
@@ -461,11 +473,15 @@ def update_row():
 def dodaj_tasma():
     if not g.user:
         return render_template('login.html', user=g.user)
+    if g.user.id_uprawnienia != 1:
+        return redirect(url_for('home'))
     return render_template("dodaj_tasma.html", user=g.user,dostawcy=Dostawcy.query.all(),nazwy_materiału=Szablon.query.all())
 @app.route('/dodaj_tasma_do_bazy', methods=['POST'])
 def dodaj_tasma_do_bazy():
     if not g.user:
         return render_template('login.html', user=g.user)
+    if g.user.id_uprawnienia != 1:
+        return redirect(url_for('home'))
     if request.method == 'POST':
         # Odbierz dane z formularza
         
@@ -505,10 +521,11 @@ def profil():
         return render_template('login.html', user=g.user)
     #if g.user.uprawnienia.id_uprawnienia == 1 or g.user.uprawnienia.id_uprawnienia == 2:
     profil = Profil.query.all()
+    
    # else:
         # W przeciwnym razie pobierz tylko te wpisy, które stworzył zalogowany użytkownik
         #profil = Profil.query.filter_by(pracownik_id=g.user.id).all()
-    return render_template("profil.html", user=g.user,profil=profil,uprawnienia=Uprawnienia.query.all())
+    return render_template("profil.html", user=g.user,profil=profil,uprawnienia=Uprawnienia.query.all(),currentDate = date.today().strftime('%Y-%m-%d'),currentDate1=(date.today() - timedelta(days=1)).strftime('%Y-%m-%d'),currentDate2=(date.today() - timedelta(days=2)).strftime('%Y-%m-%d'))
 @app.route('/update-row_profil', methods=['POST'])
 def update_row_profil():
     if not g.user:
@@ -527,10 +544,38 @@ def update_row_profil():
             return jsonify({'message': 'Rekord nie znaleziony!'}), 404  # Błąd, gdy rekord nie istnieje
 
         # Aktualizacja danych
-        profil.id_tasmy = dane.get('column_1', profil.id_tasmy)
-        profil.zwrot_na_magazyn_kg = dane.get('column_5', profil.zwrot_na_magazyn_kg)
-        profil.nr_czesci_klienta = dane.get('column_6', profil.nr_czesci_klienta)
-        profil.nazwa_klienta_nr_zlecenia_PRODIO = dane.get('column_7', profil.nazwa_klienta_nr_zlecenia_PRODIO)
+        try:
+            profil.id_tasmy = dane.get('column_1', profil.id_tasmy)
+        except:
+            pass
+        try:
+            profil.data_produkcji = dane.get('column_2', profil.data_produkcji)
+        except:
+            pass
+        try:
+            profil.godz_min_rozpoczecia = dane.get('column_3', profil.godz_min_rozpoczecia)
+        except:
+            pass
+        try:
+            profil.godz_min_zakonczenia = dane.get('column_4', profil.godz_min_zakonczenia)
+        except:
+            pass
+        try:
+            profil.zwrot_na_magazyn_kg = dane.get('column_5', profil.zwrot_na_magazyn_kg)
+        except:
+            pass
+        try:
+            profil.nr_czesci_klienta = dane.get('column_6', profil.nr_czesci_klienta)
+        except:
+            pass
+        try:
+            profil.nazwa_klienta_nr_zlecenia_PRODIO = dane.get('column_7', profil.nazwa_klienta_nr_zlecenia_PRODIO)
+        except:
+            pass
+        try:
+            profil.id_pracownika = dane.get('column_8', profil.id_pracownika)
+        except:
+            pass
         
         
 
@@ -591,17 +636,23 @@ def dodaj_profil_do_bazy():
 def dostawcy():
     if not g.user:
         return render_template('login.html', user=g.user)
+    if g.user.id_uprawnienia != 1:
+        return redirect(url_for('home'))
     dostawcy = Dostawcy.query.all()
     return render_template("dostawcy.html", user=g.user, dostawcy=dostawcy)
 @app.route('/dodaj_dostawce')
 def dodaj_dostawce():
     if not g.user:
         return render_template('login.html', user=g.user)
+    if g.user.id_uprawnienia != 1:
+        return redirect(url_for('home'))
     return render_template("dodaj_dostawce.html", user=g.user)
 @app.route('/dodaj_dostawce_do_bazy', methods=['POST'])
 def dodaj_dostawce_do_bazy():
     if not g.user:
         return render_template('login.html', user=g.user)
+    if g.user.id_uprawnienia != 1:
+        return redirect(url_for('home'))
     if request.method == 'POST':
         # Odbierz dane z formularza
         nazwa = request.form.get('nazwa_dostawcy')
@@ -619,21 +670,55 @@ def dodaj_dostawce_do_bazy():
             logger.error(f"Nie udało się zapisać danych: {e}")
             return render_template('dostawcy.html', error="Wystąpił błąd przy zapisywaniu danych.", user=g.user)
     return render_template("dostawcy.html", user=g.user)
+@app.route('/update-row-dostawcy', methods=['POST'])
+def update_row_dostawcy():
+    if not g.user:
+        return render_template('login.html', user=g.user)
+    if g.user.id_uprawnienia != 1:
+        return redirect(url_for('home'))
+    try:
+        dane = request.get_json()
+        logging.info(f'Otrzymane dane: {dane}')
+
+        # Użyj column_0 jako id
+        id = dane.get('column_0')  # Zmiana tutaj
+        if id is None:
+            return jsonify({'message': 'Id jest wymagane!'}), 400  # Błąd, gdy id jest None
+
+        dostawca = Dostawcy.query.get(id)
+        if dostawca is None:
+            return jsonify({'message': 'Rekord nie znaleziony!'}), 404  # Błąd, gdy rekord nie istnieje
+
+        # Aktualizacja danych
+        dostawca.nazwa = dane.get('column_1', dostawca.nazwa)
+        
+
+        db.session.commit()
+        return jsonify({'message': 'Rekord zaktualizowany pomyślnie!'})
+    except Exception as e:
+        db.session.rollback()
+        return jsonify({'message': 'Wystąpił błąd podczas aktualizacji!', 'error': str(e)}), 500
 @app.route('/szablon')
 def szablon():
     if not g.user:
         return render_template('login.html', user=g.user)
+    if g.user.id_uprawnienia != 1:
+        return redirect(url_for('home'))
     szablon = Szablon.query.all()
     return render_template("szablon.html", user=g.user, szablony=szablon)
 @app.route('/dodaj_szablon')
 def dodaj_szablon():
     if not g.user:
         return render_template('login.html', user=g.user)
+    if g.user.id_uprawnienia != 1:
+        return redirect(url_for('home'))
     return render_template("dodaj_szablon.html", user=g.user)
 @app.route('/dodaj_szablon_do_bazy', methods=['POST'])
 def dodaj_szablon_do_bazy():
     if not g.user:
         return render_template('login.html', user=g.user)
+    if g.user.id_uprawnienia != 1:
+        return redirect(url_for('home'))
     if request.method == 'POST':
         rodzaj = request.form.get('rodzaj_tasmy')
         grubosc_i_oznaczenie_ocynku = request.form.get('grubosc_i_oznaczenie_ocynku')
@@ -651,6 +736,38 @@ def dodaj_szablon_do_bazy():
             db.session.rollback()
             logger.error(f"Nie udało się zapisać danych: {e}")
             return render_template('szablon.html', error="Wystąpił błąd przy zapisywaniu danych.", user=g.user)
+@app.route('/update-row-szablon', methods=['POST'])
+def update_row_szablon():
+    if not g.user:
+        return render_template('login.html', user=g.user)
+    if g.user.id_uprawnienia != 1:
+        return redirect(url_for('home'))
+    try:
+        dane = request.get_json()
+        logging.info(f'Otrzymane dane: {dane}')
+
+        # Użyj column_0 jako id
+        id = dane.get('column_0')  # Zmiana tutaj
+        if id is None:
+            return jsonify({'message': 'Id jest wymagane!'}), 400  # Błąd, gdy id jest None
+
+        szablon = Szablon.query.get(id)
+        if szablon is None:
+            return jsonify({'message': 'Rekord nie znaleziony!'}), 404  # Błąd, gdy rekord nie istnieje
+
+        # Aktualizacja danych
+        szablon.nazwa = dane.get('column_1', szablon.nazwa)
+        szablon.rodzaj = dane.get('column_2', szablon.rodzaj)
+        szablon.grubosc_i_oznaczenie_ocynku = dane.get('column_3', szablon.grubosc_i_oznaczenie_ocynku)
+        szablon.grubosc = dane.get('column_4', szablon.grubosc)
+        szablon.szerokosc = dane.get('column_5', szablon.szerokosc)
+        
+
+        db.session.commit()
+        return jsonify({'message': 'Rekord zaktualizowany pomyślnie!'})
+    except Exception as e:
+        db.session.rollback()
+        return jsonify({'message': 'Wystąpił błąd podczas aktualizacji!', 'error': str(e)}), 500
 
 
 if __name__ == "__main__":

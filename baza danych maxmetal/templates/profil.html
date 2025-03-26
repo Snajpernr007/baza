@@ -117,12 +117,27 @@ document.addEventListener("DOMContentLoaded", setupFilters);
         const editButton = row.querySelector("button");
     
         if (editButton.innerText === "Edytuj") {
+            fetch('/get-uzytkownicy')
+    .then(response => response.json())
+    .then(uzytkownicy => {
+        let uzytkownicyOptions = uzytkownicy.map(user => 
+            `<option value="${user.login}">${user.login}</option>`
+        ).join("");
+        
+        document.getElementById("uzytkownicySelect").innerHTML = uzytkownicyOptions;
+    })
+    .catch(error => console.error('Błąd pobierania użytkowników:', error));
             // Zamień edytowalne komórki na pola formularza
             cells.forEach((cell, index) => {
-                if (index > 0 && index < cells.length - 3 && index !== 2 && index !== 3 && index !== 4) { // Edytowalne: 1 do przedostatniej
+                if (index > 0 && index < cells.length - 2 && index !== 2 && index !== 3 && index !== 4) { // Edytowalne: 1 do przedostatniej
                     const value = cell.innerText;
                     cell.innerHTML = `<input type="text" value="${value}" style="width: 100%;">`;
-                }
+                } else if (index === 8) {  
+                            // Uprawnienia jako <select>
+                            let currentValue = cell.innerText.trim();
+                            cell.innerHTML = `<select>${uzytkownicyOptions}</select>`;
+                            cell.querySelector("select").value = currentValue;
+                        }
             });
             editButton.innerText = "Zapisz";
         } else if (editButton.innerText === "Zapisz") {
@@ -131,7 +146,7 @@ document.addEventListener("DOMContentLoaded", setupFilters);
             let isValid = true;
             
             cells.forEach((cell, index) => {
-                if (index > 0 && index < cells.length - 3 && index !== 2 && index !== 3 && index !== 4) {
+                if (index > 0 && index < cells.length - 2 && index !== 2 && index !== 3 && index !== 4) {
                     const input = cell.querySelector("input");
                     if (input) {
                         const value = input.value.trim();
@@ -156,6 +171,67 @@ document.addEventListener("DOMContentLoaded", setupFilters);
     }
     
     function sendDataToBackend(data) {
+        fetch('/update-row_profil', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(data),
+        })
+        .then(response => response.json())
+        .then(result => {
+            console.log("Wynik z backendu:", result);
+            alert("Dane zostały pomyślnie zapisane!");
+        })
+        .catch(error => {
+            console.error("Błąd podczas wysyłania danych:", error);
+            alert("Wystąpił błąd podczas zapisywania danych!");
+        });
+    }
+    function openEditModala(row) {
+        const cells = row.querySelectorAll("td");
+        const editButton = row.querySelector("button");
+    
+        if (editButton.innerText === "Edytuj") {
+            // Zamień edytowalne komórki na pola formularza
+            cells.forEach((cell, index) => {
+                if (index > 0 && index < cells.length - 1) { // Edytowalne: 1 do przedostatniej
+                    const value = cell.innerText;
+                    cell.innerHTML = `<input type="text" value="${value}" style="width: 100%;">`;
+                }
+            });
+            editButton.innerText = "Zapisz";
+        } else if (editButton.innerText === "Zapisz") {
+            // Zbierz dane z formularza
+            const updatedData = {};
+            let isValid = true;
+            
+            cells.forEach((cell, index) => {
+                if (index > 0 && index < cells.length - 1) {
+                    const input = cell.querySelector("input");
+                    if (input) {
+                        const value = input.value.trim();
+                        if (!value) {
+                            isValid = false; // Walidacja: sprawdź, czy pole nie jest puste
+                        }
+                        updatedData[`column_${index}`] = value;
+                        cell.innerText = value; // Zapisz nowe wartości
+                    }
+                } else if (index === 0 || index >= cells.length - 3) {
+                    updatedData[`column_${index}`] = cell.innerText;
+                }
+            });
+    
+            if (isValid) {
+                sendDataToBackenda(updatedData);
+                editButton.innerText = "Edytuj";
+            } else {
+                alert("Proszę wypełnić wszystkie edytowalne pola.");
+            }
+        }
+    }
+    
+    function sendDataToBackenda(data) {
         fetch('/update-row_profil', {
             method: 'POST',
             headers: {
@@ -232,6 +308,7 @@ document.addEventListener("DOMContentLoaded", setupFilters);
                 {% if user %}
                 <h2 id="witaj">Witaj, {{ user.login }}!</h2>    
             {% endif %}
+            
             </div>
             <hr>
             <div>
@@ -270,7 +347,9 @@ document.addEventListener("DOMContentLoaded", setupFilters);
                     </thead>
                     <tbody>
                         {% for profile in profil %}
-                            {% if profile.pracownik.id_uprawnienia != 1 and profile.data_produkcji == currentDate and profile.pracownik==g.user%}
+                            
+                            {% if g.user.id_uprawnienia != 1  and profile.pracownik.login==g.user.login%}
+                            {%if profile.data_produkcji.strftime('%Y-%m-%d') == currentDate or profile.data_produkcji.strftime('%Y-%m-%d') == currentDate1 or profile.data_produkcji.strftime('%Y-%m-%d') == currentDate2%}
                                 <tr>
                                     <td>{{ profile.id }}</td>
                                     <td>{{ profile.tasma.nr_z_etykiety_na_kregu }}</td>
@@ -285,7 +364,9 @@ document.addEventListener("DOMContentLoaded", setupFilters);
                                     
                                     <td><button type="button" class="button" onclick="openEditModal(this.parentElement.parentElement)">Edytuj</button></td>
                                 </tr>
-                            {% elif profile.pracownik.id_uprawnienia == 1 %}
+                            {% endif %}
+                            
+                            {% elif g.user.id_uprawnienia == 1 %}
                                 <tr>
                                     <td>{{ profile.id }}</td>
                                     <td>{{ profile.tasma.nr_z_etykiety_na_kregu }}</td>
@@ -298,7 +379,7 @@ document.addEventListener("DOMContentLoaded", setupFilters);
                                     
                                     <td>{{ profile.pracownik.login }}</td>
                                     
-                                    <td><button type="button" class="button" onclick="openEditModal(this.parentElement.parentElement)">Edytuj</button></td>
+                                    <td><button type="button" class="button" onclick="openEditModala(this.parentElement.parentElement)">Edytuj</button></td>
                                 </tr>
                             {% endif %}
                         {% endfor %}
