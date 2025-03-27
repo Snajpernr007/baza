@@ -112,24 +112,25 @@ document.addEventListener("DOMContentLoaded", setupFilters);
     const editButton = row.querySelector("button");
 
     if (editButton.innerText === "Edytuj") {
-        // Pobranie listy uprawnień z backendu
         fetch('/get-uprawnienia')
             .then(response => response.json())
             .then(uprawnienia => {
                 let uprawnieniaOptions = uprawnienia.map(up => 
-                    `<option value="${up.nazwa}">${up.nazwa}</option>`
+                    `<option value="${up.id}">${up.nazwa}</option>`
                 ).join("");
 
-                // Zamień edytowalne komórki na inputy
                 cells.forEach((cell, index) => {
                     if (index > 0 && index < cells.length - 1) { 
                         if (index === 4) { 
                             cell.innerHTML = `<input type="password" value="" placeholder="Nowe hasło" style="width: 100%;">`;
-                        } else if (index === 5) {  
-                            // Uprawnienia jako <select>
-                            let currentValue = cell.innerText.trim();
+                        } else if (index === 3) {  
+                            let currentValueId = cell.dataset.uprawnienieId || ""; // Pobierz ID uprawnienia
                             cell.innerHTML = `<select>${uprawnieniaOptions}</select>`;
-                            cell.querySelector("select").value = currentValue;
+                            let selectElement = cell.querySelector("select");
+
+                            if (currentValueId) {
+                                selectElement.value = currentValueId; // Ustaw wartość
+                            }
                         } else {
                             const value = cell.innerText;
                             cell.innerHTML = `<input type="text" value="${value}" style="width: 100%;">`;
@@ -148,14 +149,25 @@ document.addEventListener("DOMContentLoaded", setupFilters);
                 const input = cell.querySelector("input, select");
                 if (input) {
                     const value = input.value.trim();
-                    if (index === 4 && !value) return; 
+                    if (index === 2) {
+    updatedData[`column_${index}`] = value ? value : null;  
+}
                     updatedData[`column_${index}`] = value;
-                    cell.innerText = index === 4 ? "••••••" : value;
+                    if (index === 3) { // Jeśli to uprawnienia
+                        const selectedOption = input.options[input.selectedIndex];
+                        updatedData[`column_3`] = selectedOption.value; // Ustaw ID, nie nazwę!
+                        cell.innerText = selectedOption.text; // Pokaż nazwę uprawnienia
+                        cell.dataset.uprawnienieId = selectedOption.value;
+                    } else {
+                        cell.innerText = index === 4 ? "••••••" : value;
+                    }
                 }
             } else {
                 updatedData[`column_${index}`] = cell.innerText;
             }
         });
+
+       
 
         if (isValid) {
             sendDataToBackend(updatedData);
@@ -165,6 +177,7 @@ document.addEventListener("DOMContentLoaded", setupFilters);
         }
     }
 }
+
 
 
 function sendDataToBackend(data) {
@@ -281,7 +294,7 @@ function sendDataToBackend(data) {
                                 
                                 <td></td>
                                 
-                                <td>
+                                <td data-uprawnienie-id="{{ uzytkownik.id_uprawnienia }}">
                                     {% for uprawnienie in uprawnienia %}
                                         {% if uzytkownik.id_uprawnienia == uprawnienie.id_uprawnienia %}
                                             {{ uprawnienie.nazwa }}

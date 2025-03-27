@@ -263,7 +263,7 @@ def rejestracja_do_bazy():
         try:
             db.session.commit()
             logger.info("Dane zostały pomyślnie zapisane w bazie danych.")
-            return redirect(url_for('home'))  # Przekierowanie na stronę główną
+            return redirect(url_for('uzytkownik'))  # Przekierowanie na stronę główną
         except Exception as e:
             db.session.rollback()
             logger.error(f"Nie udało się zapisać danych: {e}")
@@ -288,28 +288,29 @@ def get_uzytkownicy():
 def update_user():
     if g.user.id_uprawnienia != 1:
         return redirect(url_for('home'))
+    
     data = request.json
     user_id = data.get("column_0")
     login = data.get("column_1")
-    
-    haslo = data.get("column_4")  
-    uprawnienia_nazwa = data.get("column_5")  # Nazwa uprawnienia z formularza
+    haslo = data.get("column_2")
+    if not haslo:  # Jeśli puste, nie zmieniamy hasła
+        haslo = None
+    id_uprawnienia = data.get("column_3")  # Teraz dostajemy ID uprawnienia
 
     user = Uzytkownik.query.get(user_id)
     if not user:
         return jsonify({"error": "Użytkownik nie istnieje"}), 404
 
+    # 🛠 WALIDACJA: Sprawdź, czy uprawnienie istnieje w bazie
+    if id_uprawnienia:
+        uprawnienie = Uprawnienia.query.get(id_uprawnienia)
+        if not uprawnienie:
+            return jsonify({"error": "Nieprawidłowe uprawnienie!"}), 400
+        user.id_uprawnienia = id_uprawnienia  # Bezpośrednio przypisujemy ID
+
     user.login = login
-    
 
-    # Znalezienie ID uprawnienia na podstawie nazwy
-    uprawnienie = Uprawnienia.query.filter_by(nazwa=uprawnienia_nazwa).first()
-    if not uprawnienie:
-        return jsonify({"error": "Nieprawidłowe uprawnienie"}), 400
-
-    user.id_uprawnienia = uprawnienie.id_uprawnienia  # Zapisywanie ID uprawnienia
-
-    if haslo:  
+    if haslo:  # Tylko jeśli hasło zostało podane
         user.haslo = generate_password_hash(haslo)
 
     db.session.commit()
