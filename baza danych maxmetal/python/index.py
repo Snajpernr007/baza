@@ -445,32 +445,34 @@ def update_row():
         logging.info(f'Otrzymane dane: {dane}')
 
         # Użyj column_0 jako id
-        id = dane.get('column_0')  # Zmiana tutaj
+        id = dane.get('column_0')  # Id rekordu do aktualizacji
         if id is None:
             return jsonify({'message': 'Id jest wymagane!'}), 400  # Błąd, gdy id jest None
 
-        tasma = Tasma.query.get(id)
+        # Użyj nowej metody do pobrania rekordu
+        tasma = db.session.get(Tasma, id)
         if tasma is None:
             return jsonify({'message': 'Rekord nie znaleziony!'}), 404  # Błąd, gdy rekord nie istnieje
 
         # Aktualizacja danych
-        tasma.dostawca_id = dane.get('column_1', tasma.nazwa_dostawcy)
-        tasma.szablon_id = dane.get('column_2', tasma.nazwa_materialu)
+        tasma.dostawca_id = dane.get('column_1', tasma.dostawca_id)  # Poprawne przypisanie dostawcy
+        tasma.szablon_id = dane.get('column_2', tasma.szablon_id)  # Poprawne przypisanie szablonu
         tasma.data_z_etykiety_na_kregu = dane.get('column_3', tasma.data_z_etykiety_na_kregu)
-        tasma.grubosc = dane.get('column_4', tasma.grubosc)
-        tasma.szerokosc = dane.get('column_5', tasma.szerokosc)
+        
+        tasma.grubosc = Szablon.query.get(tasma.szablon_id).grubosc
+        tasma.szerokosc = Szablon.query.get(tasma.szablon_id).szerokosc
         tasma.waga_kregu = dane.get('column_6', tasma.waga_kregu)
-        tasma.waga_kręgu_na_stanie = dane.get('column_7', tasma.waga_kręgu_na_stanie)
+        tasma.waga_kregu_na_stanie = dane.get('column_7', tasma.waga_kregu_na_stanie)
         tasma.nr_etykieta_paletowa = dane.get('column_8', tasma.nr_etykieta_paletowa)
         tasma.nr_z_etykiety_na_kregu = dane.get('column_9', tasma.nr_z_etykiety_na_kregu)
         tasma.lokalizacja = dane.get('column_10', tasma.lokalizacja)
         tasma.nr_faktury_dostawcy = dane.get('column_11', tasma.nr_faktury_dostawcy)
         tasma.data_dostawy = dane.get('column_12', tasma.data_dostawy)
 
-        db.session.commit()
+        db.session.commit()  # Zapisz zmiany w bazie
         return jsonify({'message': 'Rekord zaktualizowany pomyślnie!'})
     except Exception as e:
-        db.session.rollback()
+        db.session.rollback()  # Wycofanie zmian w przypadku błędu
         return jsonify({'message': 'Wystąpił błąd podczas aktualizacji!', 'error': str(e)}), 500
 @app.route('/dodaj_tasma')
 def dodaj_tasma():
@@ -625,7 +627,7 @@ def dodaj_profil_do_bazy():
         )
         tasma = Tasma.query.get(id_tasmy)
         if tasma:
-            tasma.waga_kregu = zwrot_na_magazyn_kg
+            tasma.waga_kregu_na_stanie = zwrot_na_magazyn_kg
         db.session.add(nowy_profil)
 
     try:

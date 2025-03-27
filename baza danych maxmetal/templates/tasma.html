@@ -119,9 +119,23 @@ function openEditModal(row) {
     if (editButton.innerText === "Edytuj") {
         // Zamień edytowalne komórki na pola formularza
         cells.forEach((cell, index) => {
-            if (index > 0 && index < cells.length - 3) { // Edytowalne: 1 do przedostatniej
-                const value = cell.innerText;
-                cell.innerHTML = `<input type="text" value="${value}" style="width: 100%;">`;
+            if (index > 0 && index < cells.length - 2 && index != 4 && index != 5) {
+                if (index === 1) {
+                    const currentDostawcaId = cell.getAttribute("data-dostawca-id");
+                    cell.innerHTML = `
+                        <input type="text" placeholder="Szukaj dostawcy" onkeyup="filterDostawcy(this.value)">
+                        <select style="width: 100%;" id="dostawcaSelect"></select>`;
+                    populateDostawcy(cell.querySelector("#dostawcaSelect"), currentDostawcaId);
+                } else if (index === 2) {
+                    const currentSzablonId = cell.getAttribute("data-szablon-id");
+                    cell.innerHTML = `
+                        <input type="text" placeholder="Szukaj szablonu" onkeyup="filterSzablony(this.value)">
+                        <select style="width: 100%;" id="szablonSelect"></select>`;
+                    populateSzablony(cell.querySelector("#szablonSelect"), currentSzablonId);
+                } else {
+                    const value = cell.innerText;
+                    cell.innerHTML = `<input type="text" value="${value}" style="width: 100%;">`;
+                }
             }
         });
         editButton.innerText = "Zapisz";
@@ -131,18 +145,19 @@ function openEditModal(row) {
         let isValid = true;
         
         cells.forEach((cell, index) => {
-            if (index > 0 && index < cells.length - 3) {
-                const input = cell.querySelector("input");
+            if (index > 0 && index < cells.length - 2 && index != 4 && index != 5) { 
+                const input = cell.querySelector("input") || cell.querySelector("select");
                 if (input) {
                     const value = input.value.trim();
                     if (!value) {
                         isValid = false; // Walidacja: sprawdź, czy pole nie jest puste
+                    } else {
+                        updatedData[`column_${index}`] = value; // Dodaj do danych do wysłania
+                        cell.innerText = value; // Zapisz nowe wartości
                     }
-                    updatedData[`column_${index}`] = value;
-                    cell.innerText = value; // Zapisz nowe wartości
                 }
             } else if (index === 0 || index >= cells.length - 3) {
-                updatedData[`column_${index}`] = cell.innerText;
+                updatedData[`column_${index}`] = cell.innerText; // Zapisz ID i inne wartości
             }
         });
 
@@ -154,6 +169,72 @@ function openEditModal(row) {
         }
     }
 }
+
+
+
+
+
+// Funkcja do pobierania dostawców
+function populateDostawcy(selectElement, selectedValue) {
+    fetch('/get-dostawcy')
+        .then(response => response.json())
+        .then(data => {
+            data.forEach(dostawca => {
+                const option = document.createElement('option');
+                option.value = dostawca.id;
+                option.textContent = dostawca.nazwa;
+                selectElement.appendChild(option);
+            });
+
+            // Ustawienie wybranej wartości
+            if (selectedValue) {
+                selectElement.value = selectedValue; // Ustaw wybraną wartość na podstawie ID
+            }
+        })
+        .catch(error => console.error('Błąd podczas pobierania dostawców:', error));
+}
+
+function populateSzablony(selectElement, selectedValue) {
+    fetch('/get-szanlon')
+        .then(response => response.json())
+        .then(data => {
+            data.forEach(szablon => {
+                const option = document.createElement('option');
+                option.value = szablon.id;
+                option.textContent = szablon.nazwa;
+                selectElement.appendChild(option);
+            });
+
+            // Ustawienie wybranej wartości
+            if (selectedValue) {
+                selectElement.value = selectedValue; // Ustaw wybraną wartość na podstawie ID
+            }
+        })
+        .catch(error => console.error('Błąd podczas pobierania szablonów:', error));
+}
+function filterDostawcy(searchTerm) {
+    const select = document.getElementById("dostawcaSelect");
+    const options = select.options;
+
+    for (let i = 0; i < options.length; i++) {
+        const optionText = options[i].text.toLowerCase();
+        options[i].style.display = optionText.includes(searchTerm.toLowerCase()) ? "" : "none";
+    }
+}
+
+function filterSzablony(searchTerm) {
+    const select = document.getElementById("szablonSelect");
+    const options = select.options;
+
+    for (let i = 0; i < options.length; i++) {
+        const optionText = options[i].text.toLowerCase();
+        options[i].style.display = optionText.includes(searchTerm.toLowerCase()) ? "" : "none";
+    }
+}
+
+
+
+
 
 function sendDataToBackend(data) {
     fetch('/update-row', {
@@ -172,6 +253,7 @@ function sendDataToBackend(data) {
         console.error("Błąd podczas wysyłania danych:", error);
         alert("Wystąpił błąd podczas zapisywania danych!");
     });
+    location.reload()
 }
 function openMultipleWindows() {
         // URL, który ma być otwierany w nowych oknach
@@ -331,8 +413,8 @@ function printID(id) {
                             <td>{{ tasmy.id }} <a href="javascript:void(0);" onclick="printID({{ tasmy.id }})">
                                 <img src="/static/img/drukarka.png" alt="drukuj" height="15" width="15">
                             </a></td>
-                            <td>{{ tasmy.dostawca.nazwa }}</td>
-                            <td>{{ tasmy.szablon.nazwa }}</td>
+                            <td data-dostawca-id="{{ tasmy.dostawca.id }}">{{ tasmy.dostawca.nazwa }}</td>
+        <td data-szablon-id="{{ tasmy.szablon.id }}">{{ tasmy.szablon.nazwa }}</td>
                             <td>{{ tasmy.data_z_etykiety_na_kregu }}</td>
                             <td>{{ tasmy.grubosc }}</td>
                             <td>{{ tasmy.szerokosc }}</td>
