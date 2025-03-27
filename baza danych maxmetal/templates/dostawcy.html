@@ -212,16 +212,30 @@ window.open(url, '_blank', windowFeatures); // '_blank' otworzy nowe okno/tab
                             <a href="{{ url_for('logout') }}"><label for="menuCheckbox" onclick="this.parentNode.click();">Wyloguj się</label></a>
                         </li>
                         {% endif %}
+                        {%if g.user==1 %}
+                        <li>
+                            <a href="{{ url_for('tasma') }}"><label for="menuCheckbox" onclick="this.parentNode.click();">Materiały</label></a>
+                        </li>
+                        {% endif %}
+                        <li>
+                            <a href="{{ url_for('profil') }}"><label for="menuCheckbox" onclick="this.parentNode.click();">Profile</label></a>
+                        </li>
                         {% if g.user.id_uprawnienia==1 %}
                         <li>
-                            <a href="{{ url_for('register') }}"><label for="menuCheckbox" onclick="this.parentNode.click();">Dodaj pracownika</label></a>
+                            <a href="{{ url_for('uzytkownik') }}"><label for="menuCheckbox" onclick="this.parentNode.click();">Uzytkownicy</label></a>
+                        </li>
+                        {% endif %}
+                        
+                        {% if g.user.id_uprawnienia==1 %}
+                        <li>
+                            <a href="{{ url_for('szablon') }}"><label for="menuCheckbox" onclick="this.parentNode.click();">Nazwy</label></a>
                         </li>
                         {% endif %}
                         <li>
                             <a href=javascript:history.back();><label for="menuCheckbox" onclick="this.parentNode.click();">Powrót</label></a>
                         </li>
                             <li>
-                                <a href="{{ url_for('dodaj_dostawce') }}";><label for="menuCheckbox" onclick="this.parentNode.click();">Dodaj</label></a>
+                                <a href="{{ url_for('dodaj_dostawce') }}";><label for="menuCheckbox" onclick="this.parentNode.click();">Dodaj Dostawcę</label></a>
                             </li>
                             
                             <li>

@@ -79,6 +79,7 @@ class Tasma(db.Model):
     grubosc = db.Column(db.Numeric(10, 2), nullable=False)
     szerokosc = db.Column(db.Numeric(10, 2), nullable=False)
     waga_kregu = db.Column(db.Numeric(10, 2), nullable=False)
+    waga_kregu_na_stanie = db.Column(db.Numeric(10, 2), nullable=True)
     nr_etykieta_paletowa = db.Column(db.String(255), nullable=False)
     nr_z_etykiety_na_kregu = db.Column(db.String(255), nullable=False)
     lokalizacja = db.Column(db.String(255), nullable=False)
@@ -459,11 +460,12 @@ def update_row():
         tasma.grubosc = dane.get('column_4', tasma.grubosc)
         tasma.szerokosc = dane.get('column_5', tasma.szerokosc)
         tasma.waga_kregu = dane.get('column_6', tasma.waga_kregu)
-        tasma.nr_etykieta_paletowa = dane.get('column_7', tasma.nr_etykieta_paletowa)
-        tasma.nr_z_etykiety_na_kregu = dane.get('column_8', tasma.nr_z_etykiety_na_kregu)
-        tasma.lokalizacja = dane.get('column_9', tasma.lokalizacja)
-        tasma.nr_faktury_dostawcy = dane.get('column_10', tasma.nr_faktury_dostawcy)
-        tasma.data_dostawy = dane.get('column_11', tasma.data_dostawy)
+        tasma.waga_kręgu_na_stanie = dane.get('column_7', tasma.waga_kręgu_na_stanie)
+        tasma.nr_etykieta_paletowa = dane.get('column_8', tasma.nr_etykieta_paletowa)
+        tasma.nr_z_etykiety_na_kregu = dane.get('column_9', tasma.nr_z_etykiety_na_kregu)
+        tasma.lokalizacja = dane.get('column_10', tasma.lokalizacja)
+        tasma.nr_faktury_dostawcy = dane.get('column_11', tasma.nr_faktury_dostawcy)
+        tasma.data_dostawy = dane.get('column_12', tasma.data_dostawy)
 
         db.session.commit()
         return jsonify({'message': 'Rekord zaktualizowany pomyślnie!'})
@@ -492,6 +494,7 @@ def dodaj_tasma_do_bazy():
         grubosc = Szablon.query.get(szablon_id).grubosc 
         szerokosc = Szablon.query.get(szablon_id).szerokosc 
         waga_kregu = request.form.get('waga_kregu')
+        waga_kregu_na_stanie = waga_kregu
         nr_etykieta_paletowa = request.form.get('nr_etykieta_paletowa')
         nr_z_etykiety_na_kregu = request.form.get('nr_z_etykiety_na_kregu')
         lokalizacja = request.form.get('lokalizacja')
@@ -502,7 +505,7 @@ def dodaj_tasma_do_bazy():
         
 
         # Dodanie danych do bazy danych
-        nowy_uzytkownik = Tasma(dostawca_id=dostawca_id, szablon_id=szablon_id, data_z_etykiety_na_kregu=data_z_etykiety_na_kregu, grubosc=grubosc, szerokosc=szerokosc, waga_kregu=waga_kregu, nr_etykieta_paletowa=nr_etykieta_paletowa, nr_z_etykiety_na_kregu=nr_z_etykiety_na_kregu, lokalizacja=lokalizacja, nr_faktury_dostawcy=nr_faktury_dostawcy, data_dostawy=data_dostawy, pracownik_id=pracownik_id)
+        nowy_uzytkownik = Tasma(dostawca_id=dostawca_id, szablon_id=szablon_id, data_z_etykiety_na_kregu=data_z_etykiety_na_kregu, grubosc=grubosc, szerokosc=szerokosc, waga_kregu=waga_kregu, nr_etykieta_paletowa=nr_etykieta_paletowa, nr_z_etykiety_na_kregu=nr_z_etykiety_na_kregu, lokalizacja=lokalizacja, nr_faktury_dostawcy=nr_faktury_dostawcy, data_dostawy=data_dostawy, pracownik_id=pracownik_id,waga_kregu_na_stanie=waga_kregu_na_stanie)
         db.session.add(nowy_uzytkownik)
 
         try:

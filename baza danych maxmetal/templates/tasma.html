@@ -238,9 +238,23 @@ function printID(id) {
                             <a href="{{ url_for('logout') }}"><label for="menuCheckbox" onclick="this.parentNode.click();">Wyloguj się</label></a>
                         </li>
                         {% endif %}
+                        
+                        <li>
+                            <a href="{{ url_for('profil') }}"><label for="menuCheckbox" onclick="this.parentNode.click();">Profile</label></a>
+                        </li>
                         {% if g.user.id_uprawnienia==1 %}
                         <li>
-                            <a href="{{ url_for('register') }}"><label for="menuCheckbox" onclick="this.parentNode.click();">Dodaj pracownika</label></a>
+                            <a href="{{ url_for('uzytkownik') }}"><label for="menuCheckbox" onclick="this.parentNode.click();">Uzytkownicy</label></a>
+                        </li>
+                        {% endif %}
+                        {% if g.user.id_uprawnienia==1 %}
+                        <li>
+                            <a href="{{ url_for('dostawcy') }}"><label for="menuCheckbox" onclick="this.parentNode.click();">Dostawcy</label></a>
+                        </li>
+                        {% endif %}
+                        {% if g.user.id_uprawnienia==1 %}
+                        <li>
+                            <a href="{{ url_for('szablon') }}"><label for="menuCheckbox" onclick="this.parentNode.click();">Nazwy</label></a>
                         </li>
                         {% endif %}
                         <li>
@@ -282,12 +296,13 @@ function printID(id) {
                         <th><input type="text" placeholder="Filtruj Grubość" onkeyup="filterColumn(4)"></th>
                         <th><input type="text" placeholder="Filtruj Szerokość" onkeyup="filterColumn(5)"></th>
                         <th><input type="text" placeholder="Filtruj Wagę" onkeyup="filterColumn(6)"></th>
-                        <th><input type="text" placeholder="Filtruj Etyk. Paletową" onkeyup="filterColumn(7)"></th>
-                        <th><input type="text" placeholder="Filtruj Etyk. Kręgu" onkeyup="filterColumn(8)"></th>
-                        <th><input type="text" placeholder="Filtruj Lokalizację" onkeyup="filterColumn(9)"></th>
-                        <th><input type="text" placeholder="Filtruj Fakturę" onkeyup="filterColumn(10)"></th>
-                        <th><input type="text" placeholder="Filtruj Datę Dostawy" onkeyup="filterColumn(11)"></th>
-                        <th><input type="text" placeholder="Filtruj Nazwę Stanowiska" onkeyup="filterColumn(12)"></th>
+                        <th><input type="text" placeholder="Filtruj Wagę na Stanie" onkeyup="filterColumn(7)"></th>
+                        <th><input type="text" placeholder="Filtruj Etyk. Paletową" onkeyup="filterColumn(8)"></th>
+                        <th><input type="text" placeholder="Filtruj Etyk. Kręgu" onkeyup="filterColumn(9)"></th>
+                        <th><input type="text" placeholder="Filtruj Lokalizację" onkeyup="filterColumn(10)"></th>
+                        <th><input type="text" placeholder="Filtruj Fakturę" onkeyup="filterColumn(11)"></th>
+                        <th><input type="text" placeholder="Filtruj Datę Dostawy" onkeyup="filterColumn(12)"></th>
+                        <th><input type="text" placeholder="Filtruj Nazwę Stanowiska" onkeyup="filterColumn(13)"></th>
                         
                         <th><button class="button" onclick="resetFilters()">Usuń Filtry</button></th>
                     </tr>
@@ -299,12 +314,13 @@ function printID(id) {
                         <th onclick="sortTable(4)">Grubość &#9650;&#9660;</th>
                         <th onclick="sortTable(5)">Szerokość &#9650;&#9660;</th>
                         <th onclick="sortTable(6)">Waga Kręgu &#9650;&#9660;</th>
-                        <th onclick="sortTable(7)">Nr Etykieta Paletowa &#9650;&#9660;</th>
-                        <th onclick="sortTable(8)">Nr z Etykiety na Kręgu &#9650;&#9660;</th>
-                        <th onclick="sortTable(9)">Lokalizacja &#9650;&#9660;</th>
-                        <th onclick="sortTable(10)">Nr Faktury Dostawcy &#9650;&#9660;</th>
-                        <th onclick="sortTable(11)">Data Dostawy &#9650;&#9660;</th>
-                        <th onclick="sortTable(12)">Nazwa Stanowiska &#9650;&#9660;</th>
+                        <th onclick="sortTable(7)">Waga Kręgu na Stanie &#9650;&#9660;</th>
+                        <th onclick="sortTable(8)">Nr Etykieta Paletowa &#9650;&#9660;</th>
+                        <th onclick="sortTable(9)">Nr z Etykiety na Kręgu &#9650;&#9660;</th>
+                        <th onclick="sortTable(10)">Lokalizacja &#9650;&#9660;</th>
+                        <th onclick="sortTable(11)">Nr Faktury Dostawcy &#9650;&#9660;</th>
+                        <th onclick="sortTable(12)">Data Dostawy &#9650;&#9660;</th>
+                        <th onclick="sortTable(13)">Nazwa Stanowiska &#9650;&#9660;</th>
                         
                         <th>Edycja</th>
                     </tr>
@@ -321,6 +337,7 @@ function printID(id) {
                             <td>{{ tasmy.grubosc }}</td>
                             <td>{{ tasmy.szerokosc }}</td>
                             <td>{{ tasmy.waga_kregu }}</td>
+                            <td>{{ tasmy.waga_kregu_na_stanie }}</td>
                             <td>{{ tasmy.nr_etykieta_paletowa }}</td>
                             <td>{{ tasmy.nr_z_etykiety_na_kregu }}</td>
                             <td>{{ tasmy.lokalizacja }}</td>

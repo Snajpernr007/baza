@@ -277,9 +277,25 @@ document.addEventListener("DOMContentLoaded", setupFilters);
                             <a href="{{ url_for('logout') }}"><label for="menuCheckbox" onclick="this.parentNode.click();">Wyloguj się</label></a>
                         </li>
                         {% endif %}
+                        {%if g.user==1 %}
+                        <li>
+                            <a href="{{ url_for('tasma') }}"><label for="menuCheckbox" onclick="this.parentNode.click();">Materiały</label></a>
+                        </li>
+                        {% endif %}
+                        
                         {% if g.user.id_uprawnienia==1 %}
                         <li>
-                            <a href="{{ url_for('register') }}"><label for="menuCheckbox" onclick="this.parentNode.click();">Dodaj pracownika</label></a>
+                            <a href="{{ url_for('uzytkownik') }}"><label for="menuCheckbox" onclick="this.parentNode.click();">Uzytkownicy</label></a>
+                        </li>
+                        {% endif %}
+                        {% if g.user.id_uprawnienia==1 %}
+                        <li>
+                            <a href="{{ url_for('dostawcy') }}"><label for="menuCheckbox" onclick="this.parentNode.click();">Dostawcy</label></a>
+                        </li>
+                        {% endif %}
+                        {% if g.user.id_uprawnienia==1 %}
+                        <li>
+                            <a href="{{ url_for('szablon') }}"><label for="menuCheckbox" onclick="this.parentNode.click();">Nazwy</label></a>
                         </li>
                         {% endif %}
                         <li>
@@ -287,7 +303,7 @@ document.addEventListener("DOMContentLoaded", setupFilters);
                         </li>
                             <li>
                                 <a href="{{ url_for('dodaj_profil') }}">
-                                    <label for="menuCheckbox" onclick="this.parentNode.click();">Dodaj</label>
+                                    <label for="menuCheckbox" onclick="this.parentNode.click();">Dodaj Profil</label>
                                 </a>
                             </li>
                             
