@@ -121,18 +121,14 @@ function openEditModal(row) {
         cells.forEach((cell, index) => {
             if (index > 0 && index < cells.length - 2 && index != 4 && index != 5) {
                 if (index === 1) {
-                    const currentDostawcaId = cell.getAttribute("data-dostawca-id");
-                    cell.innerHTML = `
-                        <input type="text" placeholder="Szukaj dostawcy" onkeyup="filterDostawcy(this.value)">
-                        <select style="width: 100%;" id="dostawcaSelect"></select>`;
-                    populateDostawcy(cell.querySelector("#dostawcaSelect"), currentDostawcaId);
-                } else if (index === 2) {
-                    const currentSzablonId = cell.getAttribute("data-szablon-id");
-                    cell.innerHTML = `
-                        <input type="text" placeholder="Szukaj szablonu" onkeyup="filterSzablony(this.value)">
-                        <select style="width: 100%;" id="szablonSelect"></select>`;
-                    populateSzablony(cell.querySelector("#szablonSelect"), currentSzablonId);
-                } else {
+    const currentDostawcaId = cell.getAttribute("data-dostawca-id");
+    cell.innerHTML = `<select style="width: 100%;" id="dostawcaSelect"></select>`;
+    populateDostawcy(cell.querySelector("#dostawcaSelect"), currentDostawcaId);
+} else if (index === 2) {
+    const currentSzablonId = cell.getAttribute("data-szablon-id");
+    cell.innerHTML = `<select style="width: 100%;" id="szablonSelect"></select>`;
+    populateSzablony(cell.querySelector("#szablonSelect"), currentSzablonId);
+} else {
                     const value = cell.innerText;
                     cell.innerHTML = `<input type="text" value="${value}" style="width: 100%;">`;
                 }
@@ -186,9 +182,8 @@ function populateDostawcy(selectElement, selectedValue) {
                 selectElement.appendChild(option);
             });
 
-            // Ustawienie wybranej wartości
             if (selectedValue) {
-                selectElement.value = selectedValue; // Ustaw wybraną wartość na podstawie ID
+                selectElement.value = selectedValue;
             }
         })
         .catch(error => console.error('Błąd podczas pobierania dostawców:', error));
@@ -205,9 +200,8 @@ function populateSzablony(selectElement, selectedValue) {
                 selectElement.appendChild(option);
             });
 
-            // Ustawienie wybranej wartości
             if (selectedValue) {
-                selectElement.value = selectedValue; // Ustaw wybraną wartość na podstawie ID
+                selectElement.value = selectedValue;
             }
         })
         .catch(error => console.error('Błąd podczas pobierania szablonów:', error));
