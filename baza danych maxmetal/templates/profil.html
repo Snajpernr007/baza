@@ -135,7 +135,7 @@ document.addEventListener("DOMContentLoaded", setupFilters);
 
         // Zamień edytowalne komórki na pola formularza
         cells.forEach((cell, index) => {
-            if (index > 0 && index < cells.length - 2 && index !== 2 && index !== 3 && index !== 4) {
+            if (index > 0 && index < cells.length - 3 && index !== 2 && index !== 3 && index !== 4) {
                 if (index === 1) {
                     const currentTasmaId = cell.getAttribute("data-tasma-id");
                     cell.innerHTML = `<select style="width: 100%;" id="tasmaSelect"></select>`;
@@ -157,7 +157,7 @@ document.addEventListener("DOMContentLoaded", setupFilters);
         let isValid = true;
 
         cells.forEach((cell, index) => {
-            if (index > 0 && index < cells.length - 2 && index !== 2 && index !== 3 && index !== 4) {
+            if (index > 0 && index < cells.length - 3 && index !== 2 && index !== 3 && index !== 4) {
                 const input = cell.querySelector("input") || cell.querySelector("select");
                 if (input) {
                     const value = input.value.trim();
@@ -168,7 +168,7 @@ document.addEventListener("DOMContentLoaded", setupFilters);
                         cell.innerText = value; // Zapisz nowe wartości
                     }
                 }
-            } else if (index === 0 || index >= cells.length - 3) {
+            } else if (index === 0 || index >= cells.length - 4) {
                 updatedData[`column_${index}`] = cell.innerText; // Zapisz ID i inne wartości
             }
         });
@@ -234,7 +234,7 @@ function sendDataToBackenda(data) {
 
         // Zamień edytowalne komórki na pola formularza
         cells.forEach((cell, index) => {
-    if (index > 0 && index < cells.length - 2 ) {
+    if (index > 0 && index < cells.length - 3) {
         if (index === 1) {
             const currentTasmaId = cell.getAttribute("data-tasma-id");
             cell.innerHTML = `<select style="width: 100%;" id="tasmaSelect"></select>`;
@@ -262,7 +262,7 @@ function sendDataToBackenda(data) {
         let isValid = true;
 
         cells.forEach((cell, index) => {
-            if (index > 0 && index < cells.length - 2) { 
+            if (index > 0 && index < cells.length - 3) { 
                 const input = cell.querySelector("input") || cell.querySelector("select");
                 if (input) {
                     const value = input.value.trim();
@@ -273,7 +273,7 @@ function sendDataToBackenda(data) {
                         cell.innerText = value; // Zapisz nowe wartości
                     }
                 }
-            } else if (index === 0 || index >= cells.length - 3) {
+            } else if (index === 0 || index >= cells.length - 4) {
                 updatedData[`column_${index}`] = cell.innerText; // Zapisz ID i inne wartości
             }
         });
@@ -440,8 +440,8 @@ function sendDataToBackend(data) {
                             <th><input type="text" placeholder="Filtruj Nr części Klienta" onkeyup="filterColumn(6)"></th>
                             <th><input type="text" placeholder="Filtruj Nazwę klienta Nr PRODIO" onkeyup="filterColumn(7)"></th>
                             
-                            
-                            <th><input type="text" placeholder="Filtruj Nazwę Stanowiska" onkeyup="filterColumn(8)"></th>
+                            <th><input type="text" placeholder="Filtruj Rodzaj Materiału" onkeyup="filterColumn(8)"></th>
+                            <th><input type="text" placeholder="Filtruj Nazwę Stanowiska" onkeyup="filterColumn(9)"></th>
                             
                             <th><button class="button" onclick="resetFilters()">Usuń Filtry</button></th>
                         </tr>
@@ -455,8 +455,8 @@ function sendDataToBackend(data) {
                             <th onclick="sortTable(5)">Zwrot na magazyn kg &#9650;&#9660;</th>
                             <th onclick="sortTable(6)">Nr części klienta &#9650;&#9660;</th>
                             <th onclick="sortTable(7)">Nazwa klienta Nr PRODIO &#9650;&#9660;</th>
-                            
-                            <th onclick="sortTable(8)">Nazwa Stanowiska &#9650;&#9660;</th>
+                            <th onclick="sortTable(8)">Rodzaj materiału &#9650;&#9660;</th>
+                            <th onclick="sortTable(9)">Nazwa Stanowiska &#9650;&#9660;</th>
                             
                             <th>Edycja</th>
                         </tr>
@@ -475,7 +475,7 @@ function sendDataToBackend(data) {
                                     <td>{{ profile.zwrot_na_magazyn_kg }}</td>
                                     <td>{{ profile.nr_czesci_klienta }}</td>
                                     <td>{{ profile.nazwa_klienta_nr_zlecenia_PRODIO }}</td>
-                                    
+                                    <td>{{profile.tasma.szablon.nazwa}}</td>
                                     <td>{{ profile.pracownik.login }}</td>
                                     
                                     <td><button type="button" class="button" onclick="openEditModal(this.parentElement.parentElement)">Edytuj</button></td>
@@ -492,8 +492,9 @@ function sendDataToBackend(data) {
                                     <td>{{ profile.zwrot_na_magazyn_kg }}</td>
                                     <td>{{ profile.nr_czesci_klienta }}</td>
                                     <td>{{ profile.nazwa_klienta_nr_zlecenia_PRODIO }}</td>
-                                    
+                                    <td>{{profile.tasma.szablon.nazwa}}</td>
                                     <td>{{ profile.pracownik.login }}</td>
+                                    
                                     
                                     <td><button type="button" class="button" onclick="openEditModala(this.parentElement.parentElement)">Edytuj</button></td>
                                 </tr>
