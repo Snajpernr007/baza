@@ -112,6 +112,105 @@ document.addEventListener("DOMContentLoaded", setupFilters);
             }
         });
     }
+    function openEditModal(row) {
+    const cells = row.querySelectorAll("td");
+    const editButton = row.querySelector("button");
+
+    if (editButton.innerText === "Edytuj") {
+        // Tworzenie tymczasowego wiersza do filtrowania
+        const filterRow = document.createElement("tr");
+        let filterCells = '';
+
+        // Generowanie komórek do tymczasowego wiersza
+        for (let i = 0; i < cells.length; i++) {
+            if (i === 1) {
+                filterCells += `<td><input type="text" placeholder="Filtruj Materiał" onkeyup="filterTasmy(this.value)" style="width: 100%;"></td>`;
+            } else {
+                filterCells += `<td></td>`; // Puste komórki dla pozostałych kolumn
+            }
+        }
+
+        filterRow.innerHTML = filterCells;
+        row.parentElement.insertBefore(filterRow, row); // Wstaw wiersz filtrujący nad edytowany wiersz
+
+        // Zamień edytowalne komórki na pola formularza
+        cells.forEach((cell, index) => {
+            if (index > 0 && index < cells.length - 2 && index !== 2 && index !== 3 && index !== 4) {
+                if (index === 1) {
+                    const currentTasmaId = cell.getAttribute("data-tasma-id");
+                    cell.innerHTML = `<select style="width: 100%;" id="tasmaSelect"></select>`;
+                    populateTasma(cell.querySelector("#tasmaSelect"), currentTasmaId);
+                } else if (index === 5) { // Weight fields
+                    const value = cell.innerText;
+                    cell.innerHTML = `<input type="number" value="${value}" step="0.01" style="width: 100%;">`;
+                } else {
+                    const value = cell.innerText;
+                    cell.innerHTML = `<input type="text" value="${value}" style="width: 100%;">`;
+                }
+            }
+        });
+
+        editButton.innerText = "Zapisz";
+    } else if (editButton.innerText === "Zapisz") {
+        // Zbierz dane z formularza
+        const updatedData = {};
+        let isValid = true;
+
+        cells.forEach((cell, index) => {
+            if (index > 0 && index < cells.length - 2 && index !== 2 && index !== 3 && index !== 4) {
+                const input = cell.querySelector("input") || cell.querySelector("select");
+                if (input) {
+                    const value = input.value.trim();
+                    if (!value) {
+                        isValid = false; // Walidacja: sprawdź, czy pole nie jest puste
+                    } else {
+                        updatedData[`column_${index}`] = value; // Dodaj do danych do wysłania
+                        cell.innerText = value; // Zapisz nowe wartości
+                    }
+                }
+            } else if (index === 0 || index >= cells.length - 3) {
+                updatedData[`column_${index}`] = cell.innerText; // Zapisz ID i inne wartości
+            }
+        });
+
+        if (isValid) {
+            sendDataToBackenda(updatedData);
+            editButton.innerText = "Edytuj";
+            
+            // Usunięcie tymczasowego wiersza po zapisaniu
+            const nextRow = row.previousElementSibling; // Wiersz filtrujący jest bezpośrednio nad edytowanym wierszem
+            if (nextRow) {
+                nextRow.remove(); // Usuń wiersz filtrujący po zapisaniu
+            }
+        } else {
+            alert("Proszę wypełnić wszystkie edytowalne pola.");
+        }
+    }
+}
+function sendDataToBackenda(data) {
+    console.log("Dane wysyłane do backendu:", data);
+    fetch('/update-row_profile', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+    })
+    .then(response => {
+        if (!response.ok) {
+            throw new Error(`Błąd HTTP: ${response.status}`);
+        }
+        return response.json();
+    })
+    .then(result => {
+        console.log("Odpowiedź backendu:", result);
+        
+    })
+    .catch(error => {
+        console.error("Błąd podczas wysyłania danych:", error.message);
+        alert(`Błąd: ${error.message}`);
+    });
+}
     function openEditModala(row) {
     const cells = row.querySelectorAll("td");
     const editButton = row.querySelector("button");
@@ -231,6 +330,7 @@ function filterTasmy(searchTerm) {
 
 
 function sendDataToBackend(data) {
+    
     console.log("Wysyłanie danych:", data); // Dodaj to
     fetch('/update-row_profil', {
         method: 'POST',

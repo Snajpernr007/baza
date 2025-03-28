@@ -555,18 +555,110 @@ def update_row_profil():
             logging.warning(f"Rekord nie znaleziony dla ID: {id}")
             return jsonify({'message': 'Rekord nie znaleziony!'}), 404
 
-        # Aktualizacja pól w modelu Profil
+        # Aktualizacja pól w modelu Profil, z osobnymi blokami try/except
         try:
-            profil.id_tasmy = dane.get('column_1', profil.id_tasmy)  # ID tasmy
-            profil.data_produkcji = dane.get('column_2', profil.data_produkcji)  # Data produkcji
-            profil.godz_min_rozpoczecia = dane.get('column_3', profil.godz_min_rozpoczecia)  # Godzina rozpoczęcia
-            profil.godz_min_zakonczenia = dane.get('column_4', profil.godz_min_zakonczenia)  # Godzina zakończenia
-            profil.zwrot_na_magazyn_kg = dane.get('column_5', profil.zwrot_na_magazyn_kg)  # Zwrot na magazyn
-            profil.nr_czesci_klienta = dane.get('column_6', profil.nr_czesci_klienta)  # Nr części klienta
-            profil.nazwa_klienta_nr_zlecenia_PRODIO = dane.get('column_7', profil.nazwa_klienta_nr_zlecenia_PRODIO)  # Nazwa klienta
-            logging.info(f"Aktualizacja Profil ID: {profil.id} z danymi: {dane}")
+            if 'column_1' in dane:
+                profil.id_tasmy = dane['column_1']  # ID tasmy
         except Exception as e:
-            logging.error(f'Błąd podczas aktualizacji rekordu: {str(e)}')
+            logging.error(f'Błąd podczas aktualizacji ID tasmy: {str(e)}')
+
+        try:
+            if 'column_2' in dane:
+                profil.data_produkcji = dane['column_2']  # Data produkcji
+        except Exception as e:
+            logging.error(f'Błąd podczas aktualizacji daty produkcji: {str(e)}')
+
+        try:
+            if 'column_3' in dane:
+                profil.godz_min_rozpoczecia = dane['column_3']  # Godzina rozpoczęcia
+        except Exception as e:
+            logging.error(f'Błąd podczas aktualizacji godziny rozpoczęcia: {str(e)}')
+
+        try:
+            if 'column_4' in dane:
+                profil.godz_min_zakonczenia = dane['column_4']  # Godzina zakończenia
+        except Exception as e:
+            logging.error(f'Błąd podczas aktualizacji godziny zakończenia: {str(e)}')
+
+        try:
+            if 'column_5' in dane:
+                profil.zwrot_na_magazyn_kg = dane['column_5']  # Zwrot na magazyn
+        except Exception as e:
+            logging.error(f'Błąd podczas aktualizacji zwrotu na magazyn: {str(e)}')
+
+        try:
+            if 'column_6' in dane:
+                profil.nr_czesci_klienta = dane['column_6']  # Nr części klienta
+        except Exception as e:
+            logging.error(f'Błąd podczas aktualizacji nr części klienta: {str(e)}')
+
+        try:
+            if 'column_7' in dane:
+                profil.nazwa_klienta_nr_zlecenia_PRODIO = dane['column_7']  # Nazwa klienta
+        except Exception as e:
+            logging.error(f'Błąd podczas aktualizacji nazwy klienta: {str(e)}')
+
+        logging.info(f"Aktualizacja Profil ID: {profil.id} z danymi: {dane}")
+
+        # Zatwierdzenie zmian w bazie danych
+        db.session.commit()
+        logging.info("Rekord zaktualizowany pomyślnie!")
+        return jsonify({'message': 'Rekord zaktualizowany pomyślnie!'})
+
+    except Exception as e:
+        db.session.rollback()  # Wycofanie zmian w przypadku błędu
+        logging.error(f'Wystąpił błąd podczas aktualizacji: {str(e)}')
+        return jsonify({'message': 'Wystąpił błąd podczas aktualizacji!', 'error': str(e)}), 500
+@app.route('/update-row_profile', methods=['POST'])
+def update_row_profile():
+    # Sprawdzenie, czy użytkownik jest zalogowany
+    if not g.user:
+        return render_template('login.html', user=g.user)
+
+    try:
+        # Otrzymanie danych z żądania
+        dane = request.get_json()
+        logging.info(f'Otrzymane dane: {dane}')
+
+        # Walidacja ID
+        id = dane.get('column_0')
+        if id is None:
+            return jsonify({'message': 'Id jest wymagane!'}), 400
+
+        # Pobranie rekordu Profil z bazy danych
+        profil = Profil.query.get(id)
+        if profil is None:
+            logging.warning(f"Rekord nie znaleziony dla ID: {id}")
+            return jsonify({'message': 'Rekord nie znaleziony!'}), 404
+
+        # Aktualizacja pól w modelu Profil, z osobnymi blokami try/except
+        try:
+            if 'column_1' in dane:
+                profil.id_tasmy = dane['column_1']  # ID tasmy
+        except Exception as e:
+            logging.error(f'Błąd podczas aktualizacji ID tasmy: {str(e)}')
+
+       
+
+        try:
+            if 'column_5' in dane:
+                profil.zwrot_na_magazyn_kg = dane['column_5']  # Zwrot na magazyn
+        except Exception as e:
+            logging.error(f'Błąd podczas aktualizacji zwrotu na magazyn: {str(e)}')
+
+        try:
+            if 'column_6' in dane:
+                profil.nr_czesci_klienta = dane['column_6']  # Nr części klienta
+        except Exception as e:
+            logging.error(f'Błąd podczas aktualizacji nr części klienta: {str(e)}')
+
+        try:
+            if 'column_7' in dane:
+                profil.nazwa_klienta_nr_zlecenia_PRODIO = dane['column_7']  # Nazwa klienta
+        except Exception as e:
+            logging.error(f'Błąd podczas aktualizacji nazwy klienta: {str(e)}')
+
+        logging.info(f"Aktualizacja Profil ID: {profil.id} z danymi: {dane}")
 
         # Zatwierdzenie zmian w bazie danych
         db.session.commit()
