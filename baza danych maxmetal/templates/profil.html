@@ -112,34 +112,50 @@ document.addEventListener("DOMContentLoaded", setupFilters);
             }
         });
     }
-    function openEditModal(row) {
+    function openEditModala(row) {
     const cells = row.querySelectorAll("td");
     const editButton = row.querySelector("button");
 
     if (editButton.innerText === "Edytuj") {
-        // Pobierz użytkowników do select
-        fetch('/get-uzytkownicy')
-            .then(response => response.json())
-            .then(uzytkownicy => {
-                let uzytkownicyOptions = uzytkownicy.map(user => 
-                    `<option value="${user.login}">${user.login}</option>`
-                ).join("");
+        // Tworzenie tymczasowego wiersza do filtrowania
+        const filterRow = document.createElement("tr");
+        let filterCells = '';
 
-                // Zamień edytowalne komórki na pola formularza
-                cells.forEach((cell, index) => {
-                    if (index > 0 && index < cells.length - 2 && index !== 2 && index !== 3 && index !== 4) { // Edytowalne: 1 do przedostatniej
-                        const value = cell.innerText;
-                        cell.innerHTML = `<input type="text" value="${value}" style="width: 100%;">`;
-                    } else if (index === 8) {  
-                        // Uprawnienia jako <select>
-                        let currentValue = cell.innerText.trim();
-                        cell.innerHTML = `<select>${uzytkownicyOptions}</select>`;
-                        cell.querySelector("select").value = currentValue;
-                    }
-                });
-            })
-            .catch(error => console.error('Błąd pobierania użytkowników:', error));
-        
+        // Generowanie komórek do tymczasowego wiersza
+        for (let i = 0; i < cells.length; i++) {
+            if (i === 1) {
+                filterCells += `<td><input type="text" placeholder="Filtruj Materiał" onkeyup="filterTasmy(this.value)" style="width: 100%;"></td>`;
+            }else {
+                filterCells += `<td></td>`; // Puste komórki dla pozostałych kolumn
+            }
+        }
+
+        filterRow.innerHTML = filterCells;
+        row.parentElement.insertBefore(filterRow, row); // Wstaw wiersz filtrujący nad edytowany wiersz
+
+        // Zamień edytowalne komórki na pola formularza
+        cells.forEach((cell, index) => {
+    if (index > 0 && index < cells.length - 2 ) {
+        if (index === 1) {
+            const currentTasmaId = cell.getAttribute("data-tasma-id");
+            cell.innerHTML = `<select style="width: 100%;" id="tasmaSelect"></select>`;
+            populateTasma(cell.querySelector("#tasmaSelect"), currentTasmaId);
+        } else if (index === 2 ) { // Data fields
+            const value = cell.innerText;
+            cell.innerHTML = `<input type="date" value="${value}" style="width: 100%;">`;
+        } else if (index === 5 ) { // Weight fields
+            const value = cell.innerText;
+            cell.innerHTML = `<input type="number" value="${value}" step="0.01" style="width: 100%;">`;
+        }else if (index === 3 || index==4 ) { // Weight fields
+            const value = cell.innerText;
+            cell.innerHTML = `<input type="time" value="${value}" step="2" style="width: 100%;">`;
+        }
+         else {
+            const value = cell.innerText;
+            cell.innerHTML = `<input type="text" value="${value}" style="width: 100%;">`;
+        }
+    }
+});
         editButton.innerText = "Zapisz";
     } else if (editButton.innerText === "Zapisz") {
         // Zbierz dane z formularza
@@ -147,84 +163,8 @@ document.addEventListener("DOMContentLoaded", setupFilters);
         let isValid = true;
 
         cells.forEach((cell, index) => {
-            if (index > 0 && index < cells.length - 2 && index !== 2 && index !== 3 && index !== 4) {
-                const input = cell.querySelector("input");
-                if (input) {
-                    const value = input.value.trim();
-                    if (!value) {
-                        isValid = false; // Walidacja: sprawdź, czy pole nie jest puste
-                    }
-                    updatedData[`column_${index}`] = value;
-                    cell.innerText = value; // Zapisz nowe wartości
-                }
-            } else if (index === 0 || index >= cells.length - 3) {
-                updatedData[`column_${index}`] = cell.innerText;
-            }
-        });
-
-        if (isValid) {
-            sendDataToBackend(updatedData);
-            editButton.innerText = "Edytuj";
-        } else {
-            alert("Proszę wypełnić wszystkie edytowalne pola.");
-        }
-    }
-}
-    
-    function sendDataToBackend(data) {
-        fetch('/update-row_profil', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(data),
-        })
-        .then(response => response.json())
-        .then(result => {
-            console.log("Wynik z backendu:", result);
-            alert("Dane zostały pomyślnie zapisane!");
-        })
-        .catch(error => {
-            console.error("Błąd podczas wysyłania danych:", error);
-            alert("Wystąpił błąd podczas zapisywania danych!");
-        });
-    }
-    function openEditModala(row) {
-    const cells = row.querySelectorAll("td");
-    const editButton = row.querySelector("button");
-
-    if (editButton.innerText === "Edytuj") {
-        // Pobierz użytkowników do select
-        fetch('/get-uzytkownicy')
-            .then(response => response.json())
-            .then(uzytkownicy => {
-                let uzytkownicyOptions = uzytkownicy.map(user => 
-                    `<option value="${user.login}">${user.login}</option>`
-                ).join("");
-
-                // Zamień edytowalne komórki na pola formularza
-                cells.forEach((cell, index) => {
-                    if (index > 0 && index < cells.length - 2) { // Edytowalne komórki
-                        const value = cell.innerText;
-                        cell.innerHTML = `<input type="text" value="${value}" style="width: 100%;">`;
-                    } else if (index === 8) {
-                        // Uprawnienia jako <select>
-                        let currentValue = cell.innerText.trim();
-                        cell.innerHTML = `<select>${uzytkownicyOptions}</select>`;
-                        cell.querySelector("select").value = currentValue;
-                    }
-                });
-                editButton.innerText = "Zapisz";
-            })
-            .catch(error => console.error('Błąd pobierania użytkowników:', error));
-    } else if (editButton.innerText === "Zapisz") {
-        // Zbierz dane z formularza
-        const updatedData = {};
-        let isValid = true;
-
-        cells.forEach((cell, index) => {
             if (index > 0 && index < cells.length - 2) { 
-                const input = cell.querySelector("input");
+                const input = cell.querySelector("input") || cell.querySelector("select");
                 if (input) {
                     const value = input.value.trim();
                     if (!value) {
@@ -234,52 +174,82 @@ document.addEventListener("DOMContentLoaded", setupFilters);
                         cell.innerText = value; // Zapisz nowe wartości
                     }
                 }
-            } else if (index === 0) {
-                updatedData[`column_${index}`] = cell.innerText; // Zapisz ID
+            } else if (index === 0 || index >= cells.length - 3) {
+                updatedData[`column_${index}`] = cell.innerText; // Zapisz ID i inne wartości
             }
         });
 
         if (isValid) {
             sendDataToBackend(updatedData);
             editButton.innerText = "Edytuj";
+
+            // Usunięcie tymczasowego wiersza po zapisaniu
+            const nextRow = row.previousElementSibling; // Wiersz filtrujący jest bezpośrednio nad edytowanym wierszem
+            if (nextRow) {
+                nextRow.remove(); // Usuń wiersz filtrujący po zapisaniu
+            }
         } else {
             alert("Proszę wypełnić wszystkie edytowalne pola.");
         }
     }
 }
 
-// Funkcja do filtrowania tasmy
-function filterTasma(searchTerm) {
-    const rows = document.querySelectorAll('#tabela tbody tr');
-    rows.forEach(row => {
-        const tasmaCell = row.cells[1]; // Zakładamy, że tasma jest w drugiej kolumnie (indeks 1)
-        if (tasmaCell) {
-            const tasmaText = tasmaCell.innerText.toLowerCase();
-            row.style.display = tasmaText.includes(searchTerm.toLowerCase()) ? "" : "none"; // Pokaż lub ukryj wiersz
-        }
-    });
+
+
+
+
+
+// Funkcja do pobierania dostawców
+function populateTasma(selectElement, selectedValue) {
+    fetch('/get-tasma')
+        .then(response => response.json())
+        .then(data => {
+            data.forEach(tasma => {
+                const option = document.createElement('option');
+                option.value = tasma.id;
+                option.textContent = tasma.nr_z_etykiety_na_kregu;
+                selectElement.appendChild(option);
+            });
+
+            if (selectedValue) {
+                selectElement.value = selectedValue;
+            }
+        })
+        .catch(error => console.error('Błąd podczas pobierania tasmy:', error));
 }
 
-    
-    function sendDataToBackenda(data) {
-        fetch('/update-row_profil', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(data),
-        })
-        .then(response => response.json())
-        .then(result => {
-            console.log("Wynik z backendu:", result);
-            alert("Dane zostały pomyślnie zapisane!");
-        })
-        .catch(error => {
-            console.error("Błąd podczas wysyłania danych:", error);
-            alert("Wystąpił błąd podczas zapisywania danych!");
-        });
+
+function filterTasmy(searchTerm) {
+    const select = document.getElementById("tasmaSelect");
+    const options = select.options;
+
+    for (let i = 0; i < options.length; i++) {
+        const optionText = options[i].text.toLowerCase();
+        options[i].style.display = optionText.includes(searchTerm.toLowerCase()) ? "" : "none";
     }
-    const currentDate = new Date().toISOString().split('T')[0];
+}
+
+
+function sendDataToBackend(data) {
+    console.log("Wysyłanie danych:", data); // Dodaj to
+    fetch('/update-row_profil', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+    })
+    .then(response => response.json())
+    .then(result => {
+        console.log("Wynik z backendu:", result);
+        alert("Dane zostały pomyślnie zapisane!");
+    })
+    .catch(error => {
+        console.error("Błąd podczas wysyłania danych:", error);
+        alert("Wystąpił błąd podczas zapisywania danych!");
+    });
+    location.reload();
+}
 </script>
 </head>
 <body>
@@ -398,7 +368,7 @@ function filterTasma(searchTerm) {
                             {%if profile.data_produkcji.strftime('%Y-%m-%d') == currentDate or profile.data_produkcji.strftime('%Y-%m-%d') == currentDate1 or profile.data_produkcji.strftime('%Y-%m-%d') == currentDate2%}
                                 <tr>
                                     <td>{{ profile.id }}</td>
-                                    <td>{{ profile.tasma.nr_z_etykiety_na_kregu }}</td>
+                                    <td data-tasma-id="{{ profile.tasma.id }}">{{ profile.tasma.nr_z_etykiety_na_kregu }}</td>
                                     <td>{{ profile.data_produkcji }}</td>
                                     <td>{{ profile.godz_min_rozpoczecia }}</td>
                                     <td>{{ profile.godz_min_zakonczenia }}</td>
@@ -415,7 +385,7 @@ function filterTasma(searchTerm) {
                             {% elif g.user.id_uprawnienia == 1 or g.user.id_uprawnienia == 2%}
                                 <tr>
                                     <td>{{ profile.id }}</td>
-                                    <td>{{ profile.tasma.nr_z_etykiety_na_kregu }}</td>
+                                    <td data-tasma-id="{{ profile.tasma.id }}">{{ profile.tasma.nr_z_etykiety_na_kregu }}</td>
                                     <td>{{ profile.data_produkcji }}</td>
                                     <td>{{ profile.godz_min_rozpoczecia }}</td>
                                     <td>{{ profile.godz_min_zakonczenia }}</td>
