@@ -212,7 +212,7 @@ window.open(url, '_blank', windowFeatures); // '_blank' otworzy nowe okno/tab
                             <a href="{{ url_for('logout') }}"><label for="menuCheckbox" onclick="this.parentNode.click();">Wyloguj się</label></a>
                         </li>
                         {% endif %}
-                        {%if g.user==1 %}
+                        {%if g.user.id_uprawnienia==1 %}
                         <li>
                             <a href="{{ url_for('tasma') }}"><label for="menuCheckbox" onclick="this.parentNode.click();">Materiały</label></a>
                         </li>

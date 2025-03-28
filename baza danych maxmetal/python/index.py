@@ -285,6 +285,10 @@ def get_dostawcy():
 def get_uzytkownicy():
     users = User.query.with_entities(User.login).all()  # Pobiera loginy użytkowników
     return jsonify([{"login": user.login} for user in users])
+@app.route('/get-tasma', methods=['GET'])
+def get_tasma():
+    tasma = Tasma.query.all()
+    return jsonify([{"id": t.id, "nr_z_etykiety_na_kregu": t.nr_z_etykiety_na_kregu} for t in tasma])
 @app.route('/update-row_uzytkownik', methods=['POST'])
 def update_user():
     if g.user.id_uprawnienia != 1:
@@ -414,20 +418,17 @@ def register():
         return redirect(url_for('home'))
      return render_template("register.html")
 
-@app.route('/regulamin')
-def regulamin():
-    return render_template("regulamin.html")
 
 @app.route('/tasma')
 def tasma():
     
     if not g.user:
         return render_template('login.html', user=g.user)
-    if g.user.id_uprawnienia != 1:
+    if g.user.id_uprawnienia != 1 and g.user.id_uprawnienia != 2:
         return redirect(url_for('home'))
 
     # Jeśli użytkownik ma uprawnienia 1, pobierz wszystkie wpisy
-    if g.user.uprawnienia.id_uprawnienia == 1:
+    if g.user.uprawnienia.id_uprawnienia == 1 or g.user.uprawnienia.id_uprawnienia == 2:
         tasma = Tasma.query.all()
     else:
         # W przeciwnym razie pobierz tylko te wpisy, które stworzył zalogowany użytkownik
@@ -438,7 +439,7 @@ def tasma():
 def update_row():
     if not g.user:
         return render_template('login.html', user=g.user)
-    if g.user.id_uprawnienia != 1:
+    if g.user.id_uprawnienia != 1 and g.user.id_uprawnienia != 2:
         return redirect(url_for('home'))
     try:
         dane = request.get_json()
@@ -478,14 +479,14 @@ def update_row():
 def dodaj_tasma():
     if not g.user:
         return render_template('login.html', user=g.user)
-    if g.user.id_uprawnienia != 1:
+    if g.user.id_uprawnienia != 1 and g.user.id_uprawnienia != 2:
         return redirect(url_for('home'))
     return render_template("dodaj_tasma.html", user=g.user,dostawcy=Dostawcy.query.all(),nazwy_materiału=Szablon.query.all())
 @app.route('/dodaj_tasma_do_bazy', methods=['POST'])
 def dodaj_tasma_do_bazy():
     if not g.user:
         return render_template('login.html', user=g.user)
-    if g.user.id_uprawnienia != 1:
+    if g.user.id_uprawnienia != 1 and g.user.id_uprawnienia != 2:
         return redirect(url_for('home'))
     if request.method == 'POST':
         # Odbierz dane z formularza
@@ -765,8 +766,8 @@ def update_row_szablon():
         szablon.nazwa = dane.get('column_1', szablon.nazwa)
         szablon.rodzaj = dane.get('column_2', szablon.rodzaj)
         szablon.grubosc_i_oznaczenie_ocynku = dane.get('column_3', szablon.grubosc_i_oznaczenie_ocynku)
-        szablon.grubosc = dane.get('column_4', szablon.grubosc)
-        szablon.szerokosc = dane.get('column_5', szablon.szerokosc)
+        szablon.grubosc = dane.get('column_5', szablon.grubosc)
+        szablon.szerokosc = dane.get('column_4', szablon.szerokosc)
         tasma = Tasma.query.filter_by(szablon_id=id).all()
         for t in tasma:
             t.grubosc = szablon.grubosc

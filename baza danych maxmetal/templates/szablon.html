@@ -119,9 +119,14 @@ function openEditModal(row) {
     if (editButton.innerText === "Edytuj") {
         // Zamień edytowalne komórki na pola formularza
         cells.forEach((cell, index) => {
-            if (index > 0 && index < cells.length - 1) { // Edytowalne: 1 do przedostatniej
+            if (index > 0 && index < cells.length - 1) { // Edytowalne: od 1 do przedostatniej
                 const value = cell.innerText;
-                cell.innerHTML = `<input type="text" value="${value}" style="width: 100%;">`;
+
+                if (index === 4 || index === 5) { // Indeks 4: grubość, Indeks 5: szerokość
+                    cell.innerHTML = `<input type="number" value="${value}" step="0.01" style="width: 100%;">`;
+                } else {
+                    cell.innerHTML = `<input type="text" value="${value}" style="width: 100%;">`;
+                }
             }
         });
         editButton.innerText = "Zapisz";
@@ -129,7 +134,7 @@ function openEditModal(row) {
         // Zbierz dane z formularza
         const updatedData = {};
         let isValid = true;
-        
+
         cells.forEach((cell, index) => {
             if (index > 0 && index < cells.length - 1) {
                 const input = cell.querySelector("input");
@@ -154,6 +159,7 @@ function openEditModal(row) {
         }
     }
 }
+
 
 function sendDataToBackend(data) {
     fetch('/update-row-szablon', {
@@ -212,7 +218,7 @@ window.open(url, '_blank', windowFeatures); // '_blank' otworzy nowe okno/tab
                             <a href="{{ url_for('logout') }}"><label for="menuCheckbox" onclick="this.parentNode.click();">Wyloguj się</label></a>
                         </li>
                         {% endif %}
-                        {%if g.user==1 %}
+                        {%if g.user.id_uprawnieniar==1 %}
                         <li>
                             <a href="{{ url_for('tasma') }}"><label for="menuCheckbox" onclick="this.parentNode.click();">Materiały</label></a>
                         </li>
@@ -267,9 +273,9 @@ window.open(url, '_blank', windowFeatures); // '_blank' otworzy nowe okno/tab
                         <th><input type="text" placeholder="Filtruj Nazwę" onkeyup="filterColumn(1)"></th>
                         <th><input type="text" placeholder="Filtruj Rodzaj" onkeyup="filterColumn(2)"></th>
                         <th><input type="text" placeholder="Filtruj Grubosc i oznaczenie ocynku" onkeyup="filterColumn(3)"></th>
-                        <th><input type="text" placeholder="Filtruj Grubość" onkeyup="filterColumn(4)"></th>
-                        <th><input type="text" placeholder="Filtruj Szerokość" onkeyup="filterColumn(5)"></th>
                         
+                        <th><input type="text" placeholder="Filtruj Szerokość" onkeyup="filterColumn(4)"></th>
+                        <th><input type="text" placeholder="Filtruj Grubość" onkeyup="filterColumn(5)"></th>
                         
                         
                         
@@ -284,8 +290,9 @@ window.open(url, '_blank', windowFeatures); // '_blank' otworzy nowe okno/tab
                         <th onclick="sortTable(1)">Nazwa &#9650;&#9660;</th>
                         <th onclick="sortTable(2)">Rodzaj &#9650;&#9660;</th>
                         <th onclick="sortTable(3)">Grubosc i oznaczenie ocynku &#9650;&#9660;</th>
-                        <th onclick="sortTable(4)">Grubość &#9650;&#9660;</th>
-                        <th onclick="sortTable(5)">Szerokość &#9650;&#9660;</th>
+                       
+                        <th onclick="sortTable(4)">Szerokość &#9650;&#9660;</th>
+                        <th onclick="sortTable(5)">Grubość &#9650;&#9660;</th>
                         
                         
                         
@@ -304,8 +311,9 @@ window.open(url, '_blank', windowFeatures); // '_blank' otworzy nowe okno/tab
                             <td>{{ szablon.nazwa }}</td>
                             <td>{{ szablon.rodzaj }}</td>
                             <td>{{ szablon.grubosc_i_oznaczenie_ocynku }}</td>
-                            <td>{{ szablon.grubosc }}</td>
+                            
                             <td>{{ szablon.szerokosc }}</td>
+                            <td>{{ szablon.grubosc }}</td>
                             
                             
                             <td><button type="button" class="button" onclick="openEditModal(this.parentElement.parentElement)">Edytuj</button></td>

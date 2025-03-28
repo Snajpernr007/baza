@@ -32,7 +32,7 @@
                             <a href="{{ url_for('logout') }}"><label for="menuCheckbox" onclick="this.parentNode.click();">Wyloguj się</label></a>
                         </li>
                         {% endif %}
-                        {%if g.user==1 %}
+                        {%if g.user.id_uprawnienia==1 or g.user.id_uprawnienia==2%}
                         <li>
                             <a href="{{ url_for('tasma') }}"><label for="menuCheckbox" onclick="this.parentNode.click();">Materiały</label></a>
                         </li>
@@ -87,7 +87,7 @@
         </div>
         <hr>
         <div class="man-container">
-            {% if g.user.id_uprawnienia==1 %}
+            {% if g.user.id_uprawnienia==1 or g.user.id_uprawnienia==2%}
             <button class="button" onclick="window.location.href='{{ url_for('tasma') }}'">Materiały</button>
             {% endif %}
             <button class="button" onclick="window.location.href='{{ url_for('profil') }}'">Profile</button>
