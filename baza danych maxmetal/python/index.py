@@ -767,7 +767,10 @@ def update_row_szablon():
         szablon.grubosc_i_oznaczenie_ocynku = dane.get('column_3', szablon.grubosc_i_oznaczenie_ocynku)
         szablon.grubosc = dane.get('column_4', szablon.grubosc)
         szablon.szerokosc = dane.get('column_5', szablon.szerokosc)
-        
+        tasma = Tasma.query.filter_by(szablon_id=id).all()
+        for t in tasma:
+            t.grubosc = szablon.grubosc
+            t.szerokosc = szablon.szerokosc
 
         db.session.commit()
         return jsonify({'message': 'Rekord zaktualizowany pomyślnie!'})
