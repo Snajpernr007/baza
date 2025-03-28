@@ -857,6 +857,12 @@ def update_row_szablon():
         db.session.rollback()
         return jsonify({'message': 'Wystąpił błąd podczas aktualizacji!', 'error': str(e)}), 500
 
-
+@app.route('/zestawienie')
+def zestawienie():
+    if not g.user:
+        return render_template('login.html', user=g.user)
+    if g.user.id_uprawnienia != 1:
+        return redirect(url_for('home'))
+    return render_template("zestawienie.html", user=g.user,profil=Profil.query.all(),tasma=Tasma.query.all())
 if __name__ == "__main__":
     app.run (host='0.0.0.0',port=5000,debug=True)

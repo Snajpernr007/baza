@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile MaxMetal</title>
+    <link rel="icon" href="../static/img/logo-duże.png">
+    <link rel="stylesheet" href="../static/style.css">
+    <script>
+        // Odśwież stronę co 10 sekund
+// setInterval(function() {
+//     location.reload();
+// }, 10000); // 10000 ms = 10 sekund
+
+function filterTable() {
+    let table = document.getElementById("tabela");
+    let filterInputs = table.querySelectorAll("thead input");
+    let rows = table.getElementsByTagName("tbody")[0].getElementsByTagName("tr");
+
+    // Pętla przez wszystkie wiersze tabeli
+    for (let i = 0; i < rows.length; i++) {
+        let cells = rows[i].getElementsByTagName("td");
+        let isRowVisible = true; // Flaga określająca, czy wiersz ma być widoczny
+
+        // Pętla przez wszystkie kolumny i odpowiednie filtry
+        for (let columnIndex = 0; columnIndex < filterInputs.length; columnIndex++) {
+            let filter = filterInputs[columnIndex].value.toLowerCase();
+            if (cells[columnIndex]) {
+                let cellValue = cells[columnIndex].textContent || cells[columnIndex].innerText;
+                if (filter && !cellValue.toLowerCase().includes(filter)) {    
+                    isRowVisible = false; // Ukryj wiersz, jeśli nie spełnia filtru
+                    break; // Przerywamy, gdy znajdziemy filtr, który nie pasuje
+                }
+            }
+        }
+        rows[i].style.display = isRowVisible ? "" : "none"; // Ustaw widoczność wiersza
+    }
+}
+
+// Zaktualizuj wywołanie funkcji filterTable w inputach
+function setupFilters() {
+    let filterInputs = document.querySelectorAll("thead input");
+    filterInputs.forEach((input, index) => {
+        input.addEventListener("keyup", filterTable); // Używamy nowej funkcji filterTable
+    });
+}
+
+// Wywołaj setupFilters po załadowaniu strony
+document.addEventListener("DOMContentLoaded", setupFilters);
+function resetFilters() {
+    let table = document.getElementById("tabela");
+    let filterInputs = table.querySelectorAll("thead input");
+    let rows = table.getElementsByTagName("tbody")[0].getElementsByTagName("tr");
+
+    // Resetuj wszystkie pola filtrów
+    filterInputs.forEach(input => input.value = "");
+
+    // Przywróć widoczność wszystkich wierszy
+    for (let i = 0; i < rows.length; i++) {
+        rows[i].style.display = "";
+    }
+}
+let sortStates = []; // Tablica przechowująca stan sortowania dla każdej kolumny
+
+function sortTable(columnIndex) {
+    const table = document.getElementById("tabela");
+    const rows = Array.from(table.rows).slice(2); // Pobieramy wszystkie wiersze poza nagłówkami
+    const tbody = table.tBodies[0];
+
+    // Sprawdzamy, czy kolumna już istnieje w tablicy sortStates
+    const existingSortIndex = sortStates.findIndex(sort => sort.columnIndex === columnIndex);
+
+    if (existingSortIndex !== -1) {
+        // Jeśli kolumna jest już sortowana, zmieniamy jej kierunek
+        sortStates[existingSortIndex].ascending = !sortStates[existingSortIndex].ascending;
+    } else {
+        // Jeśli kolumna nie jest jeszcze sortowana, dodajemy ją na początek tablicy
+        sortStates.unshift({ columnIndex, ascending: true });
+    }
+
+    // Sortowanie wierszy na podstawie stanu w tablicy sortStates
+    rows.sort((rowA, rowB) => {
+        for (const sort of sortStates) {
+            const cellA = rowA.cells[sort.columnIndex]?.innerText.toLowerCase() || "";
+            const cellB = rowB.cells[sort.columnIndex]?.innerText.toLowerCase() || "";
+
+            if (!isNaN(cellA) && !isNaN(cellB)) {
+                // Sortowanie liczb
+                const comparison = sort.ascending ? cellA - cellB : cellB - cellA;
+                if (comparison !== 0) return comparison;
+            } else {
+                // Sortowanie tekstowe
+                const comparison = sort.ascending
+                    ? cellA.localeCompare(cellB)
+                    : cellB.localeCompare(cellA);
+                if (comparison !== 0) return comparison;
+            }
+        }
+        return 0; // Jeśli wszystkie kolumny są równe, nie zmieniamy kolejności
+    });
+
+    // Przypisanie posortowanych wierszy do tabeli
+    tbody.innerHTML = "";
+    rows.forEach(row => tbody.appendChild(row));
+
+    // Resetowanie strzałek i ustawienie odpowiednich w nagłówkach
+    Array.from(table.tHead.rows[1].cells).forEach((cell, index) => {
+        cell.innerHTML = cell.innerHTML.replace(/ ▲| ▼/g, '');
+        const sortState = sortStates.find(sort => sort.columnIndex === index);
+        if (sortState) {
+            cell.innerHTML += sortState.ascending ? ' ▲' : ' ▼';
+        }
+    });
+}
+
+function printID(id) {
+    // Tworzymy nowy div, który będzie zawierał ID do wydruku
+    const printDiv = document.createElement('div');
+    printDiv.style.position = 'fixed';
+    printDiv.style.top = '0';
+    printDiv.style.left = '0';
+    printDiv.style.width = '100%';
+    printDiv.style.height = '100%';
+    printDiv.style.backgroundColor = 'white';
+    printDiv.style.zIndex = '1000';
+    printDiv.style.display = 'flex';
+    printDiv.style.justifyContent = 'center';
+    printDiv.style.alignItems = 'center';
+    printDiv.style.fontSize = '2em';
+    printDiv.innerText = `${id}`; // Ustawiamy ID do wydruku
+
+    document.body.appendChild(printDiv);
+
+    // Wywołujemy dialog drukowania
+    window.print();
+
+    // Usuwamy div po zakończeniu drukowania
+    window.onafterprint = () => {
+        document.body.removeChild(printDiv);
+        window.onafterprint = null; // resetowanie zdarzenia, aby nie wywoływało się wielokrotnie
+    };
+}
+    
+    </script>
+</head>
+<body>
+    <div id="strona">
+        <div id="banner">
+            <div id="menu-main">
+                <nav role="navigation">
+                    <div id="menuToggle">
+                        <input type="checkbox" id="menuCheckbox">
+
+                        <span></span>
+                        <span></span>
+                        <span></span>
+
+                        <ul id="menu">
+                            {% if not g.user %}
+                        
+                            <li>
+                                <a href="{{ url_for('login') }}"><label for="menuCheckbox" onclick="this.parentNode.click();">Zaloguj się!</label></a>
+                            </li>
+                        
+                            
+                        {% else %}
+                        <li>
+                            <a href="{{ url_for('logout') }}"><label for="menuCheckbox" onclick="this.parentNode.click();">Wyloguj się</label></a>
+                        </li>
+                        {% endif %}
+                        {%if g.user.id_uprawnienia==1 or g.user.id_uprawnienia==2%}
+                        <li>
+                            <a href="{{ url_for('tasma') }}"><label for="menuCheckbox" onclick="this.parentNode.click();">Materiały</label></a>
+                        </li>
+                        {% endif %}
+                        <li>
+                            <a href="{{ url_for('profil') }}"><label for="menuCheckbox" onclick="this.parentNode.click();">Profile</label></a>
+                        </li>
+                        {% if g.user.id_uprawnienia==1 %}
+                        <li>
+                            <a href="{{ url_for('uzytkownik') }}"><label for="menuCheckbox" onclick="this.parentNode.click();">Uzytkownicy</label></a>
+                        </li>
+                        {% endif %}
+                        {% if g.user.id_uprawnienia==1 %}
+                        <li>
+                            <a href="{{ url_for('dostawcy') }}"><label for="menuCheckbox" onclick="this.parentNode.click();">Dostawcy</label></a>
+                        </li>
+                        {% endif %}
+                        {% if g.user.id_uprawnienia==1 %}
+                        <li>
+                            <a href="{{ url_for('szablon') }}"><label for="menuCheckbox" onclick="this.parentNode.click();">Nazwy</label></a>
+                        </li>
+                        {% endif %}
+                        <li>
+                            <a href=javascript:history.back();><label for="menuCheckbox" onclick="this.parentNode.click();">Powrót</label></a>
+                        </li>
+                            <li>
+                                <label style="cursor: pointer;" onclick="openMultipleWindows();">Dodaj materiał</label>
+                            </li>
+                            
+                            <li>
+                                <img id="logo1" src="../static/img/logo-duże.png" alt="logo">
+                            </li>
+                        </ul>   
+                    </div>
+                </nav>
+                <div id="logo-banner">
+                    <a href="{{ url_for('home') }}"><img id="logo-duże" src="../static/img/logo-duże.png" alt="logo"></a>
+                </div>
+                
+            </div>
+        </div>
+        
+            <div id="content">
+                <div id="title">
+                    {% if user %}
+                    <h2 id="witaj">Witaj, {{ user.login }}!</h2>    
+                {% endif %}
+                </div>
+                <button class="button" onclick="resetFilters()">Usuń Filtry</button>
+            </div>
+            <hr>
+           <div>
+            <table id="tabela">
+                <thead>
+                    <tr>
+                        <th><input type="text" placeholder="Filtruj ID" onkeyup="filterColumn(0)"></th>
+                        <th><input type="text" placeholder="Filtruj Dostawcę" onkeyup="filterColumn(1)"></th>
+                        <th><input type="text" placeholder="Filtruj Materiał" onkeyup="filterColumn(2)"></th>
+                        <th><input type="text" placeholder="Filtruj Datę Kręgu" onkeyup="filterColumn(3)"></th>
+                        <th><input type="text" placeholder="Filtruj Grubość" onkeyup="filterColumn(4)"></th>
+                        <th><input type="text" placeholder="Filtruj Szerokość" onkeyup="filterColumn(5)"></th>
+                        <th><input type="text" placeholder="Filtruj Wagę" onkeyup="filterColumn(6)"></th>
+                        <th><input type="text" placeholder="Filtruj Wagę na Stanie" onkeyup="filterColumn(7)"></th>
+                        <th><input type="text" placeholder="Filtruj Etyk. Paletową" onkeyup="filterColumn(8)"></th>
+                        <th><input type="text" placeholder="Filtruj Etyk. Kręgu" onkeyup="filterColumn(9)"></th>
+                        <th><input type="text" placeholder="Filtruj Lokalizację" onkeyup="filterColumn(10)"></th>
+                        <th><input type="text" placeholder="Filtruj Fakturę" onkeyup="filterColumn(11)"></th>
+                        <th><input type="text" placeholder="Filtruj Datę Dostawy" onkeyup="filterColumn(12)"></th>
+                        <th><input type="text" placeholder="Filtruj Nazwę Stanowiska" onkeyup="filterColumn(13)"></th>
+                        <th><input type="text" placeholder="Filtruj ID" onkeyup="filterColumn(14)"></th>
+                            <th><input type="text" placeholder="Filtruj Materiał" onkeyup="filterColumn(15)"></th>
+                            <th><input type="text" placeholder="Filtruj Datę produkcji" onkeyup="filterColumn(16)"></th>
+                            <th><input type="text" placeholder="Filtruj Godzinę rozpoczęcia" onkeyup="filterColumn(17)"></th>
+                            <th><input type="text" placeholder="Filtruj Godzinę zakończenia" onkeyup="filterColumn(18)"></th>
+                            <th><input type="text" placeholder="Filtruj Zwrot na magazyn" onkeyup="filterColumn(19)"></th>
+                            <th><input type="text" placeholder="Filtruj Nr części Klienta" onkeyup="filterColumn(20)"></th>
+                            <th><input type="text" placeholder="Filtruj Nazwę klienta Nr PRODIO" onkeyup="filterColumn(21)"></th>
+                            
+                            <th><input type="text" placeholder="Filtruj Rodzaj Materiału" onkeyup="filterColumn(22)"></th>
+                            <th><input type="text" placeholder="Filtruj Nazwę Stanowiska" onkeyup="filterColumn(23)"></th>
+                        
+                    </tr>
+                    <tr>
+                        <th onclick="sortTable(0)">ID &#9650;&#9660;</th>
+                        <th onclick="sortTable(1)">Nazwa Dostawcy &#9650;&#9660;</th>
+                        <th onclick="sortTable(2)">Nazwa Materiału &#9650;&#9660;</th>
+                        <th onclick="sortTable(3)">Data z Etykiety na Kręgu &#9650;&#9660;</th>
+                        <th onclick="sortTable(4)">Grubość &#9650;&#9660;</th>
+                        <th onclick="sortTable(5)">Szerokość &#9650;&#9660;</th>
+                        <th onclick="sortTable(6)">Waga Kręgu &#9650;&#9660;</th>
+                        <th onclick="sortTable(7)">Waga Kręgu na Stanie &#9650;&#9660;</th>
+                        <th onclick="sortTable(8)">Nr Etykieta Paletowa &#9650;&#9660;</th>
+                        <th onclick="sortTable(9)">Nr z Etykiety na Kręgu &#9650;&#9660;</th>
+                        <th onclick="sortTable(10)">Lokalizacja &#9650;&#9660;</th>
+                        <th onclick="sortTable(11)">Nr Faktury Dostawcy &#9650;&#9660;</th>
+                        <th onclick="sortTable(12)">Data Dostawy &#9650;&#9660;</th>
+                        <th onclick="sortTable(13)">Nazwa Stanowiska &#9650;&#9660;</th>
+                        <th onclick="sortTable(14)">ID &#9650;&#9660;</th>
+                            <th onclick="sortTable(15)">Etykieta Materiału &#9650;&#9660;</th>
+                            <th onclick="sortTable(16)">Data Produkcji &#9650;&#9660;</th>
+                            
+                            <th onclick="sortTable(17)">Godzina rozpoczęcia &#9650;&#9660;</th>
+                            <th onclick="sortTable(18)">Godzina zakończenia &#9650;&#9660;</th>
+                            <th onclick="sortTable(19)">Zwrot na magazyn kg &#9650;&#9660;</th>
+                            <th onclick="sortTable(20)">Nr części klienta &#9650;&#9660;</th>
+                            <th onclick="sortTable(21)">Nazwa klienta Nr PRODIO &#9650;&#9660;</th>
+                            <th onclick="sortTable(22)">Rodzaj materiału &#9650;&#9660;</th>
+                            <th onclick="sortTable(23)">Nazwa Stanowiska &#9650;&#9660;</th>
+                        
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for tasmy in tasma %}
+                        <tr>
+                            <td>{{ tasmy.id }} <a href="javascript:void(0);" onclick="printID({{ tasmy.id }})">
+                                <img src="/static/img/drukarka.png" alt="drukuj" height="15" width="15">
+                            </a></td>
+                            <td data-dostawca-id="{{ tasmy.dostawca.id }}">{{ tasmy.dostawca.nazwa }}</td>
+        <td data-szablon-id="{{ tasmy.szablon.id }}">{{ tasmy.szablon.nazwa }}</td>
+                            <td>{{ tasmy.data_z_etykiety_na_kregu }}</td>
+                            <td>{{ tasmy.grubosc }}</td>
+                            <td>{{ tasmy.szerokosc }}</td>
+                            <td>{{ tasmy.waga_kregu }}</td>
+                            <td>{{ tasmy.waga_kregu_na_stanie }}</td>
+                            <td>{{ tasmy.nr_etykieta_paletowa }}</td>
+                            <td>{{ tasmy.nr_z_etykiety_na_kregu }}</td>
+                            <td>{{ tasmy.lokalizacja }}</td>
+                            <td>{{ tasmy.nr_faktury_dostawcy }}</td>
+                            <td>{{ tasmy.data_dostawy }}</td>
+                            <td>{{ tasmy.pracownik.login }}</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            {% for profile in profil %}
+                            
+                            {% if tasmy.id== profile.tasma.id%}
+                            
+                                <tr>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td>{{ profile.id }}</td>
+                                    <td data-tasma-id="{{ profile.tasma.id }}">{{ profile.tasma.nr_z_etykiety_na_kregu }}</td>
+                                    <td>{{ profile.data_produkcji }}</td>
+                                    <td>{{ profile.godz_min_rozpoczecia }}</td>
+                                    <td>{{ profile.godz_min_zakonczenia }}</td>
+                                    <td>{{ profile.zwrot_na_magazyn_kg }}</td>
+                                    <td>{{ profile.nr_czesci_klienta }}</td>
+                                    <td>{{ profile.nazwa_klienta_nr_zlecenia_PRODIO }}</td>
+                                    <td>{{profile.tasma.szablon.nazwa}}</td>
+                                    <td>{{ profile.pracownik.login }}</td>
+                                    
+                                    
+                                </tr>
+                            {% endif %}
+                            
+                            {% endfor %}
+                            
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+           </div> 
+
+        </div>
+        
+        
+        
+    </div>
+</body>
+</html> 
