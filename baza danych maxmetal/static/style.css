@@ -80,6 +80,24 @@ footer{
   align-items: center;
 } 
 
+#tabela_on_off {
+  border-collapse: collapse; /* Łączy granice komórek */
+  width: 100%; /* Opcjonalnie: pełna szerokość */
+}
+
+#tabela_on_off, #tabela_on_off th, #tabela_on_off td {
+  border: 1px solid black; /* Czarna ramka */
+}
+
+#tabela_on_off th, #tabela_on_off td {
+  padding: 8px; /* Dodanie odstępu wewnętrznego */
+  text-align: left; /* Wyrównanie tekstu */
+}
+
+
+#tabela_on_off tr:first-child th {
+  border: 3px solid black; /* Grubsza ramka */
+}
 #tabela {
   border-collapse: collapse; /* Łączy granice komórek */
   width: 100%; /* Opcjonalnie: pełna szerokość */
@@ -96,6 +114,9 @@ footer{
 
 
 #tabela tr:first-child th {
+  border: 3px solid black; /* Grubsza ramka */
+}
+#tabela tr:nth-child(2) th {
   border: 3px solid black; /* Grubsza ramka */
 }
 /* Index */
