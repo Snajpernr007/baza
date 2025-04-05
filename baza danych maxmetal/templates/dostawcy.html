@@ -231,6 +231,11 @@ window.open(url, '_blank', windowFeatures); // '_blank' otworzy nowe okno/tab
                             <a href="{{ url_for('szablon') }}"><label for="menuCheckbox" onclick="this.parentNode.click();">Nazwy</label></a>
                         </li>
                         {% endif %}
+                        {% if g.user.id_uprawnienia==1 %}
+                        <li>
+                            <a href="{{ url_for('zestawienie') }}"><label for="menuCheckbox" onclick="this.parentNode.click();">Zestawienie</label></a>
+                        </li>
+                        {% endif %}
                         <li>
                             <a href=javascript:history.back();><label for="menuCheckbox" onclick="this.parentNode.click();">Powrót</label></a>
                         </li>
