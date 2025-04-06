@@ -88,7 +88,7 @@ class Tasma(db.Model):
     pracownik_id = db.Column(db.Integer, db.ForeignKey('uzytkownicy.id'), nullable=True)
     dostawca_id = db.Column(db.Integer, db.ForeignKey('dostawcy.id'), nullable=False)
     szablon_id = db.Column(db.Integer, db.ForeignKey('szablon.id'), nullable=False)
-
+    Data_do_usuwania = db.Column(db.Date, nullable=True)
     pracownik = db.relationship('Uzytkownik', back_populates='tasma')
     profil = db.relationship('Profil', back_populates='tasma', cascade='all, delete-orphan')
     dostawca = db.relationship('Dostawcy', back_populates='tasma')
@@ -108,7 +108,7 @@ class Profil(db.Model):
     zwrot_na_magazyn_kg = db.Column(db.Numeric(10, 2), nullable=True)
     nr_czesci_klienta = db.Column(db.String(50), nullable=False)
     nazwa_klienta_nr_zlecenia_PRODIO = db.Column(db.String(100), nullable=True)
-    
+    Data_do_usuwania = db.Column(db.Date, nullable=True)
     id_pracownika = db.Column(db.Integer, db.ForeignKey('uzytkownicy.id'), nullable=False)
 
     tasma = db.relationship('Tasma', back_populates='profil')
@@ -320,6 +320,21 @@ def update_user():
 
     db.session.commit()
     return jsonify({"success": "Dane zaktualizowane pomyślnie!"})
+@app.route('/usun_uzytkownik/<int:id>', methods=['POST'])
+def usun_uzytkownik(id):
+    if not g.user:
+        return render_template('login.html', user=g.user)
+    if g.user.id_uprawnienia != 1:
+        return redirect(url_for('home'))
+    uzytkownik = Uzytkownik.query.get_or_404(id)
+    
+    try:
+        db.session.delete(uzytkownik)
+        db.session.commit()
+        flash('Uzytkownik została usunięta.', 'success')
+    except Exception as e:
+        db.session.rollback()
+        flash(f'Błąd przy usuwaniu: {e}', 'danger')
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     if request.method == 'POST':
@@ -418,7 +433,23 @@ def register():
         return redirect(url_for('home'))
      return render_template("register.html")
 
-
+@app.route('/usun_tasma/<int:id>', methods=['POST'])
+def usun_tasma(id):
+    if not g.user:
+        return render_template('login.html', user=g.user)
+    if g.user.id_uprawnienia != 1:
+        return redirect(url_for('home'))
+    tasma = Tasma.query.get_or_404(id)
+    
+    try:
+        db.session.delete(tasma)
+        db.session.commit()
+        flash('Tasma została usunięta.', 'success')
+    except Exception as e:
+        db.session.rollback()
+        flash(f'Błąd przy usuwaniu: {e}', 'danger')
+    
+    return redirect(request.referrer or url_for('home'))  # lub inna strona
 @app.route('/tasma')
 def tasma():
     
@@ -434,7 +465,7 @@ def tasma():
         # W przeciwnym razie pobierz tylko te wpisy, które stworzył zalogowany użytkownik
         tasma = Tasma.query.filter_by(pracownik_id=g.user.id).all()
     
-    return render_template("tasma.html", user=g.user, tasma=tasma,uprawnienia=Uprawnienia.query.all(),szablon=Szablon.query.all(),dostawcy=Dostawcy.query.all())
+    return render_template("tasma.html", user=g.user, tasma=tasma,uprawnienia=Uprawnienia.query.all(),szablon=Szablon.query.all(),dostawcy=Dostawcy.query.all(),currentDate3=date.today())
 @app.route('/update-row', methods=['POST'])
 def update_row():
     if not g.user:
@@ -503,12 +534,13 @@ def dodaj_tasma_do_bazy():
         lokalizacja = request.form.get('lokalizacja')
         nr_faktury_dostawcy = request.form.get('nr_faktury_dostawcy')
         data_dostawy = request.form.get('data_dostawy')
+        Data_do_usuwania = date.today()+ timedelta(days=365)
         pracownik_id = g.user.id
 
         
 
         # Dodanie danych do bazy danych
-        nowy_uzytkownik = Tasma(dostawca_id=dostawca_id, szablon_id=szablon_id, data_z_etykiety_na_kregu=data_z_etykiety_na_kregu, grubosc=grubosc, szerokosc=szerokosc, waga_kregu=waga_kregu, nr_etykieta_paletowa=nr_etykieta_paletowa, nr_z_etykiety_na_kregu=nr_z_etykiety_na_kregu, lokalizacja=lokalizacja, nr_faktury_dostawcy=nr_faktury_dostawcy, data_dostawy=data_dostawy, pracownik_id=pracownik_id,waga_kregu_na_stanie=waga_kregu_na_stanie)
+        nowy_uzytkownik = Tasma(dostawca_id=dostawca_id, szablon_id=szablon_id, data_z_etykiety_na_kregu=data_z_etykiety_na_kregu, grubosc=grubosc, szerokosc=szerokosc, waga_kregu=waga_kregu, nr_etykieta_paletowa=nr_etykieta_paletowa, nr_z_etykiety_na_kregu=nr_z_etykiety_na_kregu, lokalizacja=lokalizacja, nr_faktury_dostawcy=nr_faktury_dostawcy, data_dostawy=data_dostawy, pracownik_id=pracownik_id,waga_kregu_na_stanie=waga_kregu_na_stanie, Data_do_usuwania=Data_do_usuwania)
         db.session.add(nowy_uzytkownik)
 
         try:
@@ -532,7 +564,24 @@ def profil():
    # else:
         # W przeciwnym razie pobierz tylko te wpisy, które stworzył zalogowany użytkownik
         #profil = Profil.query.filter_by(pracownik_id=g.user.id).all()
-    return render_template("profil.html", user=g.user,profil=profil,uprawnienia=Uprawnienia.query.all(),currentDate = date.today().strftime('%Y-%m-%d'),currentDate1=(date.today() - timedelta(days=1)).strftime('%Y-%m-%d'),currentDate2=(date.today() - timedelta(days=2)).strftime('%Y-%m-%d'))
+    return render_template("profil.html", user=g.user,profil=profil,uprawnienia=Uprawnienia.query.all(),currentDate = date.today().strftime('%Y-%m-%d'),currentDate1=(date.today() - timedelta(days=1)).strftime('%Y-%m-%d'),currentDate2=(date.today() - timedelta(days=2)).strftime('%Y-%m-%d'),currentDate3=date.today())
+@app.route('/usun_profil/<int:id>', methods=['POST'])
+def usun_profil(id):
+    if not g.user:
+        return render_template('login.html', user=g.user)
+    if g.user.id_uprawnienia != 1:
+        return redirect(url_for('home'))
+    profil = Profil.query.get_or_404(id)
+    
+    try:
+        db.session.delete(profil)
+        db.session.commit()
+        flash('Profil został usunięty.', 'success')
+    except Exception as e:
+        db.session.rollback()
+        flash(f'Błąd przy usuwaniu: {e}', 'danger')
+    
+    return redirect(request.referrer or url_for('home'))  # lub inna strona
 @app.route('/update-row_profil', methods=['POST'])
 def update_row_profil():
     # Sprawdzenie, czy użytkownik jest zalogowany
@@ -689,7 +738,7 @@ def dodaj_profil_do_bazy():
         zwrot_na_magazyn_kg = request.form.get('zwrot_na_magazyn_kg')
         nr_czesci_klienta = request.form.get('nr_czesci_klienta')
         nazwa_klienta_nr_zlecenia_PRODIO = request.form.get('nazwa_klienta_nr_zlecenia_PRODIO')
-        
+        Data_do_usuwania = date.today()+ timedelta(days=365)
         pracownik_id = g.user.id  # ID pracownika z sesji
 
         # Dodanie danych do bazy danych
@@ -702,6 +751,7 @@ def dodaj_profil_do_bazy():
             nr_czesci_klienta=nr_czesci_klienta,
             nazwa_klienta_nr_zlecenia_PRODIO=nazwa_klienta_nr_zlecenia_PRODIO,
             
+            Data_do_usuwania=Data_do_usuwania,
             id_pracownika=pracownik_id
         )
         tasma = Tasma.query.get(id_tasmy)

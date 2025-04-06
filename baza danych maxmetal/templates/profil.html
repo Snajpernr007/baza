@@ -487,7 +487,7 @@ function sendDataToBackend(data) {
                                 </tr>
                             {% endif %}
                             
-                            {% elif g.user.id_uprawnienia == 1 or g.user.id_uprawnienia == 2%}
+                            {% elif  g.user.id_uprawnienia == 2%}
                                 <tr>
                                     <td>{{ profile.id }}</td>
                                     <td data-tasma-id="{{ profile.tasma.id }}">{{ profile.tasma.nr_z_etykiety_na_kregu }}</td>
@@ -503,6 +503,43 @@ function sendDataToBackend(data) {
                                     
                                     <td><button type="button" class="button" onclick="openEditModala(this.parentElement.parentElement)">Edytuj</button></td>
                                 </tr>
+                                {% elif  g.user.id_uprawnienia == 1 and g.user.id==1%}
+                                <tr>
+                                    <td>{{ profile.id }}</td>
+                                    <td data-tasma-id="{{ profile.tasma.id }}">{{ profile.tasma.nr_z_etykiety_na_kregu }}</td>
+                                    <td>{{ profile.data_produkcji }}</td>
+                                    <td>{{ profile.godz_min_rozpoczecia }}</td>
+                                    <td>{{ profile.godz_min_zakonczenia }}</td>
+                                    <td>{{ profile.zwrot_na_magazyn_kg }}</td>
+                                    <td>{{ profile.nr_czesci_klienta }}</td>
+                                    <td>{{ profile.nazwa_klienta_nr_zlecenia_PRODIO }}</td>
+                                    <td>{{profile.tasma.szablon.nazwa}}</td>
+                                    <td>{{ profile.pracownik.login }}</td>
+                                    
+                                    
+                                    <td><button type="button" class="button" onclick="openEditModala(this.parentElement.parentElement)">Edytuj</button><form method="POST" action="{{ url_for('usun_profil', id=profile.id) }}" style="display:inline;background-color: transparent;width: 0;padding: 0%;" onsubmit="return confirm('Na pewno chcesz usunąć ten profil?');">
+                                        <button type="submit" class="button">Usuń</button>
+                                    </form></td>
+                                </tr>
+                                {% elif  g.user.id_uprawnienia == 1 and profile.Data_do_usuwania>=currentDate3%}
+                                <tr>
+                                    <td>{{ profile.id }}</td>
+                                    <td data-tasma-id="{{ profile.tasma.id }}">{{ profile.tasma.nr_z_etykiety_na_kregu }}</td>
+                                    <td>{{ profile.data_produkcji }}</td>
+                                    <td>{{ profile.godz_min_rozpoczecia }}</td>
+                                    <td>{{ profile.godz_min_zakonczenia }}</td>
+                                    <td>{{ profile.zwrot_na_magazyn_kg }}</td>
+                                    <td>{{ profile.nr_czesci_klienta }}</td>
+                                    <td>{{ profile.nazwa_klienta_nr_zlecenia_PRODIO }}</td>
+                                    <td>{{profile.tasma.szablon.nazwa}}</td>
+                                    <td>{{ profile.pracownik.login }}</td>
+                                    
+                                    
+                                    <td><button type="button" class="button" onclick="openEditModala(this.parentElement.parentElement)">Edytuj</button><form method="POST" action="{{ url_for('usun_profil', id=profile.id) }}" style="display:inline;background-color: transparent;width: 0;padding: 0%;" onsubmit="return confirm('Na pewno chcesz usunąć ten profil?');">
+                                        <button type="submit" class="button">Usuń</button>
+                                    </form></td>
+                                </tr>
+                                
                             {% endif %}
                         {% endfor %}
                     </tbody>

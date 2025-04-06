@@ -440,6 +440,7 @@ function printID(id) {
                 </thead>
                 <tbody>
                     {% for tasmy in tasma %}
+                    {% if  g.user.id_uprawnienia == 1 and g.user.id==1%}
                         <tr>
                             <td>{{ tasmy.id }} <a href="javascript:void(0);" onclick="printID({{ tasmy.id }})">
                                 <img src="/static/img/drukarka.png" alt="drukuj" height="15" width="15">
@@ -458,8 +459,55 @@ function printID(id) {
                             <td>{{ tasmy.data_dostawy }}</td>
                             <td>{{ tasmy.pracownik.login }}</td>
                             
+                            <td><button type="button" class="button" onclick="openEditModal(this.parentElement.parentElement)">Edytuj</button><form method="POST" action="{{ url_for('usun_tasma', id=tasmy.id) }}" style="display:inline;background-color: transparent;width: 0;padding: 0%;" onsubmit="return confirm('Na pewno chcesz usunąć ten materiał?');">
+                                <button type="submit" class="button">Usuń</button>
+                            </form></td>
+                        </tr>
+                        {% elif  g.user.id_uprawnienia == 1 and tasmy.Data_do_usuwania>=currentDate3%}
+                        <tr>
+                            <td>{{ tasmy.id }} <a href="javascript:void(0);" onclick="printID({{ tasmy.id }})">
+                                <img src="/static/img/drukarka.png" alt="drukuj" height="15" width="15">
+                            </a></td>
+                            <td data-dostawca-id="{{ tasmy.dostawca.id }}">{{ tasmy.dostawca.nazwa }}</td>
+                            <td data-szablon-id="{{ tasmy.szablon.id }}">{{ tasmy.szablon.nazwa }}</td>
+                            <td>{{ tasmy.data_z_etykiety_na_kregu }}</td>
+                            <td>{{ tasmy.grubosc }}</td>
+                            <td>{{ tasmy.szerokosc }}</td>
+                            <td>{{ tasmy.waga_kregu }}</td>
+                            <td>{{ tasmy.waga_kregu_na_stanie }}</td>
+                            <td>{{ tasmy.nr_etykieta_paletowa }}</td>
+                            <td>{{ tasmy.nr_z_etykiety_na_kregu }}</td>
+                            <td>{{ tasmy.lokalizacja }}</td>
+                            <td>{{ tasmy.nr_faktury_dostawcy }}</td>
+                            <td>{{ tasmy.data_dostawy }}</td>
+                            <td>{{ tasmy.pracownik.login }}</td>
+                            
+                            <td><button type="button" class="button" onclick="openEditModal(this.parentElement.parentElement)">Edytuj</button><form method="POST" action="{{ url_for('usun_tasma', id=tasmy.id) }}" style="display:inline;background-color: transparent;width: 0;padding: 0%;" onsubmit="return confirm('Na pewno chcesz usunąć ten materiał?');">
+                                <button type="submit" class="button">Usuń</button>
+                            </form></td>
+                        </tr>
+                        {% elif  g.user.id_uprawnienia == 2 and tasmy.Data_do_usuwania>=currentDate3%}
+                        <tr>
+                            <td>{{ tasmy.id }} <a href="javascript:void(0);" onclick="printID({{ tasmy.id }})">
+                                <img src="/static/img/drukarka.png" alt="drukuj" height="15" width="15">
+                            </a></td>
+                            <td data-dostawca-id="{{ tasmy.dostawca.id }}">{{ tasmy.dostawca.nazwa }}</td>
+                            <td data-szablon-id="{{ tasmy.szablon.id }}">{{ tasmy.szablon.nazwa }}</td>
+                            <td>{{ tasmy.data_z_etykiety_na_kregu }}</td>
+                            <td>{{ tasmy.grubosc }}</td>
+                            <td>{{ tasmy.szerokosc }}</td>
+                            <td>{{ tasmy.waga_kregu }}</td>
+                            <td>{{ tasmy.waga_kregu_na_stanie }}</td>
+                            <td>{{ tasmy.nr_etykieta_paletowa }}</td>
+                            <td>{{ tasmy.nr_z_etykiety_na_kregu }}</td>
+                            <td>{{ tasmy.lokalizacja }}</td>
+                            <td>{{ tasmy.nr_faktury_dostawcy }}</td>
+                            <td>{{ tasmy.data_dostawy }}</td>
+                            <td>{{ tasmy.pracownik.login }}</td>
+                            
                             <td><button type="button" class="button" onclick="openEditModal(this.parentElement.parentElement)">Edytuj</button></td>
                         </tr>
+                        {%endif%}
                     {% endfor %}
                 </tbody>
             </table>

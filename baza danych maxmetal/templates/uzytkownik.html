@@ -121,7 +121,7 @@ document.addEventListener("DOMContentLoaded", setupFilters);
 
                 cells.forEach((cell, index) => {
                     if (index > 0 && index < cells.length - 1) { 
-                        if (index === 4) { 
+                        if (index === 2) { 
                             cell.innerHTML = `<input type="password" value="" placeholder="Nowe hasło" style="width: 100%;">`;
                         } else if (index === 3) {  
                             let currentValueId = cell.dataset.uprawnienieId || ""; // Pobierz ID uprawnienia
@@ -150,9 +150,10 @@ document.addEventListener("DOMContentLoaded", setupFilters);
                 if (input) {
                     const value = input.value.trim();
                     if (index === 2) {
-    updatedData[`column_${index}`] = value ? value : null;  
+    updatedData[`column_${index}`] = value ? value : null; // jeśli puste, ustaw na null
+} else {
+    updatedData[`column_${index}`] = value;
 }
-                    updatedData[`column_${index}`] = value;
                     if (index === 3) { // Jeśli to uprawnienia
                         const selectedOption = input.options[input.selectedIndex];
                         updatedData[`column_3`] = selectedOption.value; // Ustaw ID, nie nazwę!
@@ -197,7 +198,7 @@ function sendDataToBackend(data) {
         console.error("Błąd podczas wysyłania danych:", error);
         alert("Wystąpił błąd podczas zapisywania danych!");
     });
-    location.reload()
+
 }
 
 </script>
@@ -307,26 +308,51 @@ function sendDataToBackend(data) {
                     </thead>
                     <tbody>
                         {% for uzytkownik in uzytkownicy %}
-                            <tr>
+                        {%if g.user.id!=1%}
+                        {% if uzytkownik.id!=1 %}
+                        <tr>
                                 
                                 
-                                <td>{{uzytkownik.id}}</td>
-                                <td>{{uzytkownik.login}}</td>
-                                
-                                <td></td>
-                                
-                                <td data-uprawnienie-id="{{ uzytkownik.id_uprawnienia }}">
-                                    {% for uprawnienie in uprawnienia %}
-                                        {% if uzytkownik.id_uprawnienia == uprawnienie.id_uprawnienia %}
-                                            {{ uprawnienie.nazwa }}
-                                        {% endif %}
-                                    {% endfor %}
-                                </td>
-                                
+                            <td>{{uzytkownik.id}}</td>
+                            <td>{{uzytkownik.login}}</td>
                             
+                            <td></td>
+                            
+                            <td data-uprawnienie-id="{{ uzytkownik.id_uprawnienia }}">
+                                {% for uprawnienie in uprawnienia %}
+                                    {% if uzytkownik.id_uprawnienia == uprawnienie.id_uprawnienia %}
+                                        {{ uprawnienie.nazwa }}
+                                    {% endif %}
+                                {% endfor %}
+                            </td>
+                            
+                        
+                            
+                            <td><button type="button" class="button" onclick="openEditModal(this.parentElement.parentElement)">Edytuj</button> </td>
+                        </tr>
+                           {%endif %}
+                        {%elif g.user.id==1%}
+                        <tr>
                                 
-                                <td><button type="button" class="button" onclick="openEditModal(this.parentElement.parentElement)">Edytuj</button> </td>
-                            </tr>
+                                
+                            <td>{{uzytkownik.id}}</td>
+                            <td>{{uzytkownik.login}}</td>
+                            
+                            <td></td>
+                            
+                            <td data-uprawnienie-id="{{ uzytkownik.id_uprawnienia }}">
+                                {% for uprawnienie in uprawnienia %}
+                                    {% if uzytkownik.id_uprawnienia == uprawnienie.id_uprawnienia %}
+                                        {{ uprawnienie.nazwa }}
+                                    {% endif %}
+                                {% endfor %}
+                            </td>
+                            
+                        
+                            
+                            <td><button type="button" class="button" onclick="openEditModal(this.parentElement.parentElement)">Edytuj</button> </td>
+                        </tr>
+                        {% endif %}
                         {% endfor %}
                     </tbody>
                 </table>
