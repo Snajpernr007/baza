@@ -1,17 +1,14 @@
-from flask import Flask, render_template, request, redirect, url_for, g, make_response,flash,jsonify
+from flask import Flask, render_template, request, redirect, url_for, g, make_response, flash, jsonify,  send_file
 from flask_sqlalchemy import SQLAlchemy
 import logging
 from sqlalchemy import text
 import base64
 import smtplib
 from email.message import EmailMessage
-from datetime import timedelta
-from datetime import date
+from datetime import timedelta, date
 from werkzeug.security import generate_password_hash, check_password_hash
 from werkzeug.utils import secure_filename
-import json
 import ssl
-import traceback
 import os
 import datetime
 from sqlalchemy.exc import SQLAlchemyError
@@ -20,9 +17,26 @@ from wtforms import StringField, DecimalField, TextAreaField, SelectField, FileF
 from wtforms.validators import DataRequired, Length
 import threading
 import time
-app = Flask(__name__, template_folder="../templates/",static_folder="../static")
+from decimal import Decimal
+import pandas as pd
+import io  # Dodaj ten import
+import openpyxl
+from io import BytesIO
+# Utwórz katalog logs, jeśli nie istnieje
+if not os.path.exists('logs'):
+    os.makedirs('logs')
 
+# Konfiguracja logowania
+logging.basicConfig(
+    filename='logs/app.log',  # Lokalizacja pliku logu
+    level=logging.INFO,  # Poziom logowania
+    format='%(asctime)s - %(levelname)s - %(message)s',  # Format komunikatu logu
+    encoding='utf-8'  # Umożliwienie zapisu polskich znaków
+)
 
+logger = logging.getLogger(__name__)
+
+app = Flask(__name__, template_folder="../templates/", static_folder="../static")
 app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://root:@localhost/baza_max'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['MAX_CONTENT_LENGTH'] = 16 * 1024 * 1024  # Maksymalny rozmiar pliku: 16MB
@@ -30,36 +44,39 @@ app.config['UPLOAD_EXTENSIONS'] = ['.jpg', '.png', '.gif']
 app.secret_key = 'supersecretkey'
 app.config['UPLOAD_FOLDER'] = '/../static/img'
 db = SQLAlchemy(app)
-def allowed_file(filename):
-    return '.' in filename and filename.rsplit('.', 1)[1].lower() in app.config['UPLOAD_EXTENSIONS']
-
-logging.basicConfig(level=logging.INFO)
-logger = logging.getLogger(__name__)
 
 try:
     with app.app_context():
         connection = db.engine.connect()  # Uzyskaj połączenie
-        connection.execute(text("SELECT 1"))     # Prosta kwerenda, aby sprawdzić połączenie
+        connection.execute(text("SELECT 1"))  # Prosta kwerenda, aby sprawdzić połączenie
         logger.info("Połączenie z bazą danych zostało nawiązane pomyślnie.")
-        connection.close()                   # Zamknij połączenie
+        connection.close()  # Zamknij połączenie
 except Exception as e:
     logger.error(f"Nie udało się połączyć z bazą danych: {e}")
+
+# Modele bazy danych
+
+class Lokalizacja(db.Model):
+    __tablename__ = 'lokalizacja'
+    id = db.Column(db.Integer, primary_key=True, autoincrement=True)
+    nazwa = db.Column(db.String(255), nullable=False)
+
+    def __repr__(self):
+        return f"<Lokalizacja {self.id} - {self.nazwa}>"
 
 class Uzytkownik(db.Model):
     __tablename__ = 'uzytkownicy'
     id = db.Column(db.Integer, primary_key=True)
     login = db.Column(db.String(255), nullable=False)
-    
     haslo = db.Column(db.Text, nullable=False)
     id_uprawnienia = db.Column(db.Integer, db.ForeignKey('uprawnienia.id_uprawnienia'), nullable=False, default=2)
-
+    
     uprawnienia = db.relationship('Uprawnienia', back_populates='uzytkownicy')
     tasma = db.relationship('Tasma', back_populates='pracownik')
     profil = db.relationship('Profil', back_populates='pracownik')
 
     def __repr__(self):
         return f"<Użytkownik {self.id} - {self.login}>"
-
 
 class Uprawnienia(db.Model):
     __tablename__ = 'uprawnienia'
@@ -70,7 +87,6 @@ class Uprawnienia(db.Model):
 
     def __repr__(self):
         return f"<Uprawnienia {self.id_uprawnienia} - {self.nazwa}>"
-
 
 class Tasma(db.Model):
     __tablename__ = 'tasma'
@@ -89,6 +105,7 @@ class Tasma(db.Model):
     dostawca_id = db.Column(db.Integer, db.ForeignKey('dostawcy.id'), nullable=False)
     szablon_id = db.Column(db.Integer, db.ForeignKey('szablon.id'), nullable=False)
     Data_do_usuwania = db.Column(db.Date, nullable=True)
+    
     pracownik = db.relationship('Uzytkownik', back_populates='tasma')
     profil = db.relationship('Profil', back_populates='tasma', cascade='all, delete-orphan')
     dostawca = db.relationship('Dostawcy', back_populates='tasma')
@@ -96,7 +113,6 @@ class Tasma(db.Model):
 
     def __repr__(self):
         return f"<Tasma {self.id} - {self.nr_z_etykiety_na_kregu}>"
-
 
 class Profil(db.Model):
     __tablename__ = 'profil'
@@ -117,7 +133,6 @@ class Profil(db.Model):
     def __repr__(self):
         return f"<Profil {self.id} - {self.nr_czesci_klienta}>"
 
-
 class Dostawcy(db.Model):
     __tablename__ = 'dostawcy'
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)
@@ -127,7 +142,6 @@ class Dostawcy(db.Model):
 
     def __repr__(self):
         return f"<Dostawca {self.id} - {self.nazwa}>"
-
 
 class Szablon(db.Model):
     __tablename__ = 'szablon'
@@ -143,92 +157,129 @@ class Szablon(db.Model):
     def __repr__(self):
         return f"<Szablon {self.id} - {self.rodzaj}>"
 
-def zapisz_wszystkie_dane_do_plikow():
-    while True:
-        for i in range(5):
-            zapisz_do_pliku_sql(i + 1)
-            time.sleep(14400)  # Czekaj 4 godziny (14400 sekund)
+# Backup Directory
+BACKUP_DIR = "backups"
+INTERVAL_HOURS = 4
+os.makedirs(BACKUP_DIR, exist_ok=True)
 
-def zapisz_do_pliku_sql(numer_pliku):
-    """Zapisz dane z tabel do jednego pliku SQL w formacie INSERT jako kopię zapasową."""
-    tabelki = ['uprawnienia', 'uzytkownicy', 'tasma', 'profil']  # Upewnij się, że klucze obce są poprawnie zapisane
-    nazwa_pliku = f'kopie_zapasowe_bazy_{numer_pliku}.sql'
+def format_sql_value(val):
+    if val is None:
+        return "NULL"
+    elif isinstance(val, datetime.datetime):
+        return f"'{val.strftime('%Y-%m-%d %H:%M:%S')}'"
+    elif isinstance(val, datetime.date):
+        return f"'{val.strftime('%Y-%m-%d')}'"
+    elif isinstance(val, datetime.time):
+        return f"'{val.strftime('%H:%M:%S')}'"
+    elif isinstance(val, str):
+        # Jeśli wygląda jak czas (np. '18:30:21'), dodaj cudzysłowy
+        if len(val) == 8 and val.count(':') == 2 and val.replace(':', '').isdigit():
+            return f"'{val}'"
+        return "'" + val.replace("'", "''") + "'"
+    elif isinstance(val, Decimal):
+        return str(val)
+    else:
+        return str(val)
+def zapisz_do_pliku_sql():
+    timestamp = datetime.datetime.now().strftime('%Y-%m-%d_%H-%M')
+    nazwa_pliku = os.path.join(BACKUP_DIR, f'kopie_zapasowe_bazy_{timestamp}.sql')
 
     try:
         with app.app_context():
             with open(nazwa_pliku, 'w', encoding='utf-8') as plik:
-                # Zapisz CREATE TABLE dla każdej tabeli
-                for tabela in tabelki:
-                    # Pobierz definicję tabeli
-                    create_table_query = f"SHOW CREATE TABLE {tabela};"
-                    create_table_result = db.session.execute(text(create_table_query))
-                    create_table_statement = create_table_result.fetchone()[1]  # Pobierz definicję CREATE TABLE
+                plik.write("SET FOREIGN_KEY_CHECKS = 0;\n\n")
 
-                    # Zapisz CREATE TABLE
-                    plik.write(f"{create_table_statement};\n\n")
+                kolejnosc_tabel = [
+                    'uprawnienia',
+                    'uzytkownicy',
+                    'dostawcy',
+                    'szablon',
+                    'tasma',
+                    'profil'
+                ]
 
-                # Zapisz dane do pliku
-                for tabela in tabelki:
-                    query = db.session.execute(text(f"SELECT * FROM {tabela}"))
-                    wyniki = query.fetchall()  # Pobranie wyników
-                    kolumny = query.keys()  # Uzyskanie nazw kolumn
+                for tabela in kolejnosc_tabel:
+                    create_result = db.session.execute(text(f"SHOW CREATE TABLE `{tabela}`")).fetchone()
+                    create_stmt = create_result[1]
+                    plik.write(f"-- Struktura tabeli `{tabela}`\n{create_stmt};\n\n")
 
-                    if wyniki:
-                        plik.write(f"-- Dane z tabeli {tabela}\n")
-                        for wiersz in wyniki:
-                            wartosci = ', '.join(
-                                [f"'{str(val).replace('\'', '\'\'')}'" if isinstance(val, str) or isinstance(val, bytes) else
-                                 'NULL' if val is None else 
-                                 f"'{val.strftime('%Y-%m-%d')}'" if isinstance(val, datetime.date) else
-                                 f"'{val}'" if isinstance(val, datetime.datetime) else
-                                 str(val)
-                                 for val in wiersz]
-                            )
-                            plik.write(f"INSERT INTO {tabela} ({', '.join(kolumny)}) VALUES ({wartosci});\n")  # Zapisz instrukcję INSERT
-                        plik.write("\n")  # Dodaj nową linię między tabelami
-                    else:
-                        logger.warning(f"Tabela {tabela} jest pusta. Brak danych do zapisania.")
+                for tabela in kolejnosc_tabel:
+                    query = text(f"SELECT * FROM `{tabela}`;")
+                    result = db.session.execute(query)
+                    rows = result.fetchall()
+                    columns = result.keys()
 
-            logger.info(f"Dane zapisano do pliku: {nazwa_pliku}")
+                    if not rows:
+                        logger.info(f"Tabela {tabela} jest pusta.")
+                        continue
+
+                    plik.write(f"-- Dane z tabeli `{tabela}`\n")
+                    for row in rows:
+                        formatted_values = [format_sql_value(val) for val in row]
+                        values = ', '.join(formatted_values)
+                        insert_statement = f"INSERT INTO `{tabela}` ({', '.join(columns)}) VALUES ({values});"
+                        plik.write(insert_statement + "\n")
+                        
+                    plik.write("\n")
+
+                plik.write("\nSET FOREIGN_KEY_CHECKS = 1;\n")
+
+            logger.info(f"✅ Kopia zapasowa zapisana do pliku: {nazwa_pliku}")
+
+            backup_files = sorted(
+                [f for f in os.listdir(BACKUP_DIR) if f.endswith(".sql")],
+                key=lambda x: os.path.getctime(os.path.join(BACKUP_DIR, x))
+            )
+            while len(backup_files) > 6:
+                najstarszy = backup_files.pop(0)
+                os.remove(os.path.join(BACKUP_DIR, najstarszy))
+                logger.info(f"🗑️ Usunięto starą kopię: {najstarszy}")
 
     except Exception as e:
-        logger.error(f"Wystąpił błąd podczas zapisu do pliku: {e}")
-# Uruchom wątek do zapisu danych
-zapisywanie_thread = threading.Thread(target=zapisz_wszystkie_dane_do_plikow)
-zapisywanie_thread.start()
+        logger.error(f"❌ Błąd podczas tworzenia kopii zapasowej: {e}")
+
+def zapisz_wszystkie_dane_do_plikow():
+    try:
+        while True:
+            zapisz_do_pliku_sql()
+            time.sleep(INTERVAL_HOURS * 3600)
+    except Exception as e:
+        logger.error(f"Błąd w pętli backupu: {e}")
+
+# Uruchomienie wątku
+backup_thread = threading.Thread(target=zapisz_wszystkie_dane_do_plikow, daemon=True)
+backup_thread.start()
+
 @app.before_request
 def load_logged_in_user():
     user_id = request.cookies.get('user_id')
     if user_id:
         g.user = Uzytkownik.query.get(int(user_id))
-        
     else:
         g.user = None
-
-
-
-
-
-
 
 @app.route('/')
 def home():
     if not g.user:
+        logger.info("Nieautoryzowany dostęp do strony głównej.")
         return render_template('login.html', user=g.user)
+    
+    logger.info(f"{g.user.login} wszedł na stronę główną.")
     resp = make_response(render_template('index.html', user=g.user))
     resp.set_cookie('last', request.path)  # Zapisz ostatni URL
 
     return resp
+
 @app.route('/go_back')
 def go_back():
     last_url = request.cookies.get('last')  # Pobierz ostatni URL z ciasteczka
     if last_url:
         response = make_response(redirect(last_url))  # Przekieruj do ostatniego URL
         response.delete_cookie('last')  # Możesz usunąć ciasteczko po przekierowaniu, jeśli nie jest już potrzebne
+        logger.info(f"{g.user.login} wrócił do {last_url}.")
         return response
+    logger.warning(f"Brak historii do powrotu dla {g.user.login}.")
     return "Brak historii do powrotu", 404  # Gdy ciasteczko jest puste
-
-
 
 @app.route('/rejestracja_do_bazy', methods=['POST'])
 def rejestracja_do_bazy():
@@ -236,59 +287,59 @@ def rejestracja_do_bazy():
         return render_template('login.html', user=g.user)
     if g.user.id_uprawnienia != 1:
         return redirect(url_for('home'))
+    
     if request.method == 'POST':
         # Odbierz dane z formularza
         login = request.form.get('login')
         haslo = request.form.get('password')
-        
-        
         uprawnienia = request.form.get('id_uprawnienia')
-        # Debugowanie: sprawdź, co zostało odebrane
-        
-        
 
         # Walidacja danych
-        if not login or not haslo :
+        if not login or not haslo:
             logger.warning("Wszystkie pola są wymagane.")
             return render_template('register.html', error="Wszystkie pola są wymagane.")
 
-        # Sprawdzenie unikalności e-maila
         if Uzytkownik.query.filter_by(login=login).first():
             logger.warning("Użytkownik z tym loginem już istnieje.")
             return render_template('register.html', error="Użytkownik z tym loginem już istnieje.")
 
-        # Dodanie danych do bazy danych
-        nowy_uzytkownik = Uzytkownik(login=login, haslo=generate_password_hash(haslo),  id_uprawnienia=uprawnienia)
+        nowy_uzytkownik = Uzytkownik(login=login, haslo=generate_password_hash(haslo), id_uprawnienia=uprawnienia)
         db.session.add(nowy_uzytkownik)
 
         try:
             db.session.commit()
-            logger.info("Dane zostały pomyślnie zapisane w bazie danych.")
+            logger.info(f"Dane użytkownika {login} zostały pomyślnie zapisane w bazie danych.")
             return redirect(url_for('uzytkownik'))  # Przekierowanie na stronę główną
         except Exception as e:
             db.session.rollback()
             logger.error(f"Nie udało się zapisać danych: {e}")
             return render_template('register.html', error="Wystąpił błąd przy zapisywaniu danych.")
+
 @app.route('/get-uprawnienia', methods=['GET'])
 def get_uprawnienia():
     uprawnienia = Uprawnienia.query.all()
     return jsonify([{"id": u.id_uprawnienia, "nazwa": u.nazwa} for u in uprawnienia])
-@app.route('/get-szanlon', methods=['GET'])
+
+@app.route('/get-szablon', methods=['GET'])
 def get_szablon():
     szablon = Szablon.query.all()
     return jsonify([{"id": s.id, "nazwa": s.nazwa} for s in szablon])
+
 @app.route('/get-dostawcy', methods=['GET'])
 def get_dostawcy(): 
     dostawcy = Dostawcy.query.all()
     return jsonify([{"id": d.id, "nazwa": d.nazwa} for d in dostawcy])
+
 @app.route('/get-uzytkownicy')
 def get_uzytkownicy():
-    users = User.query.with_entities(User.login).all()  # Pobiera loginy użytkowników
+    users = Uzytkownik.query.with_entities(Uzytkownik.login).all()  # Pobiera loginy użytkowników
     return jsonify([{"login": user.login} for user in users])
+
 @app.route('/get-tasma', methods=['GET'])
 def get_tasma():
     tasma = Tasma.query.all()
     return jsonify([{"id": t.id, "nr_z_etykiety_na_kregu": t.nr_z_etykiety_na_kregu} for t in tasma])
+
 @app.route('/update-row_uzytkownik', methods=['POST'])
 def update_user():
     if g.user.id_uprawnienia != 1:
@@ -304,12 +355,14 @@ def update_user():
 
     user = Uzytkownik.query.get(user_id)
     if not user:
+        logger.warning(f"Użytkownik o ID {user_id} nie istnieje.")
         return jsonify({"error": "Użytkownik nie istnieje"}), 404
 
-    # 🛠 WALIDACJA: Sprawdź, czy uprawnienie istnieje w bazie
+    # Walidacja uprawnienia
     if id_uprawnienia:
         uprawnienie = Uprawnienia.query.get(id_uprawnienia)
         if not uprawnienie:
+            logger.warning(f"Nieprawidłowe uprawnienie ID: {id_uprawnienia}.")
             return jsonify({"error": "Nieprawidłowe uprawnienie!"}), 400
         user.id_uprawnienia = id_uprawnienia  # Bezpośrednio przypisujemy ID
 
@@ -319,7 +372,9 @@ def update_user():
         user.haslo = generate_password_hash(haslo)
 
     db.session.commit()
+    logger.info(f"Zaktualizowano dane użytkownika {user.login}.")
     return jsonify({"success": "Dane zaktualizowane pomyślnie!"})
+
 @app.route('/usun_uzytkownik/<int:id>', methods=['POST'])
 def usun_uzytkownik(id):
     if not g.user:
@@ -327,14 +382,17 @@ def usun_uzytkownik(id):
     if g.user.id_uprawnienia != 1:
         return redirect(url_for('home'))
     uzytkownik = Uzytkownik.query.get_or_404(id)
-    
+
     try:
         db.session.delete(uzytkownik)
         db.session.commit()
-        flash('Uzytkownik została usunięta.', 'success')
+        logger.info(f"Użytkownik {uzytkownik.login} został usunięty.")
+        flash('Użytkownik został usunięty.', 'success')
     except Exception as e:
         db.session.rollback()
+        logger.error(f'Błąd przy usuwaniu użytkownika: {e}')
         flash(f'Błąd przy usuwaniu: {e}', 'danger')
+
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     if request.method == 'POST':
@@ -347,13 +405,10 @@ def login():
         response = None
 
         if user and check_password_hash(user.haslo, password):
+            g.user = user
             response = make_response(redirect(url_for('home')))
             remember_me = request.form.get('remember_me')  # Sprawdzenie, czy zaznaczone "zapamiętaj mnie"
-            if remember_me:  # Jeśli zaznaczone, ustaw cookie na 30 dni
-                max_age = timedelta(days=30)
-            else:  # Jeśli nie, cookie wygasa po zamknięciu przeglądarki
-                max_age = None
-            
+            max_age = timedelta(days=30) if remember_me else None
             response.set_cookie('user_id', str(user.id), httponly=True, secure=False, samesite='Strict', max_age=max_age)
             logger.info(f"Użytkownik {user.login} zalogowany pomyślnie.")
             return response
@@ -362,14 +417,15 @@ def login():
             return render_template('login.html', error="Błędny login lub hasło")
 
     return render_template('login.html')
+
 @app.route('/logout')
 def logout():
-    # Tworzenie odpowiedzi przekierowującej na stronę logowania
+    if g.user:
+        logger.info(f"Użytkownik {g.user.login} wylogowany.")
     response = make_response(redirect(url_for('home')))
-    # Usunięcie ciasteczka 'user_id'
     response.set_cookie('user_id', '', expires=0, httponly=True, secure=False, samesite='Strict')
-    logger.info("Użytkownik wylogowany.")
-    return response   
+    return response
+
 @app.route('/send', methods=['POST'])
 def send():
     # Pobierz dane z formularza
@@ -378,10 +434,12 @@ def send():
     db.session.add(nowa_cecha)
     db.session.commit()
 
-    print(f"Wysłano do bazy: {message}")  # Wyświetlenie wiadomości w konsoli
+    logger.info(f"Wysłano do bazy: {message}")  # Zapis do logów
     return render_template("index.html")
+
 @app.route('/contact')
 def contact():
+    logger.info(f"{g.user.login} wszedł na stronę kontaktową.")
     return render_template("contact.html")
 
 @app.route('/feedback', methods=['POST'])
@@ -396,7 +454,7 @@ def feedback():
     sender_password = 'LumpStore1@3'
 
     # Utwórz wiadomość e-mail
-    msg = loginMessage()
+    msg = EmailMessage()
     msg['Subject'] = 'Pomoc techniczna LumpStore'
     msg['From'] = sender_login
     msg['To'] = sender_login  # Możesz zmienić na adres obsługi klienta
@@ -408,11 +466,11 @@ def feedback():
         with smtplib.SMTP_SSL(smtp_server, smtp_port, context=context) as smtp:
             smtp.login(sender_login, sender_password)
             smtp.send_message(msg)
-        return redirect(url_for('home', success="Wiadomość została wysłana pomyślnie.",user=g.user ))
+        logger.info(f"Wiadomość od {login} została wysłana pomyślnie.")
+        return redirect(url_for('home', success="Wiadomość została wysłana pomyślnie.", user=g.user))
     except Exception as e:
-        error_message = traceback.format_exc()
-        print(f"Błąd podczas wysyłania wiadomości: {error_message}")
-        return redirect(url_for('home', error="Nie udało się wysłać wiadomości. Skontaktuj się później.",user=g.user))
+        logger.error(f"Błąd podczas wysyłania wiadomości: {e}")
+        return redirect(url_for('home', error="Nie udało się wysłać wiadomości. Skontaktuj się później.", user=g.user))
 
 @app.route('/uzytkownik')
 def uzytkownik():
@@ -420,18 +478,19 @@ def uzytkownik():
         return render_template('login.html', user=g.user)
     if g.user.id_uprawnienia != 1:
         return redirect(url_for('home'))
-    return render_template("uzytkownik.html", user=g.user, uzytkownicy=Uzytkownik.query.all(),uprawnienia=Uprawnienia.query.all())   
-
-
-
+    
+    logger.info(f"{g.user.login} wszedł na stronę zarządzania użytkownikami.")
+    return render_template("uzytkownik.html", user=g.user, uzytkownicy=Uzytkownik.query.all(), uprawnienia=Uprawnienia.query.all())
 
 @app.route('/register')
 def register():
-     if not g.user:
+    if not g.user:
         return render_template('login.html', user=g.user)
-     if g.user.id_uprawnienia != 1:
+    if g.user.id_uprawnienia != 1:
         return redirect(url_for('home'))
-     return render_template("register.html")
+    
+    logger.info(f"{g.user.login} wszedł na stronę rejestracji użytkownika.")
+    return render_template("register.html")
 
 @app.route('/usun_tasma/<int:id>', methods=['POST'])
 def usun_tasma(id):
@@ -439,58 +498,60 @@ def usun_tasma(id):
         return render_template('login.html', user=g.user)
     if g.user.id_uprawnienia != 1:
         return redirect(url_for('home'))
+    
     tasma = Tasma.query.get_or_404(id)
     
     try:
         db.session.delete(tasma)
         db.session.commit()
+        logger.info(f"Tasma {tasma.nr_z_etykiety_na_kregu} została usunięta.")
         flash('Tasma została usunięta.', 'success')
     except Exception as e:
         db.session.rollback()
+        logger.error(f'Błąd przy usuwaniu tasy: {e}')
         flash(f'Błąd przy usuwaniu: {e}', 'danger')
     
-    return redirect(request.referrer or url_for('home'))  # lub inna strona
+    return redirect(request.referrer or url_for('home'))
+
 @app.route('/tasma')
 def tasma():
-    
     if not g.user:
         return render_template('login.html', user=g.user)
     if g.user.id_uprawnienia != 1 and g.user.id_uprawnienia != 2:
         return redirect(url_for('home'))
 
-    # Jeśli użytkownik ma uprawnienia 1, pobierz wszystkie wpisy
     if g.user.uprawnienia.id_uprawnienia == 1 or g.user.uprawnienia.id_uprawnienia == 2:
         tasma = Tasma.query.all()
     else:
-        # W przeciwnym razie pobierz tylko te wpisy, które stworzył zalogowany użytkownik
         tasma = Tasma.query.filter_by(pracownik_id=g.user.id).all()
     
-    return render_template("tasma.html", user=g.user, tasma=tasma,uprawnienia=Uprawnienia.query.all(),szablon=Szablon.query.all(),dostawcy=Dostawcy.query.all(),currentDate3=date.today())
+    logger.info(f"{g.user.login} wszedł na stronę z listą tasm.")
+    return render_template("tasma.html", user=g.user, tasma=tasma, uprawnienia=Uprawnienia.query.all(), szablon=Szablon.query.all(), dostawcy=Dostawcy.query.all(), currentDate3=date.today())
+
 @app.route('/update-row', methods=['POST'])
 def update_row():
     if not g.user:
         return render_template('login.html', user=g.user)
     if g.user.id_uprawnienia != 1 and g.user.id_uprawnienia != 2:
         return redirect(url_for('home'))
+
     try:
         dane = request.get_json()
-        logging.info(f'Otrzymane dane: {dane}')
+        logger.info(f"Otrzymane dane do aktualizacji tasy: {dane}")
 
-        # Użyj column_0 jako id
         id = dane.get('column_0')  # Id rekordu do aktualizacji
         if id is None:
-            return jsonify({'message': 'Id jest wymagane!'}), 400  # Błąd, gdy id jest None
+            return jsonify({'message': 'Id jest wymagane!'}), 400
 
-        # Użyj nowej metody do pobrania rekordu
         tasma = db.session.get(Tasma, id)
         if tasma is None:
-            return jsonify({'message': 'Rekord nie znaleziony!'}), 404  # Błąd, gdy rekord nie istnieje
+            return jsonify({'message': 'Rekord nie znaleziony!'}), 404
 
         # Aktualizacja danych
-        tasma.dostawca_id = dane.get('column_1', tasma.dostawca_id)  # Poprawne przypisanie dostawcy
-        tasma.szablon_id = dane.get('column_2', tasma.szablon_id)  # Poprawne przypisanie szablonu
+        tasma.dostawca_id = dane.get('column_1', tasma.dostawca_id)
+        tasma.szablon_id = dane.get('column_2', tasma.szablon_id)
         tasma.data_z_etykiety_na_kregu = dane.get('column_3', tasma.data_z_etykiety_na_kregu)
-        
+
         tasma.grubosc = Szablon.query.get(tasma.szablon_id).grubosc
         tasma.szerokosc = Szablon.query.get(tasma.szablon_id).szerokosc
         tasma.waga_kregu = dane.get('column_6', tasma.waga_kregu)
@@ -502,26 +563,31 @@ def update_row():
         tasma.data_dostawy = dane.get('column_12', tasma.data_dostawy)
 
         db.session.commit()  # Zapisz zmiany w bazie
+        logger.info(f"Tasma o ID {id} została zaktualizowana przez {g.user.login}.")
         return jsonify({'message': 'Rekord zaktualizowany pomyślnie!'})
     except Exception as e:
         db.session.rollback()  # Wycofanie zmian w przypadku błędu
+        logger.error(f'Wystąpił błąd podczas aktualizacji tasy: {e}')
         return jsonify({'message': 'Wystąpił błąd podczas aktualizacji!', 'error': str(e)}), 500
+
 @app.route('/dodaj_tasma')
 def dodaj_tasma():
     if not g.user:
         return render_template('login.html', user=g.user)
     if g.user.id_uprawnienia != 1 and g.user.id_uprawnienia != 2:
         return redirect(url_for('home'))
-    return render_template("dodaj_tasma.html", user=g.user,dostawcy=Dostawcy.query.all(),nazwy_materiału=Szablon.query.all())
+    
+    logger.info(f"{g.user.login} wszedł na stronę dodawania tasy.")
+    return render_template("dodaj_tasma.html", user=g.user, dostawcy=Dostawcy.query.all(), nazwy_materiału=Szablon.query.all())
+
 @app.route('/dodaj_tasma_do_bazy', methods=['POST'])
 def dodaj_tasma_do_bazy():
     if not g.user:
         return render_template('login.html', user=g.user)
     if g.user.id_uprawnienia != 1 and g.user.id_uprawnienia != 2:
         return redirect(url_for('home'))
+    
     if request.method == 'POST':
-        # Odbierz dane z formularza
-        
         dostawca_id = request.form.get('dostawcy')
         szablon_id = int(request.form.get('nazwa_materiału'))
         data_z_etykiety_na_kregu = request.form.get('data_z_etykiety_na_kregu')
@@ -534,203 +600,121 @@ def dodaj_tasma_do_bazy():
         lokalizacja = request.form.get('lokalizacja')
         nr_faktury_dostawcy = request.form.get('nr_faktury_dostawcy')
         data_dostawy = request.form.get('data_dostawy')
-        Data_do_usuwania = date.today()+ timedelta(days=365)
+        Data_do_usuwania = date.today() + timedelta(days=365)
         pracownik_id = g.user.id
 
-        
-
-        # Dodanie danych do bazy danych
-        nowy_uzytkownik = Tasma(dostawca_id=dostawca_id, szablon_id=szablon_id, data_z_etykiety_na_kregu=data_z_etykiety_na_kregu, grubosc=grubosc, szerokosc=szerokosc, waga_kregu=waga_kregu, nr_etykieta_paletowa=nr_etykieta_paletowa, nr_z_etykiety_na_kregu=nr_z_etykiety_na_kregu, lokalizacja=lokalizacja, nr_faktury_dostawcy=nr_faktury_dostawcy, data_dostawy=data_dostawy, pracownik_id=pracownik_id,waga_kregu_na_stanie=waga_kregu_na_stanie, Data_do_usuwania=Data_do_usuwania)
+        nowy_uzytkownik = Tasma(dostawca_id=dostawca_id, szablon_id=szablon_id, 
+                                 data_z_etykiety_na_kregu=data_z_etykiety_na_kregu, 
+                                 grubosc=grubosc, szerokosc=szerokosc, 
+                                 waga_kregu=waga_kregu, nr_etykieta_paletowa=nr_etykieta_paletowa, 
+                                 nr_z_etykiety_na_kregu=nr_z_etykiety_na_kregu, 
+                                 lokalizacja=lokalizacja, nr_faktury_dostawcy=nr_faktury_dostawcy, 
+                                 data_dostawy=data_dostawy, pracownik_id=pracownik_id, 
+                                 waga_kregu_na_stanie=waga_kregu_na_stanie, Data_do_usuwania=Data_do_usuwania)
         db.session.add(nowy_uzytkownik)
 
         try:
             db.session.commit()
-            logger.info("Dane zostały pomyślnie zapisane w bazie danych.")
-            # Nie zwracamy żadnej odpowiedzi, jeśli nie wystąpił błąd.
+            logger.info(f"Tasma {nr_z_etykiety_na_kregu} została dodana przez {g.user.login}.")
             return "", 204  # Użycie kodu statusu 204 (No Content)
         except Exception as e:
             db.session.rollback()
             logger.error(f"Nie udało się zapisać danych: {e}")
-            return jsonify({'message': 'Błąd{e}!'})
+            return jsonify({'message': f'Błąd: {e}!'})
 
 @app.route('/profil')
 def profil():
-    
     if not g.user:
         return render_template('login.html', user=g.user)
-    #if g.user.uprawnienia.id_uprawnienia == 1 or g.user.uprawnienia.id_uprawnienia == 2:
+
     profil = Profil.query.all()
-    
-   # else:
-        # W przeciwnym razie pobierz tylko te wpisy, które stworzył zalogowany użytkownik
-        #profil = Profil.query.filter_by(pracownik_id=g.user.id).all()
-    return render_template("profil.html", user=g.user,profil=profil,uprawnienia=Uprawnienia.query.all(),currentDate = date.today().strftime('%Y-%m-%d'),currentDate1=(date.today() - timedelta(days=1)).strftime('%Y-%m-%d'),currentDate2=(date.today() - timedelta(days=2)).strftime('%Y-%m-%d'),currentDate3=date.today())
+    logger.info(f"{g.user.login} wszedł na stronę profilu.")
+    return render_template("profil.html", user=g.user, profil=profil, 
+                           uprawnienia=Uprawnienia.query.all(), 
+                           currentDate=date.today().strftime('%Y-%m-%d'), 
+                           currentDate1=(date.today() - timedelta(days=1)).strftime('%Y-%m-%d'), 
+                           currentDate2=(date.today() - timedelta(days=2)).strftime('%Y-%m-%d'), 
+                           currentDate3=date.today())
+
 @app.route('/usun_profil/<int:id>', methods=['POST'])
 def usun_profil(id):
     if not g.user:
         return render_template('login.html', user=g.user)
     if g.user.id_uprawnienia != 1:
         return redirect(url_for('home'))
+    
     profil = Profil.query.get_or_404(id)
     
     try:
         db.session.delete(profil)
         db.session.commit()
+        logger.info(f"Profil {profil.nr_czesci_klienta} został usunięty przez {g.user.login}.")
         flash('Profil został usunięty.', 'success')
     except Exception as e:
         db.session.rollback()
+        logger.error(f'Błąd przy usuwaniu profilu: {e}')
         flash(f'Błąd przy usuwaniu: {e}', 'danger')
     
-    return redirect(request.referrer or url_for('home'))  # lub inna strona
+    return redirect(request.referrer or url_for('home'))
+
 @app.route('/update-row_profil', methods=['POST'])
 def update_row_profil():
-    # Sprawdzenie, czy użytkownik jest zalogowany
     if not g.user:
         return render_template('login.html', user=g.user)
 
     try:
-        # Otrzymanie danych z żądania
         dane = request.get_json()
-        logging.info(f'Otrzymane dane: {dane}')
+        logger.info(f'Otrzymane dane do aktualizacji profilu: {dane}')
 
-        # Walidacja ID
         id = dane.get('column_0')
         if id is None:
             return jsonify({'message': 'Id jest wymagane!'}), 400
 
-        # Pobranie rekordu Profil z bazy danych
         profil = Profil.query.get(id)
         if profil is None:
-            logging.warning(f"Rekord nie znaleziony dla ID: {id}")
+            logger.warning(f"Rekord nie znaleziony dla ID: {id}")
             return jsonify({'message': 'Rekord nie znaleziony!'}), 404
 
-        # Aktualizacja pól w modelu Profil, z osobnymi blokami try/except
-        try:
-            if 'column_1' in dane:
-                profil.id_tasmy = dane['column_1']  # ID tasmy
-        except Exception as e:
-            logging.error(f'Błąd podczas aktualizacji ID tasmy: {str(e)}')
+        # Aktualizacja pól w modelu Profil
+        if 'column_1' in dane:
+            profil.id_tasmy = dane['column_1']  # ID tasmy
+        if 'column_2' in dane:
+            profil.data_produkcji = dane['column_2']  # Data produkcji
+        if 'column_3' in dane:
+            profil.godz_min_rozpoczecia = dane['column_3']  # Godzina rozpoczęcia
+        if 'column_4' in dane:
+            profil.godz_min_zakonczenia = dane['column_4']  # Godzina zakończenia
+        if 'column_5' in dane:
+            profil.zwrot_na_magazyn_kg = dane['column_5']  # Zwrot na magazyn
+        if 'column_6' in dane:
+            profil.nr_czesci_klienta = dane['column_6']  # Nr części klienta
+        if 'column_7' in dane:
+            profil.nazwa_klienta_nr_zlecenia_PRODIO = dane['column_7']  # Nazwa klienta
 
-        try:
-            if 'column_2' in dane:
-                profil.data_produkcji = dane['column_2']  # Data produkcji
-        except Exception as e:
-            logging.error(f'Błąd podczas aktualizacji daty produkcji: {str(e)}')
-
-        try:
-            if 'column_3' in dane:
-                profil.godz_min_rozpoczecia = dane['column_3']  # Godzina rozpoczęcia
-        except Exception as e:
-            logging.error(f'Błąd podczas aktualizacji godziny rozpoczęcia: {str(e)}')
-
-        try:
-            if 'column_4' in dane:
-                profil.godz_min_zakonczenia = dane['column_4']  # Godzina zakończenia
-        except Exception as e:
-            logging.error(f'Błąd podczas aktualizacji godziny zakończenia: {str(e)}')
-
-        try:
-            if 'column_5' in dane:
-                profil.zwrot_na_magazyn_kg = dane['column_5']  # Zwrot na magazyn
-        except Exception as e:
-            logging.error(f'Błąd podczas aktualizacji zwrotu na magazyn: {str(e)}')
-
-        try:
-            if 'column_6' in dane:
-                profil.nr_czesci_klienta = dane['column_6']  # Nr części klienta
-        except Exception as e:
-            logging.error(f'Błąd podczas aktualizacji nr części klienta: {str(e)}')
-
-        try:
-            if 'column_7' in dane:
-                profil.nazwa_klienta_nr_zlecenia_PRODIO = dane['column_7']  # Nazwa klienta
-        except Exception as e:
-            logging.error(f'Błąd podczas aktualizacji nazwy klienta: {str(e)}')
-
-        logging.info(f"Aktualizacja Profil ID: {profil.id} z danymi: {dane}")
-
-        # Zatwierdzenie zmian w bazie danych
+        logger.info(f"Aktualizacja Profil ID: {profil.id} przez {g.user.login}.")
         db.session.commit()
-        logging.info("Rekord zaktualizowany pomyślnie!")
         return jsonify({'message': 'Rekord zaktualizowany pomyślnie!'})
 
     except Exception as e:
         db.session.rollback()  # Wycofanie zmian w przypadku błędu
-        logging.error(f'Wystąpił błąd podczas aktualizacji: {str(e)}')
+        logger.error(f'Wystąpił błąd podczas aktualizacji: {str(e)}')
         return jsonify({'message': 'Wystąpił błąd podczas aktualizacji!', 'error': str(e)}), 500
-@app.route('/update-row_profile', methods=['POST'])
-def update_row_profile():
-    # Sprawdzenie, czy użytkownik jest zalogowany
-    if not g.user:
-        return render_template('login.html', user=g.user)
 
-    try:
-        # Otrzymanie danych z żądania
-        dane = request.get_json()
-        logging.info(f'Otrzymane dane: {dane}')
-
-        # Walidacja ID
-        id = dane.get('column_0')
-        if id is None:
-            return jsonify({'message': 'Id jest wymagane!'}), 400
-
-        # Pobranie rekordu Profil z bazy danych
-        profil = Profil.query.get(id)
-        if profil is None:
-            logging.warning(f"Rekord nie znaleziony dla ID: {id}")
-            return jsonify({'message': 'Rekord nie znaleziony!'}), 404
-
-        # Aktualizacja pól w modelu Profil, z osobnymi blokami try/except
-        try:
-            if 'column_1' in dane:
-                profil.id_tasmy = dane['column_1']  # ID tasmy
-        except Exception as e:
-            logging.error(f'Błąd podczas aktualizacji ID tasmy: {str(e)}')
-
-       
-
-        try:
-            if 'column_5' in dane:
-                profil.zwrot_na_magazyn_kg = dane['column_5']  # Zwrot na magazyn
-        except Exception as e:
-            logging.error(f'Błąd podczas aktualizacji zwrotu na magazyn: {str(e)}')
-
-        try:
-            if 'column_6' in dane:
-                profil.nr_czesci_klienta = dane['column_6']  # Nr części klienta
-        except Exception as e:
-            logging.error(f'Błąd podczas aktualizacji nr części klienta: {str(e)}')
-
-        try:
-            if 'column_7' in dane:
-                profil.nazwa_klienta_nr_zlecenia_PRODIO = dane['column_7']  # Nazwa klienta
-        except Exception as e:
-            logging.error(f'Błąd podczas aktualizacji nazwy klienta: {str(e)}')
-
-        logging.info(f"Aktualizacja Profil ID: {profil.id} z danymi: {dane}")
-
-        # Zatwierdzenie zmian w bazie danych
-        db.session.commit()
-        logging.info("Rekord zaktualizowany pomyślnie!")
-        return jsonify({'message': 'Rekord zaktualizowany pomyślnie!'})
-
-    except Exception as e:
-        db.session.rollback()  # Wycofanie zmian w przypadku błędu
-        logging.error(f'Wystąpił błąd podczas aktualizacji: {str(e)}')
-        return jsonify({'message': 'Wystąpił błąd podczas aktualizacji!', 'error': str(e)}), 500
 @app.route('/dodaj_profil')
 def dodaj_profil():
     if not g.user:
         return render_template('login.html', user=g.user)
+    
     tasmy = Tasma.query.all()
-    return render_template("dodaj_profil.html", user=g.user,tasmy=tasmy)
+    logger.info(f"{g.user.login} wszedł na stronę dodawania profilu.")
+    return render_template("dodaj_profil.html", user=g.user, tasmy=tasmy)
+
 @app.route('/dodaj_profil_do_bazy', methods=['POST'])
 def dodaj_profil_do_bazy():
     if not g.user:
         return render_template('login.html', user=g.user)
     
     if request.method == 'POST':
-        # Odbierz dane z formularza
         id_tasmy = request.form.get('etykieta')  
         data_produkcji = request.form.get('data_produkcji')
         godz_min_rozpoczecia = request.form.get('godz_min_rozpoczecia')
@@ -738,10 +722,9 @@ def dodaj_profil_do_bazy():
         zwrot_na_magazyn_kg = request.form.get('zwrot_na_magazyn_kg')
         nr_czesci_klienta = request.form.get('nr_czesci_klienta')
         nazwa_klienta_nr_zlecenia_PRODIO = request.form.get('nazwa_klienta_nr_zlecenia_PRODIO')
-        Data_do_usuwania = date.today()+ timedelta(days=365)
+        Data_do_usuwania = date.today() + timedelta(days=365)
         pracownik_id = g.user.id  # ID pracownika z sesji
 
-        # Dodanie danych do bazy danych
         nowy_profil = Profil(
             id_tasmy=id_tasmy,
             data_produkcji=data_produkcji,
@@ -750,161 +733,180 @@ def dodaj_profil_do_bazy():
             zwrot_na_magazyn_kg=zwrot_na_magazyn_kg,
             nr_czesci_klienta=nr_czesci_klienta,
             nazwa_klienta_nr_zlecenia_PRODIO=nazwa_klienta_nr_zlecenia_PRODIO,
-            
             Data_do_usuwania=Data_do_usuwania,
             id_pracownika=pracownik_id
         )
+
+        db.session.add(nowy_profil)
         tasma = Tasma.query.get(id_tasmy)
         if tasma:
             tasma.waga_kregu_na_stanie = zwrot_na_magazyn_kg
-        db.session.add(nowy_profil)
+        try:
+            db.session.commit()
+            logger.info(f"Profil dla {nr_czesci_klienta} został dodany przez {g.user.login}.")
+            return redirect(url_for('profil'))  # Przekierowanie na stronę główną
+        except Exception as e:
+            db.session.rollback()
+            logger.error(f"Nie udało się zapisać danych: {e}")
+            return render_template('profil.html', error="Wystąpił błąd przy zapisywaniu danych.", user=g.user)
 
-    try:
-        db.session.commit()
-        logger.info("Dane zostały pomyślnie zapisane w bazie danych.")
-        return redirect(url_for('profil'))  # Przekierowanie na stronę główną
-    except Exception as e:
-        db.session.rollback()
-        logger.error(f"Nie udało się zapisać danych: {e}")
-        return render_template('profil.html', error="Wystąpił błąd przy zapisywaniu danych.", user=g.user)
 @app.route('/dostawcy')
 def dostawcy():
     if not g.user:
         return render_template('login.html', user=g.user)
-    if g.user.id_uprawnienia != 1:
+    if g.user.id_uprawnienia ==3:
         return redirect(url_for('home'))
+    
     dostawcy = Dostawcy.query.all()
+    logger.info(f"{g.user.login} wszedł na stronę dostawców.")
     return render_template("dostawcy.html", user=g.user, dostawcy=dostawcy)
+
 @app.route('/dodaj_dostawce')
 def dodaj_dostawce():
     if not g.user:
         return render_template('login.html', user=g.user)
-    if g.user.id_uprawnienia != 1:
+    if g.user.id_uprawnienia ==3:
         return redirect(url_for('home'))
+
+    logger.info(f"{g.user.login} wszedł na stronę dodawania dostawcy.")
     return render_template("dodaj_dostawce.html", user=g.user)
+
 @app.route('/dodaj_dostawce_do_bazy', methods=['POST'])
 def dodaj_dostawce_do_bazy():
     if not g.user:
         return render_template('login.html', user=g.user)
-    if g.user.id_uprawnienia != 1:
+    if g.user.id_uprawnienia ==3:
         return redirect(url_for('home'))
+    
     if request.method == 'POST':
-        # Odbierz dane z formularza
         nazwa = request.form.get('nazwa_dostawcy')
 
-        # Dodanie danych do bazy danych
         nowy_dostawca = Dostawcy(nazwa=nazwa)
         db.session.add(nowy_dostawca)
 
         try:
             db.session.commit()
-            logger.info("Dane zostały pomyślnie zapisane w bazie danych.")
-            return redirect(url_for('dostawcy'))  # Przekierowanie na stronę główną
+            logger.info(f"Dostawca {nazwa} został dodany przez {g.user.login}.")
+            return redirect(url_for('dostawcy'))  # Przekierowanie na stronę dostawców
         except Exception as e:
             db.session.rollback()
             logger.error(f"Nie udało się zapisać danych: {e}")
             return render_template('dostawcy.html', error="Wystąpił błąd przy zapisywaniu danych.", user=g.user)
-    return render_template("dostawcy.html", user=g.user)
+
 @app.route('/update-row-dostawcy', methods=['POST'])
 def update_row_dostawcy():
     if not g.user:
         return render_template('login.html', user=g.user)
-    if g.user.id_uprawnienia != 1:
+    if g.user.id_uprawnienia ==3:
         return redirect(url_for('home'))
+    
     try:
         dane = request.get_json()
-        logging.info(f'Otrzymane dane: {dane}')
+        logger.info(f'Otrzymane dane do aktualizacji dostawcy: {dane}')
 
-        # Użyj column_0 jako id
-        id = dane.get('column_0')  # Zmiana tutaj
+        id = dane.get('column_0')
         if id is None:
-            return jsonify({'message': 'Id jest wymagane!'}), 400  # Błąd, gdy id jest None
+            return jsonify({'message': 'Id jest wymagane!'}), 400
 
         dostawca = Dostawcy.query.get(id)
         if dostawca is None:
-            return jsonify({'message': 'Rekord nie znaleziony!'}), 404  # Błąd, gdy rekord nie istnieje
+            return jsonify({'message': 'Rekord nie znaleziony!'}), 404
 
-        # Aktualizacja danych
         dostawca.nazwa = dane.get('column_1', dostawca.nazwa)
-        
 
         db.session.commit()
+        logger.info(f"Dostawca {dostawca.nazwa} został zaktualizowany przez {g.user.login}.")
         return jsonify({'message': 'Rekord zaktualizowany pomyślnie!'})
     except Exception as e:
         db.session.rollback()
+        logger.error(f'Wystąpił błąd podczas aktualizacji: {str(e)}')
         return jsonify({'message': 'Wystąpił błąd podczas aktualizacji!', 'error': str(e)}), 500
+
 @app.route('/szablon')
 def szablon():
     if not g.user:
         return render_template('login.html', user=g.user)
-    if g.user.id_uprawnienia != 1:
+    if g.user.id_uprawnienia == 3:
         return redirect(url_for('home'))
+    
     szablon = Szablon.query.all()
+    logger.info(f"{g.user.login} wszedł na stronę szablonów.")
     return render_template("szablon.html", user=g.user, szablony=szablon)
+
 @app.route('/dodaj_szablon')
 def dodaj_szablon():
     if not g.user:
         return render_template('login.html', user=g.user)
-    if g.user.id_uprawnienia != 1:
+    if g.user.id_uprawnienia == 3:
         return redirect(url_for('home'))
+
+    logger.info(f"{g.user.login} wszedł na stronę dodawania szablonu.")
     return render_template("dodaj_szablon.html", user=g.user)
+
 @app.route('/dodaj_szablon_do_bazy', methods=['POST'])
 def dodaj_szablon_do_bazy():
     if not g.user:
         return render_template('login.html', user=g.user)
-    if g.user.id_uprawnienia != 1:
+    if g.user.id_uprawnienia == 3:
         return redirect(url_for('home'))
+    
     if request.method == 'POST':
         rodzaj = request.form.get('rodzaj_tasmy')
         grubosc_i_oznaczenie_ocynku = request.form.get('grubosc_i_oznaczenie_ocynku')
         grubosc = request.form.get('grubosc')
         szerokosc = request.form.get('szerokosc')
-        nazwa=rodzaj + " " + grubosc_i_oznaczenie_ocynku + " " + szerokosc + "x" +  grubosc
-        # Dodanie danych do bazy danych
-        nowy_szablon = Szablon(nazwa=nazwa, rodzaj=rodzaj, grubosc_i_oznaczenie_ocynku=grubosc_i_oznaczenie_ocynku, grubosc=grubosc, szerokosc=szerokosc)
+        nazwa = rodzaj + " " + grubosc_i_oznaczenie_ocynku + " " + szerokosc + "x" + grubosc
+        
+        nowy_szablon = Szablon(nazwa=nazwa, rodzaj=rodzaj, 
+                               grubosc_i_oznaczenie_ocynku=grubosc_i_oznaczenie_ocynku, 
+                               grubosc=grubosc, szerokosc=szerokosc)
         db.session.add(nowy_szablon)
+
         try:
             db.session.commit()
-            logger.info("Dane zostały pomyślnie zapisane w bazie danych.")
-            return redirect(url_for('szablon'))  # Przekierowanie na stronę główną
+            logger.info(f"Szablon {nazwa} został dodany przez {g.user.login}.")
+            return redirect(url_for('szablon'))  # Przekierowanie na stronę szablonów
         except Exception as e:
             db.session.rollback()
             logger.error(f"Nie udało się zapisać danych: {e}")
             return render_template('szablon.html', error="Wystąpił błąd przy zapisywaniu danych.", user=g.user)
+
 @app.route('/update-row-szablon', methods=['POST'])
 def update_row_szablon():
     if not g.user:
         return render_template('login.html', user=g.user)
-    if g.user.id_uprawnienia != 1:
+    if g.user.id_uprawnienia ==3:
         return redirect(url_for('home'))
+    
     try:
         dane = request.get_json()
-        logging.info(f'Otrzymane dane: {dane}')
+        logger.info(f'Otrzymane dane do aktualizacji szablonu: {dane}')
 
-        # Użyj column_0 jako id
-        id = dane.get('column_0')  # Zmiana tutaj
+        id = dane.get('column_0')
         if id is None:
-            return jsonify({'message': 'Id jest wymagane!'}), 400  # Błąd, gdy id jest None
+            return jsonify({'message': 'Id jest wymagane!'}), 400
 
         szablon = Szablon.query.get(id)
         if szablon is None:
-            return jsonify({'message': 'Rekord nie znaleziony!'}), 404  # Błąd, gdy rekord nie istnieje
+            return jsonify({'message': 'Rekord nie znaleziony!'}), 404
 
-        # Aktualizacja danych
         szablon.nazwa = dane.get('column_1', szablon.nazwa)
         szablon.rodzaj = dane.get('column_2', szablon.rodzaj)
         szablon.grubosc_i_oznaczenie_ocynku = dane.get('column_3', szablon.grubosc_i_oznaczenie_ocynku)
         szablon.grubosc = dane.get('column_5', szablon.grubosc)
         szablon.szerokosc = dane.get('column_4', szablon.szerokosc)
+
         tasma = Tasma.query.filter_by(szablon_id=id).all()
         for t in tasma:
             t.grubosc = szablon.grubosc
             t.szerokosc = szablon.szerokosc
 
         db.session.commit()
+        logger.info(f"Szablon o ID {id} został zaktualizowany przez {g.user.login}.")
         return jsonify({'message': 'Rekord zaktualizowany pomyślnie!'})
     except Exception as e:
         db.session.rollback()
+        logger.error(f'Wystąpił błąd podczas aktualizacji: {str(e)}')
         return jsonify({'message': 'Wystąpił błąd podczas aktualizacji!', 'error': str(e)}), 500
 
 @app.route('/zestawienie')
@@ -913,6 +915,120 @@ def zestawienie():
         return render_template('login.html', user=g.user)
     if g.user.id_uprawnienia != 1:
         return redirect(url_for('home'))
-    return render_template("zestawienie.html", user=g.user,profil=Profil.query.all(),tasma=Tasma.query.all())
+
+    logger.info(f"{g.user.login} wszedł na stronę zestawienia.")
+    return render_template("zestawienie.html", user=g.user, profil=Profil.query.all(), tasma=Tasma.query.all())
+@app.route('/log-download', methods=['POST'])
+def log_download():
+    data = request.json
+    user = data.get('user', 'nieznany')
+    columns = data.get('columns', [])
+    app.logger.info(f"Pobranie pliku przez: {user} | Kolumny: {', '.join(columns)}")
+    return '', 204  # No Content
+
+@app.route('/download-excel', methods=['POST'])
+def download_excel():
+    data = request.json
+    app.logger.info(f"Otrzymane dane: {data}")  # Logowanie otrzymanych danych
+    headers = data.get('headers', [])
+    rows = data.get('data', [])
+
+    # Sprawdzenie, czy nagłówki i dane są poprawne
+    if not headers or not rows:
+        app.logger.error("Brak nagłówków lub danych do wygenerowania pliku Excel.")
+        return jsonify({"error": "Brak nagłówków lub danych do wygenerowania pliku Excel."}), 400  # Zwraca status 400
+
+    try:
+        wb = openpyxl.Workbook()
+        ws = wb.active
+
+        # Wiersz nagłówkowy
+        ws.append(headers)
+
+        # Dane
+        for row in rows:
+            ws.append(row)
+
+        # Zapis do bufora
+        output = BytesIO()
+        wb.save(output)
+        output.seek(0)
+
+        return send_file(output, as_attachment=True, download_name='raport.xlsx', mimetype='application/vnd.openxmlformats-officedocument.spreadsheetml.sheet')
+    except Exception as e:
+        app.logger.error(f"Błąd podczas generowania pliku Excel: {e}")
+        return jsonify({"error": "Wystąpił błąd podczas generowania pliku Excel."}), 500  # Zwraca status 500
+    
+@app.route('/lokalizacja')
+def lokalizacja():
+    if not g.user:
+        return render_template('login.html', user=g.user)
+    if g.user.id_uprawnienia ==3:
+        return redirect(url_for('home'))
+    
+    lokalizacja = Lokalizacja.query.all()
+    logger.info(f"{g.user.login} wszedł na stronę dostawców.")
+    return render_template("lokalizacje.html", user=g.user, lokalizacja=lokalizacja)
+
+@app.route('/dodaj_lokalizacje')
+def dodaj_lokalizacje():
+    if not g.user:
+        return render_template('login.html', user=g.user)
+    if g.user.id_uprawnienia ==3:
+        return redirect(url_for('home'))
+
+    logger.info(f"{g.user.login} wszedł na stronę dodawania lokzlizacji.")
+    return render_template("dodaj_lokalizacje.html", user=g.user)
+
+@app.route('/dodaj_lokalizacje_do_bazy', methods=['POST'])
+def dodaj_lokalizacje_do_bazy():
+    if not g.user:
+        return render_template('login.html', user=g.user)
+    if g.user.id_uprawnienia ==3:
+        return redirect(url_for('home'))
+    
+    if request.method == 'POST':
+        nazwa = request.form.get('nazwa_lokalizacji')
+
+        nowa_lokalizacja = Lokalizacja(nazwa=nazwa)
+        db.session.add(nowa_lokalizacja)
+
+        try:
+            db.session.commit()
+            logger.info(f"Lokalizacja {nazwa} został dodany przez {g.user.login}.")
+            return redirect(url_for('lokalizacja'))  # Przekierowanie na stronę dostawców
+        except Exception as e:
+            db.session.rollback()
+            logger.error(f"Nie udało się zapisać danych: {e}")
+            return render_template('lokalizacje.html', error="Wystąpił błąd przy zapisywaniu danych.", user=g.user)
+
+@app.route('/update-row-lokalizacje', methods=['POST'])
+def update_row_lokalizacje():
+    if not g.user:
+        return render_template('login.html', user=g.user)
+    if g.user.id_uprawnienia ==3:
+        return redirect(url_for('home'))
+    
+    try:
+        dane = request.get_json()
+        logger.info(f'Otrzymane dane do aktualizacji lokalizacji: {dane}')
+
+        id = dane.get('column_0')
+        if id is None:
+            return jsonify({'message': 'Id jest wymagane!'}), 400
+
+        lokalizacja = Lokalizacja.query.get(id)
+        if lokalizacja is None:
+            return jsonify({'message': 'Rekord nie znaleziony!'}), 404
+
+        lokalizacja.nazwa = dane.get('column_1', lokalizacja.nazwa)
+
+        db.session.commit()
+        logger.info(f"Lokalizacja {lokalizacja.nazwa} został zaktualizowany przez {g.user.login}.")
+        return jsonify({'message': 'Rekord zaktualizowany pomyślnie!'})
+    except Exception as e:
+        db.session.rollback()
+        logger.error(f'Wystąpił błąd podczas aktualizacji: {str(e)}')
+        return jsonify({'message': 'Wystąpił błąd podczas aktualizacji!', 'error': str(e)}), 500
 if __name__ == "__main__":
-    app.run (host='0.0.0.0',port=5000,debug=True)
+    app.run(host='0.0.0.0', port=5000, debug=True)

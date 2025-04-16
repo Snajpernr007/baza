@@ -355,12 +355,12 @@ function printID(id) {
                             <a href="{{ url_for('uzytkownik') }}"><label for="menuCheckbox" onclick="this.parentNode.click();">Uzytkownicy</label></a>
                         </li>
                         {% endif %}
-                        {% if g.user.id_uprawnienia==1 %}
+                        {% if g.user.id_uprawnienia==1 or g.user.id_uprawnienia==2%}
                         <li>
                             <a href="{{ url_for('dostawcy') }}"><label for="menuCheckbox" onclick="this.parentNode.click();">Dostawcy</label></a>
                         </li>
                         {% endif %}
-                        {% if g.user.id_uprawnienia==1 %}
+                        {% if g.user.id_uprawnienia==1 or g.user.id_uprawnienia==2%}
                         <li>
                             <a href="{{ url_for('szablon') }}"><label for="menuCheckbox" onclick="this.parentNode.click();">Nazwy</label></a>
                         </li>
@@ -413,7 +413,7 @@ function printID(id) {
                         <th><input type="text" placeholder="Filtruj Etyk. Paletową" onkeyup="filterColumn(8)"></th>
                         <th><input type="text" placeholder="Filtruj Etyk. Kręgu" onkeyup="filterColumn(9)"></th>
                         <th><input type="text" placeholder="Filtruj Lokalizację" onkeyup="filterColumn(10)"></th>
-                        <th><input type="text" placeholder="Filtruj Fakturę" onkeyup="filterColumn(11)"></th>
+                        <th><input type="text" placeholder="Filtruj Nr WZ" onkeyup="filterColumn(11)"></th>
                         <th><input type="text" placeholder="Filtruj Datę Dostawy" onkeyup="filterColumn(12)"></th>
                         <th><input type="text" placeholder="Filtruj Nazwę Stanowiska" onkeyup="filterColumn(13)"></th>
                         
@@ -431,7 +431,7 @@ function printID(id) {
                         <th onclick="sortTable(8)">Nr Etykieta Paletowa &#9650;&#9660;</th>
                         <th onclick="sortTable(9)">Nr z Etykiety na Kręgu &#9650;&#9660;</th>
                         <th onclick="sortTable(10)">Lokalizacja &#9650;&#9660;</th>
-                        <th onclick="sortTable(11)">Nr Faktury Dostawcy &#9650;&#9660;</th>
+                        <th onclick="sortTable(11)">Nr WZ &#9650;&#9660;</th>
                         <th onclick="sortTable(12)">Data Dostawy &#9650;&#9660;</th>
                         <th onclick="sortTable(13)">Nazwa Stanowiska &#9650;&#9660;</th>
                         

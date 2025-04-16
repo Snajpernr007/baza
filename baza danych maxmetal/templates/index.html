@@ -99,10 +99,10 @@
             {% if g.user.id_uprawnienia==1 %}
             <button class="button" onclick="window.location.href='{{ url_for('uzytkownik') }}'">Uzytkownicy</button>
             {% endif %}
-            {% if g.user.id_uprawnienia==1 %}
+            {% if g.user.id_uprawnienia==1 or g.user.id_uprawnienia==2%}
             <button class="button" onclick="window.location.href='{{ url_for('dostawcy') }}'">Dostawcy</button>
             {% endif %}
-            {% if g.user.id_uprawnienia==1 %}
+            {% if g.user.id_uprawnienia==1 or g.user.id_uprawnienia==2%}
             <button class="button" onclick="window.location.href='{{ url_for('szablon') }}'">Nazwy</button>
             {% endif %}
             {% if g.user.id_uprawnienia==1 %}

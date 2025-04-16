@@ -218,7 +218,7 @@ window.open(url, '_blank', windowFeatures); // '_blank' otworzy nowe okno/tab
                             <a href="{{ url_for('logout') }}"><label for="menuCheckbox" onclick="this.parentNode.click();">Wyloguj się</label></a>
                         </li>
                         {% endif %}
-                        {%if g.user.id_uprawnieniar==1 %}
+                        {%if g.user.id_uprawnieniar==1 or g.user.id_uprawnienia==2%}
                         <li>
                             <a href="{{ url_for('tasma') }}"><label for="menuCheckbox" onclick="this.parentNode.click();">Materiały</label></a>
                         </li>
@@ -231,7 +231,7 @@ window.open(url, '_blank', windowFeatures); // '_blank' otworzy nowe okno/tab
                             <a href="{{ url_for('uzytkownik') }}"><label for="menuCheckbox" onclick="this.parentNode.click();">Uzytkownicy</label></a>
                         </li>
                         {% endif %}
-                        {% if g.user.id_uprawnienia==1 %}
+                        {% if g.user.id_uprawnienia==1 or g.user.id_uprawnienia==2%}
                         <li>
                             <a href="{{ url_for('dostawcy') }}"><label for="menuCheckbox" onclick="this.parentNode.click();">Dostawcy</label></a>
                         </li>
@@ -275,7 +275,7 @@ window.open(url, '_blank', windowFeatures); // '_blank' otworzy nowe okno/tab
                     <tr>
                         <th><input type="text" placeholder="Filtruj ID" onkeyup="filterColumn(0)"></th>
                         <th><input type="text" placeholder="Filtruj Nazwę" onkeyup="filterColumn(1)"></th>
-                        <th><input type="text" placeholder="Filtruj Rodzaj" onkeyup="filterColumn(2)"></th>
+                        <th><input type="text" placeholder="Filtruj Gatunek materiału" onkeyup="filterColumn(2)"></th>
                         <th><input type="text" placeholder="Filtruj Grubosc i oznaczenie ocynku" onkeyup="filterColumn(3)"></th>
                         
                         <th><input type="text" placeholder="Filtruj Szerokość" onkeyup="filterColumn(4)"></th>
@@ -292,7 +292,7 @@ window.open(url, '_blank', windowFeatures); // '_blank' otworzy nowe okno/tab
                     <tr>
                         <th onclick="sortTable(0)">ID &#9650;&#9660;</th>
                         <th onclick="sortTable(1)">Nazwa &#9650;&#9660;</th>
-                        <th onclick="sortTable(2)">Rodzaj &#9650;&#9660;</th>
+                        <th onclick="sortTable(2)">Gatunek materiału &#9650;&#9660;</th>
                         <th onclick="sortTable(3)">Grubosc i oznaczenie ocynku &#9650;&#9660;</th>
                        
                         <th onclick="sortTable(4)">Szerokość &#9650;&#9660;</th>

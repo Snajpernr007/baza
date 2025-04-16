@@ -156,7 +156,7 @@ function openEditModal(row) {
 }
 
 function sendDataToBackend(data) {
-    fetch('/update-row-dostawcy', {
+    fetch('/update-row-lokalizacje', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
@@ -240,7 +240,7 @@ window.open(url, '_blank', windowFeatures); // '_blank' otworzy nowe okno/tab
                             <a href=javascript:history.back();><label for="menuCheckbox" onclick="this.parentNode.click();">Powrót</label></a>
                         </li>
                             <li>
-                                <a href="{{ url_for('dodaj_dostawce') }}";><label for="menuCheckbox" onclick="this.parentNode.click();">Dodaj Dostawcę</label></a>
+                                <a href="{{ url_for('dodaj_lokalizacje') }}";><label for="menuCheckbox" onclick="this.parentNode.click();">Dodaj Lokalizacje</label></a>
                             </li>
                             
                             <li>
@@ -269,24 +269,24 @@ window.open(url, '_blank', windowFeatures); // '_blank' otworzy nowe okno/tab
                 <thead>
                     <tr>
                         <th><input type="text" placeholder="Filtruj ID" onkeyup="filterColumn(0)"></th>
-                        <th><input type="text" placeholder="Filtruj Dostawcę" onkeyup="filterColumn(1)"></th>
+                        <th><input type="text" placeholder="Filtruj Lokalizacje" onkeyup="filterColumn(1)"></th>
                         
                         
                         <th><button class="button" onclick="resetFilters()">Usuń Filtry</button></th>
                     </tr>
                     <tr>
                         <th onclick="sortTable(0)">ID &#9650;&#9660;</th>
-                        <th onclick="sortTable(1)">Nazwa Dostawcy &#9650;&#9660;</th>
+                        <th onclick="sortTable(1)">Nazwa Lokalizacji &#9650;&#9660;</th>
                         
                         
                         <th>Edycja</th>
                     </tr>
                 </thead>
                 <tbody>
-                    {% for dostawca in dostawcy %}
+                    {% for lokalizacje in lokalizacja %}
                         <tr>
-                            <td>{{ dostawca.id }} </td>
-                            <td>{{ dostawca.nazwa }}</td>
+                            <td>{{ lokalizacje.id }} </td>
+                            <td>{{ lokalizacje.nazwa }}</td>
 
                             
                             <td><button type="button" class="button" onclick="openEditModal(this.parentElement.parentElement)">Edytuj</button></td>

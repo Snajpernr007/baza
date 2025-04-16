@@ -12,11 +12,13 @@
 //     location.reload();
 // }, 10000); // 10000 ms = 10 sekund
 window.onload = function() {
-            var checkboxes = document.querySelectorAll('input[type="checkbox"]');
-            checkboxes.forEach(function(checkbox) {
-                checkbox.checked = false; // Resetuje stan checkboxów
-            });
-        };
+    // Wybierz wszystkie checkboxy wewnątrz tabeli
+    var checkboxes = document.querySelectorAll('#tabela_on_off input[type="checkbox"]');
+    
+    checkboxes.forEach(function(checkbox) {
+        checkbox.checked = true; // Zaznacza checkbox
+    });
+};
 function filterTable() {
     let table = document.getElementById("tabela");
     let filterInputs = table.querySelectorAll("thead input");
@@ -157,6 +159,52 @@ function toggleColumn(colIndex) {
         }
     }
 }   
+function downloadSelected() {
+    const table = document.getElementById('tabela'); // Upewnij się, że używasz właściwej tabeli
+    const headers = Array.from(table.querySelectorAll('thead th'));
+    const rows = Array.from(table.querySelectorAll('tbody tr'));
+
+    // Indeksy widocznych kolumn
+    const visibleColumnIndexes = headers.map((th, idx) => th.hasAttribute('hidden') ? null : idx).filter(idx => idx !== null);
+
+    // Nazwy widocznych kolumn
+    const visibleHeaders = visibleColumnIndexes.map(idx => headers[idx].innerText.trim());
+
+    // Dane z wierszy (zaczynamy od 2 wiersza = index 1)
+    const data = rows.slice(1).map(row => {
+        const cells = Array.from(row.querySelectorAll('td'));
+        return visibleColumnIndexes.map(idx => cells[idx]?.innerText.trim());
+    });
+
+    // Wyślij log info do backendu
+    fetch('/log-download', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({
+            user: g.user ? g.user.login : 'nieznany', // Można dynamicznie uzupełnić po stronie backendu
+            columns: visibleHeaders
+        })
+    });
+
+    // Poproś o wygenerowanie i pobranie Excela
+    fetch('/download-excel', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({
+            headers: visibleHeaders,
+            data: data
+        })
+    }).then(res => res.blob())
+    .then(blob => {
+        const url = window.URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = 'raport.xlsx';
+        document.body.appendChild(a);
+        a.click();
+        a.remove();
+    });
+}
     </script>
 </head>
 <body>
@@ -251,7 +299,7 @@ function toggleColumn(colIndex) {
                         <th><input type="checkbox"  onclick="toggleColumn(8)"> Etyk. Paletowa</th>
                         <th><input type="checkbox"  onclick="toggleColumn(9)"> Etyk. Kręgu</th>
                         <th><input type="checkbox"  onclick="toggleColumn(10)"> Lokalizacja</th>
-                        <th><input type="checkbox"  onclick="toggleColumn(11)"> Faktura</th>
+                        <th><input type="checkbox"  onclick="toggleColumn(11)"> N WZ</th>
                         <th><input type="checkbox"  onclick="toggleColumn(12)"> Data Dostawy</th>
                         <th><input type="checkbox"  onclick="toggleColumn(13)"> Stanowisko</th>
                         <th><input type="checkbox"  onclick="toggleColumn(14)"> ID</th>
@@ -265,124 +313,125 @@ function toggleColumn(colIndex) {
                         <th><input type="checkbox"  onclick="toggleColumn(22)"> Rodzaj</th>
                         <th><input type="checkbox"  onclick="toggleColumn(23)"> Stanowisko</th>
                         <th><button class="button" onclick="resetFilters()">Usuń Filtry</button></th>
+                        <th><button class="button" onclick="downloadSelected()">Pobierz do Excel</button></th>
                     </tr>
                 </thead>
                 <table id="tabela">
                     <thead>
                     <tr>
-                            <th hidden><input type="text" placeholder="Filtruj ID" onkeyup="filterColumn(0)"></th>
-                            <th hidden><input type="text" placeholder="Filtruj Dostawcę" onkeyup="filterColumn(1)"></th>
-                            <th hidden><input type="text" placeholder="Filtruj Materiał" onkeyup="filterColumn(2)"></th>
-                            <th hidden><input type="text" placeholder="Filtruj Datę Kręgu" onkeyup="filterColumn(3)"></th>
-                            <th hidden><input type="text" placeholder="Filtruj Grubość" onkeyup="filterColumn(4)"></th>
-                            <th hidden><input type="text" placeholder="Filtruj Szerokość" onkeyup="filterColumn(5)"></th>
-                            <th hidden><input type="text" placeholder="Filtruj Wagę" onkeyup="filterColumn(6)"></th>
-                            <th hidden><input type="text" placeholder="Filtruj Wagę na Stanie" onkeyup="filterColumn(7)"></th>
-                            <th hidden><input type="text" placeholder="Filtruj Etyk. Paletową" onkeyup="filterColumn(8)"></th>
-                            <th hidden><input type="text" placeholder="Filtruj Etyk. Kręgu" onkeyup="filterColumn(9)"></th>
-                            <th hidden><input type="text" placeholder="Filtruj Lokalizację" onkeyup="filterColumn(10)"></th>
-                            <th hidden><input type="text" placeholder="Filtruj Fakturę" onkeyup="filterColumn(11)"></th>
-                            <th hidden><input type="text" placeholder="Filtruj Datę Dostawy" onkeyup="filterColumn(12)"></th>
-                            <th hidden><input type="text" placeholder="Filtruj Nazwę Stanowiska" onkeyup="filterColumn(13)"></th>
-                            <th hidden><input type="text" placeholder="Filtruj ID" onkeyup="filterColumn(14)"></th>
-                            <th hidden><input type="text" placeholder="Filtruj Materiał" onkeyup="filterColumn(15)"></th>
-                            <th hidden><input type="text" placeholder="Filtruj Datę produkcji" onkeyup="filterColumn(16)"></th>
-                            <th hidden><input type="text" placeholder="Filtruj Godzinę rozpoczęcia" onkeyup="filterColumn(17)"></th>
-                            <th hidden><input type="text" placeholder="Filtruj Godzinę zakończenia" onkeyup="filterColumn(18)"></th>
-                            <th hidden><input type="text" placeholder="Filtruj Zwrot na magazyn" onkeyup="filterColumn(19)"></th>
-                            <th hidden><input type="text" placeholder="Filtruj Nr części Klienta" onkeyup="filterColumn(20)"></th>
-                            <th hidden><input type="text" placeholder="Filtruj Nazwę klienta Nr PRODIO" onkeyup="filterColumn(21)"></th>
+                            <th ><input type="text" placeholder="Filtruj ID" onkeyup="filterColumn(0)"></th>
+                            <th ><input type="text" placeholder="Filtruj Dostawcę" onkeyup="filterColumn(1)"></th>
+                            <th ><input type="text" placeholder="Filtruj Materiał" onkeyup="filterColumn(2)"></th>
+                            <th ><input type="text" placeholder="Filtruj Datę Kręgu" onkeyup="filterColumn(3)"></th>
+                            <th ><input type="text" placeholder="Filtruj Grubość" onkeyup="filterColumn(4)"></th>
+                            <th ><input type="text" placeholder="Filtruj Szerokość" onkeyup="filterColumn(5)"></th>
+                            <th ><input type="text" placeholder="Filtruj Wagę" onkeyup="filterColumn(6)"></th>
+                            <th ><input type="text" placeholder="Filtruj Wagę na Stanie" onkeyup="filterColumn(7)"></th>
+                            <th ><input type="text" placeholder="Filtruj Etyk. Paletową" onkeyup="filterColumn(8)"></th>
+                            <th ><input type="text" placeholder="Filtruj Etyk. Kręgu" onkeyup="filterColumn(9)"></th>
+                            <th ><input type="text" placeholder="Filtruj Lokalizację" onkeyup="filterColumn(10)"></th>
+                            <th ><input type="text" placeholder="Filtruj Nr WZ" onkeyup="filterColumn(11)"></th>
+                            <th ><input type="text" placeholder="Filtruj Datę Dostawy" onkeyup="filterColumn(12)"></th>
+                            <th ><input type="text" placeholder="Filtruj Nazwę Stanowiska" onkeyup="filterColumn(13)"></th>
+                            <th ><input type="text" placeholder="Filtruj ID" onkeyup="filterColumn(14)"></th>
+                            <th ><input type="text" placeholder="Filtruj Materiał" onkeyup="filterColumn(15)"></th>
+                            <th ><input type="text" placeholder="Filtruj Datę produkcji" onkeyup="filterColumn(16)"></th>
+                            <th ><input type="text" placeholder="Filtruj Godzinę rozpoczęcia" onkeyup="filterColumn(17)"></th>
+                            <th ><input type="text" placeholder="Filtruj Godzinę zakończenia" onkeyup="filterColumn(18)"></th>
+                            <th ><input type="text" placeholder="Filtruj Zwrot na magazyn" onkeyup="filterColumn(19)"></th>
+                            <th ><input type="text" placeholder="Filtruj Nr części Klienta" onkeyup="filterColumn(20)"></th>
+                            <th ><input type="text" placeholder="Filtruj Nazwę klienta Nr PRODIO" onkeyup="filterColumn(21)"></th>
                             
-                            <th hidden><input type="text" placeholder="Filtruj Rodzaj Materiału" onkeyup="filterColumn(22)"></th>
-                            <th hidden><input type="text" placeholder="Filtruj Nazwę Stanowiska" onkeyup="filterColumn(23)"></th>
+                            <th ><input type="text" placeholder="Filtruj Rodzaj Materiału" onkeyup="filterColumn(22)"></th>
+                            <th ><input type="text" placeholder="Filtruj Nazwę Stanowiska" onkeyup="filterColumn(23)"></th>
                         
                     </tr>
                     <tr>
-                            <th hidden onclick="sortTable(0)">ID &#9650;&#9660;</th>
-                            <th hidden onclick="sortTable(1)">Nazwa Dostawcy &#9650;&#9660;</th>
-                            <th hidden onclick="sortTable(2)">Nazwa Materiału &#9650;&#9660;</th>
-                            <th hidden onclick="sortTable(3)">Data z Etykiety na Kręgu &#9650;&#9660;</th>
-                            <th hidden onclick="sortTable(4)">Grubość &#9650;&#9660;</th>
-                            <th hidden onclick="sortTable(5)">Szerokość &#9650;&#9660;</th>
-                            <th hidden onclick="sortTable(6)">Waga Kręgu &#9650;&#9660;</th>
-                            <th hidden onclick="sortTable(7)">Waga Kręgu na Stanie &#9650;&#9660;</th>
-                            <th hidden onclick="sortTable(8)">Nr Etykieta Paletowa &#9650;&#9660;</th>
-                            <th hidden onclick="sortTable(9)">Nr z Etykiety na Kręgu &#9650;&#9660;</th>
-                            <th hidden onclick="sortTable(10)">Lokalizacja &#9650;&#9660;</th>
-                            <th hidden onclick="sortTable(11)">Nr Faktury Dostawcy &#9650;&#9660;</th>
-                            <th hidden onclick="sortTable(12)">Data Dostawy &#9650;&#9660;</th>
-                            <th hidden onclick="sortTable(13)">Nazwa Stanowiska &#9650;&#9660;</th>
-                            <th hidden onclick="sortTable(14)">ID &#9650;&#9660;</th>
-                            <th hidden onclick="sortTable(15)">Etykieta Materiału &#9650;&#9660;</th>
-                            <th hidden onclick="sortTable(16)">Data Produkcji &#9650;&#9660;</th>
-                            <th hidden onclick="sortTable(17)">Godzina rozpoczęcia &#9650;&#9660;</th>
-                            <th hidden onclick="sortTable(18)">Godzina zakończenia &#9650;&#9660;</th>
-                            <th hidden onclick="sortTable(19)">Zwrot na magazyn kg &#9650;&#9660;</th>
-                            <th hidden onclick="sortTable(20)">Nr części klienta &#9650;&#9660;</th>
-                            <th hidden onclick="sortTable(21)">Nazwa klienta Nr PRODIO &#9650;&#9660;</th>
-                            <th hidden onclick="sortTable(22)">Rodzaj materiału &#9650;&#9660;</th>
-                            <th hidden onclick="sortTable(23)">Nazwa Stanowiska &#9650;&#9660;</th>
+                            <th  onclick="sortTable(0)">ID &#9650;&#9660;</th>
+                            <th  onclick="sortTable(1)">Nazwa Dostawcy &#9650;&#9660;</th>
+                            <th  onclick="sortTable(2)">Nazwa Materiału &#9650;&#9660;</th>
+                            <th  onclick="sortTable(3)">Data z Etykiety na Kręgu &#9650;&#9660;</th>
+                            <th  onclick="sortTable(4)">Grubość &#9650;&#9660;</th>
+                            <th  onclick="sortTable(5)">Szerokość &#9650;&#9660;</th>
+                            <th  onclick="sortTable(6)">Waga Kręgu &#9650;&#9660;</th>
+                            <th  onclick="sortTable(7)">Waga Kręgu na Stanie &#9650;&#9660;</th>
+                            <th  onclick="sortTable(8)">Nr Etykieta Paletowa &#9650;&#9660;</th>
+                            <th  onclick="sortTable(9)">Nr z Etykiety na Kręgu &#9650;&#9660;</th>
+                            <th  onclick="sortTable(10)">Lokalizacja &#9650;&#9660;</th>
+                            <th  onclick="sortTable(11)">Nr WZ &#9650;&#9660;</th>
+                            <th  onclick="sortTable(12)">Data Dostawy &#9650;&#9660;</th>
+                            <th  onclick="sortTable(13)">Nazwa Stanowiska &#9650;&#9660;</th>
+                            <th  onclick="sortTable(14)">ID &#9650;&#9660;</th>
+                            <th  onclick="sortTable(15)">Etykieta Materiału &#9650;&#9660;</th>
+                            <th  onclick="sortTable(16)">Data Produkcji &#9650;&#9660;</th>
+                            <th  onclick="sortTable(17)">Godzina rozpoczęcia &#9650;&#9660;</th>
+                            <th  onclick="sortTable(18)">Godzina zakończenia &#9650;&#9660;</th>
+                            <th  onclick="sortTable(19)">Zwrot na magazyn kg &#9650;&#9660;</th>
+                            <th  onclick="sortTable(20)">Nr części klienta &#9650;&#9660;</th>
+                            <th  onclick="sortTable(21)">Nazwa klienta Nr PRODIO &#9650;&#9660;</th>
+                            <th  onclick="sortTable(22)">Rodzaj materiału &#9650;&#9660;</th>
+                            <th  onclick="sortTable(23)">Nazwa Stanowiska &#9650;&#9660;</th>
                         
                     </tr>
                 </thead>
                 <tbody>
                     {% for tasmy in tasma %}
                         <tr>
-                            <td hidden>{{ tasmy.id }} <a href="javascript:void(0);" onclick="printID({{ tasmy.id }})">
+                            <td >{{ tasmy.id }} <a href="javascript:void(0);" onclick="printID({{ tasmy.id }})">
                                 <img src="/static/img/drukarka.png" alt="drukuj" height="15" width="15">
                             </a></td>
-                            <td hidden data-dostawca-id="{{ tasmy.dostawca.id }}">{{ tasmy.dostawca.nazwa }}</td>
-                            <td hidden data-szablon-id="{{ tasmy.szablon.id }}">{{ tasmy.szablon.nazwa }}</td>
-                            <td hidden >{{ tasmy.data_z_etykiety_na_kregu }}</td>
-                            <td hidden>{{ tasmy.grubosc }}</td>
-                            <td hidden>{{ tasmy.szerokosc }}</td>
-                            <td hidden>{{ tasmy.waga_kregu }}</td>
-                            <td hidden>{{ tasmy.waga_kregu_na_stanie }}</td>
-                            <td hidden>{{ tasmy.nr_etykieta_paletowa }}</td>
-                            <td hidden>{{ tasmy.nr_z_etykiety_na_kregu }}</td>
-                            <td hidden>{{ tasmy.lokalizacja }}</td>
-                            <td hidden>{{ tasmy.nr_faktury_dostawcy }}</td>
-                            <td hidden>{{ tasmy.data_dostawy }}</td>
-                            <td hidden>{{ tasmy.pracownik.login }}</td>
-                            <td hidden></td>
-                            <td hidden></td>
-                            <td hidden></td>
-                            <td hidden></td>
-                            <td hidden></td>
-                            <td hidden></td>
-                            <td hidden></td>
-                            <td hidden></td>
-                            <td hidden></td>
-                            <td hidden></td>
+                            <td  data-dostawca-id="{{ tasmy.dostawca.id }}">{{ tasmy.dostawca.nazwa }}</td>
+                            <td  data-szablon-id="{{ tasmy.szablon.id }}">{{ tasmy.szablon.nazwa }}</td>
+                            <td  >{{ tasmy.data_z_etykiety_na_kregu }}</td>
+                            <td >{{ tasmy.grubosc }}</td>
+                            <td >{{ tasmy.szerokosc }}</td>
+                            <td >{{ tasmy.waga_kregu }}</td>
+                            <td >{{ tasmy.waga_kregu_na_stanie }}</td>
+                            <td >{{ tasmy.nr_etykieta_paletowa }}</td>
+                            <td >{{ tasmy.nr_z_etykiety_na_kregu }}</td>
+                            <td >{{ tasmy.lokalizacja }}</td>
+                            <td >{{ tasmy.nr_faktury_dostawcy }}</td>
+                            <td >{{ tasmy.data_dostawy }}</td>
+                            <td >{{ tasmy.pracownik.login }}</td>
+                            <td ></td>
+                            <td ></td>
+                            <td ></td>
+                            <td ></td>
+                            <td ></td>
+                            <td ></td>
+                            <td ></td>
+                            <td ></td>
+                            <td ></td>
+                            <td ></td>
                             {% for profile in profil %}
                             
                             {% if tasmy.id== profile.tasma.id%}
                             
                                 <tr>
-                                    <td hidden></td>
-                                    <td hidden></td>
-                                    <td hidden></td>
-                                    <td hidden></td>
-                                    <td hidden></td>
-                                    <td hidden></td>
-                                    <td hidden></td>
-                                    <td hidden></td>
-                                    <td hidden></td>
-                                    <td hidden></td>
-                                    <td hidden></td>
-                                    <td hidden></td>
-                                    <td hidden></td>
-                                    <td hidden></td>
-                                    <td hidden>{{ profile.id }}</td>
-                                    <td hidden data-tasma-id="{{ profile.tasma.id }}">{{ profile.tasma.nr_z_etykiety_na_kregu }}</td>
-                                    <td hidden>{{ profile.data_produkcji }}</td>
-                                    <td hidden>{{ profile.godz_min_rozpoczecia }}</td>
-                                    <td hidden>{{ profile.godz_min_zakonczenia }}</td>
-                                    <td hidden>{{ profile.zwrot_na_magazyn_kg }}</td>
-                                    <td hidden>{{ profile.nr_czesci_klienta }}</td>
-                                    <td hidden>{{ profile.nazwa_klienta_nr_zlecenia_PRODIO }}</td>
-                                    <td hidden>{{profile.tasma.szablon.nazwa}}</td>
-                                    <td hidden>{{ profile.pracownik.login }}</td>
+                                    <td ></td>
+                                    <td ></td>
+                                    <td ></td>
+                                    <td ></td>
+                                    <td ></td>
+                                    <td ></td>
+                                    <td ></td>
+                                    <td ></td>
+                                    <td ></td>
+                                    <td ></td>
+                                    <td ></td>
+                                    <td ></td>
+                                    <td ></td>
+                                    <td ></td>
+                                    <td >{{ profile.id }}</td>
+                                    <td  data-tasma-id="{{ profile.tasma.id }}">{{ profile.tasma.nr_z_etykiety_na_kregu }}</td>
+                                    <td >{{ profile.data_produkcji }}</td>
+                                    <td >{{ profile.godz_min_rozpoczecia }}</td>
+                                    <td >{{ profile.godz_min_zakonczenia }}</td>
+                                    <td >{{ profile.zwrot_na_magazyn_kg }}</td>
+                                    <td >{{ profile.nr_czesci_klienta }}</td>
+                                    <td >{{ profile.nazwa_klienta_nr_zlecenia_PRODIO }}</td>
+                                    <td >{{profile.tasma.szablon.nazwa}}</td>
+                                    <td >{{ profile.pracownik.login }}</td>
                                     
                                     
                                 </tr>

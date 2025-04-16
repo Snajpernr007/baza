@@ -61,8 +61,8 @@ function filtrujEtykiete() {
 <body>
     <div id="strona">
         <form id="myForm" action="{{ url_for('dodaj_profil_do_bazy') }}" method="post">
-            <label for="szukaj_etykiety">Szukaj dostawcy:</label>
-            <input type="text" id="szukaj_etykiety" onkeyup="filtrujEtykiete()" placeholder="Wpisz nazwę etykiety">
+            <label for="szukaj_etykiety">Szukaj etykiety materiału:</label>
+            <input type="text" id="szukaj_etykiety" onkeyup="filtrujEtykiete()" placeholder="Wpisz nazwę etykiety materiału">
 
             <label for="etykieta">Etykieta Materiału:</label>
             <select id="etykieta" name="etykieta" required size="5">
