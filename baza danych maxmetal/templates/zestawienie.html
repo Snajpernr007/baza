@@ -21,27 +21,64 @@ window.onload = function() {
 };
 function filterTable() {
     let table = document.getElementById("tabela");
-    let filterInputs = table.querySelectorAll("thead input");
-    let rows = table.getElementsByTagName("tbody")[0].getElementsByTagName("tr");
+    let rows = table.querySelectorAll("tbody tr");
+    let inputs = table.querySelectorAll("thead input[type='text']");
+    
+    // Pobierz zakresy dat dla poszczególnych kolumn
+    let dateKreguFrom = document.getElementById("dateKreguFrom")?.value;
+    let dateKreguTo = document.getElementById("dateKreguTo")?.value;
+    let dateDostawyFrom = document.getElementById("dateDostawyFrom")?.value;
+    let dateDostawyTo = document.getElementById("dateDostawyTo")?.value;
+    let dateProdukcjiFrom = document.getElementById("dateProdukcjiFrom")?.value;
+    let dateProdukcjiTo = document.getElementById("dateProdukcjiTo")?.value;
 
-    // Pętla przez wszystkie wiersze tabeli
-    for (let i = 0; i < rows.length; i++) {
-        let cells = rows[i].getElementsByTagName("td");
-        let isRowVisible = true; // Flaga określająca, czy wiersz ma być widoczny
+    rows.forEach(row => {
+        let cells = row.querySelectorAll("td");
+        let show = true;
 
-        // Pętla przez wszystkie kolumny i odpowiednie filtry
-        for (let columnIndex = 0; columnIndex < filterInputs.length; columnIndex++) {
-            let filter = filterInputs[columnIndex].value.toLowerCase();
-            if (cells[columnIndex]) {
-                let cellValue = cells[columnIndex].textContent || cells[columnIndex].innerText;
-                if (filter && !cellValue.toLowerCase().includes(filter)) {    
-                    isRowVisible = false; // Ukryj wiersz, jeśli nie spełnia filtru
-                    break; // Przerywamy, gdy znajdziemy filtr, który nie pasuje
+        // Tekstowe filtry
+        inputs.forEach((input, i) => {
+            let value = input.value.toLowerCase();
+            if (value && cells[i]) {
+                let text = cells[i].textContent.toLowerCase();
+                if (!text.includes(value)) {
+                    show = false;
                 }
             }
+        });
+
+        // Data Kręgu (kolumna 3)
+        if (show && (dateKreguFrom || dateKreguTo)) {
+            let dateText = cells[3]?.textContent.trim();
+            if (dateText) {
+                let cellDate = new Date(dateText);
+                if (dateKreguFrom && cellDate < new Date(dateKreguFrom)) show = false;
+                if (dateKreguTo && cellDate > new Date(dateKreguTo)) show = false;
+            }
         }
-        rows[i].style.display = isRowVisible ? "" : "none"; // Ustaw widoczność wiersza
-    }
+
+        // Data Dostawy (kolumna 12)
+        if (show && (dateDostawyFrom || dateDostawyTo)) {
+            let dateText = cells[12]?.textContent.trim();
+            if (dateText) {
+                let cellDate = new Date(dateText);
+                if (dateDostawyFrom && cellDate < new Date(dateDostawyFrom)) show = false;
+                if (dateDostawyTo && cellDate > new Date(dateDostawyTo)) show = false;
+            }
+        }
+
+        // Data Produkcji (kolumna 16)
+        if (show && (dateProdukcjiFrom || dateProdukcjiTo)) {
+            let dateText = cells[16]?.textContent.trim();
+            if (dateText) {
+                let cellDate = new Date(dateText);
+                if (dateProdukcjiFrom && cellDate < new Date(dateProdukcjiFrom)) show = false;
+                if (dateProdukcjiTo && cellDate > new Date(dateProdukcjiTo)) show = false;
+            }
+        }
+
+        row.style.display = show ? "" : "none";
+    });
 }
 
 // Zaktualizuj wywołanie funkcji filterTable w inputach
@@ -322,7 +359,8 @@ function downloadSelected() {
                             <th ><input type="text" placeholder="Filtruj ID" onkeyup="filterColumn(0)"></th>
                             <th ><input type="text" placeholder="Filtruj Dostawcę" onkeyup="filterColumn(1)"></th>
                             <th ><input type="text" placeholder="Filtruj Materiał" onkeyup="filterColumn(2)"></th>
-                            <th ><input type="text" placeholder="Filtruj Datę Kręgu" onkeyup="filterColumn(3)"></th>
+                            <th >OD<input type="date" id="dateKreguFrom" onchange="filterTable()" style="width: 90px;">
+                                DO<input type="date" id="dateKreguTo" onchange="filterTable()" style="width: 90px;"></th>
                             <th ><input type="text" placeholder="Filtruj Grubość" onkeyup="filterColumn(4)"></th>
                             <th ><input type="text" placeholder="Filtruj Szerokość" onkeyup="filterColumn(5)"></th>
                             <th ><input type="text" placeholder="Filtruj Wagę" onkeyup="filterColumn(6)"></th>
@@ -331,11 +369,13 @@ function downloadSelected() {
                             <th ><input type="text" placeholder="Filtruj Etyk. Kręgu" onkeyup="filterColumn(9)"></th>
                             <th ><input type="text" placeholder="Filtruj Lokalizację" onkeyup="filterColumn(10)"></th>
                             <th ><input type="text" placeholder="Filtruj Nr WZ" onkeyup="filterColumn(11)"></th>
-                            <th ><input type="text" placeholder="Filtruj Datę Dostawy" onkeyup="filterColumn(12)"></th>
+                            <th >OD<input type="date" id="dateDostawyFrom" onchange="filterTable()" style="width: 90px;">
+                                DO<input type="date" id="dateDostawyTo" onchange="filterTable()" style="width: 90px;"></th>
                             <th ><input type="text" placeholder="Filtruj Nazwę Stanowiska" onkeyup="filterColumn(13)"></th>
                             <th ><input type="text" placeholder="Filtruj ID" onkeyup="filterColumn(14)"></th>
                             <th ><input type="text" placeholder="Filtruj Materiał" onkeyup="filterColumn(15)"></th>
-                            <th ><input type="text" placeholder="Filtruj Datę produkcji" onkeyup="filterColumn(16)"></th>
+                            <th > OD<input type="date" id="dateProdukcjiFrom" onchange="filterTable()" style="width: 90px;">
+                                DO<input type="date" id="dateProdukcjiTo" onchange="filterTable()" style="width: 90px;"></th>
                             <th ><input type="text" placeholder="Filtruj Godzinę rozpoczęcia" onkeyup="filterColumn(17)"></th>
                             <th ><input type="text" placeholder="Filtruj Godzinę zakończenia" onkeyup="filterColumn(18)"></th>
                             <th ><input type="text" placeholder="Filtruj Zwrot na magazyn" onkeyup="filterColumn(19)"></th>
@@ -389,7 +429,7 @@ function downloadSelected() {
                             <td >{{ tasmy.waga_kregu_na_stanie }}</td>
                             <td >{{ tasmy.nr_etykieta_paletowa }}</td>
                             <td >{{ tasmy.nr_z_etykiety_na_kregu }}</td>
-                            <td >{{ tasmy.lokalizacja }}</td>
+                            <td >{{ tasmy.lokalizacja.nazwa }}</td>
                             <td >{{ tasmy.nr_faktury_dostawcy }}</td>
                             <td >{{ tasmy.data_dostawy }}</td>
                             <td >{{ tasmy.pracownik.login }}</td>

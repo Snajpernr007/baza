@@ -14,29 +14,51 @@
 
 function filterTable() {
     let table = document.getElementById("tabela");
-    let filterInputs = table.querySelectorAll("thead input");
-    let rows = table.getElementsByTagName("tbody")[0].getElementsByTagName("tr");
+    let rows = table.querySelectorAll("tbody tr");
 
-    // Pętla przez wszystkie wiersze tabeli
-    for (let i = 0; i < rows.length; i++) {
-        let cells = rows[i].getElementsByTagName("td");
-        let isRowVisible = true; // Flaga określająca, czy wiersz ma być widoczny
+    // Pobierz wartości filtrów tekstowych z inputów
+    let filters = table.querySelectorAll("thead tr:first-child input[type='text']");
 
-        // Pętla przez wszystkie kolumny i odpowiednie filtry
-        for (let columnIndex = 0; columnIndex < filterInputs.length; columnIndex++) {
-            let filter = filterInputs[columnIndex].value.toLowerCase();
-            if (cells[columnIndex]) {
-                let cellValue = cells[columnIndex].textContent || cells[columnIndex].innerText;
-                if (filter && !cellValue.toLowerCase().includes(filter)) {    
-                    isRowVisible = false; // Ukryj wiersz, jeśli nie spełnia filtru
-                    break; // Przerywamy, gdy znajdziemy filtr, który nie pasuje
+    // Pobierz zakresy dat
+    let dateFromKrag = document.getElementById("dateFromKrag")?.value;
+    let dateToKrag = document.getElementById("dateToKrag")?.value;
+    let dateFromDostawa = document.getElementById("dateFromDostawa")?.value;
+    let dateToDostawa = document.getElementById("dateToDostawa")?.value;
+
+    rows.forEach(row => {
+        let cells = row.getElementsByTagName("td");
+        let show = true;
+
+        // Filtr tekstowy (dla kolumn: 0–13 z wyjątkiem dat)
+        filters.forEach((input, index) => {
+            let filter = input.value.toLowerCase();
+            if (filter && cells[index]) {
+                let cellText = cells[index].textContent.toLowerCase();
+                if (!cellText.includes(filter)) {
+                    show = false;
                 }
             }
-        }
-        rows[i].style.display = isRowVisible ? "" : "none"; // Ustaw widoczność wiersza
-    }
-}
+        });
 
+        // Filtrowanie Data z Etykiety na Kręgu (kolumna 3)
+        if (show && (dateFromKrag || dateToKrag)) {
+            let cellDateStr = cells[3].textContent.trim();
+            let cellDate = new Date(cellDateStr);
+            if (dateFromKrag && cellDate < new Date(dateFromKrag)) show = false;
+            if (dateToKrag && cellDate > new Date(dateToKrag)) show = false;
+        }
+
+        // Filtrowanie Data Dostawy (kolumna 12)
+        if (show && (dateFromDostawa || dateToDostawa)) {
+            let cellDateStr = cells[12].textContent.trim();
+            let cellDate = new Date(cellDateStr);
+            if (dateFromDostawa && cellDate < new Date(dateFromDostawa)) show = false;
+            if (dateToDostawa && cellDate > new Date(dateToDostawa)) show = false;
+        }
+
+        row.style.display = show ? "" : "none";
+    });
+}
 // Zaktualizuj wywołanie funkcji filterTable w inputach
 function setupFilters() {
     let filterInputs = document.querySelectorAll("thead input");
@@ -127,7 +149,10 @@ function openEditModal(row) {
                 filterCells += `<td><input type="text" placeholder="Filtruj Dostawcę" onkeyup="filterDostawcy(this.value)" style="width: 100%;"></td>`;
             } else if (i === 2) {
                 filterCells += `<td><input type="text" placeholder="Filtruj Szablon" onkeyup="filterSzablony(this.value)" style="width: 100%;"></td>`;
-            } else {
+            }else if (i === 10) {
+                filterCells += `<td><input type="text" placeholder="Filtruj Lokalizację" onkeyup="filterLokalizacja(this.value)" style="width: 100%;"></td>`;
+            } 
+            else {
                 filterCells += `<td></td>`; // Puste komórki dla pozostałych kolumn
             }
         }
@@ -146,7 +171,12 @@ function openEditModal(row) {
             const currentSzablonId = cell.getAttribute("data-szablon-id");
             cell.innerHTML = `<select style="width: 100%;" id="szablonSelect"></select>`;
             populateSzablony(cell.querySelector("#szablonSelect"), currentSzablonId);
-        } else if (index === 3 || index === 12) { // Data fields
+        }else if (index === 10) {
+            const currentLokalizacjaId = cell.getAttribute("data-lokalizacja-id");
+            cell.innerHTML = `<select style="width: 100%;" id="lokalizacjaSelect"></select>`;
+            populateLokalizacja(cell.querySelector("#lokalizacjaSelect"), currentLokalizacjaId);
+        } 
+        else if (index === 3 || index === 12) { // Data fields
             const value = cell.innerText;
             cell.innerHTML = `<input type="date" value="${value}" style="width: 100%;">`;
         } else if (index === 6 || index === 7) { // Weight fields
@@ -221,7 +251,7 @@ function populateDostawcy(selectElement, selectedValue) {
 }
 
 function populateSzablony(selectElement, selectedValue) {
-    fetch('/get-szanlon')
+    fetch('/get-szablon')
         .then(response => response.json())
         .then(data => {
             data.forEach(szablon => {
@@ -236,6 +266,23 @@ function populateSzablony(selectElement, selectedValue) {
             }
         })
         .catch(error => console.error('Błąd podczas pobierania szablonów:', error));
+}
+function populateLokalizacja(selectElement, selectedValue) {
+    fetch('/get-lokalizacja')
+        .then(response => response.json())
+        .then(data => {
+            data.forEach(lokalizacja => {
+                const option = document.createElement('option');
+                option.value = lokalizacja.id;
+                option.textContent = lokalizacja.nazwa;
+                selectElement.appendChild(option);
+            });
+
+            if (selectedValue) {
+                selectElement.value = selectedValue;
+            }
+        })
+        .catch(error => console.error('Błąd podczas pobierania Lokalizacji:', error));
 }
 function filterDostawcy(searchTerm) {
     const select = document.getElementById("dostawcaSelect");
@@ -256,7 +303,15 @@ function filterSzablony(searchTerm) {
         options[i].style.display = optionText.includes(searchTerm.toLowerCase()) ? "" : "none";
     }
 }
+function filterLokalizacja(searchTerm) {
+    const select = document.getElementById("lokalizacjaSelect");
+    const options = select.options;
 
+    for (let i = 0; i < options.length; i++) {
+        const optionText = options[i].text.toLowerCase();
+        options[i].style.display = optionText.includes(searchTerm.toLowerCase()) ? "" : "none";
+    }
+}
 
 
 
@@ -405,7 +460,8 @@ function printID(id) {
                         <th><input type="text" placeholder="Filtruj ID" onkeyup="filterColumn(0)"></th>
                         <th><input type="text" placeholder="Filtruj Dostawcę" onkeyup="filterColumn(1)"></th>
                         <th><input type="text" placeholder="Filtruj Materiał" onkeyup="filterColumn(2)"></th>
-                        <th><input type="text" placeholder="Filtruj Datę Kręgu" onkeyup="filterColumn(3)"></th>
+                        <th>  OD<input type="date" id="dateFromKrag" onchange="filterTable()">
+                            DO<input type="date" id="dateToKrag" onchange="filterTable()"></th>
                         <th><input type="text" placeholder="Filtruj Grubość" onkeyup="filterColumn(4)"></th>
                         <th><input type="text" placeholder="Filtruj Szerokość" onkeyup="filterColumn(5)"></th>
                         <th><input type="text" placeholder="Filtruj Wagę" onkeyup="filterColumn(6)"></th>
@@ -414,7 +470,8 @@ function printID(id) {
                         <th><input type="text" placeholder="Filtruj Etyk. Kręgu" onkeyup="filterColumn(9)"></th>
                         <th><input type="text" placeholder="Filtruj Lokalizację" onkeyup="filterColumn(10)"></th>
                         <th><input type="text" placeholder="Filtruj Nr WZ" onkeyup="filterColumn(11)"></th>
-                        <th><input type="text" placeholder="Filtruj Datę Dostawy" onkeyup="filterColumn(12)"></th>
+                        <th>  OD<input type="date" id="dateFromDostawa" onchange="filterTable()">
+                            DO<input type="date" id="dateToDostawa" onchange="filterTable()"></th>
                         <th><input type="text" placeholder="Filtruj Nazwę Stanowiska" onkeyup="filterColumn(13)"></th>
                         
                         <th><button class="button" onclick="resetFilters()">Usuń Filtry</button></th>
@@ -454,7 +511,7 @@ function printID(id) {
                             <td>{{ tasmy.waga_kregu_na_stanie }}</td>
                             <td>{{ tasmy.nr_etykieta_paletowa }}</td>
                             <td>{{ tasmy.nr_z_etykiety_na_kregu }}</td>
-                            <td>{{ tasmy.lokalizacja }}</td>
+                            <td data-lokalizacja-id="{{ tasmy.lokalizacja.id }}">{{ tasmy.lokalizacja.nazwa }}</td>
                             <td>{{ tasmy.nr_faktury_dostawcy }}</td>
                             <td>{{ tasmy.data_dostawy }}</td>
                             <td>{{ tasmy.pracownik.login }}</td>
@@ -477,7 +534,7 @@ function printID(id) {
                             <td>{{ tasmy.waga_kregu_na_stanie }}</td>
                             <td>{{ tasmy.nr_etykieta_paletowa }}</td>
                             <td>{{ tasmy.nr_z_etykiety_na_kregu }}</td>
-                            <td>{{ tasmy.lokalizacja }}</td>
+                            <td data-lokalizacja-id="{{ tasmy.lokalizacja.id }}">{{ tasmy.lokalizacja.nazwa }}</td>
                             <td>{{ tasmy.nr_faktury_dostawcy }}</td>
                             <td>{{ tasmy.data_dostawy }}</td>
                             <td>{{ tasmy.pracownik.login }}</td>
@@ -500,7 +557,7 @@ function printID(id) {
                             <td>{{ tasmy.waga_kregu_na_stanie }}</td>
                             <td>{{ tasmy.nr_etykieta_paletowa }}</td>
                             <td>{{ tasmy.nr_z_etykiety_na_kregu }}</td>
-                            <td>{{ tasmy.lokalizacja }}</td>
+                            <td data-lokalizacja-id="{{ tasmy.lokalizacja.id }}">{{ tasmy.lokalizacja.nazwa }}</td>
                             <td>{{ tasmy.nr_faktury_dostawcy }}</td>
                             <td>{{ tasmy.data_dostawy }}</td>
                             <td>{{ tasmy.pracownik.login }}</td>

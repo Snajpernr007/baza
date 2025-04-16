@@ -47,6 +47,16 @@ function filtrujDostawcow() {
             option.style.display = text.includes(input) ? "" : "none";
         }
     }
+    function filtrujLokalizacja() {
+        let input = document.getElementById("szukaj_lokalizacje").value.toLowerCase();
+        let select = document.getElementById("szukaj_lokalizacje");
+        let options = select.getElementsByTagName("option");
+
+        for (let option of options) {
+            let text = option.textContent.toLowerCase();
+            option.style.display = text.includes(input) ? "" : "none";
+        }
+    }
     function zamknijOkno() {
         setTimeout(function() {
             window.close();
@@ -96,8 +106,15 @@ function filtrujDostawcow() {
     <label for="nr_z_etykiety_na_kregu">Nr z etykiety na kręgu:</label>
     <input type="text" name="nr_z_etykiety_na_kregu" required><br>
 
-    <label for="lokalizacja">Lokalizacja:</label>
-    <input type="text" name="lokalizacja" required><br>
+    <label for="szukaj_lokalizacje">Szukaj lokalizację:</label>
+<input type="text" id="szukaj_lokalizacje" onkeyup="filtrujlokalizacja()" placeholder="Wpisz nazwę lokalizacji">
+
+<label for="lokalizacja">Lokalizacja:</label>
+<select id="lokalizacja" name="lokalizacja" required size="5">
+    {% for lokalizacja in lokalizacje %}
+        <option value="{{ lokalizacja.id }}">{{ lokalizacja.nazwa }}</option>
+    {% endfor %}
+</select><br>
 
     <label for="nr_faktury_dostawcy">Nr faktury dostawcy:</label>
     <input type="text" name="nr_faktury_dostawcy" required><br>

@@ -98,7 +98,9 @@ class Tasma(db.Model):
     waga_kregu_na_stanie = db.Column(db.Numeric(10, 2), nullable=True)
     nr_etykieta_paletowa = db.Column(db.String(255), nullable=False)
     nr_z_etykiety_na_kregu = db.Column(db.String(255), nullable=False)
-    lokalizacja = db.Column(db.String(255), nullable=False)
+    lokalizacja_id = db.Column(db.Integer, db.ForeignKey('lokalizacja.id'), nullable=False)
+
+    lokalizacja = db.relationship('Lokalizacja', backref='tasmy')
     nr_faktury_dostawcy = db.Column(db.String(255), nullable=False)
     data_dostawy = db.Column(db.Date, nullable=False)
     pracownik_id = db.Column(db.Integer, db.ForeignKey('uzytkownicy.id'), nullable=True)
@@ -339,7 +341,10 @@ def get_uzytkownicy():
 def get_tasma():
     tasma = Tasma.query.all()
     return jsonify([{"id": t.id, "nr_z_etykiety_na_kregu": t.nr_z_etykiety_na_kregu} for t in tasma])
-
+@app.route('/get-lokalizacja', methods=['GET'])
+def get_lokalizacja():
+    lokalizacja = Lokalizacja.query.all()
+    return jsonify([{"id": l.id, "nazwa": l.nazwa} for l in lokalizacja])
 @app.route('/update-row_uzytkownik', methods=['POST'])
 def update_user():
     if g.user.id_uprawnienia != 1:
@@ -526,7 +531,7 @@ def tasma():
         tasma = Tasma.query.filter_by(pracownik_id=g.user.id).all()
     
     logger.info(f"{g.user.login} wszedł na stronę z listą tasm.")
-    return render_template("tasma.html", user=g.user, tasma=tasma, uprawnienia=Uprawnienia.query.all(), szablon=Szablon.query.all(), dostawcy=Dostawcy.query.all(), currentDate3=date.today())
+    return render_template("tasma.html", user=g.user, tasma=tasma, uprawnienia=Uprawnienia.query.all(), szablon=Szablon.query.all(), dostawcy=Dostawcy.query.all(),lokalizacja=Lokalizacja.query.all(), currentDate3=date.today())
 
 @app.route('/update-row', methods=['POST'])
 def update_row():
@@ -578,7 +583,7 @@ def dodaj_tasma():
         return redirect(url_for('home'))
     
     logger.info(f"{g.user.login} wszedł na stronę dodawania tasy.")
-    return render_template("dodaj_tasma.html", user=g.user, dostawcy=Dostawcy.query.all(), nazwy_materiału=Szablon.query.all())
+    return render_template("dodaj_tasma.html", user=g.user, dostawcy=Dostawcy.query.all(), nazwy_materiału=Szablon.query.all(),lokalizacje=Lokalizacja.query.all())
 
 @app.route('/dodaj_tasma_do_bazy', methods=['POST'])
 def dodaj_tasma_do_bazy():
@@ -597,7 +602,7 @@ def dodaj_tasma_do_bazy():
         waga_kregu_na_stanie = waga_kregu
         nr_etykieta_paletowa = request.form.get('nr_etykieta_paletowa')
         nr_z_etykiety_na_kregu = request.form.get('nr_z_etykiety_na_kregu')
-        lokalizacja = request.form.get('lokalizacja')
+        lokalizacja_id = int(request.form.get('lokalizacja'))
         nr_faktury_dostawcy = request.form.get('nr_faktury_dostawcy')
         data_dostawy = request.form.get('data_dostawy')
         Data_do_usuwania = date.today() + timedelta(days=365)
@@ -608,7 +613,7 @@ def dodaj_tasma_do_bazy():
                                  grubosc=grubosc, szerokosc=szerokosc, 
                                  waga_kregu=waga_kregu, nr_etykieta_paletowa=nr_etykieta_paletowa, 
                                  nr_z_etykiety_na_kregu=nr_z_etykiety_na_kregu, 
-                                 lokalizacja=lokalizacja, nr_faktury_dostawcy=nr_faktury_dostawcy, 
+                                 lokalizacja_id=lokalizacja_id, nr_faktury_dostawcy=nr_faktury_dostawcy, 
                                  data_dostawy=data_dostawy, pracownik_id=pracownik_id, 
                                  waga_kregu_na_stanie=waga_kregu_na_stanie, Data_do_usuwania=Data_do_usuwania)
         db.session.add(nowy_uzytkownik)

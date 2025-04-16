@@ -12,29 +12,41 @@
 //     location.reload();
 // }, 10000); // 10000 ms = 10 sekund
 
-    function filterTable() {
+function filterTable() {
     let table = document.getElementById("tabela");
-    let filterInputs = table.querySelectorAll("thead input");
-    let rows = table.getElementsByTagName("tbody")[0].getElementsByTagName("tr");
+    let rows = table.querySelectorAll("tbody tr");
+    let filters = table.querySelectorAll("thead tr:first-child input[type='text']");
 
-    // Pętla przez wszystkie wiersze tabeli
-    for (let i = 0; i < rows.length; i++) {
-        let cells = rows[i].getElementsByTagName("td");
-        let isRowVisible = true; // Flaga określająca, czy wiersz ma być widoczny
+    let dateFrom = document.getElementById("dateFrom")?.value;
+    let dateTo = document.getElementById("dateTo")?.value;
 
-        // Pętla przez wszystkie kolumny i odpowiednie filtry
-        for (let columnIndex = 0; columnIndex < filterInputs.length; columnIndex++) {
-            let filter = filterInputs[columnIndex].value.toLowerCase();
-            if (cells[columnIndex]) {
-                let cellValue = cells[columnIndex].textContent || cells[columnIndex].innerText;
-                if (filter && !cellValue.toLowerCase().includes(filter)) {
-                    isRowVisible = false; // Ukryj wiersz, jeśli nie spełnia filtru
-                    break; // Przerywamy, gdy znajdziemy filtr, który nie pasuje
+    rows.forEach(row => {
+        let cells = row.querySelectorAll("td");
+        let show = true;
+
+        // Filtrowanie tekstowe (kolumny poza "Data produkcji")
+        filters.forEach((input, index) => {
+            let value = input.value.toLowerCase();
+            if (value && cells[index]) {
+                let text = cells[index].textContent.toLowerCase();
+                if (!text.includes(value)) {
+                    show = false;
                 }
             }
+        });
+
+        // Filtrowanie po dacie (kolumna 2)
+        if (show && (dateFrom || dateTo)) {
+            let dateCell = cells[2]?.textContent.trim();
+            if (dateCell) {
+                let cellDate = new Date(dateCell);
+                if (dateFrom && cellDate < new Date(dateFrom)) show = false;
+                if (dateTo && cellDate > new Date(dateTo)) show = false;
+            }
         }
-        rows[i].style.display = isRowVisible ? "" : "none"; // Ustaw widoczność wiersza
-    }
+
+        row.style.display = show ? "" : "none";
+    });
 }
 
 // Zaktualizuj wywołanie funkcji filterTable w inputach
@@ -438,7 +450,8 @@ function sendDataToBackend(data) {
                         <tr>
                             <th><input type="text" placeholder="Filtruj ID" onkeyup="filterColumn(0)"></th>
                             <th><input type="text" placeholder="Filtruj Materiał" onkeyup="filterColumn(1)"></th>
-                            <th><input type="text" placeholder="Filtruj Datę produkcji" onkeyup="filterColumn(2)"></th>
+                            <th>OD<input type="date" id="dateFrom" onchange="filterTable()">
+                                DO<input type="date" id="dateTo" onchange="filterTable()"></th>
                             <th><input type="text" placeholder="Filtruj Godzinę rozpoczęcia" onkeyup="filterColumn(3)"></th>
                             <th><input type="text" placeholder="Filtruj Godzinę zakończenia" onkeyup="filterColumn(4)"></th>
                             <th><input type="text" placeholder="Filtruj Zwrot na magazyn" onkeyup="filterColumn(5)"></th>
