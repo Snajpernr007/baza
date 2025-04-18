@@ -76,13 +76,17 @@ CREATE TABLE `profil` (
   `zwrot_na_magazyn_kg` decimal(10,2) DEFAULT NULL,
   `nr_czesci_klienta` varchar(50) NOT NULL,
   `nazwa_klienta_nr_zlecenia_PRODIO` varchar(100) DEFAULT NULL,
+  `ilosc` int(11) NOT NULL,
+  `id_dlugosci` int(11) NOT NULL,
   `id_pracownika` int(11) NOT NULL,
   `Data_do_usuwania` date NOT NULL DEFAULT current_timestamp(),
   PRIMARY KEY (`id`),
   KEY `id_tasmy` (`id_tasmy`),
   KEY `id_pracownika` (`id_pracownika`),
+  KEY `profil_ibfk_3` (`id_dlugosci`),
   CONSTRAINT `profil_ibfk_1` FOREIGN KEY (`id_tasmy`) REFERENCES `tasma` (`id`) ON DELETE CASCADE,
-  CONSTRAINT `profil_ibfk_2` FOREIGN KEY (`id_pracownika`) REFERENCES `uzytkownicy` (`id`) ON DELETE CASCADE
+  CONSTRAINT `profil_ibfk_2` FOREIGN KEY (`id_pracownika`) REFERENCES `uzytkownicy` (`id`) ON DELETE CASCADE,
+  CONSTRAINT `profil_ibfk_3` FOREIGN KEY (`id_dlugosci`) REFERENCES `dlugosci` (`id`) ON DELETE CASCADE
 ) ENGINE=InnoDB AUTO_INCREMENT=33 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- Dane z tabeli `uprawnienia`

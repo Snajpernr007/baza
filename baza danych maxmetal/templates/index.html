@@ -55,6 +55,17 @@
                             <a href="{{ url_for('szablon') }}"><label for="menuCheckbox" onclick="this.parentNode.click();">Nazwy</label></a>
                         </li>
                         {% endif %}
+                        {% if g.user.id_uprawnienia==1 or g.user.id_uprawnienia==2%}
+                        <li>
+                            <a href="{{ url_for('lokalizacja') }}"><label for="menuCheckbox" onclick="this.parentNode.click();">Magazyny</label></a>
+                        </li>
+                        {% endif %}
+                        {% if g.user.id_uprawnienia==1 or g.user.id_uprawnienia==2%}
+                        <li>
+                            <a href="{{ url_for('dlugosci') }}"><label for="menuCheckbox" onclick="this.parentNode.click();">Długości</label></a>
+                        </li>
+                        {% endif %}
+                        
                         {% if g.user.id_uprawnienia==1 %}
                         <li>
                             <a href="{{ url_for('zestawienie') }}"><label for="menuCheckbox" onclick="this.parentNode.click();">Zestawienie</label></a>
@@ -104,6 +115,12 @@
             {% endif %}
             {% if g.user.id_uprawnienia==1 or g.user.id_uprawnienia==2%}
             <button class="button" onclick="window.location.href='{{ url_for('szablon') }}'">Nazwy</button>
+            {% endif %}
+            {% if g.user.id_uprawnienia==1 or g.user.id_uprawnienia==2%}
+            <button class="button" onclick="window.location.href='{{ url_for('lokalizacja') }}'">Magazyny</button>
+            {% endif %}
+            {% if g.user.id_uprawnienia==1 or g.user.id_uprawnienia==2%}
+            <button class="button" onclick="window.location.href='{{ url_for('dlugosci') }}'">Długości</button>
             {% endif %}
             {% if g.user.id_uprawnienia==1 %}
             <button class="button" onclick="window.location.href='{{ url_for('zestawienie') }}'">Zestawienie</button>

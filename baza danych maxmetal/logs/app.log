@@ -1038,3 +1038,291 @@
 2025-04-16 14:18:42,842 - INFO - 127.0.0.1 - - [16/Apr/2025 14:18:42] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
 2025-04-16 14:18:42,853 - INFO - 127.0.0.1 - - [16/Apr/2025 14:18:42] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
 2025-04-16 14:18:42,862 - INFO - 127.0.0.1 - - [16/Apr/2025 14:18:42] "[36mGET /static/img/drukarka.png HTTP/1.1[0m" 304 -
+2025-04-17 13:40:28,470 - INFO - Połączenie z bazą danych zostało nawiązane pomyślnie.
+2025-04-17 13:40:28,537 - INFO - Tabela profil jest pusta.
+2025-04-17 13:40:28,538 - INFO - ✅ Kopia zapasowa zapisana do pliku: backups\kopie_zapasowe_bazy_2025-04-17_13-40.sql
+2025-04-17 13:40:28,539 - INFO - 🗑️ Usunięto starą kopię: kopie_zapasowe_bazy_2025-04-16_13-10.sql
+2025-04-17 13:40:28,573 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.1.28:5000
+2025-04-17 13:40:28,573 - INFO - [33mPress CTRL+C to quit[0m
+2025-04-17 13:40:28,576 - INFO -  * Restarting with stat
+2025-04-17 13:40:31,040 - INFO - Połączenie z bazą danych zostało nawiązane pomyślnie.
+2025-04-17 13:40:31,093 - INFO - Tabela profil jest pusta.
+2025-04-17 13:40:31,093 - INFO - ✅ Kopia zapasowa zapisana do pliku: backups\kopie_zapasowe_bazy_2025-04-17_13-40.sql
+2025-04-17 13:40:31,101 - WARNING -  * Debugger is active!
+2025-04-17 13:40:31,107 - INFO -  * Debugger PIN: 179-082-417
+2025-04-17 13:40:31,643 - INFO - Administrator wszedł na stronę główną.
+2025-04-17 13:40:31,700 - INFO - 127.0.0.1 - - [17/Apr/2025 13:40:31] "GET / HTTP/1.1" 200 -
+2025-04-17 13:40:31,725 - INFO - 127.0.0.1 - - [17/Apr/2025 13:40:31] "GET /static/style.css HTTP/1.1" 200 -
+2025-04-17 13:40:31,736 - INFO - 127.0.0.1 - - [17/Apr/2025 13:40:31] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-17 13:40:37,184 - INFO - Administrator wszedł na stronę zestawienia.
+2025-04-17 13:40:37,241 - INFO - 127.0.0.1 - - [17/Apr/2025 13:40:37] "GET /zestawienie HTTP/1.1" 200 -
+2025-04-17 13:40:37,265 - INFO - 127.0.0.1 - - [17/Apr/2025 13:40:37] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-17 13:40:37,277 - INFO - 127.0.0.1 - - [17/Apr/2025 13:40:37] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-17 13:40:37,288 - INFO - 127.0.0.1 - - [17/Apr/2025 13:40:37] "GET /static/img/drukarka.png HTTP/1.1" 200 -
+2025-04-17 17:40:28,575 - INFO - Tabela profil jest pusta.
+2025-04-17 17:40:28,576 - INFO - ✅ Kopia zapasowa zapisana do pliku: backups\kopie_zapasowe_bazy_2025-04-17_17-40.sql
+2025-04-17 17:40:28,577 - INFO - 🗑️ Usunięto starą kopię: kopie_zapasowe_bazy_2025-04-16_13-14.sql
+2025-04-17 17:40:31,116 - INFO - Tabela profil jest pusta.
+2025-04-17 17:40:31,117 - INFO - ✅ Kopia zapasowa zapisana do pliku: backups\kopie_zapasowe_bazy_2025-04-17_17-40.sql
+2025-04-17 22:01:07,319 - INFO - Tabela profil jest pusta.
+2025-04-17 22:01:07,320 - INFO - ✅ Kopia zapasowa zapisana do pliku: backups\kopie_zapasowe_bazy_2025-04-17_22-01.sql
+2025-04-17 22:01:07,322 - INFO - Tabela profil jest pusta.
+2025-04-17 22:01:07,322 - INFO - 🗑️ Usunięto starą kopię: kopie_zapasowe_bazy_2025-04-16_13-15.sql
+2025-04-17 22:01:07,332 - INFO - ✅ Kopia zapasowa zapisana do pliku: backups\kopie_zapasowe_bazy_2025-04-17_22-01.sql
+2025-04-18 10:18:23,420 - INFO -  * Detected change in 'C:\\Users\\admin\\Documents\\GitHub\\baza\\baza danych maxmetal\\python\\index.py', reloading
+2025-04-18 10:22:30,677 - INFO -  * Restarting with stat
+2025-04-18 10:22:39,229 - INFO - Połączenie z bazą danych zostało nawiązane pomyślnie.
+2025-04-18 10:22:39,280 - INFO - Tabela profil jest pusta.
+2025-04-18 10:22:39,280 - INFO - ✅ Kopia zapasowa zapisana do pliku: backups\kopie_zapasowe_bazy_2025-04-18_10-22.sql
+2025-04-18 10:22:39,282 - INFO - 🗑️ Usunięto starą kopię: kopie_zapasowe_bazy_2025-04-16_13-16.sql
+2025-04-18 10:22:39,322 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.1.28:5000
+2025-04-18 10:22:39,322 - INFO - [33mPress CTRL+C to quit[0m
+2025-04-18 10:22:39,325 - INFO -  * Restarting with stat
+2025-04-18 10:22:41,649 - INFO - Połączenie z bazą danych zostało nawiązane pomyślnie.
+2025-04-18 10:22:41,701 - INFO - Tabela profil jest pusta.
+2025-04-18 10:22:41,702 - INFO - ✅ Kopia zapasowa zapisana do pliku: backups\kopie_zapasowe_bazy_2025-04-18_10-22.sql
+2025-04-18 10:22:41,710 - WARNING -  * Debugger is active!
+2025-04-18 10:22:41,714 - INFO -  * Debugger PIN: 179-082-417
+2025-04-18 10:22:46,087 - INFO - 127.0.0.1 - - [18/Apr/2025 10:22:46] "[35m[1mGET /zestawienie HTTP/1.1[0m" 500 -
+2025-04-18 10:22:46,114 - INFO - 127.0.0.1 - - [18/Apr/2025 10:22:46] "GET /zestawienie?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1" 200 -
+2025-04-18 10:22:46,114 - INFO - 127.0.0.1 - - [18/Apr/2025 10:22:46] "GET /zestawienie?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1" 200 -
+2025-04-18 10:22:46,128 - INFO - 127.0.0.1 - - [18/Apr/2025 10:22:46] "GET /zestawienie?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+2025-04-18 10:22:46,133 - INFO - 127.0.0.1 - - [18/Apr/2025 10:22:46] "GET /zestawienie?__debugger__=yes&cmd=resource&f=console.png&s=CQa7EHu33grAOlAtWdU3 HTTP/1.1" 200 -
+2025-04-18 10:23:00,536 - INFO - 127.0.0.1 - - [18/Apr/2025 10:23:00] "[35m[1mGET / HTTP/1.1[0m" 500 -
+2025-04-18 10:23:00,553 - INFO - 127.0.0.1 - - [18/Apr/2025 10:23:00] "GET /?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1" 200 -
+2025-04-18 10:23:00,554 - INFO - 127.0.0.1 - - [18/Apr/2025 10:23:00] "GET /?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1" 200 -
+2025-04-18 10:23:00,565 - INFO - 127.0.0.1 - - [18/Apr/2025 10:23:00] "GET /?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+2025-04-18 10:23:00,568 - INFO - 127.0.0.1 - - [18/Apr/2025 10:23:00] "GET /?__debugger__=yes&cmd=resource&f=console.png&s=CQa7EHu33grAOlAtWdU3 HTTP/1.1" 200 -
+2025-04-18 10:25:07,512 - INFO - Połączenie z bazą danych zostało nawiązane pomyślnie.
+2025-04-18 10:25:07,584 - INFO - Tabela profil jest pusta.
+2025-04-18 10:25:07,585 - INFO - ✅ Kopia zapasowa zapisana do pliku: backups\kopie_zapasowe_bazy_2025-04-18_10-25.sql
+2025-04-18 10:25:07,586 - INFO - 🗑️ Usunięto starą kopię: kopie_zapasowe_bazy_2025-04-16_13-19.sql
+2025-04-18 10:25:07,609 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.1.28:5000
+2025-04-18 10:25:07,609 - INFO - [33mPress CTRL+C to quit[0m
+2025-04-18 10:25:07,612 - INFO -  * Restarting with stat
+2025-04-18 10:25:10,023 - INFO - Połączenie z bazą danych zostało nawiązane pomyślnie.
+2025-04-18 10:25:10,072 - INFO - Tabela profil jest pusta.
+2025-04-18 10:25:10,072 - INFO - ✅ Kopia zapasowa zapisana do pliku: backups\kopie_zapasowe_bazy_2025-04-18_10-25.sql
+2025-04-18 10:25:10,080 - WARNING -  * Debugger is active!
+2025-04-18 10:25:10,084 - INFO -  * Debugger PIN: 179-082-417
+2025-04-18 10:25:10,337 - INFO - Administrator wszedł na stronę główną.
+2025-04-18 10:25:10,436 - INFO - 127.0.0.1 - - [18/Apr/2025 10:25:10] "[35m[1mGET / HTTP/1.1[0m" 500 -
+2025-04-18 10:25:10,457 - INFO - 127.0.0.1 - - [18/Apr/2025 10:25:10] "[36mGET /?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+2025-04-18 10:25:10,458 - INFO - 127.0.0.1 - - [18/Apr/2025 10:25:10] "GET /?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1" 200 -
+2025-04-18 10:25:10,474 - INFO - 127.0.0.1 - - [18/Apr/2025 10:25:10] "GET /?__debugger__=yes&cmd=resource&f=console.png&s=D0cL7bO9RbfqPhBXRqw3 HTTP/1.1" 200 -
+2025-04-18 10:27:19,749 - INFO - Administrator wszedł na stronę główną.
+2025-04-18 10:27:19,802 - INFO - 127.0.0.1 - - [18/Apr/2025 10:27:19] "GET / HTTP/1.1" 200 -
+2025-04-18 10:27:19,827 - INFO - 127.0.0.1 - - [18/Apr/2025 10:27:19] "GET /static/style.css HTTP/1.1" 200 -
+2025-04-18 10:27:19,835 - INFO - 127.0.0.1 - - [18/Apr/2025 10:27:19] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-18 10:27:22,138 - INFO - Administrator wszedł na stronę dostawców.
+2025-04-18 10:27:22,163 - INFO - 127.0.0.1 - - [18/Apr/2025 10:27:22] "GET /lokalizacja HTTP/1.1" 200 -
+2025-04-18 10:27:22,189 - INFO - 127.0.0.1 - - [18/Apr/2025 10:27:22] "GET /static/style.css HTTP/1.1" 200 -
+2025-04-18 10:27:22,201 - INFO - 127.0.0.1 - - [18/Apr/2025 10:27:22] "GET /static/img/logo-duże.png HTTP/1.1" 200 -
+2025-04-18 10:27:24,639 - INFO - Administrator wszedł na stronę główną.
+2025-04-18 10:27:24,640 - INFO - 127.0.0.1 - - [18/Apr/2025 10:27:24] "GET / HTTP/1.1" 200 -
+2025-04-18 10:27:24,667 - INFO - 127.0.0.1 - - [18/Apr/2025 10:27:24] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-18 10:27:24,673 - INFO - 127.0.0.1 - - [18/Apr/2025 10:27:24] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-18 10:27:25,393 - INFO - Administrator wszedł na stronę profilu.
+2025-04-18 10:27:25,499 - INFO - 127.0.0.1 - - [18/Apr/2025 10:27:25] "GET /profil HTTP/1.1" 200 -
+2025-04-18 10:27:25,521 - INFO - 127.0.0.1 - - [18/Apr/2025 10:27:25] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-18 10:27:25,534 - INFO - 127.0.0.1 - - [18/Apr/2025 10:27:25] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-18 10:27:26,697 - INFO - Administrator wszedł na stronę główną.
+2025-04-18 10:27:26,698 - INFO - 127.0.0.1 - - [18/Apr/2025 10:27:26] "GET / HTTP/1.1" 200 -
+2025-04-18 10:27:26,720 - INFO - 127.0.0.1 - - [18/Apr/2025 10:27:26] "GET /static/style.css HTTP/1.1" 200 -
+2025-04-18 10:27:26,728 - INFO - 127.0.0.1 - - [18/Apr/2025 10:27:26] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-18 10:27:29,160 - INFO - Administrator wszedł na stronę profilu.
+2025-04-18 10:27:29,162 - INFO - 127.0.0.1 - - [18/Apr/2025 10:27:29] "GET /profil HTTP/1.1" 200 -
+2025-04-18 10:27:29,183 - INFO - 127.0.0.1 - - [18/Apr/2025 10:27:29] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-18 10:27:29,195 - INFO - 127.0.0.1 - - [18/Apr/2025 10:27:29] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-18 10:29:38,186 - INFO - Administrator wszedł na stronę główną.
+2025-04-18 10:29:38,187 - INFO - 127.0.0.1 - - [18/Apr/2025 10:29:38] "GET / HTTP/1.1" 200 -
+2025-04-18 10:29:38,213 - INFO - 127.0.0.1 - - [18/Apr/2025 10:29:38] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-18 10:29:38,219 - INFO - 127.0.0.1 - - [18/Apr/2025 10:29:38] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-18 10:37:42,679 - INFO - Połączenie z bazą danych zostało nawiązane pomyślnie.
+2025-04-18 10:37:42,728 - INFO - Tabela profil jest pusta.
+2025-04-18 10:37:42,729 - INFO - ✅ Kopia zapasowa zapisana do pliku: backups\kopie_zapasowe_bazy_2025-04-18_10-37.sql
+2025-04-18 10:37:42,730 - INFO - 🗑️ Usunięto starą kopię: kopie_zapasowe_bazy_2025-04-16_13-54.sql
+2025-04-18 10:37:42,741 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.1.28:5000
+2025-04-18 10:37:42,741 - INFO - [33mPress CTRL+C to quit[0m
+2025-04-18 10:37:42,742 - INFO -  * Restarting with stat
+2025-04-18 10:37:45,119 - INFO - Połączenie z bazą danych zostało nawiązane pomyślnie.
+2025-04-18 10:37:45,172 - INFO - Tabela profil jest pusta.
+2025-04-18 10:37:45,173 - INFO - ✅ Kopia zapasowa zapisana do pliku: backups\kopie_zapasowe_bazy_2025-04-18_10-37.sql
+2025-04-18 10:37:45,179 - WARNING -  * Debugger is active!
+2025-04-18 10:37:45,183 - INFO -  * Debugger PIN: 179-082-417
+2025-04-18 10:40:04,595 - INFO -  * Detected change in 'C:\\Users\\admin\\Documents\\GitHub\\baza\\baza danych maxmetal\\python\\index.py', reloading
+2025-04-18 10:40:07,222 - INFO -  * Restarting with stat
+2025-04-18 10:40:09,519 - INFO - Połączenie z bazą danych zostało nawiązane pomyślnie.
+2025-04-18 10:40:09,570 - INFO - Tabela profil jest pusta.
+2025-04-18 10:40:09,571 - INFO - ✅ Kopia zapasowa zapisana do pliku: backups\kopie_zapasowe_bazy_2025-04-18_10-40.sql
+2025-04-18 10:40:09,573 - INFO - 🗑️ Usunięto starą kopię: kopie_zapasowe_bazy_2025-04-17_13-40.sql
+2025-04-18 10:40:09,579 - WARNING -  * Debugger is active!
+2025-04-18 10:40:09,582 - INFO -  * Debugger PIN: 179-082-417
+2025-04-18 10:40:14,829 - INFO - Połączenie z bazą danych zostało nawiązane pomyślnie.
+2025-04-18 10:40:14,882 - INFO - Tabela profil jest pusta.
+2025-04-18 10:40:14,882 - INFO - ✅ Kopia zapasowa zapisana do pliku: backups\kopie_zapasowe_bazy_2025-04-18_10-40.sql
+2025-04-18 10:40:14,896 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.1.28:5000
+2025-04-18 10:40:14,896 - INFO - [33mPress CTRL+C to quit[0m
+2025-04-18 10:40:14,897 - INFO -  * Restarting with stat
+2025-04-18 10:40:17,266 - INFO - Połączenie z bazą danych zostało nawiązane pomyślnie.
+2025-04-18 10:40:17,353 - INFO - Tabela profil jest pusta.
+2025-04-18 10:40:17,353 - INFO - ✅ Kopia zapasowa zapisana do pliku: backups\kopie_zapasowe_bazy_2025-04-18_10-40.sql
+2025-04-18 10:40:17,360 - WARNING -  * Debugger is active!
+2025-04-18 10:40:17,365 - INFO -  * Debugger PIN: 179-082-417
+2025-04-18 10:40:29,527 - INFO - Administrator wszedł na stronę główną.
+2025-04-18 10:40:29,588 - INFO - 127.0.0.1 - - [18/Apr/2025 10:40:29] "GET / HTTP/1.1" 200 -
+2025-04-18 10:40:29,621 - INFO - 127.0.0.1 - - [18/Apr/2025 10:40:29] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-18 10:40:29,627 - INFO - 127.0.0.1 - - [18/Apr/2025 10:40:29] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-18 10:40:34,666 - INFO - Administrator wszedł na stronę dostawców.
+2025-04-18 10:40:34,696 - INFO - 127.0.0.1 - - [18/Apr/2025 10:40:34] "GET /dlugosci HTTP/1.1" 200 -
+2025-04-18 10:40:34,725 - INFO - 127.0.0.1 - - [18/Apr/2025 10:40:34] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-18 10:40:34,739 - INFO - 127.0.0.1 - - [18/Apr/2025 10:40:34] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-18 10:40:39,829 - INFO - Administrator wszedł na stronę dodawania lokzlizacji.
+2025-04-18 10:40:39,831 - INFO - 127.0.0.1 - - [18/Apr/2025 10:40:39] "GET /dodaj_dlugosci HTTP/1.1" 200 -
+2025-04-18 10:40:39,855 - INFO - 127.0.0.1 - - [18/Apr/2025 10:40:39] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-18 10:40:42,197 - INFO - Dlugosc 6 został dodany przez Administrator.
+2025-04-18 10:40:42,197 - INFO - 127.0.0.1 - - [18/Apr/2025 10:40:42] "[32mPOST /dodaj_dlugosci_do_bazy HTTP/1.1[0m" 302 -
+2025-04-18 10:40:42,204 - INFO - Administrator wszedł na stronę dostawców.
+2025-04-18 10:40:42,205 - INFO - 127.0.0.1 - - [18/Apr/2025 10:40:42] "GET /dlugosci HTTP/1.1" 200 -
+2025-04-18 10:40:42,228 - INFO - 127.0.0.1 - - [18/Apr/2025 10:40:42] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-18 10:40:42,240 - INFO - 127.0.0.1 - - [18/Apr/2025 10:40:42] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-18 10:40:43,361 - INFO - Administrator wszedł na stronę główną.
+2025-04-18 10:40:43,362 - INFO - 127.0.0.1 - - [18/Apr/2025 10:40:43] "GET / HTTP/1.1" 200 -
+2025-04-18 10:40:43,386 - INFO - 127.0.0.1 - - [18/Apr/2025 10:40:43] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-18 10:40:43,391 - INFO - 127.0.0.1 - - [18/Apr/2025 10:40:43] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-18 10:41:29,131 - INFO - Administrator wszedł na stronę profilu.
+2025-04-18 10:41:29,238 - INFO - 127.0.0.1 - - [18/Apr/2025 10:41:29] "GET /profil HTTP/1.1" 200 -
+2025-04-18 10:41:29,261 - INFO - 127.0.0.1 - - [18/Apr/2025 10:41:29] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-18 10:41:29,273 - INFO - 127.0.0.1 - - [18/Apr/2025 10:41:29] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-18 10:41:41,834 - INFO - Administrator wszedł na stronę główną.
+2025-04-18 10:41:41,835 - INFO - 127.0.0.1 - - [18/Apr/2025 10:41:41] "GET / HTTP/1.1" 200 -
+2025-04-18 10:41:41,863 - INFO - 127.0.0.1 - - [18/Apr/2025 10:41:41] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-18 10:41:41,869 - INFO - 127.0.0.1 - - [18/Apr/2025 10:41:41] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-18 10:41:42,718 - INFO - Administrator wszedł na stronę z listą tasm.
+2025-04-18 10:41:42,808 - INFO - 127.0.0.1 - - [18/Apr/2025 10:41:42] "GET /tasma HTTP/1.1" 200 -
+2025-04-18 10:41:42,830 - INFO - 127.0.0.1 - - [18/Apr/2025 10:41:42] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-18 10:41:42,837 - INFO - 127.0.0.1 - - [18/Apr/2025 10:41:42] "GET /static/img/drukarka.png HTTP/1.1" 200 -
+2025-04-18 10:41:42,842 - INFO - 127.0.0.1 - - [18/Apr/2025 10:41:42] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-18 10:42:24,209 - INFO - Administrator wszedł na stronę główną.
+2025-04-18 10:42:24,210 - INFO - 127.0.0.1 - - [18/Apr/2025 10:42:24] "GET / HTTP/1.1" 200 -
+2025-04-18 10:42:24,236 - INFO - 127.0.0.1 - - [18/Apr/2025 10:42:24] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-18 10:42:24,242 - INFO - 127.0.0.1 - - [18/Apr/2025 10:42:24] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-18 10:42:25,317 - INFO - Administrator wszedł na stronę profilu.
+2025-04-18 10:42:25,319 - INFO - 127.0.0.1 - - [18/Apr/2025 10:42:25] "GET /profil HTTP/1.1" 200 -
+2025-04-18 10:42:25,348 - INFO - 127.0.0.1 - - [18/Apr/2025 10:42:25] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-18 10:42:25,357 - INFO - 127.0.0.1 - - [18/Apr/2025 10:42:25] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-18 10:42:25,849 - INFO - Administrator wszedł na stronę główną.
+2025-04-18 10:42:25,850 - INFO - 127.0.0.1 - - [18/Apr/2025 10:42:25] "GET / HTTP/1.1" 200 -
+2025-04-18 10:42:25,875 - INFO - 127.0.0.1 - - [18/Apr/2025 10:42:25] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-18 10:42:25,881 - INFO - 127.0.0.1 - - [18/Apr/2025 10:42:25] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-18 10:42:26,759 - INFO - Administrator wszedł na stronę z listą tasm.
+2025-04-18 10:42:26,761 - INFO - 127.0.0.1 - - [18/Apr/2025 10:42:26] "GET /tasma HTTP/1.1" 200 -
+2025-04-18 10:42:26,782 - INFO - 127.0.0.1 - - [18/Apr/2025 10:42:26] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-18 10:42:26,792 - INFO - 127.0.0.1 - - [18/Apr/2025 10:42:26] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-18 10:42:26,799 - INFO - 127.0.0.1 - - [18/Apr/2025 10:42:26] "GET /static/img/drukarka.png HTTP/1.1" 200 -
+2025-04-18 10:42:31,156 - INFO - Administrator wszedł na stronę dodawania tasy.
+2025-04-18 10:42:31,165 - INFO - 127.0.0.1 - - [18/Apr/2025 10:42:31] "GET /dodaj_tasma HTTP/1.1" 200 -
+2025-04-18 10:42:31,203 - INFO - 127.0.0.1 - - [18/Apr/2025 10:42:31] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-18 10:42:42,954 - INFO - Tasma 44 została dodana przez Administrator.
+2025-04-18 10:42:42,955 - INFO - 127.0.0.1 - - [18/Apr/2025 10:42:42] "[35m[1mPOST /dodaj_tasma_do_bazy HTTP/1.1[0m" 204 -
+2025-04-18 10:42:46,478 - INFO - Administrator wszedł na stronę z listą tasm.
+2025-04-18 10:42:46,481 - INFO - 127.0.0.1 - - [18/Apr/2025 10:42:46] "GET /tasma HTTP/1.1" 200 -
+2025-04-18 10:42:46,503 - INFO - 127.0.0.1 - - [18/Apr/2025 10:42:46] "GET /static/style.css HTTP/1.1" 200 -
+2025-04-18 10:42:46,517 - INFO - 127.0.0.1 - - [18/Apr/2025 10:42:46] "GET /static/img/logo-duże.png HTTP/1.1" 200 -
+2025-04-18 10:42:46,523 - INFO - 127.0.0.1 - - [18/Apr/2025 10:42:46] "[36mGET /static/img/drukarka.png HTTP/1.1[0m" 304 -
+2025-04-18 10:43:51,481 - INFO -  * Detected change in 'C:\\Users\\admin\\Documents\\GitHub\\baza\\baza danych maxmetal\\python\\index.py', reloading
+2025-04-18 10:43:53,725 - INFO -  * Restarting with stat
+2025-04-18 10:43:56,069 - INFO - Połączenie z bazą danych zostało nawiązane pomyślnie.
+2025-04-18 10:43:56,119 - INFO - Tabela profil jest pusta.
+2025-04-18 10:43:56,120 - INFO - ✅ Kopia zapasowa zapisana do pliku: backups\kopie_zapasowe_bazy_2025-04-18_10-43.sql
+2025-04-18 10:43:56,121 - INFO - 🗑️ Usunięto starą kopię: kopie_zapasowe_bazy_2025-04-17_17-40.sql
+2025-04-18 10:43:56,128 - WARNING -  * Debugger is active!
+2025-04-18 10:43:56,132 - INFO -  * Debugger PIN: 179-082-417
+2025-04-18 10:43:59,881 - INFO - Administrator wszedł na stronę dodawania tasy.
+2025-04-18 10:43:59,901 - INFO - 127.0.0.1 - - [18/Apr/2025 10:43:59] "GET /dodaj_tasma HTTP/1.1" 200 -
+2025-04-18 10:43:59,926 - INFO - 127.0.0.1 - - [18/Apr/2025 10:43:59] "GET /static/style.css HTTP/1.1" 200 -
+2025-04-18 10:44:13,590 - INFO - Tasma 213 została dodana przez Administrator.
+2025-04-18 10:44:13,591 - INFO - 127.0.0.1 - - [18/Apr/2025 10:44:13] "[35m[1mPOST /dodaj_tasma_do_bazy HTTP/1.1[0m" 204 -
+2025-04-18 10:44:15,053 - INFO - Administrator wszedł na stronę z listą tasm.
+2025-04-18 10:44:15,144 - INFO - 127.0.0.1 - - [18/Apr/2025 10:44:15] "GET /tasma HTTP/1.1" 200 -
+2025-04-18 10:44:15,165 - INFO - 127.0.0.1 - - [18/Apr/2025 10:44:15] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-18 10:44:15,177 - INFO - 127.0.0.1 - - [18/Apr/2025 10:44:15] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-18 10:44:15,183 - INFO - 127.0.0.1 - - [18/Apr/2025 10:44:15] "[36mGET /static/img/drukarka.png HTTP/1.1[0m" 304 -
+2025-04-18 10:45:00,588 - INFO - Administrator wszedł na stronę główną.
+2025-04-18 10:45:00,640 - INFO - 127.0.0.1 - - [18/Apr/2025 10:45:00] "GET / HTTP/1.1" 200 -
+2025-04-18 10:45:00,670 - INFO - 127.0.0.1 - - [18/Apr/2025 10:45:00] "GET /static/style.css HTTP/1.1" 200 -
+2025-04-18 10:45:00,677 - INFO - 127.0.0.1 - - [18/Apr/2025 10:45:00] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-18 10:45:01,748 - INFO - Administrator wszedł na stronę profilu.
+2025-04-18 10:45:01,858 - INFO - 127.0.0.1 - - [18/Apr/2025 10:45:01] "GET /profil HTTP/1.1" 200 -
+2025-04-18 10:45:01,881 - INFO - 127.0.0.1 - - [18/Apr/2025 10:45:01] "GET /static/style.css HTTP/1.1" 200 -
+2025-04-18 10:45:01,893 - INFO - 127.0.0.1 - - [18/Apr/2025 10:45:01] "GET /static/img/logo-duże.png HTTP/1.1" 200 -
+2025-04-18 14:22:15,997 - INFO - Administrator wszedł na stronę główną.
+2025-04-18 14:22:15,999 - INFO - 127.0.0.1 - - [18/Apr/2025 14:22:15] "GET / HTTP/1.1" 200 -
+2025-04-18 14:22:16,030 - INFO - 127.0.0.1 - - [18/Apr/2025 14:22:16] "GET /static/style.css HTTP/1.1" 200 -
+2025-04-18 14:22:16,039 - INFO - 127.0.0.1 - - [18/Apr/2025 14:22:16] "GET /static/img/logo-duże.png HTTP/1.1" 200 -
+2025-04-18 14:22:17,138 - INFO - Administrator wszedł na stronę z listą tasm.
+2025-04-18 14:22:17,141 - INFO - 127.0.0.1 - - [18/Apr/2025 14:22:17] "GET /tasma HTTP/1.1" 200 -
+2025-04-18 14:22:17,167 - INFO - 127.0.0.1 - - [18/Apr/2025 14:22:17] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-18 14:22:17,173 - INFO - 127.0.0.1 - - [18/Apr/2025 14:22:17] "[36mGET /static/img/drukarka.png HTTP/1.1[0m" 304 -
+2025-04-18 14:22:17,182 - INFO - 127.0.0.1 - - [18/Apr/2025 14:22:17] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-18 14:40:14,895 - INFO - Tabela profil jest pusta.
+2025-04-18 14:40:14,895 - INFO - ✅ Kopia zapasowa zapisana do pliku: backups\kopie_zapasowe_bazy_2025-04-18_14-40.sql
+2025-04-18 14:40:14,896 - INFO - 🗑️ Usunięto starą kopię: kopie_zapasowe_bazy_2025-04-17_22-01.sql
+2025-04-18 14:43:56,128 - INFO - Tabela profil jest pusta.
+2025-04-18 14:43:56,128 - INFO - ✅ Kopia zapasowa zapisana do pliku: backups\kopie_zapasowe_bazy_2025-04-18_14-43.sql
+2025-04-18 14:43:56,129 - INFO - 🗑️ Usunięto starą kopię: kopie_zapasowe_bazy_2025-04-18_10-22.sql
+2025-04-18 15:16:20,895 - INFO - Administrator wszedł na stronę główną.
+2025-04-18 15:16:20,954 - INFO - 127.0.0.1 - - [18/Apr/2025 15:16:20] "GET / HTTP/1.1" 200 -
+2025-04-18 15:16:20,982 - INFO - 127.0.0.1 - - [18/Apr/2025 15:16:20] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-18 15:16:20,988 - INFO - 127.0.0.1 - - [18/Apr/2025 15:16:20] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-18 15:17:07,696 - INFO - Administrator wszedł na stronę główną.
+2025-04-18 15:17:07,760 - INFO - 127.0.0.1 - - [18/Apr/2025 15:17:07] "GET / HTTP/1.1" 200 -
+2025-04-18 15:17:07,789 - INFO - 127.0.0.1 - - [18/Apr/2025 15:17:07] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-18 15:17:07,797 - INFO - 127.0.0.1 - - [18/Apr/2025 15:17:07] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-18 15:17:08,883 - INFO - Administrator wszedł na stronę zestawienia.
+2025-04-18 15:17:08,953 - INFO - 127.0.0.1 - - [18/Apr/2025 15:17:08] "GET /zestawienie HTTP/1.1" 200 -
+2025-04-18 15:17:08,980 - INFO - 127.0.0.1 - - [18/Apr/2025 15:17:08] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-18 15:17:08,991 - INFO - 127.0.0.1 - - [18/Apr/2025 15:17:08] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-18 15:17:08,999 - INFO - 127.0.0.1 - - [18/Apr/2025 15:17:08] "[36mGET /static/img/drukarka.png HTTP/1.1[0m" 304 -
+2025-04-18 15:17:10,620 - INFO - Administrator wszedł na stronę główną.
+2025-04-18 15:17:10,621 - INFO - 127.0.0.1 - - [18/Apr/2025 15:17:10] "GET / HTTP/1.1" 200 -
+2025-04-18 15:17:10,649 - INFO - 127.0.0.1 - - [18/Apr/2025 15:17:10] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-18 15:17:10,657 - INFO - 127.0.0.1 - - [18/Apr/2025 15:17:10] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-18 15:17:11,753 - INFO - Administrator wszedł na stronę dostawców.
+2025-04-18 15:17:11,788 - INFO - 127.0.0.1 - - [18/Apr/2025 15:17:11] "GET /dlugosci HTTP/1.1" 200 -
+2025-04-18 15:17:11,812 - INFO - 127.0.0.1 - - [18/Apr/2025 15:17:11] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-18 15:17:11,825 - INFO - 127.0.0.1 - - [18/Apr/2025 15:17:11] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-18 15:17:13,016 - INFO - Administrator wszedł na stronę główną.
+2025-04-18 15:17:13,017 - INFO - 127.0.0.1 - - [18/Apr/2025 15:17:13] "GET / HTTP/1.1" 200 -
+2025-04-18 15:17:13,042 - INFO - 127.0.0.1 - - [18/Apr/2025 15:17:13] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-18 15:17:13,047 - INFO - 127.0.0.1 - - [18/Apr/2025 15:17:13] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-18 15:17:15,831 - INFO - Administrator wszedł na stronę dostawców.
+2025-04-18 15:17:15,832 - INFO - 127.0.0.1 - - [18/Apr/2025 15:17:15] "GET /dlugosci HTTP/1.1" 200 -
+2025-04-18 15:17:15,853 - INFO - 127.0.0.1 - - [18/Apr/2025 15:17:15] "GET /static/style.css HTTP/1.1" 200 -
+2025-04-18 15:17:15,865 - INFO - 127.0.0.1 - - [18/Apr/2025 15:17:15] "GET /static/img/logo-duże.png HTTP/1.1" 200 -
+2025-04-18 15:17:19,512 - INFO - Otrzymane dane do aktualizacji dlugosci: {'column_0': '3', 'column_1': '1', 'column_2': 'Zapisz'}
+2025-04-18 15:17:19,525 - INFO - Lokalizacja 1 został zaktualizowany przez Administrator.
+2025-04-18 15:17:19,525 - INFO - 127.0.0.1 - - [18/Apr/2025 15:17:19] "POST /update-row-dlugosci HTTP/1.1" 200 -
+2025-04-18 15:17:21,159 - INFO - Administrator wszedł na stronę dostawców.
+2025-04-18 15:17:21,160 - INFO - 127.0.0.1 - - [18/Apr/2025 15:17:21] "GET /dlugosci HTTP/1.1" 200 -
+2025-04-18 15:17:21,178 - INFO - 127.0.0.1 - - [18/Apr/2025 15:17:21] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-18 15:17:21,187 - INFO - 127.0.0.1 - - [18/Apr/2025 15:17:21] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-18 15:17:27,829 - INFO - Administrator wszedł na stronę główną.
+2025-04-18 15:17:27,830 - INFO - 127.0.0.1 - - [18/Apr/2025 15:17:27] "GET / HTTP/1.1" 200 -
+2025-04-18 15:17:27,867 - INFO - 127.0.0.1 - - [18/Apr/2025 15:17:27] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-18 15:17:27,872 - INFO - 127.0.0.1 - - [18/Apr/2025 15:17:27] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -

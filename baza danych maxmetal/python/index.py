@@ -63,7 +63,13 @@ class Lokalizacja(db.Model):
 
     def __repr__(self):
         return f"<Lokalizacja {self.id} - {self.nazwa}>"
-
+class Dlugosci(db.Model):
+    __tablename__ = 'dlugosci'
+    id = db.Column(db.Integer, primary_key=True, autoincrement=True)
+    nazwa = db.Column(db.String(255), nullable=False)
+    profil = db.relationship('Profil', back_populates='dlugosci')
+    def __repr__(self):
+        return f"<Dlugosci {self.id} - {self.nazwa}>"
 class Uzytkownik(db.Model):
     __tablename__ = 'uzytkownicy'
     id = db.Column(db.Integer, primary_key=True)
@@ -126,12 +132,14 @@ class Profil(db.Model):
     zwrot_na_magazyn_kg = db.Column(db.Numeric(10, 2), nullable=True)
     nr_czesci_klienta = db.Column(db.String(50), nullable=False)
     nazwa_klienta_nr_zlecenia_PRODIO = db.Column(db.String(100), nullable=True)
+    ilosc=db.Column(db.Integer, nullable=False)
+    id_dlugosci = db.Column(db.Integer, db.ForeignKey('dlugosci.id'), nullable=False)
     Data_do_usuwania = db.Column(db.Date, nullable=True)
     id_pracownika = db.Column(db.Integer, db.ForeignKey('uzytkownicy.id'), nullable=False)
 
     tasma = db.relationship('Tasma', back_populates='profil')
     pracownik = db.relationship('Uzytkownik', back_populates='profil')
-
+    dlugosci = db.relationship('Dlugosci', back_populates='profil')
     def __repr__(self):
         return f"<Profil {self.id} - {self.nr_czesci_klienta}>"
 
@@ -601,6 +609,8 @@ def dodaj_tasma_do_bazy():
         waga_kregu = request.form.get('waga_kregu')
         waga_kregu_na_stanie = waga_kregu
         nr_etykieta_paletowa = request.form.get('nr_etykieta_paletowa')
+        if nr_etykieta_paletowa == "":
+            nr_etykieta_paletowa = "-"
         nr_z_etykiety_na_kregu = request.form.get('nr_z_etykiety_na_kregu')
         lokalizacja_id = int(request.form.get('lokalizacja'))
         nr_faktury_dostawcy = request.form.get('nr_faktury_dostawcy')
@@ -1030,6 +1040,77 @@ def update_row_lokalizacje():
 
         db.session.commit()
         logger.info(f"Lokalizacja {lokalizacja.nazwa} został zaktualizowany przez {g.user.login}.")
+        return jsonify({'message': 'Rekord zaktualizowany pomyślnie!'})
+    except Exception as e:
+        db.session.rollback()
+        logger.error(f'Wystąpił błąd podczas aktualizacji: {str(e)}')
+        return jsonify({'message': 'Wystąpił błąd podczas aktualizacji!', 'error': str(e)}), 500
+@app.route('/dlugosci')
+def dlugosci():
+    if not g.user:
+        return render_template('login.html', user=g.user)
+    if g.user.id_uprawnienia ==3:
+        return redirect(url_for('home'))
+    
+    dlugosc = Dlugosci.query.all()
+    logger.info(f"{g.user.login} wszedł na stronę dostawców.")
+    return render_template("dlugosci.html", user=g.user, dlugosc=dlugosc)
+
+@app.route('/dodaj_dlugosci')
+def dodaj_dlugosci():
+    if not g.user:
+        return render_template('login.html', user=g.user)
+    if g.user.id_uprawnienia ==3:
+        return redirect(url_for('home'))
+
+    logger.info(f"{g.user.login} wszedł na stronę dodawania lokzlizacji.")
+    return render_template("dodaj_dlugosci.html", user=g.user)
+
+@app.route('/dodaj_dlugosci_do_bazy', methods=['POST'])
+def dodaj_dlugosci_do_bazy():
+    if not g.user:
+        return render_template('login.html', user=g.user)
+    if g.user.id_uprawnienia ==3:
+        return redirect(url_for('home'))
+    
+    if request.method == 'POST':
+        nazwa = request.form.get('nazwa_dlugosci')
+
+        nowa_dlugosc = Dlugosci(nazwa=nazwa)
+        db.session.add(nowa_dlugosc)
+
+        try:
+            db.session.commit()
+            logger.info(f"Dlugosc {nazwa} został dodany przez {g.user.login}.")
+            return redirect(url_for('dlugosci'))  # Przekierowanie na stronę dostawców
+        except Exception as e:
+            db.session.rollback()
+            logger.error(f"Nie udało się zapisać danych: {e}")
+            return render_template('dlugosci.html', error="Wystąpił błąd przy zapisywaniu danych.", user=g.user)
+
+@app.route('/update-row-dlugosci', methods=['POST'])
+def update_row_dlugosci():
+    if not g.user:
+        return render_template('login.html', user=g.user)
+    if g.user.id_uprawnienia ==3:
+        return redirect(url_for('home'))
+    
+    try:
+        dane = request.get_json()
+        logger.info(f'Otrzymane dane do aktualizacji dlugosci: {dane}')
+
+        id = dane.get('column_0')
+        if id is None:
+            return jsonify({'message': 'Id jest wymagane!'}), 400
+
+        dlugosc = Dlugosci.query.get(id)
+        if lokalizacja is None:
+            return jsonify({'message': 'Rekord nie znaleziony!'}), 404
+
+        dlugosc.nazwa = dane.get('column_1', dlugosc.nazwa)
+
+        db.session.commit()
+        logger.info(f"Lokalizacja {dlugosc.nazwa} został zaktualizowany przez {g.user.login}.")
         return jsonify({'message': 'Rekord zaktualizowany pomyślnie!'})
     except Exception as e:
         db.session.rollback()

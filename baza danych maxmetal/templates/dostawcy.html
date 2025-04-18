@@ -231,6 +231,16 @@ window.open(url, '_blank', windowFeatures); // '_blank' otworzy nowe okno/tab
                             <a href="{{ url_for('szablon') }}"><label for="menuCheckbox" onclick="this.parentNode.click();">Nazwy</label></a>
                         </li>
                         {% endif %}
+                        {% if g.user.id_uprawnienia==1 or g.user.id_uprawnienia==2%}
+                        <li>
+                            <a href="{{ url_for('lokalizacja') }}"><label for="menuCheckbox" onclick="this.parentNode.click();">Magazyny</label></a>
+                        </li>
+                        {% endif %}
+                        {% if g.user.id_uprawnienia==1 or g.user.id_uprawnienia==2%}
+                        <li>
+                            <a href="{{ url_for('dlugosci') }}"><label for="menuCheckbox" onclick="this.parentNode.click();">Długości</label></a>
+                        </li>
+                        {% endif %}
                         {% if g.user.id_uprawnienia==1 %}
                         <li>
                             <a href="{{ url_for('zestawienie') }}"><label for="menuCheckbox" onclick="this.parentNode.click();">Zestawienie</label></a>
