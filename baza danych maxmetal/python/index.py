@@ -353,6 +353,10 @@ def get_tasma():
 def get_lokalizacja():
     lokalizacja = Lokalizacja.query.all()
     return jsonify([{"id": l.id, "nazwa": l.nazwa} for l in lokalizacja])
+@app.route('/get-dlugosci', methods=['GET'])
+def get_dlugosci():
+    dlugosci = Dlugosci.query.all()
+    return jsonify([{"id": d.id, "nazwa": d.nazwa} for d in dlugosci])
 @app.route('/update-row_uzytkownik', methods=['POST'])
 def update_user():
     if g.user.id_uprawnienia != 1:
@@ -705,6 +709,10 @@ def update_row_profil():
             profil.nr_czesci_klienta = dane['column_6']  # Nr części klienta
         if 'column_7' in dane:
             profil.nazwa_klienta_nr_zlecenia_PRODIO = dane['column_7']  # Nazwa klienta
+        if 'column_8' in dane:
+            profil.ilosc = dane['column_8']  # Ilość
+        if 'column_9' in dane:
+            profil.id_dlugosci = dane['column_9']
 
         logger.info(f"Aktualizacja Profil ID: {profil.id} przez {g.user.login}.")
         db.session.commit()
@@ -721,8 +729,9 @@ def dodaj_profil():
         return render_template('login.html', user=g.user)
     
     tasmy = Tasma.query.all()
+    dlugosci = Dlugosci.query.all()
     logger.info(f"{g.user.login} wszedł na stronę dodawania profilu.")
-    return render_template("dodaj_profil.html", user=g.user, tasmy=tasmy)
+    return render_template("dodaj_profil.html", user=g.user, tasmy=tasmy,dlugosci=dlugosci)
 
 @app.route('/dodaj_profil_do_bazy', methods=['POST'])
 def dodaj_profil_do_bazy():
@@ -737,6 +746,8 @@ def dodaj_profil_do_bazy():
         zwrot_na_magazyn_kg = request.form.get('zwrot_na_magazyn_kg')
         nr_czesci_klienta = request.form.get('nr_czesci_klienta')
         nazwa_klienta_nr_zlecenia_PRODIO = request.form.get('nazwa_klienta_nr_zlecenia_PRODIO')
+        ilosc= request.form.get('ilosc')
+        id_dlugosci= request.form.get('dlugosc')
         Data_do_usuwania = date.today() + timedelta(days=365)
         pracownik_id = g.user.id  # ID pracownika z sesji
 
@@ -748,6 +759,8 @@ def dodaj_profil_do_bazy():
             zwrot_na_magazyn_kg=zwrot_na_magazyn_kg,
             nr_czesci_klienta=nr_czesci_klienta,
             nazwa_klienta_nr_zlecenia_PRODIO=nazwa_klienta_nr_zlecenia_PRODIO,
+            ilosc=ilosc,
+            id_dlugosci=id_dlugosci,
             Data_do_usuwania=Data_do_usuwania,
             id_pracownika=pracownik_id
         )

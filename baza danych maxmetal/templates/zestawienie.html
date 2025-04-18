@@ -357,8 +357,10 @@ function downloadSelected() {
                         <th><input type="checkbox"  onclick="toggleColumn(19)"> Zwrot</th>
                         <th><input type="checkbox"  onclick="toggleColumn(20)"> Nr części</th>
                         <th><input type="checkbox"  onclick="toggleColumn(21)"> Klient PRODIO</th>
-                        <th><input type="checkbox"  onclick="toggleColumn(22)"> Rodzaj</th>
-                        <th><input type="checkbox"  onclick="toggleColumn(23)"> Stanowisko</th>
+                        <th><input type="checkbox"  onclick="toggleColumn(22)"> Ilość</th>
+                        <th><input type="checkbox"  onclick="toggleColumn(23)"> Długość</th>
+                        <th><input type="checkbox"  onclick="toggleColumn(24)"> Rodzaj</th>
+                        <th><input type="checkbox"  onclick="toggleColumn(25)"> Stanowisko</th>
                         <th><button class="button" onclick="resetFilters()">Usuń Filtry</button></th>
                         <th><button class="button" onclick="downloadSelected()">Pobierz do Excel</button></th>
                     </tr>
@@ -391,9 +393,10 @@ function downloadSelected() {
                             <th ><input type="text" placeholder="Filtruj Zwrot na magazyn" onkeyup="filterColumn(19)"></th>
                             <th ><input type="text" placeholder="Filtruj Nr części Klienta" onkeyup="filterColumn(20)"></th>
                             <th ><input type="text" placeholder="Filtruj Nazwę klienta Nr PRODIO" onkeyup="filterColumn(21)"></th>
-                            
-                            <th ><input type="text" placeholder="Filtruj Rodzaj Materiału" onkeyup="filterColumn(22)"></th>
-                            <th ><input type="text" placeholder="Filtruj Nazwę Stanowiska" onkeyup="filterColumn(23)"></th>
+                            <th ><input type="text" placeholder="Filtruj Ilość" onkeyup="filterColumn(22)"></th>
+                            <th ><input type="text" placeholder="Filtruj Długość" onkeyup="filterColumn(23)"></th>
+                            <th ><input type="text" placeholder="Filtruj Rodzaj Materiału" onkeyup="filterColumn(24)"></th>
+                            <th ><input type="text" placeholder="Filtruj Nazwę Stanowiska" onkeyup="filterColumn(25)"></th>
                         
                     </tr>
                     <tr>
@@ -419,8 +422,10 @@ function downloadSelected() {
                             <th  onclick="sortTable(19)">Zwrot na magazyn kg &#9650;&#9660;</th>
                             <th  onclick="sortTable(20)">Nr części klienta &#9650;&#9660;</th>
                             <th  onclick="sortTable(21)">Nazwa klienta Nr PRODIO &#9650;&#9660;</th>
-                            <th  onclick="sortTable(22)">Rodzaj materiału &#9650;&#9660;</th>
-                            <th  onclick="sortTable(23)">Nazwa Stanowiska &#9650;&#9660;</th>
+                            <th  onclick="sortTable(22)">Ilość &#9650;&#9660;</th>
+                            <th  onclick="sortTable(23)">Długość &#9650;&#9660;</th>
+                            <th  onclick="sortTable(24)">Rodzaj materiału &#9650;&#9660;</th>
+                            <th  onclick="sortTable(25)">Nazwa Stanowiska &#9650;&#9660;</th>
                         
                     </tr>
                 </thead>
@@ -443,6 +448,8 @@ function downloadSelected() {
                             <td >{{ tasmy.nr_faktury_dostawcy }}</td>
                             <td >{{ tasmy.data_dostawy }}</td>
                             <td >{{ tasmy.pracownik.login }}</td>
+                            <td ></td>
+                            <td ></td>
                             <td ></td>
                             <td ></td>
                             <td ></td>
@@ -480,6 +487,8 @@ function downloadSelected() {
                                     <td >{{ profile.zwrot_na_magazyn_kg }}</td>
                                     <td >{{ profile.nr_czesci_klienta }}</td>
                                     <td >{{ profile.nazwa_klienta_nr_zlecenia_PRODIO }}</td>
+                                    <td>{{profile.ilosc}}</td>
+                                    <td >{{ profile.dlugosci.nazwa }}</td>
                                     <td >{{profile.tasma.szablon.nazwa}}</td>
                                     <td >{{ profile.pracownik.login }}</td>
                                     

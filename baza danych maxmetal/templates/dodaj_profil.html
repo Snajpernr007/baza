@@ -56,6 +56,16 @@ function filtrujEtykiete() {
         option.style.display = text.includes(input) ? "" : "none";
     }
 }
+function filtrujDlugosci() {
+    let input = document.getElementById("szukaj_dlugosci").value.toLowerCase();
+    let select = document.getElementById("dlugosc");
+    let options = select.getElementsByTagName("option");
+
+    for (let option of options) {
+        let text = option.textContent.toLowerCase();
+        option.style.display = text.includes(input) ? "" : "none";
+    }
+}
 </script>
 </head>
 <body>
@@ -86,6 +96,18 @@ function filtrujEtykiete() {
         
             <label for="nazwa_klienta_nr_zlecenia_PRODIO">Nazwa Klienta / Nr Zlecenia:</label>
             <input type="text" name="nazwa_klienta_nr_zlecenia_PRODIO" required><br>
+            <input type="number" name="ilosc" required><br>
+            <label for="szukaj_dlugosci">Szukaj długości:</label>
+            <input type="text" id="szukaj_dlugosci" onkeyup="filtrujDlugosci()" placeholder="Wpisz dlugosc">
+
+            <label for="dlugosc">Dlugosc:</label>
+            <select id="dlugosc" name="dlugosc" required size="5">
+                {% for dlugosc in dlugosci %}
+                    {% if dlugosc.nazwa !=None %}
+                        <option value="{{ dlugosc.id }}">{{ dlugosc.nazwa }}</option>
+                    {% endif %}
+                {% endfor %}
+            </select><br>
 
             <button type="reset" class="button">Wyczyść</button>
             <button type="submit" class="button">Zapisz</button>

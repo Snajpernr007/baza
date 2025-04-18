@@ -137,6 +137,8 @@ document.addEventListener("DOMContentLoaded", setupFilters);
         for (let i = 0; i < cells.length; i++) {
             if (i === 1) {
                 filterCells += `<td><input type="text" placeholder="Filtruj Materiał" onkeyup="filterTasmy(this.value)" style="width: 100%;"></td>`;
+            }else if (i === 9) {
+                filterCells += `<td><input type="text" placeholder="Filtruj Długość" onkeyup="filterDlugosc(this.value)" style="width: 100%;"></td>`;
             } else {
                 filterCells += `<td></td>`; // Puste komórki dla pozostałych kolumn
             }
@@ -155,7 +157,10 @@ document.addEventListener("DOMContentLoaded", setupFilters);
                 } else if (index === 5) { // Weight fields
                     const value = cell.innerText;
                     cell.innerHTML = `<input type="number" value="${value}" step="0.01" style="width: 100%;">`;
-                } else {
+                }else if (index === 9) { // Weight fields
+                    const currentDlugoscId = cell.getAttribute("data-dlugosci-id");
+            cell.innerHTML = `<select style="width: 100%;" id="dlugosciSelect"></select>`;
+            populateDlugosci(cell.querySelector("#dlugosciSelect"), currentDlugoscId);} else {
                     const value = cell.innerText;
                     cell.innerHTML = `<input type="text" value="${value}" style="width: 100%;">`;
                 }
@@ -236,6 +241,8 @@ function sendDataToBackenda(data) {
         for (let i = 0; i < cells.length; i++) {
             if (i === 1) {
                 filterCells += `<td><input type="text" placeholder="Filtruj Materiał" onkeyup="filterTasmy(this.value)" style="width: 100%;"></td>`;
+            }else if (i === 9) {
+                filterCells += `<td><input type="text" placeholder="Filtruj Długość" onkeyup="filterDlugosc(this.value)" style="width: 100%;"></td>`;
             }else {
                 filterCells += `<td></td>`; // Puste komórki dla pozostałych kolumn
             }
@@ -260,7 +267,10 @@ function sendDataToBackenda(data) {
         }else if (index === 3 || index==4 ) { // Weight fields
             const value = cell.innerText;
             cell.innerHTML = `<input type="time" value="${value}" step="2" style="width: 100%;">`;
-        }
+        }else if (index === 9) { // Weight fields
+            const currentDlugoscId = cell.getAttribute("data-dlugosci-id");
+            cell.innerHTML = `<select style="width: 100%;" id="dlugosciSelect"></select>`;
+            populateDlugosci(cell.querySelector("#dlugosciSelect"), currentDlugoscId);}
          else {
             const value = cell.innerText;
             cell.innerHTML = `<input type="text" value="${value}" style="width: 100%;">`;
@@ -339,7 +349,34 @@ function filterTasmy(searchTerm) {
         options[i].style.display = optionText.includes(searchTerm.toLowerCase()) ? "" : "none";
     }
 }
+function populateDlugosci(selectElement, selectedValue) {
+    fetch('/get-dlugosci')
+        .then(response => response.json())
+        .then(data => {
+            data.forEach(dlugosci => {
+                const option = document.createElement('option');
+                option.value = dlugosci.id;
+                option.textContent = dlugosci.nazwa;
+                selectElement.appendChild(option);
+            });
 
+            if (selectedValue) {
+                selectElement.value = selectedValue;
+            }
+        })
+        .catch(error => console.error('Błąd podczas pobierania dlugosci:', error));
+}
+
+
+function filterDlugosc(searchTerm) {
+    const select = document.getElementById("dlugosciSelect");
+    const options = select.options;
+
+    for (let i = 0; i < options.length; i++) {
+        const optionText = options[i].text.toLowerCase();
+        options[i].style.display = optionText.includes(searchTerm.toLowerCase()) ? "" : "none";
+    }
+}
 
 function sendDataToBackend(data) {
     
@@ -360,7 +397,7 @@ function sendDataToBackend(data) {
         console.error("Błąd podczas wysyłania danych:", error);
         alert("Wystąpił błąd podczas zapisywania danych!");
     });
-    location.reload();
+    
 }
 </script>
 </head>
@@ -467,9 +504,10 @@ function sendDataToBackend(data) {
                             <th><input type="text" placeholder="Filtruj Zwrot na magazyn" onkeyup="filterColumn(5)"></th>
                             <th><input type="text" placeholder="Filtruj Nr części Klienta" onkeyup="filterColumn(6)"></th>
                             <th><input type="text" placeholder="Filtruj Nazwę klienta Nr PRODIO" onkeyup="filterColumn(7)"></th>
-                            
-                            <th><input type="text" placeholder="Filtruj Rodzaj Materiału" onkeyup="filterColumn(8)"></th>
-                            <th><input type="text" placeholder="Filtruj Nazwę Stanowiska" onkeyup="filterColumn(9)"></th>
+                            <th><input type="text" placeholder="Filtruj Ilość" onkeyup="filterColumn(8)"></th>
+                            <th><input type="text" placeholder="Filtruj Długość" onkeyup="filterColumn(9)"></th>
+                            <th><input type="text" placeholder="Filtruj Rodzaj Materiału" onkeyup="filterColumn(10)"></th>
+                            <th><input type="text" placeholder="Filtruj Nazwę Stanowiska" onkeyup="filterColumn(11)"></th>
                             
                             <th><button class="button" onclick="resetFilters()">Usuń Filtry</button></th>
                         </tr>
@@ -483,8 +521,10 @@ function sendDataToBackend(data) {
                             <th onclick="sortTable(5)">Zwrot na magazyn kg &#9650;&#9660;</th>
                             <th onclick="sortTable(6)">Nr części klienta &#9650;&#9660;</th>
                             <th onclick="sortTable(7)">Nazwa klienta Nr PRODIO &#9650;&#9660;</th>
-                            <th onclick="sortTable(8)">Rodzaj materiału &#9650;&#9660;</th>
-                            <th onclick="sortTable(9)">Nazwa Stanowiska &#9650;&#9660;</th>
+                            <th onclick="sortTable(8)">Ilość &#9650;&#9660;</th>
+                            <th onclick="sortTable(9)">Długość &#9650;&#9660;</th>
+                            <th onclick="sortTable(10)">Rodzaj materiału &#9650;&#9660;</th>
+                            <th onclick="sortTable(11)">Nazwa Stanowiska &#9650;&#9660;</th>
                             
                             <th>Edycja</th>
                         </tr>
@@ -503,6 +543,8 @@ function sendDataToBackend(data) {
                                     <td>{{ profile.zwrot_na_magazyn_kg }}</td>
                                     <td>{{ profile.nr_czesci_klienta }}</td>
                                     <td>{{ profile.nazwa_klienta_nr_zlecenia_PRODIO }}</td>
+                                    <td>{{profile.ilosc}}</td>
+                                    <td data-dlugosci-id="{{profile.dlugosci.id}}">{{profile.dlugosci.nazwa}}</td>
                                     <td>{{profile.tasma.szablon.nazwa}}</td>
                                     <td>{{ profile.pracownik.login }}</td>
                                     
@@ -520,6 +562,8 @@ function sendDataToBackend(data) {
                                     <td>{{ profile.zwrot_na_magazyn_kg }}</td>
                                     <td>{{ profile.nr_czesci_klienta }}</td>
                                     <td>{{ profile.nazwa_klienta_nr_zlecenia_PRODIO }}</td>
+                                    <td>{{profile.ilosc}}</td>
+                                    <td data-dlugosci-id="{{profile.dlugosci.id}}">{{profile.dlugosci.nazwa}}</td>
                                     <td>{{profile.tasma.szablon.nazwa}}</td>
                                     <td>{{ profile.pracownik.login }}</td>
                                     
@@ -536,6 +580,8 @@ function sendDataToBackend(data) {
                                     <td>{{ profile.zwrot_na_magazyn_kg }}</td>
                                     <td>{{ profile.nr_czesci_klienta }}</td>
                                     <td>{{ profile.nazwa_klienta_nr_zlecenia_PRODIO }}</td>
+                                    <td>{{profile.ilosc}}</td>
+                                    <td data-dlugosci-id="{{profile.dlugosci.id}}">{{profile.dlugosci.nazwa}}</td>
                                     <td>{{profile.tasma.szablon.nazwa}}</td>
                                     <td>{{ profile.pracownik.login }}</td>
                                     
@@ -554,7 +600,9 @@ function sendDataToBackend(data) {
                                     <td>{{ profile.zwrot_na_magazyn_kg }}</td>
                                     <td>{{ profile.nr_czesci_klienta }}</td>
                                     <td>{{ profile.nazwa_klienta_nr_zlecenia_PRODIO }}</td>
-                                    <td>{{profile.tasma.szablon.nazwa}}</td>
+                                    <td>{{profile.ilosc}}</td>
+                                    <td>{{profile.dlugosci.nazwa}}</td>
+                                    <td data-dlugosci-id="{{profile.dlugosci.id}}">{{profile.tasma.szablon.nazwa}}</td>
                                     <td>{{ profile.pracownik.login }}</td>
                                     
                                     
