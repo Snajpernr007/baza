@@ -175,21 +175,7 @@ os.makedirs(BACKUP_DIR, exist_ok=True)
 def format_sql_value(val):
     if val is None:
         return "NULL"
-    elif isinstance(val, datetime.datetime):
-        return f"'{val.strftime('%Y-%m-%d %H:%M:%S')}'"
-    elif isinstance(val, datetime.date):
-        return f"'{val.strftime('%Y-%m-%d')}'"
-    elif isinstance(val, datetime.time):
-        return f"'{val.strftime('%H:%M:%S')}'"
-    elif isinstance(val, str):
-        # Jeśli wygląda jak czas (np. '18:30:21'), dodaj cudzysłowy
-        if len(val) == 8 and val.count(':') == 2 and val.replace(':', '').isdigit():
-            return f"'{val}'"
-        return "'" + val.replace("'", "''") + "'"
-    elif isinstance(val, Decimal):
-        return str(val)
-    else:
-        return str(val)
+    return "'" + str(val).replace("'", "''") + "'"
 def zapisz_do_pliku_sql():
     timestamp = datetime.datetime.now().strftime('%Y-%m-%d_%H-%M')
     nazwa_pliku = os.path.join(BACKUP_DIR, f'kopie_zapasowe_bazy_{timestamp}.sql')
@@ -204,6 +190,8 @@ def zapisz_do_pliku_sql():
                     'uzytkownicy',
                     'dostawcy',
                     'szablon',
+                    'lokalizacja',
+                    'dlugosci',
                     'tasma',
                     'profil'
                 ]
@@ -967,13 +955,14 @@ def download_excel():
         return jsonify({"error": "Brak nagłówków lub danych do wygenerowania pliku Excel."}), 400  # Zwraca status 400
 
     try:
+        # Tworzymy nowy arkusz Excel
         wb = openpyxl.Workbook()
         ws = wb.active
 
-        # Wiersz nagłówkowy
+        # Wiersz nagłówkowy - ustawiamy nagłówki w odpowiedniej kolejności
         ws.append(headers)
 
-        # Dane
+        # Dodajemy dane w odpowiedniej kolejności
         for row in rows:
             ws.append(row)
 
@@ -982,11 +971,11 @@ def download_excel():
         wb.save(output)
         output.seek(0)
 
+        # Zwracamy plik Excel jako załącznik
         return send_file(output, as_attachment=True, download_name='raport.xlsx', mimetype='application/vnd.openxmlformats-officedocument.spreadsheetml.sheet')
     except Exception as e:
         app.logger.error(f"Błąd podczas generowania pliku Excel: {e}")
         return jsonify({"error": "Wystąpił błąd podczas generowania pliku Excel."}), 500  # Zwraca status 500
-    
 @app.route('/lokalizacja')
 def lokalizacja():
     if not g.user:

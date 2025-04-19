@@ -6,6 +6,7 @@
     <title>Profile MaxMetal</title>
     <link rel="icon" href="../static/img/logo-duże.png">
     <link rel="stylesheet" href="../static/style.css">
+    
     <script>
         // Odśwież stronę co 10 sekund
 // setInterval(function() {
@@ -196,43 +197,57 @@ function toggleColumn(colIndex) {
         }
     }
 }   
-function downloadSelected() {
+function downloadSelected(user) {
+    console.log("Pobieranie wybranych kolumn do Excela");
+    console.log("User:", user); // Sprawdzamy wartość 'user'
+
     const table = document.getElementById('tabela'); // Upewnij się, że używasz właściwej tabeli
-    const headers = Array.from(table.querySelectorAll('thead th'));
-    const rows = Array.from(table.querySelectorAll('tbody tr'));
+    const headerRow = table.querySelectorAll('thead tr')[1]; // Drugi wiersz nagłówków
+const headers = Array.from(headerRow.querySelectorAll('th'));
+    const rows = Array.from(table.querySelectorAll('tbody tr')); // Pobieramy wszystkie wiersze
 
     // Indeksy widocznych kolumn
     const visibleColumnIndexes = headers.map((th, idx) => th.hasAttribute('hidden') ? null : idx).filter(idx => idx !== null);
 
-    // Nazwy widocznych kolumn
-    const visibleHeaders = visibleColumnIndexes.map(idx => headers[idx].innerText.trim());
+    // Nagłówki widocznych kolumn
+    const visibleHeaders = visibleColumnIndexes.map(idx =>
+    headers[idx].innerText.replace(/[▲▼]/g, '').trim()
+);
 
-    // Dane z wierszy (zaczynamy od 2 wiersza = index 1)
-    const data = rows.slice(1).map(row => {
-        const cells = Array.from(row.querySelectorAll('td'));
-        return visibleColumnIndexes.map(idx => cells[idx]?.innerText.trim());
+    console.log("Widoczne nagłówki:", visibleHeaders);  // Logowanie nagłówków
+
+    // Zbieramy dane z tabeli zgodnie z widocznymi kolumnami
+    const data = rows.map(row => {
+        const cells = Array.from(row.querySelectorAll('td')); // Pobieramy komórki wiersza
+        return visibleColumnIndexes.map(idx => cells[idx]?.innerText.trim()); // Pobieramy dane tylko dla widocznych kolumn
     });
 
-    // Wyślij log info do backendu
+    console.log("Dane do pobrania:", data);  // Logowanie danych
+
+    // Logowanie informacji o pobraniu do backendu
     fetch('/log-download', {
         method: 'POST',
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify({
-            user: g.user ? g.user.login : 'nieznany', // Można dynamicznie uzupełnić po stronie backendu
+            user: user, // Dynamicznie przekazywany user
             columns: visibleHeaders
         })
     });
 
-    // Poproś o wygenerowanie i pobranie Excela
+    // Wysyłamy dane do backendu, aby wygenerować plik Excel
     fetch('/download-excel', {
         method: 'POST',
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify({
-            headers: visibleHeaders,
-            data: data
+            headers: visibleHeaders,  // Nagłówki widocznych kolumn
+            data: data                // Dane z wybranych kolumn
         })
-    }).then(res => res.blob())
-    .then(blob => {
+    }).then(res => {
+        if (!res.ok) {
+            throw new Error('Nie udało się pobrać pliku Excel. Status: ' + res.status);
+        }
+        return res.blob();
+    }).then(blob => {
         const url = window.URL.createObjectURL(blob);
         const a = document.createElement('a');
         a.href = url;
@@ -240,8 +255,12 @@ function downloadSelected() {
         document.body.appendChild(a);
         a.click();
         a.remove();
+    }).catch(error => {
+        console.error('Błąd podczas pobierania pliku:', error);
+        alert('Wystąpił problem podczas pobierania pliku Excel.');
     });
 }
+
     </script>
 </head>
 <body>
@@ -362,7 +381,7 @@ function downloadSelected() {
                         <th><input type="checkbox"  onclick="toggleColumn(24)"> Rodzaj</th>
                         <th><input type="checkbox"  onclick="toggleColumn(25)"> Stanowisko</th>
                         <th><button class="button" onclick="resetFilters()">Usuń Filtry</button></th>
-                        <th><button class="button" onclick="downloadSelected()">Pobierz do Excel</button></th>
+                        <th><button class="button" onclick="downloadSelected('{{ user.login }}')">Pobierz do Excel</button></th>
                     </tr>
                 </thead>
                 <table id="tabela">
@@ -371,8 +390,8 @@ function downloadSelected() {
                             <th ><input type="text" placeholder="Filtruj ID" onkeyup="filterColumn(0)"></th>
                             <th ><input type="text" placeholder="Filtruj Dostawcę" onkeyup="filterColumn(1)"></th>
                             <th ><input type="text" placeholder="Filtruj Materiał" onkeyup="filterColumn(2)"></th>
-                            <th >OD<input type="date" id="dateKreguFrom" onchange="filterTable()" style="width: 90px;">
-                                DO<input type="date" id="dateKreguTo" onchange="filterTable()" style="width: 90px;"></th>
+                            <th ><input type="date" id="dateKreguFrom" onchange="filterTable()" style="width: 90px;">
+                                <input type="date" id="dateKreguTo" onchange="filterTable()" style="width: 90px;"></th>
                             <th ><input type="text" placeholder="Filtruj Grubość" onkeyup="filterColumn(4)"></th>
                             <th ><input type="text" placeholder="Filtruj Szerokość" onkeyup="filterColumn(5)"></th>
                             <th ><input type="text" placeholder="Filtruj Wagę" onkeyup="filterColumn(6)"></th>
@@ -381,13 +400,13 @@ function downloadSelected() {
                             <th ><input type="text" placeholder="Filtruj Etyk. Kręgu" onkeyup="filterColumn(9)"></th>
                             <th ><input type="text" placeholder="Filtruj Lokalizację" onkeyup="filterColumn(10)"></th>
                             <th ><input type="text" placeholder="Filtruj Nr WZ" onkeyup="filterColumn(11)"></th>
-                            <th >OD<input type="date" id="dateDostawyFrom" onchange="filterTable()" style="width: 90px;">
-                                DO<input type="date" id="dateDostawyTo" onchange="filterTable()" style="width: 90px;"></th>
+                            <th ><input type="date" id="dateDostawyFrom" onchange="filterTable()" style="width: 90px;">
+                                <input type="date" id="dateDostawyTo" onchange="filterTable()" style="width: 90px;"></th>
                             <th ><input type="text" placeholder="Filtruj Nazwę Stanowiska" onkeyup="filterColumn(13)"></th>
                             <th ><input type="text" placeholder="Filtruj ID" onkeyup="filterColumn(14)"></th>
                             <th ><input type="text" placeholder="Filtruj Materiał" onkeyup="filterColumn(15)"></th>
-                            <th > OD<input type="date" id="dateProdukcjiFrom" onchange="filterTable()" style="width: 90px;">
-                                DO<input type="date" id="dateProdukcjiTo" onchange="filterTable()" style="width: 90px;"></th>
+                            <th > <input type="date" id="dateProdukcjiFrom" onchange="filterTable()" style="width: 90px;">
+                                <input type="date" id="dateProdukcjiTo" onchange="filterTable()" style="width: 90px;"></th>
                             <th ><input type="text" placeholder="Filtruj Godzinę rozpoczęcia" onkeyup="filterColumn(17)"></th>
                             <th ><input type="text" placeholder="Filtruj Godzinę zakończenia" onkeyup="filterColumn(18)"></th>
                             <th ><input type="text" placeholder="Filtruj Zwrot na magazyn" onkeyup="filterColumn(19)"></th>
