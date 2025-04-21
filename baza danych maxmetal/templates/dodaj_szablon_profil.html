@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile MaxMetal</title>
+    <link rel="icon" href="../static/img/logo-duże.png">
+    <link rel="stylesheet" href="../static/style.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>  <!-- Dodaj jQuery -->
+
+<script>
+
+
+    </script>
+</head>
+<body>
+    <div id="strona">
+        <form id="myForm" action="{{ url_for('dodaj_szablon_profil_do_bazy') }}" method="post">
+            
+           
+        
+            <label for="nazwa_szablonu">Nazwa nr części klienta:</label>
+            <input type="text" name="nazwa_szablonu" required><br>
+        
+            <button type="reset" class="button">Wyczyść</button>
+            <button type="submit" class="button">Zapisz</button>
+        </form>
+    </div>
+</body>
+</html> 

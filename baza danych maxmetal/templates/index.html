@@ -65,7 +65,11 @@
                             <a href="{{ url_for('dlugosci') }}"><label for="menuCheckbox" onclick="this.parentNode.click();">Długości</label></a>
                         </li>
                         {% endif %}
-                        
+                        {% if g.user.id_uprawnienia==1 or g.user.id_uprawnienia==2%}
+                        <li>
+                            <a href="{{ url_for('szablon_profil') }}"><label for="menuCheckbox" onclick="this.parentNode.click();">Nazwy profili</label></a>
+                        </li>
+                        {% endif %}
                         {% if g.user.id_uprawnienia==1 %}
                         <li>
                             <a href="{{ url_for('zestawienie') }}"><label for="menuCheckbox" onclick="this.parentNode.click();">Zestawienie</label></a>
@@ -121,6 +125,9 @@
             {% endif %}
             {% if g.user.id_uprawnienia==1 or g.user.id_uprawnienia==2%}
             <button class="button" onclick="window.location.href='{{ url_for('dlugosci') }}'">Długości</button>
+            {% endif %}
+            {% if g.user.id_uprawnienia==1 or g.user.id_uprawnienia==2%}
+            <button class="button" onclick="window.location.href='{{ url_for('szablon_profil') }}'">Nazwy profili</button>
             {% endif %}
             {% if g.user.id_uprawnienia==1 %}
             <button class="button" onclick="window.location.href='{{ url_for('zestawienie') }}'">Zestawienie</button>

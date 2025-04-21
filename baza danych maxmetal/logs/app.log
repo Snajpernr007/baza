@@ -2951,3 +2951,246 @@
 2025-04-21 23:08:58,659 - INFO - Otrzymane dane do aktualizacji profilu: {'column_0': '56', 'column_1': '49', 'column_2': '2025-04-21', 'column_3': '22:53:43', 'column_4': '22:55:13', 'column_5': '3.00', 'column_6': '1', 'column_7': '67', 'column_8': '3', 'column_9': '3', 'column_10': '3', 'column_11': 'DX510 2275 1,2x66', 'column_12': 'Administrator', 'column_13': 'Zapisz Usuń'}
 2025-04-21 23:08:58,661 - INFO - Aktualizacja Profil ID: 56 przez Administrator.
 2025-04-21 23:08:58,666 - INFO - 127.0.0.1 - - [21/Apr/2025 23:08:58] "POST /update-row_profil HTTP/1.1" 200 -
+2025-04-21 23:13:20,422 - INFO - Połączenie z bazą danych zostało nawiązane pomyślnie.
+2025-04-21 23:13:20,481 - INFO - ✅ Kopia zapasowa zapisana do pliku: backups\kopie_zapasowe_bazy_2025-04-21_23-13.sql
+2025-04-21 23:13:20,483 - INFO - 🗑️ Usunięto starą kopię: kopie_zapasowe_bazy_2025-04-21_22-42.sql
+2025-04-21 23:13:20,494 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.1.28:5000
+2025-04-21 23:13:20,494 - INFO - [33mPress CTRL+C to quit[0m
+2025-04-21 23:13:20,495 - INFO -  * Restarting with stat
+2025-04-21 23:13:22,815 - INFO - Połączenie z bazą danych zostało nawiązane pomyślnie.
+2025-04-21 23:13:22,873 - INFO - ✅ Kopia zapasowa zapisana do pliku: backups\kopie_zapasowe_bazy_2025-04-21_23-13.sql
+2025-04-21 23:13:22,879 - WARNING -  * Debugger is active!
+2025-04-21 23:13:22,883 - INFO -  * Debugger PIN: 179-082-417
+2025-04-21 23:13:27,379 - INFO - Administrator wszedł na stronę szablonów.
+2025-04-21 23:13:27,404 - INFO - 127.0.0.1 - - [21/Apr/2025 23:13:27] "[35m[1mGET /szablon_profil HTTP/1.1[0m" 500 -
+2025-04-21 23:13:27,457 - INFO - 127.0.0.1 - - [21/Apr/2025 23:13:27] "GET /szablon_profil?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1" 200 -
+2025-04-21 23:13:27,461 - INFO - 127.0.0.1 - - [21/Apr/2025 23:13:27] "GET /szablon_profil?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1" 200 -
+2025-04-21 23:13:27,475 - INFO - 127.0.0.1 - - [21/Apr/2025 23:13:27] "GET /szablon_profil?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+2025-04-21 23:13:27,480 - INFO - 127.0.0.1 - - [21/Apr/2025 23:13:27] "GET /szablon_profil?__debugger__=yes&cmd=resource&f=console.png&s=9r6JuUyU7sPD0jkLnQmh HTTP/1.1" 200 -
+2025-04-21 23:13:48,468 - INFO - Administrator wszedł na stronę szablonów.
+2025-04-21 23:13:48,513 - INFO - 127.0.0.1 - - [21/Apr/2025 23:13:48] "GET /szablon_profil HTTP/1.1" 200 -
+2025-04-21 23:13:48,578 - INFO - 127.0.0.1 - - [21/Apr/2025 23:13:48] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-21 23:13:48,617 - INFO - 127.0.0.1 - - [21/Apr/2025 23:13:48] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-21 23:14:19,067 - INFO - Administrator wszedł na stronę szablonów.
+2025-04-21 23:14:19,104 - INFO - 127.0.0.1 - - [21/Apr/2025 23:14:19] "GET /szablon_profil HTTP/1.1" 200 -
+2025-04-21 23:14:19,128 - INFO - 127.0.0.1 - - [21/Apr/2025 23:14:19] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-21 23:14:19,139 - INFO - 127.0.0.1 - - [21/Apr/2025 23:14:19] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-21 23:14:25,982 - INFO - Otrzymane dane do aktualizacji dlugosci: {'column_0': '1', 'column_1': '12345', 'column_2': 'Zapisz'}
+2025-04-21 23:14:25,992 - INFO - Lokalizacja 12345 został zaktualizowany przez Administrator.
+2025-04-21 23:14:25,993 - INFO - 127.0.0.1 - - [21/Apr/2025 23:14:25] "POST /update-row-dlugosci HTTP/1.1" 200 -
+2025-04-21 23:14:27,859 - INFO - Administrator wszedł na stronę szablonów.
+2025-04-21 23:14:27,861 - INFO - 127.0.0.1 - - [21/Apr/2025 23:14:27] "GET /szablon_profil HTTP/1.1" 200 -
+2025-04-21 23:14:27,881 - INFO - 127.0.0.1 - - [21/Apr/2025 23:14:27] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-21 23:14:27,891 - INFO - 127.0.0.1 - - [21/Apr/2025 23:14:27] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-21 23:14:28,611 - INFO - Administrator wszedł na stronę szablonów.
+2025-04-21 23:14:28,612 - INFO - 127.0.0.1 - - [21/Apr/2025 23:14:28] "GET /szablon_profil HTTP/1.1" 200 -
+2025-04-21 23:14:28,635 - INFO - 127.0.0.1 - - [21/Apr/2025 23:14:28] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-21 23:14:28,646 - INFO - 127.0.0.1 - - [21/Apr/2025 23:14:28] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-21 23:14:52,542 - INFO - Administrator wszedł na stronę główną.
+2025-04-21 23:14:52,606 - INFO - 127.0.0.1 - - [21/Apr/2025 23:14:52] "GET / HTTP/1.1" 200 -
+2025-04-21 23:14:52,636 - INFO - 127.0.0.1 - - [21/Apr/2025 23:14:52] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-21 23:14:52,642 - INFO - 127.0.0.1 - - [21/Apr/2025 23:14:52] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-21 23:14:53,936 - INFO - Administrator wszedł na stronę dostawców.
+2025-04-21 23:14:53,972 - INFO - 127.0.0.1 - - [21/Apr/2025 23:14:53] "GET /dlugosci HTTP/1.1" 200 -
+2025-04-21 23:14:53,998 - INFO - 127.0.0.1 - - [21/Apr/2025 23:14:53] "GET /static/style.css HTTP/1.1" 200 -
+2025-04-21 23:14:54,009 - INFO - 127.0.0.1 - - [21/Apr/2025 23:14:54] "GET /static/img/logo-duże.png HTTP/1.1" 200 -
+2025-04-21 23:15:00,150 - INFO - Otrzymane dane do aktualizacji dlugosci: {'column_0': '1', 'column_1': '3', 'column_2': 'Zapisz'}
+2025-04-21 23:15:00,154 - INFO - Lokalizacja 3 został zaktualizowany przez Administrator.
+2025-04-21 23:15:00,155 - INFO - 127.0.0.1 - - [21/Apr/2025 23:15:00] "POST /update-row-dlugosci HTTP/1.1" 200 -
+2025-04-21 23:15:03,610 - INFO - Administrator wszedł na stronę główną.
+2025-04-21 23:15:03,611 - INFO - 127.0.0.1 - - [21/Apr/2025 23:15:03] "GET / HTTP/1.1" 200 -
+2025-04-21 23:15:03,640 - INFO - 127.0.0.1 - - [21/Apr/2025 23:15:03] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-21 23:15:03,646 - INFO - 127.0.0.1 - - [21/Apr/2025 23:15:03] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-21 23:15:13,504 - INFO - 127.0.0.1 - - [21/Apr/2025 23:15:13] "[33mGET /szablon_profile HTTP/1.1[0m" 404 -
+2025-04-21 23:15:16,872 - INFO - Administrator wszedł na stronę szablonów.
+2025-04-21 23:15:16,907 - INFO - 127.0.0.1 - - [21/Apr/2025 23:15:16] "GET /szablon_profil HTTP/1.1" 200 -
+2025-04-21 23:15:16,934 - INFO - 127.0.0.1 - - [21/Apr/2025 23:15:16] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-21 23:15:16,948 - INFO - 127.0.0.1 - - [21/Apr/2025 23:15:16] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-21 23:15:21,817 - INFO - 127.0.0.1 - - [21/Apr/2025 23:15:21] "[33mPOST /update-row-szablon_profile HTTP/1.1[0m" 404 -
+2025-04-21 23:15:25,349 - INFO - Administrator wszedł na stronę szablonów.
+2025-04-21 23:15:25,350 - INFO - 127.0.0.1 - - [21/Apr/2025 23:15:25] "GET /szablon_profil HTTP/1.1" 200 -
+2025-04-21 23:15:25,366 - INFO - 127.0.0.1 - - [21/Apr/2025 23:15:25] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-21 23:15:25,376 - INFO - 127.0.0.1 - - [21/Apr/2025 23:15:25] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-21 23:15:25,754 - INFO - Administrator wszedł na stronę szablonów.
+2025-04-21 23:15:25,755 - INFO - 127.0.0.1 - - [21/Apr/2025 23:15:25] "GET /szablon_profil HTTP/1.1" 200 -
+2025-04-21 23:15:25,781 - INFO - 127.0.0.1 - - [21/Apr/2025 23:15:25] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-21 23:15:25,794 - INFO - 127.0.0.1 - - [21/Apr/2025 23:15:25] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-21 23:15:53,464 - INFO - Administrator wszedł na stronę szablonów.
+2025-04-21 23:15:53,500 - INFO - 127.0.0.1 - - [21/Apr/2025 23:15:53] "GET /szablon_profil HTTP/1.1" 200 -
+2025-04-21 23:15:53,531 - INFO - 127.0.0.1 - - [21/Apr/2025 23:15:53] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-21 23:15:53,547 - INFO - 127.0.0.1 - - [21/Apr/2025 23:15:53] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-21 23:15:58,190 - INFO - Otrzymane dane do aktualizacji szablonu: {'column_0': '1', 'column_1': '12345', 'column_2': 'Zapisz'}
+2025-04-21 23:15:58,191 - ERROR - Wystąpił błąd podczas aktualizacji: 'Szablon_profil' object has no attribute 'nr_czesci_klienta'
+2025-04-21 23:15:58,192 - INFO - 127.0.0.1 - - [21/Apr/2025 23:15:58] "[35m[1mPOST /update-row-szablon_profil HTTP/1.1[0m" 500 -
+2025-04-21 23:15:59,834 - INFO - Administrator wszedł na stronę szablonów.
+2025-04-21 23:15:59,835 - INFO - 127.0.0.1 - - [21/Apr/2025 23:15:59] "GET /szablon_profil HTTP/1.1" 200 -
+2025-04-21 23:15:59,853 - INFO - 127.0.0.1 - - [21/Apr/2025 23:15:59] "GET /static/style.css HTTP/1.1" 200 -
+2025-04-21 23:15:59,865 - INFO - 127.0.0.1 - - [21/Apr/2025 23:15:59] "GET /static/img/logo-duże.png HTTP/1.1" 200 -
+2025-04-21 23:16:00,449 - INFO - Administrator wszedł na stronę szablonów.
+2025-04-21 23:16:00,450 - INFO - 127.0.0.1 - - [21/Apr/2025 23:16:00] "GET /szablon_profil HTTP/1.1" 200 -
+2025-04-21 23:16:00,470 - INFO - 127.0.0.1 - - [21/Apr/2025 23:16:00] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-21 23:16:00,483 - INFO - 127.0.0.1 - - [21/Apr/2025 23:16:00] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-21 23:16:00,906 - INFO - Administrator wszedł na stronę szablonów.
+2025-04-21 23:16:00,907 - INFO - 127.0.0.1 - - [21/Apr/2025 23:16:00] "GET /szablon_profil HTTP/1.1" 200 -
+2025-04-21 23:16:00,930 - INFO - 127.0.0.1 - - [21/Apr/2025 23:16:00] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-21 23:16:00,944 - INFO - 127.0.0.1 - - [21/Apr/2025 23:16:00] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-21 23:16:47,837 - INFO -  * Detected change in 'C:\\Users\\admin\\Documents\\GitHub\\baza\\baza danych maxmetal\\python\\index.py', reloading
+2025-04-21 23:16:53,123 - INFO - Połączenie z bazą danych zostało nawiązane pomyślnie.
+2025-04-21 23:16:53,180 - INFO - ✅ Kopia zapasowa zapisana do pliku: backups\kopie_zapasowe_bazy_2025-04-21_23-16.sql
+2025-04-21 23:16:53,182 - INFO - 🗑️ Usunięto starą kopię: kopie_zapasowe_bazy_2025-04-21_22-43.sql
+2025-04-21 23:16:53,193 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.1.28:5000
+2025-04-21 23:16:53,194 - INFO - [33mPress CTRL+C to quit[0m
+2025-04-21 23:16:53,195 - INFO -  * Restarting with stat
+2025-04-21 23:16:55,687 - INFO - Połączenie z bazą danych zostało nawiązane pomyślnie.
+2025-04-21 23:16:55,747 - INFO - ✅ Kopia zapasowa zapisana do pliku: backups\kopie_zapasowe_bazy_2025-04-21_23-16.sql
+2025-04-21 23:16:55,755 - WARNING -  * Debugger is active!
+2025-04-21 23:16:55,758 - INFO -  * Debugger PIN: 179-082-417
+2025-04-21 23:16:56,022 - INFO - Administrator wszedł na stronę szablonów.
+2025-04-21 23:16:56,067 - INFO - 127.0.0.1 - - [21/Apr/2025 23:16:56] "GET /szablon_profil HTTP/1.1" 200 -
+2025-04-21 23:16:56,092 - INFO - 127.0.0.1 - - [21/Apr/2025 23:16:56] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-21 23:16:56,102 - INFO - 127.0.0.1 - - [21/Apr/2025 23:16:56] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-21 23:16:59,399 - INFO - Otrzymane dane do aktualizacji szablonu: {'column_0': '1', 'column_1': '12347', 'column_2': 'Zapisz'}
+2025-04-21 23:16:59,405 - INFO - Szablon o ID 1 został zaktualizowany przez Administrator.
+2025-04-21 23:16:59,406 - INFO - 127.0.0.1 - - [21/Apr/2025 23:16:59] "POST /update-row-szablon_profil HTTP/1.1" 200 -
+2025-04-21 23:17:01,105 - INFO - Administrator wszedł na stronę szablonów.
+2025-04-21 23:17:01,106 - INFO - 127.0.0.1 - - [21/Apr/2025 23:17:01] "GET /szablon_profil HTTP/1.1" 200 -
+2025-04-21 23:17:01,127 - INFO - 127.0.0.1 - - [21/Apr/2025 23:17:01] "GET /static/style.css HTTP/1.1" 200 -
+2025-04-21 23:17:01,140 - INFO - 127.0.0.1 - - [21/Apr/2025 23:17:01] "GET /static/img/logo-duże.png HTTP/1.1" 200 -
+2025-04-21 23:17:01,714 - INFO - Administrator wszedł na stronę szablonów.
+2025-04-21 23:17:01,715 - INFO - 127.0.0.1 - - [21/Apr/2025 23:17:01] "GET /szablon_profil HTTP/1.1" 200 -
+2025-04-21 23:17:01,731 - INFO - 127.0.0.1 - - [21/Apr/2025 23:17:01] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-21 23:17:01,740 - INFO - 127.0.0.1 - - [21/Apr/2025 23:17:01] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-21 23:17:04,639 - INFO - Administrator wszedł na stronę dodawania lokzlizacji.
+2025-04-21 23:17:04,643 - INFO - 127.0.0.1 - - [21/Apr/2025 23:17:04] "GET /dodaj_dlugosci HTTP/1.1" 200 -
+2025-04-21 23:17:04,669 - INFO - 127.0.0.1 - - [21/Apr/2025 23:17:04] "GET /static/style.css HTTP/1.1" 200 -
+2025-04-21 23:17:09,004 - INFO - Dlugosc 7777 został dodany przez Administrator.
+2025-04-21 23:17:09,004 - INFO - 127.0.0.1 - - [21/Apr/2025 23:17:09] "[32mPOST /dodaj_dlugosci_do_bazy HTTP/1.1[0m" 302 -
+2025-04-21 23:17:09,013 - INFO - Administrator wszedł na stronę dostawców.
+2025-04-21 23:17:09,048 - INFO - 127.0.0.1 - - [21/Apr/2025 23:17:09] "GET /dlugosci HTTP/1.1" 200 -
+2025-04-21 23:17:09,076 - INFO - 127.0.0.1 - - [21/Apr/2025 23:17:09] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-21 23:17:09,085 - INFO - 127.0.0.1 - - [21/Apr/2025 23:17:09] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-21 23:17:22,431 - INFO - Otrzymane dane do aktualizacji dlugosci: {'column_0': '4', 'column_1': '4', 'column_2': 'Zapisz'}
+2025-04-21 23:17:22,437 - INFO - Lokalizacja 4 został zaktualizowany przez Administrator.
+2025-04-21 23:17:22,437 - INFO - 127.0.0.1 - - [21/Apr/2025 23:17:22] "POST /update-row-dlugosci HTTP/1.1" 200 -
+2025-04-21 23:18:12,738 - INFO - Administrator wszedł na stronę szablonów.
+2025-04-21 23:18:12,774 - INFO - 127.0.0.1 - - [21/Apr/2025 23:18:12] "GET /szablon_profil HTTP/1.1" 200 -
+2025-04-21 23:18:12,800 - INFO - 127.0.0.1 - - [21/Apr/2025 23:18:12] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-21 23:18:12,816 - INFO - 127.0.0.1 - - [21/Apr/2025 23:18:12] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-21 23:18:14,426 - INFO - Administrator wszedł na stronę dodawania szablonu.
+2025-04-21 23:18:14,450 - INFO - 127.0.0.1 - - [21/Apr/2025 23:18:14] "[35m[1mGET /dodaj_szablon_profil HTTP/1.1[0m" 500 -
+2025-04-21 23:18:14,472 - INFO - 127.0.0.1 - - [21/Apr/2025 23:18:14] "GET /dodaj_szablon_profil?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1" 200 -
+2025-04-21 23:18:14,475 - INFO - 127.0.0.1 - - [21/Apr/2025 23:18:14] "GET /dodaj_szablon_profil?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1" 200 -
+2025-04-21 23:18:14,487 - INFO - 127.0.0.1 - - [21/Apr/2025 23:18:14] "GET /dodaj_szablon_profil?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+2025-04-21 23:18:14,489 - INFO - 127.0.0.1 - - [21/Apr/2025 23:18:14] "GET /dodaj_szablon_profil?__debugger__=yes&cmd=resource&f=console.png&s=nIb1lcsUFFsKvIiioMod HTTP/1.1" 200 -
+2025-04-21 23:18:31,610 - INFO - Administrator wszedł na stronę dodawania szablonu.
+2025-04-21 23:18:31,613 - INFO - 127.0.0.1 - - [21/Apr/2025 23:18:31] "GET /dodaj_szablon_profil HTTP/1.1" 200 -
+2025-04-21 23:18:31,630 - INFO - 127.0.0.1 - - [21/Apr/2025 23:18:31] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-21 23:18:36,261 - INFO - 127.0.0.1 - - [21/Apr/2025 23:18:36] "[35m[1mPOST /dodaj_szablon_profil_do_bazy HTTP/1.1[0m" 500 -
+2025-04-21 23:18:36,289 - INFO - 127.0.0.1 - - [21/Apr/2025 23:18:36] "GET /dodaj_szablon_profil_do_bazy?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1" 200 -
+2025-04-21 23:18:36,289 - INFO - 127.0.0.1 - - [21/Apr/2025 23:18:36] "GET /dodaj_szablon_profil_do_bazy?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1" 200 -
+2025-04-21 23:18:36,302 - INFO - 127.0.0.1 - - [21/Apr/2025 23:18:36] "GET /dodaj_szablon_profil_do_bazy?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+2025-04-21 23:18:36,305 - INFO - 127.0.0.1 - - [21/Apr/2025 23:18:36] "GET /dodaj_szablon_profil_do_bazy?__debugger__=yes&cmd=resource&f=console.png&s=nIb1lcsUFFsKvIiioMod HTTP/1.1" 200 -
+2025-04-21 23:19:08,304 - INFO -  * Detected change in 'C:\\Users\\admin\\Documents\\GitHub\\baza\\baza danych maxmetal\\python\\index.py', reloading
+2025-04-21 23:19:18,105 - INFO - Połączenie z bazą danych zostało nawiązane pomyślnie.
+2025-04-21 23:19:18,171 - INFO - ✅ Kopia zapasowa zapisana do pliku: backups\kopie_zapasowe_bazy_2025-04-21_23-19.sql
+2025-04-21 23:19:18,173 - INFO - 🗑️ Usunięto starą kopię: kopie_zapasowe_bazy_2025-04-21_22-45.sql
+2025-04-21 23:19:18,185 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.1.28:5000
+2025-04-21 23:19:18,185 - INFO - [33mPress CTRL+C to quit[0m
+2025-04-21 23:19:18,186 - INFO -  * Restarting with stat
+2025-04-21 23:19:20,581 - INFO - Połączenie z bazą danych zostało nawiązane pomyślnie.
+2025-04-21 23:19:20,639 - INFO - ✅ Kopia zapasowa zapisana do pliku: backups\kopie_zapasowe_bazy_2025-04-21_23-19.sql
+2025-04-21 23:19:20,646 - WARNING -  * Debugger is active!
+2025-04-21 23:19:20,650 - INFO -  * Debugger PIN: 179-082-417
+2025-04-21 23:19:20,920 - ERROR - Nie udało się zapisać danych: (pymysql.err.IntegrityError) (1048, "Column 'nazwa' cannot be null")
+[SQL: INSERT INTO szablon_profile (nazwa) VALUES (%(nazwa)s)]
+[parameters: {'nazwa': None}]
+(Background on this error at: https://sqlalche.me/e/20/gkpj)
+2025-04-21 23:19:20,967 - INFO - 127.0.0.1 - - [21/Apr/2025 23:19:20] "POST /dodaj_szablon_profil_do_bazy HTTP/1.1" 200 -
+2025-04-21 23:19:21,009 - INFO - 127.0.0.1 - - [21/Apr/2025 23:19:21] "GET /static/style.css HTTP/1.1" 200 -
+2025-04-21 23:19:21,025 - INFO - 127.0.0.1 - - [21/Apr/2025 23:19:21] "GET /static/img/logo-duże.png HTTP/1.1" 200 -
+2025-04-21 23:19:27,341 - ERROR - Nie udało się zapisać danych: (pymysql.err.IntegrityError) (1048, "Column 'nazwa' cannot be null")
+[SQL: INSERT INTO szablon_profile (nazwa) VALUES (%(nazwa)s)]
+[parameters: {'nazwa': None}]
+(Background on this error at: https://sqlalche.me/e/20/gkpj)
+2025-04-21 23:19:27,343 - INFO - 127.0.0.1 - - [21/Apr/2025 23:19:27] "POST /dodaj_szablon_profil_do_bazy HTTP/1.1" 200 -
+2025-04-21 23:19:27,365 - INFO - 127.0.0.1 - - [21/Apr/2025 23:19:27] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-21 23:19:27,376 - INFO - 127.0.0.1 - - [21/Apr/2025 23:19:27] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-21 23:19:38,182 - INFO - Administrator wszedł na stronę dodawania szablonu.
+2025-04-21 23:19:38,185 - INFO - 127.0.0.1 - - [21/Apr/2025 23:19:38] "GET /dodaj_szablon_profil HTTP/1.1" 200 -
+2025-04-21 23:19:38,219 - INFO - 127.0.0.1 - - [21/Apr/2025 23:19:38] "GET /static/style.css HTTP/1.1" 200 -
+2025-04-21 23:19:38,236 - INFO - 127.0.0.1 - - [21/Apr/2025 23:19:38] "GET /static/img/logo-duże.png HTTP/1.1" 200 -
+2025-04-21 23:19:41,282 - ERROR - Nie udało się zapisać danych: (pymysql.err.IntegrityError) (1048, "Column 'nazwa' cannot be null")
+[SQL: INSERT INTO szablon_profile (nazwa) VALUES (%(nazwa)s)]
+[parameters: {'nazwa': None}]
+(Background on this error at: https://sqlalche.me/e/20/gkpj)
+2025-04-21 23:19:41,284 - INFO - 127.0.0.1 - - [21/Apr/2025 23:19:41] "POST /dodaj_szablon_profil_do_bazy HTTP/1.1" 200 -
+2025-04-21 23:19:41,306 - INFO - 127.0.0.1 - - [21/Apr/2025 23:19:41] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-21 23:19:41,319 - INFO - 127.0.0.1 - - [21/Apr/2025 23:19:41] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-21 23:20:21,017 - INFO - Administrator wszedł na stronę szablonów.
+2025-04-21 23:20:21,018 - INFO - 127.0.0.1 - - [21/Apr/2025 23:20:21] "GET /szablon_profil HTTP/1.1" 200 -
+2025-04-21 23:20:21,041 - INFO - 127.0.0.1 - - [21/Apr/2025 23:20:21] "GET /static/style.css HTTP/1.1" 200 -
+2025-04-21 23:20:21,055 - INFO - 127.0.0.1 - - [21/Apr/2025 23:20:21] "GET /static/img/logo-duże.png HTTP/1.1" 200 -
+2025-04-21 23:21:29,578 - INFO - Administrator wszedł na stronę szablonów.
+2025-04-21 23:21:29,579 - INFO - 127.0.0.1 - - [21/Apr/2025 23:21:29] "GET /szablon_profil HTTP/1.1" 200 -
+2025-04-21 23:21:29,602 - INFO - 127.0.0.1 - - [21/Apr/2025 23:21:29] "GET /static/style.css HTTP/1.1" 200 -
+2025-04-21 23:21:29,617 - INFO - 127.0.0.1 - - [21/Apr/2025 23:21:29] "GET /static/img/logo-duże.png HTTP/1.1" 200 -
+2025-04-21 23:21:32,447 - INFO - Administrator wszedł na stronę dodawania szablonu.
+2025-04-21 23:21:32,450 - INFO - 127.0.0.1 - - [21/Apr/2025 23:21:32] "GET /dodaj_szablon_profil HTTP/1.1" 200 -
+2025-04-21 23:21:32,478 - INFO - 127.0.0.1 - - [21/Apr/2025 23:21:32] "GET /static/style.css HTTP/1.1" 200 -
+2025-04-21 23:21:34,684 - ERROR - Nie udało się zapisać danych: (pymysql.err.IntegrityError) (1048, "Column 'nazwa' cannot be null")
+[SQL: INSERT INTO szablon_profile (nazwa) VALUES (%(nazwa)s)]
+[parameters: {'nazwa': None}]
+(Background on this error at: https://sqlalche.me/e/20/gkpj)
+2025-04-21 23:21:34,685 - INFO - 127.0.0.1 - - [21/Apr/2025 23:21:34] "POST /dodaj_szablon_profil_do_bazy HTTP/1.1" 200 -
+2025-04-21 23:21:34,706 - INFO - 127.0.0.1 - - [21/Apr/2025 23:21:34] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-21 23:21:34,716 - INFO - 127.0.0.1 - - [21/Apr/2025 23:21:34] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-21 23:22:11,370 - ERROR - Nie udało się zapisać danych: (pymysql.err.IntegrityError) (1048, "Column 'nazwa' cannot be null")
+[SQL: INSERT INTO szablon_profile (nazwa) VALUES (%(nazwa)s)]
+[parameters: {'nazwa': None}]
+(Background on this error at: https://sqlalche.me/e/20/gkpj)
+2025-04-21 23:22:11,372 - INFO - 127.0.0.1 - - [21/Apr/2025 23:22:11] "POST /dodaj_szablon_profil_do_bazy HTTP/1.1" 200 -
+2025-04-21 23:22:11,391 - INFO - 127.0.0.1 - - [21/Apr/2025 23:22:11] "GET /static/style.css HTTP/1.1" 200 -
+2025-04-21 23:22:11,407 - INFO - 127.0.0.1 - - [21/Apr/2025 23:22:11] "GET /static/img/logo-duże.png HTTP/1.1" 200 -
+2025-04-21 23:22:13,961 - INFO - Administrator wszedł na stronę dodawania szablonu.
+2025-04-21 23:22:13,964 - INFO - 127.0.0.1 - - [21/Apr/2025 23:22:13] "GET /dodaj_szablon_profil HTTP/1.1" 200 -
+2025-04-21 23:22:13,993 - INFO - 127.0.0.1 - - [21/Apr/2025 23:22:13] "GET /static/style.css HTTP/1.1" 200 -
+2025-04-21 23:22:17,437 - INFO - Szablon 6666 został dodany przez Administrator.
+2025-04-21 23:22:17,437 - INFO - 127.0.0.1 - - [21/Apr/2025 23:22:17] "[32mPOST /dodaj_szablon_profil_do_bazy HTTP/1.1[0m" 302 -
+2025-04-21 23:22:17,444 - INFO - Administrator wszedł na stronę szablonów.
+2025-04-21 23:22:17,445 - INFO - 127.0.0.1 - - [21/Apr/2025 23:22:17] "GET /szablon_profil HTTP/1.1" 200 -
+2025-04-21 23:22:17,475 - INFO - 127.0.0.1 - - [21/Apr/2025 23:22:17] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-21 23:22:17,486 - INFO - 127.0.0.1 - - [21/Apr/2025 23:22:17] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-21 23:22:18,384 - INFO - Administrator wszedł na stronę szablonów.
+2025-04-21 23:22:18,385 - INFO - 127.0.0.1 - - [21/Apr/2025 23:22:18] "GET /szablon_profil HTTP/1.1" 200 -
+2025-04-21 23:22:18,405 - INFO - 127.0.0.1 - - [21/Apr/2025 23:22:18] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-21 23:22:18,415 - INFO - 127.0.0.1 - - [21/Apr/2025 23:22:18] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-21 23:25:23,550 - INFO - Administrator wszedł na stronę główną.
+2025-04-21 23:25:23,627 - INFO - 127.0.0.1 - - [21/Apr/2025 23:25:23] "GET / HTTP/1.1" 200 -
+2025-04-21 23:25:23,658 - INFO - 127.0.0.1 - - [21/Apr/2025 23:25:23] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-21 23:25:23,664 - INFO - 127.0.0.1 - - [21/Apr/2025 23:25:23] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-21 23:25:25,196 - INFO - Administrator wszedł na stronę zestawienia.
+2025-04-21 23:25:25,276 - INFO - 127.0.0.1 - - [21/Apr/2025 23:25:25] "GET /zestawienie HTTP/1.1" 200 -
+2025-04-21 23:25:25,302 - INFO - 127.0.0.1 - - [21/Apr/2025 23:25:25] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-21 23:25:25,308 - INFO - 127.0.0.1 - - [21/Apr/2025 23:25:25] "[36mGET /static/img/drukarka.png HTTP/1.1[0m" 304 -
+2025-04-21 23:25:25,314 - INFO - 127.0.0.1 - - [21/Apr/2025 23:25:25] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-21 23:25:26,139 - INFO - Administrator wszedł na stronę główną.
+2025-04-21 23:25:26,140 - INFO - 127.0.0.1 - - [21/Apr/2025 23:25:26] "GET / HTTP/1.1" 200 -
+2025-04-21 23:25:26,166 - INFO - 127.0.0.1 - - [21/Apr/2025 23:25:26] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-21 23:25:26,171 - INFO - 127.0.0.1 - - [21/Apr/2025 23:25:26] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-21 23:25:26,898 - INFO - Administrator wszedł na stronę szablonów.
+2025-04-21 23:25:26,940 - INFO - 127.0.0.1 - - [21/Apr/2025 23:25:26] "GET /szablon_profil HTTP/1.1" 200 -
+2025-04-21 23:25:26,962 - INFO - 127.0.0.1 - - [21/Apr/2025 23:25:26] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-21 23:25:26,973 - INFO - 127.0.0.1 - - [21/Apr/2025 23:25:26] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-21 23:25:28,133 - INFO - Administrator wszedł na stronę główną.
+2025-04-21 23:25:28,134 - INFO - 127.0.0.1 - - [21/Apr/2025 23:25:28] "GET / HTTP/1.1" 200 -
+2025-04-21 23:25:28,158 - INFO - 127.0.0.1 - - [21/Apr/2025 23:25:28] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-21 23:25:28,163 - INFO - 127.0.0.1 - - [21/Apr/2025 23:25:28] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -

@@ -1153,5 +1153,75 @@ def update_row_dlugosci():
         db.session.rollback()
         logger.error(f'Wystąpił błąd podczas aktualizacji: {str(e)}')
         return jsonify({'message': 'Wystąpił błąd podczas aktualizacji!', 'error': str(e)}), 500
+@app.route('/szablon_profil')
+def szablon_profil():
+    if not g.user:
+        return render_template('login.html', user=g.user)
+    if g.user.id_uprawnienia ==3:
+        return redirect(url_for('home'))
+    
+    szablon_profil = Szablon_profil.query.all()
+    logger.info(f"{g.user.login} wszedł na stronę szablonów.")
+    return render_template("szablon_profil.html", user=g.user, szablon_profil=szablon_profil)
+@app.route('/dodaj_szablon_profil')
+def dodaj_szablon_profil():
+    if not g.user:
+        return render_template('login.html', user=g.user)
+    if g.user.id_uprawnienia ==3:
+        return redirect(url_for('home'))
+
+    logger.info(f"{g.user.login} wszedł na stronę dodawania szablonu.")
+    return render_template("dodaj_szablon_profil.html", user=g.user)
+@app.route('/dodaj_szablon_profil_do_bazy', methods=['POST'])
+def dodaj_szablon_profil_do_bazy():
+    if not g.user:
+        return render_template('login.html', user=g.user)
+    if g.user.id_uprawnienia ==3:
+        return redirect(url_for('home'))
+    
+    if request.method == 'POST':
+        nazwa = request.form.get('nazwa_szablonu')
+        
+        
+        nowy_szablon_profil = Szablon_profil(nazwa=nazwa)
+        db.session.add(nowy_szablon_profil)
+
+        try:
+            db.session.commit()
+            logger.info(f"Szablon {nazwa} został dodany przez {g.user.login}.")
+            return redirect(url_for('szablon_profil'))  # Przekierowanie na stronę szablonów
+        except Exception as e:
+            db.session.rollback()
+            logger.error(f"Nie udało się zapisać danych: {e}")
+            return render_template('szablon_profil.html', error="Wystąpił błąd przy zapisywaniu danych.", user=g.user)
+@app.route('/update-row-szablon_profil', methods=['POST'])
+def update_row_szablon_profil():
+    if not g.user:
+        return render_template('login.html', user=g.user)
+    if g.user.id_uprawnienia ==3:
+        return redirect(url_for('home'))
+    
+    try:
+        dane = request.get_json()
+        logger.info(f'Otrzymane dane do aktualizacji szablonu: {dane}')
+
+        id = dane.get('column_0')
+        if id is None:
+            return jsonify({'message': 'Id jest wymagane!'}), 400
+
+        szablon_profil = Szablon_profil.query.get(id)
+        if szablon_profil is None:
+            return jsonify({'message': 'Rekord nie znaleziony!'}), 404
+
+        szablon_profil.nazwa = dane.get('column_1', szablon_profil.nazwa)
+
+
+        db.session.commit()
+        logger.info(f"Szablon o ID {id} został zaktualizowany przez {g.user.login}.")
+        return jsonify({'message': 'Rekord zaktualizowany pomyślnie!'})
+    except Exception as e:
+        db.session.rollback()
+        logger.error(f'Wystąpił błąd podczas aktualizacji: {str(e)}')
+        return jsonify({'message': 'Wystąpił błąd podczas aktualizacji!', 'error': str(e)}), 500
 if __name__ == "__main__":
     app.run(host='0.0.0.0', port=5000, debug=True)

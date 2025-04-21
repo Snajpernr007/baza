@@ -156,7 +156,7 @@ function openEditModal(row) {
 }
 
 function sendDataToBackend(data) {
-    fetch('/update-row-dostawcy', {
+    fetch('/update-row-szablon_profil', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
@@ -225,7 +225,11 @@ window.open(url, '_blank', windowFeatures); // '_blank' otworzy nowe okno/tab
                             <a href="{{ url_for('uzytkownik') }}"><label for="menuCheckbox" onclick="this.parentNode.click();">Uzytkownicy</label></a>
                         </li>
                         {% endif %}
-                        
+                        {% if g.user.id_uprawnienia==1 or g.user.id_uprawnienia==2%}
+                        <li>
+                            <a href="{{ url_for('dostawcy') }}"><label for="menuCheckbox" onclick="this.parentNode.click();">Dostawcy</label></a>
+                        </li>
+                        {% endif %}
                         {% if g.user.id_uprawnienia==1 or g.user.id_uprawnienia==2%}
                         <li>
                             <a href="{{ url_for('szablon') }}"><label for="menuCheckbox" onclick="this.parentNode.click();">Nazwy</label></a>
@@ -241,22 +245,16 @@ window.open(url, '_blank', windowFeatures); // '_blank' otworzy nowe okno/tab
                             <a href="{{ url_for('dlugosci') }}"><label for="menuCheckbox" onclick="this.parentNode.click();">Długości</label></a>
                         </li>
                         {% endif %}
-                        {% if g.user.id_uprawnienia==1 or g.user.id_uprawnienia==2%}
-                        <li>
-                            <a href="{{ url_for('szablon_profil') }}"><label for="menuCheckbox" onclick="this.parentNode.click();">Nazwy profili</label></a>
-                        </li>
-                        {% endif %}
                         {% if g.user.id_uprawnienia==1 %}
                         <li>
                             <a href="{{ url_for('zestawienie') }}"><label for="menuCheckbox" onclick="this.parentNode.click();">Zestawienie</label></a>
                         </li>
                         {% endif %}
-
                         <li>
                             <a href=javascript:history.back();><label for="menuCheckbox" onclick="this.parentNode.click();">Powrót</label></a>
                         </li>
                             <li>
-                                <a href="{{ url_for('dodaj_dostawce') }}";><label for="menuCheckbox" onclick="this.parentNode.click();">Dodaj Dostawcę</label></a>
+                                <a href="{{ url_for('dodaj_szablon_profil') }}";><label for="menuCheckbox" onclick="this.parentNode.click();">Dodaj nr części klienta</label></a>
                             </li>
                             
                             <li>
@@ -285,24 +283,24 @@ window.open(url, '_blank', windowFeatures); // '_blank' otworzy nowe okno/tab
                 <thead>
                     <tr>
                         <th><input type="text" placeholder="Filtruj ID" onkeyup="filterColumn(0)"></th>
-                        <th><input type="text" placeholder="Filtruj Dostawcę" onkeyup="filterColumn(1)"></th>
+                        <th><input type="text" placeholder="Filtruj Nr części klienta" onkeyup="filterColumn(1)"></th>
                         
                         
                         <th><button class="button" onclick="resetFilters()">Usuń Filtry</button></th>
                     </tr>
                     <tr>
                         <th onclick="sortTable(0)">ID &#9650;&#9660;</th>
-                        <th onclick="sortTable(1)">Nazwa Dostawcy &#9650;&#9660;</th>
+                        <th onclick="sortTable(1)">Nr części klienta &#9650;&#9660;</th>
                         
                         
                         <th>Edycja</th>
                     </tr>
                 </thead>
                 <tbody>
-                    {% for dostawca in dostawcy %}
+                    {% for szablony_profile in szablon_profil %}
                         <tr>
-                            <td>{{ dostawca.id }} </td>
-                            <td>{{ dostawca.nazwa }}</td>
+                            <td>{{ szablony_profile.id }} </td>
+                            <td>{{ szablony_profile.nazwa }}</td>
 
                             
                             <td><button type="button" class="button" onclick="openEditModal(this.parentElement.parentElement)">Edytuj</button></td>
