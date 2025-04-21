@@ -64,6 +64,13 @@ class Lokalizacja(db.Model):
 
     def __repr__(self):
         return f"<Lokalizacja {self.id} - {self.nazwa}>"
+class Szablon_profil(db.Model):
+    __tablename__ = 'szablon_profile'
+    id = db.Column(db.Integer, primary_key=True, autoincrement=True)
+    nazwa = db.Column(db.String(255), nullable=False)
+
+    def __repr__(self):
+        return f"<Lokalizacja {self.id} - {self.nazwa}>"
 class Dlugosci(db.Model):
     __tablename__ = 'dlugosci'
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)
@@ -131,7 +138,7 @@ class Profil(db.Model):
     godz_min_rozpoczecia = db.Column(db.Time, nullable=False)
     godz_min_zakonczenia = db.Column(db.Time, nullable=False)
     zwrot_na_magazyn_kg = db.Column(db.Numeric(10, 2), nullable=True)
-    nr_czesci_klienta = db.Column(db.String(50), nullable=False)
+    id_szablon_profile = db.Column(db.Integer, db.ForeignKey('szablon_profile.id'), nullable=False)
     nazwa_klienta_nr_zlecenia_PRODIO = db.Column(db.String(100), nullable=True)
     ilosc=db.Column(db.Integer, nullable=False)
     ilosc_na_stanie = db.Column(db.Integer, nullable=True)
@@ -142,8 +149,9 @@ class Profil(db.Model):
     tasma = db.relationship('Tasma', back_populates='profil')
     pracownik = db.relationship('Uzytkownik', back_populates='profil')
     dlugosci = db.relationship('Dlugosci', back_populates='profil')
+    szablon_profile= db.relationship('Szablon_profil', backref='profil')
     def __repr__(self):
-        return f"<Profil {self.id} - {self.nr_czesci_klienta}>"
+        return f"<Profil {self.id} - {self.id_szablon_profile}>"
 
 class Dostawcy(db.Model):
     __tablename__ = 'dostawcy'
@@ -319,7 +327,10 @@ def rejestracja_do_bazy():
 def get_uprawnienia():
     uprawnienia = Uprawnienia.query.all()
     return jsonify([{"id": u.id_uprawnienia, "nazwa": u.nazwa} for u in uprawnienia])
-
+@app.route('/get-szablon_profile', methods=['GET'])
+def get_szablon_profile():
+    szablon_profil = Szablon_profil.query.all()
+    return jsonify([{"id": s.id, "nazwa": s.nazwa} for s in szablon_profil])
 @app.route('/get-szablon', methods=['GET'])
 def get_szablon():
     szablon = Szablon.query.all()
@@ -657,7 +668,7 @@ def usun_profil(id):
     try:
         db.session.delete(profil)
         db.session.commit()
-        logger.info(f"Profil {profil.nr_czesci_klienta} został usunięty przez {g.user.login}.")
+        logger.info(f"Profil {profil.id_szablon_profile} został usunięty przez {g.user.login}.")
         flash('Profil został usunięty.', 'success')
     except Exception as e:
         db.session.rollback()
@@ -696,7 +707,7 @@ def update_row_profil():
         if 'column_5' in dane:
             profil.zwrot_na_magazyn_kg = dane['column_5']  # Zwrot na magazyn
         if 'column_6' in dane:
-            profil.nr_czesci_klienta = dane['column_6']  # Nr części klienta
+            profil.id_szablon_profile = dane['column_6']  # Nr części klienta
         if 'column_7' in dane:
             profil.nazwa_klienta_nr_zlecenia_PRODIO = dane['column_7']  # Nazwa klienta
         if 'column_8' in dane:
@@ -722,8 +733,9 @@ def dodaj_profil():
     
     tasmy = Tasma.query.all()
     dlugosci = Dlugosci.query.all()
+    szablony=Szablon_profil.query.all()
     logger.info(f"{g.user.login} wszedł na stronę dodawania profilu.")
-    return render_template("dodaj_profil.html", user=g.user, tasmy=tasmy,dlugosci=dlugosci)
+    return render_template("dodaj_profil.html", user=g.user, tasmy=tasmy,dlugosci=dlugosci,szablony=szablony)
 
 @app.route('/dodaj_lub_zakonczenie_profilu', methods=['GET', 'POST'])
 def dodaj_lub_zakonczenie_profilu():
@@ -750,7 +762,7 @@ def dodaj_lub_zakonczenie_profilu():
             id_tasmy=request.form.get('etykieta'),
             data_produkcji=request.form.get('data_produkcji'),
             godz_min_rozpoczecia=request.form.get('godz_min_rozpoczecia'),
-            nr_czesci_klienta=request.form.get('nr_czesci_klienta'),
+            id_szablon_profile=request.form.get('szablon_profile'),
             nazwa_klienta_nr_zlecenia_PRODIO=request.form.get('nazwa_klienta_nr_zlecenia_PRODIO'),
             id_pracownika=g.user.id,
             Data_do_usuwania=date.today() + timedelta(days=365)
@@ -786,6 +798,7 @@ def dodaj_profil_do_bazy():
         dlugosci=dlugosci,
         teraz=teraz,
         dzisiaj=dzisiaj,
+        szablony=Szablon_profil.query.all(),
         ilosc=Tasma.query.get(profil.id_tasmy).waga_kregu_na_stanie if profil else None
     )
 @app.route('/dostawcy')

@@ -84,6 +84,16 @@ function filtrujDlugosci() {
         option.style.display = text.includes(input) ? "" : "none";
     }
 }
+function filtruSzablon() {
+    let input = document.getElementById("szukaj_szablon").value.toLowerCase();
+    let select = document.getElementById("szablon_profile");
+    let options = select.getElementsByTagName("option");
+
+    for (let option of options) {
+        let text = option.textContent.toLowerCase();
+        option.style.display = text.includes(input) ? "" : "none";
+    }
+}
 </script>
 </head>
 <body>
@@ -110,8 +120,15 @@ function filtrujDlugosci() {
                 <input type="hidden" name="data_produkcji" value="{{ dzisiaj }}">
                 <input type="hidden" name="godz_min_rozpoczecia" value="{{ teraz }}">
         
-                <label for="nr_czesci_klienta">Nr Części Klienta:</label>
-                <input type="text" name="nr_czesci_klienta" required><br>
+                <label for="szablon">Nr części klienta:</label><br>
+                <input type="text" id="szukaj_szablon" onkeyup="filtrujSzablon()" placeholder="Szukaj numeru części klienta..."><br>
+                <select id="szablon_profile" name="szablon_profile" required>
+                    {% for szablon_profile in szablony%}
+                    
+                    <option value="{{ szablon_profile.id }}">{{ szablon_profile.nazwa }}</option>
+                    
+                    {% endfor %}
+                </select><br>
         
                 <label for="nazwa_klienta_nr_zlecenia_PRODIO">Nazwa Klienta / Nr Zlecenia:</label>
                 <input type="text" name="nazwa_klienta_nr_zlecenia_PRODIO" required><br>

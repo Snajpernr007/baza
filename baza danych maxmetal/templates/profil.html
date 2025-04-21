@@ -243,6 +243,8 @@ function sendDataToBackenda(data) {
                 filterCells += `<td><input type="text" placeholder="Filtruj Materiał" onkeyup="filterTasmy(this.value)" style="width: 100%;"></td>`;
             }else if (i === 10) {
                 filterCells += `<td><input type="text" placeholder="Filtruj Długość" onkeyup="filterDlugosc(this.value)" style="width: 100%;"></td>`;
+            }else if (i ===6) {
+                filterCells += `<td><input type="text" placeholder="Filtruj Nr części klienta" onkeyup="filterSzablon_profile(this.value)" style="width: 100%;"></td>`;
             }else {
                 filterCells += `<td></td>`; // Puste komórki dla pozostałych kolumn
             }
@@ -264,6 +266,10 @@ function sendDataToBackenda(data) {
         } else if (index === 5 ) { // Weight fields
             const value = cell.innerText;
             cell.innerHTML = `<input type="number" value="${value}" step="0.01" style="width: 100%;">`;
+        }else if (index === 6  ) { // Weight fields
+            const currentSzablon_profileId = cell.getAttribute("data-szblon_profile-id");
+            cell.innerHTML = `<select style="width: 100%;" id="szablon_profileSelect"></select>`;
+            populateSzablon_profile(cell.querySelector("#szablon_profileSelect"), currentSzablon_profileId);
         }else if (index === 3 || index==4 ) { // Weight fields
             const value = cell.innerText;
             cell.innerHTML = `<input type="time" value="${value}" step="2" style="width: 100%;">`;
@@ -377,7 +383,34 @@ function filterDlugosc(searchTerm) {
         options[i].style.display = optionText.includes(searchTerm.toLowerCase()) ? "" : "none";
     }
 }
+function populateSzablon_profile(selectElement, selectedValue) {
+    fetch('/get-szablon_profile')
+        .then(response => response.json())
+        .then(data => {
+            data.forEach(szablon_profile => {
+                const option = document.createElement('option');
+                option.value = szablon_profile.id;
+                option.textContent = szablon_profile.nazwa;
+                selectElement.appendChild(option);
+            });
 
+            if (selectedValue) {
+                selectElement.value = selectedValue;
+            }
+        })
+        .catch(error => console.error('Błąd podczas pobierania szablou profilu:', error));
+}
+
+
+function filterSzablon_profile(searchTerm) {
+    const select = document.getElementById("szablon_profileSelect");
+    const options = select.options;
+
+    for (let i = 0; i < options.length; i++) {
+        const optionText = options[i].text.toLowerCase();
+        options[i].style.display = optionText.includes(searchTerm.toLowerCase()) ? "" : "none";
+    }
+}
 function sendDataToBackend(data) {
     
     console.log("Wysyłanie danych:", data); // Dodaj to
@@ -543,7 +576,7 @@ function sendDataToBackend(data) {
                                 <td>{{ profile.godz_min_rozpoczecia }}</td>
                                 <td>{{ profile.godz_min_zakonczenia }}</td>
                                 <td>{{ profile.zwrot_na_magazyn_kg }}</td>
-                                <td>{{ profile.nr_czesci_klienta }}</td>
+                                <td data-szablon_profile-id="{{profile.szablon_profile.id}}">{{ profile.szablon_profile.nazwa }}</td>
                                 <td>{{ profile.nazwa_klienta_nr_zlecenia_PRODIO }}</td>
                                 <td>{{ profile.ilosc }}</td>
                                 <td>{{profile.ilosc_na_stanie}}</td>
@@ -576,7 +609,7 @@ function sendDataToBackend(data) {
                                     <td>{{ profile.godz_min_rozpoczecia }}</td>
                                     <td>{{ profile.godz_min_zakonczenia }}</td>
                                     <td>{{ profile.zwrot_na_magazyn_kg }}</td>
-                                    <td>{{ profile.nr_czesci_klienta }}</td>
+                                    <td>{{ profile.szablon_profile.nazwa }}</td>
                                     <td>{{ profile.nazwa_klienta_nr_zlecenia_PRODIO }}</td>
                                     <td>{{profile.ilosc}}</td>
                                     <td>{{profile.ilosc_na_stanie}}</td>
@@ -603,7 +636,7 @@ function sendDataToBackend(data) {
                                     <td>{{ profile.godz_min_rozpoczecia }}</td>
                                     <td>{{ profile.godz_min_zakonczenia }}</td>
                                     <td>{{ profile.zwrot_na_magazyn_kg }}</td>
-                                    <td>{{ profile.nr_czesci_klienta }}</td>
+                                    <td>{{ profile.szablon_profile.nazwa }}</td>
                                     <td>{{ profile.nazwa_klienta_nr_zlecenia_PRODIO }}</td>
                                     <td>{{profile.ilosc}}</td>
                                     <td>{{profile.ilosc_na_stanie}}</td>
@@ -632,7 +665,7 @@ function sendDataToBackend(data) {
                                     <td>{{ profile.godz_min_rozpoczecia }}</td>
                                     <td>{{ profile.godz_min_zakonczenia }}</td>
                                     <td>{{ profile.zwrot_na_magazyn_kg }}</td>
-                                    <td>{{ profile.nr_czesci_klienta }}</td>
+                                    <td>{{ profile.szablon_profile.nazwa }}</td>
                                     <td>{{ profile.nazwa_klienta_nr_zlecenia_PRODIO }}</td>
                                     <td>{{profile.ilosc}}</td>
                                     <td>{{profile.ilosc_na_stanie}}</td>

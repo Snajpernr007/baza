@@ -2392,3 +2392,562 @@
 2025-04-21 18:25:54,019 - INFO - 127.0.0.1 - - [21/Apr/2025 18:25:54] "GET /static/style.css HTTP/1.1" 200 -
 2025-04-21 18:25:54,040 - INFO - 127.0.0.1 - - [21/Apr/2025 18:25:54] "GET /static/img/logo-duże.png HTTP/1.1" 200 -
 2025-04-21 18:25:56,113 - INFO - 127.0.0.1 - - [21/Apr/2025 18:25:56] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-04-21 19:27:57,454 - INFO - test3 wszedł na stronę główną.
+2025-04-21 19:27:57,456 - INFO - 127.0.0.1 - - [21/Apr/2025 19:27:57] "GET / HTTP/1.1" 200 -
+2025-04-21 19:27:57,496 - INFO - 127.0.0.1 - - [21/Apr/2025 19:27:57] "GET /static/style.css HTTP/1.1" 200 -
+2025-04-21 19:27:57,505 - INFO - 127.0.0.1 - - [21/Apr/2025 19:27:57] "GET /static/img/logo-duże.png HTTP/1.1" 200 -
+2025-04-21 19:27:58,900 - INFO - test3 wszedł na stronę profilu.
+2025-04-21 19:27:58,910 - INFO - 127.0.0.1 - - [21/Apr/2025 19:27:58] "GET /profil HTTP/1.1" 200 -
+2025-04-21 19:27:58,935 - INFO - 127.0.0.1 - - [21/Apr/2025 19:27:58] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-21 19:27:58,951 - INFO - 127.0.0.1 - - [21/Apr/2025 19:27:58] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-21 19:29:40,798 - INFO - test3 wszedł na stronę dodawania profilu.
+2025-04-21 19:29:40,800 - INFO - 127.0.0.1 - - [21/Apr/2025 19:29:40] "GET /dodaj_profil HTTP/1.1" 200 -
+2025-04-21 19:29:40,834 - INFO - 127.0.0.1 - - [21/Apr/2025 19:29:40] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-21 19:29:43,997 - INFO - 127.0.0.1 - - [21/Apr/2025 19:29:43] "[32mPOST /dodaj_lub_zakonczenie_profilu HTTP/1.1[0m" 302 -
+2025-04-21 19:29:44,008 - INFO - test3 wszedł na stronę profilu.
+2025-04-21 19:29:44,015 - INFO - 127.0.0.1 - - [21/Apr/2025 19:29:44] "GET /profil HTTP/1.1" 200 -
+2025-04-21 19:29:44,048 - INFO - 127.0.0.1 - - [21/Apr/2025 19:29:44] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-21 19:29:44,059 - INFO - 127.0.0.1 - - [21/Apr/2025 19:29:44] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-21 19:29:46,613 - INFO - 127.0.0.1 - - [21/Apr/2025 19:29:46] "POST /dodaj_profil_do_bazy HTTP/1.1" 200 -
+2025-04-21 19:29:46,647 - INFO - 127.0.0.1 - - [21/Apr/2025 19:29:46] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-21 19:29:55,972 - INFO - 127.0.0.1 - - [21/Apr/2025 19:29:55] "[32mPOST /dodaj_lub_zakonczenie_profilu HTTP/1.1[0m" 302 -
+2025-04-21 19:29:55,982 - INFO - test3 wszedł na stronę profilu.
+2025-04-21 19:29:55,993 - INFO - 127.0.0.1 - - [21/Apr/2025 19:29:55] "GET /profil HTTP/1.1" 200 -
+2025-04-21 19:29:56,018 - INFO - 127.0.0.1 - - [21/Apr/2025 19:29:56] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-21 19:29:56,031 - INFO - 127.0.0.1 - - [21/Apr/2025 19:29:56] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-21 19:29:58,650 - INFO - test3 wszedł na stronę dodawania profilu.
+2025-04-21 19:29:58,651 - INFO - 127.0.0.1 - - [21/Apr/2025 19:29:58] "GET /dodaj_profil HTTP/1.1" 200 -
+2025-04-21 19:29:58,683 - INFO - 127.0.0.1 - - [21/Apr/2025 19:29:58] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-21 19:31:30,284 - INFO - test3 wszedł na stronę dodawania profilu.
+2025-04-21 19:31:30,335 - INFO - 127.0.0.1 - - [21/Apr/2025 19:31:30] "[35m[1mGET /dodaj_profil HTTP/1.1[0m" 500 -
+2025-04-21 19:31:30,362 - INFO - 127.0.0.1 - - [21/Apr/2025 19:31:30] "GET /dodaj_profil?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1" 200 -
+2025-04-21 19:31:30,364 - INFO - 127.0.0.1 - - [21/Apr/2025 19:31:30] "GET /dodaj_profil?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1" 200 -
+2025-04-21 19:31:30,384 - INFO - 127.0.0.1 - - [21/Apr/2025 19:31:30] "GET /dodaj_profil?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+2025-04-21 19:31:30,388 - INFO - 127.0.0.1 - - [21/Apr/2025 19:31:30] "GET /dodaj_profil?__debugger__=yes&cmd=resource&f=console.png&s=Sw3H0hW88KPBGS7NC2HO HTTP/1.1" 200 -
+2025-04-21 19:31:51,575 - INFO - test3 wszedł na stronę dodawania profilu.
+2025-04-21 19:31:51,615 - INFO - 127.0.0.1 - - [21/Apr/2025 19:31:51] "[35m[1mGET /dodaj_profil HTTP/1.1[0m" 500 -
+2025-04-21 19:31:51,642 - INFO - 127.0.0.1 - - [21/Apr/2025 19:31:51] "[36mGET /dodaj_profil?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+2025-04-21 19:31:51,644 - INFO - 127.0.0.1 - - [21/Apr/2025 19:31:51] "[36mGET /dodaj_profil?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+2025-04-21 19:31:51,663 - INFO - 127.0.0.1 - - [21/Apr/2025 19:31:51] "[36mGET /dodaj_profil?__debugger__=yes&cmd=resource&f=console.png&s=Sw3H0hW88KPBGS7NC2HO HTTP/1.1[0m" 304 -
+2025-04-21 19:32:16,855 - INFO - test3 wszedł na stronę dodawania profilu.
+2025-04-21 19:32:16,888 - INFO - 127.0.0.1 - - [21/Apr/2025 19:32:16] "[35m[1mGET /dodaj_profil HTTP/1.1[0m" 500 -
+2025-04-21 19:32:16,911 - INFO - 127.0.0.1 - - [21/Apr/2025 19:32:16] "[36mGET /dodaj_profil?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+2025-04-21 19:32:16,912 - INFO - 127.0.0.1 - - [21/Apr/2025 19:32:16] "[36mGET /dodaj_profil?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+2025-04-21 19:32:16,932 - INFO - 127.0.0.1 - - [21/Apr/2025 19:32:16] "[36mGET /dodaj_profil?__debugger__=yes&cmd=resource&f=console.png&s=Sw3H0hW88KPBGS7NC2HO HTTP/1.1[0m" 304 -
+2025-04-21 19:32:25,305 - INFO - test3 wszedł na stronę dodawania profilu.
+2025-04-21 19:32:25,317 - INFO - 127.0.0.1 - - [21/Apr/2025 19:32:25] "GET /dodaj_profil HTTP/1.1" 200 -
+2025-04-21 19:32:25,383 - INFO - 127.0.0.1 - - [21/Apr/2025 19:32:25] "GET /static/style.css HTTP/1.1" 200 -
+2025-04-21 19:32:35,884 - INFO - 127.0.0.1 - - [21/Apr/2025 19:32:35] "[32mPOST /dodaj_lub_zakonczenie_profilu HTTP/1.1[0m" 302 -
+2025-04-21 19:32:35,893 - INFO - test3 wszedł na stronę profilu.
+2025-04-21 19:32:35,903 - INFO - 127.0.0.1 - - [21/Apr/2025 19:32:35] "GET /profil HTTP/1.1" 200 -
+2025-04-21 19:32:35,936 - INFO - 127.0.0.1 - - [21/Apr/2025 19:32:35] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-21 19:32:35,954 - INFO - 127.0.0.1 - - [21/Apr/2025 19:32:35] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-21 19:32:40,319 - INFO - 127.0.0.1 - - [21/Apr/2025 19:32:40] "POST /dodaj_profil_do_bazy HTTP/1.1" 200 -
+2025-04-21 19:32:40,353 - INFO - 127.0.0.1 - - [21/Apr/2025 19:32:40] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-21 19:32:43,122 - INFO - test3 wszedł na stronę profilu.
+2025-04-21 19:32:43,134 - INFO - 127.0.0.1 - - [21/Apr/2025 19:32:43] "GET /profil HTTP/1.1" 200 -
+2025-04-21 19:32:43,180 - INFO - 127.0.0.1 - - [21/Apr/2025 19:32:43] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-21 19:32:43,198 - INFO - 127.0.0.1 - - [21/Apr/2025 19:32:43] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-21 19:32:44,163 - INFO - test3 wszedł na stronę profilu.
+2025-04-21 19:32:44,173 - INFO - 127.0.0.1 - - [21/Apr/2025 19:32:44] "GET /profil HTTP/1.1" 200 -
+2025-04-21 19:32:44,196 - INFO - 127.0.0.1 - - [21/Apr/2025 19:32:44] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-21 19:32:44,210 - INFO - 127.0.0.1 - - [21/Apr/2025 19:32:44] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-21 19:32:44,836 - INFO - 127.0.0.1 - - [21/Apr/2025 19:32:44] "POST /dodaj_profil_do_bazy HTTP/1.1" 200 -
+2025-04-21 19:32:44,863 - INFO - 127.0.0.1 - - [21/Apr/2025 19:32:44] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-21 19:33:45,580 - INFO - 127.0.0.1 - - [21/Apr/2025 19:33:45] "POST /dodaj_profil_do_bazy HTTP/1.1" 200 -
+2025-04-21 19:33:45,604 - INFO - 127.0.0.1 - - [21/Apr/2025 19:33:45] "GET /static/style.css HTTP/1.1" 200 -
+2025-04-21 19:33:45,628 - INFO - 127.0.0.1 - - [21/Apr/2025 19:33:45] "GET /static/img/logo-duże.png HTTP/1.1" 200 -
+2025-04-21 19:33:52,916 - INFO - 127.0.0.1 - - [21/Apr/2025 19:33:52] "[32mPOST /dodaj_lub_zakonczenie_profilu HTTP/1.1[0m" 302 -
+2025-04-21 19:33:52,925 - INFO - test3 wszedł na stronę profilu.
+2025-04-21 19:33:52,933 - INFO - 127.0.0.1 - - [21/Apr/2025 19:33:52] "GET /profil HTTP/1.1" 200 -
+2025-04-21 19:33:52,973 - INFO - 127.0.0.1 - - [21/Apr/2025 19:33:52] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-21 19:33:52,986 - INFO - 127.0.0.1 - - [21/Apr/2025 19:33:52] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-21 19:34:08,471 - INFO - test3 wszedł na stronę dodawania profilu.
+2025-04-21 19:34:08,473 - INFO - 127.0.0.1 - - [21/Apr/2025 19:34:08] "GET /dodaj_profil HTTP/1.1" 200 -
+2025-04-21 19:34:08,554 - INFO - 127.0.0.1 - - [21/Apr/2025 19:34:08] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-21 19:34:14,187 - INFO - 127.0.0.1 - - [21/Apr/2025 19:34:14] "[32mPOST /dodaj_lub_zakonczenie_profilu HTTP/1.1[0m" 302 -
+2025-04-21 19:34:14,202 - INFO - test3 wszedł na stronę profilu.
+2025-04-21 19:34:14,212 - INFO - 127.0.0.1 - - [21/Apr/2025 19:34:14] "GET /profil HTTP/1.1" 200 -
+2025-04-21 19:34:14,302 - INFO - 127.0.0.1 - - [21/Apr/2025 19:34:14] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-21 19:34:14,319 - INFO - 127.0.0.1 - - [21/Apr/2025 19:34:14] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-21 19:34:22,151 - INFO - 127.0.0.1 - - [21/Apr/2025 19:34:22] "POST /dodaj_profil_do_bazy HTTP/1.1" 200 -
+2025-04-21 19:34:22,211 - INFO - 127.0.0.1 - - [21/Apr/2025 19:34:22] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-21 19:34:31,716 - INFO - 127.0.0.1 - - [21/Apr/2025 19:34:31] "[32mPOST /dodaj_lub_zakonczenie_profilu HTTP/1.1[0m" 302 -
+2025-04-21 19:34:31,728 - INFO - test3 wszedł na stronę profilu.
+2025-04-21 19:34:31,738 - INFO - 127.0.0.1 - - [21/Apr/2025 19:34:31] "GET /profil HTTP/1.1" 200 -
+2025-04-21 19:34:31,799 - INFO - 127.0.0.1 - - [21/Apr/2025 19:34:31] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-21 19:34:31,820 - INFO - 127.0.0.1 - - [21/Apr/2025 19:34:31] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-21 19:37:35,852 - INFO - test3 wszedł na stronę dodawania profilu.
+2025-04-21 19:37:35,863 - INFO - 127.0.0.1 - - [21/Apr/2025 19:37:35] "GET /dodaj_profil HTTP/1.1" 200 -
+2025-04-21 19:37:35,897 - INFO - 127.0.0.1 - - [21/Apr/2025 19:37:35] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-21 19:37:40,364 - INFO - 127.0.0.1 - - [21/Apr/2025 19:37:40] "[32mPOST /dodaj_lub_zakonczenie_profilu HTTP/1.1[0m" 302 -
+2025-04-21 19:37:40,379 - INFO - test3 wszedł na stronę profilu.
+2025-04-21 19:37:40,389 - INFO - 127.0.0.1 - - [21/Apr/2025 19:37:40] "GET /profil HTTP/1.1" 200 -
+2025-04-21 19:37:40,423 - INFO - 127.0.0.1 - - [21/Apr/2025 19:37:40] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-21 19:37:40,438 - INFO - 127.0.0.1 - - [21/Apr/2025 19:37:40] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-21 19:37:41,972 - INFO - 127.0.0.1 - - [21/Apr/2025 19:37:41] "POST /dodaj_profil_do_bazy HTTP/1.1" 200 -
+2025-04-21 19:37:42,006 - INFO - 127.0.0.1 - - [21/Apr/2025 19:37:42] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-21 19:38:04,364 - INFO - 127.0.0.1 - - [21/Apr/2025 19:38:04] "POST /dodaj_profil_do_bazy HTTP/1.1" 200 -
+2025-04-21 19:38:04,402 - INFO - 127.0.0.1 - - [21/Apr/2025 19:38:04] "GET /static/style.css HTTP/1.1" 200 -
+2025-04-21 19:38:07,108 - INFO - 127.0.0.1 - - [21/Apr/2025 19:38:07] "GET /static/img/logo-duże.png HTTP/1.1" 200 -
+2025-04-21 19:38:08,272 - INFO - 127.0.0.1 - - [21/Apr/2025 19:38:08] "POST /dodaj_profil_do_bazy HTTP/1.1" 200 -
+2025-04-21 19:38:08,300 - INFO - 127.0.0.1 - - [21/Apr/2025 19:38:08] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-21 19:38:12,088 - INFO - 127.0.0.1 - - [21/Apr/2025 19:38:12] "[32mPOST /dodaj_lub_zakonczenie_profilu HTTP/1.1[0m" 302 -
+2025-04-21 19:38:12,101 - INFO - test3 wszedł na stronę profilu.
+2025-04-21 19:38:12,109 - INFO - 127.0.0.1 - - [21/Apr/2025 19:38:12] "GET /profil HTTP/1.1" 200 -
+2025-04-21 19:38:12,149 - INFO - 127.0.0.1 - - [21/Apr/2025 19:38:12] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-21 19:38:12,163 - INFO - 127.0.0.1 - - [21/Apr/2025 19:38:12] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-21 19:45:14,424 - INFO - test3 wszedł na stronę główną.
+2025-04-21 19:45:14,425 - INFO - 127.0.0.1 - - [21/Apr/2025 19:45:14] "GET / HTTP/1.1" 200 -
+2025-04-21 19:45:14,464 - INFO - 127.0.0.1 - - [21/Apr/2025 19:45:14] "GET /static/style.css HTTP/1.1" 200 -
+2025-04-21 19:45:14,474 - INFO - 127.0.0.1 - - [21/Apr/2025 19:45:14] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-21 19:45:17,592 - INFO - Użytkownik test3 wylogowany.
+2025-04-21 19:45:17,593 - INFO - 127.0.0.1 - - [21/Apr/2025 19:45:17] "[32mGET /logout HTTP/1.1[0m" 302 -
+2025-04-21 19:45:17,599 - INFO - Nieautoryzowany dostęp do strony głównej.
+2025-04-21 19:45:17,603 - INFO - 127.0.0.1 - - [21/Apr/2025 19:45:17] "GET / HTTP/1.1" 200 -
+2025-04-21 19:45:17,642 - INFO - 127.0.0.1 - - [21/Apr/2025 19:45:17] "GET /static/style.css HTTP/1.1" 200 -
+2025-04-21 19:45:17,649 - INFO - 127.0.0.1 - - [21/Apr/2025 19:45:17] "GET /static/img/logo-duże.png HTTP/1.1" 200 -
+2025-04-21 19:45:19,955 - INFO - Próba logowania dla logina: Administrator
+2025-04-21 19:45:20,073 - INFO - Użytkownik Administrator zalogowany pomyślnie.
+2025-04-21 19:45:20,074 - INFO - 127.0.0.1 - - [21/Apr/2025 19:45:20] "[32mPOST /login HTTP/1.1[0m" 302 -
+2025-04-21 19:45:20,082 - INFO - Administrator wszedł na stronę główną.
+2025-04-21 19:45:20,084 - INFO - 127.0.0.1 - - [21/Apr/2025 19:45:20] "GET / HTTP/1.1" 200 -
+2025-04-21 19:45:20,105 - INFO - 127.0.0.1 - - [21/Apr/2025 19:45:20] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-21 19:45:20,111 - INFO - 127.0.0.1 - - [21/Apr/2025 19:45:20] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-21 19:45:33,310 - INFO - Administrator wszedł na stronę z listą tasm.
+2025-04-21 19:45:33,423 - INFO - 127.0.0.1 - - [21/Apr/2025 19:45:33] "GET /tasma HTTP/1.1" 200 -
+2025-04-21 19:45:33,459 - INFO - 127.0.0.1 - - [21/Apr/2025 19:45:33] "GET /static/style.css HTTP/1.1" 200 -
+2025-04-21 19:45:33,470 - INFO - 127.0.0.1 - - [21/Apr/2025 19:45:33] "GET /static/img/drukarka.png HTTP/1.1" 200 -
+2025-04-21 19:45:33,476 - INFO - 127.0.0.1 - - [21/Apr/2025 19:45:33] "GET /static/img/logo-duże.png HTTP/1.1" 200 -
+2025-04-21 19:45:37,394 - INFO - Administrator wszedł na stronę dodawania tasy.
+2025-04-21 19:45:37,412 - INFO - 127.0.0.1 - - [21/Apr/2025 19:45:37] "GET /dodaj_tasma HTTP/1.1" 200 -
+2025-04-21 19:45:37,450 - INFO - 127.0.0.1 - - [21/Apr/2025 19:45:37] "GET /static/style.css HTTP/1.1" 200 -
+2025-04-21 19:45:51,598 - INFO - Tasma 1 została dodana przez Administrator.
+2025-04-21 19:45:51,599 - INFO - 127.0.0.1 - - [21/Apr/2025 19:45:51] "[35m[1mPOST /dodaj_tasma_do_bazy HTTP/1.1[0m" 204 -
+2025-04-21 19:45:53,025 - INFO - Administrator wszedł na stronę z listą tasm.
+2025-04-21 19:45:53,028 - INFO - 127.0.0.1 - - [21/Apr/2025 19:45:53] "GET /tasma HTTP/1.1" 200 -
+2025-04-21 19:45:53,049 - INFO - 127.0.0.1 - - [21/Apr/2025 19:45:53] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-21 19:45:53,064 - INFO - 127.0.0.1 - - [21/Apr/2025 19:45:53] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-21 19:45:53,072 - INFO - 127.0.0.1 - - [21/Apr/2025 19:45:53] "[36mGET /static/img/drukarka.png HTTP/1.1[0m" 304 -
+2025-04-21 19:45:54,445 - INFO - Administrator wszedł na stronę główną.
+2025-04-21 19:45:54,446 - INFO - 127.0.0.1 - - [21/Apr/2025 19:45:54] "GET / HTTP/1.1" 200 -
+2025-04-21 19:45:54,473 - INFO - 127.0.0.1 - - [21/Apr/2025 19:45:54] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-21 19:45:54,481 - INFO - 127.0.0.1 - - [21/Apr/2025 19:45:54] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-21 19:45:55,407 - INFO - Administrator wszedł na stronę profilu.
+2025-04-21 19:45:55,416 - INFO - 127.0.0.1 - - [21/Apr/2025 19:45:55] "GET /profil HTTP/1.1" 200 -
+2025-04-21 19:45:55,450 - INFO - 127.0.0.1 - - [21/Apr/2025 19:45:55] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-21 19:45:55,463 - INFO - 127.0.0.1 - - [21/Apr/2025 19:45:55] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-21 19:46:14,157 - INFO - Administrator wszedł na stronę dodawania profilu.
+2025-04-21 19:46:14,169 - INFO - 127.0.0.1 - - [21/Apr/2025 19:46:14] "GET /dodaj_profil HTTP/1.1" 200 -
+2025-04-21 19:46:14,201 - INFO - 127.0.0.1 - - [21/Apr/2025 19:46:14] "GET /static/style.css HTTP/1.1" 200 -
+2025-04-21 19:46:24,888 - INFO - 127.0.0.1 - - [21/Apr/2025 19:46:24] "[32mPOST /dodaj_lub_zakonczenie_profilu HTTP/1.1[0m" 302 -
+2025-04-21 19:46:24,897 - INFO - Administrator wszedł na stronę profilu.
+2025-04-21 19:46:24,909 - INFO - 127.0.0.1 - - [21/Apr/2025 19:46:24] "GET /profil HTTP/1.1" 200 -
+2025-04-21 19:46:24,940 - INFO - 127.0.0.1 - - [21/Apr/2025 19:46:24] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-21 19:46:24,959 - INFO - 127.0.0.1 - - [21/Apr/2025 19:46:24] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-21 19:46:40,446 - INFO - 127.0.0.1 - - [21/Apr/2025 19:46:40] "POST /dodaj_profil_do_bazy HTTP/1.1" 200 -
+2025-04-21 19:46:40,480 - INFO - 127.0.0.1 - - [21/Apr/2025 19:46:40] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-21 19:46:53,711 - INFO - 127.0.0.1 - - [21/Apr/2025 19:46:53] "POST /dodaj_profil_do_bazy HTTP/1.1" 200 -
+2025-04-21 19:46:53,734 - INFO - 127.0.0.1 - - [21/Apr/2025 19:46:53] "GET /static/style.css HTTP/1.1" 200 -
+2025-04-21 19:47:03,514 - INFO - 127.0.0.1 - - [21/Apr/2025 19:47:03] "POST /dodaj_profil_do_bazy HTTP/1.1" 200 -
+2025-04-21 19:47:03,541 - INFO - 127.0.0.1 - - [21/Apr/2025 19:47:03] "GET /static/style.css HTTP/1.1" 200 -
+2025-04-21 19:51:31,911 - INFO - 127.0.0.1 - - [21/Apr/2025 19:51:31] "POST /dodaj_profil_do_bazy HTTP/1.1" 200 -
+2025-04-21 19:51:31,946 - INFO - 127.0.0.1 - - [21/Apr/2025 19:51:31] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-21 19:53:04,417 - INFO - 127.0.0.1 - - [21/Apr/2025 19:53:04] "POST /dodaj_profil_do_bazy HTTP/1.1" 200 -
+2025-04-21 19:53:04,446 - INFO - 127.0.0.1 - - [21/Apr/2025 19:53:04] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-21 19:54:04,226 - INFO - 127.0.0.1 - - [21/Apr/2025 19:54:04] "POST /dodaj_profil_do_bazy HTTP/1.1" 200 -
+2025-04-21 19:54:04,261 - INFO - 127.0.0.1 - - [21/Apr/2025 19:54:04] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-21 19:57:14,342 - INFO - Administrator wszedł na stronę dodawania profilu.
+2025-04-21 19:57:14,343 - INFO - 127.0.0.1 - - [21/Apr/2025 19:57:14] "GET /dodaj_profil HTTP/1.1" 200 -
+2025-04-21 19:57:14,377 - INFO - 127.0.0.1 - - [21/Apr/2025 19:57:14] "GET /static/style.css HTTP/1.1" 200 -
+2025-04-21 19:57:24,064 - INFO - 127.0.0.1 - - [21/Apr/2025 19:57:24] "[32mPOST /dodaj_lub_zakonczenie_profilu HTTP/1.1[0m" 302 -
+2025-04-21 19:57:24,073 - INFO - Administrator wszedł na stronę profilu.
+2025-04-21 19:57:24,085 - INFO - 127.0.0.1 - - [21/Apr/2025 19:57:24] "GET /profil HTTP/1.1" 200 -
+2025-04-21 19:57:24,114 - INFO - 127.0.0.1 - - [21/Apr/2025 19:57:24] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-21 19:57:24,130 - INFO - 127.0.0.1 - - [21/Apr/2025 19:57:24] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-21 19:57:58,046 - INFO - 127.0.0.1 - - [21/Apr/2025 19:57:58] "POST /dodaj_profil_do_bazy HTTP/1.1" 200 -
+2025-04-21 19:57:58,080 - INFO - 127.0.0.1 - - [21/Apr/2025 19:57:58] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-21 20:02:58,587 - INFO - Administrator wszedł na stronę profilu.
+2025-04-21 20:02:58,780 - INFO - 127.0.0.1 - - [21/Apr/2025 20:02:58] "GET /profil HTTP/1.1" 200 -
+2025-04-21 20:02:58,833 - INFO - 127.0.0.1 - - [21/Apr/2025 20:02:58] "GET /static/style.css HTTP/1.1" 200 -
+2025-04-21 20:02:58,859 - INFO - 127.0.0.1 - - [21/Apr/2025 20:02:58] "GET /static/img/logo-duże.png HTTP/1.1" 200 -
+2025-04-21 20:03:54,379 - INFO - 127.0.0.1 - - [21/Apr/2025 20:03:54] "POST /dodaj_profil_do_bazy HTTP/1.1" 200 -
+2025-04-21 20:03:54,405 - INFO - 127.0.0.1 - - [21/Apr/2025 20:03:54] "GET /static/style.css HTTP/1.1" 200 -
+2025-04-21 20:03:54,435 - INFO - 127.0.0.1 - - [21/Apr/2025 20:03:54] "GET /static/img/logo-duże.png HTTP/1.1" 200 -
+2025-04-21 20:04:00,011 - INFO - 127.0.0.1 - - [21/Apr/2025 20:04:00] "[32mPOST /dodaj_lub_zakonczenie_profilu HTTP/1.1[0m" 302 -
+2025-04-21 20:04:00,025 - INFO - Administrator wszedł na stronę profilu.
+2025-04-21 20:04:00,041 - INFO - 127.0.0.1 - - [21/Apr/2025 20:04:00] "GET /profil HTTP/1.1" 200 -
+2025-04-21 20:04:00,076 - INFO - 127.0.0.1 - - [21/Apr/2025 20:04:00] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-21 20:04:00,093 - INFO - 127.0.0.1 - - [21/Apr/2025 20:04:00] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-21 20:08:37,420 - INFO - 127.0.0.1 - - [21/Apr/2025 20:08:37] "POST /dodaj_profil_do_bazy HTTP/1.1" 200 -
+2025-04-21 20:08:37,457 - INFO - 127.0.0.1 - - [21/Apr/2025 20:08:37] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-21 20:09:52,203 - INFO - 127.0.0.1 - - [21/Apr/2025 20:09:52] "POST /dodaj_profil_do_bazy HTTP/1.1" 200 -
+2025-04-21 20:09:52,247 - INFO - 127.0.0.1 - - [21/Apr/2025 20:09:52] "GET /static/style.css HTTP/1.1" 200 -
+2025-04-21 20:09:57,717 - INFO - 127.0.0.1 - - [21/Apr/2025 20:09:57] "POST /dodaj_profil_do_bazy HTTP/1.1" 200 -
+2025-04-21 20:09:57,760 - INFO - 127.0.0.1 - - [21/Apr/2025 20:09:57] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-21 20:10:36,828 - INFO - 127.0.0.1 - - [21/Apr/2025 20:10:36] "POST /dodaj_profil_do_bazy HTTP/1.1" 200 -
+2025-04-21 20:10:36,886 - INFO - 127.0.0.1 - - [21/Apr/2025 20:10:36] "GET /static/style.css HTTP/1.1" 200 -
+2025-04-21 20:10:36,938 - INFO - 127.0.0.1 - - [21/Apr/2025 20:10:36] "GET /static/img/logo-duże.png HTTP/1.1" 200 -
+2025-04-21 20:10:38,283 - INFO - 127.0.0.1 - - [21/Apr/2025 20:10:38] "[32mPOST /dodaj_lub_zakonczenie_profilu HTTP/1.1[0m" 302 -
+2025-04-21 20:10:38,298 - INFO - Administrator wszedł na stronę profilu.
+2025-04-21 20:10:38,310 - INFO - 127.0.0.1 - - [21/Apr/2025 20:10:38] "GET /profil HTTP/1.1" 200 -
+2025-04-21 20:10:38,368 - INFO - 127.0.0.1 - - [21/Apr/2025 20:10:38] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-21 20:10:38,385 - INFO - 127.0.0.1 - - [21/Apr/2025 20:10:38] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-21 20:10:43,051 - INFO - Administrator wszedł na stronę dodawania profilu.
+2025-04-21 20:10:43,052 - INFO - 127.0.0.1 - - [21/Apr/2025 20:10:43] "GET /dodaj_profil HTTP/1.1" 200 -
+2025-04-21 20:10:43,086 - INFO - 127.0.0.1 - - [21/Apr/2025 20:10:43] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-21 20:11:00,266 - INFO - Administrator wszedł na stronę dodawania profilu.
+2025-04-21 20:11:00,267 - INFO - 127.0.0.1 - - [21/Apr/2025 20:11:00] "GET /dodaj_profil HTTP/1.1" 200 -
+2025-04-21 20:11:00,352 - INFO - 127.0.0.1 - - [21/Apr/2025 20:11:00] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-21 20:11:04,749 - INFO - 127.0.0.1 - - [21/Apr/2025 20:11:04] "[32mPOST /dodaj_lub_zakonczenie_profilu HTTP/1.1[0m" 302 -
+2025-04-21 20:11:04,758 - INFO - Administrator wszedł na stronę profilu.
+2025-04-21 20:11:04,769 - INFO - 127.0.0.1 - - [21/Apr/2025 20:11:04] "GET /profil HTTP/1.1" 200 -
+2025-04-21 20:11:04,807 - INFO - 127.0.0.1 - - [21/Apr/2025 20:11:04] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-21 20:11:04,825 - INFO - 127.0.0.1 - - [21/Apr/2025 20:11:04] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-21 20:11:06,972 - INFO - 127.0.0.1 - - [21/Apr/2025 20:11:06] "POST /dodaj_profil_do_bazy HTTP/1.1" 200 -
+2025-04-21 20:11:07,029 - INFO - 127.0.0.1 - - [21/Apr/2025 20:11:07] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-21 20:11:14,952 - INFO - 127.0.0.1 - - [21/Apr/2025 20:11:14] "[32mPOST /dodaj_lub_zakonczenie_profilu HTTP/1.1[0m" 302 -
+2025-04-21 20:11:14,964 - INFO - Administrator wszedł na stronę profilu.
+2025-04-21 20:11:14,975 - INFO - 127.0.0.1 - - [21/Apr/2025 20:11:14] "GET /profil HTTP/1.1" 200 -
+2025-04-21 20:11:15,008 - INFO - 127.0.0.1 - - [21/Apr/2025 20:11:15] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-21 20:11:15,025 - INFO - 127.0.0.1 - - [21/Apr/2025 20:11:15] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-21 20:12:48,948 - INFO - Administrator wszedł na stronę główną.
+2025-04-21 20:12:48,949 - INFO - 127.0.0.1 - - [21/Apr/2025 20:12:48] "GET / HTTP/1.1" 200 -
+2025-04-21 20:12:48,997 - INFO - 127.0.0.1 - - [21/Apr/2025 20:12:48] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-21 20:12:49,006 - INFO - 127.0.0.1 - - [21/Apr/2025 20:12:49] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-21 20:36:51,431 - INFO - ✅ Kopia zapasowa zapisana do pliku: backups\kopie_zapasowe_bazy_2025-04-21_20-36.sql
+2025-04-21 20:36:51,432 - INFO - 🗑️ Usunięto starą kopię: kopie_zapasowe_bazy_2025-04-21_00-31.sql
+2025-04-21 20:36:54,589 - INFO - ✅ Kopia zapasowa zapisana do pliku: backups\kopie_zapasowe_bazy_2025-04-21_20-36.sql
+2025-04-21 22:22:08,128 - INFO - Administrator wszedł na stronę z listą tasm.
+2025-04-21 22:22:08,135 - INFO - 127.0.0.1 - - [21/Apr/2025 22:22:08] "GET /tasma HTTP/1.1" 200 -
+2025-04-21 22:22:08,164 - INFO - 127.0.0.1 - - [21/Apr/2025 22:22:08] "GET /static/style.css HTTP/1.1" 200 -
+2025-04-21 22:22:08,174 - INFO - 127.0.0.1 - - [21/Apr/2025 22:22:08] "GET /static/img/drukarka.png HTTP/1.1" 200 -
+2025-04-21 22:22:08,181 - INFO - 127.0.0.1 - - [21/Apr/2025 22:22:08] "GET /static/img/logo-duże.png HTTP/1.1" 200 -
+2025-04-21 22:22:10,511 - INFO - Tasma 3 została usunięta.
+2025-04-21 22:22:10,513 - INFO - 127.0.0.1 - - [21/Apr/2025 22:22:10] "[32mPOST /usun_tasma/45 HTTP/1.1[0m" 302 -
+2025-04-21 22:22:10,522 - INFO - Administrator wszedł na stronę z listą tasm.
+2025-04-21 22:22:10,525 - INFO - 127.0.0.1 - - [21/Apr/2025 22:22:10] "GET /tasma HTTP/1.1" 200 -
+2025-04-21 22:22:10,544 - INFO - 127.0.0.1 - - [21/Apr/2025 22:22:10] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-21 22:22:10,555 - INFO - 127.0.0.1 - - [21/Apr/2025 22:22:10] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-21 22:22:10,560 - INFO - 127.0.0.1 - - [21/Apr/2025 22:22:10] "[36mGET /static/img/drukarka.png HTTP/1.1[0m" 304 -
+2025-04-21 22:22:14,120 - INFO - Tasma 44 została usunięta.
+2025-04-21 22:22:14,121 - INFO - 127.0.0.1 - - [21/Apr/2025 22:22:14] "[32mPOST /usun_tasma/46 HTTP/1.1[0m" 302 -
+2025-04-21 22:22:14,131 - INFO - Administrator wszedł na stronę z listą tasm.
+2025-04-21 22:22:14,135 - INFO - 127.0.0.1 - - [21/Apr/2025 22:22:14] "GET /tasma HTTP/1.1" 200 -
+2025-04-21 22:22:14,155 - INFO - 127.0.0.1 - - [21/Apr/2025 22:22:14] "GET /static/style.css HTTP/1.1" 200 -
+2025-04-21 22:22:14,167 - INFO - 127.0.0.1 - - [21/Apr/2025 22:22:14] "GET /static/img/logo-duże.png HTTP/1.1" 200 -
+2025-04-21 22:22:14,174 - INFO - 127.0.0.1 - - [21/Apr/2025 22:22:14] "[36mGET /static/img/drukarka.png HTTP/1.1[0m" 304 -
+2025-04-21 22:22:16,093 - INFO - Tasma 213 została usunięta.
+2025-04-21 22:22:16,094 - INFO - 127.0.0.1 - - [21/Apr/2025 22:22:16] "[32mPOST /usun_tasma/47 HTTP/1.1[0m" 302 -
+2025-04-21 22:22:16,102 - INFO - Administrator wszedł na stronę z listą tasm.
+2025-04-21 22:22:16,106 - INFO - 127.0.0.1 - - [21/Apr/2025 22:22:16] "GET /tasma HTTP/1.1" 200 -
+2025-04-21 22:22:16,140 - INFO - 127.0.0.1 - - [21/Apr/2025 22:22:16] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-21 22:22:16,153 - INFO - 127.0.0.1 - - [21/Apr/2025 22:22:16] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-21 22:22:16,159 - INFO - 127.0.0.1 - - [21/Apr/2025 22:22:16] "[36mGET /static/img/drukarka.png HTTP/1.1[0m" 304 -
+2025-04-21 22:22:18,215 - INFO - Tasma 1 została usunięta.
+2025-04-21 22:22:18,215 - INFO - 127.0.0.1 - - [21/Apr/2025 22:22:18] "[32mPOST /usun_tasma/48 HTTP/1.1[0m" 302 -
+2025-04-21 22:22:18,224 - INFO - Administrator wszedł na stronę z listą tasm.
+2025-04-21 22:22:18,227 - INFO - 127.0.0.1 - - [21/Apr/2025 22:22:18] "GET /tasma HTTP/1.1" 200 -
+2025-04-21 22:22:18,252 - INFO - 127.0.0.1 - - [21/Apr/2025 22:22:18] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-21 22:22:18,262 - INFO - 127.0.0.1 - - [21/Apr/2025 22:22:18] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-21 22:22:18,951 - INFO - Administrator wszedł na stronę główną.
+2025-04-21 22:22:18,952 - INFO - 127.0.0.1 - - [21/Apr/2025 22:22:18] "GET / HTTP/1.1" 200 -
+2025-04-21 22:22:18,981 - INFO - 127.0.0.1 - - [21/Apr/2025 22:22:18] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-21 22:22:18,988 - INFO - 127.0.0.1 - - [21/Apr/2025 22:22:18] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-21 22:22:19,789 - INFO - Administrator wszedł na stronę profilu.
+2025-04-21 22:22:19,794 - INFO - 127.0.0.1 - - [21/Apr/2025 22:22:19] "GET /profil HTTP/1.1" 200 -
+2025-04-21 22:22:19,817 - INFO - 127.0.0.1 - - [21/Apr/2025 22:22:19] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-21 22:22:19,831 - INFO - 127.0.0.1 - - [21/Apr/2025 22:22:19] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-21 22:22:21,104 - INFO - Administrator wszedł na stronę główną.
+2025-04-21 22:22:21,105 - INFO - 127.0.0.1 - - [21/Apr/2025 22:22:21] "GET / HTTP/1.1" 200 -
+2025-04-21 22:22:21,135 - INFO - 127.0.0.1 - - [21/Apr/2025 22:22:21] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-21 22:22:21,140 - INFO - 127.0.0.1 - - [21/Apr/2025 22:22:21] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-21 22:22:29,394 - INFO - Administrator wszedł na stronę z listą tasm.
+2025-04-21 22:22:29,397 - INFO - 127.0.0.1 - - [21/Apr/2025 22:22:29] "GET /tasma HTTP/1.1" 200 -
+2025-04-21 22:22:29,424 - INFO - 127.0.0.1 - - [21/Apr/2025 22:22:29] "GET /static/style.css HTTP/1.1" 200 -
+2025-04-21 22:22:29,438 - INFO - 127.0.0.1 - - [21/Apr/2025 22:22:29] "GET /static/img/logo-duże.png HTTP/1.1" 200 -
+2025-04-21 22:22:30,473 - INFO - Administrator wszedł na stronę główną.
+2025-04-21 22:22:30,474 - INFO - 127.0.0.1 - - [21/Apr/2025 22:22:30] "GET / HTTP/1.1" 200 -
+2025-04-21 22:22:30,502 - INFO - 127.0.0.1 - - [21/Apr/2025 22:22:30] "GET /static/style.css HTTP/1.1" 200 -
+2025-04-21 22:22:30,510 - INFO - 127.0.0.1 - - [21/Apr/2025 22:22:30] "GET /static/img/logo-duże.png HTTP/1.1" 200 -
+2025-04-21 22:23:51,810 - INFO - Administrator wszedł na stronę profilu.
+2025-04-21 22:23:51,812 - INFO - 127.0.0.1 - - [21/Apr/2025 22:23:51] "GET /profil HTTP/1.1" 200 -
+2025-04-21 22:23:51,841 - INFO - 127.0.0.1 - - [21/Apr/2025 22:23:51] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-21 22:23:51,852 - INFO - 127.0.0.1 - - [21/Apr/2025 22:23:51] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-21 22:23:54,540 - INFO - Administrator wszedł na stronę dodawania profilu.
+2025-04-21 22:23:54,541 - INFO - 127.0.0.1 - - [21/Apr/2025 22:23:54] "GET /dodaj_profil HTTP/1.1" 200 -
+2025-04-21 22:23:54,566 - INFO - 127.0.0.1 - - [21/Apr/2025 22:23:54] "GET /static/style.css HTTP/1.1" 200 -
+2025-04-21 22:27:20,174 - INFO - 127.0.0.1 - - [21/Apr/2025 22:27:20] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-04-21 22:27:21,386 - INFO - Administrator wszedł na stronę główną.
+2025-04-21 22:27:21,387 - INFO - 127.0.0.1 - - [21/Apr/2025 22:27:21] "GET / HTTP/1.1" 200 -
+2025-04-21 22:27:21,414 - INFO - 127.0.0.1 - - [21/Apr/2025 22:27:21] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-21 22:27:21,420 - INFO - 127.0.0.1 - - [21/Apr/2025 22:27:21] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-21 22:42:01,056 - INFO -  * Detected change in 'C:\\Users\\admin\\Documents\\GitHub\\baza\\baza danych maxmetal\\python\\index.py', reloading
+2025-04-21 22:42:07,049 - INFO - Połączenie z bazą danych zostało nawiązane pomyślnie.
+2025-04-21 22:42:38,480 - INFO - Połączenie z bazą danych zostało nawiązane pomyślnie.
+2025-04-21 22:42:38,540 - INFO - Tabela tasma jest pusta.
+2025-04-21 22:42:38,540 - INFO - Tabela profil jest pusta.
+2025-04-21 22:42:38,541 - INFO - ✅ Kopia zapasowa zapisana do pliku: backups\kopie_zapasowe_bazy_2025-04-21_22-42.sql
+2025-04-21 22:42:38,541 - INFO - 🗑️ Usunięto starą kopię: kopie_zapasowe_bazy_2025-04-21_10-17.sql
+2025-04-21 22:42:38,579 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.1.28:5000
+2025-04-21 22:42:38,579 - INFO - [33mPress CTRL+C to quit[0m
+2025-04-21 22:42:38,583 - INFO -  * Restarting with stat
+2025-04-21 22:42:41,014 - INFO - Połączenie z bazą danych zostało nawiązane pomyślnie.
+2025-04-21 22:42:41,072 - INFO - Tabela tasma jest pusta.
+2025-04-21 22:42:41,074 - INFO - Tabela profil jest pusta.
+2025-04-21 22:42:41,074 - INFO - ✅ Kopia zapasowa zapisana do pliku: backups\kopie_zapasowe_bazy_2025-04-21_22-42.sql
+2025-04-21 22:42:41,081 - WARNING -  * Debugger is active!
+2025-04-21 22:42:41,086 - INFO -  * Debugger PIN: 179-082-417
+2025-04-21 22:42:41,419 - INFO - Administrator wszedł na stronę profilu.
+2025-04-21 22:42:41,558 - INFO - 127.0.0.1 - - [21/Apr/2025 22:42:41] "GET /profil HTTP/1.1" 200 -
+2025-04-21 22:42:41,580 - INFO - 127.0.0.1 - - [21/Apr/2025 22:42:41] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-21 22:42:41,612 - INFO - 127.0.0.1 - - [21/Apr/2025 22:42:41] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-21 22:42:45,198 - INFO - 127.0.0.1 - - [21/Apr/2025 22:42:45] "[35m[1mGET /dodaj_profil HTTP/1.1[0m" 500 -
+2025-04-21 22:42:45,235 - INFO - 127.0.0.1 - - [21/Apr/2025 22:42:45] "[36mGET /dodaj_profil?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+2025-04-21 22:42:45,237 - INFO - 127.0.0.1 - - [21/Apr/2025 22:42:45] "[36mGET /dodaj_profil?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+2025-04-21 22:42:45,251 - INFO - 127.0.0.1 - - [21/Apr/2025 22:42:45] "GET /dodaj_profil?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+2025-04-21 22:42:45,258 - INFO - 127.0.0.1 - - [21/Apr/2025 22:42:45] "GET /dodaj_profil?__debugger__=yes&cmd=resource&f=console.png&s=RF6BZfDFnidaeLJjWHSM HTTP/1.1" 200 -
+2025-04-21 22:43:42,084 - INFO - Połączenie z bazą danych zostało nawiązane pomyślnie.
+2025-04-21 22:43:42,139 - INFO - Tabela tasma jest pusta.
+2025-04-21 22:43:42,139 - INFO - Tabela profil jest pusta.
+2025-04-21 22:43:42,140 - INFO - ✅ Kopia zapasowa zapisana do pliku: backups\kopie_zapasowe_bazy_2025-04-21_22-43.sql
+2025-04-21 22:43:42,141 - INFO - 🗑️ Usunięto starą kopię: kopie_zapasowe_bazy_2025-04-21_10-20.sql
+2025-04-21 22:43:42,151 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.1.28:5000
+2025-04-21 22:43:42,151 - INFO - [33mPress CTRL+C to quit[0m
+2025-04-21 22:43:42,153 - INFO -  * Restarting with stat
+2025-04-21 22:43:44,391 - INFO - Połączenie z bazą danych zostało nawiązane pomyślnie.
+2025-04-21 22:43:44,444 - INFO - Tabela tasma jest pusta.
+2025-04-21 22:43:44,445 - INFO - Tabela profil jest pusta.
+2025-04-21 22:43:44,445 - INFO - ✅ Kopia zapasowa zapisana do pliku: backups\kopie_zapasowe_bazy_2025-04-21_22-43.sql
+2025-04-21 22:43:44,452 - WARNING -  * Debugger is active!
+2025-04-21 22:43:44,456 - INFO -  * Debugger PIN: 179-082-417
+2025-04-21 22:43:54,513 - INFO - 127.0.0.1 - - [21/Apr/2025 22:43:54] "[35m[1mGET /dodaj_profil HTTP/1.1[0m" 500 -
+2025-04-21 22:43:54,535 - INFO - 127.0.0.1 - - [21/Apr/2025 22:43:54] "[36mGET /dodaj_profil?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+2025-04-21 22:43:54,536 - INFO - 127.0.0.1 - - [21/Apr/2025 22:43:54] "GET /dodaj_profil?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1" 200 -
+2025-04-21 22:43:54,552 - INFO - 127.0.0.1 - - [21/Apr/2025 22:43:54] "GET /dodaj_profil?__debugger__=yes&cmd=resource&f=console.png&s=jKcy6I6LJ2JzY3OR9rwp HTTP/1.1" 200 -
+2025-04-21 22:45:50,042 - INFO -  * Detected change in 'C:\\Users\\admin\\Documents\\GitHub\\baza\\baza danych maxmetal\\python\\index.py', reloading
+2025-04-21 22:45:52,182 - INFO -  * Restarting with stat
+2025-04-21 22:45:58,482 - INFO - Połączenie z bazą danych zostało nawiązane pomyślnie.
+2025-04-21 22:45:58,536 - INFO - Tabela tasma jest pusta.
+2025-04-21 22:45:58,536 - INFO - Tabela profil jest pusta.
+2025-04-21 22:45:58,537 - INFO - ✅ Kopia zapasowa zapisana do pliku: backups\kopie_zapasowe_bazy_2025-04-21_22-45.sql
+2025-04-21 22:45:58,538 - INFO - 🗑️ Usunięto starą kopię: kopie_zapasowe_bazy_2025-04-21_10-22.sql
+2025-04-21 22:45:58,549 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.1.28:5000
+2025-04-21 22:45:58,549 - INFO - [33mPress CTRL+C to quit[0m
+2025-04-21 22:45:58,550 - INFO -  * Restarting with stat
+2025-04-21 22:46:01,076 - INFO - Połączenie z bazą danych zostało nawiązane pomyślnie.
+2025-04-21 22:46:01,135 - INFO - Tabela tasma jest pusta.
+2025-04-21 22:46:01,136 - INFO - Tabela profil jest pusta.
+2025-04-21 22:46:01,137 - INFO - ✅ Kopia zapasowa zapisana do pliku: backups\kopie_zapasowe_bazy_2025-04-21_22-46.sql
+2025-04-21 22:46:01,138 - INFO - 🗑️ Usunięto starą kopię: kopie_zapasowe_bazy_2025-04-21_14-00.sql
+2025-04-21 22:46:01,145 - WARNING -  * Debugger is active!
+2025-04-21 22:46:01,149 - INFO -  * Debugger PIN: 179-082-417
+2025-04-21 22:46:02,048 - INFO - Administrator wszedł na stronę dodawania profilu.
+2025-04-21 22:46:02,071 - INFO - 127.0.0.1 - - [21/Apr/2025 22:46:02] "GET /dodaj_profil HTTP/1.1" 200 -
+2025-04-21 22:46:02,113 - INFO - 127.0.0.1 - - [21/Apr/2025 22:46:02] "GET /static/style.css HTTP/1.1" 200 -
+2025-04-21 22:47:50,389 - INFO - Administrator wszedł na stronę dodawania profilu.
+2025-04-21 22:47:50,400 - INFO - 127.0.0.1 - - [21/Apr/2025 22:47:50] "GET /dodaj_profil HTTP/1.1" 200 -
+2025-04-21 22:47:50,422 - INFO - 127.0.0.1 - - [21/Apr/2025 22:47:50] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-21 22:47:51,506 - INFO - Administrator wszedł na stronę dodawania profilu.
+2025-04-21 22:47:51,507 - INFO - 127.0.0.1 - - [21/Apr/2025 22:47:51] "GET /dodaj_profil HTTP/1.1" 200 -
+2025-04-21 22:47:51,537 - INFO - 127.0.0.1 - - [21/Apr/2025 22:47:51] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-21 22:47:56,843 - INFO - Administrator wszedł na stronę dodawania profilu.
+2025-04-21 22:47:56,843 - INFO - 127.0.0.1 - - [21/Apr/2025 22:47:56] "GET /dodaj_profil HTTP/1.1" 200 -
+2025-04-21 22:47:56,873 - INFO - 127.0.0.1 - - [21/Apr/2025 22:47:56] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-21 22:49:04,194 - INFO -  * Detected change in 'C:\\Users\\admin\\Documents\\GitHub\\baza\\baza danych maxmetal\\python\\index.py', reloading
+2025-04-21 22:49:11,634 - INFO - Połączenie z bazą danych zostało nawiązane pomyślnie.
+2025-04-21 22:49:11,694 - INFO - Tabela tasma jest pusta.
+2025-04-21 22:49:11,695 - INFO - Tabela profil jest pusta.
+2025-04-21 22:49:11,695 - INFO - ✅ Kopia zapasowa zapisana do pliku: backups\kopie_zapasowe_bazy_2025-04-21_22-49.sql
+2025-04-21 22:49:11,697 - INFO - 🗑️ Usunięto starą kopię: kopie_zapasowe_bazy_2025-04-21_16-36.sql
+2025-04-21 22:49:11,707 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.1.28:5000
+2025-04-21 22:49:11,707 - INFO - [33mPress CTRL+C to quit[0m
+2025-04-21 22:49:11,708 - INFO -  * Restarting with stat
+2025-04-21 22:49:14,051 - INFO - Połączenie z bazą danych zostało nawiązane pomyślnie.
+2025-04-21 22:49:14,109 - INFO - Tabela tasma jest pusta.
+2025-04-21 22:49:14,110 - INFO - Tabela profil jest pusta.
+2025-04-21 22:49:14,111 - INFO - ✅ Kopia zapasowa zapisana do pliku: backups\kopie_zapasowe_bazy_2025-04-21_22-49.sql
+2025-04-21 22:49:14,115 - WARNING -  * Debugger is active!
+2025-04-21 22:49:14,119 - INFO -  * Debugger PIN: 179-082-417
+2025-04-21 22:49:14,387 - INFO - Administrator wszedł na stronę dodawania profilu.
+2025-04-21 22:49:14,408 - INFO - 127.0.0.1 - - [21/Apr/2025 22:49:14] "GET /dodaj_profil HTTP/1.1" 200 -
+2025-04-21 22:50:56,312 - INFO - Administrator wszedł na stronę główną.
+2025-04-21 22:50:56,379 - INFO - 127.0.0.1 - - [21/Apr/2025 22:50:56] "GET / HTTP/1.1" 200 -
+2025-04-21 22:50:56,417 - INFO - 127.0.0.1 - - [21/Apr/2025 22:50:56] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-21 22:50:56,420 - INFO - 127.0.0.1 - - [21/Apr/2025 22:50:56] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-21 22:50:57,166 - INFO - Administrator wszedł na stronę z listą tasm.
+2025-04-21 22:50:57,264 - INFO - 127.0.0.1 - - [21/Apr/2025 22:50:57] "GET /tasma HTTP/1.1" 200 -
+2025-04-21 22:50:57,295 - INFO - 127.0.0.1 - - [21/Apr/2025 22:50:57] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-21 22:50:57,310 - INFO - 127.0.0.1 - - [21/Apr/2025 22:50:57] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-21 22:50:59,520 - INFO - Administrator wszedł na stronę dodawania tasy.
+2025-04-21 22:50:59,532 - INFO - 127.0.0.1 - - [21/Apr/2025 22:50:59] "GET /dodaj_tasma HTTP/1.1" 200 -
+2025-04-21 22:50:59,572 - INFO - 127.0.0.1 - - [21/Apr/2025 22:50:59] "GET /static/style.css HTTP/1.1" 200 -
+2025-04-21 22:51:12,657 - INFO - Administrator wszedł na stronę dodawania tasy.
+2025-04-21 22:51:12,660 - INFO - 127.0.0.1 - - [21/Apr/2025 22:51:12] "GET /dodaj_tasma HTTP/1.1" 200 -
+2025-04-21 22:51:12,692 - INFO - 127.0.0.1 - - [21/Apr/2025 22:51:12] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-21 22:51:37,662 - INFO - Tasma 23 została dodana przez Administrator.
+2025-04-21 22:51:37,662 - INFO - 127.0.0.1 - - [21/Apr/2025 22:51:37] "[35m[1mPOST /dodaj_tasma_do_bazy HTTP/1.1[0m" 204 -
+2025-04-21 22:51:39,882 - INFO - Administrator wszedł na stronę z listą tasm.
+2025-04-21 22:51:39,885 - INFO - 127.0.0.1 - - [21/Apr/2025 22:51:39] "GET /tasma HTTP/1.1" 200 -
+2025-04-21 22:51:39,908 - INFO - 127.0.0.1 - - [21/Apr/2025 22:51:39] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-21 22:51:39,915 - INFO - 127.0.0.1 - - [21/Apr/2025 22:51:39] "[36mGET /static/img/drukarka.png HTTP/1.1[0m" 304 -
+2025-04-21 22:51:39,920 - INFO - 127.0.0.1 - - [21/Apr/2025 22:51:39] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-21 22:51:53,963 - INFO - Administrator wszedł na stronę główną.
+2025-04-21 22:51:53,964 - INFO - 127.0.0.1 - - [21/Apr/2025 22:51:53] "GET / HTTP/1.1" 200 -
+2025-04-21 22:51:53,996 - INFO - 127.0.0.1 - - [21/Apr/2025 22:51:53] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-21 22:51:54,002 - INFO - 127.0.0.1 - - [21/Apr/2025 22:51:54] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-21 22:51:55,263 - INFO - Administrator wszedł na stronę dostawców.
+2025-04-21 22:51:55,300 - INFO - 127.0.0.1 - - [21/Apr/2025 22:51:55] "GET /lokalizacja HTTP/1.1" 200 -
+2025-04-21 22:51:55,327 - INFO - 127.0.0.1 - - [21/Apr/2025 22:51:55] "GET /static/style.css HTTP/1.1" 200 -
+2025-04-21 22:51:55,341 - INFO - 127.0.0.1 - - [21/Apr/2025 22:51:55] "GET /static/img/logo-duże.png HTTP/1.1" 200 -
+2025-04-21 22:51:56,528 - INFO - Administrator wszedł na stronę główną.
+2025-04-21 22:51:56,529 - INFO - 127.0.0.1 - - [21/Apr/2025 22:51:56] "GET / HTTP/1.1" 200 -
+2025-04-21 22:51:56,557 - INFO - 127.0.0.1 - - [21/Apr/2025 22:51:56] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-21 22:51:56,563 - INFO - 127.0.0.1 - - [21/Apr/2025 22:51:56] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-21 22:52:00,114 - INFO - Administrator wszedł na stronę zestawienia.
+2025-04-21 22:52:00,184 - INFO - 127.0.0.1 - - [21/Apr/2025 22:52:00] "GET /zestawienie HTTP/1.1" 200 -
+2025-04-21 22:52:00,209 - INFO - 127.0.0.1 - - [21/Apr/2025 22:52:00] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-21 22:52:00,223 - INFO - 127.0.0.1 - - [21/Apr/2025 22:52:00] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-21 22:52:00,228 - INFO - 127.0.0.1 - - [21/Apr/2025 22:52:00] "GET /static/img/drukarka.png HTTP/1.1" 200 -
+2025-04-21 22:52:01,694 - INFO - Administrator wszedł na stronę główną.
+2025-04-21 22:52:01,695 - INFO - 127.0.0.1 - - [21/Apr/2025 22:52:01] "GET / HTTP/1.1" 200 -
+2025-04-21 22:52:01,717 - INFO - 127.0.0.1 - - [21/Apr/2025 22:52:01] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-21 22:52:01,722 - INFO - 127.0.0.1 - - [21/Apr/2025 22:52:01] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-21 22:52:02,741 - INFO - Administrator wszedł na stronę profilu.
+2025-04-21 22:52:02,865 - INFO - 127.0.0.1 - - [21/Apr/2025 22:52:02] "GET /profil HTTP/1.1" 200 -
+2025-04-21 22:52:02,888 - INFO - 127.0.0.1 - - [21/Apr/2025 22:52:02] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-21 22:52:02,899 - INFO - 127.0.0.1 - - [21/Apr/2025 22:52:02] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-21 22:52:06,698 - INFO - Administrator wszedł na stronę dodawania profilu.
+2025-04-21 22:52:06,699 - INFO - 127.0.0.1 - - [21/Apr/2025 22:52:06] "GET /dodaj_profil HTTP/1.1" 200 -
+2025-04-21 22:52:06,726 - INFO - 127.0.0.1 - - [21/Apr/2025 22:52:06] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-21 22:53:43,755 - INFO - Administrator wszedł na stronę dodawania profilu.
+2025-04-21 22:53:43,766 - INFO - 127.0.0.1 - - [21/Apr/2025 22:53:43] "GET /dodaj_profil HTTP/1.1" 200 -
+2025-04-21 22:53:43,794 - INFO - 127.0.0.1 - - [21/Apr/2025 22:53:43] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-21 22:53:48,199 - INFO - 127.0.0.1 - - [21/Apr/2025 22:53:48] "[32mPOST /dodaj_lub_zakonczenie_profilu HTTP/1.1[0m" 302 -
+2025-04-21 22:53:48,210 - INFO - Administrator wszedł na stronę profilu.
+2025-04-21 22:53:48,215 - INFO - 127.0.0.1 - - [21/Apr/2025 22:53:48] "GET /profil HTTP/1.1" 200 -
+2025-04-21 22:53:48,240 - INFO - 127.0.0.1 - - [21/Apr/2025 22:53:48] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-21 22:53:48,253 - INFO - 127.0.0.1 - - [21/Apr/2025 22:53:48] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-21 22:54:09,882 - INFO - Administrator wszedł na stronę profilu.
+2025-04-21 22:54:09,884 - INFO - 127.0.0.1 - - [21/Apr/2025 22:54:09] "GET /profil HTTP/1.1" 200 -
+2025-04-21 22:54:09,907 - INFO - 127.0.0.1 - - [21/Apr/2025 22:54:09] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-21 22:54:09,919 - INFO - 127.0.0.1 - - [21/Apr/2025 22:54:09] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-21 22:54:11,226 - INFO - Administrator wszedł na stronę profilu.
+2025-04-21 22:54:11,229 - INFO - 127.0.0.1 - - [21/Apr/2025 22:54:11] "GET /profil HTTP/1.1" 200 -
+2025-04-21 22:54:11,257 - INFO - 127.0.0.1 - - [21/Apr/2025 22:54:11] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-21 22:54:11,267 - INFO - 127.0.0.1 - - [21/Apr/2025 22:54:11] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-21 22:54:14,858 - INFO - Administrator wszedł na stronę profilu.
+2025-04-21 22:54:14,990 - INFO - 127.0.0.1 - - [21/Apr/2025 22:54:14] "GET /profil HTTP/1.1" 200 -
+2025-04-21 22:54:15,021 - INFO - 127.0.0.1 - - [21/Apr/2025 22:54:15] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-21 22:54:15,032 - INFO - 127.0.0.1 - - [21/Apr/2025 22:54:15] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-21 22:54:15,804 - INFO - Administrator wszedł na stronę profilu.
+2025-04-21 22:54:15,807 - INFO - 127.0.0.1 - - [21/Apr/2025 22:54:15] "GET /profil HTTP/1.1" 200 -
+2025-04-21 22:54:15,834 - INFO - 127.0.0.1 - - [21/Apr/2025 22:54:15] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-21 22:54:15,846 - INFO - 127.0.0.1 - - [21/Apr/2025 22:54:15] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-21 22:54:16,115 - INFO - Administrator wszedł na stronę profilu.
+2025-04-21 22:54:16,118 - INFO - 127.0.0.1 - - [21/Apr/2025 22:54:16] "GET /profil HTTP/1.1" 200 -
+2025-04-21 22:54:16,144 - INFO - 127.0.0.1 - - [21/Apr/2025 22:54:16] "GET /static/style.css HTTP/1.1" 200 -
+2025-04-21 22:54:16,160 - INFO - 127.0.0.1 - - [21/Apr/2025 22:54:16] "GET /static/img/logo-duże.png HTTP/1.1" 200 -
+2025-04-21 22:54:40,899 - INFO - Administrator wszedł na stronę profilu.
+2025-04-21 22:54:41,059 - INFO - 127.0.0.1 - - [21/Apr/2025 22:54:41] "[35m[1mGET /profil HTTP/1.1[0m" 500 -
+2025-04-21 22:54:41,077 - INFO - 127.0.0.1 - - [21/Apr/2025 22:54:41] "GET /profil?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1" 200 -
+2025-04-21 22:54:41,078 - INFO - 127.0.0.1 - - [21/Apr/2025 22:54:41] "GET /profil?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1" 200 -
+2025-04-21 22:54:41,089 - INFO - 127.0.0.1 - - [21/Apr/2025 22:54:41] "GET /profil?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+2025-04-21 22:54:41,092 - INFO - 127.0.0.1 - - [21/Apr/2025 22:54:41] "GET /profil?__debugger__=yes&cmd=resource&f=console.png&s=UQryP1riFPG6POlB1EoW HTTP/1.1" 200 -
+2025-04-21 22:54:57,786 - INFO - Administrator wszedł na stronę profilu.
+2025-04-21 22:54:57,807 - INFO - 127.0.0.1 - - [21/Apr/2025 22:54:57] "[35m[1mGET /profil HTTP/1.1[0m" 500 -
+2025-04-21 22:54:57,823 - INFO - 127.0.0.1 - - [21/Apr/2025 22:54:57] "[36mGET /profil?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+2025-04-21 22:54:57,826 - INFO - 127.0.0.1 - - [21/Apr/2025 22:54:57] "GET /profil?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1" 200 -
+2025-04-21 22:54:57,836 - INFO - 127.0.0.1 - - [21/Apr/2025 22:54:57] "GET /profil?__debugger__=yes&cmd=resource&f=console.png&s=UQryP1riFPG6POlB1EoW HTTP/1.1" 200 -
+2025-04-21 22:55:01,721 - INFO - Administrator wszedł na stronę profilu.
+2025-04-21 22:55:01,858 - INFO - 127.0.0.1 - - [21/Apr/2025 22:55:01] "GET /profil HTTP/1.1" 200 -
+2025-04-21 22:55:01,900 - INFO - 127.0.0.1 - - [21/Apr/2025 22:55:01] "GET /static/style.css HTTP/1.1" 200 -
+2025-04-21 22:55:01,913 - INFO - 127.0.0.1 - - [21/Apr/2025 22:55:01] "GET /static/img/logo-duże.png HTTP/1.1" 200 -
+2025-04-21 22:55:08,102 - INFO - 127.0.0.1 - - [21/Apr/2025 22:55:08] "POST /dodaj_profil_do_bazy HTTP/1.1" 200 -
+2025-04-21 22:55:08,125 - INFO - 127.0.0.1 - - [21/Apr/2025 22:55:08] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-21 22:55:13,021 - INFO - 127.0.0.1 - - [21/Apr/2025 22:55:13] "[32mPOST /dodaj_lub_zakonczenie_profilu HTTP/1.1[0m" 302 -
+2025-04-21 22:55:13,028 - INFO - Administrator wszedł na stronę profilu.
+2025-04-21 22:55:13,032 - INFO - 127.0.0.1 - - [21/Apr/2025 22:55:13] "GET /profil HTTP/1.1" 200 -
+2025-04-21 22:55:13,057 - INFO - 127.0.0.1 - - [21/Apr/2025 22:55:13] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-21 22:55:13,067 - INFO - 127.0.0.1 - - [21/Apr/2025 22:55:13] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-21 22:59:30,452 - INFO - Administrator wszedł na stronę główną.
+2025-04-21 22:59:30,453 - INFO - 127.0.0.1 - - [21/Apr/2025 22:59:30] "GET / HTTP/1.1" 200 -
+2025-04-21 22:59:30,480 - INFO - 127.0.0.1 - - [21/Apr/2025 22:59:30] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-21 22:59:30,485 - INFO - 127.0.0.1 - - [21/Apr/2025 22:59:30] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-21 22:59:32,569 - INFO - Administrator wszedł na stronę zestawienia.
+2025-04-21 22:59:32,574 - INFO - 127.0.0.1 - - [21/Apr/2025 22:59:32] "GET /zestawienie HTTP/1.1" 200 -
+2025-04-21 22:59:32,596 - INFO - 127.0.0.1 - - [21/Apr/2025 22:59:32] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-21 22:59:32,602 - INFO - 127.0.0.1 - - [21/Apr/2025 22:59:32] "[36mGET /static/img/drukarka.png HTTP/1.1[0m" 304 -
+2025-04-21 22:59:32,607 - INFO - 127.0.0.1 - - [21/Apr/2025 22:59:32] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-21 22:59:36,435 - INFO - Administrator wszedł na stronę główną.
+2025-04-21 22:59:36,436 - INFO - 127.0.0.1 - - [21/Apr/2025 22:59:36] "GET / HTTP/1.1" 200 -
+2025-04-21 22:59:36,456 - INFO - 127.0.0.1 - - [21/Apr/2025 22:59:36] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-21 22:59:36,463 - INFO - 127.0.0.1 - - [21/Apr/2025 22:59:36] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-21 22:59:38,241 - INFO - Administrator wszedł na stronę dostawców.
+2025-04-21 22:59:38,279 - INFO - 127.0.0.1 - - [21/Apr/2025 22:59:38] "GET /dlugosci HTTP/1.1" 200 -
+2025-04-21 22:59:38,304 - INFO - 127.0.0.1 - - [21/Apr/2025 22:59:38] "GET /static/style.css HTTP/1.1" 200 -
+2025-04-21 22:59:38,316 - INFO - 127.0.0.1 - - [21/Apr/2025 22:59:38] "GET /static/img/logo-duże.png HTTP/1.1" 200 -
+2025-04-21 22:59:39,520 - INFO - Administrator wszedł na stronę główną.
+2025-04-21 22:59:39,521 - INFO - 127.0.0.1 - - [21/Apr/2025 22:59:39] "GET / HTTP/1.1" 200 -
+2025-04-21 22:59:39,545 - INFO - 127.0.0.1 - - [21/Apr/2025 22:59:39] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-21 22:59:39,551 - INFO - 127.0.0.1 - - [21/Apr/2025 22:59:39] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-21 22:59:40,218 - INFO - Administrator wszedł na stronę profilu.
+2025-04-21 22:59:40,345 - INFO - 127.0.0.1 - - [21/Apr/2025 22:59:40] "GET /profil HTTP/1.1" 200 -
+2025-04-21 22:59:40,367 - INFO - 127.0.0.1 - - [21/Apr/2025 22:59:40] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-21 22:59:40,379 - INFO - 127.0.0.1 - - [21/Apr/2025 22:59:40] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-21 23:03:10,773 - INFO - Administrator wszedł na stronę profilu.
+2025-04-21 23:03:10,904 - INFO - 127.0.0.1 - - [21/Apr/2025 23:03:10] "GET /profil HTTP/1.1" 200 -
+2025-04-21 23:03:10,922 - INFO - 127.0.0.1 - - [21/Apr/2025 23:03:10] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-21 23:03:10,934 - INFO - 127.0.0.1 - - [21/Apr/2025 23:03:10] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-21 23:04:38,055 - INFO - Administrator wszedł na stronę profilu.
+2025-04-21 23:04:38,181 - INFO - 127.0.0.1 - - [21/Apr/2025 23:04:38] "GET /profil HTTP/1.1" 200 -
+2025-04-21 23:04:38,213 - INFO - 127.0.0.1 - - [21/Apr/2025 23:04:38] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-21 23:04:38,229 - INFO - 127.0.0.1 - - [21/Apr/2025 23:04:38] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-21 23:04:38,838 - INFO - 127.0.0.1 - - [21/Apr/2025 23:04:38] "GET /get-tasma HTTP/1.1" 200 -
+2025-04-21 23:04:38,848 - INFO - 127.0.0.1 - - [21/Apr/2025 23:04:38] "GET /get-dlugosci HTTP/1.1" 200 -
+2025-04-21 23:04:38,861 - INFO - 127.0.0.1 - - [21/Apr/2025 23:04:38] "[35m[1mGET /get-szablon_profile HTTP/1.1[0m" 500 -
+2025-04-21 23:05:51,923 - INFO - Administrator wszedł na stronę profilu.
+2025-04-21 23:05:52,056 - INFO - 127.0.0.1 - - [21/Apr/2025 23:05:52] "GET /profil HTTP/1.1" 200 -
+2025-04-21 23:05:52,102 - INFO - 127.0.0.1 - - [21/Apr/2025 23:05:52] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-21 23:05:52,119 - INFO - 127.0.0.1 - - [21/Apr/2025 23:05:52] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-21 23:05:53,134 - INFO - 127.0.0.1 - - [21/Apr/2025 23:05:53] "GET /get-tasma HTTP/1.1" 200 -
+2025-04-21 23:05:53,145 - INFO - 127.0.0.1 - - [21/Apr/2025 23:05:53] "GET /get-dlugosci HTTP/1.1" 200 -
+2025-04-21 23:05:53,159 - INFO - 127.0.0.1 - - [21/Apr/2025 23:05:53] "[35m[1mGET /get-szablon_profile HTTP/1.1[0m" 500 -
+2025-04-21 23:08:43,201 - INFO -  * Detected change in 'C:\\Users\\admin\\Documents\\GitHub\\baza\\baza danych maxmetal\\python\\index.py', reloading
+2025-04-21 23:08:49,013 - INFO - Połączenie z bazą danych zostało nawiązane pomyślnie.
+2025-04-21 23:08:49,071 - INFO - ✅ Kopia zapasowa zapisana do pliku: backups\kopie_zapasowe_bazy_2025-04-21_23-08.sql
+2025-04-21 23:08:49,073 - INFO - 🗑️ Usunięto starą kopię: kopie_zapasowe_bazy_2025-04-21_20-36.sql
+2025-04-21 23:08:49,084 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.1.28:5000
+2025-04-21 23:08:49,085 - INFO - [33mPress CTRL+C to quit[0m
+2025-04-21 23:08:49,086 - INFO -  * Restarting with stat
+2025-04-21 23:08:51,463 - INFO - Połączenie z bazą danych zostało nawiązane pomyślnie.
+2025-04-21 23:08:51,521 - INFO - ✅ Kopia zapasowa zapisana do pliku: backups\kopie_zapasowe_bazy_2025-04-21_23-08.sql
+2025-04-21 23:08:51,527 - WARNING -  * Debugger is active!
+2025-04-21 23:08:51,531 - INFO -  * Debugger PIN: 179-082-417
+2025-04-21 23:08:51,813 - INFO - Administrator wszedł na stronę profilu.
+2025-04-21 23:08:51,958 - INFO - Administrator wszedł na stronę profilu.
+2025-04-21 23:08:51,966 - INFO - 127.0.0.1 - - [21/Apr/2025 23:08:51] "GET /profil HTTP/1.1" 200 -
+2025-04-21 23:08:51,967 - INFO - 127.0.0.1 - - [21/Apr/2025 23:08:51] "GET /profil HTTP/1.1" 200 -
+2025-04-21 23:08:51,995 - INFO - 127.0.0.1 - - [21/Apr/2025 23:08:51] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-21 23:08:52,010 - INFO - 127.0.0.1 - - [21/Apr/2025 23:08:52] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-21 23:08:53,193 - INFO - 127.0.0.1 - - [21/Apr/2025 23:08:53] "GET /get-tasma HTTP/1.1" 200 -
+2025-04-21 23:08:53,202 - INFO - 127.0.0.1 - - [21/Apr/2025 23:08:53] "GET /get-szablon_profile HTTP/1.1" 200 -
+2025-04-21 23:08:53,204 - INFO - 127.0.0.1 - - [21/Apr/2025 23:08:53] "GET /get-dlugosci HTTP/1.1" 200 -
+2025-04-21 23:08:58,659 - INFO - Otrzymane dane do aktualizacji profilu: {'column_0': '56', 'column_1': '49', 'column_2': '2025-04-21', 'column_3': '22:53:43', 'column_4': '22:55:13', 'column_5': '3.00', 'column_6': '1', 'column_7': '67', 'column_8': '3', 'column_9': '3', 'column_10': '3', 'column_11': 'DX510 2275 1,2x66', 'column_12': 'Administrator', 'column_13': 'Zapisz Usuń'}
+2025-04-21 23:08:58,661 - INFO - Aktualizacja Profil ID: 56 przez Administrator.
+2025-04-21 23:08:58,666 - INFO - 127.0.0.1 - - [21/Apr/2025 23:08:58] "POST /update-row_profil HTTP/1.1" 200 -
