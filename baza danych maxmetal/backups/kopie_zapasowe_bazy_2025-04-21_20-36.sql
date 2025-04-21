@@ -1,0 +1,178 @@
+SET FOREIGN_KEY_CHECKS = 0;
+
+-- Struktura tabeli `uprawnienia`
+CREATE TABLE `uprawnienia` (
+  `id_uprawnienia` int(11) NOT NULL AUTO_INCREMENT,
+  `nazwa` varchar(255) NOT NULL,
+  PRIMARY KEY (`id_uprawnienia`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- Struktura tabeli `uzytkownicy`
+CREATE TABLE `uzytkownicy` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `login` text DEFAULT NULL,
+  `haslo` text NOT NULL,
+  `id_uprawnienia` int(11) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `fk_uzytkownicy_uprawnienia` (`id_uprawnienia`),
+  CONSTRAINT `fk_uzytkownicy_uprawnienia` FOREIGN KEY (`id_uprawnienia`) REFERENCES `uprawnienia` (`id_uprawnienia`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- Struktura tabeli `dostawcy`
+CREATE TABLE `dostawcy` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `nazwa` varchar(255) NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `nazwa` (`nazwa`)
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- Struktura tabeli `szablon`
+CREATE TABLE `szablon` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `nazwa` varchar(255) NOT NULL,
+  `rodzaj` varchar(255) NOT NULL,
+  `grubosc_i_oznaczenie_ocynku` varchar(255) NOT NULL,
+  `grubosc` decimal(10,2) NOT NULL,
+  `szerokosc` decimal(10,2) NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `nazwa` (`nazwa`)
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- Struktura tabeli `lokalizacja`
+CREATE TABLE `lokalizacja` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `nazwa` varchar(255) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- Struktura tabeli `dlugosci`
+CREATE TABLE `dlugosci` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `nazwa` varchar(255) NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `nazwa` (`nazwa`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- Struktura tabeli `tasma`
+CREATE TABLE `tasma` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `data_z_etykiety_na_kregu` date NOT NULL,
+  `grubosc` decimal(10,2) NOT NULL,
+  `szerokosc` decimal(10,2) NOT NULL,
+  `waga_kregu` decimal(10,2) NOT NULL,
+  `waga_kregu_na_stanie` decimal(10,2) NOT NULL,
+  `nr_etykieta_paletowa` varchar(255) NOT NULL,
+  `nr_z_etykiety_na_kregu` varchar(255) NOT NULL,
+  `lokalizacja_id` int(11) DEFAULT NULL,
+  `nr_faktury_dostawcy` varchar(255) NOT NULL,
+  `data_dostawy` date NOT NULL,
+  `pracownik_id` int(11) DEFAULT NULL,
+  `dostawca_id` int(11) NOT NULL,
+  `szablon_id` int(11) NOT NULL,
+  `Data_do_usuwania` date NOT NULL DEFAULT current_timestamp(),
+  PRIMARY KEY (`id`),
+  KEY `fk_tasma_pracownik` (`pracownik_id`),
+  KEY `fk_tasma_dostawca` (`dostawca_id`),
+  KEY `fk_tasma_szablon` (`szablon_id`),
+  KEY `fk_tasma_lokalizacja` (`lokalizacja_id`),
+  CONSTRAINT `fk_tasma_dostawca` FOREIGN KEY (`dostawca_id`) REFERENCES `dostawcy` (`id`) ON DELETE CASCADE,
+  CONSTRAINT `fk_tasma_lokalizacja` FOREIGN KEY (`lokalizacja_id`) REFERENCES `lokalizacja` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `fk_tasma_pracownik` FOREIGN KEY (`pracownik_id`) REFERENCES `uzytkownicy` (`id`) ON DELETE SET NULL,
+  CONSTRAINT `fk_tasma_szablon` FOREIGN KEY (`szablon_id`) REFERENCES `szablon` (`id`) ON DELETE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=49 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- Struktura tabeli `profil`
+CREATE TABLE `profil` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id_tasmy` int(11) DEFAULT NULL,
+  `data_produkcji` date DEFAULT NULL,
+  `godz_min_rozpoczecia` time DEFAULT NULL,
+  `godz_min_zakonczenia` time DEFAULT NULL,
+  `zwrot_na_magazyn_kg` decimal(10,2) DEFAULT NULL,
+  `nr_czesci_klienta` varchar(50) DEFAULT NULL,
+  `nazwa_klienta_nr_zlecenia_PRODIO` varchar(100) DEFAULT NULL,
+  `ilosc` int(11) DEFAULT NULL,
+  `ilosc_na_stanie` int(11) DEFAULT NULL,
+  `id_dlugosci` int(11) DEFAULT NULL,
+  `id_pracownika` int(11) DEFAULT NULL,
+  `Data_do_usuwania` date DEFAULT current_timestamp(),
+  PRIMARY KEY (`id`),
+  KEY `id_tasmy` (`id_tasmy`),
+  KEY `id_pracownika` (`id_pracownika`),
+  KEY `profil_ibfk_3` (`id_dlugosci`),
+  CONSTRAINT `profil_ibfk_1` FOREIGN KEY (`id_tasmy`) REFERENCES `tasma` (`id`) ON DELETE CASCADE,
+  CONSTRAINT `profil_ibfk_2` FOREIGN KEY (`id_pracownika`) REFERENCES `uzytkownicy` (`id`) ON DELETE CASCADE,
+  CONSTRAINT `profil_ibfk_3` FOREIGN KEY (`id_dlugosci`) REFERENCES `dlugosci` (`id`) ON DELETE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=56 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- Dane z tabeli `uprawnienia`
+INSERT INTO `uprawnienia` (id_uprawnienia, nazwa) VALUES ('1', 'Administrator');
+INSERT INTO `uprawnienia` (id_uprawnienia, nazwa) VALUES ('2', 'Zaopatrzeniowiec ');
+INSERT INTO `uprawnienia` (id_uprawnienia, nazwa) VALUES ('3', 'Pracownik');
+
+-- Dane z tabeli `uzytkownicy`
+INSERT INTO `uzytkownicy` (id, login, haslo, id_uprawnienia) VALUES ('1', 'Administrator', 'scrypt:32768:8:1$hFji6Y2E4ieYI6Bp$d019011fb8ea6f21b31c18f54dbbf95f664ed512a7ffc0bb4a2a9b28b709e5fd7b5766675d7a7223aacc24bfdae9b038c22d61f6a1d00a212611c80e068ec153', '1');
+INSERT INTO `uzytkownicy` (id, login, haslo, id_uprawnienia) VALUES ('14', 'test1', 'scrypt:32768:8:1$g85jfiQGw8D1zVS1$61a4ed4d2ef9a2530b54939d1d472b43b61348c7c11ce5861e434799ec28999ac8e0373060f41d3b0e32e867794e839fa270277770a5f81e451aaf500c15109b', '1');
+INSERT INTO `uzytkownicy` (id, login, haslo, id_uprawnienia) VALUES ('16', 'test3', 'scrypt:32768:8:1$3zFtfjuCE2ekzMrt$9b1fa256e8c9b2e762949d17a45b6cfe2d544ea726da11fc7688676321ca63c029939ff18cba7b299e6d49f7029875c427282243b6078fbdb29e3de9dfe535d6', '3');
+INSERT INTO `uzytkownicy` (id, login, haslo, id_uprawnienia) VALUES ('17', 'test4', 'scrypt:32768:8:1$t3iQxJMK4QQE0eJg$d901c7265ccbf9c12a42dc7dab5974da829e86641ccafc6629e51588cd82db1235c61b3c6ab2ed648fc16c1ad0d1c300f1925f283b9124c78bd1c1eee33f5ed2', '1');
+
+-- Dane z tabeli `dostawcy`
+INSERT INTO `dostawcy` (id, nazwa) VALUES ('1', 'dostawca1');
+INSERT INTO `dostawcy` (id, nazwa) VALUES ('2', 'dostawca2');
+INSERT INTO `dostawcy` (id, nazwa) VALUES ('5', 'nic');
+INSERT INTO `dostawcy` (id, nazwa) VALUES ('3', 'test1');
+INSERT INTO `dostawcy` (id, nazwa) VALUES ('4', 'ttttttr');
+
+-- Dane z tabeli `szablon`
+INSERT INTO `szablon` (id, nazwa, rodzaj, grubosc_i_oznaczenie_ocynku, grubosc, szerokosc) VALUES ('1', 'Dx2', 'D', 'x', '77.00', '3.00');
+INSERT INTO `szablon` (id, nazwa, rodzaj, grubosc_i_oznaczenie_ocynku, grubosc, szerokosc) VALUES ('2', 'TT', 't', 'r', '1.00', '1.00');
+INSERT INTO `szablon` (id, nazwa, rodzaj, grubosc_i_oznaczenie_ocynku, grubosc, szerokosc) VALUES ('3', 'DX510 2275 1,2x66', 'DX510', '2275', '1.00', '66.00');
+INSERT INTO `szablon` (id, nazwa, rodzaj, grubosc_i_oznaczenie_ocynku, grubosc, szerokosc) VALUES ('4', 'ww ww wwxww', 'ww', 'ww', '0.00', '0.00');
+INSERT INTO `szablon` (id, nazwa, rodzaj, grubosc_i_oznaczenie_ocynku, grubosc, szerokosc) VALUES ('5', '22 22 TruexTrue', '22', '22', '1.00', '1.00');
+INSERT INTO `szablon` (id, nazwa, rodzaj, grubosc_i_oznaczenie_ocynku, grubosc, szerokosc) VALUES ('6', 't t TruexTrue', 't', 't', '1.00', '1.00');
+INSERT INTO `szablon` (id, nazwa, rodzaj, grubosc_i_oznaczenie_ocynku, grubosc, szerokosc) VALUES ('7', '11 11 11x11', '11', '11', '11.00', '11.00');
+INSERT INTO `szablon` (id, nazwa, rodzaj, grubosc_i_oznaczenie_ocynku, grubosc, szerokosc) VALUES ('8', '121 122 8.1x8.2', '121', '122', '8.20', '8.10');
+INSERT INTO `szablon` (id, nazwa, rodzaj, grubosc_i_oznaczenie_ocynku, grubosc, szerokosc) VALUES ('9', 'ttr 4ewr 4,2x4', 'ttr', '4ewr', '4.20', '4.00');
+INSERT INTO `szablon` (id, nazwa, rodzaj, grubosc_i_oznaczenie_ocynku, grubosc, szerokosc) VALUES ('10', 'ttr20 mc4 4x5', 'ttr20', 'mc4', '5.00', '4.00');
+
+-- Dane z tabeli `lokalizacja`
+INSERT INTO `lokalizacja` (id, nazwa) VALUES ('1', 'Magazyn1');
+
+-- Dane z tabeli `dlugosci`
+INSERT INTO `dlugosci` (id, nazwa) VALUES ('3', '1');
+INSERT INTO `dlugosci` (id, nazwa) VALUES ('2', '2');
+INSERT INTO `dlugosci` (id, nazwa) VALUES ('1', '3');
+
+-- Dane z tabeli `tasma`
+INSERT INTO `tasma` (id, data_z_etykiety_na_kregu, grubosc, szerokosc, waga_kregu, waga_kregu_na_stanie, nr_etykieta_paletowa, nr_z_etykiety_na_kregu, lokalizacja_id, nr_faktury_dostawcy, data_dostawy, pracownik_id, dostawca_id, szablon_id, Data_do_usuwania) VALUES ('45', '0033-03-31', '0.00', '0.00', '3.00', '0.00', '3', '3', '1', '333', '0033-03-31', '1', '5', '4', '2026-04-16');
+INSERT INTO `tasma` (id, data_z_etykiety_na_kregu, grubosc, szerokosc, waga_kregu, waga_kregu_na_stanie, nr_etykieta_paletowa, nr_z_etykiety_na_kregu, lokalizacja_id, nr_faktury_dostawcy, data_dostawy, pracownik_id, dostawca_id, szablon_id, Data_do_usuwania) VALUES ('46', '0044-04-04', '1.00', '1.00', '444.00', '0.00', '', '44', '1', '44', '0004-04-04', '1', '1', '2', '2026-04-18');
+INSERT INTO `tasma` (id, data_z_etykiety_na_kregu, grubosc, szerokosc, waga_kregu, waga_kregu_na_stanie, nr_etykieta_paletowa, nr_z_etykiety_na_kregu, lokalizacja_id, nr_faktury_dostawcy, data_dostawy, pracownik_id, dostawca_id, szablon_id, Data_do_usuwania) VALUES ('47', '0003-03-23', '0.00', '0.00', '3132.00', '0.00', '-', '213', '1', '324', '0342-04-23', '1', '5', '4', '2026-04-18');
+INSERT INTO `tasma` (id, data_z_etykiety_na_kregu, grubosc, szerokosc, waga_kregu, waga_kregu_na_stanie, nr_etykieta_paletowa, nr_z_etykiety_na_kregu, lokalizacja_id, nr_faktury_dostawcy, data_dostawy, pracownik_id, dostawca_id, szablon_id, Data_do_usuwania) VALUES ('48', '0001-11-11', '1.00', '1.00', '1.00', '0.00', '1', '1', '1', '11', '0011-11-11', '1', '2', '5', '2026-04-21');
+
+-- Dane z tabeli `profil`
+INSERT INTO `profil` (id, id_tasmy, data_produkcji, godz_min_rozpoczecia, godz_min_zakonczenia, zwrot_na_magazyn_kg, nr_czesci_klienta, nazwa_klienta_nr_zlecenia_PRODIO, ilosc, ilosc_na_stanie, id_dlugosci, id_pracownika, Data_do_usuwania) VALUES ('33', '47', '2025-04-18', '15:41:14', '15:41:24', '6.00', '66', '66', '666', '0', '3', '1', '2026-04-18');
+INSERT INTO `profil` (id, id_tasmy, data_produkcji, godz_min_rozpoczecia, godz_min_zakonczenia, zwrot_na_magazyn_kg, nr_czesci_klienta, nazwa_klienta_nr_zlecenia_PRODIO, ilosc, ilosc_na_stanie, id_dlugosci, id_pracownika, Data_do_usuwania) VALUES ('34', '45', '2025-04-18', '15:43:41', '15:43:50', '3.00', '3', '3', '3', '0', '3', '1', '2026-04-18');
+INSERT INTO `profil` (id, id_tasmy, data_produkcji, godz_min_rozpoczecia, godz_min_zakonczenia, zwrot_na_magazyn_kg, nr_czesci_klienta, nazwa_klienta_nr_zlecenia_PRODIO, ilosc, ilosc_na_stanie, id_dlugosci, id_pracownika, Data_do_usuwania) VALUES ('35', '46', '2025-04-21', '8:06:47', '8:07:00', '4.00', '4', '4', '4', '0', '2', '16', '2026-04-21');
+INSERT INTO `profil` (id, id_tasmy, data_produkcji, godz_min_rozpoczecia, godz_min_zakonczenia, zwrot_na_magazyn_kg, nr_czesci_klienta, nazwa_klienta_nr_zlecenia_PRODIO, ilosc, ilosc_na_stanie, id_dlugosci, id_pracownika, Data_do_usuwania) VALUES ('36', '46', '2025-04-21', '8:07:59', '8:08:14', '0.00', '6', '6', '6', '0', '3', '16', '2026-04-21');
+INSERT INTO `profil` (id, id_tasmy, data_produkcji, godz_min_rozpoczecia, godz_min_zakonczenia, zwrot_na_magazyn_kg, nr_czesci_klienta, nazwa_klienta_nr_zlecenia_PRODIO, ilosc, ilosc_na_stanie, id_dlugosci, id_pracownika, Data_do_usuwania) VALUES ('37', '46', '2025-04-21', '10:17:32', '10:25:05', '5.00', '6', '6', '5', '0', '2', '16', '2026-04-21');
+INSERT INTO `profil` (id, id_tasmy, data_produkcji, godz_min_rozpoczecia, godz_min_zakonczenia, zwrot_na_magazyn_kg, nr_czesci_klienta, nazwa_klienta_nr_zlecenia_PRODIO, ilosc, ilosc_na_stanie, id_dlugosci, id_pracownika, Data_do_usuwania) VALUES ('38', '45', '2025-04-21', '10:27:01', '10:27:17', '8.00', '3', '3', '4', '0', '3', '16', '2026-04-21');
+INSERT INTO `profil` (id, id_tasmy, data_produkcji, godz_min_rozpoczecia, godz_min_zakonczenia, zwrot_na_magazyn_kg, nr_czesci_klienta, nazwa_klienta_nr_zlecenia_PRODIO, ilosc, ilosc_na_stanie, id_dlugosci, id_pracownika, Data_do_usuwania) VALUES ('39', '46', '2025-04-21', '10:30:22', '10:31:04', '999.00', '5', '5', '6', '0', '1', '16', '2026-04-21');
+INSERT INTO `profil` (id, id_tasmy, data_produkcji, godz_min_rozpoczecia, godz_min_zakonczenia, zwrot_na_magazyn_kg, nr_czesci_klienta, nazwa_klienta_nr_zlecenia_PRODIO, ilosc, ilosc_na_stanie, id_dlugosci, id_pracownika, Data_do_usuwania) VALUES ('40', '47', '2025-04-21', '10:35:18', '10:35:30', '99999999.99', '6', '6', '7', '0', '3', '16', '2026-04-21');
+INSERT INTO `profil` (id, id_tasmy, data_produkcji, godz_min_rozpoczecia, godz_min_zakonczenia, zwrot_na_magazyn_kg, nr_czesci_klienta, nazwa_klienta_nr_zlecenia_PRODIO, ilosc, ilosc_na_stanie, id_dlugosci, id_pracownika, Data_do_usuwania) VALUES ('41', '45', '2025-04-21', '10:39:07', '10:48:08', '99999999.99', '6', '6', '8', '0', '3', '16', '2026-04-21');
+INSERT INTO `profil` (id, id_tasmy, data_produkcji, godz_min_rozpoczecia, godz_min_zakonczenia, zwrot_na_magazyn_kg, nr_czesci_klienta, nazwa_klienta_nr_zlecenia_PRODIO, ilosc, ilosc_na_stanie, id_dlugosci, id_pracownika, Data_do_usuwania) VALUES ('42', '46', '2025-04-21', '10:44:03', '10:48:43', '9.00', '45645645645645645654645', '456', '8', '0', '1', '16', '2026-04-21');
+INSERT INTO `profil` (id, id_tasmy, data_produkcji, godz_min_rozpoczecia, godz_min_zakonczenia, zwrot_na_magazyn_kg, nr_czesci_klienta, nazwa_klienta_nr_zlecenia_PRODIO, ilosc, ilosc_na_stanie, id_dlugosci, id_pracownika, Data_do_usuwania) VALUES ('43', '45', '2025-04-21', '10:51:20', '10:51:31', '89798797.00', '66', '6', '65', '0', '3', '16', '2026-04-21');
+INSERT INTO `profil` (id, id_tasmy, data_produkcji, godz_min_rozpoczecia, godz_min_zakonczenia, zwrot_na_magazyn_kg, nr_czesci_klienta, nazwa_klienta_nr_zlecenia_PRODIO, ilosc, ilosc_na_stanie, id_dlugosci, id_pracownika, Data_do_usuwania) VALUES ('44', '45', '2025-04-21', '10:52:28', '10:52:35', '99999999.99', '7', '7', '56', '0', '1', '16', '2026-04-21');
+INSERT INTO `profil` (id, id_tasmy, data_produkcji, godz_min_rozpoczecia, godz_min_zakonczenia, zwrot_na_magazyn_kg, nr_czesci_klienta, nazwa_klienta_nr_zlecenia_PRODIO, ilosc, ilosc_na_stanie, id_dlugosci, id_pracownika, Data_do_usuwania) VALUES ('45', '45', '2025-04-21', '13:52:53', '13:54:10', '8.00', 't', 't', '8', '0', '3', '16', '2026-04-21');
+INSERT INTO `profil` (id, id_tasmy, data_produkcji, godz_min_rozpoczecia, godz_min_zakonczenia, zwrot_na_magazyn_kg, nr_czesci_klienta, nazwa_klienta_nr_zlecenia_PRODIO, ilosc, ilosc_na_stanie, id_dlugosci, id_pracownika, Data_do_usuwania) VALUES ('46', '45', '2025-04-21', '13:58:19', '13:58:29', '9.00', '7', '7', '8', '0', '3', '16', '2026-04-21');
+INSERT INTO `profil` (id, id_tasmy, data_produkcji, godz_min_rozpoczecia, godz_min_zakonczenia, zwrot_na_magazyn_kg, nr_czesci_klienta, nazwa_klienta_nr_zlecenia_PRODIO, ilosc, ilosc_na_stanie, id_dlugosci, id_pracownika, Data_do_usuwania) VALUES ('47', '45', '2025-04-21', '14:00:52', '14:00:59', '99.00', '7', '7', '9', '0', '3', '16', '2026-04-21');
+INSERT INTO `profil` (id, id_tasmy, data_produkcji, godz_min_rozpoczecia, godz_min_zakonczenia, zwrot_na_magazyn_kg, nr_czesci_klienta, nazwa_klienta_nr_zlecenia_PRODIO, ilosc, ilosc_na_stanie, id_dlugosci, id_pracownika, Data_do_usuwania) VALUES ('48', '47', '2025-04-21', '18:23:08', '18:23:40', '0.00', '5', '5', '100', '100', '1', '16', '2026-04-21');
+INSERT INTO `profil` (id, id_tasmy, data_produkcji, godz_min_rozpoczecia, godz_min_zakonczenia, zwrot_na_magazyn_kg, nr_czesci_klienta, nazwa_klienta_nr_zlecenia_PRODIO, ilosc, ilosc_na_stanie, id_dlugosci, id_pracownika, Data_do_usuwania) VALUES ('49', '45', '2025-04-21', '19:29:40', '19:29:46', '0.00', 'r', 'r', '2', '2', '3', '16', '2026-04-21');
+INSERT INTO `profil` (id, id_tasmy, data_produkcji, godz_min_rozpoczecia, godz_min_zakonczenia, zwrot_na_magazyn_kg, nr_czesci_klienta, nazwa_klienta_nr_zlecenia_PRODIO, ilosc, ilosc_na_stanie, id_dlugosci, id_pracownika, Data_do_usuwania) VALUES ('50', '46', '2025-04-21', '19:32:25', '19:33:45', '10.00', '6', '6', '3', '3', '3', '16', '2026-04-21');
+INSERT INTO `profil` (id, id_tasmy, data_produkcji, godz_min_rozpoczecia, godz_min_zakonczenia, zwrot_na_magazyn_kg, nr_czesci_klienta, nazwa_klienta_nr_zlecenia_PRODIO, ilosc, ilosc_na_stanie, id_dlugosci, id_pracownika, Data_do_usuwania) VALUES ('51', '46', '2025-04-21', '19:34:08', '19:34:22', '88.00', '9', '9', '8', '8', '3', '16', '2026-04-21');
+INSERT INTO `profil` (id, id_tasmy, data_produkcji, godz_min_rozpoczecia, godz_min_zakonczenia, zwrot_na_magazyn_kg, nr_czesci_klienta, nazwa_klienta_nr_zlecenia_PRODIO, ilosc, ilosc_na_stanie, id_dlugosci, id_pracownika, Data_do_usuwania) VALUES ('52', '46', '2025-04-21', '19:37:35', '19:38:12', '0.00', '6', '6', '0', '0', '3', '16', '2026-04-21');
+INSERT INTO `profil` (id, id_tasmy, data_produkcji, godz_min_rozpoczecia, godz_min_zakonczenia, zwrot_na_magazyn_kg, nr_czesci_klienta, nazwa_klienta_nr_zlecenia_PRODIO, ilosc, ilosc_na_stanie, id_dlugosci, id_pracownika, Data_do_usuwania) VALUES ('53', '48', '2025-04-21', '19:46:14', '20:03:59', '9.00', '1', '1', '9', '9', '3', '1', '2026-04-21');
+INSERT INTO `profil` (id, id_tasmy, data_produkcji, godz_min_rozpoczecia, godz_min_zakonczenia, zwrot_na_magazyn_kg, nr_czesci_klienta, nazwa_klienta_nr_zlecenia_PRODIO, ilosc, ilosc_na_stanie, id_dlugosci, id_pracownika, Data_do_usuwania) VALUES ('54', '48', '2025-04-21', '19:57:14', '20:10:38', '0.00', '1', '1', '0', '0', '3', '1', '2026-04-21');
+INSERT INTO `profil` (id, id_tasmy, data_produkcji, godz_min_rozpoczecia, godz_min_zakonczenia, zwrot_na_magazyn_kg, nr_czesci_klienta, nazwa_klienta_nr_zlecenia_PRODIO, ilosc, ilosc_na_stanie, id_dlugosci, id_pracownika, Data_do_usuwania) VALUES ('55', '47', '2025-04-21', '20:11:00', '20:11:14', '0.00', '7', '7', '9', '9', '3', '1', '2026-04-21');
+
+
+SET FOREIGN_KEY_CHECKS = 1;

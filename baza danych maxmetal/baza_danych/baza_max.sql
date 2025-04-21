@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 16, 2025 at 01:06 PM
+-- Generation Time: Apr 21, 2025 at 10:28 PM
 -- Wersja serwera: 10.4.32-MariaDB
 -- Wersja PHP: 8.2.12
 
@@ -20,6 +20,26 @@ SET time_zone = "+00:00";
 --
 -- Database: `baza_max`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Struktura tabeli dla tabeli `dlugosci`
+--
+
+CREATE TABLE `dlugosci` (
+  `id` int(11) NOT NULL,
+  `nazwa` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `dlugosci`
+--
+
+INSERT INTO `dlugosci` (`id`, `nazwa`) VALUES
+(3, '1'),
+(2, '2'),
+(1, '3');
 
 -- --------------------------------------------------------
 
@@ -69,15 +89,18 @@ INSERT INTO `lokalizacja` (`id`, `nazwa`) VALUES
 
 CREATE TABLE `profil` (
   `id` int(11) NOT NULL,
-  `id_tasmy` int(11) NOT NULL,
-  `data_produkcji` date NOT NULL,
-  `godz_min_rozpoczecia` time NOT NULL,
-  `godz_min_zakonczenia` time NOT NULL,
+  `id_tasmy` int(11) DEFAULT NULL,
+  `data_produkcji` date DEFAULT NULL,
+  `godz_min_rozpoczecia` time DEFAULT NULL,
+  `godz_min_zakonczenia` time DEFAULT NULL,
   `zwrot_na_magazyn_kg` decimal(10,2) DEFAULT NULL,
-  `nr_czesci_klienta` varchar(50) NOT NULL,
+  `id_szablon_profile` int(11) NOT NULL,
   `nazwa_klienta_nr_zlecenia_PRODIO` varchar(100) DEFAULT NULL,
-  `id_pracownika` int(11) NOT NULL,
-  `Data_do_usuwania` date NOT NULL DEFAULT current_timestamp()
+  `ilosc` int(11) DEFAULT NULL,
+  `ilosc_na_stanie` int(11) DEFAULT NULL,
+  `id_dlugosci` int(11) DEFAULT NULL,
+  `id_pracownika` int(11) DEFAULT NULL,
+  `Data_do_usuwania` date DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -110,6 +133,24 @@ INSERT INTO `szablon` (`id`, `nazwa`, `rodzaj`, `grubosc_i_oznaczenie_ocynku`, `
 (8, '121 122 8.1x8.2', '121', '122', 8.20, 8.10),
 (9, 'ttr 4ewr 4,2x4', 'ttr', '4ewr', 4.20, 4.00),
 (10, 'ttr20 mc4 4x5', 'ttr20', 'mc4', 5.00, 4.00);
+
+-- --------------------------------------------------------
+
+--
+-- Struktura tabeli dla tabeli `szablon_profile`
+--
+
+CREATE TABLE `szablon_profile` (
+  `id` int(11) NOT NULL,
+  `nazwa` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `szablon_profile`
+--
+
+INSERT INTO `szablon_profile` (`id`, `nazwa`) VALUES
+(1, '1234');
 
 -- --------------------------------------------------------
 
@@ -183,6 +224,13 @@ INSERT INTO `uzytkownicy` (`id`, `login`, `haslo`, `id_uprawnienia`) VALUES
 --
 
 --
+-- Indeksy dla tabeli `dlugosci`
+--
+ALTER TABLE `dlugosci`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `nazwa` (`nazwa`);
+
+--
 -- Indeksy dla tabeli `dostawcy`
 --
 ALTER TABLE `dostawcy`
@@ -201,7 +249,9 @@ ALTER TABLE `lokalizacja`
 ALTER TABLE `profil`
   ADD PRIMARY KEY (`id`),
   ADD KEY `id_tasmy` (`id_tasmy`),
-  ADD KEY `id_pracownika` (`id_pracownika`);
+  ADD KEY `id_pracownika` (`id_pracownika`),
+  ADD KEY `profil_ibfk_3` (`id_dlugosci`),
+  ADD KEY `profil_ibfk_4` (`id_szablon_profile`);
 
 --
 -- Indeksy dla tabeli `szablon`
@@ -209,6 +259,12 @@ ALTER TABLE `profil`
 ALTER TABLE `szablon`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `nazwa` (`nazwa`);
+
+--
+-- Indeksy dla tabeli `szablon_profile`
+--
+ALTER TABLE `szablon_profile`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indeksy dla tabeli `tasma`
@@ -238,6 +294,12 @@ ALTER TABLE `uzytkownicy`
 --
 
 --
+-- AUTO_INCREMENT for table `dlugosci`
+--
+ALTER TABLE `dlugosci`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
 -- AUTO_INCREMENT for table `dostawcy`
 --
 ALTER TABLE `dostawcy`
@@ -253,7 +315,7 @@ ALTER TABLE `lokalizacja`
 -- AUTO_INCREMENT for table `profil`
 --
 ALTER TABLE `profil`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=56;
 
 --
 -- AUTO_INCREMENT for table `szablon`
@@ -262,10 +324,16 @@ ALTER TABLE `szablon`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
+-- AUTO_INCREMENT for table `szablon_profile`
+--
+ALTER TABLE `szablon_profile`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
 -- AUTO_INCREMENT for table `tasma`
 --
 ALTER TABLE `tasma`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=49;
 
 --
 -- AUTO_INCREMENT for table `uprawnienia`
@@ -288,7 +356,9 @@ ALTER TABLE `uzytkownicy`
 --
 ALTER TABLE `profil`
   ADD CONSTRAINT `profil_ibfk_1` FOREIGN KEY (`id_tasmy`) REFERENCES `tasma` (`id`) ON DELETE CASCADE,
-  ADD CONSTRAINT `profil_ibfk_2` FOREIGN KEY (`id_pracownika`) REFERENCES `uzytkownicy` (`id`) ON DELETE CASCADE;
+  ADD CONSTRAINT `profil_ibfk_2` FOREIGN KEY (`id_pracownika`) REFERENCES `uzytkownicy` (`id`) ON DELETE CASCADE,
+  ADD CONSTRAINT `profil_ibfk_3` FOREIGN KEY (`id_dlugosci`) REFERENCES `dlugosci` (`id`) ON DELETE CASCADE,
+  ADD CONSTRAINT `profil_ibfk_4` FOREIGN KEY (`id_szablon_profile`) REFERENCES `szablon_profile` (`id`) ON DELETE CASCADE;
 
 --
 -- Constraints for table `tasma`
