@@ -9,7 +9,7 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>  <!-- Dodaj jQuery -->
 
 <script>
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     // Funkcja do formatowania czasu z sekundami (HH:MM:SS)
     function formatTimeWithSeconds(date) {
         const hours = String(date.getHours()).padStart(2, '0');
@@ -24,24 +24,42 @@ document.addEventListener('DOMContentLoaded', function() {
     const currentTimeWithSeconds = formatTimeWithSeconds(now);
 
     // Ustaw wartości pól ukrytych
-    document.querySelector('input[name="data_produkcji"]').value = today;
-    document.querySelector('input[name="godz_min_rozpoczecia"]').value = currentTimeWithSeconds;
+    const dataProd = document.querySelector('input[name="data_produkcji"]');
+    const godzStart = document.querySelector('input[name="godz_min_rozpoczecia"]');
+    if (dataProd && godzStart) {
+        dataProd.value = today;
+        godzStart.value = currentTimeWithSeconds;
+    }
 
-    // Dodanie godziny zakończenia przy wysyłaniu formularza
+    // Dodanie godziny zakończenia przy wysyłaniu formularza + walidacja zwrotu
     const form = document.getElementById('myForm');
-    form.addEventListener('submit', function(event) {
+    form.addEventListener('submit', function (event) {
         const endTime = new Date();
-        document.querySelector('input[name="godz_min_zakonczenia"]').value = formatTimeWithSeconds(endTime);
+        const godzEnd = document.querySelector('input[name="godz_min_zakonczenia"]');
+godzEnd.value = formatTimeWithSeconds(endTime);
 
-        // Walidacja wartości zwrotu na magazyn
-        const zwrotNaMagazynKg = parseFloat(document.querySelector('input[name="zwrot_na_magazyn_kg"]').value);
-        const selectedOption = document.querySelector('select[name="etykieta"]').selectedOptions[0];
-        const wagaKreguNaStanie = parseFloat(selectedOption.getAttribute('data-waga-kregu'));
+        // Pobierz wartość zwrotu i wagę kręgu na stanie
+        const zwrotInput = document.querySelector('input[name="zwrot_na_magazyn_kg"]');
+        if (zwrotInput) {
+            const zwrotNaMagazynKg = parseFloat(zwrotInput.value);
+            let wagaKreguNaStanie = 0;
 
-        if (zwrotNaMagazynKg > wagaKreguNaStanie) {
-    alert(`Wartość zwrotu na magazyn nie może być większa niż ${wagaKreguNaStanie} kg.`);
-    event.preventDefault(); // Zatrzymaj wysyłanie formularza
-}
+            const etykietaSelect = document.querySelector('select[name="etykieta"]');
+            if (etykietaSelect) {
+                const selectedOption = etykietaSelect.selectedOptions[0];
+                wagaKreguNaStanie = parseFloat(selectedOption.getAttribute('data-waga-kregu'));
+            } else {
+                wagaKreguNaStanie = parseFloat(zwrotInput.getAttribute('data-waga-kregu'));
+            }
+
+            if (!isNaN(zwrotNaMagazynKg) && !isNaN(wagaKreguNaStanie)) {
+                if (zwrotNaMagazynKg > wagaKreguNaStanie) {
+                    alert(`Wartość zwrotu na magazyn nie może być większa niż ${wagaKreguNaStanie} kg.`);
+                    event.preventDefault(); // Zatrzymaj wysyłanie formularza
+                   
+                }
+            }
+        }
     });
 });
 
@@ -79,9 +97,13 @@ function filtrujDlugosci() {
 <input type="text" id="szukaj_etykiety" onkeyup="filtrujEtykiete()" placeholder="Szukaj etykiety..."><br>
 <select id="etykieta" name="etykieta" required>
     {% for tasma in tasmy %}
+    {%if tasma.waga_kregu_na_stanie == 0%} 
+        {pass}
+    {%else%}
         <option value="{{ tasma.id }}" >
             {{ tasma.nr_z_etykiety_na_kregu }}
         </option>
+    {% endif %}
     {% endfor %}
 </select><br>
         
@@ -102,7 +124,7 @@ function filtrujDlugosci() {
                 <input type="hidden" name="profil_id" value="{{ profil.id }}">
         
                 
-                <input type="time" name="godz_min_zakonczenia" value="{{ teraz }}" required hidden><br>
+                <input type="hidden" name="godz_min_zakonczenia" value="{{ teraz }}">
         
                 <label for="zwrot_na_magazyn_kg">Zwrot na Magazyn (kg) obecnie {{ilosc}}:</label>
                 <input type="number" name="zwrot_na_magazyn_kg" data-waga-kregu="{{ ilosc }}" required><br>
