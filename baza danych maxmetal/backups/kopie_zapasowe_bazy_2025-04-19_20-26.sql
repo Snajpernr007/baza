@@ -38,6 +38,21 @@ CREATE TABLE `szablon` (
   UNIQUE KEY `nazwa` (`nazwa`)
 ) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+-- Struktura tabeli `lokalizacja`
+CREATE TABLE `lokalizacja` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `nazwa` varchar(255) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- Struktura tabeli `dlugosci`
+CREATE TABLE `dlugosci` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `nazwa` varchar(255) NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `nazwa` (`nazwa`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
 -- Struktura tabeli `tasma`
 CREATE TABLE `tasma` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -118,6 +133,14 @@ INSERT INTO `szablon` (id, nazwa, rodzaj, grubosc_i_oznaczenie_ocynku, grubosc, 
 INSERT INTO `szablon` (id, nazwa, rodzaj, grubosc_i_oznaczenie_ocynku, grubosc, szerokosc) VALUES ('8', '121 122 8.1x8.2', '121', '122', '8.20', '8.10');
 INSERT INTO `szablon` (id, nazwa, rodzaj, grubosc_i_oznaczenie_ocynku, grubosc, szerokosc) VALUES ('9', 'ttr 4ewr 4,2x4', 'ttr', '4ewr', '4.20', '4.00');
 INSERT INTO `szablon` (id, nazwa, rodzaj, grubosc_i_oznaczenie_ocynku, grubosc, szerokosc) VALUES ('10', 'ttr20 mc4 4x5', 'ttr20', 'mc4', '5.00', '4.00');
+
+-- Dane z tabeli `lokalizacja`
+INSERT INTO `lokalizacja` (id, nazwa) VALUES ('1', 'Magazyn1');
+
+-- Dane z tabeli `dlugosci`
+INSERT INTO `dlugosci` (id, nazwa) VALUES ('3', '1');
+INSERT INTO `dlugosci` (id, nazwa) VALUES ('2', '2');
+INSERT INTO `dlugosci` (id, nazwa) VALUES ('1', '3');
 
 -- Dane z tabeli `tasma`
 INSERT INTO `tasma` (id, data_z_etykiety_na_kregu, grubosc, szerokosc, waga_kregu, waga_kregu_na_stanie, nr_etykieta_paletowa, nr_z_etykiety_na_kregu, lokalizacja_id, nr_faktury_dostawcy, data_dostawy, pracownik_id, dostawca_id, szablon_id, Data_do_usuwania) VALUES ('45', '0033-03-31', '0.00', '0.00', '3.00', '3.00', '3', '3', '1', '333', '0033-03-31', '1', '5', '4', '2026-04-16');
