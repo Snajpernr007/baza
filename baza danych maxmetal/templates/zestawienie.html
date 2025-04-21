@@ -413,9 +413,10 @@ const headers = Array.from(headerRow.querySelectorAll('th'));
                             <th ><input type="text" placeholder="Filtruj Nr części Klienta" onkeyup="filterColumn(20)"></th>
                             <th ><input type="text" placeholder="Filtruj Nazwę klienta Nr PRODIO" onkeyup="filterColumn(21)"></th>
                             <th ><input type="text" placeholder="Filtruj Ilość" onkeyup="filterColumn(22)"></th>
-                            <th ><input type="text" placeholder="Filtruj Długość" onkeyup="filterColumn(23)"></th>
-                            <th ><input type="text" placeholder="Filtruj Rodzaj Materiału" onkeyup="filterColumn(24)"></th>
-                            <th ><input type="text" placeholder="Filtruj Nazwę Stanowiska" onkeyup="filterColumn(25)"></th>
+                            <th ><input type="text" placeholder="Filtruj Ilość na Stanie" onkeyup="filterColumn(23)"></th>
+                            <th ><input type="text" placeholder="Filtruj Długość" onkeyup="filterColumn(24)"></th>
+                            <th ><input type="text" placeholder="Filtruj Rodzaj Materiału" onkeyup="filterColumn(25)"></th>
+                            <th ><input type="text" placeholder="Filtruj Nazwę Stanowiska" onkeyup="filterColumn(26)"></th>
                         
                     </tr>
                     <tr>
@@ -442,9 +443,10 @@ const headers = Array.from(headerRow.querySelectorAll('th'));
                             <th  onclick="sortTable(20)">Nr części klienta &#9650;&#9660;</th>
                             <th  onclick="sortTable(21)">Nazwa klienta Nr PRODIO &#9650;&#9660;</th>
                             <th  onclick="sortTable(22)">Ilość &#9650;&#9660;</th>
-                            <th  onclick="sortTable(23)">Długość &#9650;&#9660;</th>
-                            <th  onclick="sortTable(24)">Rodzaj materiału &#9650;&#9660;</th>
-                            <th  onclick="sortTable(25)">Nazwa Stanowiska &#9650;&#9660;</th>
+                            <th  onclick="sortTable(23)">Ilość na stanie &#9650;&#9660;</th>
+                            <th  onclick="sortTable(24)">Długość &#9650;&#9660;</th>
+                            <th  onclick="sortTable(25)">Rodzaj materiału &#9650;&#9660;</th>
+                            <th  onclick="sortTable(26)">Nazwa Stanowiska &#9650;&#9660;</th>
                         
                     </tr>
                 </thead>
@@ -507,6 +509,7 @@ const headers = Array.from(headerRow.querySelectorAll('th'));
                                     <td >{{ profile.nr_czesci_klienta }}</td>
                                     <td >{{ profile.nazwa_klienta_nr_zlecenia_PRODIO }}</td>
                                     <td>{{profile.ilosc}}</td>
+                                    <td >{{ profile.ilosc_na_stanie }}</td>
                                     <td >{{ profile.dlugosci.nazwa }}</td>
                                     <td >{{profile.tasma.szablon.nazwa}}</td>
                                     <td >{{ profile.pracownik.login }}</td>

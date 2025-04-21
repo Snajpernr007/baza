@@ -22,6 +22,7 @@ import pandas as pd
 import io  # Dodaj ten import
 import openpyxl
 from io import BytesIO
+from datetime import datetime
 # Utwórz katalog logs, jeśli nie istnieje
 if not os.path.exists('logs'):
     os.makedirs('logs')
@@ -133,6 +134,7 @@ class Profil(db.Model):
     nr_czesci_klienta = db.Column(db.String(50), nullable=False)
     nazwa_klienta_nr_zlecenia_PRODIO = db.Column(db.String(100), nullable=True)
     ilosc=db.Column(db.Integer, nullable=False)
+    ilosc_na_stanie = db.Column(db.Integer, nullable=True)
     id_dlugosci = db.Column(db.Integer, db.ForeignKey('dlugosci.id'), nullable=False)
     Data_do_usuwania = db.Column(db.Date, nullable=True)
     id_pracownika = db.Column(db.Integer, db.ForeignKey('uzytkownicy.id'), nullable=False)
@@ -177,7 +179,7 @@ def format_sql_value(val):
         return "NULL"
     return "'" + str(val).replace("'", "''") + "'"
 def zapisz_do_pliku_sql():
-    timestamp = datetime.datetime.now().strftime('%Y-%m-%d_%H-%M')
+    timestamp = datetime.now().strftime('%Y-%m-%d_%H-%M')
     nazwa_pliku = os.path.join(BACKUP_DIR, f'kopie_zapasowe_bazy_{timestamp}.sql')
 
     try:
@@ -700,7 +702,9 @@ def update_row_profil():
         if 'column_8' in dane:
             profil.ilosc = dane['column_8']  # Ilość
         if 'column_9' in dane:
-            profil.id_dlugosci = dane['column_9']
+            profil.ilosc_na_stanie = dane['column_9'] # Ilość na stanie
+        if 'column_10' in dane:
+            profil.id_dlugosci = dane['column_10']  # ID długości
 
         logger.info(f"Aktualizacja Profil ID: {profil.id} przez {g.user.login}.")
         db.session.commit()
@@ -721,51 +725,69 @@ def dodaj_profil():
     logger.info(f"{g.user.login} wszedł na stronę dodawania profilu.")
     return render_template("dodaj_profil.html", user=g.user, tasmy=tasmy,dlugosci=dlugosci)
 
-@app.route('/dodaj_profil_do_bazy', methods=['POST'])
+@app.route('/dodaj_lub_zakonczenie_profilu', methods=['GET', 'POST'])
+def dodaj_lub_zakonczenie_profilu():
+    if not g.user:
+        return render_template('login.html')
+
+    profil_id = request.form.get('profil_id')
+
+    if profil_id:
+        # ZAKOŃCZENIE
+        profil = Profil.query.get(profil_id)
+        profil.godz_min_zakonczenia = request.form.get('godz_min_zakonczenia')
+        profil.zwrot_na_magazyn_kg = request.form.get('zwrot_na_magazyn_kg')
+        profil.ilosc = request.form.get('ilosc')
+        profil.ilosc_na_stanie = request.form.get('ilosc')
+        profil.id_dlugosci = request.form.get('id_dlugosci')
+
+        tasma = Tasma.query.get(profil.id_tasmy)
+        tasma.waga_kregu_na_stanie = float(profil.zwrot_na_magazyn_kg)
+
+    else:
+        # ROZPOCZĘCIE
+        profil = Profil(
+            id_tasmy=request.form.get('etykieta'),
+            data_produkcji=request.form.get('data_produkcji'),
+            godz_min_rozpoczecia=request.form.get('godz_min_rozpoczecia'),
+            nr_czesci_klienta=request.form.get('nr_czesci_klienta'),
+            nazwa_klienta_nr_zlecenia_PRODIO=request.form.get('nazwa_klienta_nr_zlecenia_PRODIO'),
+            id_pracownika=g.user.id,
+            Data_do_usuwania=date.today() + timedelta(days=365)
+        )
+        db.session.add(profil)
+
+    try:
+        db.session.commit()
+        return redirect(url_for('profil'))
+    except Exception as e:
+        db.session.rollback()
+        return f"Błąd zapisu: {e}"
+@app.route('/dodaj_profil_do_bazy', methods=['GET', 'POST'])
 def dodaj_profil_do_bazy():
     if not g.user:
-        return render_template('login.html', user=g.user)
-    
-    if request.method == 'POST':
-        id_tasmy = request.form.get('etykieta')  
-        data_produkcji = request.form.get('data_produkcji')
-        godz_min_rozpoczecia = request.form.get('godz_min_rozpoczecia')
-        godz_min_zakonczenia = request.form.get('godz_min_zakonczenia')
-        zwrot_na_magazyn_kg = request.form.get('zwrot_na_magazyn_kg')
-        nr_czesci_klienta = request.form.get('nr_czesci_klienta')
-        nazwa_klienta_nr_zlecenia_PRODIO = request.form.get('nazwa_klienta_nr_zlecenia_PRODIO')
-        ilosc= request.form.get('ilosc')
-        id_dlugosci= request.form.get('dlugosc')
-        Data_do_usuwania = date.today() + timedelta(days=365)
-        pracownik_id = g.user.id  # ID pracownika z sesji
+        return render_template('login.html')
 
-        nowy_profil = Profil(
-            id_tasmy=id_tasmy,
-            data_produkcji=data_produkcji,
-            godz_min_rozpoczecia=godz_min_rozpoczecia,
-            godz_min_zakonczenia=godz_min_zakonczenia,
-            zwrot_na_magazyn_kg=zwrot_na_magazyn_kg,
-            nr_czesci_klienta=nr_czesci_klienta,
-            nazwa_klienta_nr_zlecenia_PRODIO=nazwa_klienta_nr_zlecenia_PRODIO,
-            ilosc=ilosc,
-            id_dlugosci=id_dlugosci,
-            Data_do_usuwania=Data_do_usuwania,
-            id_pracownika=pracownik_id
-        )
+    # Odbierz 'profil_id' z formularza (z ukrytego pola)
+    profil_id = request.form.get('profil_id')
+    profil = Profil.query.get(profil_id) if profil_id else None
 
-        db.session.add(nowy_profil)
-        tasma = Tasma.query.get(id_tasmy)
-        if tasma:
-            tasma.waga_kregu_na_stanie = zwrot_na_magazyn_kg
-        try:
-            db.session.commit()
-            logger.info(f"Profil dla {nr_czesci_klienta} został dodany przez {g.user.login}.")
-            return redirect(url_for('profil'))  # Przekierowanie na stronę główną
-        except Exception as e:
-            db.session.rollback()
-            logger.error(f"Nie udało się zapisać danych: {e}")
-            return render_template('profil.html', error="Wystąpił błąd przy zapisywaniu danych.", user=g.user)
+    # Zwróć dane do szablonu
+    tasmy = Tasma.query.all()
+    dlugosci = Dlugosci.query.all()
+    teraz = datetime.now().strftime('%H:%M:%S')
+    dzisiaj = date.today().strftime('%Y-%m-%d')
 
+    return render_template(
+        'dodaj_profil.html',
+        user=g.user,
+        profil=profil,
+        tasma=tasmy,
+        dlugosci=dlugosci,
+        teraz=teraz,
+        dzisiaj=dzisiaj,
+        ilosc=Tasma.query.get(profil.id_tasmy).waga_kregu_na_stanie if profil else None
+    )
 @app.route('/dostawcy')
 def dostawcy():
     if not g.user:

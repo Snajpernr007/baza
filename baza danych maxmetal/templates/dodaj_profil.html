@@ -39,9 +39,9 @@ document.addEventListener('DOMContentLoaded', function() {
         const wagaKreguNaStanie = parseFloat(selectedOption.getAttribute('data-waga-kregu'));
 
         if (zwrotNaMagazynKg > wagaKreguNaStanie) {
-            alert(`Wartość zwrotu na magazyn nie może być większa niż ${wagaKreguNaStanie} kg.`);
-            event.preventDefault(); // Zatrzymaj wysyłanie formularza
-        }
+    alert(`Wartość zwrotu na magazyn nie może być większa niż ${wagaKreguNaStanie} kg.`);
+    event.preventDefault(); // Zatrzymaj wysyłanie formularza
+}
     });
 });
 
@@ -70,50 +70,62 @@ function filtrujDlugosci() {
 </head>
 <body>
     <div id="strona">
-        <form id="myForm" action="{{ url_for('dodaj_profil_do_bazy') }}" method="post">
-            <label for="szukaj_etykiety">Szukaj etykiety materiału:</label>
-            <input type="text" id="szukaj_etykiety" onkeyup="filtrujEtykiete()" placeholder="Wpisz nazwę etykiety materiału">
-
-            <label for="etykieta">Etykieta Materiału:</label>
-            <select id="etykieta" name="etykieta" required size="5">
-                {% for tasma in tasmy %}
-                    {% if tasma.waga_kregu_na_stanie > 0 %}
-                        <option value="{{ tasma.id }}" data-waga-kregu="{{ tasma.waga_kregu_na_stanie }}">{{ tasma.nr_z_etykiety_na_kregu }}</option>
-                    {% endif %}
-                {% endfor %}
-            </select><br>
-
-            <!-- Automatyczne wartości (ukryte pola) -->
-            <input type="date" name="data_produkcji" readonly required hidden>
-            <input type="time" name="godz_min_rozpoczecia" readonly required hidden>
-            <input type="time" name="godz_min_zakonczenia" readonly required hidden>
-            
-            <label for="zwrot_na_magazyn_kg">Zwrot na Magazyn (kg):</label>
-            <input type="number" name="zwrot_na_magazyn_kg" required><br>
+        <form id="myForm" method="POST" action="{{ url_for('dodaj_lub_zakonczenie_profilu') }}">
+            {% if not profil %}
+                <!-- ROZPOCZĘCIE PROFILU -->
+                <h2>Rozpocznij profil</h2>
         
-            <label for="nr_czesci_klienta">Nr Części Klienta:</label>
-            <input type="text" name="nr_czesci_klienta" required><br>
+                <label for="etykieta">Etykieta Materiału:</label><br>
+<input type="text" id="szukaj_etykiety" onkeyup="filtrujEtykiete()" placeholder="Szukaj etykiety..."><br>
+<select id="etykieta" name="etykieta" required>
+    {% for tasma in tasmy %}
+        <option value="{{ tasma.id }}" >
+            {{ tasma.nr_z_etykiety_na_kregu }}
+        </option>
+    {% endfor %}
+</select><br>
         
-            <label for="nazwa_klienta_nr_zlecenia_PRODIO">Nazwa Klienta / Nr Zlecenia:</label>
-            <input type="text" name="nazwa_klienta_nr_zlecenia_PRODIO" required><br>
-            <label for="ilosc">Ilość:</label>
-          
-            <input type="number" name="ilosc" required><br>
-            <label for="szukaj_dlugosci">Szukaj długości:</label>
-            <input type="text" id="szukaj_dlugosci" onkeyup="filtrujDlugosci()" placeholder="Wpisz dlugosc">
-
-            <label for="dlugosc">Dlugosc:</label>
-            <select id="dlugosc" name="dlugosc" required size="5">
-                {% for dlugosc in dlugosci %}
-                    {% if dlugosc.nazwa !=None %}
-                        <option value="{{ dlugosc.id }}">{{ dlugosc.nazwa }}</option>
-                    {% endif %}
-                {% endfor %}
-            </select><br>
-
-            <button type="reset" class="button">Wyczyść</button>
-            <button type="submit" class="button">Zapisz</button>
+                <input type="hidden" name="data_produkcji" value="{{ dzisiaj }}">
+                <input type="hidden" name="godz_min_rozpoczecia" value="{{ teraz }}">
+        
+                <label for="nr_czesci_klienta">Nr Części Klienta:</label>
+                <input type="text" name="nr_czesci_klienta" required><br>
+        
+                <label for="nazwa_klienta_nr_zlecenia_PRODIO">Nazwa Klienta / Nr Zlecenia:</label>
+                <input type="text" name="nazwa_klienta_nr_zlecenia_PRODIO" required><br>
+                <button class="button" type="reset">Wyczyść</button>
+                <button class="button" type="submit">Rozpocznij</button>
+        
+            {% else %}
+                <!-- ZAKOŃCZENIE PROFILU -->
+                <h2>Zakończ profil #{{ profil.id }}</h2>
+                <input type="hidden" name="profil_id" value="{{ profil.id }}">
+        
+                
+                <input type="time" name="godz_min_zakonczenia" value="{{ teraz }}" required hidden><br>
+        
+                <label for="zwrot_na_magazyn_kg">Zwrot na Magazyn (kg) obecnie {{ilosc}}:</label>
+                <input type="number" name="zwrot_na_magazyn_kg" data-waga-kregu="{{ ilosc }}" required><br>
+        
+                <label for="ilosc">Ilość:</label>
+                <input type="number" name="ilosc" required><br>
+        
+                <label for="dlugosc">Długość:</label><br>
+<input type="text" id="szukaj_dlugosci" onkeyup="filtrujDlugosci()" placeholder="Szukaj długości..."><br>
+<select id="dlugosc" name="id_dlugosci" required>
+    {% for d in dlugosci %}
+        <option value="{{ d.id }}">{{ d.nazwa }}</option>
+    {% endfor %}
+</select><br>
+<button class="button" type="reset">Wyczyść</button>
+                <button class="button" type="submit">Zakończ</button>
+                
+            {% endif %}
         </form>
+
+            <!-- <button type="reset" class="button">Wyczyść</button>
+            <button type="submit" class="button">Zapisz</button>
+        </form> -->
     </div>
 </body>
 </html>

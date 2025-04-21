@@ -137,7 +137,7 @@ document.addEventListener("DOMContentLoaded", setupFilters);
         for (let i = 0; i < cells.length; i++) {
             if (i === 1) {
                 filterCells += `<td><input type="text" placeholder="Filtruj Materiał" onkeyup="filterTasmy(this.value)" style="width: 100%;"></td>`;
-            }else if (i === 9) {
+            }else if (i === 10) {
                 filterCells += `<td><input type="text" placeholder="Filtruj Długość" onkeyup="filterDlugosc(this.value)" style="width: 100%;"></td>`;
             } else {
                 filterCells += `<td></td>`; // Puste komórki dla pozostałych kolumn
@@ -157,7 +157,7 @@ document.addEventListener("DOMContentLoaded", setupFilters);
                 } else if (index === 5) { // Weight fields
                     const value = cell.innerText;
                     cell.innerHTML = `<input type="number" value="${value}" step="0.01" style="width: 100%;">`;
-                }else if (index === 9) { // Weight fields
+                }else if (index === 10) { // Weight fields
                     const currentDlugoscId = cell.getAttribute("data-dlugosci-id");
             cell.innerHTML = `<select style="width: 100%;" id="dlugosciSelect"></select>`;
             populateDlugosci(cell.querySelector("#dlugosciSelect"), currentDlugoscId);} else {
@@ -241,7 +241,7 @@ function sendDataToBackenda(data) {
         for (let i = 0; i < cells.length; i++) {
             if (i === 1) {
                 filterCells += `<td><input type="text" placeholder="Filtruj Materiał" onkeyup="filterTasmy(this.value)" style="width: 100%;"></td>`;
-            }else if (i === 9) {
+            }else if (i === 10) {
                 filterCells += `<td><input type="text" placeholder="Filtruj Długość" onkeyup="filterDlugosc(this.value)" style="width: 100%;"></td>`;
             }else {
                 filterCells += `<td></td>`; // Puste komórki dla pozostałych kolumn
@@ -267,7 +267,7 @@ function sendDataToBackenda(data) {
         }else if (index === 3 || index==4 ) { // Weight fields
             const value = cell.innerText;
             cell.innerHTML = `<input type="time" value="${value}" step="2" style="width: 100%;">`;
-        }else if (index === 9) { // Weight fields
+        }else if (index ===10 ) { // Weight fields
             const currentDlugoscId = cell.getAttribute("data-dlugosci-id");
             cell.innerHTML = `<select style="width: 100%;" id="dlugosciSelect"></select>`;
             populateDlugosci(cell.querySelector("#dlugosciSelect"), currentDlugoscId);}
@@ -505,9 +505,10 @@ function sendDataToBackend(data) {
                             <th><input type="text" placeholder="Filtruj Nr części Klienta" onkeyup="filterColumn(6)"></th>
                             <th><input type="text" placeholder="Filtruj Nazwę klienta Nr PRODIO" onkeyup="filterColumn(7)"></th>
                             <th><input type="text" placeholder="Filtruj Ilość" onkeyup="filterColumn(8)"></th>
-                            <th><input type="text" placeholder="Filtruj Długość" onkeyup="filterColumn(9)"></th>
-                            <th><input type="text" placeholder="Filtruj Rodzaj Materiału" onkeyup="filterColumn(10)"></th>
-                            <th><input type="text" placeholder="Filtruj Nazwę Stanowiska" onkeyup="filterColumn(11)"></th>
+                            <th><input type="text" placeholder="Filtruj Ilość na stanie" onkeyup="filterColumn(9)"></th>
+                            <th><input type="text" placeholder="Filtruj Długość" onkeyup="filterColumn(10)"></th>
+                            <th><input type="text" placeholder="Filtruj Rodzaj Materiału" onkeyup="filterColumn(11)"></th>
+                            <th><input type="text" placeholder="Filtruj Nazwę Stanowiska" onkeyup="filterColumn(12)"></th>
                             
                             <th><button class="button" onclick="resetFilters()">Usuń Filtry</button></th>
                         </tr>
@@ -522,9 +523,10 @@ function sendDataToBackend(data) {
                             <th onclick="sortTable(6)">Nr części klienta &#9650;&#9660;</th>
                             <th onclick="sortTable(7)">Nazwa klienta Nr PRODIO &#9650;&#9660;</th>
                             <th onclick="sortTable(8)">Ilość &#9650;&#9660;</th>
-                            <th onclick="sortTable(9)">Długość &#9650;&#9660;</th>
-                            <th onclick="sortTable(10)">Rodzaj materiału &#9650;&#9660;</th>
-                            <th onclick="sortTable(11)">Nazwa Stanowiska &#9650;&#9660;</th>
+                            <th onclick="sortTable(9)">Ilość na stanie &#9650;&#9660;</th>
+                            <th onclick="sortTable(10)">Długość &#9650;&#9660;</th>
+                            <th onclick="sortTable(11)">Rodzaj materiału &#9650;&#9660;</th>
+                            <th onclick="sortTable(12)">Nazwa Stanowiska &#9650;&#9660;</th>
                             
                             <th>Edycja</th>
                         </tr>
@@ -532,27 +534,41 @@ function sendDataToBackend(data) {
                     <tbody>
                         {% for profile in profil %}
                             
-                            {% if g.user.id_uprawnienia == 3  and profile.pracownik.login==g.user.login%}
-                            {%if profile.data_produkcji.strftime('%Y-%m-%d') == currentDate or profile.data_produkcji.strftime('%Y-%m-%d') == currentDate1 or profile.data_produkcji.strftime('%Y-%m-%d') == currentDate2%}
-                                <tr>
-                                    <td>{{ profile.id }}</td>
-                                    <td data-tasma-id="{{ profile.tasma.id }}">{{ profile.tasma.nr_z_etykiety_na_kregu }}</td>
-                                    <td>{{ profile.data_produkcji }}</td>
-                                    <td>{{ profile.godz_min_rozpoczecia }}</td>
-                                    <td>{{ profile.godz_min_zakonczenia }}</td>
-                                    <td>{{ profile.zwrot_na_magazyn_kg }}</td>
-                                    <td>{{ profile.nr_czesci_klienta }}</td>
-                                    <td>{{ profile.nazwa_klienta_nr_zlecenia_PRODIO }}</td>
-                                    <td>{{profile.ilosc}}</td>
-                                    <td data-dlugosci-id="{{profile.dlugosci.id}}">{{profile.dlugosci.nazwa}}</td>
-                                    <td>{{profile.tasma.szablon.nazwa}}</td>
-                                    <td>{{ profile.pracownik.login }}</td>
+                        {% if g.user.id_uprawnienia == 3 and profile.pracownik.login == g.user.login %}
+                        {% if profile.data_produkcji.strftime('%Y-%m-%d') in [currentDate, currentDate1, currentDate2] %}
+                            <tr>
+                                <td>{{ profile.id }}</td>
+                                <td data-tasma-id="{{ profile.tasma.id }}">{{ profile.tasma.nr_z_etykiety_na_kregu }}</td>
+                                <td>{{ profile.data_produkcji }}</td>
+                                <td>{{ profile.godz_min_rozpoczecia }}</td>
+                                <td>{{ profile.godz_min_zakonczenia }}</td>
+                                <td>{{ profile.zwrot_na_magazyn_kg }}</td>
+                                <td>{{ profile.nr_czesci_klienta }}</td>
+                                <td>{{ profile.nazwa_klienta_nr_zlecenia_PRODIO }}</td>
+                                <td>{{ profile.ilosc }}</td>
+                                <td>{{profile.ilosc_na_stanie}}</td>
+                                <td data-dlugosci-id="{{ profile.dlugosci.id }}">{{ profile.dlugosci.nazwa }}</td>
+                                <td>{{ profile.tasma.szablon.nazwa }}</td>
+                                <td>{{ profile.pracownik.login }}</td>
+                                <td>
                                     
-                                    <td><button type="button" class="button" onclick="openEditModala(this.parentElement.parentElement)">Edytuj</button></td>
-                                </tr>
-                            {% endif %}
+                                        
+                                        {% if not profile.godz_min_zakonczenia %}
+                                        <form method="POST" style="background-color: transparent;" action="{{ url_for('dodaj_profil_do_bazy') }}">
+                                            <!-- Ukryte pole z identyfikatorem profilu -->
+                                            <input type="hidden" name="profil_id" value="{{ profile.id }}">
+                                            <button type="submit" class="button">Zakończ</button>
+                                        </form>
+                                        {% else %}
+                                        <button type="button" class="button" onclick="openEditModala(this.parentElement.parentElement)">Edytuj</button>
+                                        {% endif %}
+                                    
+                                </td>
+                            </tr>
+                        {% endif %}
+                    
                             
-                            {% elif  g.user.id_uprawnienia == 2%}
+                            {% elif  g.user.id_uprawnienia == 2 and profile.Data_do_usuwania>=currentDate3%}
                                 <tr>
                                     <td>{{ profile.id }}</td>
                                     <td data-tasma-id="{{ profile.tasma.id }}">{{ profile.tasma.nr_z_etykiety_na_kregu }}</td>
@@ -563,12 +579,21 @@ function sendDataToBackend(data) {
                                     <td>{{ profile.nr_czesci_klienta }}</td>
                                     <td>{{ profile.nazwa_klienta_nr_zlecenia_PRODIO }}</td>
                                     <td>{{profile.ilosc}}</td>
+                                    <td>{{profile.ilosc_na_stanie}}</td>
                                     <td data-dlugosci-id="{{profile.dlugosci.id}}">{{profile.dlugosci.nazwa}}</td>
                                     <td>{{profile.tasma.szablon.nazwa}}</td>
                                     <td>{{ profile.pracownik.login }}</td>
                                     
                                     
-                                    <td><button type="button" class="button" onclick="openEditModala(this.parentElement.parentElement)">Edytuj</button></td>
+                                    <td>{% if not profile.godz_min_zakonczenia %}
+                                        <form method="POST" style="background-color: transparent;" action="{{ url_for('dodaj_profil_do_bazy') }}">
+                                            <!-- Ukryte pole z identyfikatorem profilu -->
+                                            <input type="hidden" name="profil_id" value="{{ profile.id }}">
+                                            <button type="submit" class="button">Zakończ</button>
+                                        </form>
+                                        {% else %}
+                                        <button type="button" class="button" onclick="openEditModala(this.parentElement.parentElement)">Edytuj</button>
+                                        {% endif %}</td>
                                 </tr>
                                 {% elif  g.user.id_uprawnienia == 1 and g.user.id==1%}
                                 <tr>
@@ -581,12 +606,21 @@ function sendDataToBackend(data) {
                                     <td>{{ profile.nr_czesci_klienta }}</td>
                                     <td>{{ profile.nazwa_klienta_nr_zlecenia_PRODIO }}</td>
                                     <td>{{profile.ilosc}}</td>
+                                    <td>{{profile.ilosc_na_stanie}}</td>
                                     <td data-dlugosci-id="{{profile.dlugosci.id}}">{{profile.dlugosci.nazwa}}</td>
                                     <td>{{profile.tasma.szablon.nazwa}}</td>
                                     <td>{{ profile.pracownik.login }}</td>
                                     
                                     
-                                    <td><button type="button" class="button" onclick="openEditModala(this.parentElement.parentElement)">Edytuj</button><form method="POST" action="{{ url_for('usun_profil', id=profile.id) }}" style="display:inline;background-color: transparent;width: 0;padding: 0%;" onsubmit="return confirm('Na pewno chcesz usunąć ten profil?');">
+                                    <td>{% if not profile.godz_min_zakonczenia %}
+                                        <form method="POST" style="background-color: transparent;" action="{{ url_for('dodaj_profil_do_bazy') }}">
+                                            <!-- Ukryte pole z identyfikatorem profilu -->
+                                            <input type="hidden" name="profil_id" value="{{ profile.id }}">
+                                            <button type="submit" class="button">Zakończ</button>
+                                        </form>
+                                        {% else %}
+                                        <button type="button" class="button" onclick="openEditModala(this.parentElement.parentElement)">Edytuj</button>
+                                        {% endif %}
                                         <button type="submit" class="button">Usuń</button>
                                     </form></td>
                                 </tr>
@@ -601,12 +635,21 @@ function sendDataToBackend(data) {
                                     <td>{{ profile.nr_czesci_klienta }}</td>
                                     <td>{{ profile.nazwa_klienta_nr_zlecenia_PRODIO }}</td>
                                     <td>{{profile.ilosc}}</td>
+                                    <td>{{profile.ilosc_na_stanie}}</td>
                                     <td>{{profile.dlugosci.nazwa}}</td>
                                     <td data-dlugosci-id="{{profile.dlugosci.id}}">{{profile.tasma.szablon.nazwa}}</td>
                                     <td>{{ profile.pracownik.login }}</td>
                                     
                                     
-                                    <td><button type="button" class="button" onclick="openEditModala(this.parentElement.parentElement)">Edytuj</button><form method="POST" action="{{ url_for('usun_profil', id=profile.id) }}" style="display:inline;background-color: transparent;width: 0;padding: 0%;" onsubmit="return confirm('Na pewno chcesz usunąć ten profil?');">
+                                    <td>{% if not profile.godz_min_zakonczenia %}
+                                        <form method="POST" style="background-color: transparent;" action="{{ url_for('dodaj_profil_do_bazy') }}">
+                                            <!-- Ukryte pole z identyfikatorem profilu -->
+                                            <input type="hidden" name="profil_id" value="{{ profile.id }}">
+                                            <button type="submit" class="button">Zakończ</button>
+                                        </form>
+                                        {% else %}
+                                        <button type="button" class="button" onclick="openEditModala(this.parentElement.parentElement)">Edytuj</button>
+                                        {% endif %}
                                         <button type="submit" class="button">Usuń</button>
                                     </form></td>
                                 </tr>
