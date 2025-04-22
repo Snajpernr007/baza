@@ -111,7 +111,7 @@ function filtruSzablon() {
         {pass}
     {%else%}
         <option value="{{ tasma.id }}" >
-            {{ tasma.nr_z_etykiety_na_kregu }}
+            {{ tasma.nr_z_etykiety_na_kregu }} na stanie {{ tasma.waga_kregu_na_stanie }}kg
         </option>
     {% endif %}
     {% endfor %}
@@ -132,6 +132,8 @@ function filtruSzablon() {
         
                 <label for="nazwa_klienta_nr_zlecenia_PRODIO">Nazwa Klienta / Nr Zlecenia:</label>
                 <input type="text" name="nazwa_klienta_nr_zlecenia_PRODIO" required><br>
+                <label for="imie_nazwisko_pracownika">Imie Nazwisko</label>
+                <input type="text" name="imie_nazwisko_pracownika" required><br>
                 <button class="button" type="reset">Wyczyść</button>
                 <button class="button" type="submit">Rozpocznij</button>
         

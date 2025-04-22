@@ -477,22 +477,22 @@ function printID(id) {
             <table id="tabela">
                 <thead>
                     <tr>
-                        <th><input type="text" placeholder="Filtruj ID" onkeyup="filterColumn(0)"></th>
-                        <th><input type="text" placeholder="Filtruj Dostawcę" onkeyup="filterColumn(1)"></th>
-                        <th><input type="text" placeholder="Filtruj Materiał" onkeyup="filterColumn(2)"></th>
+                        <th><input type="text" placeholder="Filtruj ID" ></th>
+                        <th><input type="text" placeholder="Filtruj Dostawcę" ></th>
+                        <th><input type="text" placeholder="Filtruj Materiał" ></th>
                         <th>  OD<input type="date" id="dateFromKrag" onchange="filterTable()">
                             DO<input type="date" id="dateToKrag" onchange="filterTable()"></th>
-                        <th><input type="text" placeholder="Filtruj Grubość" onkeyup="filterColumn(4)"></th>
-                        <th><input type="text" placeholder="Filtruj Szerokość" onkeyup="filterColumn(5)"></th>
-                        <th><input type="text" placeholder="Filtruj Wagę" onkeyup="filterColumn(6)"></th>
-                        <th><input type="text" placeholder="Filtruj Wagę na Stanie" onkeyup="filterColumn(7)"></th>
-                        <th><input type="text" placeholder="Filtruj Etyk. Paletową" onkeyup="filterColumn(8)"></th>
-                        <th><input type="text" placeholder="Filtruj Etyk. Kręgu" onkeyup="filterColumn(9)"></th>
-                        <th><input type="text" placeholder="Filtruj Lokalizację" onkeyup="filterColumn(10)"></th>
-                        <th><input type="text" placeholder="Filtruj Nr WZ" onkeyup="filterColumn(11)"></th>
+                        <th><input type="text" placeholder="Filtruj Grubość" ></th>
+                        <th><input type="text" placeholder="Filtruj Szerokość" ></th>
+                        <th><input type="text" placeholder="Filtruj Wagę" ></th>
+                        <th><input type="text" placeholder="Filtruj Wagę na Stanie" ></th>
+                        <th><input type="text" placeholder="Filtruj Etyk. Paletową" ></th>
+                        <th><input type="text" placeholder="Filtruj Etyk. Kręgu"></th>
+                        <th><input type="text" placeholder="Filtruj Lokalizację"></th>
+                        <th><input type="text" placeholder="Filtruj Nr WZ" ></th>
                         <th>  OD<input type="date" id="dateFromDostawa" onchange="filterTable()">
                             DO<input type="date" id="dateToDostawa" onchange="filterTable()"></th>
-                        <th><input type="text" placeholder="Filtruj Nazwę Stanowiska" onkeyup="filterColumn(13)"></th>
+                        <th><input type="text" placeholder="Filtruj Nazwę Stanowiska" ></th>
                         
                         <th><button class="button" onclick="resetFilters()">Usuń Filtry</button></th>
                     </tr>
@@ -525,6 +525,7 @@ function printID(id) {
                             <td data-dostawca-id="{{ tasmy.dostawca.id }}">{{ tasmy.dostawca.nazwa }}</td>
         <td data-szablon-id="{{ tasmy.szablon.id }}">{{ tasmy.szablon.nazwa }}</td>
                             <td>{{ tasmy.data_z_etykiety_na_kregu }}</td>
+                            <td hidden></td>
                             <td>{{ tasmy.grubosc }}</td>
                             <td>{{ tasmy.szerokosc }}</td>
                             <td>{{ tasmy.waga_kregu }}</td>
@@ -534,13 +535,14 @@ function printID(id) {
                             <td data-lokalizacja-id="{{ tasmy.lokalizacja.id }}">{{ tasmy.lokalizacja.nazwa }}</td>
                             <td>{{ tasmy.nr_faktury_dostawcy }}</td>
                             <td>{{ tasmy.data_dostawy }}</td>
+                            <td hidden></td>
                             <td>{{ tasmy.pracownik.login }}</td>
                             
                             <td><button type="button" class="button" onclick="openEditModal(this.parentElement.parentElement)">Edytuj</button><form method="POST" action="{{ url_for('usun_tasma', id=tasmy.id) }}" style="display:inline;background-color: transparent;width: 0;padding: 0%;" onsubmit="return confirm('Na pewno chcesz usunąć ten materiał?');">
                                 <button type="submit" class="button">Usuń</button>
                             </form></td>
                         </tr>
-                        {% elif  g.user.id_uprawnienia == 1 and tasmy.Data_do_usuwania>=currentDate3%}
+                        {% elif  g.user.id_uprawnienia == 1 %}
                         <tr>
                             <td>{{ tasmy.id }} <a href="javascript:void(0);" onclick="printID({{ tasmy.id }})">
                                 <img src="/static/img/drukarka.png" alt="drukuj" height="15" width="15">
@@ -548,6 +550,7 @@ function printID(id) {
                             <td data-dostawca-id="{{ tasmy.dostawca.id }}">{{ tasmy.dostawca.nazwa }}</td>
                             <td data-szablon-id="{{ tasmy.szablon.id }}">{{ tasmy.szablon.nazwa }}</td>
                             <td>{{ tasmy.data_z_etykiety_na_kregu }}</td>
+                            <td hidden></td>
                             <td>{{ tasmy.grubosc }}</td>
                             <td>{{ tasmy.szerokosc }}</td>
                             <td>{{ tasmy.waga_kregu }}</td>
@@ -556,6 +559,7 @@ function printID(id) {
                             <td>{{ tasmy.nr_z_etykiety_na_kregu }}</td>
                             <td data-lokalizacja-id="{{ tasmy.lokalizacja.id }}">{{ tasmy.lokalizacja.nazwa }}</td>
                             <td>{{ tasmy.nr_faktury_dostawcy }}</td>
+                            <td hidden></td>
                             <td>{{ tasmy.data_dostawy }}</td>
                             <td>{{ tasmy.pracownik.login }}</td>
                             
@@ -563,7 +567,7 @@ function printID(id) {
                                 <button type="submit" class="button">Usuń</button>
                             </form></td>
                         </tr>
-                        {% elif  g.user.id_uprawnienia == 2 and tasmy.Data_do_usuwania>=currentDate3%}
+                        {% elif  g.user.id_uprawnienia == 2%}
                         <tr>
                             <td>{{ tasmy.id }} <a href="javascript:void(0);" onclick="printID({{ tasmy.id }})">
                                 <img src="/static/img/drukarka.png" alt="drukuj" height="15" width="15">
@@ -571,6 +575,7 @@ function printID(id) {
                             <td data-dostawca-id="{{ tasmy.dostawca.id }}">{{ tasmy.dostawca.nazwa }}</td>
                             <td data-szablon-id="{{ tasmy.szablon.id }}">{{ tasmy.szablon.nazwa }}</td>
                             <td>{{ tasmy.data_z_etykiety_na_kregu }}</td>
+                            <td hidden></td>
                             <td>{{ tasmy.grubosc }}</td>
                             <td>{{ tasmy.szerokosc }}</td>
                             <td>{{ tasmy.waga_kregu }}</td>
@@ -580,6 +585,7 @@ function printID(id) {
                             <td data-lokalizacja-id="{{ tasmy.lokalizacja.id }}">{{ tasmy.lokalizacja.nazwa }}</td>
                             <td>{{ tasmy.nr_faktury_dostawcy }}</td>
                             <td>{{ tasmy.data_dostawy }}</td>
+                            <td hidden></td>
                             <td>{{ tasmy.pracownik.login }}</td>
                             
                             <td><button type="button" class="button" onclick="openEditModal(this.parentElement.parentElement)">Edytuj</button></td>

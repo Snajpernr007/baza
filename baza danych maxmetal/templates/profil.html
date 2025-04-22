@@ -35,9 +35,9 @@ function filterTable() {
             }
         });
 
-        // Filtrowanie po dacie (kolumna 2)
+        // Filtrowanie po dacie (kolumna 2 - Data Produkcji)
         if (show && (dateFrom || dateTo)) {
-            let dateCell = cells[2]?.textContent.trim();
+            let dateCell = cells[2]?.textContent.trim(); // Zakłada, że data jest w 3. kolumnie (indeks 2)
             if (dateCell) {
                 let cellDate = new Date(dateCell);
                 if (dateFrom && cellDate < new Date(dateFrom)) show = false;
@@ -49,13 +49,34 @@ function filterTable() {
     });
 }
 
+// Funkcja do filtrowania na podstawie wpisywanego tekstu w danej kolumnie
+function filterColumn(colIndex) {
+    let table = document.getElementById("tabela");
+    let rows = table.getElementsByTagName("tbody")[0].getElementsByTagName("tr");
+    let filterValue = table.querySelectorAll("thead tr:nth-child(1) input")[colIndex].value.toLowerCase();
+
+    for (let row of rows) {
+        let cell = row.cells[colIndex];
+        if (cell && cell.textContent.toLowerCase().indexOf(filterValue) > -1) {
+            row.style.display = "";
+        } else {
+            row.style.display = "none";
+        }
+    }
+}
+
 // Zaktualizuj wywołanie funkcji filterTable w inputach
 function setupFilters() {
-    let filterInputs = document.querySelectorAll("thead input");
+    let table = document.getElementById("tabela");
+    let filterInputs = table.querySelectorAll("thead tr:nth-child(1) input"); // tylko inputy z pierwszego wiersza
+
     filterInputs.forEach((input, index) => {
-        input.addEventListener("keyup", filterTable); // Używamy nowej funkcji filterTable
+        input.addEventListener("keyup", function () {
+            filterColumn(index); // teraz index będzie poprawny
+        });
     });
 }
+
 
 // Wywołaj setupFilters po załadowaniu strony
 document.addEventListener("DOMContentLoaded", setupFilters);
@@ -538,20 +559,20 @@ function sendDataToBackend(data) {
                 <table id="tabela">
                     <thead>
                         <tr>
-                            <th><input type="text" placeholder="Filtruj ID" onkeyup="filterColumn(0)"></th>
-                            <th><input type="text" placeholder="Filtruj Materiał" onkeyup="filterColumn(1)"></th>
+                            <th><input type="text" placeholder="Filtruj ID" ></th>
+                            <th><input type="text" placeholder="Filtruj Materiał" ></th>
                             <th>OD<input type="date" id="dateFrom" onchange="filterTable()">
                                 DO<input type="date" id="dateTo" onchange="filterTable()"></th>
-                            <th><input type="text" placeholder="Filtruj Godzinę rozpoczęcia" onkeyup="filterColumn(3)"></th>
-                            <th><input type="text" placeholder="Filtruj Godzinę zakończenia" onkeyup="filterColumn(4)"></th>
-                            <th><input type="text" placeholder="Filtruj Zwrot na magazyn" onkeyup="filterColumn(5)"></th>
-                            <th><input type="text" placeholder="Filtruj Nr części Klienta" onkeyup="filterColumn(6)"></th>
-                            <th><input type="text" placeholder="Filtruj Nazwę klienta Nr PRODIO" onkeyup="filterColumn(7)"></th>
-                            <th><input type="text" placeholder="Filtruj Ilość" onkeyup="filterColumn(8)"></th>
-                            <th><input type="text" placeholder="Filtruj Ilość na stanie" onkeyup="filterColumn(9)"></th>
-                            <th><input type="text" placeholder="Filtruj Długość" onkeyup="filterColumn(10)"></th>
-                            <th><input type="text" placeholder="Filtruj Rodzaj Materiału" onkeyup="filterColumn(11)"></th>
-                            <th><input type="text" placeholder="Filtruj Nazwę Stanowiska" onkeyup="filterColumn(12)"></th>
+                            <th><input type="text" placeholder="Filtruj Godzinę rozpoczęcia" ></th>
+                            <th><input type="text" placeholder="Filtruj Godzinę zakończenia" ></th>
+                            <th><input type="text" placeholder="Filtruj Zwrot na magazyn" ></th>
+                            <th><input type="text" placeholder="Filtruj Nr części Klienta" ></th>
+                            <th><input type="text" placeholder="Filtruj Nazwę klienta Nr PRODIO" ></th>
+                            <th><input type="text" placeholder="Filtruj Ilość" ></th>
+                            <th><input type="text" placeholder="Filtruj Ilość na stanie" ></th>
+                            <th><input type="text" placeholder="Filtruj Długość" ></th>
+                            <th><input type="text" placeholder="Filtruj Rodzaj Materiału" ></th>
+                            <th><input type="text" placeholder="Filtruj Nazwę Stanowiska i imie i nazwisko"  ></th>
                             
                             <th><button class="button" onclick="resetFilters()">Usuń Filtry</button></th>
                         </tr>
@@ -569,7 +590,7 @@ function sendDataToBackend(data) {
                             <th onclick="sortTable(9)">Ilość na stanie &#9650;&#9660;</th>
                             <th onclick="sortTable(10)">Długość &#9650;&#9660;</th>
                             <th onclick="sortTable(11)">Rodzaj materiału &#9650;&#9660;</th>
-                            <th onclick="sortTable(12)">Nazwa Stanowiska &#9650;&#9660;</th>
+                            <th onclick="sortTable(12)">Nazwa Stanowiska i imie i nazwisko &#9650;&#9660;</th>
                             
                             <th>Edycja</th>
                         </tr>
@@ -583,6 +604,7 @@ function sendDataToBackend(data) {
                                 <td>{{ profile.id }}</td>
                                 <td data-tasma-id="{{ profile.tasma.id }}">{{ profile.tasma.nr_z_etykiety_na_kregu }}</td>
                                 <td>{{ profile.data_produkcji }}</td>
+                                <td hidden></td>
                                 <td>{{ profile.godz_min_rozpoczecia }}</td>
                                 <td>{{ profile.godz_min_zakonczenia }}</td>
                                 <td>{{ profile.zwrot_na_magazyn_kg }}</td>
@@ -592,7 +614,7 @@ function sendDataToBackend(data) {
                                 <td>{{profile.ilosc_na_stanie}}</td>
                                 <td data-dlugosci-id="{{ profile.dlugosci.id }}">{{ profile.dlugosci.nazwa }}</td>
                                 <td>{{ profile.tasma.szablon.nazwa }}</td>
-                                <td>{{ profile.pracownik.login }}</td>
+                                <td>{{ profile.pracownik.login }} {{profile.imie_nazwisko_pracownika}}</td>
                                 <td>
                                     
                                         
@@ -611,11 +633,12 @@ function sendDataToBackend(data) {
                         {% endif %}
                     
                             
-                            {% elif  g.user.id_uprawnienia == 2 and profile.Data_do_usuwania>=currentDate3%}
+                            {% elif  g.user.id_uprawnienia == 2 %}
                                 <tr>
                                     <td>{{ profile.id }}</td>
                                     <td data-tasma-id="{{ profile.tasma.id }}">{{ profile.tasma.nr_z_etykiety_na_kregu }}</td>
                                     <td>{{ profile.data_produkcji }}</td>
+                                    <td hidden></td>
                                     <td>{{ profile.godz_min_rozpoczecia }}</td>
                                     <td>{{ profile.godz_min_zakonczenia }}</td>
                                     <td>{{ profile.zwrot_na_magazyn_kg }}</td>
@@ -625,7 +648,7 @@ function sendDataToBackend(data) {
                                     <td>{{profile.ilosc_na_stanie}}</td>
                                     <td data-dlugosci-id="{{profile.dlugosci.id}}">{{profile.dlugosci.nazwa}}</td>
                                     <td>{{profile.tasma.szablon.nazwa}}</td>
-                                    <td>{{ profile.pracownik.login }}</td>
+                                    <td>{{ profile.pracownik.login }} {{profile.imie_nazwisko_pracownika}}</td>
                                     
                                     
                                     <td>{% if not profile.godz_min_zakonczenia %}
@@ -643,6 +666,7 @@ function sendDataToBackend(data) {
                                     <td>{{ profile.id }}</td>
                                     <td data-tasma-id="{{ profile.tasma.id }}">{{ profile.tasma.nr_z_etykiety_na_kregu }}</td>
                                     <td>{{ profile.data_produkcji }}</td>
+                                    <td hidden></td>
                                     <td>{{ profile.godz_min_rozpoczecia }}</td>
                                     <td>{{ profile.godz_min_zakonczenia }}</td>
                                     <td>{{ profile.zwrot_na_magazyn_kg }}</td>
@@ -652,7 +676,7 @@ function sendDataToBackend(data) {
                                     <td>{{profile.ilosc_na_stanie}}</td>
                                     <td data-dlugosci-id="{{profile.dlugosci.id}}">{{profile.dlugosci.nazwa}}</td>
                                     <td>{{profile.tasma.szablon.nazwa}}</td>
-                                    <td>{{ profile.pracownik.login }}</td>
+                                    <td>{{ profile.pracownik.login }} {{profile.imie_nazwisko_pracownika}}</td>
                                     
                                     
                                     <td>{% if not profile.godz_min_zakonczenia %}
@@ -667,11 +691,12 @@ function sendDataToBackend(data) {
                                         <button type="submit" class="button">Usuń</button>
                                     </form></td>
                                 </tr>
-                                {% elif  g.user.id_uprawnienia == 1 and profile.Data_do_usuwania>=currentDate3%}
+                                {% elif  g.user.id_uprawnienia == 1 %}
                                 <tr>
                                     <td>{{ profile.id }}</td>
                                     <td data-tasma-id="{{ profile.tasma.id }}">{{ profile.tasma.nr_z_etykiety_na_kregu }}</td>
                                     <td>{{ profile.data_produkcji }}</td>
+                                    <td hidden></td>
                                     <td>{{ profile.godz_min_rozpoczecia }}</td>
                                     <td>{{ profile.godz_min_zakonczenia }}</td>
                                     <td>{{ profile.zwrot_na_magazyn_kg }}</td>
@@ -681,7 +706,7 @@ function sendDataToBackend(data) {
                                     <td>{{profile.ilosc_na_stanie}}</td>
                                     <td>{{profile.dlugosci.nazwa}}</td>
                                     <td data-dlugosci-id="{{profile.dlugosci.id}}">{{profile.tasma.szablon.nazwa}}</td>
-                                    <td>{{ profile.pracownik.login }}</td>
+                                    <td>{{ profile.pracownik.login }} {{profile.imie_nazwisko_pracownika}}</td>
                                     
                                     
                                     <td>{% if not profile.godz_min_zakonczenia %}

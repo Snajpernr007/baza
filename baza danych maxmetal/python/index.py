@@ -145,7 +145,7 @@ class Profil(db.Model):
     id_dlugosci = db.Column(db.Integer, db.ForeignKey('dlugosci.id'), nullable=False)
     Data_do_usuwania = db.Column(db.Date, nullable=True)
     id_pracownika = db.Column(db.Integer, db.ForeignKey('uzytkownicy.id'), nullable=False)
-
+    Imie_nazwisko_pracownika = db.Column(db.String(50), nullable=False)
     tasma = db.relationship('Tasma', back_populates='profil')
     pracownik = db.relationship('Uzytkownik', back_populates='profil')
     dlugosci = db.relationship('Dlugosci', back_populates='profil')
@@ -750,6 +750,7 @@ def update_row_profil():
             profil.ilosc_na_stanie = dane['column_9'] # Ilość na stanie
         if 'column_10' in dane:
             profil.id_dlugosci = dane['column_10']  # ID długości
+        
         nowe_dane = {
             "id_tasmy": profil.id_tasmy,
             "data_produkcji": profil.data_produkcji,
@@ -806,7 +807,7 @@ def dodaj_lub_zakonczenie_profilu():
         profil.ilosc = request.form.get('ilosc')
         profil.ilosc_na_stanie = request.form.get('ilosc')
         profil.id_dlugosci = request.form.get('id_dlugosci')
-
+        
         tasma = Tasma.query.get(profil.id_tasmy)
         tasma.waga_kregu_na_stanie = float(profil.zwrot_na_magazyn_kg)
         nowe_dane = {
@@ -830,6 +831,7 @@ def dodaj_lub_zakonczenie_profilu():
             id_szablon_profile=request.form.get('szablon_profile'),
             nazwa_klienta_nr_zlecenia_PRODIO=request.form.get('nazwa_klienta_nr_zlecenia_PRODIO'),
             id_pracownika=g.user.id,
+            imie_nazwisko_pracownika=request.form.get('imie_nazwisko_pracownika'),
             Data_do_usuwania=date.today() + timedelta(days=365)
         )
         db.session.add(profil)
@@ -842,6 +844,7 @@ def dodaj_lub_zakonczenie_profilu():
             f"Godzina rozpoczęcia: {profil.godz_min_rozpoczecia}, ID Szablonu Profilu: {profil.id_szablon_profile}, "
             f"Nazwa Klienta: {profil.nazwa_klienta_nr_zlecenia_PRODIO}, Ilość: {profil.ilosc}, "
             f"ID Długości: {profil.id_dlugosci}."
+            f"Imie nazwisko pracownika: {profil.imie_nazwisko_pracownika}."
             )
     try:
         db.session.commit()

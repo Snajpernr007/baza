@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 21, 2025 at 10:28 PM
+-- Generation Time: Apr 22, 2025 at 12:43 PM
 -- Wersja serwera: 10.4.32-MariaDB
 -- Wersja PHP: 8.2.12
 
@@ -39,7 +39,8 @@ CREATE TABLE `dlugosci` (
 INSERT INTO `dlugosci` (`id`, `nazwa`) VALUES
 (3, '1'),
 (2, '2'),
-(1, '3');
+(1, '3'),
+(4, '4');
 
 -- --------------------------------------------------------
 
@@ -51,17 +52,6 @@ CREATE TABLE `dostawcy` (
   `id` int(11) NOT NULL,
   `nazwa` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `dostawcy`
---
-
-INSERT INTO `dostawcy` (`id`, `nazwa`) VALUES
-(1, 'dostawca1'),
-(2, 'dostawca2'),
-(5, 'nic'),
-(3, 'test1'),
-(4, 'ttttttr');
 
 -- --------------------------------------------------------
 
@@ -100,6 +90,7 @@ CREATE TABLE `profil` (
   `ilosc_na_stanie` int(11) DEFAULT NULL,
   `id_dlugosci` int(11) DEFAULT NULL,
   `id_pracownika` int(11) DEFAULT NULL,
+  `Imie_nazwisko_pracownika` varchar(50) NOT NULL,
   `Data_do_usuwania` date DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -118,22 +109,6 @@ CREATE TABLE `szablon` (
   `szerokosc` decimal(10,2) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
---
--- Dumping data for table `szablon`
---
-
-INSERT INTO `szablon` (`id`, `nazwa`, `rodzaj`, `grubosc_i_oznaczenie_ocynku`, `grubosc`, `szerokosc`) VALUES
-(1, 'Dx2', 'D', 'x', 77.00, 3.00),
-(2, 'TT', 't', 'r', 1.00, 1.00),
-(3, 'DX510 2275 1,2x66', 'DX510', '2275', 1.00, 66.00),
-(4, 'ww ww wwxww', 'ww', 'ww', 0.00, 0.00),
-(5, '22 22 TruexTrue', '22', '22', 1.00, 1.00),
-(6, 't t TruexTrue', 't', 't', 1.00, 1.00),
-(7, '11 11 11x11', '11', '11', 11.00, 11.00),
-(8, '121 122 8.1x8.2', '121', '122', 8.20, 8.10),
-(9, 'ttr 4ewr 4,2x4', 'ttr', '4ewr', 4.20, 4.00),
-(10, 'ttr20 mc4 4x5', 'ttr20', 'mc4', 5.00, 4.00);
-
 -- --------------------------------------------------------
 
 --
@@ -144,13 +119,6 @@ CREATE TABLE `szablon_profile` (
   `id` int(11) NOT NULL,
   `nazwa` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `szablon_profile`
---
-
-INSERT INTO `szablon_profile` (`id`, `nazwa`) VALUES
-(1, '1234');
 
 -- --------------------------------------------------------
 
@@ -214,10 +182,7 @@ CREATE TABLE `uzytkownicy` (
 --
 
 INSERT INTO `uzytkownicy` (`id`, `login`, `haslo`, `id_uprawnienia`) VALUES
-(1, 'Administrator', 'scrypt:32768:8:1$hFji6Y2E4ieYI6Bp$d019011fb8ea6f21b31c18f54dbbf95f664ed512a7ffc0bb4a2a9b28b709e5fd7b5766675d7a7223aacc24bfdae9b038c22d61f6a1d00a212611c80e068ec153', 1),
-(14, 'test1', 'scrypt:32768:8:1$g85jfiQGw8D1zVS1$61a4ed4d2ef9a2530b54939d1d472b43b61348c7c11ce5861e434799ec28999ac8e0373060f41d3b0e32e867794e839fa270277770a5f81e451aaf500c15109b', 1),
-(16, 'test3', 'scrypt:32768:8:1$3zFtfjuCE2ekzMrt$9b1fa256e8c9b2e762949d17a45b6cfe2d544ea726da11fc7688676321ca63c029939ff18cba7b299e6d49f7029875c427282243b6078fbdb29e3de9dfe535d6', 3),
-(17, 'test4', 'scrypt:32768:8:1$t3iQxJMK4QQE0eJg$d901c7265ccbf9c12a42dc7dab5974da829e86641ccafc6629e51588cd82db1235c61b3c6ab2ed648fc16c1ad0d1c300f1925f283b9124c78bd1c1eee33f5ed2', 1);
+(1, 'Administrator', 'scrypt:32768:8:1$Hj9SEP8K0oUaPATE$2332f998cad623e8624ec649b50fc69216cad1d0671f4eb9f9a74349e130a156a9db10a084805ef189007bcd31a22c31e072d3ced59e37118e3077bed8d7bcc7', 1);
 
 --
 -- Indeksy dla zrzutów tabel
@@ -297,7 +262,7 @@ ALTER TABLE `uzytkownicy`
 -- AUTO_INCREMENT for table `dlugosci`
 --
 ALTER TABLE `dlugosci`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `dostawcy`
@@ -315,7 +280,7 @@ ALTER TABLE `lokalizacja`
 -- AUTO_INCREMENT for table `profil`
 --
 ALTER TABLE `profil`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=56;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=59;
 
 --
 -- AUTO_INCREMENT for table `szablon`
@@ -327,13 +292,13 @@ ALTER TABLE `szablon`
 -- AUTO_INCREMENT for table `szablon_profile`
 --
 ALTER TABLE `szablon_profile`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `tasma`
 --
 ALTER TABLE `tasma`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=49;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=51;
 
 --
 -- AUTO_INCREMENT for table `uprawnienia`
