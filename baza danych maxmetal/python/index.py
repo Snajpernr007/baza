@@ -308,7 +308,7 @@ def rejestracja_do_bazy():
             return render_template('register.html', error="Wszystkie pola są wymagane.")
 
         if Uzytkownik.query.filter_by(login=login).first():
-            logger.warning("Użytkownik z tym loginem już istnieje.")
+            logger.warning("Użytkownik z tym loginem "+login+" już istnieje.")
             return render_template('register.html', error="Użytkownik z tym loginem już istnieje.")
 
         nowy_uzytkownik = Uzytkownik(login=login, haslo=generate_password_hash(haslo), id_uprawnienia=uprawnienia)
@@ -316,7 +316,7 @@ def rejestracja_do_bazy():
 
         try:
             db.session.commit()
-            logger.info(f"Dane użytkownika {login} zostały pomyślnie zapisane w bazie danych.")
+            logger.info(f"Dane użytkownika {login} z uprawnieniami {Uprawnienia.query.get(uprawnienia).nazwa} zostały pomyślnie zapisane w bazie danych.")
             return redirect(url_for('uzytkownik'))  # Przekierowanie na stronę główną
         except Exception as e:
             db.session.rollback()
@@ -367,6 +367,7 @@ def update_user():
     user_id = data.get("column_0")
     login = data.get("column_1")
     haslo = data.get("column_2")
+    stary_login=Uzytkownik.query.get(user_id).login
     if not haslo:  # Jeśli puste, nie zmieniamy hasła
         haslo = None
     id_uprawnienia = data.get("column_3")  # Teraz dostajemy ID uprawnienia
@@ -390,7 +391,7 @@ def update_user():
         user.haslo = generate_password_hash(haslo)
 
     db.session.commit()
-    logger.info(f"Zaktualizowano dane użytkownika {user.login}.")
+    logger.info(f"Zaktualizowano dane użytkownika {stary_login}. Nowy login: {login}, Uprawnienia: {Uprawnienia.query.get(id_uprawnienia).nazwa}.")
     return jsonify({"success": "Dane zaktualizowane pomyślnie!"})
 
 @app.route('/usun_uzytkownik/<int:id>', methods=['POST'])
@@ -444,51 +445,9 @@ def logout():
     response.set_cookie('user_id', '', expires=0, httponly=True, secure=False, samesite='Strict')
     return response
 
-@app.route('/send', methods=['POST'])
-def send():
-    # Pobierz dane z formularza
-    message = request.form.get('message')
-    nowa_cecha = Cechy(nazwa=message)
-    db.session.add(nowa_cecha)
-    db.session.commit()
 
-    logger.info(f"Wysłano do bazy: {message}")  # Zapis do logów
-    return render_template("index.html")
 
-@app.route('/contact')
-def contact():
-    logger.info(f"{g.user.login} wszedł na stronę kontaktową.")
-    return render_template("contact.html")
 
-@app.route('/feedback', methods=['POST'])
-def feedback():
-    login = request.form['login']
-    comments = request.form['comments']
-
-    # Dane serwera SMTP
-    smtp_server = 'poczta.interia.pl'
-    smtp_port = 465  # Dla SSL
-    sender_login = 'kontakt_lumpstore@interia.pl'
-    sender_password = 'LumpStore1@3'
-
-    # Utwórz wiadomość e-mail
-    msg = EmailMessage()
-    msg['Subject'] = 'Pomoc techniczna LumpStore'
-    msg['From'] = sender_login
-    msg['To'] = sender_login  # Możesz zmienić na adres obsługi klienta
-    msg.set_content(f"E-mail od: {login}\n\nTreść wiadomości:\n{comments}")
-
-    try:
-        # Połączenie z serwerem SMTP z SSL
-        context = ssl.create_default_context()
-        with smtplib.SMTP_SSL(smtp_server, smtp_port, context=context) as smtp:
-            smtp.login(sender_login, sender_password)
-            smtp.send_message(msg)
-        logger.info(f"Wiadomość od {login} została wysłana pomyślnie.")
-        return redirect(url_for('home', success="Wiadomość została wysłana pomyślnie.", user=g.user))
-    except Exception as e:
-        logger.error(f"Błąd podczas wysyłania wiadomości: {e}")
-        return redirect(url_for('home', error="Nie udało się wysłać wiadomości. Skontaktuj się później.", user=g.user))
 
 @app.route('/uzytkownik')
 def uzytkownik():
@@ -522,7 +481,22 @@ def usun_tasma(id):
     try:
         db.session.delete(tasma)
         db.session.commit()
-        logger.info(f"Tasma {tasma.nr_z_etykiety_na_kregu} została usunięta.")
+        logger.info(
+            f"Taśma o ID {tasma.id} została usunięta przez użytkownika {g.user.login}. "
+            f"Szczegóły taśmy: "
+            f"Nr z etykiety na kręgu: {tasma.nr_z_etykiety_na_kregu}, "
+            f"Data z etykiety na kręgu: {tasma.data_z_etykiety_na_kregu}, "
+            f"Grubość: {tasma.grubosc}, "
+            f"Szerokość: {tasma.szerokosc}, "
+            f"Waga kręgu: {tasma.waga_kregu}, "
+            f"Waga kręgu na stanie: {tasma.waga_kregu_na_stanie}, "
+            f"Nr etykieta paletowa: {tasma.nr_etykieta_paletowa}, "
+            f"Nr faktury dostawcy: {tasma.nr_faktury_dostawcy}, "
+            f"Data dostawy: {tasma.data_dostawy}, "
+            f"Lokalizacja: {tasma.lokalizacja.nazwa if tasma.lokalizacja else 'Brak'}, "
+            f"Dostawca: {tasma.dostawca.nazwa if tasma.dostawca else 'Brak'}, "
+            f"Szablon: {tasma.szablon.nazwa if tasma.szablon else 'Brak'}."
+        )
         flash('Tasma została usunięta.', 'success')
     except Exception as e:
         db.session.rollback()
@@ -564,7 +538,20 @@ def update_row():
         tasma = db.session.get(Tasma, id)
         if tasma is None:
             return jsonify({'message': 'Rekord nie znaleziony!'}), 404
-
+        poprzednie_dane = {
+            "dostawca_id": tasma.dostawca_id,
+            "szablon_id": tasma.szablon_id,
+            "data_z_etykiety_na_kregu": tasma.data_z_etykiety_na_kregu,
+            "grubosc": tasma.grubosc,
+            "szerokosc": tasma.szerokosc,
+            "waga_kregu": tasma.waga_kregu,
+            "waga_kregu_na_stanie": tasma.waga_kregu_na_stanie,
+            "nr_etykieta_paletowa": tasma.nr_etykieta_paletowa,
+            "nr_z_etykiety_na_kregu": tasma.nr_z_etykiety_na_kregu,
+            "lokalizacja": tasma.lokalizacja.nazwa if tasma.lokalizacja else None,
+            "nr_faktury_dostawcy": tasma.nr_faktury_dostawcy,
+            "data_dostawy": tasma.data_dostawy
+        }
         # Aktualizacja danych
         tasma.dostawca_id = dane.get('column_1', tasma.dostawca_id)
         tasma.szablon_id = dane.get('column_2', tasma.szablon_id)
@@ -581,7 +568,23 @@ def update_row():
         tasma.data_dostawy = dane.get('column_12', tasma.data_dostawy)
 
         db.session.commit()  # Zapisz zmiany w bazie
-        logger.info(f"Tasma o ID {id} została zaktualizowana przez {g.user.login}.")
+        nowe_dane = {
+            "dostawca_id": tasma.dostawca_id,
+            "szablon_id": tasma.szablon_id,
+            "data_z_etykiety_na_kregu": tasma.data_z_etykiety_na_kregu,
+            "grubosc": tasma.grubosc,
+            "szerokosc": tasma.szerokosc,
+            "waga_kregu": tasma.waga_kregu,
+            "waga_kregu_na_stanie": tasma.waga_kregu_na_stanie,
+            "nr_etykieta_paletowa": tasma.nr_etykieta_paletowa,
+            "nr_z_etykiety_na_kregu": tasma.nr_z_etykiety_na_kregu,
+            "lokalizacja": tasma.lokalizacja.nazwa if tasma.lokalizacja else None,
+            "nr_faktury_dostawcy": tasma.nr_faktury_dostawcy,
+            "data_dostawy": tasma.data_dostawy
+        }
+        logger.info(f"Poprzednie dane taśmy o ID {id}: {poprzednie_dane}")
+        logger.info(f"Nowe dane taśmy o ID {id}: {nowe_dane}")
+        logger.info(f"Zmiany wprowadzone przez użytkownika: {g.user.login}")
         return jsonify({'message': 'Rekord zaktualizowany pomyślnie!'})
     except Exception as e:
         db.session.rollback()  # Wycofanie zmian w przypadku błędu
@@ -635,7 +638,16 @@ def dodaj_tasma_do_bazy():
 
         try:
             db.session.commit()
-            logger.info(f"Tasma {nr_z_etykiety_na_kregu} została dodana przez {g.user.login}.")
+            logger.info(
+                f"Taśma została dodana przez użytkownika {g.user.login}. "
+                f"Szczegóły taśmy: "
+                f"Dostawca ID: {dostawca_id}, Szablon ID: {szablon_id}, "
+                f"Data z etykiety: {data_z_etykiety_na_kregu}, Grubość: {grubosc}, "
+                f"Szerokość: {szerokosc}, Waga kręgu: {waga_kregu}, "
+                f"Waga na stanie: {waga_kregu_na_stanie}, Nr etykieta paletowa: {nr_etykieta_paletowa}, "
+                f"Nr z etykiety: {nr_z_etykiety_na_kregu}, Lokalizacja ID: {lokalizacja_id}, "
+                f"Nr faktury dostawcy: {nr_faktury_dostawcy}, Data dostawy: {data_dostawy}."
+            )
             return "", 204  # Użycie kodu statusu 204 (No Content)
         except Exception as e:
             db.session.rollback()
@@ -666,6 +678,17 @@ def usun_profil(id):
     profil = Profil.query.get_or_404(id)
     
     try:
+        logger.info(
+            f"Próba usunięcia profilu o ID {profil.id} przez użytkownika {g.user.login}. "
+            f"Szczegóły profilu: "
+            f"ID Taśmy: {profil.id_tasmy}, Data Produkcji: {profil.data_produkcji}, "
+            f"Godzina rozpoczęcia: {profil.godz_min_rozpoczecia}, Godzina zakończenia: {profil.godz_min_zakonczenia}, "
+            f"Zwrot na magazyn (kg): {profil.zwrot_na_magazyn_kg}, "
+            f"ID Szablonu Profilu: {profil.id_szablon_profile}, "
+            f"Nazwa Klienta: {profil.nazwa_klienta_nr_zlecenia_PRODIO}, "
+            f"Ilość: {profil.ilosc}, Ilość na stanie: {profil.ilosc_na_stanie}, "
+            f"ID Długości: {profil.id_dlugosci}."
+        )
         db.session.delete(profil)
         db.session.commit()
         logger.info(f"Profil {profil.id_szablon_profile} został usunięty przez {g.user.login}.")
@@ -694,7 +717,18 @@ def update_row_profil():
         if profil is None:
             logger.warning(f"Rekord nie znaleziony dla ID: {id}")
             return jsonify({'message': 'Rekord nie znaleziony!'}), 404
-
+        poprzednie_dane = {
+            "id_tasmy": profil.id_tasmy,
+            "data_produkcji": profil.data_produkcji,
+            "godz_min_rozpoczecia": profil.godz_min_rozpoczecia,
+            "godz_min_zakonczenia": profil.godz_min_zakonczenia,
+            "zwrot_na_magazyn_kg": profil.zwrot_na_magazyn_kg,
+            "id_szablon_profile": profil.id_szablon_profile,
+            "nazwa_klienta_nr_zlecenia_PRODIO": profil.nazwa_klienta_nr_zlecenia_PRODIO,
+            "ilosc": profil.ilosc,
+            "ilosc_na_stanie": profil.ilosc_na_stanie,
+            "id_dlugosci": profil.id_dlugosci
+        }
         # Aktualizacja pól w modelu Profil
         if 'column_1' in dane:
             profil.id_tasmy = dane['column_1']  # ID tasmy
@@ -716,8 +750,21 @@ def update_row_profil():
             profil.ilosc_na_stanie = dane['column_9'] # Ilość na stanie
         if 'column_10' in dane:
             profil.id_dlugosci = dane['column_10']  # ID długości
-
-        logger.info(f"Aktualizacja Profil ID: {profil.id} przez {g.user.login}.")
+        nowe_dane = {
+            "id_tasmy": profil.id_tasmy,
+            "data_produkcji": profil.data_produkcji,
+            "godz_min_rozpoczecia": profil.godz_min_rozpoczecia,
+            "godz_min_zakonczenia": profil.godz_min_zakonczenia,
+            "zwrot_na_magazyn_kg": profil.zwrot_na_magazyn_kg,
+            "id_szablon_profile": profil.id_szablon_profile,
+            "nazwa_klienta_nr_zlecenia_PRODIO": profil.nazwa_klienta_nr_zlecenia_PRODIO,
+            "ilosc": profil.ilosc,
+            "ilosc_na_stanie": profil.ilosc_na_stanie,
+            "id_dlugosci": profil.id_dlugosci
+        }   
+        logger.info(f"Poprzednie dane profilu o ID {id}: {poprzednie_dane}")
+        logger.info(f"Nowe dane profilu o ID {id}: {nowe_dane}")
+        logger.info(f"Zmiany wprowadzone przez użytkownika: {g.user.login}")
         db.session.commit()
         return jsonify({'message': 'Rekord zaktualizowany pomyślnie!'})
 
@@ -747,6 +794,13 @@ def dodaj_lub_zakonczenie_profilu():
     if profil_id:
         # ZAKOŃCZENIE
         profil = Profil.query.get(profil_id)
+        poprzednie_dane = {
+                "godz_min_zakonczenia": profil.godz_min_zakonczenia,
+                "zwrot_na_magazyn_kg": profil.zwrot_na_magazyn_kg,
+                "ilosc": profil.ilosc,
+                "ilosc_na_stanie": profil.ilosc_na_stanie,
+                "id_dlugosci": profil.id_dlugosci
+            }
         profil.godz_min_zakonczenia = request.form.get('godz_min_zakonczenia')
         profil.zwrot_na_magazyn_kg = request.form.get('zwrot_na_magazyn_kg')
         profil.ilosc = request.form.get('ilosc')
@@ -755,6 +809,17 @@ def dodaj_lub_zakonczenie_profilu():
 
         tasma = Tasma.query.get(profil.id_tasmy)
         tasma.waga_kregu_na_stanie = float(profil.zwrot_na_magazyn_kg)
+        nowe_dane = {
+                "godz_min_zakonczenia": profil.godz_min_zakonczenia,
+                "zwrot_na_magazyn_kg": profil.zwrot_na_magazyn_kg,
+                "ilosc": profil.ilosc,
+                "ilosc_na_stanie": profil.ilosc_na_stanie,
+                "id_dlugosci": profil.id_dlugosci
+            }
+
+        logger.info(f"Zakończenie profilu o ID {profil_id} przez użytkownika {g.user.login}.")
+        logger.info(f"Poprzednie dane: {poprzednie_dane}")
+        logger.info(f"Nowe dane: {nowe_dane}")
 
     else:
         # ROZPOCZĘCIE
@@ -768,7 +833,16 @@ def dodaj_lub_zakonczenie_profilu():
             Data_do_usuwania=date.today() + timedelta(days=365)
         )
         db.session.add(profil)
+        tasma = Tasma.query.get(profil.id_tasmy)
+        
 
+        logger.info(f"Nowy profil został dodany przez użytkownika {g.user.login}.")
+        logger.info(
+            f"Szczegóły profilu: ID Taśmy: {profil.id_tasmy}, Data Produkcji: {profil.data_produkcji}, "
+            f"Godzina rozpoczęcia: {profil.godz_min_rozpoczecia}, ID Szablonu Profilu: {profil.id_szablon_profile}, "
+            f"Nazwa Klienta: {profil.nazwa_klienta_nr_zlecenia_PRODIO}, Ilość: {profil.ilosc}, "
+            f"ID Długości: {profil.id_dlugosci}."
+            )
     try:
         db.session.commit()
         return redirect(url_for('profil'))
@@ -850,7 +924,11 @@ def update_row_dostawcy():
         return render_template('login.html', user=g.user)
     if g.user.id_uprawnienia ==3:
         return redirect(url_for('home'))
-    
+    poprzednie_dane = {
+            "id": dostawca.id,
+            "nazwa": dostawca.nazwa
+        }
+    logger.info(f"Poprzednie dane dostawcy o ID {id}: {poprzednie_dane}")
     try:
         dane = request.get_json()
         logger.info(f'Otrzymane dane do aktualizacji dostawcy: {dane}')
@@ -940,7 +1018,15 @@ def update_row_szablon():
         szablon = Szablon.query.get(id)
         if szablon is None:
             return jsonify({'message': 'Rekord nie znaleziony!'}), 404
-
+        poprzednie_dane = {
+            "id": szablon.id,
+            "nazwa": szablon.nazwa,
+            "rodzaj": szablon.rodzaj,
+            "grubosc_i_oznaczenie_ocynku": szablon.grubosc_i_oznaczenie_ocynku,
+            "grubosc": szablon.grubosc,
+            "szerokosc": szablon.szerokosc
+        }
+        logger.info(f"Poprzednie dane szablonu o ID {id}: {poprzednie_dane}")
         szablon.nazwa = dane.get('column_1', szablon.nazwa)
         szablon.rodzaj = dane.get('column_2', szablon.rodzaj)
         szablon.grubosc_i_oznaczenie_ocynku = dane.get('column_3', szablon.grubosc_i_oznaczenie_ocynku)
@@ -953,7 +1039,17 @@ def update_row_szablon():
             t.szerokosc = szablon.szerokosc
 
         db.session.commit()
-        logger.info(f"Szablon o ID {id} został zaktualizowany przez {g.user.login}.")
+        nowe_dane = {
+            "id": szablon.id,
+            "nazwa": szablon.nazwa,
+            "rodzaj": szablon.rodzaj,
+            "grubosc_i_oznaczenie_ocynku": szablon.grubosc_i_oznaczenie_ocynku,
+            "grubosc": szablon.grubosc,
+            "szerokosc": szablon.szerokosc
+        }
+        logger.info(f"Nowe dane szablonu o ID {id}: {nowe_dane}")
+        logger.info(f"Szablon o ID {id} został zaktualizowany przez użytkownika {g.user.login}.")
+
         return jsonify({'message': 'Rekord zaktualizowany pomyślnie!'})
     except Exception as e:
         db.session.rollback()
@@ -1072,7 +1168,8 @@ def update_row_lokalizacje():
         lokalizacja = Lokalizacja.query.get(id)
         if lokalizacja is None:
             return jsonify({'message': 'Rekord nie znaleziony!'}), 404
-
+        poprzednie_dane = {"id": lokalizacja.id, "nazwa": lokalizacja.nazwa}
+        logger.info(f"Poprzednie dane lokalizacji o ID {id}: {poprzednie_dane}")
         lokalizacja.nazwa = dane.get('column_1', lokalizacja.nazwa)
 
         db.session.commit()
@@ -1143,7 +1240,8 @@ def update_row_dlugosci():
         dlugosc = Dlugosci.query.get(id)
         if lokalizacja is None:
             return jsonify({'message': 'Rekord nie znaleziony!'}), 404
-
+        poprzednie_dane = {"id": dlugosc.id, "nazwa": dlugosc.nazwa}
+        logger.info(f"Poprzednie dane długości o ID {id}: {poprzednie_dane}")
         dlugosc.nazwa = dane.get('column_1', dlugosc.nazwa)
 
         db.session.commit()
@@ -1212,7 +1310,11 @@ def update_row_szablon_profil():
         szablon_profil = Szablon_profil.query.get(id)
         if szablon_profil is None:
             return jsonify({'message': 'Rekord nie znaleziony!'}), 404
-
+        poprzednie_dane = {
+            "id": szablon_profil.id,
+            "nazwa": szablon_profil.nazwa
+        }
+        logger.info(f"Poprzednie dane szablonu o ID {id}: {poprzednie_dane}")
         szablon_profil.nazwa = dane.get('column_1', szablon_profil.nazwa)
 
 
