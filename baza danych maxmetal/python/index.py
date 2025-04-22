@@ -1325,5 +1325,15 @@ def update_row_szablon_profil():
         db.session.rollback()
         logger.error(f'Wystąpił błąd podczas aktualizacji: {str(e)}')
         return jsonify({'message': 'Wystąpił błąd podczas aktualizacji!', 'error': str(e)}), 500
+@app.route('/sprzedaz')
+def sprzedaz():
+    if not g.user:
+        return render_template('login.html', user=g.user)
+    if g.user.id_uprawnienia ==3:
+        return redirect(url_for('home'))
+    
+    
+    logger.info(f"{g.user.login} wszedł na stronę sprzedaży.")
+    return render_template("sprzedaz.html", user=g.user, profil=Profil.query.all())
 if __name__ == "__main__":
     app.run(host='0.0.0.0', port=5000, debug=True)
