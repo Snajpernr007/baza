@@ -1,7 +1,7 @@
 from flask import Flask, render_template, request, redirect, url_for, g, make_response, flash, jsonify,  send_file
 from flask_sqlalchemy import SQLAlchemy
 import logging
-from sqlalchemy import text
+from sqlalchemy import text, cast, Integer
 import base64
 import smtplib
 from email.message import EmailMessage
@@ -1325,15 +1325,103 @@ def update_row_szablon_profil():
         db.session.rollback()
         logger.error(f'Wystąpił błąd podczas aktualizacji: {str(e)}')
         return jsonify({'message': 'Wystąpił błąd podczas aktualizacji!', 'error': str(e)}), 500
-@app.route('/sprzedaz')
+@app.route('/sprzedaz', methods=["GET", "POST"])
 def sprzedaz():
     if not g.user:
         return render_template('login.html', user=g.user)
-    if g.user.id_uprawnienia ==3:
+    if g.user.id_uprawnienia == 3:
         return redirect(url_for('home'))
-    
-    
-    logger.info(f"{g.user.login} wszedł na stronę sprzedaży.")
-    return render_template("sprzedaz.html", user=g.user, profil=Profil.query.all())
+
+    wszystkie_profile = []
+    dlugosci = Dlugosci.query.all()
+
+    if request.method == "POST":
+        try:
+            ilosc_potrzebna = int(request.form.get('ilosc_potrzebna', 0))
+            dlugosc_id = int(request.form.get('dlugosc_id'))
+        except (TypeError, ValueError):
+            flash("Nieprawidłowe dane wejściowe.")
+            logger.warning(f"Nieprawidłowe dane wejściowe od użytkownika {g.user.login}")
+            return redirect(url_for('sprzedaz'))
+
+        wybrana_dlugosc = Dlugosci.query.get(dlugosc_id)
+        if not wybrana_dlugosc:
+            flash("Nie wybrano długości.")
+            logger.warning(f"Nie wybrano długości przez użytkownika {g.user.login}")
+            return redirect(url_for('sprzedaz'))
+
+        dlugosc_wartosc = int(wybrana_dlugosc.nazwa)
+
+        logger.info(f"Użytkownik {g.user.login} wybrał długość {dlugosc_wartosc} i potrzebuje {ilosc_potrzebna} sztuk.")
+
+        # Profile dokładnie pasujące
+        dostepne_profile = Profil.query.filter(
+            Profil.id_dlugosci == dlugosc_id,
+            Profil.ilosc_na_stanie > 0
+        ).all()
+
+        for p in dostepne_profile:
+            p.ciecie = False
+            p.uwaga = "Brak"
+            p.mozliwa_ilosc = p.ilosc_na_stanie
+            logger.info(f"[DOSTĘPNE] Profil ID {p.id}, długość {p.dlugosci.nazwa}, na stanie {p.ilosc_na_stanie}")
+
+        # Profile większe — możliwe do pocięcia
+        wieksze_dlugosci = Dlugosci.query.filter(
+            cast(Dlugosci.nazwa, Integer) > dlugosc_wartosc
+        ).all()
+
+        wieksze_ids = [d.id for d in wieksze_dlugosci]
+
+        profile_do_ciecia = Profil.query.filter(
+            Profil.id_dlugosci.in_(wieksze_ids),
+            Profil.ilosc_na_stanie > 0
+        ).all()
+
+        for p in profile_do_ciecia:
+            p.ciecie = True
+            wieksza_dlugosc = int(p.dlugosci.nazwa)
+            ile_sie_da_zrobic = wieksza_dlugosc // dlugosc_wartosc
+            p.uwaga = f"Można ciąć na mniejsze profile (max {ile_sie_da_zrobic} szt. z jednej)"
+            p.mozliwa_ilosc = p.ilosc_na_stanie * ile_sie_da_zrobic
+            logger.info(f"[CIĘCIE] Profil ID {p.id}, długość {p.dlugosci.nazwa}, na stanie {p.ilosc_na_stanie}, "
+                        f"możliwe do uzyskania: {p.mozliwa_ilosc}")
+
+        wszystkie_profile = dostepne_profile + profile_do_ciecia
+
+    return render_template(
+        "sprzedaz.html",
+        user=g.user,
+        dlugosci=dlugosci,
+        wszystkie_profile=wszystkie_profile
+    )
+
+
+@app.route('/wez_profile', methods=["POST"])
+def wez_profile():
+    if not g.user:
+        return redirect(url_for('login'))
+
+    profile = Profil.query.all()
+    for profil in profile:
+        ilosc_do_pobrania = request.form.get(f'ilosc_wez_{profil.id}')
+        if ilosc_do_pobrania:
+            try:
+                ilosc = int(ilosc_do_pobrania)
+                if 0 < ilosc <= (profil.ilosc_na_stanie or 0):
+                    logger.info(f"Użytkownik {g.user.login} pobiera {ilosc} sztuk z profilu ID {profil.id} "
+                                f"(długość: {profil.dlugosci.nazwa}, stan przed: {profil.ilosc_na_stanie})")
+                    profil.ilosc_na_stanie -= ilosc
+                    db.session.add(profil)
+                else:
+                    logger.warning(f"Nieprawidłowa ilość: {ilosc} dla profilu ID {profil.id} przez użytkownika {g.user.login}")
+            except ValueError:
+                logger.error(f"Błąd parsowania ilości dla profilu ID {profil.id}")
+                continue
+
+    db.session.commit()
+    logger.info(f"Użytkownik {g.user.login} zakończył pobieranie profili.")
+    flash("Profile zostały pobrane.")
+    return redirect(url_for('sprzedaz'))
 if __name__ == "__main__":
     app.run(host='0.0.0.0', port=5000, debug=True)

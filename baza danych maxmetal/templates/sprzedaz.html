@@ -102,37 +102,58 @@
 
         </div>
         <hr>
-        <div class="man-container">
-            {% if g.user.id_uprawnienia==1 or g.user.id_uprawnienia==2%}
-            <button class="button" onclick="window.location.href='{{ url_for('tasma') }}'">Materiały</button>
-            {% endif %}
-            <button class="button" onclick="window.location.href='{{ url_for('profil') }}'">Profile</button>
-            {% if g.user.id_uprawnienia==1 %}
-            <button class="button" onclick="window.location.href='{{ url_for('uzytkownik') }}'">Uzytkownicy</button>
-            {% endif %}
-            {% if g.user.id_uprawnienia==1 or g.user.id_uprawnienia==2%}
-            <button class="button" onclick="window.location.href='{{ url_for('dostawcy') }}'">Dostawcy</button>
-            {% endif %}
-            {% if g.user.id_uprawnienia==1 or g.user.id_uprawnienia==2%}
-            <button class="button" onclick="window.location.href='{{ url_for('szablon') }}'">Nazwy</button>
-            {% endif %}
-            {% if g.user.id_uprawnienia==1 or g.user.id_uprawnienia==2%}
-            <button class="button" onclick="window.location.href='{{ url_for('lokalizacja') }}'">Magazyny</button>
-            {% endif %}
-            {% if g.user.id_uprawnienia==1 or g.user.id_uprawnienia==2%}
-            <button class="button" onclick="window.location.href='{{ url_for('dlugosci') }}'">Długości</button>
-            {% endif %}
-            {% if g.user.id_uprawnienia==1 or g.user.id_uprawnienia==2%}
-            <button class="button" onclick="window.location.href='{{ url_for('szablon_profil') }}'">Nazwy profili</button>
-            {% endif %}
-            {% if g.user.id_uprawnienia==1 %}
-            <button class="button" onclick="window.location.href='{{ url_for('zestawienie') }}'">Zestawienie</button>
-            {% endif %}
-            
-        </div>
-                <hr>
+        <form method="POST" action="{{ url_for('sprzedaz') }}">
+            <label for="ilosc_potrzebna">Ile profili potrzebujesz:</label>
+            <input type="number" name="ilosc_potrzebna" min="1" required>
         
+            <label for="dlugosc">Wybierz długość profilu:</label>
+            <select name="dlugosc_id" required>
+                {% for dl in dlugosci %}
+                    <option value="{{ dl.id }}">{{ dl.nazwa }}</option>
+                {% endfor %}
+            </select>
         
+            <button  class="button" type="submit">Szukaj profili</button>
+        </form>
+        <br>
+        <br>
+        <form method="POST" action="{{ url_for('wez_profile') }}" style="display:inline;background-color: transparent;">
+            <table id="tabela">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Nr części klienta</th>
+                        <th>Data produkcji</th>
+                        <th>Długość</th>
+                        <th>Ilość na stanie</th>
+                        <th>Weź (ile?)</th>
+                        <th>Uwagi</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for profil in wszystkie_profile %}
+                        <tr>
+                            <td>{{ profil.id }}</td>
+                            <td>{{ profil.szablon_profile.nazwa }}</td>
+                            <td>{{ profil.data_produkcji }}</td>
+                            <td>{{ profil.dlugosci.nazwa }}</td>
+                            <td>{{ profil.ilosc_na_stanie }}</td>
+                            <td>
+                                <input type="number" name="ilosc_wez_{{ profil.id }}" min="0" max="{{ profil.ilosc_na_stanie }}">
+                            </td>
+                            <td>
+                                {% if profil.ciecie %}
+                                    Można ciąć na mniejsze profile
+                                {% else %}
+                                    Brak
+                                {% endif %}
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            <button class="button" type="submit">Weź</button>
+        </form>
     </div>
 </body>
 </html> 
