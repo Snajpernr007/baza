@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 22, 2025 at 12:43 PM
+-- Generation Time: Apr 22, 2025 at 11:11 AM
 -- Wersja serwera: 10.4.32-MariaDB
 -- Wersja PHP: 8.2.12
 
@@ -90,7 +90,6 @@ CREATE TABLE `profil` (
   `ilosc_na_stanie` int(11) DEFAULT NULL,
   `id_dlugosci` int(11) DEFAULT NULL,
   `id_pracownika` int(11) DEFAULT NULL,
-  `Imie_nazwisko_pracownika` varchar(50) NOT NULL,
   `Data_do_usuwania` date DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 

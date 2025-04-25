@@ -144,7 +144,7 @@ function openEditModal(row) {
         let filterCells = '';
 
         // Generowanie komórek do tymczasowego wiersza
-        for (let i = 0; i < cells.length; i++) {
+        for (let i = 0; i < cells.length-2; i++) {
             if (i === 1) {
                 filterCells += `<td><input type="text" placeholder="Filtruj Dostawcę" onkeyup="filterDostawcy(this.value)" style="width: 100%;"></td>`;
             } else if (i === 2) {
@@ -162,7 +162,7 @@ function openEditModal(row) {
 
         // Zamień edytowalne komórki na pola formularza
         cells.forEach((cell, index) => {
-    if (index > 0 && index < cells.length - 2 && index != 4 && index != 5) {
+    if (index > 0 && index < cells.length - 2 && index != 5 && index != 6 && index != 4 && index != 14 ) {
         if (index === 1) {
             const currentDostawcaId = cell.getAttribute("data-dostawca-id");
             cell.innerHTML = `<select style="width: 100%;" id="dostawcaSelect"></select>`;
@@ -171,15 +171,15 @@ function openEditModal(row) {
             const currentSzablonId = cell.getAttribute("data-szablon-id");
             cell.innerHTML = `<select style="width: 100%;" id="szablonSelect"></select>`;
             populateSzablony(cell.querySelector("#szablonSelect"), currentSzablonId);
-        }else if (index === 10) {
+        }else if (index === 11) {
             const currentLokalizacjaId = cell.getAttribute("data-lokalizacja-id");
             cell.innerHTML = `<select style="width: 100%;" id="lokalizacjaSelect"></select>`;
             populateLokalizacja(cell.querySelector("#lokalizacjaSelect"), currentLokalizacjaId);
         } 
-        else if (index === 3 || index === 12) { // Data fields
+        else if (index === 3 || index === 13) { // Data fields
             const value = cell.innerText;
             cell.innerHTML = `<input type="date" value="${value}" style="width: 100%;">`;
-        } else if (index === 6 || index === 7) { // Weight fields
+        } else if (index === 7 || index === 8) { // Weight fields
             const value = cell.innerText;
             cell.innerHTML = `<input type="number" value="${value}" step="0.01" style="width: 100%;">`;
         } else {
@@ -195,7 +195,7 @@ function openEditModal(row) {
         let isValid = true;
 
         cells.forEach((cell, index) => {
-            if (index > 0 && index < cells.length - 2 && index != 4 && index != 5) { 
+            if (index > 0 && index < cells.length - 2 && index != 5 && index != 6 && index != 4 && index != 14) { 
                 const input = cell.querySelector("input") || cell.querySelector("select");
                 if (input) {
                     const value = input.value.trim();

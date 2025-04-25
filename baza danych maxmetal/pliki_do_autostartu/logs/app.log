@@ -1,0 +1,534 @@
+2025-04-07 09:36:09,803 - INFO - Połączenie z bazą danych zostało nawiązane pomyślnie.
+2025-04-07 09:36:09,857 - INFO - ✅ Kopia zapasowa zapisana do pliku: backups\kopie_zapasowe_bazy_2025-04-07_09-36.sql
+2025-04-07 09:36:09,917 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.0.111:5000
+2025-04-07 09:36:09,917 - INFO - [33mPress CTRL+C to quit[0m
+2025-04-07 09:36:09,918 - INFO -  * Restarting with stat
+2025-04-07 09:36:11,183 - INFO - Połączenie z bazą danych zostało nawiązane pomyślnie.
+2025-04-07 09:36:11,234 - INFO - ✅ Kopia zapasowa zapisana do pliku: backups\kopie_zapasowe_bazy_2025-04-07_09-36.sql
+2025-04-07 09:36:11,242 - WARNING -  * Debugger is active!
+2025-04-07 09:36:11,244 - INFO -  * Debugger PIN: 987-497-449
+2025-04-07 09:36:44,115 - INFO - Nieautoryzowany dostęp do strony głównej.
+2025-04-07 09:36:44,118 - INFO - 192.168.0.111 - - [07/Apr/2025 09:36:44] "GET / HTTP/1.1" 200 -
+2025-04-07 09:36:44,153 - INFO - 192.168.0.111 - - [07/Apr/2025 09:36:44] "GET /static/style.css HTTP/1.1" 200 -
+2025-04-07 09:36:44,166 - INFO - 192.168.0.111 - - [07/Apr/2025 09:36:44] "GET /static/img/logo-duże.png HTTP/1.1" 200 -
+2025-04-07 09:37:04,595 - INFO - Próba logowania dla logina: Administrator
+2025-04-07 09:37:04,723 - INFO - Użytkownik Administrator zalogowany pomyślnie.
+2025-04-07 09:37:04,723 - INFO - 192.168.0.111 - - [07/Apr/2025 09:37:04] "[32mPOST /login HTTP/1.1[0m" 302 -
+2025-04-07 09:37:04,735 - INFO - Administrator wszedł na stronę główną.
+2025-04-07 09:37:04,748 - INFO - 192.168.0.111 - - [07/Apr/2025 09:37:04] "GET / HTTP/1.1" 200 -
+2025-04-07 09:37:04,772 - INFO - 192.168.0.111 - - [07/Apr/2025 09:37:04] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-07 09:37:04,780 - INFO - 192.168.0.111 - - [07/Apr/2025 09:37:04] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-07 09:37:20,921 - INFO - Administrator wszedł na stronę zestawienia.
+2025-04-07 09:37:20,954 - INFO - 192.168.0.111 - - [07/Apr/2025 09:37:20] "GET /zestawienie HTTP/1.1" 200 -
+2025-04-07 09:37:20,983 - INFO - 192.168.0.111 - - [07/Apr/2025 09:37:20] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-07 09:37:20,991 - INFO - 192.168.0.111 - - [07/Apr/2025 09:37:20] "GET /static/img/drukarka.png HTTP/1.1" 200 -
+2025-04-07 09:37:20,999 - INFO - 192.168.0.111 - - [07/Apr/2025 09:37:20] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-07 09:37:30,850 - INFO - Administrator wszedł na stronę główną.
+2025-04-07 09:37:30,851 - INFO - 192.168.0.111 - - [07/Apr/2025 09:37:30] "GET / HTTP/1.1" 200 -
+2025-04-07 09:37:30,876 - INFO - 192.168.0.111 - - [07/Apr/2025 09:37:30] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-07 09:37:30,883 - INFO - 192.168.0.111 - - [07/Apr/2025 09:37:30] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-07 09:37:32,230 - INFO - Administrator wszedł na stronę z listą tasm.
+2025-04-07 09:37:32,260 - INFO - 192.168.0.111 - - [07/Apr/2025 09:37:32] "GET /tasma HTTP/1.1" 200 -
+2025-04-07 09:37:32,281 - INFO - 192.168.0.111 - - [07/Apr/2025 09:37:32] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-07 09:37:32,295 - INFO - 192.168.0.111 - - [07/Apr/2025 09:37:32] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-07 09:37:32,310 - INFO - 192.168.0.111 - - [07/Apr/2025 09:37:32] "[36mGET /static/img/drukarka.png HTTP/1.1[0m" 304 -
+2025-04-07 09:37:35,715 - INFO - Administrator wszedł na stronę główną.
+2025-04-07 09:37:35,716 - INFO - 192.168.0.111 - - [07/Apr/2025 09:37:35] "GET / HTTP/1.1" 200 -
+2025-04-07 09:37:35,741 - INFO - 192.168.0.111 - - [07/Apr/2025 09:37:35] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-07 09:37:35,747 - INFO - 192.168.0.111 - - [07/Apr/2025 09:37:35] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-07 10:04:36,936 - INFO - Administrator wszedł na stronę główną.
+2025-04-07 10:04:36,940 - INFO - 192.168.0.91 - - [07/Apr/2025 10:04:36] "GET / HTTP/1.1" 200 -
+2025-04-07 10:04:37,183 - INFO - 192.168.0.91 - - [07/Apr/2025 10:04:37] "GET /static/style.css HTTP/1.1" 200 -
+2025-04-07 10:04:37,194 - INFO - 192.168.0.91 - - [07/Apr/2025 10:04:37] "GET /static/img/logo-duże.png HTTP/1.1" 200 -
+2025-04-07 10:05:06,595 - INFO - Administrator wszedł na stronę szablonów.
+2025-04-07 10:05:06,603 - INFO - 192.168.0.91 - - [07/Apr/2025 10:05:06] "GET /szablon HTTP/1.1" 200 -
+2025-04-07 10:05:06,641 - INFO - 192.168.0.91 - - [07/Apr/2025 10:05:06] "GET /static/style.css HTTP/1.1" 200 -
+2025-04-07 10:05:06,661 - INFO - 192.168.0.91 - - [07/Apr/2025 10:05:06] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-07 10:05:14,681 - INFO - Administrator wszedł na stronę dodawania szablonu.
+2025-04-07 10:05:14,683 - INFO - 192.168.0.91 - - [07/Apr/2025 10:05:14] "GET /dodaj_szablon HTTP/1.1" 200 -
+2025-04-07 10:05:14,725 - INFO - 192.168.0.91 - - [07/Apr/2025 10:05:14] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-07 10:05:28,467 - INFO - Szablon tr 5t 4x4 został dodany przez Administrator.
+2025-04-07 10:05:28,468 - INFO - 192.168.0.91 - - [07/Apr/2025 10:05:28] "[32mPOST /dodaj_szablon_do_bazy HTTP/1.1[0m" 302 -
+2025-04-07 10:05:28,533 - INFO - Administrator wszedł na stronę szablonów.
+2025-04-07 10:05:28,536 - INFO - 192.168.0.91 - - [07/Apr/2025 10:05:28] "GET /szablon HTTP/1.1" 200 -
+2025-04-07 10:05:28,658 - INFO - 192.168.0.91 - - [07/Apr/2025 10:05:28] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-07 10:05:28,745 - INFO - 192.168.0.91 - - [07/Apr/2025 10:05:28] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-07 10:05:35,359 - INFO - Administrator wszedł na stronę główną.
+2025-04-07 10:05:35,362 - INFO - 192.168.0.91 - - [07/Apr/2025 10:05:35] "GET / HTTP/1.1" 200 -
+2025-04-07 10:05:35,400 - INFO - 192.168.0.91 - - [07/Apr/2025 10:05:35] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-07 10:05:35,409 - INFO - 192.168.0.91 - - [07/Apr/2025 10:05:35] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-07 10:05:36,457 - INFO - Administrator wszedł na stronę dostawców.
+2025-04-07 10:05:36,466 - INFO - 192.168.0.91 - - [07/Apr/2025 10:05:36] "GET /dostawcy HTTP/1.1" 200 -
+2025-04-07 10:05:36,516 - INFO - 192.168.0.91 - - [07/Apr/2025 10:05:36] "GET /static/style.css HTTP/1.1" 200 -
+2025-04-07 10:05:36,542 - INFO - 192.168.0.91 - - [07/Apr/2025 10:05:36] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-07 10:05:41,888 - INFO - Administrator wszedł na stronę główną.
+2025-04-07 10:05:41,891 - INFO - 192.168.0.91 - - [07/Apr/2025 10:05:41] "GET / HTTP/1.1" 200 -
+2025-04-07 10:05:41,936 - INFO - 192.168.0.91 - - [07/Apr/2025 10:05:41] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-07 10:05:41,942 - INFO - 192.168.0.91 - - [07/Apr/2025 10:05:41] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-07 10:05:42,803 - INFO - Administrator wszedł na stronę z listą tasm.
+2025-04-07 10:05:42,808 - INFO - 192.168.0.91 - - [07/Apr/2025 10:05:42] "GET /tasma HTTP/1.1" 200 -
+2025-04-07 10:05:42,847 - INFO - 192.168.0.91 - - [07/Apr/2025 10:05:42] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-07 10:05:42,854 - INFO - 192.168.0.91 - - [07/Apr/2025 10:05:42] "GET /static/img/drukarka.png HTTP/1.1" 200 -
+2025-04-07 10:05:42,866 - INFO - 192.168.0.91 - - [07/Apr/2025 10:05:42] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-07 10:05:52,589 - INFO - Administrator wszedł na stronę dodawania tasy.
+2025-04-07 10:05:52,600 - INFO - 192.168.0.91 - - [07/Apr/2025 10:05:52] "GET /dodaj_tasma HTTP/1.1" 200 -
+2025-04-07 10:05:52,740 - INFO - 192.168.0.91 - - [07/Apr/2025 10:05:52] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-07 10:06:27,086 - INFO - 192.168.0.91 - - [07/Apr/2025 10:06:27] "[33mGET /get-szanlon HTTP/1.1[0m" 404 -
+2025-04-07 10:06:27,089 - INFO - 192.168.0.91 - - [07/Apr/2025 10:06:27] "GET /get-dostawcy HTTP/1.1" 200 -
+2025-04-07 10:07:02,696 - INFO - Administrator wszedł na stronę z listą tasm.
+2025-04-07 10:07:02,702 - INFO - 192.168.0.91 - - [07/Apr/2025 10:07:02] "GET /tasma HTTP/1.1" 200 -
+2025-04-07 10:07:02,733 - INFO - 192.168.0.91 - - [07/Apr/2025 10:07:02] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-07 10:07:02,748 - INFO - 192.168.0.91 - - [07/Apr/2025 10:07:02] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-07 10:07:02,749 - INFO - 192.168.0.91 - - [07/Apr/2025 10:07:02] "[36mGET /static/img/drukarka.png HTTP/1.1[0m" 304 -
+2025-04-07 10:07:05,565 - INFO - 192.168.0.91 - - [07/Apr/2025 10:07:05] "GET /get-dostawcy HTTP/1.1" 200 -
+2025-04-07 10:07:05,565 - INFO - 192.168.0.91 - - [07/Apr/2025 10:07:05] "[33mGET /get-szanlon HTTP/1.1[0m" 404 -
+2025-04-07 10:07:07,518 - INFO - Administrator wszedł na stronę z listą tasm.
+2025-04-07 10:07:07,523 - INFO - 192.168.0.91 - - [07/Apr/2025 10:07:07] "GET /tasma HTTP/1.1" 200 -
+2025-04-07 10:07:07,556 - INFO - 192.168.0.91 - - [07/Apr/2025 10:07:07] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-07 10:07:07,574 - INFO - 192.168.0.91 - - [07/Apr/2025 10:07:07] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-07 10:07:07,574 - INFO - 192.168.0.91 - - [07/Apr/2025 10:07:07] "[36mGET /static/img/drukarka.png HTTP/1.1[0m" 304 -
+2025-04-07 10:07:34,033 - INFO - Administrator wszedł na stronę główną.
+2025-04-07 10:07:34,036 - INFO - 192.168.0.91 - - [07/Apr/2025 10:07:34] "GET / HTTP/1.1" 200 -
+2025-04-07 10:07:34,091 - INFO - 192.168.0.91 - - [07/Apr/2025 10:07:34] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-07 10:07:34,106 - INFO - 192.168.0.91 - - [07/Apr/2025 10:07:34] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-07 10:07:34,973 - INFO - Administrator wszedł na stronę profilu.
+2025-04-07 10:07:35,002 - INFO - 192.168.0.91 - - [07/Apr/2025 10:07:35] "GET /profil HTTP/1.1" 200 -
+2025-04-07 10:07:35,038 - INFO - 192.168.0.91 - - [07/Apr/2025 10:07:35] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-07 10:07:35,056 - INFO - 192.168.0.91 - - [07/Apr/2025 10:07:35] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-07 10:07:39,480 - INFO - Administrator wszedł na stronę dodawania profilu.
+2025-04-07 10:07:39,489 - INFO - 192.168.0.91 - - [07/Apr/2025 10:07:39] "GET /dodaj_profil HTTP/1.1" 200 -
+2025-04-07 10:07:39,520 - INFO - 192.168.0.91 - - [07/Apr/2025 10:07:39] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-07 10:08:54,037 - INFO - Profil dla p został dodany przez Administrator.
+2025-04-07 10:08:54,039 - INFO - 192.168.0.91 - - [07/Apr/2025 10:08:54] "[32mPOST /dodaj_profil_do_bazy HTTP/1.1[0m" 302 -
+2025-04-07 10:08:54,067 - INFO - Administrator wszedł na stronę profilu.
+2025-04-07 10:08:54,079 - INFO - 192.168.0.91 - - [07/Apr/2025 10:08:54] "GET /profil HTTP/1.1" 200 -
+2025-04-07 10:08:54,129 - INFO - 192.168.0.91 - - [07/Apr/2025 10:08:54] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-07 10:08:54,157 - INFO - 192.168.0.91 - - [07/Apr/2025 10:08:54] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-07 10:09:07,303 - INFO - Administrator wszedł na stronę dodawania profilu.
+2025-04-07 10:09:07,305 - INFO - 192.168.0.91 - - [07/Apr/2025 10:09:07] "GET /dodaj_profil HTTP/1.1" 200 -
+2025-04-07 10:09:07,347 - INFO - 192.168.0.91 - - [07/Apr/2025 10:09:07] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-07 10:09:33,952 - INFO - Profil dla t został dodany przez Administrator.
+2025-04-07 10:09:33,953 - INFO - 192.168.0.91 - - [07/Apr/2025 10:09:33] "[32mPOST /dodaj_profil_do_bazy HTTP/1.1[0m" 302 -
+2025-04-07 10:09:33,972 - INFO - Administrator wszedł na stronę profilu.
+2025-04-07 10:09:33,984 - INFO - 192.168.0.91 - - [07/Apr/2025 10:09:33] "GET /profil HTTP/1.1" 200 -
+2025-04-07 10:09:34,017 - INFO - 192.168.0.91 - - [07/Apr/2025 10:09:34] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-07 10:09:34,029 - INFO - 192.168.0.91 - - [07/Apr/2025 10:09:34] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-07 10:09:47,882 - INFO - Administrator wszedł na stronę główną.
+2025-04-07 10:09:47,885 - INFO - 192.168.0.91 - - [07/Apr/2025 10:09:47] "GET / HTTP/1.1" 200 -
+2025-04-07 10:09:47,919 - INFO - 192.168.0.91 - - [07/Apr/2025 10:09:47] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-07 10:09:47,926 - INFO - 192.168.0.91 - - [07/Apr/2025 10:09:47] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-07 10:09:50,264 - INFO - Administrator wszedł na stronę zestawienia.
+2025-04-07 10:09:50,285 - INFO - 192.168.0.91 - - [07/Apr/2025 10:09:50] "GET /zestawienie HTTP/1.1" 200 -
+2025-04-07 10:09:50,329 - INFO - 192.168.0.91 - - [07/Apr/2025 10:09:50] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-07 10:09:50,337 - INFO - 192.168.0.91 - - [07/Apr/2025 10:09:50] "[36mGET /static/img/drukarka.png HTTP/1.1[0m" 304 -
+2025-04-07 10:09:50,348 - INFO - 192.168.0.91 - - [07/Apr/2025 10:09:50] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-07 10:10:35,044 - INFO - Administrator wszedł na stronę główną.
+2025-04-07 10:10:35,047 - INFO - 192.168.0.91 - - [07/Apr/2025 10:10:35] "GET / HTTP/1.1" 200 -
+2025-04-07 10:10:35,084 - INFO - 192.168.0.91 - - [07/Apr/2025 10:10:35] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-07 10:10:35,092 - INFO - 192.168.0.91 - - [07/Apr/2025 10:10:35] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-07 10:10:36,460 - INFO - Administrator wszedł na stronę profilu.
+2025-04-07 10:10:36,490 - INFO - 192.168.0.91 - - [07/Apr/2025 10:10:36] "GET /profil HTTP/1.1" 200 -
+2025-04-07 10:10:36,515 - INFO - 192.168.0.91 - - [07/Apr/2025 10:10:36] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-07 10:10:36,527 - INFO - 192.168.0.91 - - [07/Apr/2025 10:10:36] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-07 10:10:38,709 - INFO - Administrator wszedł na stronę główną.
+2025-04-07 10:10:38,712 - INFO - 192.168.0.91 - - [07/Apr/2025 10:10:38] "GET / HTTP/1.1" 200 -
+2025-04-07 10:10:38,740 - INFO - 192.168.0.91 - - [07/Apr/2025 10:10:38] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-07 10:10:38,748 - INFO - 192.168.0.91 - - [07/Apr/2025 10:10:38] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-07 10:10:39,409 - INFO - Administrator wszedł na stronę z listą tasm.
+2025-04-07 10:10:39,414 - INFO - 192.168.0.91 - - [07/Apr/2025 10:10:39] "GET /tasma HTTP/1.1" 200 -
+2025-04-07 10:10:39,448 - INFO - 192.168.0.91 - - [07/Apr/2025 10:10:39] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-07 10:10:39,462 - INFO - 192.168.0.91 - - [07/Apr/2025 10:10:39] "[36mGET /static/img/drukarka.png HTTP/1.1[0m" 304 -
+2025-04-07 10:10:39,462 - INFO - 192.168.0.91 - - [07/Apr/2025 10:10:39] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-07 10:10:40,197 - INFO - Administrator wszedł na stronę główną.
+2025-04-07 10:10:40,200 - INFO - 192.168.0.91 - - [07/Apr/2025 10:10:40] "GET / HTTP/1.1" 200 -
+2025-04-07 10:10:40,225 - INFO - 192.168.0.91 - - [07/Apr/2025 10:10:40] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-07 10:10:40,230 - INFO - 192.168.0.91 - - [07/Apr/2025 10:10:40] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-07 10:10:40,944 - INFO - Administrator wszedł na stronę zestawienia.
+2025-04-07 10:10:40,966 - INFO - 192.168.0.91 - - [07/Apr/2025 10:10:40] "GET /zestawienie HTTP/1.1" 200 -
+2025-04-07 10:10:40,997 - INFO - 192.168.0.91 - - [07/Apr/2025 10:10:40] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-07 10:10:41,014 - INFO - 192.168.0.91 - - [07/Apr/2025 10:10:41] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-07 10:10:41,015 - INFO - 192.168.0.91 - - [07/Apr/2025 10:10:41] "[36mGET /static/img/drukarka.png HTTP/1.1[0m" 304 -
+2025-04-07 10:10:44,055 - INFO - Administrator wszedł na stronę główną.
+2025-04-07 10:10:44,058 - INFO - 192.168.0.91 - - [07/Apr/2025 10:10:44] "GET / HTTP/1.1" 200 -
+2025-04-07 10:10:44,085 - INFO - 192.168.0.91 - - [07/Apr/2025 10:10:44] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-07 10:10:44,091 - INFO - 192.168.0.91 - - [07/Apr/2025 10:10:44] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-07 10:10:45,065 - INFO - Administrator wszedł na stronę profilu.
+2025-04-07 10:10:45,078 - INFO - 192.168.0.91 - - [07/Apr/2025 10:10:45] "GET /profil HTTP/1.1" 200 -
+2025-04-07 10:10:45,105 - INFO - 192.168.0.91 - - [07/Apr/2025 10:10:45] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-07 10:10:45,116 - INFO - 192.168.0.91 - - [07/Apr/2025 10:10:45] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-07 10:11:00,088 - INFO - Administrator wszedł na stronę główną.
+2025-04-07 10:11:00,091 - INFO - 192.168.0.91 - - [07/Apr/2025 10:11:00] "GET / HTTP/1.1" 200 -
+2025-04-07 10:11:00,132 - INFO - 192.168.0.91 - - [07/Apr/2025 10:11:00] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-07 10:11:00,139 - INFO - 192.168.0.91 - - [07/Apr/2025 10:11:00] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-07 10:11:01,027 - INFO - Administrator wszedł na stronę z listą tasm.
+2025-04-07 10:11:01,033 - INFO - 192.168.0.91 - - [07/Apr/2025 10:11:01] "GET /tasma HTTP/1.1" 200 -
+2025-04-07 10:11:01,068 - INFO - 192.168.0.91 - - [07/Apr/2025 10:11:01] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-07 10:11:01,089 - INFO - 192.168.0.91 - - [07/Apr/2025 10:11:01] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-07 10:11:01,089 - INFO - 192.168.0.91 - - [07/Apr/2025 10:11:01] "[36mGET /static/img/drukarka.png HTTP/1.1[0m" 304 -
+2025-04-07 10:11:03,400 - INFO - Administrator wszedł na stronę główną.
+2025-04-07 10:11:03,403 - INFO - 192.168.0.91 - - [07/Apr/2025 10:11:03] "GET / HTTP/1.1" 200 -
+2025-04-07 10:11:03,434 - INFO - 192.168.0.91 - - [07/Apr/2025 10:11:03] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-07 10:11:03,439 - INFO - 192.168.0.91 - - [07/Apr/2025 10:11:03] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-07 10:11:04,609 - INFO - Administrator wszedł na stronę zestawienia.
+2025-04-07 10:11:04,645 - INFO - 192.168.0.91 - - [07/Apr/2025 10:11:04] "GET /zestawienie HTTP/1.1" 200 -
+2025-04-07 10:11:04,676 - INFO - 192.168.0.91 - - [07/Apr/2025 10:11:04] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-07 10:11:04,692 - INFO - 192.168.0.91 - - [07/Apr/2025 10:11:04] "[36mGET /static/img/drukarka.png HTTP/1.1[0m" 304 -
+2025-04-07 10:11:04,692 - INFO - 192.168.0.91 - - [07/Apr/2025 10:11:04] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-07 10:16:52,007 - INFO - Administrator wszedł na stronę główną.
+2025-04-07 10:16:52,010 - INFO - 192.168.0.91 - - [07/Apr/2025 10:16:52] "GET / HTTP/1.1" 200 -
+2025-04-07 10:16:52,043 - INFO - 192.168.0.91 - - [07/Apr/2025 10:16:52] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-07 10:16:52,051 - INFO - 192.168.0.91 - - [07/Apr/2025 10:16:52] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-07 10:16:53,485 - INFO - Administrator wszedł na stronę profilu.
+2025-04-07 10:16:53,498 - INFO - 192.168.0.91 - - [07/Apr/2025 10:16:53] "GET /profil HTTP/1.1" 200 -
+2025-04-07 10:16:53,530 - INFO - 192.168.0.91 - - [07/Apr/2025 10:16:53] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-07 10:16:53,542 - INFO - 192.168.0.91 - - [07/Apr/2025 10:16:53] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-07 10:16:56,377 - INFO - Administrator wszedł na stronę dodawania profilu.
+2025-04-07 10:16:56,378 - INFO - 192.168.0.91 - - [07/Apr/2025 10:16:56] "GET /dodaj_profil HTTP/1.1" 200 -
+2025-04-07 10:16:56,404 - INFO - 192.168.0.91 - - [07/Apr/2025 10:16:56] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-07 10:17:15,226 - INFO - 192.168.0.91 - - [07/Apr/2025 10:17:15] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-04-07 10:22:32,653 - INFO - Administrator wszedł na stronę główną.
+2025-04-07 10:22:32,656 - INFO - 192.168.0.91 - - [07/Apr/2025 10:22:32] "GET / HTTP/1.1" 200 -
+2025-04-07 10:22:32,686 - INFO - 192.168.0.91 - - [07/Apr/2025 10:22:32] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-07 10:22:32,692 - INFO - 192.168.0.91 - - [07/Apr/2025 10:22:32] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-07 10:22:33,604 - INFO - Administrator wszedł na stronę zestawienia.
+2025-04-07 10:22:33,618 - INFO - 192.168.0.91 - - [07/Apr/2025 10:22:33] "GET /zestawienie HTTP/1.1" 200 -
+2025-04-07 10:22:33,653 - INFO - 192.168.0.91 - - [07/Apr/2025 10:22:33] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-07 10:22:33,672 - INFO - 192.168.0.91 - - [07/Apr/2025 10:22:33] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-07 10:22:33,672 - INFO - 192.168.0.91 - - [07/Apr/2025 10:22:33] "[36mGET /static/img/drukarka.png HTTP/1.1[0m" 304 -
+2025-04-07 10:22:52,709 - INFO - Administrator wszedł na stronę główną.
+2025-04-07 10:22:52,712 - INFO - 192.168.0.91 - - [07/Apr/2025 10:22:52] "GET / HTTP/1.1" 200 -
+2025-04-07 10:22:52,748 - INFO - 192.168.0.91 - - [07/Apr/2025 10:22:52] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-07 10:22:52,753 - INFO - 192.168.0.91 - - [07/Apr/2025 10:22:52] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-07 10:22:54,312 - INFO - Administrator wszedł na stronę profilu.
+2025-04-07 10:22:54,347 - INFO - 192.168.0.91 - - [07/Apr/2025 10:22:54] "GET /profil HTTP/1.1" 200 -
+2025-04-07 10:22:54,376 - INFO - 192.168.0.91 - - [07/Apr/2025 10:22:54] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-07 10:22:54,396 - INFO - 192.168.0.91 - - [07/Apr/2025 10:22:54] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-07 10:23:30,271 - INFO - Administrator wszedł na stronę główną.
+2025-04-07 10:23:30,274 - INFO - 192.168.0.91 - - [07/Apr/2025 10:23:30] "GET / HTTP/1.1" 200 -
+2025-04-07 10:23:30,300 - INFO - 192.168.0.91 - - [07/Apr/2025 10:23:30] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-07 10:23:30,308 - INFO - 192.168.0.91 - - [07/Apr/2025 10:23:30] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-07 10:23:47,153 - INFO - Administrator wszedł na stronę zarządzania użytkownikami.
+2025-04-07 10:23:47,165 - INFO - 192.168.0.91 - - [07/Apr/2025 10:23:47] "GET /uzytkownik HTTP/1.1" 200 -
+2025-04-07 10:23:47,192 - INFO - 192.168.0.91 - - [07/Apr/2025 10:23:47] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-07 10:23:47,208 - INFO - 192.168.0.91 - - [07/Apr/2025 10:23:47] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-07 10:23:50,740 - INFO - 192.168.0.91 - - [07/Apr/2025 10:23:50] "GET /get-uprawnienia HTTP/1.1" 200 -
+2025-04-07 10:23:53,186 - INFO - Zaktualizowano dane użytkownika test4.
+2025-04-07 10:23:53,187 - INFO - 192.168.0.91 - - [07/Apr/2025 10:23:53] "POST /update-row_uzytkownik HTTP/1.1" 200 -
+2025-04-07 10:23:56,589 - INFO - Użytkownik Administrator wylogowany.
+2025-04-07 10:23:56,591 - INFO - 192.168.0.91 - - [07/Apr/2025 10:23:56] "[32mGET /logout HTTP/1.1[0m" 302 -
+2025-04-07 10:23:56,617 - INFO - Nieautoryzowany dostęp do strony głównej.
+2025-04-07 10:23:56,618 - INFO - 192.168.0.91 - - [07/Apr/2025 10:23:56] "GET / HTTP/1.1" 200 -
+2025-04-07 10:23:56,661 - INFO - 192.168.0.91 - - [07/Apr/2025 10:23:56] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-07 10:23:56,666 - INFO - 192.168.0.91 - - [07/Apr/2025 10:23:56] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-07 10:24:03,212 - INFO - Próba logowania dla logina: test4
+2025-04-07 10:24:03,326 - INFO - Użytkownik test4 zalogowany pomyślnie.
+2025-04-07 10:24:03,327 - INFO - 192.168.0.91 - - [07/Apr/2025 10:24:03] "[32mPOST /login HTTP/1.1[0m" 302 -
+2025-04-07 10:24:03,353 - INFO - test4 wszedł na stronę główną.
+2025-04-07 10:24:03,355 - INFO - 192.168.0.91 - - [07/Apr/2025 10:24:03] "GET / HTTP/1.1" 200 -
+2025-04-07 10:24:03,398 - INFO - 192.168.0.91 - - [07/Apr/2025 10:24:03] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-07 10:24:03,404 - INFO - 192.168.0.91 - - [07/Apr/2025 10:24:03] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-07 10:24:11,597 - INFO - test4 wszedł na stronę z listą tasm.
+2025-04-07 10:24:11,606 - INFO - 192.168.0.91 - - [07/Apr/2025 10:24:11] "GET /tasma HTTP/1.1" 200 -
+2025-04-07 10:24:11,653 - INFO - 192.168.0.91 - - [07/Apr/2025 10:24:11] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-07 10:24:11,666 - INFO - 192.168.0.91 - - [07/Apr/2025 10:24:11] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-07 10:24:20,843 - INFO - test4 wszedł na stronę główną.
+2025-04-07 10:24:20,845 - INFO - 192.168.0.91 - - [07/Apr/2025 10:24:20] "GET / HTTP/1.1" 200 -
+2025-04-07 10:24:20,875 - INFO - 192.168.0.91 - - [07/Apr/2025 10:24:20] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-07 10:24:20,881 - INFO - 192.168.0.91 - - [07/Apr/2025 10:24:20] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-07 10:24:21,827 - INFO - test4 wszedł na stronę profilu.
+2025-04-07 10:24:21,858 - INFO - 192.168.0.91 - - [07/Apr/2025 10:24:21] "GET /profil HTTP/1.1" 200 -
+2025-04-07 10:24:21,895 - INFO - 192.168.0.91 - - [07/Apr/2025 10:24:21] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-07 10:24:21,906 - INFO - 192.168.0.91 - - [07/Apr/2025 10:24:21] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-07 10:24:24,298 - INFO - test4 wszedł na stronę główną.
+2025-04-07 10:24:24,301 - INFO - 192.168.0.91 - - [07/Apr/2025 10:24:24] "GET / HTTP/1.1" 200 -
+2025-04-07 10:24:24,331 - INFO - 192.168.0.91 - - [07/Apr/2025 10:24:24] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-07 10:24:24,337 - INFO - 192.168.0.91 - - [07/Apr/2025 10:24:24] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-07 10:24:25,922 - INFO - test4 wszedł na stronę profilu.
+2025-04-07 10:24:25,957 - INFO - 192.168.0.91 - - [07/Apr/2025 10:24:25] "GET /profil HTTP/1.1" 200 -
+2025-04-07 10:24:25,990 - INFO - 192.168.0.91 - - [07/Apr/2025 10:24:25] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-07 10:24:26,001 - INFO - 192.168.0.91 - - [07/Apr/2025 10:24:26] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-07 10:24:32,936 - INFO - test4 wszedł na stronę główną.
+2025-04-07 10:24:32,939 - INFO - 192.168.0.91 - - [07/Apr/2025 10:24:32] "GET / HTTP/1.1" 200 -
+2025-04-07 10:24:33,045 - INFO - 192.168.0.91 - - [07/Apr/2025 10:24:33] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-07 10:24:33,061 - INFO - 192.168.0.91 - - [07/Apr/2025 10:24:33] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-07 10:24:43,587 - INFO - test4 wszedł na stronę profilu.
+2025-04-07 10:24:43,618 - INFO - 192.168.0.91 - - [07/Apr/2025 10:24:43] "GET /profil HTTP/1.1" 200 -
+2025-04-07 10:24:43,651 - INFO - 192.168.0.91 - - [07/Apr/2025 10:24:43] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-07 10:24:43,664 - INFO - 192.168.0.91 - - [07/Apr/2025 10:24:43] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-07 10:24:46,396 - INFO - test4 wszedł na stronę główną.
+2025-04-07 10:24:46,399 - INFO - 192.168.0.91 - - [07/Apr/2025 10:24:46] "GET / HTTP/1.1" 200 -
+2025-04-07 10:24:46,430 - INFO - 192.168.0.91 - - [07/Apr/2025 10:24:46] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-07 10:24:46,436 - INFO - 192.168.0.91 - - [07/Apr/2025 10:24:46] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-07 10:24:50,948 - INFO - test4 wszedł na stronę z listą tasm.
+2025-04-07 10:24:50,950 - INFO - 192.168.0.91 - - [07/Apr/2025 10:24:50] "GET /tasma HTTP/1.1" 200 -
+2025-04-07 10:24:50,987 - INFO - 192.168.0.91 - - [07/Apr/2025 10:24:50] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-07 10:24:51,002 - INFO - 192.168.0.91 - - [07/Apr/2025 10:24:51] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-07 10:25:12,828 - INFO - test4 wszedł na stronę główną.
+2025-04-07 10:25:12,831 - INFO - 192.168.0.91 - - [07/Apr/2025 10:25:12] "GET / HTTP/1.1" 200 -
+2025-04-07 10:25:12,876 - INFO - 192.168.0.91 - - [07/Apr/2025 10:25:12] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-07 10:25:12,884 - INFO - 192.168.0.91 - - [07/Apr/2025 10:25:12] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-07 10:25:16,702 - INFO - Użytkownik test4 wylogowany.
+2025-04-07 10:25:16,702 - INFO - 192.168.0.91 - - [07/Apr/2025 10:25:16] "[32mGET /logout HTTP/1.1[0m" 302 -
+2025-04-07 10:25:16,721 - INFO - Nieautoryzowany dostęp do strony głównej.
+2025-04-07 10:25:16,721 - INFO - 192.168.0.91 - - [07/Apr/2025 10:25:16] "GET / HTTP/1.1" 200 -
+2025-04-07 10:25:16,748 - INFO - 192.168.0.91 - - [07/Apr/2025 10:25:16] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-07 10:25:16,755 - INFO - 192.168.0.91 - - [07/Apr/2025 10:25:16] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-07 10:25:30,682 - INFO - Próba logowania dla logina: administrator
+2025-04-07 10:25:30,798 - INFO - Użytkownik Administrator zalogowany pomyślnie.
+2025-04-07 10:25:30,798 - INFO - 192.168.0.91 - - [07/Apr/2025 10:25:30] "[32mPOST /login HTTP/1.1[0m" 302 -
+2025-04-07 10:25:30,824 - INFO - Administrator wszedł na stronę główną.
+2025-04-07 10:25:30,826 - INFO - 192.168.0.91 - - [07/Apr/2025 10:25:30] "GET / HTTP/1.1" 200 -
+2025-04-07 10:25:30,869 - INFO - 192.168.0.91 - - [07/Apr/2025 10:25:30] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-07 10:25:30,884 - INFO - 192.168.0.91 - - [07/Apr/2025 10:25:30] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-07 10:25:54,267 - INFO - Administrator wszedł na stronę zarządzania użytkownikami.
+2025-04-07 10:25:54,274 - INFO - 192.168.0.91 - - [07/Apr/2025 10:25:54] "GET /uzytkownik HTTP/1.1" 200 -
+2025-04-07 10:25:54,304 - INFO - 192.168.0.91 - - [07/Apr/2025 10:25:54] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-07 10:25:54,317 - INFO - 192.168.0.91 - - [07/Apr/2025 10:25:54] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-07 10:26:26,041 - INFO - Administrator wszedł na stronę główną.
+2025-04-07 10:26:26,044 - INFO - 192.168.0.91 - - [07/Apr/2025 10:26:26] "GET / HTTP/1.1" 200 -
+2025-04-07 10:26:26,087 - INFO - 192.168.0.91 - - [07/Apr/2025 10:26:26] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-07 10:26:26,095 - INFO - 192.168.0.91 - - [07/Apr/2025 10:26:26] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-07 10:26:27,153 - INFO - Administrator wszedł na stronę z listą tasm.
+2025-04-07 10:26:27,158 - INFO - 192.168.0.91 - - [07/Apr/2025 10:26:27] "GET /tasma HTTP/1.1" 200 -
+2025-04-07 10:26:27,255 - INFO - 192.168.0.91 - - [07/Apr/2025 10:26:27] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-07 10:26:27,268 - INFO - 192.168.0.91 - - [07/Apr/2025 10:26:27] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-07 10:26:27,268 - INFO - 192.168.0.91 - - [07/Apr/2025 10:26:27] "[36mGET /static/img/drukarka.png HTTP/1.1[0m" 304 -
+2025-04-07 10:26:29,666 - INFO - Administrator wszedł na stronę dodawania tasy.
+2025-04-07 10:26:29,668 - INFO - 192.168.0.91 - - [07/Apr/2025 10:26:29] "GET /dodaj_tasma HTTP/1.1" 200 -
+2025-04-07 10:26:29,720 - INFO - 192.168.0.91 - - [07/Apr/2025 10:26:29] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-07 10:27:28,838 - INFO - Administrator wszedł na stronę główną.
+2025-04-07 10:27:28,841 - INFO - 192.168.0.91 - - [07/Apr/2025 10:27:28] "GET / HTTP/1.1" 200 -
+2025-04-07 10:27:28,889 - INFO - 192.168.0.91 - - [07/Apr/2025 10:27:28] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-07 10:27:28,897 - INFO - 192.168.0.91 - - [07/Apr/2025 10:27:28] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-07 10:27:31,313 - INFO - Administrator wszedł na stronę dostawców.
+2025-04-07 10:27:31,316 - INFO - 192.168.0.91 - - [07/Apr/2025 10:27:31] "GET /dostawcy HTTP/1.1" 200 -
+2025-04-07 10:27:31,343 - INFO - 192.168.0.91 - - [07/Apr/2025 10:27:31] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-07 10:27:31,906 - INFO - 192.168.0.91 - - [07/Apr/2025 10:27:31] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-07 10:27:33,871 - INFO - Administrator wszedł na stronę główną.
+2025-04-07 10:27:33,874 - INFO - 192.168.0.91 - - [07/Apr/2025 10:27:33] "GET / HTTP/1.1" 200 -
+2025-04-07 10:27:33,908 - INFO - 192.168.0.91 - - [07/Apr/2025 10:27:33] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-07 10:27:33,914 - INFO - 192.168.0.91 - - [07/Apr/2025 10:27:33] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-07 10:27:34,552 - INFO - Administrator wszedł na stronę szablonów.
+2025-04-07 10:27:34,555 - INFO - 192.168.0.91 - - [07/Apr/2025 10:27:34] "GET /szablon HTTP/1.1" 200 -
+2025-04-07 10:27:34,589 - INFO - 192.168.0.91 - - [07/Apr/2025 10:27:34] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-07 10:27:34,600 - INFO - 192.168.0.91 - - [07/Apr/2025 10:27:34] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-07 10:27:35,901 - INFO - Administrator wszedł na stronę główną.
+2025-04-07 10:27:35,904 - INFO - 192.168.0.91 - - [07/Apr/2025 10:27:35] "GET / HTTP/1.1" 200 -
+2025-04-07 10:27:35,934 - INFO - 192.168.0.91 - - [07/Apr/2025 10:27:35] "GET /static/style.css HTTP/1.1" 200 -
+2025-04-07 10:27:35,943 - INFO - 192.168.0.91 - - [07/Apr/2025 10:27:35] "GET /static/img/logo-duże.png HTTP/1.1" 200 -
+2025-04-07 10:27:36,669 - INFO - Administrator wszedł na stronę z listą tasm.
+2025-04-07 10:27:36,677 - INFO - 192.168.0.91 - - [07/Apr/2025 10:27:36] "GET /tasma HTTP/1.1" 200 -
+2025-04-07 10:27:36,721 - INFO - 192.168.0.91 - - [07/Apr/2025 10:27:36] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-07 10:27:36,737 - INFO - 192.168.0.91 - - [07/Apr/2025 10:27:36] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-07 10:27:36,738 - INFO - 192.168.0.91 - - [07/Apr/2025 10:27:36] "[36mGET /static/img/drukarka.png HTTP/1.1[0m" 304 -
+2025-04-07 10:27:38,433 - INFO - Administrator wszedł na stronę główną.
+2025-04-07 10:27:38,436 - INFO - 192.168.0.91 - - [07/Apr/2025 10:27:38] "GET / HTTP/1.1" 200 -
+2025-04-07 10:27:38,468 - INFO - 192.168.0.91 - - [07/Apr/2025 10:27:38] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-07 10:27:38,474 - INFO - 192.168.0.91 - - [07/Apr/2025 10:27:38] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-07 10:27:42,033 - INFO - Administrator wszedł na stronę z listą tasm.
+2025-04-07 10:27:42,038 - INFO - 192.168.0.91 - - [07/Apr/2025 10:27:42] "GET /tasma HTTP/1.1" 200 -
+2025-04-07 10:27:42,076 - INFO - 192.168.0.91 - - [07/Apr/2025 10:27:42] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-07 10:27:42,089 - INFO - 192.168.0.91 - - [07/Apr/2025 10:27:42] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-07 10:27:42,091 - INFO - 192.168.0.91 - - [07/Apr/2025 10:27:42] "[36mGET /static/img/drukarka.png HTTP/1.1[0m" 304 -
+2025-04-07 10:27:43,175 - INFO - Administrator wszedł na stronę główną.
+2025-04-07 10:27:43,178 - INFO - 192.168.0.91 - - [07/Apr/2025 10:27:43] "GET / HTTP/1.1" 200 -
+2025-04-07 10:27:43,213 - INFO - 192.168.0.91 - - [07/Apr/2025 10:27:43] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-07 10:27:43,221 - INFO - 192.168.0.91 - - [07/Apr/2025 10:27:43] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-07 10:27:44,100 - INFO - Administrator wszedł na stronę szablonów.
+2025-04-07 10:27:44,103 - INFO - 192.168.0.91 - - [07/Apr/2025 10:27:44] "GET /szablon HTTP/1.1" 200 -
+2025-04-07 10:27:44,130 - INFO - 192.168.0.91 - - [07/Apr/2025 10:27:44] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-07 10:27:44,140 - INFO - 192.168.0.91 - - [07/Apr/2025 10:27:44] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-07 10:27:46,123 - INFO - Administrator wszedł na stronę dodawania szablonu.
+2025-04-07 10:27:46,126 - INFO - 192.168.0.91 - - [07/Apr/2025 10:27:46] "GET /dodaj_szablon HTTP/1.1" 200 -
+2025-04-07 10:27:46,166 - INFO - 192.168.0.91 - - [07/Apr/2025 10:27:46] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-07 10:28:13,792 - INFO - 192.168.0.91 - - [07/Apr/2025 10:28:13] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-04-07 10:29:22,155 - INFO - Administrator wszedł na stronę dodawania szablonu.
+2025-04-07 10:29:22,158 - INFO - 192.168.0.91 - - [07/Apr/2025 10:29:22] "GET /dodaj_szablon HTTP/1.1" 200 -
+2025-04-07 10:29:22,216 - INFO - 192.168.0.91 - - [07/Apr/2025 10:29:22] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-07 10:30:54,585 - INFO - Szablon dx51d z275 90x2 został dodany przez Administrator.
+2025-04-07 10:30:54,587 - INFO - 192.168.0.91 - - [07/Apr/2025 10:30:54] "[32mPOST /dodaj_szablon_do_bazy HTTP/1.1[0m" 302 -
+2025-04-07 10:30:54,617 - INFO - Administrator wszedł na stronę szablonów.
+2025-04-07 10:30:54,621 - INFO - 192.168.0.91 - - [07/Apr/2025 10:30:54] "GET /szablon HTTP/1.1" 200 -
+2025-04-07 10:30:54,655 - INFO - 192.168.0.91 - - [07/Apr/2025 10:30:54] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-07 10:30:54,666 - INFO - 192.168.0.91 - - [07/Apr/2025 10:30:54] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-07 10:34:14,519 - INFO - Administrator wszedł na stronę główną.
+2025-04-07 10:34:14,522 - INFO - 192.168.0.91 - - [07/Apr/2025 10:34:14] "GET / HTTP/1.1" 200 -
+2025-04-07 10:34:14,560 - INFO - 192.168.0.91 - - [07/Apr/2025 10:34:14] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-07 10:34:14,569 - INFO - 192.168.0.91 - - [07/Apr/2025 10:34:14] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-07 10:34:16,279 - INFO - Administrator wszedł na stronę z listą tasm.
+2025-04-07 10:34:16,284 - INFO - 192.168.0.91 - - [07/Apr/2025 10:34:16] "GET /tasma HTTP/1.1" 200 -
+2025-04-07 10:34:16,368 - INFO - 192.168.0.91 - - [07/Apr/2025 10:34:16] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-07 10:34:16,382 - INFO - 192.168.0.91 - - [07/Apr/2025 10:34:16] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-07 10:34:16,383 - INFO - 192.168.0.91 - - [07/Apr/2025 10:34:16] "[36mGET /static/img/drukarka.png HTTP/1.1[0m" 304 -
+2025-04-07 10:34:20,072 - INFO - Administrator wszedł na stronę dodawania tasy.
+2025-04-07 10:34:20,079 - INFO - 192.168.0.91 - - [07/Apr/2025 10:34:20] "GET /dodaj_tasma HTTP/1.1" 200 -
+2025-04-07 10:34:20,113 - INFO - 192.168.0.91 - - [07/Apr/2025 10:34:20] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-07 10:38:26,144 - INFO - Tasma t została dodana przez Administrator.
+2025-04-07 10:38:26,144 - INFO - 192.168.0.91 - - [07/Apr/2025 10:38:26] "[35m[1mPOST /dodaj_tasma_do_bazy HTTP/1.1[0m" 204 -
+2025-04-07 10:38:42,353 - INFO - Tasma t została dodana przez Administrator.
+2025-04-07 10:38:42,355 - INFO - 192.168.0.91 - - [07/Apr/2025 10:38:42] "[35m[1mPOST /dodaj_tasma_do_bazy HTTP/1.1[0m" 204 -
+2025-04-07 10:39:01,408 - INFO - Administrator wszedł na stronę z listą tasm.
+2025-04-07 10:39:01,414 - INFO - 192.168.0.91 - - [07/Apr/2025 10:39:01] "GET /tasma HTTP/1.1" 200 -
+2025-04-07 10:39:01,488 - INFO - 192.168.0.91 - - [07/Apr/2025 10:39:01] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-07 10:39:01,505 - INFO - 192.168.0.91 - - [07/Apr/2025 10:39:01] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-07 10:39:01,507 - INFO - 192.168.0.91 - - [07/Apr/2025 10:39:01] "[36mGET /static/img/drukarka.png HTTP/1.1[0m" 304 -
+2025-04-07 10:39:17,519 - INFO - Administrator wszedł na stronę główną.
+2025-04-07 10:39:17,522 - INFO - 192.168.0.91 - - [07/Apr/2025 10:39:17] "GET / HTTP/1.1" 200 -
+2025-04-07 10:39:17,555 - INFO - 192.168.0.91 - - [07/Apr/2025 10:39:17] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-07 10:39:17,563 - INFO - 192.168.0.91 - - [07/Apr/2025 10:39:17] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-07 10:39:21,916 - INFO - Administrator wszedł na stronę profilu.
+2025-04-07 10:39:21,948 - INFO - 192.168.0.91 - - [07/Apr/2025 10:39:21] "GET /profil HTTP/1.1" 200 -
+2025-04-07 10:39:22,039 - INFO - 192.168.0.91 - - [07/Apr/2025 10:39:22] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-07 10:39:22,050 - INFO - 192.168.0.91 - - [07/Apr/2025 10:39:22] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-07 10:39:23,071 - INFO - Administrator wszedł na stronę główną.
+2025-04-07 10:39:23,074 - INFO - 192.168.0.91 - - [07/Apr/2025 10:39:23] "GET / HTTP/1.1" 200 -
+2025-04-07 10:39:23,106 - INFO - 192.168.0.91 - - [07/Apr/2025 10:39:23] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-07 10:39:23,114 - INFO - 192.168.0.91 - - [07/Apr/2025 10:39:23] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-07 10:39:24,656 - INFO - Administrator wszedł na stronę zarządzania użytkownikami.
+2025-04-07 10:39:24,662 - INFO - 192.168.0.91 - - [07/Apr/2025 10:39:24] "GET /uzytkownik HTTP/1.1" 200 -
+2025-04-07 10:39:24,691 - INFO - 192.168.0.91 - - [07/Apr/2025 10:39:24] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-07 10:39:24,704 - INFO - 192.168.0.91 - - [07/Apr/2025 10:39:24] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-07 10:39:26,583 - INFO - Administrator wszedł na stronę główną.
+2025-04-07 10:39:26,586 - INFO - 192.168.0.91 - - [07/Apr/2025 10:39:26] "GET / HTTP/1.1" 200 -
+2025-04-07 10:39:26,616 - INFO - 192.168.0.91 - - [07/Apr/2025 10:39:26] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-07 10:39:26,623 - INFO - 192.168.0.91 - - [07/Apr/2025 10:39:26] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-07 10:39:28,019 - INFO - Użytkownik Administrator wylogowany.
+2025-04-07 10:39:28,021 - INFO - 192.168.0.91 - - [07/Apr/2025 10:39:28] "[32mGET /logout HTTP/1.1[0m" 302 -
+2025-04-07 10:39:28,042 - INFO - Nieautoryzowany dostęp do strony głównej.
+2025-04-07 10:39:28,043 - INFO - 192.168.0.91 - - [07/Apr/2025 10:39:28] "GET / HTTP/1.1" 200 -
+2025-04-07 10:39:28,073 - INFO - 192.168.0.91 - - [07/Apr/2025 10:39:28] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-07 10:39:28,085 - INFO - 192.168.0.91 - - [07/Apr/2025 10:39:28] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-07 10:39:35,636 - INFO - Próba logowania dla logina: test3
+2025-04-07 10:39:35,769 - INFO - Użytkownik test3 zalogowany pomyślnie.
+2025-04-07 10:39:35,769 - INFO - 192.168.0.91 - - [07/Apr/2025 10:39:35] "[32mPOST /login HTTP/1.1[0m" 302 -
+2025-04-07 10:39:35,807 - INFO - test3 wszedł na stronę główną.
+2025-04-07 10:39:35,810 - INFO - 192.168.0.91 - - [07/Apr/2025 10:39:35] "GET / HTTP/1.1" 200 -
+2025-04-07 10:39:35,858 - INFO - 192.168.0.91 - - [07/Apr/2025 10:39:35] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-07 10:39:35,873 - INFO - 192.168.0.91 - - [07/Apr/2025 10:39:35] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-07 10:39:39,351 - INFO - test3 wszedł na stronę profilu.
+2025-04-07 10:39:39,357 - INFO - 192.168.0.91 - - [07/Apr/2025 10:39:39] "GET /profil HTTP/1.1" 200 -
+2025-04-07 10:39:39,387 - INFO - 192.168.0.91 - - [07/Apr/2025 10:39:39] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-07 10:39:39,400 - INFO - 192.168.0.91 - - [07/Apr/2025 10:39:39] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-07 10:39:42,966 - INFO - test3 wszedł na stronę dodawania profilu.
+2025-04-07 10:39:42,967 - INFO - 192.168.0.91 - - [07/Apr/2025 10:39:42] "GET /dodaj_profil HTTP/1.1" 200 -
+2025-04-07 10:39:42,993 - INFO - 192.168.0.91 - - [07/Apr/2025 10:39:42] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-07 10:40:28,931 - INFO - Profil dla 30x30 został dodany przez test3.
+2025-04-07 10:40:28,933 - INFO - 192.168.0.91 - - [07/Apr/2025 10:40:28] "[32mPOST /dodaj_profil_do_bazy HTTP/1.1[0m" 302 -
+2025-04-07 10:40:28,952 - INFO - test3 wszedł na stronę profilu.
+2025-04-07 10:40:28,958 - INFO - 192.168.0.91 - - [07/Apr/2025 10:40:28] "GET /profil HTTP/1.1" 200 -
+2025-04-07 10:40:28,990 - INFO - 192.168.0.91 - - [07/Apr/2025 10:40:28] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-07 10:40:29,002 - INFO - 192.168.0.91 - - [07/Apr/2025 10:40:29] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-07 10:40:53,629 - INFO - test3 wszedł na stronę dodawania profilu.
+2025-04-07 10:40:53,630 - INFO - 192.168.0.91 - - [07/Apr/2025 10:40:53] "GET /dodaj_profil HTTP/1.1" 200 -
+2025-04-07 10:40:53,662 - INFO - 192.168.0.91 - - [07/Apr/2025 10:40:53] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-07 10:41:44,344 - INFO - test3 wszedł na stronę główną.
+2025-04-07 10:41:44,345 - INFO - 192.168.0.91 - - [07/Apr/2025 10:41:44] "GET / HTTP/1.1" 200 -
+2025-04-07 10:41:44,382 - INFO - 192.168.0.91 - - [07/Apr/2025 10:41:44] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-07 10:41:44,392 - INFO - 192.168.0.91 - - [07/Apr/2025 10:41:44] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-07 10:41:47,088 - INFO - Użytkownik test3 wylogowany.
+2025-04-07 10:41:47,090 - INFO - 192.168.0.91 - - [07/Apr/2025 10:41:47] "[32mGET /logout HTTP/1.1[0m" 302 -
+2025-04-07 10:41:47,107 - INFO - Nieautoryzowany dostęp do strony głównej.
+2025-04-07 10:41:47,109 - INFO - 192.168.0.91 - - [07/Apr/2025 10:41:47] "GET / HTTP/1.1" 200 -
+2025-04-07 10:41:47,141 - INFO - 192.168.0.91 - - [07/Apr/2025 10:41:47] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-07 10:41:47,150 - INFO - 192.168.0.91 - - [07/Apr/2025 10:41:47] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-07 10:41:57,212 - INFO - Próba logowania dla logina: administrator
+2025-04-07 10:41:57,327 - INFO - Użytkownik Administrator zalogowany pomyślnie.
+2025-04-07 10:41:57,328 - INFO - 192.168.0.91 - - [07/Apr/2025 10:41:57] "[32mPOST /login HTTP/1.1[0m" 302 -
+2025-04-07 10:41:57,379 - INFO - Administrator wszedł na stronę główną.
+2025-04-07 10:41:57,382 - INFO - 192.168.0.91 - - [07/Apr/2025 10:41:57] "GET / HTTP/1.1" 200 -
+2025-04-07 10:41:57,430 - INFO - 192.168.0.91 - - [07/Apr/2025 10:41:57] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-07 10:41:57,436 - INFO - 192.168.0.91 - - [07/Apr/2025 10:41:57] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-07 10:41:59,252 - INFO - Administrator wszedł na stronę z listą tasm.
+2025-04-07 10:41:59,257 - INFO - 192.168.0.91 - - [07/Apr/2025 10:41:59] "GET /tasma HTTP/1.1" 200 -
+2025-04-07 10:41:59,340 - INFO - 192.168.0.91 - - [07/Apr/2025 10:41:59] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-07 10:41:59,365 - INFO - 192.168.0.91 - - [07/Apr/2025 10:41:59] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-07 10:41:59,366 - INFO - 192.168.0.91 - - [07/Apr/2025 10:41:59] "[36mGET /static/img/drukarka.png HTTP/1.1[0m" 304 -
+2025-04-07 10:42:01,585 - INFO - Administrator wszedł na stronę dodawania tasy.
+2025-04-07 10:42:01,588 - INFO - 192.168.0.91 - - [07/Apr/2025 10:42:01] "GET /dodaj_tasma HTTP/1.1" 200 -
+2025-04-07 10:42:01,629 - INFO - 192.168.0.91 - - [07/Apr/2025 10:42:01] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-07 10:43:11,948 - INFO - Administrator wszedł na stronę główną.
+2025-04-07 10:43:11,949 - INFO - 192.168.0.91 - - [07/Apr/2025 10:43:11] "GET / HTTP/1.1" 200 -
+2025-04-07 10:43:11,996 - INFO - 192.168.0.91 - - [07/Apr/2025 10:43:11] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-07 10:43:12,012 - INFO - 192.168.0.91 - - [07/Apr/2025 10:43:12] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-07 10:43:13,043 - INFO - Administrator wszedł na stronę profilu.
+2025-04-07 10:43:13,076 - INFO - 192.168.0.91 - - [07/Apr/2025 10:43:13] "GET /profil HTTP/1.1" 200 -
+2025-04-07 10:43:13,116 - INFO - 192.168.0.91 - - [07/Apr/2025 10:43:13] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-07 10:43:13,128 - INFO - 192.168.0.91 - - [07/Apr/2025 10:43:13] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-07 10:44:12,216 - INFO - Administrator wszedł na stronę dodawania profilu.
+2025-04-07 10:44:12,217 - INFO - 192.168.0.91 - - [07/Apr/2025 10:44:12] "GET /dodaj_profil HTTP/1.1" 200 -
+2025-04-07 10:44:12,258 - INFO - 192.168.0.91 - - [07/Apr/2025 10:44:12] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-07 10:47:40,675 - INFO - 192.168.0.91 - - [07/Apr/2025 10:47:40] "GET /get-tasma HTTP/1.1" 200 -
+2025-04-07 10:47:44,286 - INFO - Administrator wszedł na stronę główną.
+2025-04-07 10:47:44,289 - INFO - 192.168.0.91 - - [07/Apr/2025 10:47:44] "GET / HTTP/1.1" 200 -
+2025-04-07 10:47:44,321 - INFO - 192.168.0.91 - - [07/Apr/2025 10:47:44] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-07 10:47:44,328 - INFO - 192.168.0.91 - - [07/Apr/2025 10:47:44] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-07 10:47:48,237 - INFO - Użytkownik Administrator wylogowany.
+2025-04-07 10:47:48,239 - INFO - 192.168.0.91 - - [07/Apr/2025 10:47:48] "[32mGET /logout HTTP/1.1[0m" 302 -
+2025-04-07 10:47:48,256 - INFO - Nieautoryzowany dostęp do strony głównej.
+2025-04-07 10:47:48,257 - INFO - 192.168.0.91 - - [07/Apr/2025 10:47:48] "GET / HTTP/1.1" 200 -
+2025-04-07 10:47:48,282 - INFO - 192.168.0.91 - - [07/Apr/2025 10:47:48] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-07 10:47:48,287 - INFO - 192.168.0.91 - - [07/Apr/2025 10:47:48] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-07 10:47:55,090 - INFO - Próba logowania dla logina: test3
+2025-04-07 10:47:55,223 - INFO - Użytkownik test3 zalogowany pomyślnie.
+2025-04-07 10:47:55,224 - INFO - 192.168.0.91 - - [07/Apr/2025 10:47:55] "[32mPOST /login HTTP/1.1[0m" 302 -
+2025-04-07 10:47:55,238 - INFO - test3 wszedł na stronę główną.
+2025-04-07 10:47:55,239 - INFO - 192.168.0.91 - - [07/Apr/2025 10:47:55] "GET / HTTP/1.1" 200 -
+2025-04-07 10:47:55,270 - INFO - 192.168.0.91 - - [07/Apr/2025 10:47:55] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-07 10:47:55,276 - INFO - 192.168.0.91 - - [07/Apr/2025 10:47:55] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-07 10:47:57,173 - INFO - test3 wszedł na stronę profilu.
+2025-04-07 10:47:57,178 - INFO - 192.168.0.91 - - [07/Apr/2025 10:47:57] "GET /profil HTTP/1.1" 200 -
+2025-04-07 10:47:57,210 - INFO - 192.168.0.91 - - [07/Apr/2025 10:47:57] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-07 10:47:57,223 - INFO - 192.168.0.91 - - [07/Apr/2025 10:47:57] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-07 10:48:02,297 - INFO - 192.168.0.91 - - [07/Apr/2025 10:48:02] "GET /get-tasma HTTP/1.1" 200 -
+2025-04-07 10:52:33,532 - INFO - test3 wszedł na stronę główną.
+2025-04-07 10:52:33,535 - INFO - 192.168.0.91 - - [07/Apr/2025 10:52:33] "GET / HTTP/1.1" 200 -
+2025-04-07 10:52:33,567 - INFO - 192.168.0.91 - - [07/Apr/2025 10:52:33] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-07 10:52:33,572 - INFO - 192.168.0.91 - - [07/Apr/2025 10:52:33] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-07 10:54:39,637 - INFO - test3 wszedł na stronę profilu.
+2025-04-07 10:54:39,653 - INFO - 192.168.0.91 - - [07/Apr/2025 10:54:39] "GET /profil HTTP/1.1" 200 -
+2025-04-07 10:54:39,687 - INFO - 192.168.0.91 - - [07/Apr/2025 10:54:39] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-07 10:54:39,699 - INFO - 192.168.0.91 - - [07/Apr/2025 10:54:39] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-07 10:55:28,703 - INFO - test3 wszedł na stronę dodawania profilu.
+2025-04-07 10:55:28,704 - INFO - 192.168.0.91 - - [07/Apr/2025 10:55:28] "GET /dodaj_profil HTTP/1.1" 200 -
+2025-04-07 10:55:28,732 - INFO - 192.168.0.91 - - [07/Apr/2025 10:55:28] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-07 13:36:11,855 - INFO - ✅ Kopia zapasowa zapisana do pliku: backups\kopie_zapasowe_bazy_2025-04-07_13-36.sql
+2025-04-07 13:36:13,204 - INFO - ✅ Kopia zapasowa zapisana do pliku: backups\kopie_zapasowe_bazy_2025-04-07_13-36.sql
+2025-04-07 17:36:11,892 - INFO - ✅ Kopia zapasowa zapisana do pliku: backups\kopie_zapasowe_bazy_2025-04-07_17-36.sql
+2025-04-07 17:36:13,249 - INFO - ✅ Kopia zapasowa zapisana do pliku: backups\kopie_zapasowe_bazy_2025-04-07_17-36.sql
+2025-04-07 21:36:11,945 - INFO - ✅ Kopia zapasowa zapisana do pliku: backups\kopie_zapasowe_bazy_2025-04-07_21-36.sql
+2025-04-07 21:36:13,295 - INFO - ✅ Kopia zapasowa zapisana do pliku: backups\kopie_zapasowe_bazy_2025-04-07_21-36.sql
+2025-04-08 01:36:11,956 - INFO - ✅ Kopia zapasowa zapisana do pliku: backups\kopie_zapasowe_bazy_2025-04-08_01-36.sql
+2025-04-08 01:36:13,308 - INFO - ✅ Kopia zapasowa zapisana do pliku: backups\kopie_zapasowe_bazy_2025-04-08_01-36.sql
+2025-04-08 05:36:09,390 - INFO - ✅ Kopia zapasowa zapisana do pliku: backups\kopie_zapasowe_bazy_2025-04-08_05-36.sql
+2025-04-08 05:36:10,738 - INFO - ✅ Kopia zapasowa zapisana do pliku: backups\kopie_zapasowe_bazy_2025-04-08_05-36.sql
+2025-04-08 09:36:09,417 - INFO - ✅ Kopia zapasowa zapisana do pliku: backups\kopie_zapasowe_bazy_2025-04-08_09-36.sql
+2025-04-08 09:36:09,418 - INFO - 🗑️ Usunięto starą kopię: kopie_zapasowe_bazy_2025-04-07_09-36.sql
+2025-04-08 09:36:10,782 - INFO - ✅ Kopia zapasowa zapisana do pliku: backups\kopie_zapasowe_bazy_2025-04-08_09-36.sql
+2025-04-08 13:36:12,303 - INFO - ✅ Kopia zapasowa zapisana do pliku: backups\kopie_zapasowe_bazy_2025-04-08_13-36.sql
+2025-04-08 13:36:12,304 - INFO - 🗑️ Usunięto starą kopię: kopie_zapasowe_bazy_2025-04-07_13-36.sql
+2025-04-08 13:36:13,703 - INFO - ✅ Kopia zapasowa zapisana do pliku: backups\kopie_zapasowe_bazy_2025-04-08_13-36.sql
+2025-04-08 17:36:12,314 - INFO - ✅ Kopia zapasowa zapisana do pliku: backups\kopie_zapasowe_bazy_2025-04-08_17-36.sql
+2025-04-08 17:36:12,315 - INFO - 🗑️ Usunięto starą kopię: kopie_zapasowe_bazy_2025-04-07_17-36.sql
+2025-04-08 17:36:13,741 - INFO - ✅ Kopia zapasowa zapisana do pliku: backups\kopie_zapasowe_bazy_2025-04-08_17-36.sql
+2025-04-08 21:35:51,354 - INFO - Nieautoryzowany dostęp do strony głównej.
+2025-04-08 21:35:51,361 - INFO - 192.168.0.16 - - [08/Apr/2025 21:35:51] "GET / HTTP/1.1" 200 -
+2025-04-08 21:35:51,488 - INFO - 192.168.0.16 - - [08/Apr/2025 21:35:51] "GET /static/style.css HTTP/1.1" 200 -
+2025-04-08 21:35:51,604 - INFO - 192.168.0.16 - - [08/Apr/2025 21:35:51] "GET /static/img/logo-duże.png HTTP/1.1" 200 -
+2025-04-08 21:36:12,325 - INFO - ✅ Kopia zapasowa zapisana do pliku: backups\kopie_zapasowe_bazy_2025-04-08_21-36.sql
+2025-04-08 21:36:12,325 - INFO - 🗑️ Usunięto starą kopię: kopie_zapasowe_bazy_2025-04-07_21-36.sql
+2025-04-08 21:36:13,766 - INFO - ✅ Kopia zapasowa zapisana do pliku: backups\kopie_zapasowe_bazy_2025-04-08_21-36.sql
+2025-04-09 01:36:12,370 - INFO - ✅ Kopia zapasowa zapisana do pliku: backups\kopie_zapasowe_bazy_2025-04-09_01-36.sql
+2025-04-09 01:36:12,372 - INFO - 🗑️ Usunięto starą kopię: kopie_zapasowe_bazy_2025-04-08_01-36.sql
+2025-04-09 01:36:13,818 - INFO - ✅ Kopia zapasowa zapisana do pliku: backups\kopie_zapasowe_bazy_2025-04-09_01-36.sql
+2025-04-09 05:36:08,834 - INFO - ✅ Kopia zapasowa zapisana do pliku: backups\kopie_zapasowe_bazy_2025-04-09_05-36.sql
+2025-04-09 05:36:08,835 - INFO - 🗑️ Usunięto starą kopię: kopie_zapasowe_bazy_2025-04-08_05-36.sql
+2025-04-09 05:36:10,279 - INFO - ✅ Kopia zapasowa zapisana do pliku: backups\kopie_zapasowe_bazy_2025-04-09_05-36.sql
+2025-04-09 09:36:08,879 - INFO - ✅ Kopia zapasowa zapisana do pliku: backups\kopie_zapasowe_bazy_2025-04-09_09-36.sql
+2025-04-09 09:36:08,881 - INFO - 🗑️ Usunięto starą kopię: kopie_zapasowe_bazy_2025-04-08_09-36.sql
+2025-04-09 09:36:10,324 - INFO - ✅ Kopia zapasowa zapisana do pliku: backups\kopie_zapasowe_bazy_2025-04-09_09-36.sql
+2025-04-09 13:36:12,717 - INFO - ✅ Kopia zapasowa zapisana do pliku: backups\kopie_zapasowe_bazy_2025-04-09_13-36.sql
+2025-04-09 13:36:12,718 - INFO - 🗑️ Usunięto starą kopię: kopie_zapasowe_bazy_2025-04-08_13-36.sql
+2025-04-09 13:36:14,170 - INFO - ✅ Kopia zapasowa zapisana do pliku: backups\kopie_zapasowe_bazy_2025-04-09_13-36.sql

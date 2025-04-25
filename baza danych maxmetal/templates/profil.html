@@ -284,17 +284,17 @@ function sendDataToBackenda(data) {
         } else if (index === 2 ) { // Data fields
             const value = cell.innerText;
             cell.innerHTML = `<input type="date" value="${value}" style="width: 100%;">`;
-        } else if (index === 5 ) { // Weight fields
+        } else if (index === 6 ) { // Weight fields
             const value = cell.innerText;
             cell.innerHTML = `<input type="number" value="${value}" step="0.01" style="width: 100%;">`;
-        }else if (index === 6  ) { // Weight fields
+        }else if (index === 7  ) { // Weight fields
             const currentSzablon_profileId = cell.getAttribute("data-szblon_profile-id");
             cell.innerHTML = `<select style="width: 100%;" id="szablon_profileSelect"></select>`;
             populateSzablon_profile(cell.querySelector("#szablon_profileSelect"), currentSzablon_profileId);
-        }else if (index === 3 || index==4 ) { // Weight fields
+        }else if (index === 4 || index==5 ) { // Weight fields
             const value = cell.innerText;
             cell.innerHTML = `<input type="time" value="${value}" step="2" style="width: 100%;">`;
-        }else if (index ===10 ) { // Weight fields
+        }else if (index ===11 ) { // Weight fields
             const currentDlugoscId = cell.getAttribute("data-dlugosci-id");
             cell.innerHTML = `<select style="width: 100%;" id="dlugosciSelect"></select>`;
             populateDlugosci(cell.querySelector("#dlugosciSelect"), currentDlugoscId);}

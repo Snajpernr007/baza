@@ -145,7 +145,7 @@ class Profil(db.Model):
     id_dlugosci = db.Column(db.Integer, db.ForeignKey('dlugosci.id'), nullable=False)
     Data_do_usuwania = db.Column(db.Date, nullable=True)
     id_pracownika = db.Column(db.Integer, db.ForeignKey('uzytkownicy.id'), nullable=False)
-    Imie_nazwisko_pracownika = db.Column(db.String(50), nullable=False)
+    imie_nazwisko_pracownika = db.Column(db.String(50), nullable=False)
     tasma = db.relationship('Tasma', back_populates='profil')
     pracownik = db.relationship('Uzytkownik', back_populates='profil')
     dlugosci = db.relationship('Dlugosci', back_populates='profil')
@@ -559,13 +559,13 @@ def update_row():
 
         tasma.grubosc = Szablon.query.get(tasma.szablon_id).grubosc
         tasma.szerokosc = Szablon.query.get(tasma.szablon_id).szerokosc
-        tasma.waga_kregu = dane.get('column_6', tasma.waga_kregu)
-        tasma.waga_kregu_na_stanie = dane.get('column_7', tasma.waga_kregu_na_stanie)
-        tasma.nr_etykieta_paletowa = dane.get('column_8', tasma.nr_etykieta_paletowa)
-        tasma.nr_z_etykiety_na_kregu = dane.get('column_9', tasma.nr_z_etykiety_na_kregu)
-        tasma.lokalizacja = dane.get('column_10', tasma.lokalizacja)
-        tasma.nr_faktury_dostawcy = dane.get('column_11', tasma.nr_faktury_dostawcy)
-        tasma.data_dostawy = dane.get('column_12', tasma.data_dostawy)
+        tasma.waga_kregu = dane.get('column_7', tasma.waga_kregu)
+        tasma.waga_kregu_na_stanie = dane.get('column_8', tasma.waga_kregu_na_stanie)
+        tasma.nr_etykieta_paletowa = dane.get('column_9', tasma.nr_etykieta_paletowa)
+        tasma.nr_z_etykiety_na_kregu = dane.get('column_10', tasma.nr_z_etykiety_na_kregu)
+        tasma.lokalizacja = dane.get('column_11', tasma.lokalizacja)
+        tasma.nr_faktury_dostawcy = dane.get('column_12', tasma.nr_faktury_dostawcy)
+        tasma.data_dostawy = dane.get('column_13', tasma.data_dostawy)
 
         db.session.commit()  # Zapisz zmiany w bazie
         nowe_dane = {
@@ -750,7 +750,6 @@ def update_row_profil():
             profil.ilosc_na_stanie = dane['column_9'] # Ilość na stanie
         if 'column_10' in dane:
             profil.id_dlugosci = dane['column_10']  # ID długości
-        
         nowe_dane = {
             "id_tasmy": profil.id_tasmy,
             "data_produkcji": profil.data_produkcji,
@@ -807,7 +806,7 @@ def dodaj_lub_zakonczenie_profilu():
         profil.ilosc = request.form.get('ilosc')
         profil.ilosc_na_stanie = request.form.get('ilosc')
         profil.id_dlugosci = request.form.get('id_dlugosci')
-        
+
         tasma = Tasma.query.get(profil.id_tasmy)
         tasma.waga_kregu_na_stanie = float(profil.zwrot_na_magazyn_kg)
         nowe_dane = {
