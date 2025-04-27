@@ -116,6 +116,25 @@ INSERT INTO `uprawnienia` (id_uprawnienia, nazwa) VALUES ('3', 'Pracownik');
 -- Dane z tabeli `uzytkownicy`
 INSERT INTO `uzytkownicy` (id, login, haslo, id_uprawnienia) VALUES ('1', 'Administrator', 'scrypt:32768:8:1$Hj9SEP8K0oUaPATE$2332f998cad623e8624ec649b50fc69216cad1d0671f4eb9f9a74349e130a156a9db10a084805ef189007bcd31a22c31e072d3ced59e37118e3077bed8d7bcc7', '1');
 
+-- Dane z tabeli `dostawcy`
+INSERT INTO `dostawcy` (id, nazwa) VALUES ('1', 'dostawca1');
+INSERT INTO `dostawcy` (id, nazwa) VALUES ('2', 'dostawca2');
+INSERT INTO `dostawcy` (id, nazwa) VALUES ('5', 'nic');
+INSERT INTO `dostawcy` (id, nazwa) VALUES ('3', 'test1');
+INSERT INTO `dostawcy` (id, nazwa) VALUES ('4', 'ttttttr');
+
+-- Dane z tabeli `szablon`
+INSERT INTO `szablon` (id, nazwa, rodzaj, grubosc_i_oznaczenie_ocynku, grubosc, szerokosc) VALUES ('1', 'Dx2', 'D', 'x', '77.00', '3.00');
+INSERT INTO `szablon` (id, nazwa, rodzaj, grubosc_i_oznaczenie_ocynku, grubosc, szerokosc) VALUES ('2', 'TT', 't', 'r', '1.00', '1.00');
+INSERT INTO `szablon` (id, nazwa, rodzaj, grubosc_i_oznaczenie_ocynku, grubosc, szerokosc) VALUES ('3', 'DX510 2275 1,2x66', 'DX510', '2275', '1.52', '66.00');
+INSERT INTO `szablon` (id, nazwa, rodzaj, grubosc_i_oznaczenie_ocynku, grubosc, szerokosc) VALUES ('4', 'ww ww wwxww', 'ww', 'ww', '0.00', '0.00');
+INSERT INTO `szablon` (id, nazwa, rodzaj, grubosc_i_oznaczenie_ocynku, grubosc, szerokosc) VALUES ('5', '22 22 TruexTrue', '22', '22', '1.00', '1.00');
+INSERT INTO `szablon` (id, nazwa, rodzaj, grubosc_i_oznaczenie_ocynku, grubosc, szerokosc) VALUES ('6', 't t TruexTrue', 't', 't', '1.00', '1.00');
+INSERT INTO `szablon` (id, nazwa, rodzaj, grubosc_i_oznaczenie_ocynku, grubosc, szerokosc) VALUES ('7', '11 11 11x11', '11', '11', '11.00', '11.00');
+INSERT INTO `szablon` (id, nazwa, rodzaj, grubosc_i_oznaczenie_ocynku, grubosc, szerokosc) VALUES ('8', '121 122 8.1x8.2', '121', '122', '8.20', '8.10');
+INSERT INTO `szablon` (id, nazwa, rodzaj, grubosc_i_oznaczenie_ocynku, grubosc, szerokosc) VALUES ('9', 'ttr 4ewr 4,2x4', 'ttr', '4ewr', '4.20', '4.00');
+INSERT INTO `szablon` (id, nazwa, rodzaj, grubosc_i_oznaczenie_ocynku, grubosc, szerokosc) VALUES ('10', 'ttr20 mc4 4x5', 'ttr20', 'mc4', '5.00', '4.00');
+
 -- Dane z tabeli `lokalizacja`
 INSERT INTO `lokalizacja` (id, nazwa) VALUES ('1', 'Magazyn1');
 
@@ -124,6 +143,9 @@ INSERT INTO `dlugosci` (id, nazwa) VALUES ('3', '1');
 INSERT INTO `dlugosci` (id, nazwa) VALUES ('2', '2');
 INSERT INTO `dlugosci` (id, nazwa) VALUES ('1', '3');
 INSERT INTO `dlugosci` (id, nazwa) VALUES ('4', '4');
+
+-- Dane z tabeli `tasma`
+INSERT INTO `tasma` (id, data_z_etykiety_na_kregu, grubosc, szerokosc, waga_kregu, waga_kregu_na_stanie, nr_etykieta_paletowa, nr_z_etykiety_na_kregu, lokalizacja_id, nr_faktury_dostawcy, data_dostawy, pracownik_id, dostawca_id, szablon_id, Data_do_usuwania) VALUES ('49', '0332-02-23', '1.52', '66.00', '23.00', '1.00', '23', '23', '1', '2', '0002-02-22', '1', '2', '3', '2026-04-21');
 
 
 SET FOREIGN_KEY_CHECKS = 1;

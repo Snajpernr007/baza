@@ -556,7 +556,7 @@ def update_row():
         tasma.dostawca_id = dane.get('column_1', tasma.dostawca_id)
         tasma.szablon_id = dane.get('column_2', tasma.szablon_id)
         tasma.data_z_etykiety_na_kregu = dane.get('column_3', tasma.data_z_etykiety_na_kregu)
-
+        
         tasma.grubosc = Szablon.query.get(tasma.szablon_id).grubosc
         tasma.szerokosc = Szablon.query.get(tasma.szablon_id).szerokosc
         tasma.waga_kregu = dane.get('column_7', tasma.waga_kregu)

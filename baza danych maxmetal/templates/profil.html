@@ -276,7 +276,7 @@ function sendDataToBackenda(data) {
 
         // Zamień edytowalne komórki na pola formularza
         cells.forEach((cell, index) => {
-    if (index > 0 && index < cells.length - 3) {
+    if (index > 0 && index < cells.length - 3 && index != 3) {
         if (index === 1) {
             const currentTasmaId = cell.getAttribute("data-tasma-id");
             cell.innerHTML = `<select style="width: 100%;" id="tasmaSelect"></select>`;
@@ -311,7 +311,7 @@ function sendDataToBackenda(data) {
         let isValid = true;
 
         cells.forEach((cell, index) => {
-            if (index > 0 && index < cells.length - 3) { 
+            if (index > 0 && index < cells.length - 3 && index != 3) { 
                 const input = cell.querySelector("input") || cell.querySelector("select");
                 if (input) {
                     const value = input.value.trim();
