@@ -659,7 +659,9 @@ function sendDataToBackend(data) {
                                         </form>
                                         {% else %}
                                         <button type="button" class="button" onclick="openEditModala(this.parentElement.parentElement)">Edytuj</button>
-                                        {% endif %}</td>
+                                        {% endif %}
+                                        <button type="submit" class="button">Usuń</button>
+                                    </form></td>
                                 </tr>
                                 {% elif  g.user.id_uprawnienia == 1 and g.user.id==1%}
                                 <tr>

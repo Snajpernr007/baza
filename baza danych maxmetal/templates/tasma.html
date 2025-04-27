@@ -588,7 +588,9 @@ function printID(id) {
                             <td hidden></td>
                             <td>{{ tasmy.pracownik.login }}</td>
                             
-                            <td><button type="button" class="button" onclick="openEditModal(this.parentElement.parentElement)">Edytuj</button></td>
+                            <td><button type="button" class="button" onclick="openEditModal(this.parentElement.parentElement)">Edytuj</button><form method="POST" action="{{ url_for('usun_tasma', id=tasmy.id) }}" style="display:inline;background-color: transparent;width: 0;padding: 0%;" onsubmit="return confirm('Na pewno chcesz usunąć ten materiał?');">
+                                <button type="submit" class="button">Usuń</button>
+                            </form></td>
                         </tr>
                         {%endif%}
                     {% endfor %}

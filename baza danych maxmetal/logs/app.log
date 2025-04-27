@@ -3757,3 +3757,492 @@
 2025-04-22 11:10:33,852 - INFO - 127.0.0.1 - - [22/Apr/2025 11:10:33] "GET / HTTP/1.1" 200 -
 2025-04-22 11:10:33,877 - INFO - 127.0.0.1 - - [22/Apr/2025 11:10:33] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
 2025-04-22 11:10:33,882 - INFO - 127.0.0.1 - - [22/Apr/2025 11:10:33] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-27 15:39:52,815 - INFO - Połączenie z bazą danych zostało nawiązane pomyślnie.
+2025-04-27 15:39:52,874 - INFO - Tabela profil jest pusta.
+2025-04-27 15:39:52,874 - INFO - ✅ Kopia zapasowa zapisana do pliku: backups\kopie_zapasowe_bazy_2025-04-27_15-39.sql
+2025-04-27 15:39:52,876 - INFO - 🗑️ Usunięto starą kopię: kopie_zapasowe_bazy_2025-04-22_10-34.sql
+2025-04-27 15:39:52,876 - INFO - 🗑️ Usunięto starą kopię: kopie_zapasowe_bazy_2025-04-22_10-40.sql
+2025-04-27 15:39:52,876 - INFO - 🗑️ Usunięto starą kopię: kopie_zapasowe_bazy_2025-04-22_10-57.sql
+2025-04-27 15:39:52,877 - INFO - 🗑️ Usunięto starą kopię: kopie_zapasowe_bazy_2025-04-25_12-51.sql
+2025-04-27 15:39:52,877 - INFO - 🗑️ Usunięto starą kopię: kopie_zapasowe_bazy_2025-04-25_17-57.sql
+2025-04-27 15:39:52,877 - INFO - 🗑️ Usunięto starą kopię: kopie_zapasowe_bazy_2025-04-25_22-34.sql
+2025-04-27 15:39:52,878 - INFO - 🗑️ Usunięto starą kopię: kopie_zapasowe_bazy_2025-04-07_08-36.sql
+2025-04-27 15:39:52,878 - INFO - 🗑️ Usunięto starą kopię: kopie_zapasowe_bazy_2025-04-07_08-37.sql
+2025-04-27 15:39:52,878 - INFO - 🗑️ Usunięto starą kopię: kopie_zapasowe_bazy_2025-04-07_08-39.sql
+2025-04-27 15:39:52,878 - INFO - 🗑️ Usunięto starą kopię: kopie_zapasowe_bazy_2025-04-07_08-49.sql
+2025-04-27 15:39:52,919 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.0.16:5000
+2025-04-27 15:39:52,919 - INFO - [33mPress CTRL+C to quit[0m
+2025-04-27 15:39:52,922 - INFO -  * Restarting with stat
+2025-04-27 15:39:55,344 - INFO - Połączenie z bazą danych zostało nawiązane pomyślnie.
+2025-04-27 15:39:55,407 - INFO - Tabela profil jest pusta.
+2025-04-27 15:39:55,407 - INFO - ✅ Kopia zapasowa zapisana do pliku: backups\kopie_zapasowe_bazy_2025-04-27_15-39.sql
+2025-04-27 15:39:55,415 - WARNING -  * Debugger is active!
+2025-04-27 15:39:55,420 - INFO -  * Debugger PIN: 575-758-812
+2025-04-27 15:39:56,141 - INFO - Administrator wszedł na stronę z listą tasm.
+2025-04-27 15:39:56,262 - INFO - 127.0.0.1 - - [27/Apr/2025 15:39:56] "GET /tasma HTTP/1.1" 200 -
+2025-04-27 15:39:56,289 - INFO - 127.0.0.1 - - [27/Apr/2025 15:39:56] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-27 15:39:56,303 - INFO - 127.0.0.1 - - [27/Apr/2025 15:39:56] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-27 15:39:56,312 - INFO - 127.0.0.1 - - [27/Apr/2025 15:39:56] "[36mGET /static/img/drukarka.png HTTP/1.1[0m" 304 -
+2025-04-27 15:40:00,234 - INFO - 127.0.0.1 - - [27/Apr/2025 15:40:00] "GET /get-dostawcy HTTP/1.1" 200 -
+2025-04-27 15:40:00,240 - INFO - 127.0.0.1 - - [27/Apr/2025 15:40:00] "GET /get-szablon HTTP/1.1" 200 -
+2025-04-27 15:40:00,240 - INFO - 127.0.0.1 - - [27/Apr/2025 15:40:00] "GET /get-lokalizacja HTTP/1.1" 200 -
+2025-04-27 15:40:10,777 - INFO - Otrzymane dane do aktualizacji tasy: {'column_0': '49 ', 'column_13': '0002-02-11', 'column_14': '', 'column_15': 'Administrator', 'column_16': 'Zapisz Usuń'}
+2025-04-27 15:40:10,791 - INFO - Poprzednie dane taśmy o ID 49 : {'dostawca_id': 2, 'szablon_id': 3, 'data_z_etykiety_na_kregu': datetime.date(332, 2, 23), 'grubosc': Decimal('1.52'), 'szerokosc': Decimal('66.00'), 'waga_kregu': Decimal('23.00'), 'waga_kregu_na_stanie': Decimal('1.00'), 'nr_etykieta_paletowa': '23', 'nr_z_etykiety_na_kregu': '23', 'lokalizacja': 'Magazyn1', 'nr_faktury_dostawcy': '2', 'data_dostawy': datetime.date(2, 2, 22)}
+2025-04-27 15:40:10,791 - INFO - Nowe dane taśmy o ID 49 : {'dostawca_id': 2, 'szablon_id': 3, 'data_z_etykiety_na_kregu': datetime.date(332, 2, 23), 'grubosc': Decimal('1.52'), 'szerokosc': Decimal('66.00'), 'waga_kregu': Decimal('23.00'), 'waga_kregu_na_stanie': Decimal('1.00'), 'nr_etykieta_paletowa': '23', 'nr_z_etykiety_na_kregu': '23', 'lokalizacja': 'Magazyn1', 'nr_faktury_dostawcy': '2', 'data_dostawy': datetime.date(2, 2, 11)}
+2025-04-27 15:40:10,792 - INFO - Zmiany wprowadzone przez użytkownika: Administrator
+2025-04-27 15:40:10,793 - INFO - 127.0.0.1 - - [27/Apr/2025 15:40:10] "POST /update-row HTTP/1.1" 200 -
+2025-04-27 15:40:13,949 - INFO - Administrator wszedł na stronę z listą tasm.
+2025-04-27 15:40:13,955 - INFO - 127.0.0.1 - - [27/Apr/2025 15:40:13] "GET /tasma HTTP/1.1" 200 -
+2025-04-27 15:40:13,968 - INFO - 127.0.0.1 - - [27/Apr/2025 15:40:13] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-27 15:40:13,979 - INFO - 127.0.0.1 - - [27/Apr/2025 15:40:13] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-27 15:40:13,985 - INFO - 127.0.0.1 - - [27/Apr/2025 15:40:13] "[36mGET /static/img/drukarka.png HTTP/1.1[0m" 304 -
+2025-04-27 15:40:14,619 - INFO - Administrator wszedł na stronę z listą tasm.
+2025-04-27 15:40:14,622 - INFO - 127.0.0.1 - - [27/Apr/2025 15:40:14] "GET /tasma HTTP/1.1" 200 -
+2025-04-27 15:40:14,643 - INFO - 127.0.0.1 - - [27/Apr/2025 15:40:14] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-27 15:40:14,652 - INFO - 127.0.0.1 - - [27/Apr/2025 15:40:14] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-27 15:40:14,657 - INFO - 127.0.0.1 - - [27/Apr/2025 15:40:14] "[36mGET /static/img/drukarka.png HTTP/1.1[0m" 304 -
+2025-04-27 15:40:15,801 - INFO - 127.0.0.1 - - [27/Apr/2025 15:40:15] "GET /get-dostawcy HTTP/1.1" 200 -
+2025-04-27 15:40:15,804 - INFO - 127.0.0.1 - - [27/Apr/2025 15:40:15] "GET /get-lokalizacja HTTP/1.1" 200 -
+2025-04-27 15:40:15,805 - INFO - 127.0.0.1 - - [27/Apr/2025 15:40:15] "GET /get-szablon HTTP/1.1" 200 -
+2025-04-27 15:40:19,714 - INFO - Otrzymane dane do aktualizacji tasy: {'column_0': '49 ', 'column_1': '2', 'column_2': '3', 'column_3': '0332-02-23', 'column_7': '23.00', 'column_8': '1.00', 'column_9': '23', 'column_10': '23', 'column_11': '1', 'column_12': '2', 'column_13': '0002-02-28', 'column_14': '', 'column_15': 'Administrator', 'column_16': 'Zapisz Usuń'}
+2025-04-27 15:40:19,720 - ERROR - Wystąpił błąd podczas aktualizacji tasy: 'str' object has no attribute '_sa_instance_state'
+2025-04-27 15:40:19,720 - INFO - 127.0.0.1 - - [27/Apr/2025 15:40:19] "[35m[1mPOST /update-row HTTP/1.1[0m" 500 -
+2025-04-27 15:40:21,642 - INFO - Administrator wszedł na stronę z listą tasm.
+2025-04-27 15:40:21,645 - INFO - 127.0.0.1 - - [27/Apr/2025 15:40:21] "GET /tasma HTTP/1.1" 200 -
+2025-04-27 15:40:21,665 - INFO - 127.0.0.1 - - [27/Apr/2025 15:40:21] "GET /static/style.css HTTP/1.1" 200 -
+2025-04-27 15:40:21,674 - INFO - 127.0.0.1 - - [27/Apr/2025 15:40:21] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-27 15:40:21,680 - INFO - 127.0.0.1 - - [27/Apr/2025 15:40:21] "[36mGET /static/img/drukarka.png HTTP/1.1[0m" 304 -
+2025-04-27 15:40:22,723 - INFO - Administrator wszedł na stronę z listą tasm.
+2025-04-27 15:40:22,726 - INFO - 127.0.0.1 - - [27/Apr/2025 15:40:22] "GET /tasma HTTP/1.1" 200 -
+2025-04-27 15:40:22,743 - INFO - 127.0.0.1 - - [27/Apr/2025 15:40:22] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-27 15:40:22,751 - INFO - 127.0.0.1 - - [27/Apr/2025 15:40:22] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-27 15:40:22,757 - INFO - 127.0.0.1 - - [27/Apr/2025 15:40:22] "[36mGET /static/img/drukarka.png HTTP/1.1[0m" 304 -
+2025-04-27 15:40:27,089 - INFO - 127.0.0.1 - - [27/Apr/2025 15:40:27] "GET /get-dostawcy HTTP/1.1" 200 -
+2025-04-27 15:40:27,090 - INFO - 127.0.0.1 - - [27/Apr/2025 15:40:27] "GET /get-szablon HTTP/1.1" 200 -
+2025-04-27 15:40:27,091 - INFO - 127.0.0.1 - - [27/Apr/2025 15:40:27] "GET /get-lokalizacja HTTP/1.1" 200 -
+2025-04-27 15:40:31,278 - INFO - Otrzymane dane do aktualizacji tasy: {'column_0': '49 ', 'column_1': '2', 'column_2': '3', 'column_3': '0332-02-23', 'column_7': '23.00', 'column_8': '1.00', 'column_9': '23', 'column_10': '23', 'column_11': '1', 'column_12': '26', 'column_13': '0002-02-11', 'column_14': '', 'column_15': 'Administrator', 'column_16': 'Zapisz Usuń'}
+2025-04-27 15:40:31,282 - ERROR - Wystąpił błąd podczas aktualizacji tasy: 'str' object has no attribute '_sa_instance_state'
+2025-04-27 15:40:31,282 - INFO - 127.0.0.1 - - [27/Apr/2025 15:40:31] "[35m[1mPOST /update-row HTTP/1.1[0m" 500 -
+2025-04-27 15:40:34,252 - INFO - Administrator wszedł na stronę z listą tasm.
+2025-04-27 15:40:34,255 - INFO - 127.0.0.1 - - [27/Apr/2025 15:40:34] "GET /tasma HTTP/1.1" 200 -
+2025-04-27 15:40:34,273 - INFO - 127.0.0.1 - - [27/Apr/2025 15:40:34] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-27 15:40:34,282 - INFO - 127.0.0.1 - - [27/Apr/2025 15:40:34] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-27 15:40:34,288 - INFO - 127.0.0.1 - - [27/Apr/2025 15:40:34] "[36mGET /static/img/drukarka.png HTTP/1.1[0m" 304 -
+2025-04-27 15:40:34,786 - INFO - Administrator wszedł na stronę z listą tasm.
+2025-04-27 15:40:34,788 - INFO - 127.0.0.1 - - [27/Apr/2025 15:40:34] "GET /tasma HTTP/1.1" 200 -
+2025-04-27 15:40:34,810 - INFO - 127.0.0.1 - - [27/Apr/2025 15:40:34] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-27 15:40:34,823 - INFO - 127.0.0.1 - - [27/Apr/2025 15:40:34] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-27 15:40:34,831 - INFO - 127.0.0.1 - - [27/Apr/2025 15:40:34] "[36mGET /static/img/drukarka.png HTTP/1.1[0m" 304 -
+2025-04-27 15:40:35,266 - INFO - Administrator wszedł na stronę z listą tasm.
+2025-04-27 15:40:35,268 - INFO - 127.0.0.1 - - [27/Apr/2025 15:40:35] "GET /tasma HTTP/1.1" 200 -
+2025-04-27 15:40:35,281 - INFO - 127.0.0.1 - - [27/Apr/2025 15:40:35] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-27 15:40:35,290 - INFO - 127.0.0.1 - - [27/Apr/2025 15:40:35] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-27 15:40:35,296 - INFO - 127.0.0.1 - - [27/Apr/2025 15:40:35] "[36mGET /static/img/drukarka.png HTTP/1.1[0m" 304 -
+2025-04-27 15:40:35,637 - INFO - Administrator wszedł na stronę z listą tasm.
+2025-04-27 15:40:35,640 - INFO - 127.0.0.1 - - [27/Apr/2025 15:40:35] "GET /tasma HTTP/1.1" 200 -
+2025-04-27 15:40:35,654 - INFO - 127.0.0.1 - - [27/Apr/2025 15:40:35] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-27 15:40:35,669 - INFO - 127.0.0.1 - - [27/Apr/2025 15:40:35] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-27 15:40:35,670 - INFO - 127.0.0.1 - - [27/Apr/2025 15:40:35] "[36mGET /static/img/drukarka.png HTTP/1.1[0m" 304 -
+2025-04-27 15:45:24,831 - INFO -  * Detected change in 'C:\\Users\\admin\\Documents\\GitHub\\baza\\baza danych maxmetal\\python\\index.py', reloading
+2025-04-27 15:45:28,454 - INFO - Połączenie z bazą danych zostało nawiązane pomyślnie.
+2025-04-27 15:45:28,510 - INFO - Tabela profil jest pusta.
+2025-04-27 15:45:28,511 - INFO - ✅ Kopia zapasowa zapisana do pliku: backups\kopie_zapasowe_bazy_2025-04-27_15-45.sql
+2025-04-27 15:45:28,512 - INFO - 🗑️ Usunięto starą kopię: kopie_zapasowe_bazy_2025-04-07_08-55.sql
+2025-04-27 15:45:28,523 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.0.16:5000
+2025-04-27 15:45:28,523 - INFO - [33mPress CTRL+C to quit[0m
+2025-04-27 15:45:28,524 - INFO -  * Restarting with stat
+2025-04-27 15:45:31,002 - INFO - Połączenie z bazą danych zostało nawiązane pomyślnie.
+2025-04-27 15:45:31,067 - INFO - Tabela profil jest pusta.
+2025-04-27 15:45:31,068 - INFO - ✅ Kopia zapasowa zapisana do pliku: backups\kopie_zapasowe_bazy_2025-04-27_15-45.sql
+2025-04-27 15:45:31,074 - WARNING -  * Debugger is active!
+2025-04-27 15:45:31,079 - INFO -  * Debugger PIN: 575-758-812
+2025-04-27 15:45:33,041 - INFO - Administrator wszedł na stronę z listą tasm.
+2025-04-27 15:45:33,156 - INFO - 127.0.0.1 - - [27/Apr/2025 15:45:33] "GET /tasma HTTP/1.1" 200 -
+2025-04-27 15:45:33,189 - INFO - 127.0.0.1 - - [27/Apr/2025 15:45:33] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-27 15:45:33,199 - INFO - 127.0.0.1 - - [27/Apr/2025 15:45:33] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-27 15:45:33,211 - INFO - 127.0.0.1 - - [27/Apr/2025 15:45:33] "[36mGET /static/img/drukarka.png HTTP/1.1[0m" 304 -
+2025-04-27 15:45:34,267 - INFO - 127.0.0.1 - - [27/Apr/2025 15:45:34] "GET /get-dostawcy HTTP/1.1" 200 -
+2025-04-27 15:45:34,272 - INFO - 127.0.0.1 - - [27/Apr/2025 15:45:34] "GET /get-lokalizacja HTTP/1.1" 200 -
+2025-04-27 15:45:34,272 - INFO - 127.0.0.1 - - [27/Apr/2025 15:45:34] "GET /get-szablon HTTP/1.1" 200 -
+2025-04-27 15:45:37,011 - INFO - Otrzymane dane do aktualizacji tasy: {'column_0': '49 ', 'column_1': '2', 'column_2': '3', 'column_3': '0332-02-23', 'column_7': '23.00', 'column_8': '1.00', 'column_9': '23', 'column_10': '23', 'column_11': '1', 'column_12': '21', 'column_13': '0002-02-11', 'column_14': '', 'column_15': 'Administrator', 'column_16': 'Zapisz Usuń'}
+2025-04-27 15:45:37,031 - INFO - Poprzednie dane taśmy o ID 49 : {'dostawca_id': 2, 'szablon_id': 3, 'data_z_etykiety_na_kregu': datetime.date(332, 2, 23), 'grubosc': Decimal('1.52'), 'szerokosc': Decimal('66.00'), 'waga_kregu': Decimal('23.00'), 'waga_kregu_na_stanie': Decimal('1.00'), 'nr_etykieta_paletowa': '23', 'nr_z_etykiety_na_kregu': '23', 'lokalizacja': 'Magazyn1', 'nr_faktury_dostawcy': '2', 'data_dostawy': datetime.date(2, 2, 11)}
+2025-04-27 15:45:37,031 - INFO - Nowe dane taśmy o ID 49 : {'dostawca_id': 2, 'szablon_id': 3, 'data_z_etykiety_na_kregu': datetime.date(332, 2, 23), 'grubosc': Decimal('1.52'), 'szerokosc': Decimal('66.00'), 'waga_kregu': Decimal('23.00'), 'waga_kregu_na_stanie': Decimal('1.00'), 'nr_etykieta_paletowa': '23', 'nr_z_etykiety_na_kregu': '23', 'lokalizacja': None, 'nr_faktury_dostawcy': '21', 'data_dostawy': datetime.date(2, 2, 11)}
+2025-04-27 15:45:37,032 - INFO - Zmiany wprowadzone przez użytkownika: Administrator
+2025-04-27 15:45:37,033 - INFO - 127.0.0.1 - - [27/Apr/2025 15:45:37] "POST /update-row HTTP/1.1" 200 -
+2025-04-27 15:45:38,762 - INFO - Administrator wszedł na stronę z listą tasm.
+2025-04-27 15:45:38,765 - INFO - 127.0.0.1 - - [27/Apr/2025 15:45:38] "GET /tasma HTTP/1.1" 200 -
+2025-04-27 15:45:38,782 - INFO - 127.0.0.1 - - [27/Apr/2025 15:45:38] "GET /static/style.css HTTP/1.1" 200 -
+2025-04-27 15:45:38,791 - INFO - 127.0.0.1 - - [27/Apr/2025 15:45:38] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-27 15:45:38,796 - INFO - 127.0.0.1 - - [27/Apr/2025 15:45:38] "[36mGET /static/img/drukarka.png HTTP/1.1[0m" 304 -
+2025-04-27 15:45:39,801 - INFO - Administrator wszedł na stronę z listą tasm.
+2025-04-27 15:45:39,803 - INFO - 127.0.0.1 - - [27/Apr/2025 15:45:39] "GET /tasma HTTP/1.1" 200 -
+2025-04-27 15:45:39,817 - INFO - 127.0.0.1 - - [27/Apr/2025 15:45:39] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-27 15:45:39,826 - INFO - 127.0.0.1 - - [27/Apr/2025 15:45:39] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-27 15:45:39,832 - INFO - 127.0.0.1 - - [27/Apr/2025 15:45:39] "[36mGET /static/img/drukarka.png HTTP/1.1[0m" 304 -
+2025-04-27 15:45:42,043 - INFO - 127.0.0.1 - - [27/Apr/2025 15:45:42] "GET /get-dostawcy HTTP/1.1" 200 -
+2025-04-27 15:45:42,048 - INFO - 127.0.0.1 - - [27/Apr/2025 15:45:42] "GET /get-szablon HTTP/1.1" 200 -
+2025-04-27 15:45:42,049 - INFO - 127.0.0.1 - - [27/Apr/2025 15:45:42] "GET /get-lokalizacja HTTP/1.1" 200 -
+2025-04-27 15:45:45,022 - INFO - Otrzymane dane do aktualizacji tasy: {'column_0': '49 ', 'column_1': '2', 'column_2': '3', 'column_3': '0332-02-23', 'column_7': '23.00', 'column_8': '1.00', 'column_9': '23', 'column_10': '23', 'column_11': '1', 'column_12': '21', 'column_13': '0002-02-11', 'column_14': '', 'column_15': 'Administrator', 'column_16': 'Zapisz Usuń'}
+2025-04-27 15:45:45,028 - INFO - Poprzednie dane taśmy o ID 49 : {'dostawca_id': 2, 'szablon_id': 3, 'data_z_etykiety_na_kregu': datetime.date(332, 2, 23), 'grubosc': Decimal('1.52'), 'szerokosc': Decimal('66.00'), 'waga_kregu': Decimal('23.00'), 'waga_kregu_na_stanie': Decimal('1.00'), 'nr_etykieta_paletowa': '23', 'nr_z_etykiety_na_kregu': '23', 'lokalizacja': None, 'nr_faktury_dostawcy': '21', 'data_dostawy': datetime.date(2, 2, 11)}
+2025-04-27 15:45:45,028 - INFO - Nowe dane taśmy o ID 49 : {'dostawca_id': 2, 'szablon_id': 3, 'data_z_etykiety_na_kregu': datetime.date(332, 2, 23), 'grubosc': Decimal('1.52'), 'szerokosc': Decimal('66.00'), 'waga_kregu': Decimal('23.00'), 'waga_kregu_na_stanie': Decimal('1.00'), 'nr_etykieta_paletowa': '23', 'nr_z_etykiety_na_kregu': '23', 'lokalizacja': None, 'nr_faktury_dostawcy': '21', 'data_dostawy': datetime.date(2, 2, 11)}
+2025-04-27 15:45:45,029 - INFO - Zmiany wprowadzone przez użytkownika: Administrator
+2025-04-27 15:45:45,029 - INFO - 127.0.0.1 - - [27/Apr/2025 15:45:45] "POST /update-row HTTP/1.1" 200 -
+2025-04-27 15:45:46,594 - INFO - Administrator wszedł na stronę z listą tasm.
+2025-04-27 15:45:46,596 - INFO - 127.0.0.1 - - [27/Apr/2025 15:45:46] "GET /tasma HTTP/1.1" 200 -
+2025-04-27 15:45:46,615 - INFO - 127.0.0.1 - - [27/Apr/2025 15:45:46] "GET /static/style.css HTTP/1.1" 200 -
+2025-04-27 15:45:46,624 - INFO - 127.0.0.1 - - [27/Apr/2025 15:45:46] "GET /static/img/logo-duże.png HTTP/1.1" 200 -
+2025-04-27 15:45:46,631 - INFO - 127.0.0.1 - - [27/Apr/2025 15:45:46] "GET /static/img/drukarka.png HTTP/1.1" 200 -
+2025-04-27 15:45:46,974 - INFO - Administrator wszedł na stronę z listą tasm.
+2025-04-27 15:45:46,977 - INFO - 127.0.0.1 - - [27/Apr/2025 15:45:46] "GET /tasma HTTP/1.1" 200 -
+2025-04-27 15:45:46,994 - INFO - 127.0.0.1 - - [27/Apr/2025 15:45:46] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-27 15:45:47,002 - INFO - 127.0.0.1 - - [27/Apr/2025 15:45:47] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-27 15:45:47,009 - INFO - 127.0.0.1 - - [27/Apr/2025 15:45:47] "[36mGET /static/img/drukarka.png HTTP/1.1[0m" 304 -
+2025-04-27 15:45:47,434 - INFO - Administrator wszedł na stronę z listą tasm.
+2025-04-27 15:45:47,437 - INFO - 127.0.0.1 - - [27/Apr/2025 15:45:47] "GET /tasma HTTP/1.1" 200 -
+2025-04-27 15:45:47,458 - INFO - 127.0.0.1 - - [27/Apr/2025 15:45:47] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-27 15:45:47,470 - INFO - 127.0.0.1 - - [27/Apr/2025 15:45:47] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-27 15:45:47,472 - INFO - 127.0.0.1 - - [27/Apr/2025 15:45:47] "[36mGET /static/img/drukarka.png HTTP/1.1[0m" 304 -
+2025-04-27 15:47:12,766 - INFO -  * Detected change in 'C:\\Users\\admin\\Documents\\GitHub\\baza\\baza danych maxmetal\\python\\index.py', reloading
+2025-04-27 15:47:17,873 - INFO - Połączenie z bazą danych zostało nawiązane pomyślnie.
+2025-04-27 15:47:17,930 - INFO - Tabela profil jest pusta.
+2025-04-27 15:47:17,931 - INFO - ✅ Kopia zapasowa zapisana do pliku: backups\kopie_zapasowe_bazy_2025-04-27_15-47.sql
+2025-04-27 15:47:17,933 - INFO - 🗑️ Usunięto starą kopię: kopie_zapasowe_bazy_2025-04-07_09-03.sql
+2025-04-27 15:47:17,944 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.0.16:5000
+2025-04-27 15:47:17,944 - INFO - [33mPress CTRL+C to quit[0m
+2025-04-27 15:47:17,945 - INFO -  * Restarting with stat
+2025-04-27 15:47:20,232 - INFO - Połączenie z bazą danych zostało nawiązane pomyślnie.
+2025-04-27 15:47:20,305 - INFO - Tabela profil jest pusta.
+2025-04-27 15:47:20,305 - INFO - ✅ Kopia zapasowa zapisana do pliku: backups\kopie_zapasowe_bazy_2025-04-27_15-47.sql
+2025-04-27 15:47:20,314 - WARNING -  * Debugger is active!
+2025-04-27 15:47:20,319 - INFO -  * Debugger PIN: 575-758-812
+2025-04-27 15:47:22,616 - INFO - Administrator wszedł na stronę z listą tasm.
+2025-04-27 15:47:22,731 - INFO - 127.0.0.1 - - [27/Apr/2025 15:47:22] "GET /tasma HTTP/1.1" 200 -
+2025-04-27 15:47:22,758 - INFO - 127.0.0.1 - - [27/Apr/2025 15:47:22] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-27 15:47:22,768 - INFO - 127.0.0.1 - - [27/Apr/2025 15:47:22] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-27 15:47:22,779 - INFO - 127.0.0.1 - - [27/Apr/2025 15:47:22] "[36mGET /static/img/drukarka.png HTTP/1.1[0m" 304 -
+2025-04-27 15:47:23,851 - INFO - 127.0.0.1 - - [27/Apr/2025 15:47:23] "GET /get-dostawcy HTTP/1.1" 200 -
+2025-04-27 15:47:23,856 - INFO - 127.0.0.1 - - [27/Apr/2025 15:47:23] "GET /get-szablon HTTP/1.1" 200 -
+2025-04-27 15:47:23,857 - INFO - 127.0.0.1 - - [27/Apr/2025 15:47:23] "GET /get-lokalizacja HTTP/1.1" 200 -
+2025-04-27 15:47:26,341 - INFO - Otrzymane dane do aktualizacji tasy: {'column_0': '49 ', 'column_1': '2', 'column_2': '3', 'column_3': '0332-02-23', 'column_7': '23.00', 'column_8': '1.00', 'column_9': '23', 'column_10': '23', 'column_11': '1', 'column_12': '212', 'column_13': '0002-02-11', 'column_14': '', 'column_15': 'Administrator', 'column_16': 'Zapisz Usuń'}
+2025-04-27 15:47:26,351 - ERROR - Wystąpił błąd podczas aktualizacji tasy: 'str' object has no attribute '_sa_instance_state'
+2025-04-27 15:47:26,351 - INFO - 127.0.0.1 - - [27/Apr/2025 15:47:26] "[35m[1mPOST /update-row HTTP/1.1[0m" 500 -
+2025-04-27 15:47:27,954 - INFO - Administrator wszedł na stronę z listą tasm.
+2025-04-27 15:47:27,958 - INFO - 127.0.0.1 - - [27/Apr/2025 15:47:27] "GET /tasma HTTP/1.1" 200 -
+2025-04-27 15:47:27,975 - INFO - 127.0.0.1 - - [27/Apr/2025 15:47:27] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-27 15:47:27,984 - INFO - 127.0.0.1 - - [27/Apr/2025 15:47:27] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-27 15:47:27,990 - INFO - 127.0.0.1 - - [27/Apr/2025 15:47:27] "[36mGET /static/img/drukarka.png HTTP/1.1[0m" 304 -
+2025-04-27 19:05:21,313 - INFO - Połączenie z bazą danych zostało nawiązane pomyślnie.
+2025-04-27 19:05:21,368 - INFO - Tabela profil jest pusta.
+2025-04-27 19:05:21,369 - INFO - ✅ Kopia zapasowa zapisana do pliku: backups\kopie_zapasowe_bazy_2025-04-27_19-05.sql
+2025-04-27 19:05:21,371 - INFO - 🗑️ Usunięto starą kopię: kopie_zapasowe_bazy_2025-04-22_10-59.sql
+2025-04-27 19:05:21,384 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.0.16:5000
+2025-04-27 19:05:21,384 - INFO - [33mPress CTRL+C to quit[0m
+2025-04-27 19:05:21,385 - INFO -  * Restarting with stat
+2025-04-27 19:05:23,778 - INFO - Połączenie z bazą danych zostało nawiązane pomyślnie.
+2025-04-27 19:05:23,832 - INFO - Tabela profil jest pusta.
+2025-04-27 19:05:23,832 - INFO - ✅ Kopia zapasowa zapisana do pliku: backups\kopie_zapasowe_bazy_2025-04-27_19-05.sql
+2025-04-27 19:05:23,839 - WARNING -  * Debugger is active!
+2025-04-27 19:05:23,843 - INFO -  * Debugger PIN: 575-758-812
+2025-04-27 19:05:26,210 - INFO - Administrator wszedł na stronę z listą tasm.
+2025-04-27 19:05:26,323 - INFO - 127.0.0.1 - - [27/Apr/2025 19:05:26] "GET /tasma HTTP/1.1" 200 -
+2025-04-27 19:05:26,343 - INFO - 127.0.0.1 - - [27/Apr/2025 19:05:26] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-27 19:05:26,354 - INFO - 127.0.0.1 - - [27/Apr/2025 19:05:26] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-27 19:05:26,361 - INFO - 127.0.0.1 - - [27/Apr/2025 19:05:26] "[36mGET /static/img/drukarka.png HTTP/1.1[0m" 304 -
+2025-04-27 19:05:28,058 - INFO - 127.0.0.1 - - [27/Apr/2025 19:05:28] "GET /get-dostawcy HTTP/1.1" 200 -
+2025-04-27 19:05:28,063 - INFO - 127.0.0.1 - - [27/Apr/2025 19:05:28] "GET /get-szablon HTTP/1.1" 200 -
+2025-04-27 19:05:28,064 - INFO - 127.0.0.1 - - [27/Apr/2025 19:05:28] "GET /get-lokalizacja HTTP/1.1" 200 -
+2025-04-27 19:05:33,110 - INFO - Otrzymane dane do aktualizacji tasy: {'column_0': '49 ', 'column_1': '2', 'column_2': '3', 'column_3': '0332-02-23', 'column_7': '23.00', 'column_8': '1.00', 'column_9': '23', 'column_10': '23', 'column_11': '1', 'column_12': '212', 'column_13': '0002-02-11', 'column_14': '', 'column_15': 'Administrator', 'column_16': 'Zapisz Usuń'}
+2025-04-27 19:05:33,126 - INFO - Poprzednie dane taśmy o ID 49 : {'dostawca_id': 2, 'szablon_id': 3, 'data_z_etykiety_na_kregu': datetime.date(332, 2, 23), 'grubosc': Decimal('1.52'), 'szerokosc': Decimal('66.00'), 'waga_kregu': Decimal('23.00'), 'waga_kregu_na_stanie': Decimal('1.00'), 'nr_etykieta_paletowa': '23', 'nr_z_etykiety_na_kregu': '23', 'lokalizacja': None, 'nr_faktury_dostawcy': '21', 'data_dostawy': datetime.date(2, 2, 11)}
+2025-04-27 19:05:33,126 - INFO - Nowe dane taśmy o ID 49 : {'dostawca_id': 2, 'szablon_id': 3, 'data_z_etykiety_na_kregu': datetime.date(332, 2, 23), 'grubosc': Decimal('1.52'), 'szerokosc': Decimal('66.00'), 'waga_kregu': Decimal('23.00'), 'waga_kregu_na_stanie': Decimal('1.00'), 'nr_etykieta_paletowa': '23', 'nr_z_etykiety_na_kregu': '23', 'lokalizacja': 'Magazyn1', 'nr_faktury_dostawcy': '212', 'data_dostawy': datetime.date(2, 2, 11)}
+2025-04-27 19:05:33,131 - INFO - Zmiany wprowadzone przez użytkownika: Administrator
+2025-04-27 19:05:33,132 - INFO - 127.0.0.1 - - [27/Apr/2025 19:05:33] "POST /update-row HTTP/1.1" 200 -
+2025-04-27 19:05:35,189 - INFO - Administrator wszedł na stronę z listą tasm.
+2025-04-27 19:05:35,191 - INFO - 127.0.0.1 - - [27/Apr/2025 19:05:35] "GET /tasma HTTP/1.1" 200 -
+2025-04-27 19:05:35,208 - INFO - 127.0.0.1 - - [27/Apr/2025 19:05:35] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-27 19:05:35,217 - INFO - 127.0.0.1 - - [27/Apr/2025 19:05:35] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-27 19:05:35,223 - INFO - 127.0.0.1 - - [27/Apr/2025 19:05:35] "[36mGET /static/img/drukarka.png HTTP/1.1[0m" 304 -
+2025-04-27 19:05:36,160 - INFO - Administrator wszedł na stronę z listą tasm.
+2025-04-27 19:05:36,164 - INFO - 127.0.0.1 - - [27/Apr/2025 19:05:36] "GET /tasma HTTP/1.1" 200 -
+2025-04-27 19:05:36,190 - INFO - 127.0.0.1 - - [27/Apr/2025 19:05:36] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-27 19:05:36,200 - INFO - 127.0.0.1 - - [27/Apr/2025 19:05:36] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-27 19:05:36,209 - INFO - 127.0.0.1 - - [27/Apr/2025 19:05:36] "[36mGET /static/img/drukarka.png HTTP/1.1[0m" 304 -
+2025-04-27 19:05:37,130 - INFO - 127.0.0.1 - - [27/Apr/2025 19:05:37] "GET /get-dostawcy HTTP/1.1" 200 -
+2025-04-27 19:05:37,133 - INFO - 127.0.0.1 - - [27/Apr/2025 19:05:37] "GET /get-szablon HTTP/1.1" 200 -
+2025-04-27 19:05:37,134 - INFO - 127.0.0.1 - - [27/Apr/2025 19:05:37] "GET /get-lokalizacja HTTP/1.1" 200 -
+2025-04-27 19:05:42,239 - INFO - Otrzymane dane do aktualizacji tasy: {'column_0': '49 ', 'column_1': '2', 'column_2': '3', 'column_3': '0332-02-23', 'column_7': '3', 'column_8': '1.00', 'column_9': '23', 'column_10': '23', 'column_11': '1', 'column_12': '212', 'column_13': '0002-02-11', 'column_14': '', 'column_15': 'Administrator', 'column_16': 'Zapisz Usuń'}
+2025-04-27 19:05:42,249 - INFO - Poprzednie dane taśmy o ID 49 : {'dostawca_id': 2, 'szablon_id': 3, 'data_z_etykiety_na_kregu': datetime.date(332, 2, 23), 'grubosc': Decimal('1.52'), 'szerokosc': Decimal('66.00'), 'waga_kregu': Decimal('23.00'), 'waga_kregu_na_stanie': Decimal('1.00'), 'nr_etykieta_paletowa': '23', 'nr_z_etykiety_na_kregu': '23', 'lokalizacja': 'Magazyn1', 'nr_faktury_dostawcy': '212', 'data_dostawy': datetime.date(2, 2, 11)}
+2025-04-27 19:05:42,249 - INFO - Nowe dane taśmy o ID 49 : {'dostawca_id': 2, 'szablon_id': 3, 'data_z_etykiety_na_kregu': datetime.date(332, 2, 23), 'grubosc': Decimal('1.52'), 'szerokosc': Decimal('66.00'), 'waga_kregu': Decimal('3.00'), 'waga_kregu_na_stanie': Decimal('1.00'), 'nr_etykieta_paletowa': '23', 'nr_z_etykiety_na_kregu': '23', 'lokalizacja': 'Magazyn1', 'nr_faktury_dostawcy': '212', 'data_dostawy': datetime.date(2, 2, 11)}
+2025-04-27 19:05:42,250 - INFO - Zmiany wprowadzone przez użytkownika: Administrator
+2025-04-27 19:05:42,251 - INFO - 127.0.0.1 - - [27/Apr/2025 19:05:42] "POST /update-row HTTP/1.1" 200 -
+2025-04-27 19:05:44,703 - INFO - Administrator wszedł na stronę z listą tasm.
+2025-04-27 19:05:44,706 - INFO - 127.0.0.1 - - [27/Apr/2025 19:05:44] "GET /tasma HTTP/1.1" 200 -
+2025-04-27 19:05:44,724 - INFO - 127.0.0.1 - - [27/Apr/2025 19:05:44] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-27 19:05:44,733 - INFO - 127.0.0.1 - - [27/Apr/2025 19:05:44] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-27 19:05:44,739 - INFO - 127.0.0.1 - - [27/Apr/2025 19:05:44] "[36mGET /static/img/drukarka.png HTTP/1.1[0m" 304 -
+2025-04-27 19:06:16,285 - INFO - Administrator wszedł na stronę główną.
+2025-04-27 19:06:16,369 - INFO - 127.0.0.1 - - [27/Apr/2025 19:06:16] "GET / HTTP/1.1" 200 -
+2025-04-27 19:06:16,397 - INFO - 127.0.0.1 - - [27/Apr/2025 19:06:16] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-27 19:06:16,402 - INFO - 127.0.0.1 - - [27/Apr/2025 19:06:16] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-27 19:06:18,107 - INFO - Administrator wszedł na stronę profilu.
+2025-04-27 19:06:18,241 - INFO - 127.0.0.1 - - [27/Apr/2025 19:06:18] "GET /profil HTTP/1.1" 200 -
+2025-04-27 19:06:18,266 - INFO - 127.0.0.1 - - [27/Apr/2025 19:06:18] "GET /static/style.css HTTP/1.1" 200 -
+2025-04-27 19:06:18,279 - INFO - 127.0.0.1 - - [27/Apr/2025 19:06:18] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-27 19:06:18,771 - INFO - Administrator wszedł na stronę główną.
+2025-04-27 19:06:18,772 - INFO - 127.0.0.1 - - [27/Apr/2025 19:06:18] "GET / HTTP/1.1" 200 -
+2025-04-27 19:06:18,790 - INFO - 127.0.0.1 - - [27/Apr/2025 19:06:18] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-27 19:06:18,796 - INFO - 127.0.0.1 - - [27/Apr/2025 19:06:18] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-27 19:06:19,817 - INFO - Administrator wszedł na stronę dostawców.
+2025-04-27 19:06:19,863 - INFO - 127.0.0.1 - - [27/Apr/2025 19:06:19] "GET /dlugosci HTTP/1.1" 200 -
+2025-04-27 19:06:19,884 - INFO - 127.0.0.1 - - [27/Apr/2025 19:06:19] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-27 19:06:19,895 - INFO - 127.0.0.1 - - [27/Apr/2025 19:06:19] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-27 19:06:26,409 - INFO - Otrzymane dane do aktualizacji dlugosci: {'column_0': '3', 'column_1': '3', 'column_2': 'Zapisz'}
+2025-04-27 19:06:26,410 - INFO - Poprzednie dane długości o ID 3: {'id': 3, 'nazwa': '1'}
+2025-04-27 19:06:26,419 - ERROR - Wystąpił błąd podczas aktualizacji: (pymysql.err.IntegrityError) (1062, "Duplicate entry '3' for key 'nazwa'")
+[SQL: UPDATE dlugosci SET nazwa=%(nazwa)s WHERE dlugosci.id = %(dlugosci_id)s]
+[parameters: {'nazwa': '3', 'dlugosci_id': 3}]
+(Background on this error at: https://sqlalche.me/e/20/gkpj)
+2025-04-27 19:06:26,419 - INFO - 127.0.0.1 - - [27/Apr/2025 19:06:26] "[35m[1mPOST /update-row-dlugosci HTTP/1.1[0m" 500 -
+2025-04-27 19:06:28,117 - INFO - Administrator wszedł na stronę dostawców.
+2025-04-27 19:06:28,118 - INFO - 127.0.0.1 - - [27/Apr/2025 19:06:28] "GET /dlugosci HTTP/1.1" 200 -
+2025-04-27 19:06:28,134 - INFO - 127.0.0.1 - - [27/Apr/2025 19:06:28] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-27 19:06:28,143 - INFO - 127.0.0.1 - - [27/Apr/2025 19:06:28] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-27 19:06:33,415 - INFO - Otrzymane dane do aktualizacji dlugosci: {'column_0': '1', 'column_1': '5', 'column_2': 'Zapisz'}
+2025-04-27 19:06:33,416 - INFO - Poprzednie dane długości o ID 1: {'id': 1, 'nazwa': '3'}
+2025-04-27 19:06:33,420 - INFO - Lokalizacja 5 został zaktualizowany przez Administrator.
+2025-04-27 19:06:33,421 - INFO - 127.0.0.1 - - [27/Apr/2025 19:06:33] "POST /update-row-dlugosci HTTP/1.1" 200 -
+2025-04-27 19:06:34,692 - INFO - Administrator wszedł na stronę dostawców.
+2025-04-27 19:06:34,693 - INFO - 127.0.0.1 - - [27/Apr/2025 19:06:34] "GET /dlugosci HTTP/1.1" 200 -
+2025-04-27 19:06:34,720 - INFO - 127.0.0.1 - - [27/Apr/2025 19:06:34] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-27 19:06:34,732 - INFO - 127.0.0.1 - - [27/Apr/2025 19:06:34] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-27 19:06:40,584 - INFO - Otrzymane dane do aktualizacji dlugosci: {'column_0': '3', 'column_1': '3', 'column_2': 'Zapisz'}
+2025-04-27 19:06:40,584 - INFO - Poprzednie dane długości o ID 3: {'id': 3, 'nazwa': '1'}
+2025-04-27 19:06:40,587 - INFO - Lokalizacja 3 został zaktualizowany przez Administrator.
+2025-04-27 19:06:40,588 - INFO - 127.0.0.1 - - [27/Apr/2025 19:06:40] "POST /update-row-dlugosci HTTP/1.1" 200 -
+2025-04-27 19:06:42,028 - INFO - Administrator wszedł na stronę dostawców.
+2025-04-27 19:06:42,029 - INFO - 127.0.0.1 - - [27/Apr/2025 19:06:42] "GET /dlugosci HTTP/1.1" 200 -
+2025-04-27 19:06:42,049 - INFO - 127.0.0.1 - - [27/Apr/2025 19:06:42] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-27 19:06:42,057 - INFO - 127.0.0.1 - - [27/Apr/2025 19:06:42] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-27 19:06:47,069 - INFO - Otrzymane dane do aktualizacji dlugosci: {'column_0': '1', 'column_1': '1', 'column_2': 'Zapisz'}
+2025-04-27 19:06:47,070 - INFO - Poprzednie dane długości o ID 1: {'id': 1, 'nazwa': '5'}
+2025-04-27 19:06:47,074 - INFO - Lokalizacja 1 został zaktualizowany przez Administrator.
+2025-04-27 19:06:47,075 - INFO - 127.0.0.1 - - [27/Apr/2025 19:06:47] "POST /update-row-dlugosci HTTP/1.1" 200 -
+2025-04-27 19:06:48,750 - INFO - Administrator wszedł na stronę dostawców.
+2025-04-27 19:06:48,751 - INFO - 127.0.0.1 - - [27/Apr/2025 19:06:48] "GET /dlugosci HTTP/1.1" 200 -
+2025-04-27 19:06:48,772 - INFO - 127.0.0.1 - - [27/Apr/2025 19:06:48] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-27 19:06:48,781 - INFO - 127.0.0.1 - - [27/Apr/2025 19:06:48] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-27 19:06:51,405 - INFO - Administrator wszedł na stronę główną.
+2025-04-27 19:06:51,406 - INFO - 127.0.0.1 - - [27/Apr/2025 19:06:51] "GET / HTTP/1.1" 200 -
+2025-04-27 19:06:51,431 - INFO - 127.0.0.1 - - [27/Apr/2025 19:06:51] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-27 19:06:51,435 - INFO - 127.0.0.1 - - [27/Apr/2025 19:06:51] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-27 19:06:53,067 - INFO - Administrator wszedł na stronę dostawców.
+2025-04-27 19:06:53,113 - INFO - 127.0.0.1 - - [27/Apr/2025 19:06:53] "GET /dostawcy HTTP/1.1" 200 -
+2025-04-27 19:06:53,133 - INFO - 127.0.0.1 - - [27/Apr/2025 19:06:53] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-27 19:06:53,146 - INFO - 127.0.0.1 - - [27/Apr/2025 19:06:53] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-27 19:06:57,044 - INFO - 127.0.0.1 - - [27/Apr/2025 19:06:57] "[35m[1mPOST /update-row-dostawcy HTTP/1.1[0m" 500 -
+2025-04-27 19:06:58,612 - INFO - Administrator wszedł na stronę dostawców.
+2025-04-27 19:06:58,613 - INFO - 127.0.0.1 - - [27/Apr/2025 19:06:58] "GET /dostawcy HTTP/1.1" 200 -
+2025-04-27 19:06:58,633 - INFO - 127.0.0.1 - - [27/Apr/2025 19:06:58] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-27 19:06:58,641 - INFO - 127.0.0.1 - - [27/Apr/2025 19:06:58] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-27 19:06:59,357 - INFO - Administrator wszedł na stronę dostawców.
+2025-04-27 19:06:59,358 - INFO - 127.0.0.1 - - [27/Apr/2025 19:06:59] "GET /dostawcy HTTP/1.1" 200 -
+2025-04-27 19:06:59,375 - INFO - 127.0.0.1 - - [27/Apr/2025 19:06:59] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-27 19:06:59,384 - INFO - 127.0.0.1 - - [27/Apr/2025 19:06:59] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-27 19:07:01,819 - INFO - 127.0.0.1 - - [27/Apr/2025 19:07:01] "[35m[1mPOST /update-row-dostawcy HTTP/1.1[0m" 500 -
+2025-04-27 19:07:04,435 - INFO - Administrator wszedł na stronę główną.
+2025-04-27 19:07:04,436 - INFO - 127.0.0.1 - - [27/Apr/2025 19:07:04] "GET / HTTP/1.1" 200 -
+2025-04-27 19:07:04,462 - INFO - 127.0.0.1 - - [27/Apr/2025 19:07:04] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-27 19:07:04,468 - INFO - 127.0.0.1 - - [27/Apr/2025 19:07:04] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-27 19:07:06,338 - INFO - Administrator wszedł na stronę szablonów.
+2025-04-27 19:07:06,387 - INFO - 127.0.0.1 - - [27/Apr/2025 19:07:06] "GET /szablon HTTP/1.1" 200 -
+2025-04-27 19:07:06,412 - INFO - 127.0.0.1 - - [27/Apr/2025 19:07:06] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-27 19:07:06,423 - INFO - 127.0.0.1 - - [27/Apr/2025 19:07:06] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-27 19:07:13,113 - INFO - Administrator wszedł na stronę główną.
+2025-04-27 19:07:13,114 - INFO - 127.0.0.1 - - [27/Apr/2025 19:07:13] "GET / HTTP/1.1" 200 -
+2025-04-27 19:07:13,141 - INFO - 127.0.0.1 - - [27/Apr/2025 19:07:13] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-27 19:07:13,146 - INFO - 127.0.0.1 - - [27/Apr/2025 19:07:13] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-27 19:07:14,293 - INFO - Administrator wszedł na stronę z listą tasm.
+2025-04-27 19:07:14,296 - INFO - 127.0.0.1 - - [27/Apr/2025 19:07:14] "GET /tasma HTTP/1.1" 200 -
+2025-04-27 19:07:14,319 - INFO - 127.0.0.1 - - [27/Apr/2025 19:07:14] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-27 19:07:14,324 - INFO - 127.0.0.1 - - [27/Apr/2025 19:07:14] "[36mGET /static/img/drukarka.png HTTP/1.1[0m" 304 -
+2025-04-27 19:07:14,329 - INFO - 127.0.0.1 - - [27/Apr/2025 19:07:14] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-27 19:07:18,000 - INFO - Administrator wszedł na stronę główną.
+2025-04-27 19:07:18,000 - INFO - 127.0.0.1 - - [27/Apr/2025 19:07:18] "GET / HTTP/1.1" 200 -
+2025-04-27 19:07:18,022 - INFO - 127.0.0.1 - - [27/Apr/2025 19:07:18] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-27 19:07:18,026 - INFO - 127.0.0.1 - - [27/Apr/2025 19:07:18] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-27 19:07:19,016 - INFO - Administrator wszedł na stronę szablonów.
+2025-04-27 19:07:19,017 - INFO - 127.0.0.1 - - [27/Apr/2025 19:07:19] "GET /szablon HTTP/1.1" 200 -
+2025-04-27 19:07:19,039 - INFO - 127.0.0.1 - - [27/Apr/2025 19:07:19] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-27 19:07:19,049 - INFO - 127.0.0.1 - - [27/Apr/2025 19:07:19] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-27 19:07:28,242 - INFO - Otrzymane dane do aktualizacji szablonu: {'column_0': '3', 'column_1': 'DX510 2275 1,2x66', 'column_2': 'DX510', 'column_3': '2275', 'column_4': '77', 'column_5': '1.52', 'column_6': 'Zapisz'}
+2025-04-27 19:07:28,243 - INFO - Poprzednie dane szablonu o ID 3: {'id': 3, 'nazwa': 'DX510 2275 1,2x66', 'rodzaj': 'DX510', 'grubosc_i_oznaczenie_ocynku': '2275', 'grubosc': Decimal('1.52'), 'szerokosc': Decimal('66.00')}
+2025-04-27 19:07:28,248 - INFO - Nowe dane szablonu o ID 3: {'id': 3, 'nazwa': 'DX510 2275 1,2x66', 'rodzaj': 'DX510', 'grubosc_i_oznaczenie_ocynku': '2275', 'grubosc': Decimal('1.52'), 'szerokosc': Decimal('77.00')}
+2025-04-27 19:07:28,249 - INFO - Szablon o ID 3 został zaktualizowany przez użytkownika Administrator.
+2025-04-27 19:07:28,249 - INFO - 127.0.0.1 - - [27/Apr/2025 19:07:28] "POST /update-row-szablon HTTP/1.1" 200 -
+2025-04-27 19:07:29,788 - INFO - Administrator wszedł na stronę szablonów.
+2025-04-27 19:07:29,789 - INFO - 127.0.0.1 - - [27/Apr/2025 19:07:29] "GET /szablon HTTP/1.1" 200 -
+2025-04-27 19:07:29,805 - INFO - 127.0.0.1 - - [27/Apr/2025 19:07:29] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-27 19:07:29,816 - INFO - 127.0.0.1 - - [27/Apr/2025 19:07:29] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-27 19:07:30,746 - INFO - Administrator wszedł na stronę główną.
+2025-04-27 19:07:30,747 - INFO - 127.0.0.1 - - [27/Apr/2025 19:07:30] "GET / HTTP/1.1" 200 -
+2025-04-27 19:07:30,769 - INFO - 127.0.0.1 - - [27/Apr/2025 19:07:30] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-27 19:07:30,774 - INFO - 127.0.0.1 - - [27/Apr/2025 19:07:30] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-27 19:07:31,701 - INFO - Administrator wszedł na stronę z listą tasm.
+2025-04-27 19:07:31,703 - INFO - 127.0.0.1 - - [27/Apr/2025 19:07:31] "GET /tasma HTTP/1.1" 200 -
+2025-04-27 19:07:31,723 - INFO - 127.0.0.1 - - [27/Apr/2025 19:07:31] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-27 19:07:31,732 - INFO - 127.0.0.1 - - [27/Apr/2025 19:07:31] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-27 19:07:31,739 - INFO - 127.0.0.1 - - [27/Apr/2025 19:07:31] "[36mGET /static/img/drukarka.png HTTP/1.1[0m" 304 -
+2025-04-27 19:07:33,847 - INFO - Administrator wszedł na stronę główną.
+2025-04-27 19:07:33,848 - INFO - 127.0.0.1 - - [27/Apr/2025 19:07:33] "GET / HTTP/1.1" 200 -
+2025-04-27 19:07:33,868 - INFO - 127.0.0.1 - - [27/Apr/2025 19:07:33] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-27 19:07:33,874 - INFO - 127.0.0.1 - - [27/Apr/2025 19:07:33] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-27 19:07:38,150 - INFO - Administrator wszedł na stronę dostawców.
+2025-04-27 19:07:38,196 - INFO - 127.0.0.1 - - [27/Apr/2025 19:07:38] "GET /lokalizacja HTTP/1.1" 200 -
+2025-04-27 19:07:38,224 - INFO - 127.0.0.1 - - [27/Apr/2025 19:07:38] "GET /static/style.css HTTP/1.1" 200 -
+2025-04-27 19:07:38,235 - INFO - 127.0.0.1 - - [27/Apr/2025 19:07:38] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-27 19:07:41,023 - INFO - Otrzymane dane do aktualizacji lokalizacji: {'column_0': '1', 'column_1': 'Magazyn11', 'column_2': 'Zapisz'}
+2025-04-27 19:07:41,023 - INFO - Poprzednie dane lokalizacji o ID 1: {'id': 1, 'nazwa': 'Magazyn1'}
+2025-04-27 19:07:41,027 - INFO - Lokalizacja Magazyn11 został zaktualizowany przez Administrator.
+2025-04-27 19:07:41,028 - INFO - 127.0.0.1 - - [27/Apr/2025 19:07:41] "POST /update-row-lokalizacje HTTP/1.1" 200 -
+2025-04-27 19:07:42,302 - INFO - Administrator wszedł na stronę dostawców.
+2025-04-27 19:07:42,302 - INFO - 127.0.0.1 - - [27/Apr/2025 19:07:42] "GET /lokalizacja HTTP/1.1" 200 -
+2025-04-27 19:07:42,322 - INFO - 127.0.0.1 - - [27/Apr/2025 19:07:42] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-27 19:07:42,331 - INFO - 127.0.0.1 - - [27/Apr/2025 19:07:42] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-27 19:07:42,790 - INFO - Administrator wszedł na stronę dostawców.
+2025-04-27 19:07:42,791 - INFO - 127.0.0.1 - - [27/Apr/2025 19:07:42] "GET /lokalizacja HTTP/1.1" 200 -
+2025-04-27 19:07:42,814 - INFO - 127.0.0.1 - - [27/Apr/2025 19:07:42] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-27 19:07:42,826 - INFO - 127.0.0.1 - - [27/Apr/2025 19:07:42] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-27 19:07:43,262 - INFO - Administrator wszedł na stronę główną.
+2025-04-27 19:07:43,262 - INFO - 127.0.0.1 - - [27/Apr/2025 19:07:43] "GET / HTTP/1.1" 200 -
+2025-04-27 19:07:43,286 - INFO - 127.0.0.1 - - [27/Apr/2025 19:07:43] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-27 19:07:43,290 - INFO - 127.0.0.1 - - [27/Apr/2025 19:07:43] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-27 19:07:46,556 - INFO - Administrator wszedł na stronę szablonów.
+2025-04-27 19:07:46,597 - INFO - 127.0.0.1 - - [27/Apr/2025 19:07:46] "GET /szablon_profil HTTP/1.1" 200 -
+2025-04-27 19:07:46,623 - INFO - 127.0.0.1 - - [27/Apr/2025 19:07:46] "GET /static/style.css HTTP/1.1" 200 -
+2025-04-27 19:07:46,633 - INFO - 127.0.0.1 - - [27/Apr/2025 19:07:46] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-27 19:07:51,659 - INFO - Administrator wszedł na stronę dodawania szablonu.
+2025-04-27 19:07:51,663 - INFO - 127.0.0.1 - - [27/Apr/2025 19:07:51] "GET /dodaj_szablon_profil HTTP/1.1" 200 -
+2025-04-27 19:07:51,693 - INFO - 127.0.0.1 - - [27/Apr/2025 19:07:51] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-27 19:07:51,711 - INFO - 127.0.0.1 - - [27/Apr/2025 19:07:51] "GET /static/img/logo-duże.png HTTP/1.1" 200 -
+2025-04-27 19:07:54,352 - INFO - Szablon 123 został dodany przez Administrator.
+2025-04-27 19:07:54,352 - INFO - 127.0.0.1 - - [27/Apr/2025 19:07:54] "[32mPOST /dodaj_szablon_profil_do_bazy HTTP/1.1[0m" 302 -
+2025-04-27 19:07:54,358 - INFO - Administrator wszedł na stronę szablonów.
+2025-04-27 19:07:54,359 - INFO - 127.0.0.1 - - [27/Apr/2025 19:07:54] "GET /szablon_profil HTTP/1.1" 200 -
+2025-04-27 19:07:54,385 - INFO - 127.0.0.1 - - [27/Apr/2025 19:07:54] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-27 19:07:54,393 - INFO - 127.0.0.1 - - [27/Apr/2025 19:07:54] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-27 19:07:57,383 - INFO - Otrzymane dane do aktualizacji szablonu: {'column_0': '3', 'column_1': '1235', 'column_2': 'Zapisz'}
+2025-04-27 19:07:57,384 - INFO - Poprzednie dane szablonu o ID 3: {'id': 3, 'nazwa': '123'}
+2025-04-27 19:07:57,387 - INFO - Szablon o ID 3 został zaktualizowany przez Administrator.
+2025-04-27 19:07:57,387 - INFO - 127.0.0.1 - - [27/Apr/2025 19:07:57] "POST /update-row-szablon_profil HTTP/1.1" 200 -
+2025-04-27 19:07:58,827 - INFO - Administrator wszedł na stronę szablonów.
+2025-04-27 19:07:58,828 - INFO - 127.0.0.1 - - [27/Apr/2025 19:07:58] "GET /szablon_profil HTTP/1.1" 200 -
+2025-04-27 19:07:58,846 - INFO - 127.0.0.1 - - [27/Apr/2025 19:07:58] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-27 19:07:58,855 - INFO - 127.0.0.1 - - [27/Apr/2025 19:07:58] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-27 19:07:59,284 - INFO - Administrator wszedł na stronę szablonów.
+2025-04-27 19:07:59,285 - INFO - 127.0.0.1 - - [27/Apr/2025 19:07:59] "GET /szablon_profil HTTP/1.1" 200 -
+2025-04-27 19:07:59,306 - INFO - 127.0.0.1 - - [27/Apr/2025 19:07:59] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-27 19:07:59,316 - INFO - 127.0.0.1 - - [27/Apr/2025 19:07:59] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-27 19:07:59,784 - INFO - Administrator wszedł na stronę główną.
+2025-04-27 19:07:59,785 - INFO - 127.0.0.1 - - [27/Apr/2025 19:07:59] "GET / HTTP/1.1" 200 -
+2025-04-27 19:07:59,809 - INFO - 127.0.0.1 - - [27/Apr/2025 19:07:59] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-27 19:07:59,813 - INFO - 127.0.0.1 - - [27/Apr/2025 19:07:59] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-27 19:08:03,645 - INFO - Administrator wszedł na stronę profilu.
+2025-04-27 19:08:03,646 - INFO - 127.0.0.1 - - [27/Apr/2025 19:08:03] "GET /profil HTTP/1.1" 200 -
+2025-04-27 19:08:03,667 - INFO - 127.0.0.1 - - [27/Apr/2025 19:08:03] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-27 19:08:03,676 - INFO - 127.0.0.1 - - [27/Apr/2025 19:08:03] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-27 19:08:05,837 - INFO - Administrator wszedł na stronę dodawania profilu.
+2025-04-27 19:08:05,849 - INFO - 127.0.0.1 - - [27/Apr/2025 19:08:05] "GET /dodaj_profil HTTP/1.1" 200 -
+2025-04-27 19:08:05,872 - INFO - 127.0.0.1 - - [27/Apr/2025 19:08:05] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-27 19:08:12,511 - INFO - Nowy profil został dodany przez użytkownika Administrator.
+2025-04-27 19:08:12,511 - INFO - Szczegóły profilu: ID Taśmy: 49, Data Produkcji: 2025-04-27, Godzina rozpoczęcia: 19:08:05, ID Szablonu Profilu: 3, Nazwa Klienta: 4, Ilość: None, ID Długości: None.Imie nazwisko pracownika: 4.
+2025-04-27 19:08:12,512 - INFO - 127.0.0.1 - - [27/Apr/2025 19:08:12] "[32mPOST /dodaj_lub_zakonczenie_profilu HTTP/1.1[0m" 302 -
+2025-04-27 19:08:12,517 - INFO - Administrator wszedł na stronę profilu.
+2025-04-27 19:08:12,523 - INFO - 127.0.0.1 - - [27/Apr/2025 19:08:12] "GET /profil HTTP/1.1" 200 -
+2025-04-27 19:08:12,543 - INFO - 127.0.0.1 - - [27/Apr/2025 19:08:12] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-27 19:08:12,553 - INFO - 127.0.0.1 - - [27/Apr/2025 19:08:12] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-27 19:08:14,798 - INFO - 127.0.0.1 - - [27/Apr/2025 19:08:14] "POST /dodaj_profil_do_bazy HTTP/1.1" 200 -
+2025-04-27 19:08:14,817 - INFO - 127.0.0.1 - - [27/Apr/2025 19:08:14] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-27 19:08:22,218 - INFO - Zakończenie profilu o ID 59 przez użytkownika Administrator.
+2025-04-27 19:08:22,218 - INFO - Poprzednie dane: {'godz_min_zakonczenia': None, 'zwrot_na_magazyn_kg': None, 'ilosc': None, 'ilosc_na_stanie': None, 'id_dlugosci': None}
+2025-04-27 19:08:22,218 - INFO - Nowe dane: {'godz_min_zakonczenia': '19:08:22', 'zwrot_na_magazyn_kg': '0', 'ilosc': '1', 'ilosc_na_stanie': '1', 'id_dlugosci': '1'}
+2025-04-27 19:08:22,221 - INFO - 127.0.0.1 - - [27/Apr/2025 19:08:22] "[32mPOST /dodaj_lub_zakonczenie_profilu HTTP/1.1[0m" 302 -
+2025-04-27 19:08:22,229 - INFO - Administrator wszedł na stronę profilu.
+2025-04-27 19:08:22,232 - INFO - 127.0.0.1 - - [27/Apr/2025 19:08:22] "GET /profil HTTP/1.1" 200 -
+2025-04-27 19:08:22,254 - INFO - 127.0.0.1 - - [27/Apr/2025 19:08:22] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-27 19:08:22,264 - INFO - 127.0.0.1 - - [27/Apr/2025 19:08:22] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-27 19:08:29,427 - INFO - 127.0.0.1 - - [27/Apr/2025 19:08:29] "GET /get-tasma HTTP/1.1" 200 -
+2025-04-27 19:08:29,439 - INFO - 127.0.0.1 - - [27/Apr/2025 19:08:29] "GET /get-szablon_profile HTTP/1.1" 200 -
+2025-04-27 19:08:29,440 - INFO - 127.0.0.1 - - [27/Apr/2025 19:08:29] "GET /get-dlugosci HTTP/1.1" 200 -
+2025-04-27 19:08:32,355 - INFO - Otrzymane dane do aktualizacji profilu: {'column_0': '59', 'column_1': '49', 'column_2': '2025-04-27', 'column_4': '19:08:05', 'column_5': '19:08:22', 'column_6': '0.00', 'column_7': '3', 'column_8': '4', 'column_9': '1', 'column_10': '1', 'column_11': '4', 'column_12': 'DX510 2275 1,2x66', 'column_13': 'Administrator 4', 'column_14': 'Zapisz Usuń'}
+2025-04-27 19:08:32,356 - INFO - Poprzednie dane profilu o ID 59: {'id_tasmy': 49, 'data_produkcji': datetime.date(2025, 4, 27), 'godz_min_rozpoczecia': datetime.time(19, 8, 5), 'godz_min_zakonczenia': datetime.time(19, 8, 22), 'zwrot_na_magazyn_kg': Decimal('0.00'), 'id_szablon_profile': 3, 'nazwa_klienta_nr_zlecenia_PRODIO': '4', 'ilosc': 1, 'ilosc_na_stanie': 1, 'id_dlugosci': 1}
+2025-04-27 19:08:32,356 - INFO - Nowe dane profilu o ID 59: {'id_tasmy': '49', 'data_produkcji': '2025-04-27', 'godz_min_rozpoczecia': datetime.time(19, 8, 5), 'godz_min_zakonczenia': '19:08:05', 'zwrot_na_magazyn_kg': '19:08:22', 'id_szablon_profile': '0.00', 'nazwa_klienta_nr_zlecenia_PRODIO': '3', 'ilosc': '4', 'ilosc_na_stanie': '1', 'id_dlugosci': '1'}
+2025-04-27 19:08:32,357 - INFO - Zmiany wprowadzone przez użytkownika: Administrator
+2025-04-27 19:08:32,362 - ERROR - Wystąpił błąd podczas aktualizacji: (pymysql.err.IntegrityError) (1452, 'Cannot add or update a child row: a foreign key constraint fails (`baza_max`.`profil`, CONSTRAINT `profil_ibfk_4` FOREIGN KEY (`id_szablon_profile`) REFERENCES `szablon_profile` (`id`) ON DELETE CASCADE)')
+[SQL: UPDATE profil SET id_tasmy=%(id_tasmy)s, data_produkcji=%(data_produkcji)s, godz_min_zakonczenia=%(godz_min_zakonczenia)s, zwrot_na_magazyn_kg=%(zwrot_na_magazyn_kg)s, id_szablon_profile=%(id_szablon_profile)s, `nazwa_klienta_nr_zlecenia_PRODIO`=%(nazwa_klienta_nr_zlecenia_PRODIO)s, ilosc=%(ilosc)s, ilosc_na_stanie=%(ilosc_na_stanie)s, id_dlugosci=%(id_dlugosci)s WHERE profil.id = %(profil_id)s]
+[parameters: {'id_tasmy': '49', 'data_produkcji': '2025-04-27', 'godz_min_zakonczenia': '19:08:05', 'zwrot_na_magazyn_kg': '19:08:22', 'id_szablon_profile': '0.00', 'nazwa_klienta_nr_zlecenia_PRODIO': '3', 'ilosc': '4', 'ilosc_na_stanie': '1', 'id_dlugosci': '1', 'profil_id': 59}]
+(Background on this error at: https://sqlalche.me/e/20/gkpj)
+2025-04-27 19:08:32,362 - INFO - 127.0.0.1 - - [27/Apr/2025 19:08:32] "[35m[1mPOST /update-row_profil HTTP/1.1[0m" 500 -
+2025-04-27 19:08:33,973 - INFO - Administrator wszedł na stronę profilu.
+2025-04-27 19:08:33,977 - INFO - 127.0.0.1 - - [27/Apr/2025 19:08:33] "GET /profil HTTP/1.1" 200 -
+2025-04-27 19:08:33,993 - INFO - 127.0.0.1 - - [27/Apr/2025 19:08:33] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-27 19:08:34,002 - INFO - 127.0.0.1 - - [27/Apr/2025 19:08:34] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-27 19:08:36,055 - INFO - 127.0.0.1 - - [27/Apr/2025 19:08:36] "GET /get-tasma HTTP/1.1" 200 -
+2025-04-27 19:08:36,064 - INFO - 127.0.0.1 - - [27/Apr/2025 19:08:36] "GET /get-szablon_profile HTTP/1.1" 200 -
+2025-04-27 19:08:36,065 - INFO - 127.0.0.1 - - [27/Apr/2025 19:08:36] "GET /get-dlugosci HTTP/1.1" 200 -
+2025-04-27 19:08:38,248 - INFO - Otrzymane dane do aktualizacji profilu: {'column_0': '59', 'column_1': '49', 'column_2': '2025-04-27', 'column_4': '19:08:05', 'column_5': '19:08:22', 'column_6': '0.00', 'column_7': '3', 'column_8': '4', 'column_9': '1', 'column_10': '6', 'column_11': '1', 'column_12': 'DX510 2275 1,2x66', 'column_13': 'Administrator 4', 'column_14': 'Zapisz Usuń'}
+2025-04-27 19:08:38,249 - INFO - Poprzednie dane profilu o ID 59: {'id_tasmy': 49, 'data_produkcji': datetime.date(2025, 4, 27), 'godz_min_rozpoczecia': datetime.time(19, 8, 5), 'godz_min_zakonczenia': datetime.time(19, 8, 22), 'zwrot_na_magazyn_kg': Decimal('0.00'), 'id_szablon_profile': 3, 'nazwa_klienta_nr_zlecenia_PRODIO': '4', 'ilosc': 1, 'ilosc_na_stanie': 1, 'id_dlugosci': 1}
+2025-04-27 19:08:38,249 - INFO - Nowe dane profilu o ID 59: {'id_tasmy': '49', 'data_produkcji': '2025-04-27', 'godz_min_rozpoczecia': datetime.time(19, 8, 5), 'godz_min_zakonczenia': '19:08:05', 'zwrot_na_magazyn_kg': '19:08:22', 'id_szablon_profile': '0.00', 'nazwa_klienta_nr_zlecenia_PRODIO': '3', 'ilosc': '4', 'ilosc_na_stanie': '1', 'id_dlugosci': '6'}
+2025-04-27 19:08:38,250 - INFO - Zmiany wprowadzone przez użytkownika: Administrator
+2025-04-27 19:08:38,253 - ERROR - Wystąpił błąd podczas aktualizacji: (pymysql.err.IntegrityError) (1452, 'Cannot add or update a child row: a foreign key constraint fails (`baza_max`.`profil`, CONSTRAINT `profil_ibfk_3` FOREIGN KEY (`id_dlugosci`) REFERENCES `dlugosci` (`id`) ON DELETE CASCADE)')
+[SQL: UPDATE profil SET id_tasmy=%(id_tasmy)s, data_produkcji=%(data_produkcji)s, godz_min_zakonczenia=%(godz_min_zakonczenia)s, zwrot_na_magazyn_kg=%(zwrot_na_magazyn_kg)s, id_szablon_profile=%(id_szablon_profile)s, `nazwa_klienta_nr_zlecenia_PRODIO`=%(nazwa_klienta_nr_zlecenia_PRODIO)s, ilosc=%(ilosc)s, ilosc_na_stanie=%(ilosc_na_stanie)s, id_dlugosci=%(id_dlugosci)s WHERE profil.id = %(profil_id)s]
+[parameters: {'id_tasmy': '49', 'data_produkcji': '2025-04-27', 'godz_min_zakonczenia': '19:08:05', 'zwrot_na_magazyn_kg': '19:08:22', 'id_szablon_profile': '0.00', 'nazwa_klienta_nr_zlecenia_PRODIO': '3', 'ilosc': '4', 'ilosc_na_stanie': '1', 'id_dlugosci': '6', 'profil_id': 59}]
+(Background on this error at: https://sqlalche.me/e/20/gkpj)
+2025-04-27 19:08:38,253 - INFO - 127.0.0.1 - - [27/Apr/2025 19:08:38] "[35m[1mPOST /update-row_profil HTTP/1.1[0m" 500 -
+2025-04-27 19:08:39,555 - INFO - Administrator wszedł na stronę profilu.
+2025-04-27 19:08:39,559 - INFO - 127.0.0.1 - - [27/Apr/2025 19:08:39] "GET /profil HTTP/1.1" 200 -
+2025-04-27 19:08:39,575 - INFO - 127.0.0.1 - - [27/Apr/2025 19:08:39] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-27 19:08:39,583 - INFO - 127.0.0.1 - - [27/Apr/2025 19:08:39] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-27 19:08:45,504 - INFO - Administrator wszedł na stronę główną.
+2025-04-27 19:08:45,505 - INFO - 127.0.0.1 - - [27/Apr/2025 19:08:45] "GET / HTTP/1.1" 200 -
+2025-04-27 19:08:45,532 - INFO - 127.0.0.1 - - [27/Apr/2025 19:08:45] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-27 19:08:45,537 - INFO - 127.0.0.1 - - [27/Apr/2025 19:08:45] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-27 19:08:48,291 - INFO - Administrator wszedł na stronę z listą tasm.
+2025-04-27 19:08:48,294 - INFO - 127.0.0.1 - - [27/Apr/2025 19:08:48] "GET /tasma HTTP/1.1" 200 -
+2025-04-27 19:08:48,317 - INFO - 127.0.0.1 - - [27/Apr/2025 19:08:48] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-27 19:08:48,326 - INFO - 127.0.0.1 - - [27/Apr/2025 19:08:48] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-27 19:08:48,332 - INFO - 127.0.0.1 - - [27/Apr/2025 19:08:48] "[36mGET /static/img/drukarka.png HTTP/1.1[0m" 304 -
+2025-04-27 19:15:34,908 - INFO - Administrator wszedł na stronę główną.
+2025-04-27 19:15:34,909 - INFO - 127.0.0.1 - - [27/Apr/2025 19:15:34] "GET / HTTP/1.1" 200 -
+2025-04-27 19:15:34,936 - INFO - 127.0.0.1 - - [27/Apr/2025 19:15:34] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-27 19:15:34,942 - INFO - 127.0.0.1 - - [27/Apr/2025 19:15:34] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-27 19:15:35,738 - INFO - Administrator wszedł na stronę profilu.
+2025-04-27 19:15:35,742 - INFO - 127.0.0.1 - - [27/Apr/2025 19:15:35] "GET /profil HTTP/1.1" 200 -
+2025-04-27 19:15:35,762 - INFO - 127.0.0.1 - - [27/Apr/2025 19:15:35] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-27 19:15:35,770 - INFO - 127.0.0.1 - - [27/Apr/2025 19:15:35] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-27 19:15:37,316 - INFO - 127.0.0.1 - - [27/Apr/2025 19:15:37] "GET /get-tasma HTTP/1.1" 200 -
+2025-04-27 19:15:37,324 - INFO - 127.0.0.1 - - [27/Apr/2025 19:15:37] "GET /get-szablon_profile HTTP/1.1" 200 -
+2025-04-27 19:15:37,325 - INFO - 127.0.0.1 - - [27/Apr/2025 19:15:37] "GET /get-dlugosci HTTP/1.1" 200 -
+2025-04-27 19:15:39,781 - INFO - Otrzymane dane do aktualizacji profilu: {'column_0': '59', 'column_1': '49', 'column_2': '2025-04-27', 'column_4': '19:08:05', 'column_5': '19:08:22', 'column_6': '0.00', 'column_7': '3', 'column_8': '4', 'column_9': '1', 'column_10': '1', 'column_11': '2', 'column_12': 'DX510 2275 1,2x66', 'column_13': 'Administrator 4', 'column_14': 'Zapisz Usuń'}
+2025-04-27 19:15:39,783 - INFO - Poprzednie dane profilu o ID 59: {'id_tasmy': 49, 'data_produkcji': datetime.date(2025, 4, 27), 'godz_min_rozpoczecia': datetime.time(19, 8, 5), 'godz_min_zakonczenia': datetime.time(19, 8, 22), 'zwrot_na_magazyn_kg': Decimal('0.00'), 'id_szablon_profile': 3, 'nazwa_klienta_nr_zlecenia_PRODIO': '4', 'ilosc': 1, 'ilosc_na_stanie': 1, 'id_dlugosci': 1}
+2025-04-27 19:15:39,783 - INFO - Nowe dane profilu o ID 59: {'id_tasmy': '49', 'data_produkcji': '2025-04-27', 'godz_min_rozpoczecia': datetime.time(19, 8, 5), 'godz_min_zakonczenia': '19:08:05', 'zwrot_na_magazyn_kg': '19:08:22', 'id_szablon_profile': '0.00', 'nazwa_klienta_nr_zlecenia_PRODIO': '3', 'ilosc': '4', 'ilosc_na_stanie': '1', 'id_dlugosci': '1'}
+2025-04-27 19:15:39,783 - INFO - Zmiany wprowadzone przez użytkownika: Administrator
+2025-04-27 19:15:39,786 - ERROR - Wystąpił błąd podczas aktualizacji: (pymysql.err.IntegrityError) (1452, 'Cannot add or update a child row: a foreign key constraint fails (`baza_max`.`profil`, CONSTRAINT `profil_ibfk_4` FOREIGN KEY (`id_szablon_profile`) REFERENCES `szablon_profile` (`id`) ON DELETE CASCADE)')
+[SQL: UPDATE profil SET id_tasmy=%(id_tasmy)s, data_produkcji=%(data_produkcji)s, godz_min_zakonczenia=%(godz_min_zakonczenia)s, zwrot_na_magazyn_kg=%(zwrot_na_magazyn_kg)s, id_szablon_profile=%(id_szablon_profile)s, `nazwa_klienta_nr_zlecenia_PRODIO`=%(nazwa_klienta_nr_zlecenia_PRODIO)s, ilosc=%(ilosc)s, ilosc_na_stanie=%(ilosc_na_stanie)s, id_dlugosci=%(id_dlugosci)s WHERE profil.id = %(profil_id)s]
+[parameters: {'id_tasmy': '49', 'data_produkcji': '2025-04-27', 'godz_min_zakonczenia': '19:08:05', 'zwrot_na_magazyn_kg': '19:08:22', 'id_szablon_profile': '0.00', 'nazwa_klienta_nr_zlecenia_PRODIO': '3', 'ilosc': '4', 'ilosc_na_stanie': '1', 'id_dlugosci': '1', 'profil_id': 59}]
+(Background on this error at: https://sqlalche.me/e/20/gkpj)
+2025-04-27 19:15:39,786 - INFO - 127.0.0.1 - - [27/Apr/2025 19:15:39] "[35m[1mPOST /update-row_profil HTTP/1.1[0m" 500 -
+2025-04-27 19:15:41,710 - INFO - Administrator wszedł na stronę profilu.
+2025-04-27 19:15:41,713 - INFO - 127.0.0.1 - - [27/Apr/2025 19:15:41] "GET /profil HTTP/1.1" 200 -
+2025-04-27 19:15:41,731 - INFO - 127.0.0.1 - - [27/Apr/2025 19:15:41] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-27 19:15:41,740 - INFO - 127.0.0.1 - - [27/Apr/2025 19:15:41] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
