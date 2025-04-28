@@ -5330,3 +5330,251 @@
 2025-04-28 19:14:27,956 - INFO - 127.0.0.1 - - [28/Apr/2025 19:14:27] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
 2025-04-28 19:14:27,966 - INFO - 127.0.0.1 - - [28/Apr/2025 19:14:27] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
 2025-04-28 19:14:27,973 - INFO - 127.0.0.1 - - [28/Apr/2025 19:14:27] "[36mGET /static/img/drukarka.png HTTP/1.1[0m" 304 -
+2025-04-28 19:16:20,777 - INFO - Administrator wszedł na stronę główną.
+2025-04-28 19:16:20,778 - INFO - 127.0.0.1 - - [28/Apr/2025 19:16:20] "GET / HTTP/1.1" 200 -
+2025-04-28 19:16:20,812 - INFO - 127.0.0.1 - - [28/Apr/2025 19:16:20] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-28 19:16:20,818 - INFO - 127.0.0.1 - - [28/Apr/2025 19:16:20] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-28 19:16:22,103 - INFO - Administrator wszedł na stronę profilu.
+2025-04-28 19:16:22,262 - INFO - 127.0.0.1 - - [28/Apr/2025 19:16:22] "GET /profil HTTP/1.1" 200 -
+2025-04-28 19:16:22,300 - INFO - 127.0.0.1 - - [28/Apr/2025 19:16:22] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-28 19:16:22,314 - INFO - 127.0.0.1 - - [28/Apr/2025 19:16:22] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-28 19:16:24,806 - INFO - Próba usunięcia profilu o ID 60 przez użytkownika Administrator. Szczegóły profilu: ID Taśmy: 51, Data Produkcji: 2025-04-27, Godzina rozpoczęcia: 19:47:40, Godzina zakończenia: 19:52:25, Zwrot na magazyn (kg): 1.00, ID Szablonu Profilu: 3, Nazwa Klienta: 2, Ilość: 231, Ilość na stanie: 219, ID Długości: 1.
+2025-04-28 19:16:24,809 - INFO - Profil 3 został usunięty przez Administrator.
+2025-04-28 19:16:24,810 - INFO - 127.0.0.1 - - [28/Apr/2025 19:16:24] "[32mPOST /usun_profil/60 HTTP/1.1[0m" 302 -
+2025-04-28 19:16:24,817 - INFO - Administrator wszedł na stronę profilu.
+2025-04-28 19:16:24,818 - INFO - 127.0.0.1 - - [28/Apr/2025 19:16:24] "GET /profil HTTP/1.1" 200 -
+2025-04-28 19:16:24,838 - INFO - 127.0.0.1 - - [28/Apr/2025 19:16:24] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-28 19:16:24,847 - INFO - 127.0.0.1 - - [28/Apr/2025 19:16:24] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-28 19:16:25,876 - INFO - Administrator wszedł na stronę główną.
+2025-04-28 19:16:25,877 - INFO - 127.0.0.1 - - [28/Apr/2025 19:16:25] "GET / HTTP/1.1" 200 -
+2025-04-28 19:16:25,903 - INFO - 127.0.0.1 - - [28/Apr/2025 19:16:25] "GET /static/style.css HTTP/1.1" 200 -
+2025-04-28 19:16:25,909 - INFO - 127.0.0.1 - - [28/Apr/2025 19:16:25] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-28 19:16:26,873 - INFO - Administrator wszedł na stronę profilu.
+2025-04-28 19:16:26,874 - INFO - 127.0.0.1 - - [28/Apr/2025 19:16:26] "GET /profil HTTP/1.1" 200 -
+2025-04-28 19:16:26,898 - INFO - 127.0.0.1 - - [28/Apr/2025 19:16:26] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-28 19:16:26,907 - INFO - 127.0.0.1 - - [28/Apr/2025 19:16:26] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-28 19:16:28,995 - INFO - Administrator wszedł na stronę dodawania profilu.
+2025-04-28 19:16:29,011 - INFO - 127.0.0.1 - - [28/Apr/2025 19:16:29] "GET /dodaj_profil HTTP/1.1" 200 -
+2025-04-28 19:16:29,039 - INFO - 127.0.0.1 - - [28/Apr/2025 19:16:29] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-28 19:16:32,568 - INFO - Nowy profil został dodany przez użytkownika Administrator.
+2025-04-28 19:16:32,568 - INFO - Szczegóły profilu: ID Taśmy: 52, Data Produkcji: 2025-04-28, Godzina rozpoczęcia: 19:16:29, ID Szablonu Profilu: 3, Nazwa Klienta: 3422, Ilość: None, ID Długości: None.Imie nazwisko pracownika: 432.
+2025-04-28 19:16:32,569 - INFO - 127.0.0.1 - - [28/Apr/2025 19:16:32] "[32mPOST /dodaj_lub_zakonczenie_profilu HTTP/1.1[0m" 302 -
+2025-04-28 19:16:33,685 - INFO - Administrator wszedł na stronę dodawania profilu.
+2025-04-28 19:16:33,686 - INFO - 127.0.0.1 - - [28/Apr/2025 19:16:33] "GET /dodaj_profil HTTP/1.1" 200 -
+2025-04-28 19:16:33,731 - INFO - 127.0.0.1 - - [28/Apr/2025 19:16:33] "GET /static/style.css HTTP/1.1" 200 -
+2025-04-28 19:16:36,364 - INFO - Nowy profil został dodany przez użytkownika Administrator.
+2025-04-28 19:16:36,364 - INFO - Szczegóły profilu: ID Taśmy: 52, Data Produkcji: 2025-04-28, Godzina rozpoczęcia: 19:16:33, ID Szablonu Profilu: 3, Nazwa Klienta: 432, Ilość: None, ID Długości: None.Imie nazwisko pracownika: 234.
+2025-04-28 19:16:36,365 - INFO - 127.0.0.1 - - [28/Apr/2025 19:16:36] "[32mPOST /dodaj_lub_zakonczenie_profilu HTTP/1.1[0m" 302 -
+2025-04-28 19:16:36,372 - INFO - Administrator wszedł na stronę profilu.
+2025-04-28 19:16:36,377 - INFO - 127.0.0.1 - - [28/Apr/2025 19:16:36] "GET /profil HTTP/1.1" 200 -
+2025-04-28 19:16:37,702 - INFO - Administrator wszedł na stronę profilu.
+2025-04-28 19:16:37,706 - INFO - 127.0.0.1 - - [28/Apr/2025 19:16:37] "GET /profil HTTP/1.1" 200 -
+2025-04-28 19:16:37,728 - INFO - 127.0.0.1 - - [28/Apr/2025 19:16:37] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-28 19:16:37,742 - INFO - 127.0.0.1 - - [28/Apr/2025 19:16:37] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-28 19:16:38,389 - INFO - 127.0.0.1 - - [28/Apr/2025 19:16:38] "POST /dodaj_profil_do_bazy HTTP/1.1" 200 -
+2025-04-28 19:16:38,408 - INFO - 127.0.0.1 - - [28/Apr/2025 19:16:38] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-28 19:16:44,377 - INFO - Zakończenie profilu o ID 65 przez użytkownika Administrator.
+2025-04-28 19:16:44,377 - INFO - Poprzednie dane: {'godz_min_zakonczenia': None, 'zwrot_na_magazyn_kg': None, 'ilosc': None, 'ilosc_na_stanie': None, 'id_dlugosci': None}
+2025-04-28 19:16:44,377 - INFO - Nowe dane: {'godz_min_zakonczenia': '19:16:44', 'zwrot_na_magazyn_kg': '3', 'ilosc': '243', 'ilosc_na_stanie': '243', 'id_dlugosci': '1'}
+2025-04-28 19:16:44,381 - INFO - 127.0.0.1 - - [28/Apr/2025 19:16:44] "[32mPOST /dodaj_lub_zakonczenie_profilu HTTP/1.1[0m" 302 -
+2025-04-28 19:16:44,389 - INFO - Administrator wszedł na stronę profilu.
+2025-04-28 19:16:44,394 - INFO - 127.0.0.1 - - [28/Apr/2025 19:16:44] "GET /profil HTTP/1.1" 200 -
+2025-04-28 19:16:44,424 - INFO - 127.0.0.1 - - [28/Apr/2025 19:16:44] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-28 19:16:44,438 - INFO - 127.0.0.1 - - [28/Apr/2025 19:16:44] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-28 19:16:45,894 - INFO - 127.0.0.1 - - [28/Apr/2025 19:16:45] "POST /dodaj_profil_do_bazy HTTP/1.1" 200 -
+2025-04-28 19:16:45,918 - INFO - 127.0.0.1 - - [28/Apr/2025 19:16:45] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-28 19:16:50,343 - INFO - Zakończenie profilu o ID 66 przez użytkownika Administrator.
+2025-04-28 19:16:50,343 - INFO - Poprzednie dane: {'godz_min_zakonczenia': None, 'zwrot_na_magazyn_kg': None, 'ilosc': None, 'ilosc_na_stanie': None, 'id_dlugosci': None}
+2025-04-28 19:16:50,343 - INFO - Nowe dane: {'godz_min_zakonczenia': '19:16:50', 'zwrot_na_magazyn_kg': '2', 'ilosc': '34', 'ilosc_na_stanie': '34', 'id_dlugosci': '1'}
+2025-04-28 19:16:50,345 - INFO - 127.0.0.1 - - [28/Apr/2025 19:16:50] "[32mPOST /dodaj_lub_zakonczenie_profilu HTTP/1.1[0m" 302 -
+2025-04-28 19:16:50,350 - INFO - Administrator wszedł na stronę profilu.
+2025-04-28 19:16:50,354 - INFO - 127.0.0.1 - - [28/Apr/2025 19:16:50] "GET /profil HTTP/1.1" 200 -
+2025-04-28 19:16:50,374 - INFO - 127.0.0.1 - - [28/Apr/2025 19:16:50] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-28 19:16:50,382 - INFO - 127.0.0.1 - - [28/Apr/2025 19:16:50] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-28 19:16:51,479 - INFO - Administrator wszedł na stronę profilu.
+2025-04-28 19:16:51,483 - INFO - 127.0.0.1 - - [28/Apr/2025 19:16:51] "GET /profil HTTP/1.1" 200 -
+2025-04-28 19:16:51,502 - INFO - 127.0.0.1 - - [28/Apr/2025 19:16:51] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-28 19:16:51,513 - INFO - 127.0.0.1 - - [28/Apr/2025 19:16:51] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-28 19:17:09,122 - INFO - Administrator wszedł na stronę główną.
+2025-04-28 19:17:09,123 - INFO - 127.0.0.1 - - [28/Apr/2025 19:17:09] "GET / HTTP/1.1" 200 -
+2025-04-28 19:17:09,149 - INFO - 127.0.0.1 - - [28/Apr/2025 19:17:09] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-28 19:17:09,153 - INFO - 127.0.0.1 - - [28/Apr/2025 19:17:09] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-28 19:17:09,978 - INFO - Administrator wszedł na stronę zarządzania użytkownikami.
+2025-04-28 19:17:10,029 - INFO - 127.0.0.1 - - [28/Apr/2025 19:17:10] "GET /uzytkownik HTTP/1.1" 200 -
+2025-04-28 19:17:10,049 - INFO - 127.0.0.1 - - [28/Apr/2025 19:17:10] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-28 19:17:10,060 - INFO - 127.0.0.1 - - [28/Apr/2025 19:17:10] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-28 19:17:13,103 - INFO - Administrator wszedł na stronę rejestracji użytkownika.
+2025-04-28 19:17:13,109 - INFO - 127.0.0.1 - - [28/Apr/2025 19:17:13] "GET /register HTTP/1.1" 200 -
+2025-04-28 19:17:13,145 - INFO - 127.0.0.1 - - [28/Apr/2025 19:17:13] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-28 19:17:13,152 - INFO - 127.0.0.1 - - [28/Apr/2025 19:17:13] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-28 19:17:21,767 - INFO - Dane użytkownika test4 z uprawnieniami Pracownik zostały pomyślnie zapisane w bazie danych.
+2025-04-28 19:17:21,768 - INFO - 127.0.0.1 - - [28/Apr/2025 19:17:21] "[32mPOST /rejestracja_do_bazy HTTP/1.1[0m" 302 -
+2025-04-28 19:17:21,774 - INFO - Administrator wszedł na stronę zarządzania użytkownikami.
+2025-04-28 19:17:21,777 - INFO - 127.0.0.1 - - [28/Apr/2025 19:17:21] "GET /uzytkownik HTTP/1.1" 200 -
+2025-04-28 19:17:21,814 - INFO - 127.0.0.1 - - [28/Apr/2025 19:17:21] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-28 19:17:21,829 - INFO - 127.0.0.1 - - [28/Apr/2025 19:17:21] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-28 19:17:25,001 - INFO - Użytkownik Administrator wylogowany.
+2025-04-28 19:17:25,002 - INFO - 127.0.0.1 - - [28/Apr/2025 19:17:25] "[32mGET /logout HTTP/1.1[0m" 302 -
+2025-04-28 19:17:25,007 - INFO - Nieautoryzowany dostęp do strony głównej.
+2025-04-28 19:17:25,013 - INFO - 127.0.0.1 - - [28/Apr/2025 19:17:25] "GET / HTTP/1.1" 200 -
+2025-04-28 19:17:25,058 - INFO - 127.0.0.1 - - [28/Apr/2025 19:17:25] "GET /static/style.css HTTP/1.1" 200 -
+2025-04-28 19:17:25,062 - INFO - 127.0.0.1 - - [28/Apr/2025 19:17:25] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-28 19:17:28,844 - INFO - Próba logowania dla logina: test4
+2025-04-28 19:17:28,951 - INFO - Użytkownik test4 zalogowany pomyślnie.
+2025-04-28 19:17:28,952 - INFO - 127.0.0.1 - - [28/Apr/2025 19:17:28] "[32mPOST /login HTTP/1.1[0m" 302 -
+2025-04-28 19:17:28,958 - INFO - test4 wszedł na stronę główną.
+2025-04-28 19:17:28,959 - INFO - 127.0.0.1 - - [28/Apr/2025 19:17:28] "GET / HTTP/1.1" 200 -
+2025-04-28 19:17:28,993 - INFO - 127.0.0.1 - - [28/Apr/2025 19:17:28] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-28 19:17:28,998 - INFO - 127.0.0.1 - - [28/Apr/2025 19:17:28] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-28 19:17:30,250 - INFO - test4 wszedł na stronę profilu.
+2025-04-28 19:17:30,253 - INFO - 127.0.0.1 - - [28/Apr/2025 19:17:30] "GET /profil HTTP/1.1" 200 -
+2025-04-28 19:17:30,275 - INFO - 127.0.0.1 - - [28/Apr/2025 19:17:30] "GET /static/style.css HTTP/1.1" 200 -
+2025-04-28 19:17:30,285 - INFO - 127.0.0.1 - - [28/Apr/2025 19:17:30] "GET /static/img/logo-duże.png HTTP/1.1" 200 -
+2025-04-28 19:17:32,821 - INFO - test4 wszedł na stronę dodawania profilu.
+2025-04-28 19:17:32,822 - INFO - 127.0.0.1 - - [28/Apr/2025 19:17:32] "GET /dodaj_profil HTTP/1.1" 200 -
+2025-04-28 19:17:32,858 - INFO - 127.0.0.1 - - [28/Apr/2025 19:17:32] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-28 19:17:37,814 - INFO - Nowy profil został dodany przez użytkownika test4.
+2025-04-28 19:17:37,814 - INFO - Szczegóły profilu: ID Taśmy: 52, Data Produkcji: 2025-04-28, Godzina rozpoczęcia: 19:17:32, ID Szablonu Profilu: 3, Nazwa Klienta: 1, Ilość: None, ID Długości: None.Imie nazwisko pracownika: 1.
+2025-04-28 19:17:37,815 - INFO - 127.0.0.1 - - [28/Apr/2025 19:17:37] "[32mPOST /dodaj_lub_zakonczenie_profilu HTTP/1.1[0m" 302 -
+2025-04-28 19:17:39,166 - INFO - test4 wszedł na stronę profilu.
+2025-04-28 19:17:39,170 - INFO - 127.0.0.1 - - [28/Apr/2025 19:17:39] "GET /profil HTTP/1.1" 200 -
+2025-04-28 19:17:39,185 - INFO - 127.0.0.1 - - [28/Apr/2025 19:17:39] "GET /static/style.css HTTP/1.1" 200 -
+2025-04-28 19:17:39,194 - INFO - 127.0.0.1 - - [28/Apr/2025 19:17:39] "GET /static/img/logo-duże.png HTTP/1.1" 200 -
+2025-04-28 20:23:43,752 - INFO -  * Detected change in 'C:\\Users\\admin\\Documents\\GitHub\\baza\\baza danych maxmetal\\python\\index.py', reloading
+2025-04-28 20:23:46,257 - INFO -  * Restarting with stat
+2025-04-28 20:23:48,728 - INFO - Połączenie z bazą danych zostało nawiązane pomyślnie.
+2025-04-28 20:23:48,787 - INFO - ✅ Kopia zapasowa zapisana do pliku: backups\kopie_zapasowe_bazy_2025-04-28_20-23.sql
+2025-04-28 20:23:48,788 - INFO - 🗑️ Usunięto starą kopię: kopie_zapasowe_bazy_2025-04-27_19-58.sql
+2025-04-28 20:23:48,792 - WARNING -  * Debugger is active!
+2025-04-28 20:23:48,796 - INFO -  * Debugger PIN: 575-758-812
+2025-04-28 20:23:57,318 - INFO - Połączenie z bazą danych zostało nawiązane pomyślnie.
+2025-04-28 20:23:57,376 - INFO - ✅ Kopia zapasowa zapisana do pliku: backups\kopie_zapasowe_bazy_2025-04-28_20-23.sql
+2025-04-28 20:23:57,387 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.1.28:5000
+2025-04-28 20:23:57,388 - INFO - [33mPress CTRL+C to quit[0m
+2025-04-28 20:23:57,389 - INFO -  * Restarting with stat
+2025-04-28 20:23:59,927 - INFO - Połączenie z bazą danych zostało nawiązane pomyślnie.
+2025-04-28 20:23:59,984 - INFO - ✅ Kopia zapasowa zapisana do pliku: backups\kopie_zapasowe_bazy_2025-04-28_20-23.sql
+2025-04-28 20:23:59,988 - WARNING -  * Debugger is active!
+2025-04-28 20:23:59,992 - INFO -  * Debugger PIN: 575-758-812
+2025-04-28 20:24:00,481 - INFO - 127.0.0.1 - - [28/Apr/2025 20:24:00] "[35m[1mGET /profil HTTP/1.1[0m" 500 -
+2025-04-28 20:24:00,541 - INFO - 127.0.0.1 - - [28/Apr/2025 20:24:00] "GET /profil?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1" 200 -
+2025-04-28 20:24:00,551 - INFO - 127.0.0.1 - - [28/Apr/2025 20:24:00] "[36mGET /profil?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+2025-04-28 20:24:00,564 - INFO - 127.0.0.1 - - [28/Apr/2025 20:24:00] "GET /profil?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+2025-04-28 20:24:00,576 - INFO - 127.0.0.1 - - [28/Apr/2025 20:24:00] "GET /profil?__debugger__=yes&cmd=resource&f=console.png&s=849AkFe5hzJR4s8aNDqb HTTP/1.1" 200 -
+2025-04-28 20:24:35,652 - INFO - Połączenie z bazą danych zostało nawiązane pomyślnie.
+2025-04-28 20:24:35,717 - INFO - ✅ Kopia zapasowa zapisana do pliku: backups\kopie_zapasowe_bazy_2025-04-28_20-24.sql
+2025-04-28 20:24:35,718 - INFO - 🗑️ Usunięto starą kopię: kopie_zapasowe_bazy_2025-04-28_00-21.sql
+2025-04-28 20:24:35,732 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.1.28:5000
+2025-04-28 20:24:35,732 - INFO - [33mPress CTRL+C to quit[0m
+2025-04-28 20:24:35,734 - INFO -  * Restarting with stat
+2025-04-28 20:24:38,210 - INFO - Połączenie z bazą danych zostało nawiązane pomyślnie.
+2025-04-28 20:24:38,270 - INFO - ✅ Kopia zapasowa zapisana do pliku: backups\kopie_zapasowe_bazy_2025-04-28_20-24.sql
+2025-04-28 20:24:38,276 - WARNING -  * Debugger is active!
+2025-04-28 20:24:38,280 - INFO -  * Debugger PIN: 575-758-812
+2025-04-28 20:24:38,514 - INFO - 127.0.0.1 - - [28/Apr/2025 20:24:38] "GET /profil HTTP/1.1" 200 -
+2025-04-28 20:24:38,583 - INFO - 127.0.0.1 - - [28/Apr/2025 20:24:38] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-28 20:24:38,588 - INFO - 127.0.0.1 - - [28/Apr/2025 20:24:38] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-28 20:24:41,909 - INFO - Próba logowania dla logina: Administrator
+2025-04-28 20:24:42,009 - WARNING - Nieudana próba logowania.
+2025-04-28 20:24:42,010 - INFO - 127.0.0.1 - - [28/Apr/2025 20:24:42] "POST /login HTTP/1.1" 200 -
+2025-04-28 20:24:42,066 - INFO - 127.0.0.1 - - [28/Apr/2025 20:24:42] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-28 20:24:42,069 - INFO - 127.0.0.1 - - [28/Apr/2025 20:24:42] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-28 20:25:15,239 - INFO - Próba logowania dla logina: Administrator
+2025-04-28 20:25:15,340 - INFO - Użytkownik Administrator zalogowany pomyślnie.
+2025-04-28 20:25:15,341 - INFO - 127.0.0.1 - - [28/Apr/2025 20:25:15] "[32mPOST /login HTTP/1.1[0m" 302 -
+2025-04-28 20:25:15,351 - INFO - Nieautoryzowany dostęp do strony głównej.
+2025-04-28 20:25:15,352 - INFO - 127.0.0.1 - - [28/Apr/2025 20:25:15] "GET / HTTP/1.1" 200 -
+2025-04-28 20:25:15,450 - INFO - 127.0.0.1 - - [28/Apr/2025 20:25:15] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-28 20:25:15,453 - INFO - 127.0.0.1 - - [28/Apr/2025 20:25:15] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-28 20:25:31,643 - INFO - Próba logowania dla logina: Administrator
+2025-04-28 20:25:31,746 - INFO - Użytkownik Administrator zalogowany pomyślnie.
+2025-04-28 20:25:31,747 - INFO - 127.0.0.1 - - [28/Apr/2025 20:25:31] "[32mPOST /login HTTP/1.1[0m" 302 -
+2025-04-28 20:25:31,753 - INFO - Nieautoryzowany dostęp do strony głównej.
+2025-04-28 20:25:31,754 - INFO - 127.0.0.1 - - [28/Apr/2025 20:25:31] "GET / HTTP/1.1" 200 -
+2025-04-28 20:25:31,860 - INFO - 127.0.0.1 - - [28/Apr/2025 20:25:31] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-28 20:25:31,864 - INFO - 127.0.0.1 - - [28/Apr/2025 20:25:31] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-28 20:25:44,522 - INFO - Próba logowania dla logina: test4
+2025-04-28 20:25:44,622 - INFO - Użytkownik test4 zalogowany pomyślnie.
+2025-04-28 20:25:44,623 - INFO - 127.0.0.1 - - [28/Apr/2025 20:25:44] "[32mPOST /login HTTP/1.1[0m" 302 -
+2025-04-28 20:25:44,629 - INFO - Nieautoryzowany dostęp do strony głównej.
+2025-04-28 20:25:44,630 - INFO - 127.0.0.1 - - [28/Apr/2025 20:25:44] "GET / HTTP/1.1" 200 -
+2025-04-28 20:25:44,686 - INFO - 127.0.0.1 - - [28/Apr/2025 20:25:44] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-28 20:25:44,690 - INFO - 127.0.0.1 - - [28/Apr/2025 20:25:44] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-28 20:27:10,418 - INFO -  * Detected change in 'C:\\Users\\admin\\Documents\\GitHub\\baza\\baza danych maxmetal\\python\\index.py', reloading
+2025-04-28 20:27:12,927 - INFO -  * Restarting with stat
+2025-04-28 20:27:15,288 - INFO - Połączenie z bazą danych zostało nawiązane pomyślnie.
+2025-04-28 20:27:15,346 - INFO - ✅ Kopia zapasowa zapisana do pliku: backups\kopie_zapasowe_bazy_2025-04-28_20-27.sql
+2025-04-28 20:27:15,347 - INFO - 🗑️ Usunięto starą kopię: kopie_zapasowe_bazy_2025-04-28_12-07.sql
+2025-04-28 20:27:15,351 - WARNING -  * Debugger is active!
+2025-04-28 20:27:15,355 - INFO -  * Debugger PIN: 575-758-812
+2025-04-28 20:27:25,609 - INFO - Połączenie z bazą danych zostało nawiązane pomyślnie.
+2025-04-28 20:27:25,681 - INFO - ✅ Kopia zapasowa zapisana do pliku: backups\kopie_zapasowe_bazy_2025-04-28_20-27.sql
+2025-04-28 20:27:25,695 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.1.28:5000
+2025-04-28 20:27:25,696 - INFO - [33mPress CTRL+C to quit[0m
+2025-04-28 20:27:25,697 - INFO -  * Restarting with stat
+2025-04-28 20:27:28,146 - INFO - Połączenie z bazą danych zostało nawiązane pomyślnie.
+2025-04-28 20:27:28,211 - INFO - ✅ Kopia zapasowa zapisana do pliku: backups\kopie_zapasowe_bazy_2025-04-28_20-27.sql
+2025-04-28 20:27:28,218 - WARNING -  * Debugger is active!
+2025-04-28 20:27:28,222 - INFO -  * Debugger PIN: 575-758-812
+2025-04-28 20:27:28,458 - INFO - Nieautoryzowany dostęp do strony głównej.
+2025-04-28 20:27:28,468 - INFO - 127.0.0.1 - - [28/Apr/2025 20:27:28] "GET / HTTP/1.1" 200 -
+2025-04-28 20:27:28,557 - INFO - 127.0.0.1 - - [28/Apr/2025 20:27:28] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-28 20:27:28,562 - INFO - 127.0.0.1 - - [28/Apr/2025 20:27:28] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-28 20:27:36,116 - INFO - Próba logowania dla logina: Administrator
+2025-04-28 20:27:36,217 - INFO - Użytkownik Administrator zalogowany pomyślnie.
+2025-04-28 20:27:36,218 - INFO - 127.0.0.1 - - [28/Apr/2025 20:27:36] "[32mPOST /login HTTP/1.1[0m" 302 -
+2025-04-28 20:27:36,240 - INFO - Administrator wszedł na stronę główną.
+2025-04-28 20:27:36,329 - INFO - 127.0.0.1 - - [28/Apr/2025 20:27:36] "GET / HTTP/1.1" 200 -
+2025-04-28 20:27:36,399 - INFO - 127.0.0.1 - - [28/Apr/2025 20:27:36] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-28 20:27:36,404 - INFO - 127.0.0.1 - - [28/Apr/2025 20:27:36] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-28 20:27:38,920 - INFO - Administrator wszedł na stronę z listą tasm.
+2025-04-28 20:27:39,021 - INFO - 127.0.0.1 - - [28/Apr/2025 20:27:39] "GET /tasma HTTP/1.1" 200 -
+2025-04-28 20:27:39,059 - INFO - 127.0.0.1 - - [28/Apr/2025 20:27:39] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-28 20:27:39,092 - INFO - 127.0.0.1 - - [28/Apr/2025 20:27:39] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-28 20:27:39,131 - INFO - 127.0.0.1 - - [28/Apr/2025 20:27:39] "GET /static/img/drukarka.png HTTP/1.1" 200 -
+2025-04-28 20:27:40,557 - INFO - Administrator wszedł na stronę główną.
+2025-04-28 20:27:40,558 - INFO - 127.0.0.1 - - [28/Apr/2025 20:27:40] "GET / HTTP/1.1" 200 -
+2025-04-28 20:27:40,597 - INFO - 127.0.0.1 - - [28/Apr/2025 20:27:40] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-28 20:27:40,602 - INFO - 127.0.0.1 - - [28/Apr/2025 20:27:40] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-28 20:27:53,135 - INFO - Administrator wszedł na stronę główną.
+2025-04-28 20:27:53,136 - INFO - 127.0.0.1 - - [28/Apr/2025 20:27:53] "GET / HTTP/1.1" 200 -
+2025-04-28 20:27:53,181 - INFO - 127.0.0.1 - - [28/Apr/2025 20:27:53] "GET /static/style.css HTTP/1.1" 200 -
+2025-04-28 20:27:53,188 - INFO - 127.0.0.1 - - [28/Apr/2025 20:27:53] "GET /static/img/logo-duże.png HTTP/1.1" 200 -
+2025-04-28 20:27:53,798 - INFO - Administrator wszedł na stronę główną.
+2025-04-28 20:27:53,799 - INFO - 127.0.0.1 - - [28/Apr/2025 20:27:53] "GET / HTTP/1.1" 200 -
+2025-04-28 20:27:53,837 - INFO - 127.0.0.1 - - [28/Apr/2025 20:27:53] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-28 20:27:53,841 - INFO - 127.0.0.1 - - [28/Apr/2025 20:27:53] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-28 20:27:55,792 - INFO - Administrator wszedł na stronę z listą tasm.
+2025-04-28 20:27:55,795 - INFO - 127.0.0.1 - - [28/Apr/2025 20:27:55] "GET /tasma HTTP/1.1" 200 -
+2025-04-28 20:27:55,843 - INFO - 127.0.0.1 - - [28/Apr/2025 20:27:55] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-28 20:27:55,859 - INFO - 127.0.0.1 - - [28/Apr/2025 20:27:55] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-28 20:27:55,873 - INFO - 127.0.0.1 - - [28/Apr/2025 20:27:55] "GET /static/img/drukarka.png HTTP/1.1" 200 -
+2025-04-28 20:27:57,216 - INFO - Administrator wszedł na stronę główną.
+2025-04-28 20:27:57,218 - INFO - 127.0.0.1 - - [28/Apr/2025 20:27:57] "GET / HTTP/1.1" 200 -
+2025-04-28 20:27:57,260 - INFO - 127.0.0.1 - - [28/Apr/2025 20:27:57] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-28 20:27:57,265 - INFO - 127.0.0.1 - - [28/Apr/2025 20:27:57] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-28 20:27:58,857 - INFO - Administrator wszedł na stronę zestawienia.
+2025-04-28 20:27:58,957 - INFO - 127.0.0.1 - - [28/Apr/2025 20:27:58] "GET /zestawienie HTTP/1.1" 200 -
+2025-04-28 20:27:59,000 - INFO - 127.0.0.1 - - [28/Apr/2025 20:27:59] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-28 20:27:59,014 - INFO - 127.0.0.1 - - [28/Apr/2025 20:27:59] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-28 20:27:59,024 - INFO - 127.0.0.1 - - [28/Apr/2025 20:27:59] "[36mGET /static/img/drukarka.png HTTP/1.1[0m" 304 -
+2025-04-28 20:28:01,146 - INFO - Administrator wszedł na stronę główną.
+2025-04-28 20:28:01,147 - INFO - 127.0.0.1 - - [28/Apr/2025 20:28:01] "GET / HTTP/1.1" 200 -
+2025-04-28 20:28:01,183 - INFO - 127.0.0.1 - - [28/Apr/2025 20:28:01] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-28 20:28:01,188 - INFO - 127.0.0.1 - - [28/Apr/2025 20:28:01] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-28 20:28:02,400 - INFO - 127.0.0.1 - - [28/Apr/2025 20:28:02] "GET /sprzedaz HTTP/1.1" 200 -
+2025-04-28 20:28:02,439 - INFO - 127.0.0.1 - - [28/Apr/2025 20:28:02] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-28 20:28:02,444 - INFO - 127.0.0.1 - - [28/Apr/2025 20:28:02] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-28 20:28:03,401 - INFO - Administrator wszedł na stronę główną.
+2025-04-28 20:28:03,402 - INFO - 127.0.0.1 - - [28/Apr/2025 20:28:03] "GET / HTTP/1.1" 200 -
+2025-04-28 20:28:03,442 - INFO - 127.0.0.1 - - [28/Apr/2025 20:28:03] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-28 20:28:03,447 - INFO - 127.0.0.1 - - [28/Apr/2025 20:28:03] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -

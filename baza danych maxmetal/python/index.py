@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, redirect, url_for, g, make_response, flash, jsonify,  send_file
+from flask import Flask, render_template, request, redirect, url_for, g, make_response, flash, jsonify,  send_file,session
 from flask_sqlalchemy import SQLAlchemy
 import logging
 from sqlalchemy import text, cast, Integer
@@ -261,11 +261,11 @@ backup_thread.start()
 
 @app.before_request
 def load_logged_in_user():
-    user_id = request.cookies.get('user_id')
-    if user_id:
-        g.user = Uzytkownik.query.get(int(user_id))
-    else:
+    user_id = session.get('user_id')
+    if user_id is None:
         g.user = None
+    else:
+        g.user = Uzytkownik.query.get(user_id)
 
 @app.route('/')
 def home():
@@ -412,7 +412,6 @@ def usun_uzytkownik(id):
         db.session.rollback()
         logger.error(f'Błąd przy usuwaniu użytkownika: {e}')
         flash(f'Błąd przy usuwaniu: {e}', 'danger')
-
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     if request.method == 'POST':
@@ -422,16 +421,19 @@ def login():
         user = Uzytkownik.query.filter_by(login=login).first()
         logger.info(f"Próba logowania dla logina: {login}")
 
-        response = None
-
         if user and check_password_hash(user.haslo, password):
             g.user = user
-            response = make_response(redirect(url_for('home')))
-            remember_me = request.form.get('remember_me')  # Sprawdzenie, czy zaznaczone "zapamiętaj mnie"
-            max_age = timedelta(days=30) if remember_me else None
-            response.set_cookie('user_id', str(user.id), httponly=True, secure=False, samesite='Strict', max_age=max_age)
+            session.clear()  # Czyścimy sesję przed nowym zalogowaniem
+            session['user_id'] = user.id  # <-- tutaj zapisujemy user_id do session
+
+            remember_me = request.form.get('remember_me')
+            if remember_me:
+                session.permanent = True  # <-- Sesja ważna dłużej (domyślnie 31 dni)
+            else:
+                session.permanent = False
+
             logger.info(f"Użytkownik {user.login} zalogowany pomyślnie.")
-            return response
+            return redirect(url_for('home'))
         else:
             logger.warning("Nieudana próba logowania.")
             return render_template('login.html', error="Błędny login lub hasło")
@@ -442,9 +444,8 @@ def login():
 def logout():
     if g.user:
         logger.info(f"Użytkownik {g.user.login} wylogowany.")
-    response = make_response(redirect(url_for('home')))
-    response.set_cookie('user_id', '', expires=0, httponly=True, secure=False, samesite='Strict')
-    return response
+    session.clear()  # <-- czyścimy całą sesję
+    return redirect(url_for('home'))
 
 
 
