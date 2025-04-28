@@ -203,6 +203,7 @@ def zapisz_do_pliku_sql():
                     'lokalizacja',
                     'dlugosci',
                     'tasma',
+                    'szablon_profile',
                     'profil'
                 ]
 
@@ -473,7 +474,7 @@ def register():
 def usun_tasma(id):
     if not g.user:
         return render_template('login.html', user=g.user)
-    if g.user.id_uprawnienia != 1:
+    if g.user.id_uprawnienia ==3:
         return redirect(url_for('home'))
     
     tasma = Tasma.query.get_or_404(id)
@@ -678,7 +679,7 @@ def profil():
 def usun_profil(id):
     if not g.user:
         return render_template('login.html', user=g.user)
-    if g.user.id_uprawnienia != 1:
+    if g.user.id_uprawnienia ==3:
         return redirect(url_for('home'))
     
     profil = Profil.query.get_or_404(id)

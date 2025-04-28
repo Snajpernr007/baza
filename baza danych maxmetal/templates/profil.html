@@ -627,7 +627,7 @@ window.open(url, '_blank', windowFeatures); // '_blank' otworzy nowe okno/tab
                                     
                                         
                                         {% if not profile.godz_min_zakonczenia %}
-                                        <form method="POST" style="display:inline;background-color: transparent;width: 0;padding: 0%;" action="{{ url_for('dodaj_profil_do_bazy') }}">
+                                        <form method="POST" style="display:inline;background-color: transparent;width: 0;padding: 0%;" action="{{ url_for('dodaj_profil_do_bazy') }}" >
                                             <!-- Ukryte pole z identyfikatorem profilu -->
                                             <input type="hidden" name="profil_id" value="{{ profile.id }}">
                                             <button type="submit" class="button">Zakończ</button>
@@ -668,7 +668,7 @@ window.open(url, '_blank', windowFeatures); // '_blank' otworzy nowe okno/tab
                                         {% else %}
                                         <button type="button" class="button" onclick="openEditModala(this.parentElement.parentElement)">Edytuj</button>
                                         {% endif %}
-                                        <form method="POST" style="display:inline;background-color: transparent;width: 0;padding: 0%;" action="{{ url_for('usun_profil', id=profile.id) }}">
+                                        <form method="POST" style="display:inline;background-color: transparent;width: 0;padding: 0%;" action="{{ url_for('usun_profil', id=profile.id) }}" onsubmit="return confirm('Na pewno chcesz usunąć ten materiał?');">
                                             <!-- Ukryte pole z identyfikatorem profilu -->
                                             <input type="hidden" name="profil_id" value="{{ profile.id }}">
                                         <button type="submit" class="button">Usuń</button>
@@ -701,7 +701,7 @@ window.open(url, '_blank', windowFeatures); // '_blank' otworzy nowe okno/tab
                                         {% else %}
                                         <button type="button" class="button" onclick="openEditModala(this.parentElement.parentElement)">Edytuj</button>
                                         {% endif %}
-                                        <form method="POST" style="display:inline;background-color: transparent;width: 0;padding: 0%;" action="{{ url_for('usun_profil', id=profile.id) }}">
+                                        <form method="POST" style="display:inline;background-color: transparent;width: 0;padding: 0%;" action="{{ url_for('usun_profil', id=profile.id) }}" onsubmit="return confirm('Na pewno chcesz usunąć ten materiał?');">
                                             <!-- Ukryte pole z identyfikatorem profilu -->
                                             <input type="hidden" name="profil_id" value="{{ profile.id }}">
                                         <button type="submit" class="button">Usuń</button>
@@ -734,7 +734,7 @@ window.open(url, '_blank', windowFeatures); // '_blank' otworzy nowe okno/tab
                                         {% else %}
                                         <button type="button" class="button" onclick="openEditModala(this.parentElement.parentElement)">Edytuj</button>
                                         {% endif %}
-                                        <form method="POST" style="display:inline;background-color: transparent;width: 0;padding: 0%;" action="{{ url_for('usun_profil', id=profile.id) }}">
+                                        <form method="POST" style="display:inline;background-color: transparent;width: 0;padding: 0%;" action="{{ url_for('usun_profil', id=profile.id) }}" onsubmit="return confirm('Na pewno chcesz usunąć ten materiał?');">
                                             <!-- Ukryte pole z identyfikatorem profilu -->
                                             <input type="hidden" name="profil_id" value="{{ profile.id }}">
                                         <button type="submit" class="button">Usuń</button>
