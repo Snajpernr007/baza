@@ -175,12 +175,11 @@ function sortTable(columnIndex) {
     const table = document.getElementById("tabela");
     const tbody = table.tBodies[0];
 
-    // Oddziel taśmy i profile
     const allRows = Array.from(tbody.querySelectorAll("tr"));
     const tasmy = allRows.filter(row => !row.hasAttribute("data-parent-id"));
     const profiles = allRows.filter(row => row.hasAttribute("data-parent-id"));
 
-    // Stan sortowania
+    // Obsługuje stan sortowania dla danej kolumny
     const existingSort = sortStates.find(s => s.columnIndex === columnIndex);
     if (existingSort) {
         existingSort.ascending = !existingSort.ascending;
@@ -189,8 +188,7 @@ function sortTable(columnIndex) {
     }
     const ascending = sortStates[0].ascending;
 
-    // Sortowanie taśm
-    tasmy.sort((a, b) => {
+    function compareRows(a, b) {
         const textA = a.cells[columnIndex]?.textContent.trim().toLowerCase() || "";
         const textB = b.cells[columnIndex]?.textContent.trim().toLowerCase() || "";
 
@@ -199,20 +197,29 @@ function sortTable(columnIndex) {
         } else {
             return ascending ? textA.localeCompare(textB) : textB.localeCompare(textA);
         }
-    });
+    }
 
-    // Wyczyść tbody
-    tbody.innerHTML = "";
+    // Sortowanie taśm
+    tasmy.sort(compareRows);
 
-    // Wstaw taśmy i powiązane profile
+    // Sortowanie profili
+    profiles.sort(compareRows);
+
+    // Wstaw posortowane taśmy i powiązane profile z powrotem do tabeli
+    tbody.innerHTML = "";  // Wyczyść tbody przed dodaniem nowych wierszy
+
     tasmy.forEach(tasma => {
-        tbody.appendChild(tasma);
+        tbody.appendChild(tasma);  // Dodaj główną taśmę do tabeli
+
+        // Pobierz ID taśmy, aby znaleźć powiązane profile
         const tasmaId = tasma.querySelector("td")?.textContent.trim();
         const powiazaneProfile = profiles.filter(p => p.dataset.parentId === tasmaId);
+
+        // Dodaj powiązane profile poniżej taśmy
         powiazaneProfile.forEach(profile => tbody.appendChild(profile));
     });
 
-    // Aktualizacja strzałek do sortowania
+    // Zaktualizuj strzałki w nagłówkach
     const headerCells = table.tHead.rows[1].cells;
     Array.from(headerCells).forEach(cell => {
         cell.innerHTML = cell.innerHTML.replace(/ ▲| ▼/g, '');
@@ -223,6 +230,7 @@ function sortTable(columnIndex) {
         headerCell.innerHTML += ascending ? ' ▲' : ' ▼';
     }
 }
+
 
 function printID(id) {
     // Tworzymy nowy div, który będzie zawierał ID do wydruku
@@ -399,9 +407,7 @@ const headers = Array.from(headerRow.querySelectorAll('th'));
                         <li>
                             <a href=javascript:history.back();><label for="menuCheckbox" onclick="this.parentNode.click();">Powrót</label></a>
                         </li>
-                            <li>
-                                <label style="cursor: pointer;" onclick="openMultipleWindows();">Dodaj materiał</label>
-                            </li>
+                            
                             
                             <li>
                                 <img id="logo1" src="../static/img/logo-duże.png" alt="logo">
@@ -533,7 +539,7 @@ const headers = Array.from(headerRow.querySelectorAll('th'));
                 <tbody>
                     {% for tasmy in tasma %}
                         <tr data-parent-id="{{ tasmy.id }}">
-                            <td >{{ tasmy.id }} <a href="javascript:void(0);" onclick="printID({{ tasmy.id }})">
+                            <td data-parent-id="null">{{ tasmy.id }} <a href="javascript:void(0);" onclick="printID({{ tasmy.id }})">
                                 <img src="/static/img/drukarka.png" alt="drukuj" height="15" width="15">
                             </a></td>
                             <td  data-dostawca-id="{{ tasmy.dostawca.id }}">{{ tasmy.dostawca.nazwa }}</td>
@@ -568,7 +574,7 @@ const headers = Array.from(headerRow.querySelectorAll('th'));
                             
                             {% if tasmy.id== profile.tasma.id%}
                             
-                                <tr>
+                                <tr  data-parent-id="{{ tasmy.id }}">
                                     <td ></td>
                                     <td ></td>
                                     <td ></td>
