@@ -453,6 +453,16 @@ function sendDataToBackend(data) {
     });
     
 }
+function openMultipleWindows() {
+        // URL, który ma być otwierany w nowych oknach
+        const url = "{{ url_for('dodaj_profil') }}"; // Podmień na odpowiedni URL
+
+// Parametry dla każdego nowego okna
+const windowFeatures = 'width=800,height=600,scrollbars=yes,menubar=no,toolbar=no,status=no'; 
+
+// Otwieranie nowego okna za każdym razem, gdy klikniesz w etykietę
+window.open(url, '_blank', windowFeatures); // '_blank' otworzy nowe okno/tab
+    }
 </script>
 </head>
 <body>
@@ -529,11 +539,9 @@ function sendDataToBackend(data) {
                         <li>
                             <a href=javascript:history.back();><label for="menuCheckbox" onclick="this.parentNode.click();">Powrót</label></a>
                         </li>
-                            <li>
-                                <a href="{{ url_for('dodaj_profil') }}">
-                                    <label for="menuCheckbox" onclick="this.parentNode.click();">Dodaj Profil</label>
-                                </a>
-                            </li>
+                        <li>
+                            <label style="cursor: pointer;" onclick="openMultipleWindows();">Dodaj Profil</label>
+                        </li>
                             
                             <li>
                                 <img id="logo1" src="../static/img/logo-duże.png" alt="logo">
@@ -642,7 +650,7 @@ function sendDataToBackend(data) {
                                     <td>{{ profile.godz_min_rozpoczecia }}</td>
                                     <td>{{ profile.godz_min_zakonczenia }}</td>
                                     <td>{{ profile.zwrot_na_magazyn_kg }}</td>
-                                    <td>{{ profile.szablon_profile.nazwa }}</td>
+                                    <td data-szblon_profile-id="{{ profile.szablon_profile.id }}">{{ profile.szablon_profile.nazwa }}</td>
                                     <td>{{ profile.nazwa_klienta_nr_zlecenia_PRODIO }}</td>
                                     <td>{{profile.ilosc}}</td>
                                     <td>{{profile.ilosc_na_stanie}}</td>
@@ -660,6 +668,9 @@ function sendDataToBackend(data) {
                                         {% else %}
                                         <button type="button" class="button" onclick="openEditModala(this.parentElement.parentElement)">Edytuj</button>
                                         {% endif %}
+                                        <form method="POST" style="display:inline;background-color: transparent;width: 0;padding: 0%;" action="{{ url_for('usun_profil', id=profile.id) }}">
+                                            <!-- Ukryte pole z identyfikatorem profilu -->
+                                            <input type="hidden" name="profil_id" value="{{ profile.id }}">
                                         <button type="submit" class="button">Usuń</button>
                                     </form></td>
                                 </tr>
@@ -672,7 +683,7 @@ function sendDataToBackend(data) {
                                     <td>{{ profile.godz_min_rozpoczecia }}</td>
                                     <td>{{ profile.godz_min_zakonczenia }}</td>
                                     <td>{{ profile.zwrot_na_magazyn_kg }}</td>
-                                    <td>{{ profile.szablon_profile.nazwa }}</td>
+                                    <td data-szblon_profile-id="{{ profile.szablon_profile.id }}">{{ profile.szablon_profile.nazwa }}</td>
                                     <td>{{ profile.nazwa_klienta_nr_zlecenia_PRODIO }}</td>
                                     <td>{{profile.ilosc}}</td>
                                     <td>{{profile.ilosc_na_stanie}}</td>
@@ -690,6 +701,9 @@ function sendDataToBackend(data) {
                                         {% else %}
                                         <button type="button" class="button" onclick="openEditModala(this.parentElement.parentElement)">Edytuj</button>
                                         {% endif %}
+                                        <form method="POST" style="display:inline;background-color: transparent;width: 0;padding: 0%;" action="{{ url_for('usun_profil', id=profile.id) }}">
+                                            <!-- Ukryte pole z identyfikatorem profilu -->
+                                            <input type="hidden" name="profil_id" value="{{ profile.id }}">
                                         <button type="submit" class="button">Usuń</button>
                                     </form></td>
                                 </tr>
@@ -702,7 +716,7 @@ function sendDataToBackend(data) {
                                     <td>{{ profile.godz_min_rozpoczecia }}</td>
                                     <td>{{ profile.godz_min_zakonczenia }}</td>
                                     <td>{{ profile.zwrot_na_magazyn_kg }}</td>
-                                    <td>{{ profile.szablon_profile.nazwa }}</td>
+                                    <td data-szblon_profile-id="{{ profile.szablon_profile.id }}">{{ profile.szablon_profile.nazwa }}</td>
                                     <td>{{ profile.nazwa_klienta_nr_zlecenia_PRODIO }}</td>
                                     <td>{{profile.ilosc}}</td>
                                     <td>{{profile.ilosc_na_stanie}}</td>
@@ -720,6 +734,9 @@ function sendDataToBackend(data) {
                                         {% else %}
                                         <button type="button" class="button" onclick="openEditModala(this.parentElement.parentElement)">Edytuj</button>
                                         {% endif %}
+                                        <form method="POST" style="display:inline;background-color: transparent;width: 0;padding: 0%;" action="{{ url_for('usun_profil', id=profile.id) }}">
+                                            <!-- Ukryte pole z identyfikatorem profilu -->
+                                            <input type="hidden" name="profil_id" value="{{ profile.id }}">
                                         <button type="submit" class="button">Usuń</button>
                                     </form></td>
                                 </tr>

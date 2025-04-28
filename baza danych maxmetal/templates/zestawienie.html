@@ -21,141 +21,207 @@ window.onload = function() {
     });
 };
 function filterTable() {
-    let table = document.getElementById("tabela");
-    let rows = table.querySelectorAll("tbody tr");
-    let inputs = table.querySelectorAll("thead input[type='text']");
-    
-    // Pobierz zakresy dat dla poszczególnych kolumn
-    let dateKreguFrom = document.getElementById("dateKreguFrom")?.value;
-    let dateKreguTo = document.getElementById("dateKreguTo")?.value;
-    let dateDostawyFrom = document.getElementById("dateDostawyFrom")?.value;
-    let dateDostawyTo = document.getElementById("dateDostawyTo")?.value;
-    let dateProdukcjiFrom = document.getElementById("dateProdukcjiFrom")?.value;
-    let dateProdukcjiTo = document.getElementById("dateProdukcjiTo")?.value;
+    const rows = document.querySelectorAll("#tabela tbody tr");
+
+    const filters = {
+        id: getInput('Filtruj ID'),
+        dostawca: getInput('Filtruj Dostawcę'),
+        material: getInput('Filtruj Materiał'),
+        grubosc: getInput('Filtruj Grubość'),
+        szerokosc: getInput('Filtruj Szerokość'),
+        waga: getInput('Filtruj Wagę'),
+        wagaStanie: getInput('Filtruj Wagę na Stanie'),
+        etykietaP: getInput('Filtruj Etyk. Paletową'),
+        etykietaK: getInput('Filtruj Etyk. Kręgu'),
+        lokalizacja: getInput('Filtruj Lokalizację'),
+        nrWZ: getInput('Filtruj Nr WZ'),
+        stanowisko: getInput('Filtruj Nazwę Stanowiska'),
+        idProfilu: getInput('Filtruj ID Profilu'), // <-- Dodane!
+        etykietaMaterialuProfilu: getInput('Filtruj Etykietę Materiału'), // <-- Dodane!
+        godzRozpoczecia: getInput('Filtruj Godzinę rozpoczęcia'),
+        godzZakonczenia: getInput('Filtruj Godzinę zakończenia'),
+        zwrotNaMagazyn: getInput('Filtruj Zwrot na magazyn'),
+        nrCzesci: getInput('Filtruj Nr części Klienta'),
+        nazwaKlienta: getInput('Filtruj Nazwę klienta Nr PRODIO'),
+        ilosc: getInput('Filtruj Ilość'),
+        iloscNaStanie: getInput('Filtruj Ilość na Stanie'),
+        dlugosc: getInput('Filtruj Długość'),
+        rodzajMaterialu: getInput('Filtruj Rodzaj Materiału'),
+        stanowiskoImieNazwisko: getInput('Filtruj Nazwę Stanowiska i imie i nazwisko'),
+        dateKreguFrom: getDate('dateKreguFrom'),
+        dateKreguTo: getDate('dateKreguTo'),
+        dateDostawyFrom: getDate('dateDostawyFrom'),
+        dateDostawyTo: getDate('dateDostawyTo'),
+        dateProdukcjiFrom: getDate('dateProdukcjiFrom'),
+        dateProdukcjiTo: getDate('dateProdukcjiTo')
+    };
+
+    let lastTasmaVisible = false;
 
     rows.forEach(row => {
-        let cells = row.querySelectorAll("td");
-        let show = true;
+        const cells = row.querySelectorAll("td");
+        const isProfileRow = row.querySelector("td[data-tasma-id]");
 
-        // Tekstowe filtry
-        inputs.forEach((input, i) => {
-            let value = input.value.toLowerCase();
-            if (value && cells[i]) {
-                let text = cells[i].textContent.toLowerCase();
-                if (!text.includes(value)) {
-                    show = false;
-                }
-            }
-        });
+        let visible = true;
 
-        // Data Kręgu (kolumna 3)
-        if (show && (dateKreguFrom || dateKreguTo)) {
-            let dateText = cells[3]?.textContent.trim();
-            if (dateText) {
-                let cellDate = new Date(dateText);
-                if (dateKreguFrom && cellDate < new Date(dateKreguFrom)) show = false;
-                if (dateKreguTo && cellDate > new Date(dateKreguTo)) show = false;
+        if (!isProfileRow) {
+            // Wiersz taśmy
+            if (!matchesText(cells[0], filters.id)) visible = false;
+            if (!matchesText(cells[1], filters.dostawca)) visible = false;
+            if (!matchesText(cells[2], filters.material)) visible = false;
+            if (!matchesDate(cells[3], filters.dateKreguFrom, filters.dateKreguTo)) visible = false;
+            if (!matchesText(cells[4], filters.grubosc)) visible = false;
+            if (!matchesText(cells[5], filters.szerokosc)) visible = false;
+            if (!matchesText(cells[6], filters.waga)) visible = false;
+            if (!matchesText(cells[7], filters.wagaStanie)) visible = false;
+            if (!matchesText(cells[8], filters.etykietaP)) visible = false;
+            if (!matchesText(cells[9], filters.etykietaK)) visible = false;
+            if (!matchesText(cells[10], filters.lokalizacja)) visible = false;
+            if (!matchesText(cells[11], filters.nrWZ)) visible = false;
+            if (!matchesDate(cells[12], filters.dateDostawyFrom, filters.dateDostawyTo)) visible = false;
+            if (!matchesText(cells[13], filters.stanowisko)) visible = false;
+
+            row.style.display = visible ? "" : "none";
+            lastTasmaVisible = visible;
+        } else {
+            // Wiersz profilu
+            if (!lastTasmaVisible) {
+                row.style.display = "none";
+                return;
             }
+
+            if (!matchesText(cells[14], filters.idProfilu)) visible = false; // <-- dodano filtrowanie ID profilu
+            if (!matchesText(cells[15], filters.etykietaMaterialuProfilu)) visible = false; // <-- dodano filtrowanie Etykiety Materiału
+            if (!matchesDate(cells[16], filters.dateProdukcjiFrom, filters.dateProdukcjiTo)) visible = false;
+            if (!matchesText(cells[17], filters.godzRozpoczecia)) visible = false;
+            if (!matchesText(cells[18], filters.godzZakonczenia)) visible = false;
+            if (!matchesText(cells[19], filters.zwrotNaMagazyn)) visible = false;
+            if (!matchesText(cells[20], filters.nrCzesci)) visible = false;
+            if (!matchesText(cells[21], filters.nazwaKlienta)) visible = false;
+            if (!matchesText(cells[22], filters.ilosc)) visible = false;
+            if (!matchesText(cells[23], filters.iloscNaStanie)) visible = false;
+            if (!matchesText(cells[24], filters.dlugosc)) visible = false;
+            if (!matchesText(cells[25], filters.rodzajMaterialu)) visible = false;
+            if (!matchesText(cells[26], filters.stanowiskoImieNazwisko)) visible = false;
+
+            row.style.display = visible ? "" : "none";
         }
-
-        // Data Dostawy (kolumna 12)
-        if (show && (dateDostawyFrom || dateDostawyTo)) {
-            let dateText = cells[12]?.textContent.trim();
-            if (dateText) {
-                let cellDate = new Date(dateText);
-                if (dateDostawyFrom && cellDate < new Date(dateDostawyFrom)) show = false;
-                if (dateDostawyTo && cellDate > new Date(dateDostawyTo)) show = false;
-            }
-        }
-
-        // Data Produkcji (kolumna 16)
-        if (show && (dateProdukcjiFrom || dateProdukcjiTo)) {
-            let dateText = cells[16]?.textContent.trim();
-            if (dateText) {
-                let cellDate = new Date(dateText);
-                if (dateProdukcjiFrom && cellDate < new Date(dateProdukcjiFrom)) show = false;
-                if (dateProdukcjiTo && cellDate > new Date(dateProdukcjiTo)) show = false;
-            }
-        }
-
-        row.style.display = show ? "" : "none";
     });
+
+    function getInput(placeholder) {
+        const el = document.querySelector(`input[placeholder="${placeholder}"]`);
+        return el ? el.value.trim().toLowerCase() : '';
+    }
+
+    function getDate(id) {
+        const el = document.getElementById(id);
+        return el ? el.value : '';
+    }
+
+    function matchesText(cell, filterValue) {
+        if (!filterValue) return true;
+        if (!cell) return false;
+        return cell.textContent.trim().toLowerCase().includes(filterValue);
+    }
+
+    function matchesDate(cell, fromDate, toDate) {
+        if (!cell) return true;
+        const cellText = cell.textContent.trim();
+        if (!cellText) return true;
+
+        const cellDate = new Date(cellText);
+        if (isNaN(cellDate.getTime())) return true;
+
+        if (fromDate && cellDate < new Date(fromDate)) return false;
+        if (toDate && cellDate > new Date(toDate)) return false;
+        return true;
+    }
 }
 
 // Zaktualizuj wywołanie funkcji filterTable w inputach
 function setupFilters() {
-    let filterInputs = document.querySelectorAll("thead input");
-    filterInputs.forEach((input, index) => {
-        input.addEventListener("keyup", filterTable); // Używamy nowej funkcji filterTable
+    const filterInputs = document.querySelectorAll("#tabela thead input");
+    filterInputs.forEach(input => {
+        input.addEventListener("input", filterTable);
+    });
+
+    const headerCells = document.querySelectorAll("#tabela thead tr:nth-child(2) th");
+    headerCells.forEach((cell, index) => {
+        if (!cell.hasAttribute("hidden")) {
+            cell.addEventListener("click", () => sortTable(index));
+        }
     });
 }
 
-// Wywołaj setupFilters po załadowaniu strony
-document.addEventListener("DOMContentLoaded", setupFilters);
 function resetFilters() {
-    let table = document.getElementById("tabela");
-    let filterInputs = table.querySelectorAll("thead input");
-    let rows = table.getElementsByTagName("tbody")[0].getElementsByTagName("tr");
+    const table = document.getElementById("tabela");
+    const filterInputs = table.querySelectorAll("thead input");
+    const rows = table.querySelectorAll("tbody tr");
 
     // Resetuj wszystkie pola filtrów
     filterInputs.forEach(input => input.value = "");
 
-    // Przywróć widoczność wszystkich wierszy
-    for (let i = 0; i < rows.length; i++) {
-        rows[i].style.display = "";
-    }
+    // Pokaż wszystkie wiersze
+    rows.forEach(row => row.style.display = "");
 }
-let sortStates = []; // Tablica przechowująca stan sortowania dla każdej kolumny
+
+// Uruchomienie po załadowaniu strony
+document.addEventListener("DOMContentLoaded", () => {
+    setupFilters();
+});
+let sortStates = [];
 
 function sortTable(columnIndex) {
     const table = document.getElementById("tabela");
-    const rows = Array.from(table.rows).slice(2); // Pobieramy wszystkie wiersze poza nagłówkami
     const tbody = table.tBodies[0];
 
-    // Sprawdzamy, czy kolumna już istnieje w tablicy sortStates
-    const existingSortIndex = sortStates.findIndex(sort => sort.columnIndex === columnIndex);
+    // Oddziel taśmy i profile
+    const allRows = Array.from(tbody.querySelectorAll("tr"));
+    const tasmy = allRows.filter(row => !row.hasAttribute("data-parent-id"));
+    const profiles = allRows.filter(row => row.hasAttribute("data-parent-id"));
 
-    if (existingSortIndex !== -1) {
-        // Jeśli kolumna jest już sortowana, zmieniamy jej kierunek
-        sortStates[existingSortIndex].ascending = !sortStates[existingSortIndex].ascending;
+    // Stan sortowania
+    const existingSort = sortStates.find(s => s.columnIndex === columnIndex);
+    if (existingSort) {
+        existingSort.ascending = !existingSort.ascending;
     } else {
-        // Jeśli kolumna nie jest jeszcze sortowana, dodajemy ją na początek tablicy
-        sortStates.unshift({ columnIndex, ascending: true });
+        sortStates = [{ columnIndex, ascending: true }];
     }
+    const ascending = sortStates[0].ascending;
 
-    // Sortowanie wierszy na podstawie stanu w tablicy sortStates
-    rows.sort((rowA, rowB) => {
-        for (const sort of sortStates) {
-            const cellA = rowA.cells[sort.columnIndex]?.innerText.toLowerCase() || "";
-            const cellB = rowB.cells[sort.columnIndex]?.innerText.toLowerCase() || "";
+    // Sortowanie taśm
+    tasmy.sort((a, b) => {
+        const textA = a.cells[columnIndex]?.textContent.trim().toLowerCase() || "";
+        const textB = b.cells[columnIndex]?.textContent.trim().toLowerCase() || "";
 
-            if (!isNaN(cellA) && !isNaN(cellB)) {
-                // Sortowanie liczb
-                const comparison = sort.ascending ? cellA - cellB : cellB - cellA;
-                if (comparison !== 0) return comparison;
-            } else {
-                // Sortowanie tekstowe
-                const comparison = sort.ascending
-                    ? cellA.localeCompare(cellB)
-                    : cellB.localeCompare(cellA);
-                if (comparison !== 0) return comparison;
-            }
+        if (!isNaN(textA) && !isNaN(textB)) {
+            return ascending ? textA - textB : textB - textA;
+        } else {
+            return ascending ? textA.localeCompare(textB) : textB.localeCompare(textA);
         }
-        return 0; // Jeśli wszystkie kolumny są równe, nie zmieniamy kolejności
     });
 
-    // Przypisanie posortowanych wierszy do tabeli
+    // Wyczyść tbody
     tbody.innerHTML = "";
-    rows.forEach(row => tbody.appendChild(row));
 
-    // Resetowanie strzałek i ustawienie odpowiednich w nagłówkach
-    Array.from(table.tHead.rows[1].cells).forEach((cell, index) => {
-        cell.innerHTML = cell.innerHTML.replace(/ ▲| ▼/g, '');
-        const sortState = sortStates.find(sort => sort.columnIndex === index);
-        if (sortState) {
-            cell.innerHTML += sortState.ascending ? ' ▲' : ' ▼';
-        }
+    // Wstaw taśmy i powiązane profile
+    tasmy.forEach(tasma => {
+        tbody.appendChild(tasma);
+        const tasmaId = tasma.querySelector("td")?.textContent.trim();
+        const powiazaneProfile = profiles.filter(p => p.dataset.parentId === tasmaId);
+        powiazaneProfile.forEach(profile => tbody.appendChild(profile));
     });
+
+    // Aktualizacja strzałek do sortowania
+    const headerCells = table.tHead.rows[1].cells;
+    Array.from(headerCells).forEach(cell => {
+        cell.innerHTML = cell.innerHTML.replace(/ ▲| ▼/g, '');
+    });
+
+    const headerCell = headerCells[columnIndex];
+    if (headerCell) {
+        headerCell.innerHTML += ascending ? ' ▲' : ' ▼';
+    }
 }
 
 function printID(id) {
@@ -185,18 +251,17 @@ function printID(id) {
         window.onafterprint = null; // resetowanie zdarzenia, aby nie wywoływało się wielokrotnie
     };
 }
-function toggleColumn(colIndex) {
+function toggleColumn(index) {
     const table = document.getElementById("tabela");
-    const rows = table.rows;
+    const rows = table.querySelectorAll("tr");
 
-    for (let i = 0; i < rows.length; i++) {
-        const cell = rows[i].cells[colIndex];
-        if (cell) {
-            // Przełączanie atrybutu 'hidden'
-            cell.hidden = !cell.hidden;
+    rows.forEach(row => {
+        const cells = row.querySelectorAll("th, td");
+        if (cells[index]) {
+            cells[index].style.display = (cells[index].style.display === "none") ? "" : "none";
         }
-    }
-}   
+    });
+}
 function downloadSelected(user) {
     console.log("Pobieranie wybranych kolumn do Excela");
     console.log("User:", user); // Sprawdzamy wartość 'user'
@@ -394,41 +459,45 @@ const headers = Array.from(headerRow.querySelectorAll('th'));
                         <th><button class="button" onclick="downloadSelected('{{ user.login }}')">Pobierz do Excel</button></th>
                     </tr>
                 </thead>
+            </table>
                 <table id="tabela">
                     <thead>
-                    <tr>
-                            <th ><input type="text" placeholder="Filtruj ID" ></th>
-                            <th ><input type="text" placeholder="Filtruj Dostawcę" ></th>
-                            <th ><input type="text" placeholder="Filtruj Materiał" ></th>
-                            <th ><input type="date" id="dateKreguFrom" onchange="filterTable()" style="width: 90px;">
-                                <input type="date" id="dateKreguTo" onchange="filterTable()" style="width: 90px;"></th>
-                            <th ><input type="text" placeholder="Filtruj Grubość" ></th>
-                            <th ><input type="text" placeholder="Filtruj Szerokość" ></th>
-                            <th ><input type="text" placeholder="Filtruj Wagę" ></th>
-                            <th ><input type="text" placeholder="Filtruj Wagę na Stanie" ></th>
-                            <th ><input type="text" placeholder="Filtruj Etyk. Paletową" ></th>
-                            <th ><input type="text" placeholder="Filtruj Etyk. Kręgu" ></th>
-                            <th ><input type="text" placeholder="Filtruj Lokalizację" ></th>
-                            <th ><input type="text" placeholder="Filtruj Nr WZ" ></th>
-                            <th ><input type="date" id="dateDostawyFrom" onchange="filterTable()" style="width: 90px;">
-                                <input type="date" id="dateDostawyTo" onchange="filterTable()" style="width: 90px;"></th>
-                            <th ><input type="text" placeholder="Filtruj Nazwę Stanowiska" ></th>
-                            <th ><input type="text" placeholder="Filtruj ID" ></th>
-                            <th ><input type="text" placeholder="Filtruj Materiał" ></th>
-                            <th > <input type="date" id="dateProdukcjiFrom" onchange="filterTable()" style="width: 90px;">
-                                <input type="date" id="dateProdukcjiTo" onchange="filterTable()" style="width: 90px;"></th>
-                            <th ><input type="text" placeholder="Filtruj Godzinę rozpoczęcia" ></th>
-                            <th ><input type="text" placeholder="Filtruj Godzinę zakończenia" ></th>
-                            <th ><input type="text" placeholder="Filtruj Zwrot na magazyn" ></th>
-                            <th ><input type="text" placeholder="Filtruj Nr części Klienta" ></th>
-                            <th ><input type="text" placeholder="Filtruj Nazwę klienta Nr PRODIO" ></th>
-                            <th ><input type="text" placeholder="Filtruj Ilość" ></th>
-                            <th ><input type="text" placeholder="Filtruj Ilość na Stanie" ></th>
-                            <th ><input type="text" placeholder="Filtruj Długość" ></th>
-                            <th ><input type="text" placeholder="Filtruj Rodzaj Materiału" ></th>
-                            <th ><input type="text" placeholder="Filtruj Nazwę Stanowiska i imie i nazwisko" ></th>
-                        
-                    </tr>
+                        <tr>
+                            <th><input type="text" placeholder="Filtruj ID" onchange="filterTable()"></th>
+                            <th><input type="text" placeholder="Filtruj Dostawcę" onchange="filterTable()"></th>
+                            <th><input type="text" placeholder="Filtruj Materiał" onchange="filterTable()"></th>
+                            <th><input type="date" id="dateKreguFrom" onchange="filterTable()" style="width: 90px;">
+                                <input type="date" id="dateKreguTo" onchange="filterTable()" style="width: 90px;">
+                            </th>
+                            <th><input type="text" placeholder="Filtruj Grubość" onchange="filterTable()"></th>
+                            <th><input type="text" placeholder="Filtruj Szerokość" onchange="filterTable()"></th>
+                            <th><input type="text" placeholder="Filtruj Wagę" onchange="filterTable()"></th>
+                            <th><input type="text" placeholder="Filtruj Wagę na Stanie" onchange="filterTable()"></th>
+                            <th><input type="text" placeholder="Filtruj Etyk. Paletową" onchange="filterTable()"></th>
+                            <th><input type="text" placeholder="Filtruj Etyk. Kręgu" onchange="filterTable()"></th>
+                            <th><input type="text" placeholder="Filtruj Lokalizację" onchange="filterTable()"></th>
+                            <th><input type="text" placeholder="Filtruj Nr WZ" onchange="filterTable()"></th>
+                            <th><input type="date" id="dateDostawyFrom" onchange="filterTable()" style="width: 90px;">
+                                <input type="date" id="dateDostawyTo" onchange="filterTable()" style="width: 90px;">
+                            </th>
+                            <th><input type="text" placeholder="Filtruj Nazwę Stanowiska" onchange="filterTable()"></th>
+                            <th><input type="text" placeholder="Filtruj ID Profilu" onchange="filterTable()"></th>
+                            <th><input type="text" placeholder="Filtruj Etykietę Materiału" onchange="filterTable()"></th>
+                            <th><input type="date" id="dateProdukcjiFrom" onchange="filterTable()" style="width: 90px;">
+                                <input type="date" id="dateProdukcjiTo" onchange="filterTable()" style="width: 90px;">
+                            </th>
+                            <th><input type="text" placeholder="Filtruj Godzinę rozpoczęcia" onchange="filterTable()"></th>
+                            <th><input type="text" placeholder="Filtruj Godzinę zakończenia" onchange="filterTable()"></th>
+                            <th><input type="text" placeholder="Filtruj Zwrot na magazyn" onchange="filterTable()"></th>
+                            <th><input type="text" placeholder="Filtruj Nr części Klienta" onchange="filterTable()"></th>
+                            <th><input type="text" placeholder="Filtruj Nazwę klienta Nr PRODIO" onchange="filterTable()"></th>
+                            <th><input type="text" placeholder="Filtruj Ilość" onchange="filterTable()"></th>
+                            <th><input type="text" placeholder="Filtruj Ilość na Stanie" onchange="filterTable()"></th>
+                            <th><input type="text" placeholder="Filtruj Długość" onchange="filterTable()"></th>
+                            <th><input type="text" placeholder="Filtruj Rodzaj Materiału" onchange="filterTable()"></th>
+                            <th><input type="text" placeholder="Filtruj Nazwę Stanowiska i imie i nazwisko" onchange="filterTable()"></th>
+                        </tr>
+                    
                     <tr>
                             <th  onclick="sortTable(0)">ID &#9650;&#9660;</th>
                             <th  onclick="sortTable(1)">Nazwa Dostawcy &#9650;&#9660;</th>
@@ -462,14 +531,14 @@ const headers = Array.from(headerRow.querySelectorAll('th'));
                 </thead>
                 <tbody>
                     {% for tasmy in tasma %}
-                        <tr>
+                        <tr data-parent-id="{{ tasmy.id }}">
                             <td >{{ tasmy.id }} <a href="javascript:void(0);" onclick="printID({{ tasmy.id }})">
                                 <img src="/static/img/drukarka.png" alt="drukuj" height="15" width="15">
                             </a></td>
                             <td  data-dostawca-id="{{ tasmy.dostawca.id }}">{{ tasmy.dostawca.nazwa }}</td>
                             <td  data-szablon-id="{{ tasmy.szablon.id }}">{{ tasmy.szablon.nazwa }}</td>
                             <td  >{{ tasmy.data_z_etykiety_na_kregu }}</td>
-                            <td hidden></td>
+                           
                             <td >{{ tasmy.grubosc }}</td>
                             <td >{{ tasmy.szerokosc }}</td>
                             <td >{{ tasmy.waga_kregu }}</td>
@@ -479,7 +548,7 @@ const headers = Array.from(headerRow.querySelectorAll('th'));
                             <td >{{ tasmy.lokalizacja.nazwa }}</td>
                             <td >{{ tasmy.nr_faktury_dostawcy }}</td>
                             <td >{{ tasmy.data_dostawy }}</td>
-                            <td hidden></td>
+                            
                             <td >{{ tasmy.pracownik.login }}</td>
                             <td ></td>
                             <td ></td>
@@ -515,7 +584,7 @@ const headers = Array.from(headerRow.querySelectorAll('th'));
                                     <td >{{ profile.id }}</td>
                                     <td  data-tasma-id="{{ profile.tasma.id }}">{{ profile.tasma.nr_z_etykiety_na_kregu }}</td>
                                     <td >{{ profile.data_produkcji }}</td>
-                                    <td hidden></td>
+                                    
                                     <td >{{ profile.godz_min_rozpoczecia }}</td>
                                     <td >{{ profile.godz_min_zakonczenia }}</td>
                                     <td >{{ profile.zwrot_na_magazyn_kg }}</td>

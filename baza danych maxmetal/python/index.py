@@ -740,22 +740,22 @@ def update_row_profil():
             profil.id_tasmy = dane['column_1']  # ID tasmy
         if 'column_2' in dane:
             profil.data_produkcji = dane['column_2']  # Data produkcji
-        if 'column_3' in dane:
-            profil.godz_min_rozpoczecia = dane['column_3']  # Godzina rozpoczęcia
         if 'column_4' in dane:
-            profil.godz_min_zakonczenia = dane['column_4']  # Godzina zakończenia
+            profil.godz_min_rozpoczecia = dane['column_4']  # Godzina rozpoczęcia
         if 'column_5' in dane:
-            profil.zwrot_na_magazyn_kg = dane['column_5']  # Zwrot na magazyn
+            profil.godz_min_zakonczenia = dane['column_5']  # Godzina zakończenia
         if 'column_6' in dane:
-            profil.id_szablon_profile = dane['column_6']  # Nr części klienta
+            profil.zwrot_na_magazyn_kg = dane['column_6']  # Zwrot na magazyn
         if 'column_7' in dane:
-            profil.nazwa_klienta_nr_zlecenia_PRODIO = dane['column_7']  # Nazwa klienta
+            profil.id_szablon_profile = dane['column_7']  # Nr części klienta
         if 'column_8' in dane:
-            profil.ilosc = dane['column_8']  # Ilość
+            profil.nazwa_klienta_nr_zlecenia_PRODIO = dane['column_8']  # Nazwa klienta
         if 'column_9' in dane:
-            profil.ilosc_na_stanie = dane['column_9'] # Ilość na stanie
+            profil.ilosc = dane['column_9']  # Ilość
         if 'column_10' in dane:
-            profil.id_dlugosci = dane['column_10']  # ID długości
+            profil.ilosc_na_stanie = dane['column_10'] # Ilość na stanie
+        if 'column_11' in dane:
+            profil.id_dlugosci = dane['column_11']  # ID długości
         nowe_dane = {
             "id_tasmy": profil.id_tasmy,
             "data_produkcji": profil.data_produkcji,
@@ -930,35 +930,38 @@ def dodaj_dostawce_do_bazy():
 def update_row_dostawcy():
     if not g.user:
         return render_template('login.html', user=g.user)
-    if g.user.id_uprawnienia ==3:
+    
+    if g.user.id_uprawnienia == 3:
         return redirect(url_for('home'))
-    poprzednie_dane = {
-            "id": dostawca.id,
-            "nazwa": dostawca.nazwa
-        }
-    logger.info(f"Poprzednie dane dostawcy o ID {id}: {poprzednie_dane}")
+
     try:
         dane = request.get_json()
         logger.info(f'Otrzymane dane do aktualizacji dostawcy: {dane}')
-
+        
         id = dane.get('column_0')
         if id is None:
             return jsonify({'message': 'Id jest wymagane!'}), 400
-
+        
         dostawca = Dostawcy.query.get(id)
         if dostawca is None:
             return jsonify({'message': 'Rekord nie znaleziony!'}), 404
-
+        
+        poprzednie_dane = {
+            "id": dostawca.id,
+            "nazwa": dostawca.nazwa
+        }
+        logger.info(f"Poprzednie dane dostawcy o ID {id}: {poprzednie_dane}")
+        
         dostawca.nazwa = dane.get('column_1', dostawca.nazwa)
 
         db.session.commit()
         logger.info(f"Dostawca {dostawca.nazwa} został zaktualizowany przez {g.user.login}.")
-        return jsonify({'message': 'Rekord zaktualizowany pomyślnie!'})
+        
+        return jsonify({'message': 'Rekord zaktualizowany pomyślnie!'}), 200  # Dodany status 200 OK
     except Exception as e:
         db.session.rollback()
         logger.error(f'Wystąpił błąd podczas aktualizacji: {str(e)}')
         return jsonify({'message': 'Wystąpił błąd podczas aktualizacji!', 'error': str(e)}), 500
-
 @app.route('/szablon')
 def szablon():
     if not g.user:
@@ -1345,7 +1348,7 @@ def sprzedaz():
 
     if request.method == "POST":
         try:
-            ilosc_potrzebna = int(request.form.get('ilosc_potrzebna', 0))
+            
             dlugosc_id = int(request.form.get('dlugosc_id'))
         except (TypeError, ValueError):
             flash("Nieprawidłowe dane wejściowe.")
@@ -1360,7 +1363,7 @@ def sprzedaz():
 
         dlugosc_wartosc = int(wybrana_dlugosc.nazwa)
 
-        logger.info(f"Użytkownik {g.user.login} wybrał długość {dlugosc_wartosc} i potrzebuje {ilosc_potrzebna} sztuk.")
+        logger.info(f"Użytkownik {g.user.login} wybrał długość {dlugosc_wartosc} ")
 
         # Profile dokładnie pasujące
         dostepne_profile = Profil.query.filter(

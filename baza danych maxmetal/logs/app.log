@@ -4246,3 +4246,829 @@
 2025-04-27 19:15:41,713 - INFO - 127.0.0.1 - - [27/Apr/2025 19:15:41] "GET /profil HTTP/1.1" 200 -
 2025-04-27 19:15:41,731 - INFO - 127.0.0.1 - - [27/Apr/2025 19:15:41] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
 2025-04-27 19:15:41,740 - INFO - 127.0.0.1 - - [27/Apr/2025 19:15:41] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-27 19:21:08,165 - INFO - Administrator wszedł na stronę główną.
+2025-04-27 19:21:08,166 - INFO - 127.0.0.1 - - [27/Apr/2025 19:21:08] "GET / HTTP/1.1" 200 -
+2025-04-27 19:21:08,188 - INFO - 127.0.0.1 - - [27/Apr/2025 19:21:08] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-27 19:21:08,194 - INFO - 127.0.0.1 - - [27/Apr/2025 19:21:08] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-27 19:21:08,985 - INFO - Administrator wszedł na stronę profilu.
+2025-04-27 19:21:09,127 - INFO - 127.0.0.1 - - [27/Apr/2025 19:21:09] "GET /profil HTTP/1.1" 200 -
+2025-04-27 19:21:09,146 - INFO - 127.0.0.1 - - [27/Apr/2025 19:21:09] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-27 19:21:09,159 - INFO - 127.0.0.1 - - [27/Apr/2025 19:21:09] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-27 19:22:33,793 - INFO - Administrator wszedł na stronę główną.
+2025-04-27 19:22:33,794 - INFO - 127.0.0.1 - - [27/Apr/2025 19:22:33] "GET / HTTP/1.1" 200 -
+2025-04-27 19:22:33,820 - INFO - 127.0.0.1 - - [27/Apr/2025 19:22:33] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-27 19:22:33,824 - INFO - 127.0.0.1 - - [27/Apr/2025 19:22:33] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-27 19:22:34,542 - INFO - Administrator wszedł na stronę profilu.
+2025-04-27 19:22:34,545 - INFO - 127.0.0.1 - - [27/Apr/2025 19:22:34] "GET /profil HTTP/1.1" 200 -
+2025-04-27 19:22:34,567 - INFO - 127.0.0.1 - - [27/Apr/2025 19:22:34] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-27 19:22:34,579 - INFO - 127.0.0.1 - - [27/Apr/2025 19:22:34] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-27 19:24:50,793 - INFO - 127.0.0.1 - - [27/Apr/2025 19:24:50] "GET /get-tasma HTTP/1.1" 200 -
+2025-04-27 19:24:50,803 - INFO - 127.0.0.1 - - [27/Apr/2025 19:24:50] "GET /get-szablon_profile HTTP/1.1" 200 -
+2025-04-27 19:24:50,803 - INFO - 127.0.0.1 - - [27/Apr/2025 19:24:50] "GET /get-dlugosci HTTP/1.1" 200 -
+2025-04-27 19:24:53,211 - INFO - Otrzymane dane do aktualizacji profilu: {'column_0': '59', 'column_1': '49', 'column_2': '2025-04-27', 'column_4': '19:08:05', 'column_5': '19:08:22', 'column_6': '0.00', 'column_7': '3', 'column_8': '432', 'column_9': '1', 'column_10': '1', 'column_11': '1', 'column_12': 'DX510 2275 1,2x66', 'column_13': 'Administrator 4', 'column_14': 'Zapisz Usuń'}
+2025-04-27 19:24:53,212 - INFO - Poprzednie dane profilu o ID 59: {'id_tasmy': 49, 'data_produkcji': datetime.date(2025, 4, 27), 'godz_min_rozpoczecia': datetime.time(19, 8, 5), 'godz_min_zakonczenia': datetime.time(19, 8, 22), 'zwrot_na_magazyn_kg': Decimal('0.00'), 'id_szablon_profile': 3, 'nazwa_klienta_nr_zlecenia_PRODIO': '4', 'ilosc': 1, 'ilosc_na_stanie': 1, 'id_dlugosci': 1}
+2025-04-27 19:24:53,212 - INFO - Nowe dane profilu o ID 59: {'id_tasmy': '49', 'data_produkcji': '2025-04-27', 'godz_min_rozpoczecia': datetime.time(19, 8, 5), 'godz_min_zakonczenia': '19:08:05', 'zwrot_na_magazyn_kg': '19:08:22', 'id_szablon_profile': '0.00', 'nazwa_klienta_nr_zlecenia_PRODIO': '3', 'ilosc': '432', 'ilosc_na_stanie': '1', 'id_dlugosci': '1'}
+2025-04-27 19:24:53,212 - INFO - Zmiany wprowadzone przez użytkownika: Administrator
+2025-04-27 19:24:53,216 - ERROR - Wystąpił błąd podczas aktualizacji: (pymysql.err.IntegrityError) (1452, 'Cannot add or update a child row: a foreign key constraint fails (`baza_max`.`profil`, CONSTRAINT `profil_ibfk_4` FOREIGN KEY (`id_szablon_profile`) REFERENCES `szablon_profile` (`id`) ON DELETE CASCADE)')
+[SQL: UPDATE profil SET id_tasmy=%(id_tasmy)s, data_produkcji=%(data_produkcji)s, godz_min_zakonczenia=%(godz_min_zakonczenia)s, zwrot_na_magazyn_kg=%(zwrot_na_magazyn_kg)s, id_szablon_profile=%(id_szablon_profile)s, `nazwa_klienta_nr_zlecenia_PRODIO`=%(nazwa_klienta_nr_zlecenia_PRODIO)s, ilosc=%(ilosc)s, ilosc_na_stanie=%(ilosc_na_stanie)s, id_dlugosci=%(id_dlugosci)s WHERE profil.id = %(profil_id)s]
+[parameters: {'id_tasmy': '49', 'data_produkcji': '2025-04-27', 'godz_min_zakonczenia': '19:08:05', 'zwrot_na_magazyn_kg': '19:08:22', 'id_szablon_profile': '0.00', 'nazwa_klienta_nr_zlecenia_PRODIO': '3', 'ilosc': '432', 'ilosc_na_stanie': '1', 'id_dlugosci': '1', 'profil_id': 59}]
+(Background on this error at: https://sqlalche.me/e/20/gkpj)
+2025-04-27 19:24:53,216 - INFO - 127.0.0.1 - - [27/Apr/2025 19:24:53] "[35m[1mPOST /update-row_profil HTTP/1.1[0m" 500 -
+2025-04-27 19:24:54,916 - INFO - Administrator wszedł na stronę profilu.
+2025-04-27 19:24:55,052 - INFO - 127.0.0.1 - - [27/Apr/2025 19:24:55] "GET /profil HTTP/1.1" 200 -
+2025-04-27 19:24:55,066 - INFO - 127.0.0.1 - - [27/Apr/2025 19:24:55] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-27 19:24:55,075 - INFO - 127.0.0.1 - - [27/Apr/2025 19:24:55] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-27 19:24:55,704 - INFO - Administrator wszedł na stronę profilu.
+2025-04-27 19:24:55,708 - INFO - 127.0.0.1 - - [27/Apr/2025 19:24:55] "GET /profil HTTP/1.1" 200 -
+2025-04-27 19:24:55,722 - INFO - 127.0.0.1 - - [27/Apr/2025 19:24:55] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-27 19:24:55,732 - INFO - 127.0.0.1 - - [27/Apr/2025 19:24:55] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-27 19:24:56,232 - INFO - Administrator wszedł na stronę profilu.
+2025-04-27 19:24:56,236 - INFO - 127.0.0.1 - - [27/Apr/2025 19:24:56] "GET /profil HTTP/1.1" 200 -
+2025-04-27 19:24:56,261 - INFO - 127.0.0.1 - - [27/Apr/2025 19:24:56] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-27 19:24:56,278 - INFO - 127.0.0.1 - - [27/Apr/2025 19:24:56] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-27 19:24:59,164 - INFO - 127.0.0.1 - - [27/Apr/2025 19:24:59] "GET /get-tasma HTTP/1.1" 200 -
+2025-04-27 19:24:59,172 - INFO - 127.0.0.1 - - [27/Apr/2025 19:24:59] "GET /get-szablon_profile HTTP/1.1" 200 -
+2025-04-27 19:24:59,173 - INFO - 127.0.0.1 - - [27/Apr/2025 19:24:59] "GET /get-dlugosci HTTP/1.1" 200 -
+2025-04-27 19:25:02,875 - INFO - Otrzymane dane do aktualizacji profilu: {'column_0': '59', 'column_1': '49', 'column_2': '2025-04-27', 'column_4': '19:08:05', 'column_5': '19:08:22', 'column_6': '0.00', 'column_7': '3', 'column_8': '4', 'column_9': '1', 'column_10': '1', 'column_11': '2', 'column_12': 'DX510 2275 1,2x66', 'column_13': 'Administrator 4', 'column_14': 'Zapisz Usuń'}
+2025-04-27 19:25:02,876 - INFO - Poprzednie dane profilu o ID 59: {'id_tasmy': 49, 'data_produkcji': datetime.date(2025, 4, 27), 'godz_min_rozpoczecia': datetime.time(19, 8, 5), 'godz_min_zakonczenia': datetime.time(19, 8, 22), 'zwrot_na_magazyn_kg': Decimal('0.00'), 'id_szablon_profile': 3, 'nazwa_klienta_nr_zlecenia_PRODIO': '4', 'ilosc': 1, 'ilosc_na_stanie': 1, 'id_dlugosci': 1}
+2025-04-27 19:25:02,876 - INFO - Nowe dane profilu o ID 59: {'id_tasmy': '49', 'data_produkcji': '2025-04-27', 'godz_min_rozpoczecia': datetime.time(19, 8, 5), 'godz_min_zakonczenia': '19:08:05', 'zwrot_na_magazyn_kg': '19:08:22', 'id_szablon_profile': '0.00', 'nazwa_klienta_nr_zlecenia_PRODIO': '3', 'ilosc': '4', 'ilosc_na_stanie': '1', 'id_dlugosci': '1'}
+2025-04-27 19:25:02,876 - INFO - Zmiany wprowadzone przez użytkownika: Administrator
+2025-04-27 19:25:02,879 - ERROR - Wystąpił błąd podczas aktualizacji: (pymysql.err.IntegrityError) (1452, 'Cannot add or update a child row: a foreign key constraint fails (`baza_max`.`profil`, CONSTRAINT `profil_ibfk_4` FOREIGN KEY (`id_szablon_profile`) REFERENCES `szablon_profile` (`id`) ON DELETE CASCADE)')
+[SQL: UPDATE profil SET id_tasmy=%(id_tasmy)s, data_produkcji=%(data_produkcji)s, godz_min_zakonczenia=%(godz_min_zakonczenia)s, zwrot_na_magazyn_kg=%(zwrot_na_magazyn_kg)s, id_szablon_profile=%(id_szablon_profile)s, `nazwa_klienta_nr_zlecenia_PRODIO`=%(nazwa_klienta_nr_zlecenia_PRODIO)s, ilosc=%(ilosc)s, ilosc_na_stanie=%(ilosc_na_stanie)s, id_dlugosci=%(id_dlugosci)s WHERE profil.id = %(profil_id)s]
+[parameters: {'id_tasmy': '49', 'data_produkcji': '2025-04-27', 'godz_min_zakonczenia': '19:08:05', 'zwrot_na_magazyn_kg': '19:08:22', 'id_szablon_profile': '0.00', 'nazwa_klienta_nr_zlecenia_PRODIO': '3', 'ilosc': '4', 'ilosc_na_stanie': '1', 'id_dlugosci': '1', 'profil_id': 59}]
+(Background on this error at: https://sqlalche.me/e/20/gkpj)
+2025-04-27 19:25:02,879 - INFO - 127.0.0.1 - - [27/Apr/2025 19:25:02] "[35m[1mPOST /update-row_profil HTTP/1.1[0m" 500 -
+2025-04-27 19:25:04,278 - INFO - Administrator wszedł na stronę profilu.
+2025-04-27 19:25:04,281 - INFO - 127.0.0.1 - - [27/Apr/2025 19:25:04] "GET /profil HTTP/1.1" 200 -
+2025-04-27 19:25:04,302 - INFO - 127.0.0.1 - - [27/Apr/2025 19:25:04] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-27 19:25:04,312 - INFO - 127.0.0.1 - - [27/Apr/2025 19:25:04] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-27 19:25:04,988 - INFO - Administrator wszedł na stronę profilu.
+2025-04-27 19:25:04,992 - INFO - 127.0.0.1 - - [27/Apr/2025 19:25:04] "GET /profil HTTP/1.1" 200 -
+2025-04-27 19:25:05,006 - INFO - 127.0.0.1 - - [27/Apr/2025 19:25:05] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-27 19:25:05,015 - INFO - 127.0.0.1 - - [27/Apr/2025 19:25:05] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-27 19:25:21,643 - INFO - Administrator wszedł na stronę profilu.
+2025-04-27 19:25:21,787 - INFO - 127.0.0.1 - - [27/Apr/2025 19:25:21] "GET /profil HTTP/1.1" 200 -
+2025-04-27 19:25:21,814 - INFO - 127.0.0.1 - - [27/Apr/2025 19:25:21] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-27 19:25:21,826 - INFO - 127.0.0.1 - - [27/Apr/2025 19:25:21] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-27 19:25:23,554 - INFO - 127.0.0.1 - - [27/Apr/2025 19:25:23] "GET /get-tasma HTTP/1.1" 200 -
+2025-04-27 19:25:23,564 - INFO - 127.0.0.1 - - [27/Apr/2025 19:25:23] "GET /get-szablon_profile HTTP/1.1" 200 -
+2025-04-27 19:25:23,565 - INFO - 127.0.0.1 - - [27/Apr/2025 19:25:23] "GET /get-dlugosci HTTP/1.1" 200 -
+2025-04-27 19:25:28,633 - INFO - Otrzymane dane do aktualizacji profilu: {'column_0': '59', 'column_1': '49', 'column_2': '2025-04-27', 'column_4': '19:08:05', 'column_5': '19:08:22', 'column_6': '0.00', 'column_7': '3', 'column_8': '46', 'column_9': '1', 'column_10': '1', 'column_11': '1', 'column_12': 'DX510 2275 1,2x66', 'column_13': 'Administrator 4', 'column_14': 'Zapisz Usuń'}
+2025-04-27 19:25:28,634 - INFO - Poprzednie dane profilu o ID 59: {'id_tasmy': 49, 'data_produkcji': datetime.date(2025, 4, 27), 'godz_min_rozpoczecia': datetime.time(19, 8, 5), 'godz_min_zakonczenia': datetime.time(19, 8, 22), 'zwrot_na_magazyn_kg': Decimal('0.00'), 'id_szablon_profile': 3, 'nazwa_klienta_nr_zlecenia_PRODIO': '4', 'ilosc': 1, 'ilosc_na_stanie': 1, 'id_dlugosci': 1}
+2025-04-27 19:25:28,634 - INFO - Nowe dane profilu o ID 59: {'id_tasmy': '49', 'data_produkcji': '2025-04-27', 'godz_min_rozpoczecia': datetime.time(19, 8, 5), 'godz_min_zakonczenia': '19:08:05', 'zwrot_na_magazyn_kg': '19:08:22', 'id_szablon_profile': '0.00', 'nazwa_klienta_nr_zlecenia_PRODIO': '3', 'ilosc': '46', 'ilosc_na_stanie': '1', 'id_dlugosci': '1'}
+2025-04-27 19:25:28,634 - INFO - Zmiany wprowadzone przez użytkownika: Administrator
+2025-04-27 19:25:28,637 - ERROR - Wystąpił błąd podczas aktualizacji: (pymysql.err.IntegrityError) (1452, 'Cannot add or update a child row: a foreign key constraint fails (`baza_max`.`profil`, CONSTRAINT `profil_ibfk_4` FOREIGN KEY (`id_szablon_profile`) REFERENCES `szablon_profile` (`id`) ON DELETE CASCADE)')
+[SQL: UPDATE profil SET id_tasmy=%(id_tasmy)s, data_produkcji=%(data_produkcji)s, godz_min_zakonczenia=%(godz_min_zakonczenia)s, zwrot_na_magazyn_kg=%(zwrot_na_magazyn_kg)s, id_szablon_profile=%(id_szablon_profile)s, `nazwa_klienta_nr_zlecenia_PRODIO`=%(nazwa_klienta_nr_zlecenia_PRODIO)s, ilosc=%(ilosc)s, ilosc_na_stanie=%(ilosc_na_stanie)s, id_dlugosci=%(id_dlugosci)s WHERE profil.id = %(profil_id)s]
+[parameters: {'id_tasmy': '49', 'data_produkcji': '2025-04-27', 'godz_min_zakonczenia': '19:08:05', 'zwrot_na_magazyn_kg': '19:08:22', 'id_szablon_profile': '0.00', 'nazwa_klienta_nr_zlecenia_PRODIO': '3', 'ilosc': '46', 'ilosc_na_stanie': '1', 'id_dlugosci': '1', 'profil_id': 59}]
+(Background on this error at: https://sqlalche.me/e/20/gkpj)
+2025-04-27 19:25:28,638 - INFO - 127.0.0.1 - - [27/Apr/2025 19:25:28] "[35m[1mPOST /update-row_profil HTTP/1.1[0m" 500 -
+2025-04-27 19:25:29,917 - INFO - Administrator wszedł na stronę profilu.
+2025-04-27 19:25:29,920 - INFO - 127.0.0.1 - - [27/Apr/2025 19:25:29] "GET /profil HTTP/1.1" 200 -
+2025-04-27 19:25:29,936 - INFO - 127.0.0.1 - - [27/Apr/2025 19:25:29] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-27 19:25:29,945 - INFO - 127.0.0.1 - - [27/Apr/2025 19:25:29] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-27 19:28:42,001 - INFO - Połączenie z bazą danych zostało nawiązane pomyślnie.
+2025-04-27 19:28:42,058 - INFO - ✅ Kopia zapasowa zapisana do pliku: backups\kopie_zapasowe_bazy_2025-04-27_19-28.sql
+2025-04-27 19:28:42,060 - INFO - 🗑️ Usunięto starą kopię: kopie_zapasowe_bazy_2025-04-22_11-02.sql
+2025-04-27 19:28:42,070 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.0.16:5000
+2025-04-27 19:28:42,070 - INFO - [33mPress CTRL+C to quit[0m
+2025-04-27 19:28:42,071 - INFO -  * Restarting with stat
+2025-04-27 19:28:44,564 - INFO - Połączenie z bazą danych zostało nawiązane pomyślnie.
+2025-04-27 19:28:44,626 - INFO - ✅ Kopia zapasowa zapisana do pliku: backups\kopie_zapasowe_bazy_2025-04-27_19-28.sql
+2025-04-27 19:28:44,634 - WARNING -  * Debugger is active!
+2025-04-27 19:28:44,638 - INFO -  * Debugger PIN: 575-758-812
+2025-04-27 19:28:46,451 - INFO - 127.0.0.1 - - [27/Apr/2025 19:28:46] "GET /get-szablon_profile HTTP/1.1" 200 -
+2025-04-27 19:28:46,457 - INFO - 127.0.0.1 - - [27/Apr/2025 19:28:46] "GET /get-dlugosci HTTP/1.1" 200 -
+2025-04-27 19:28:46,458 - INFO - 127.0.0.1 - - [27/Apr/2025 19:28:46] "GET /get-tasma HTTP/1.1" 200 -
+2025-04-27 19:28:49,732 - INFO - Otrzymane dane do aktualizacji profilu: {'column_0': '59', 'column_1': '49', 'column_2': '2025-04-27', 'column_4': '19:08:05', 'column_5': '19:08:22', 'column_6': '0.00', 'column_7': '3', 'column_8': '4', 'column_9': '1', 'column_10': '1', 'column_11': '2', 'column_12': 'DX510 2275 1,2x66', 'column_13': 'Administrator 4', 'column_14': 'Zapisz Usuń'}
+2025-04-27 19:28:49,735 - INFO - Poprzednie dane profilu o ID 59: {'id_tasmy': 49, 'data_produkcji': datetime.date(2025, 4, 27), 'godz_min_rozpoczecia': datetime.time(19, 8, 5), 'godz_min_zakonczenia': datetime.time(19, 8, 22), 'zwrot_na_magazyn_kg': Decimal('0.00'), 'id_szablon_profile': 3, 'nazwa_klienta_nr_zlecenia_PRODIO': '4', 'ilosc': 1, 'ilosc_na_stanie': 1, 'id_dlugosci': 1}
+2025-04-27 19:28:49,736 - INFO - Nowe dane profilu o ID 59: {'id_tasmy': '49', 'data_produkcji': '2025-04-27', 'godz_min_rozpoczecia': '19:08:05', 'godz_min_zakonczenia': '19:08:22', 'zwrot_na_magazyn_kg': '0.00', 'id_szablon_profile': '3', 'nazwa_klienta_nr_zlecenia_PRODIO': '4', 'ilosc': '1', 'ilosc_na_stanie': '1', 'id_dlugosci': '2'}
+2025-04-27 19:28:49,736 - INFO - Zmiany wprowadzone przez użytkownika: Administrator
+2025-04-27 19:28:49,741 - INFO - 127.0.0.1 - - [27/Apr/2025 19:28:49] "POST /update-row_profil HTTP/1.1" 200 -
+2025-04-27 19:28:51,141 - INFO - Administrator wszedł na stronę profilu.
+2025-04-27 19:28:51,301 - INFO - 127.0.0.1 - - [27/Apr/2025 19:28:51] "GET /profil HTTP/1.1" 200 -
+2025-04-27 19:28:51,323 - INFO - 127.0.0.1 - - [27/Apr/2025 19:28:51] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-27 19:28:51,333 - INFO - 127.0.0.1 - - [27/Apr/2025 19:28:51] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-27 19:28:52,485 - INFO - Administrator wszedł na stronę profilu.
+2025-04-27 19:28:52,489 - INFO - 127.0.0.1 - - [27/Apr/2025 19:28:52] "GET /profil HTTP/1.1" 200 -
+2025-04-27 19:28:52,504 - INFO - 127.0.0.1 - - [27/Apr/2025 19:28:52] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-27 19:28:52,516 - INFO - 127.0.0.1 - - [27/Apr/2025 19:28:52] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-27 19:31:06,042 - INFO - Administrator wszedł na stronę profilu.
+2025-04-27 19:31:06,221 - INFO - 127.0.0.1 - - [27/Apr/2025 19:31:06] "[35m[1mGET /profil HTTP/1.1[0m" 500 -
+2025-04-27 19:31:06,244 - INFO - 127.0.0.1 - - [27/Apr/2025 19:31:06] "[36mGET /profil?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+2025-04-27 19:31:06,248 - INFO - 127.0.0.1 - - [27/Apr/2025 19:31:06] "[36mGET /profil?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+2025-04-27 19:31:06,259 - INFO - 127.0.0.1 - - [27/Apr/2025 19:31:06] "GET /profil?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+2025-04-27 19:31:06,261 - INFO - 127.0.0.1 - - [27/Apr/2025 19:31:06] "GET /profil?__debugger__=yes&cmd=resource&f=console.png&s=27F0cHFOIWAyiACpVFv7 HTTP/1.1" 200 -
+2025-04-27 19:31:57,266 - INFO - Administrator wszedł na stronę profilu.
+2025-04-27 19:31:57,443 - INFO - 127.0.0.1 - - [27/Apr/2025 19:31:57] "[35m[1mGET /profil HTTP/1.1[0m" 500 -
+2025-04-27 19:31:57,459 - INFO - 127.0.0.1 - - [27/Apr/2025 19:31:57] "[36mGET /profil?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+2025-04-27 19:31:57,459 - INFO - 127.0.0.1 - - [27/Apr/2025 19:31:57] "GET /profil?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1" 200 -
+2025-04-27 19:31:57,469 - INFO - 127.0.0.1 - - [27/Apr/2025 19:31:57] "[36mGET /profil?__debugger__=yes&cmd=resource&f=console.png&s=27F0cHFOIWAyiACpVFv7 HTTP/1.1[0m" 304 -
+2025-04-27 19:32:54,501 - INFO - Administrator wszedł na stronę profilu.
+2025-04-27 19:32:54,544 - INFO - 127.0.0.1 - - [27/Apr/2025 19:32:54] "[35m[1mGET /profil HTTP/1.1[0m" 500 -
+2025-04-27 19:32:54,562 - INFO - 127.0.0.1 - - [27/Apr/2025 19:32:54] "[36mGET /profil?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+2025-04-27 19:32:54,564 - INFO - 127.0.0.1 - - [27/Apr/2025 19:32:54] "GET /profil?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1" 200 -
+2025-04-27 19:32:54,573 - INFO - 127.0.0.1 - - [27/Apr/2025 19:32:54] "[36mGET /profil?__debugger__=yes&cmd=resource&f=console.png&s=27F0cHFOIWAyiACpVFv7 HTTP/1.1[0m" 304 -
+2025-04-27 19:32:55,291 - INFO - Administrator wszedł na stronę profilu.
+2025-04-27 19:32:55,323 - INFO - 127.0.0.1 - - [27/Apr/2025 19:32:55] "[35m[1mGET /profil HTTP/1.1[0m" 500 -
+2025-04-27 19:32:55,338 - INFO - 127.0.0.1 - - [27/Apr/2025 19:32:55] "[36mGET /profil?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+2025-04-27 19:32:55,340 - INFO - 127.0.0.1 - - [27/Apr/2025 19:32:55] "[36mGET /profil?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+2025-04-27 19:32:55,347 - INFO - 127.0.0.1 - - [27/Apr/2025 19:32:55] "[36mGET /profil?__debugger__=yes&cmd=resource&f=console.png&s=27F0cHFOIWAyiACpVFv7 HTTP/1.1[0m" 304 -
+2025-04-27 19:33:01,750 - INFO - 127.0.0.1 - - [27/Apr/2025 19:33:01] "GET /profil?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+2025-04-27 19:33:05,105 - INFO - 127.0.0.1 - - [27/Apr/2025 19:33:05] "GET /profil HTTP/1.1" 200 -
+2025-04-27 19:33:05,120 - INFO - 127.0.0.1 - - [27/Apr/2025 19:33:05] "GET /static/img/logo-duże.png HTTP/1.1" 200 -
+2025-04-27 19:33:07,573 - INFO - Administrator wszedł na stronę profilu.
+2025-04-27 19:33:07,605 - INFO - 127.0.0.1 - - [27/Apr/2025 19:33:07] "[35m[1mGET /profil HTTP/1.1[0m" 500 -
+2025-04-27 19:33:07,627 - INFO - 127.0.0.1 - - [27/Apr/2025 19:33:07] "[36mGET /profil?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+2025-04-27 19:33:07,628 - INFO - 127.0.0.1 - - [27/Apr/2025 19:33:07] "[36mGET /profil?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+2025-04-27 19:33:07,640 - INFO - 127.0.0.1 - - [27/Apr/2025 19:33:07] "[36mGET /profil?__debugger__=yes&cmd=resource&f=console.png&s=27F0cHFOIWAyiACpVFv7 HTTP/1.1[0m" 304 -
+2025-04-27 19:33:08,341 - INFO - Administrator wszedł na stronę profilu.
+2025-04-27 19:33:08,370 - INFO - 127.0.0.1 - - [27/Apr/2025 19:33:08] "[35m[1mGET /profil HTTP/1.1[0m" 500 -
+2025-04-27 19:33:08,385 - INFO - 127.0.0.1 - - [27/Apr/2025 19:33:08] "[36mGET /profil?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+2025-04-27 19:33:08,387 - INFO - 127.0.0.1 - - [27/Apr/2025 19:33:08] "[36mGET /profil?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+2025-04-27 19:33:08,394 - INFO - 127.0.0.1 - - [27/Apr/2025 19:33:08] "[36mGET /profil?__debugger__=yes&cmd=resource&f=console.png&s=27F0cHFOIWAyiACpVFv7 HTTP/1.1[0m" 304 -
+2025-04-27 19:33:53,485 - INFO - Administrator wszedł na stronę profilu.
+2025-04-27 19:33:53,634 - INFO - 127.0.0.1 - - [27/Apr/2025 19:33:53] "GET /profil HTTP/1.1" 200 -
+2025-04-27 19:33:53,659 - INFO - 127.0.0.1 - - [27/Apr/2025 19:33:53] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-27 19:33:53,671 - INFO - 127.0.0.1 - - [27/Apr/2025 19:33:53] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-27 19:33:55,477 - INFO - Próba usunięcia profilu o ID 59 przez użytkownika Administrator. Szczegóły profilu: ID Taśmy: 49, Data Produkcji: 2025-04-27, Godzina rozpoczęcia: 19:08:05, Godzina zakończenia: 19:08:22, Zwrot na magazyn (kg): 0.00, ID Szablonu Profilu: 3, Nazwa Klienta: 4, Ilość: 1, Ilość na stanie: 1, ID Długości: 2.
+2025-04-27 19:33:55,481 - INFO - Profil 3 został usunięty przez Administrator.
+2025-04-27 19:33:55,482 - INFO - 127.0.0.1 - - [27/Apr/2025 19:33:55] "[32mPOST /usun_profil/59 HTTP/1.1[0m" 302 -
+2025-04-27 19:33:55,487 - INFO - Administrator wszedł na stronę profilu.
+2025-04-27 19:33:55,489 - INFO - 127.0.0.1 - - [27/Apr/2025 19:33:55] "GET /profil HTTP/1.1" 200 -
+2025-04-27 19:33:55,503 - INFO - 127.0.0.1 - - [27/Apr/2025 19:33:55] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-27 19:33:55,515 - INFO - 127.0.0.1 - - [27/Apr/2025 19:33:55] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-27 19:35:49,325 - INFO - Administrator wszedł na stronę główną.
+2025-04-27 19:35:49,410 - INFO - 127.0.0.1 - - [27/Apr/2025 19:35:49] "GET / HTTP/1.1" 200 -
+2025-04-27 19:35:49,441 - INFO - 127.0.0.1 - - [27/Apr/2025 19:35:49] "GET /static/style.css HTTP/1.1" 200 -
+2025-04-27 19:35:49,446 - INFO - 127.0.0.1 - - [27/Apr/2025 19:35:49] "GET /static/img/logo-duże.png HTTP/1.1" 200 -
+2025-04-27 19:35:50,127 - INFO - Administrator wszedł na stronę z listą tasm.
+2025-04-27 19:35:50,226 - INFO - 127.0.0.1 - - [27/Apr/2025 19:35:50] "GET /tasma HTTP/1.1" 200 -
+2025-04-27 19:35:50,248 - INFO - 127.0.0.1 - - [27/Apr/2025 19:35:50] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-27 19:35:50,258 - INFO - 127.0.0.1 - - [27/Apr/2025 19:35:50] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-27 19:35:50,267 - INFO - 127.0.0.1 - - [27/Apr/2025 19:35:50] "[36mGET /static/img/drukarka.png HTTP/1.1[0m" 304 -
+2025-04-27 19:35:53,255 - ERROR - Błąd przy usuwaniu tasy: Parent instance <Tasma at 0x1f6c3db39b0> is not bound to a Session; lazy load operation of attribute 'lokalizacja' cannot proceed (Background on this error at: https://sqlalche.me/e/20/bhk3)
+2025-04-27 19:35:53,256 - INFO - 127.0.0.1 - - [27/Apr/2025 19:35:53] "[32mPOST /usun_tasma/49 HTTP/1.1[0m" 302 -
+2025-04-27 19:35:53,263 - INFO - Administrator wszedł na stronę z listą tasm.
+2025-04-27 19:35:53,266 - INFO - 127.0.0.1 - - [27/Apr/2025 19:35:53] "GET /tasma HTTP/1.1" 200 -
+2025-04-27 19:35:53,279 - INFO - 127.0.0.1 - - [27/Apr/2025 19:35:53] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-27 19:35:53,290 - INFO - 127.0.0.1 - - [27/Apr/2025 19:35:53] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-27 19:35:54,378 - INFO - Administrator wszedł na stronę główną.
+2025-04-27 19:35:54,379 - INFO - 127.0.0.1 - - [27/Apr/2025 19:35:54] "GET / HTTP/1.1" 200 -
+2025-04-27 19:35:54,399 - INFO - 127.0.0.1 - - [27/Apr/2025 19:35:54] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-27 19:35:54,405 - INFO - 127.0.0.1 - - [27/Apr/2025 19:35:54] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-27 19:37:31,391 - INFO - Administrator wszedł na stronę profilu.
+2025-04-27 19:37:31,532 - INFO - 127.0.0.1 - - [27/Apr/2025 19:37:31] "GET /profil HTTP/1.1" 200 -
+2025-04-27 19:37:31,556 - INFO - 127.0.0.1 - - [27/Apr/2025 19:37:31] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-27 19:37:31,565 - INFO - 127.0.0.1 - - [27/Apr/2025 19:37:31] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-27 19:37:33,354 - INFO - Administrator wszedł na stronę główną.
+2025-04-27 19:37:33,355 - INFO - 127.0.0.1 - - [27/Apr/2025 19:37:33] "GET / HTTP/1.1" 200 -
+2025-04-27 19:37:33,377 - INFO - 127.0.0.1 - - [27/Apr/2025 19:37:33] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-27 19:37:33,382 - INFO - 127.0.0.1 - - [27/Apr/2025 19:37:33] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-27 19:37:34,336 - INFO - Administrator wszedł na stronę profilu.
+2025-04-27 19:37:34,338 - INFO - 127.0.0.1 - - [27/Apr/2025 19:37:34] "GET /profil HTTP/1.1" 200 -
+2025-04-27 19:37:34,359 - INFO - 127.0.0.1 - - [27/Apr/2025 19:37:34] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-27 19:37:34,368 - INFO - 127.0.0.1 - - [27/Apr/2025 19:37:34] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-27 19:37:37,199 - INFO - Administrator wszedł na stronę dodawania profilu.
+2025-04-27 19:37:37,211 - INFO - 127.0.0.1 - - [27/Apr/2025 19:37:37] "GET /dodaj_profil HTTP/1.1" 200 -
+2025-04-27 19:37:37,231 - INFO - 127.0.0.1 - - [27/Apr/2025 19:37:37] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-27 19:39:43,692 - INFO - Administrator wszedł na stronę profilu.
+2025-04-27 19:39:43,837 - INFO - 127.0.0.1 - - [27/Apr/2025 19:39:43] "GET /profil HTTP/1.1" 200 -
+2025-04-27 19:39:43,861 - INFO - 127.0.0.1 - - [27/Apr/2025 19:39:43] "GET /static/style.css HTTP/1.1" 200 -
+2025-04-27 19:39:43,874 - INFO - 127.0.0.1 - - [27/Apr/2025 19:39:43] "GET /static/img/logo-duże.png HTTP/1.1" 200 -
+2025-04-27 19:39:46,074 - INFO - Administrator wszedł na stronę dodawania profilu.
+2025-04-27 19:39:46,075 - INFO - 127.0.0.1 - - [27/Apr/2025 19:39:46] "GET /dodaj_profil HTTP/1.1" 200 -
+2025-04-27 19:39:46,113 - INFO - 127.0.0.1 - - [27/Apr/2025 19:39:46] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-27 19:42:58,753 - INFO - Administrator wszedł na stronę główną.
+2025-04-27 19:42:58,754 - INFO - 127.0.0.1 - - [27/Apr/2025 19:42:58] "GET / HTTP/1.1" 200 -
+2025-04-27 19:42:58,783 - INFO - 127.0.0.1 - - [27/Apr/2025 19:42:58] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-27 19:42:58,788 - INFO - 127.0.0.1 - - [27/Apr/2025 19:42:58] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-27 19:42:59,792 - INFO - Administrator wszedł na stronę z listą tasm.
+2025-04-27 19:42:59,795 - INFO - 127.0.0.1 - - [27/Apr/2025 19:42:59] "GET /tasma HTTP/1.1" 200 -
+2025-04-27 19:42:59,816 - INFO - 127.0.0.1 - - [27/Apr/2025 19:42:59] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-27 19:42:59,827 - INFO - 127.0.0.1 - - [27/Apr/2025 19:42:59] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-27 19:43:03,153 - INFO - Administrator wszedł na stronę dodawania tasy.
+2025-04-27 19:43:03,162 - INFO - 127.0.0.1 - - [27/Apr/2025 19:43:03] "GET /dodaj_tasma HTTP/1.1" 200 -
+2025-04-27 19:43:03,187 - INFO - 127.0.0.1 - - [27/Apr/2025 19:43:03] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-27 19:43:24,119 - INFO - Administrator wszedł na stronę dodawania tasy.
+2025-04-27 19:43:24,122 - INFO - 127.0.0.1 - - [27/Apr/2025 19:43:24] "GET /dodaj_tasma HTTP/1.1" 200 -
+2025-04-27 19:43:24,148 - INFO - 127.0.0.1 - - [27/Apr/2025 19:43:24] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-27 19:43:35,258 - INFO - Taśma została dodana przez użytkownika Administrator. Szczegóły taśmy: Dostawca ID: 1, Szablon ID: 3, Data z etykiety: 0023-03-31, Grubość: 1.52, Szerokość: 77.00, Waga kręgu: 23, Waga na stanie: 23, Nr etykieta paletowa: 23, Nr z etykiety: 23, Lokalizacja ID: 1, Nr faktury dostawcy: 32, Data dostawy: 0002-03-23.
+2025-04-27 19:43:35,259 - INFO - 127.0.0.1 - - [27/Apr/2025 19:43:35] "[35m[1mPOST /dodaj_tasma_do_bazy HTTP/1.1[0m" 204 -
+2025-04-27 19:43:37,703 - INFO - Administrator wszedł na stronę z listą tasm.
+2025-04-27 19:43:37,705 - INFO - 127.0.0.1 - - [27/Apr/2025 19:43:37] "GET /tasma HTTP/1.1" 200 -
+2025-04-27 19:43:37,721 - INFO - 127.0.0.1 - - [27/Apr/2025 19:43:37] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-27 19:43:37,732 - INFO - 127.0.0.1 - - [27/Apr/2025 19:43:37] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-27 19:43:37,738 - INFO - 127.0.0.1 - - [27/Apr/2025 19:43:37] "[36mGET /static/img/drukarka.png HTTP/1.1[0m" 304 -
+2025-04-27 19:47:37,185 - INFO - Administrator wszedł na stronę główną.
+2025-04-27 19:47:37,186 - INFO - 127.0.0.1 - - [27/Apr/2025 19:47:37] "GET / HTTP/1.1" 200 -
+2025-04-27 19:47:37,209 - INFO - 127.0.0.1 - - [27/Apr/2025 19:47:37] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-27 19:47:37,214 - INFO - 127.0.0.1 - - [27/Apr/2025 19:47:37] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-27 19:47:38,000 - INFO - Administrator wszedł na stronę profilu.
+2025-04-27 19:47:38,002 - INFO - 127.0.0.1 - - [27/Apr/2025 19:47:38] "GET /profil HTTP/1.1" 200 -
+2025-04-27 19:47:38,022 - INFO - 127.0.0.1 - - [27/Apr/2025 19:47:38] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-27 19:47:38,033 - INFO - 127.0.0.1 - - [27/Apr/2025 19:47:38] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-27 19:47:40,285 - INFO - Administrator wszedł na stronę dodawania profilu.
+2025-04-27 19:47:40,298 - INFO - 127.0.0.1 - - [27/Apr/2025 19:47:40] "GET /dodaj_profil HTTP/1.1" 200 -
+2025-04-27 19:47:40,328 - INFO - 127.0.0.1 - - [27/Apr/2025 19:47:40] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-27 19:47:59,161 - INFO - Nowy profil został dodany przez użytkownika Administrator.
+2025-04-27 19:47:59,161 - INFO - Szczegóły profilu: ID Taśmy: 51, Data Produkcji: 2025-04-27, Godzina rozpoczęcia: 19:47:40, ID Szablonu Profilu: 3, Nazwa Klienta: 2, Ilość: None, ID Długości: None.Imie nazwisko pracownika: jk.
+2025-04-27 19:47:59,162 - INFO - 127.0.0.1 - - [27/Apr/2025 19:47:59] "[32mPOST /dodaj_lub_zakonczenie_profilu HTTP/1.1[0m" 302 -
+2025-04-27 19:47:59,167 - INFO - Administrator wszedł na stronę profilu.
+2025-04-27 19:47:59,171 - INFO - 127.0.0.1 - - [27/Apr/2025 19:47:59] "GET /profil HTTP/1.1" 200 -
+2025-04-27 19:47:59,192 - INFO - 127.0.0.1 - - [27/Apr/2025 19:47:59] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-27 19:47:59,203 - INFO - 127.0.0.1 - - [27/Apr/2025 19:47:59] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-27 19:48:51,557 - INFO - Administrator wszedł na stronę profilu.
+2025-04-27 19:48:51,560 - INFO - 127.0.0.1 - - [27/Apr/2025 19:48:51] "GET /profil HTTP/1.1" 200 -
+2025-04-27 19:48:51,577 - INFO - 127.0.0.1 - - [27/Apr/2025 19:48:51] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-27 19:48:51,586 - INFO - 127.0.0.1 - - [27/Apr/2025 19:48:51] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-27 19:49:41,636 - INFO - Administrator wszedł na stronę dodawania profilu.
+2025-04-27 19:49:41,648 - INFO - 127.0.0.1 - - [27/Apr/2025 19:49:41] "GET /dodaj_profil HTTP/1.1" 200 -
+2025-04-27 19:49:41,673 - INFO - 127.0.0.1 - - [27/Apr/2025 19:49:41] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-27 19:49:48,533 - INFO - Nowy profil został dodany przez użytkownika Administrator.
+2025-04-27 19:49:48,533 - INFO - Szczegóły profilu: ID Taśmy: 51, Data Produkcji: 2025-04-27, Godzina rozpoczęcia: 19:49:41, ID Szablonu Profilu: 3, Nazwa Klienta: 4, Ilość: None, ID Długości: None.Imie nazwisko pracownika: 44.
+2025-04-27 19:49:48,534 - INFO - 127.0.0.1 - - [27/Apr/2025 19:49:48] "[32mPOST /dodaj_lub_zakonczenie_profilu HTTP/1.1[0m" 302 -
+2025-04-27 19:49:48,539 - INFO - Administrator wszedł na stronę profilu.
+2025-04-27 19:49:48,544 - INFO - 127.0.0.1 - - [27/Apr/2025 19:49:48] "GET /profil HTTP/1.1" 200 -
+2025-04-27 19:49:48,562 - INFO - 127.0.0.1 - - [27/Apr/2025 19:49:48] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-27 19:49:48,570 - INFO - 127.0.0.1 - - [27/Apr/2025 19:49:48] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-27 19:50:43,876 - INFO - Administrator wszedł na stronę dodawania profilu.
+2025-04-27 19:50:43,887 - INFO - 127.0.0.1 - - [27/Apr/2025 19:50:43] "GET /dodaj_profil HTTP/1.1" 200 -
+2025-04-27 19:50:43,927 - INFO - 127.0.0.1 - - [27/Apr/2025 19:50:43] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-27 19:50:50,444 - INFO - Nowy profil został dodany przez użytkownika Administrator.
+2025-04-27 19:50:50,444 - INFO - Szczegóły profilu: ID Taśmy: 51, Data Produkcji: 2025-04-27, Godzina rozpoczęcia: 19:50:43, ID Szablonu Profilu: 3, Nazwa Klienta: 5, Ilość: None, ID Długości: None.Imie nazwisko pracownika: 55.
+2025-04-27 19:50:50,445 - INFO - 127.0.0.1 - - [27/Apr/2025 19:50:50] "[32mPOST /dodaj_lub_zakonczenie_profilu HTTP/1.1[0m" 302 -
+2025-04-27 19:50:50,450 - INFO - Administrator wszedł na stronę profilu.
+2025-04-27 19:50:50,456 - INFO - 127.0.0.1 - - [27/Apr/2025 19:50:50] "GET /profil HTTP/1.1" 200 -
+2025-04-27 19:50:50,474 - INFO - 127.0.0.1 - - [27/Apr/2025 19:50:50] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-27 19:50:50,483 - INFO - 127.0.0.1 - - [27/Apr/2025 19:50:50] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-27 19:50:52,950 - INFO - Administrator wszedł na stronę profilu.
+2025-04-27 19:50:52,954 - INFO - 127.0.0.1 - - [27/Apr/2025 19:50:52] "GET /profil HTTP/1.1" 200 -
+2025-04-27 19:50:52,973 - INFO - 127.0.0.1 - - [27/Apr/2025 19:50:52] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-27 19:50:52,985 - INFO - 127.0.0.1 - - [27/Apr/2025 19:50:52] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-27 19:51:11,959 - INFO - Administrator wszedł na stronę dodawania profilu.
+2025-04-27 19:51:11,971 - INFO - 127.0.0.1 - - [27/Apr/2025 19:51:11] "GET /dodaj_profil HTTP/1.1" 200 -
+2025-04-27 19:51:12,003 - INFO - 127.0.0.1 - - [27/Apr/2025 19:51:12] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-27 19:51:19,508 - INFO - Nowy profil został dodany przez użytkownika Administrator.
+2025-04-27 19:51:19,508 - INFO - Szczegóły profilu: ID Taśmy: 51, Data Produkcji: 2025-04-27, Godzina rozpoczęcia: 19:51:12, ID Szablonu Profilu: 3, Nazwa Klienta: 6, Ilość: None, ID Długości: None.Imie nazwisko pracownika: 6.
+2025-04-27 19:51:19,509 - INFO - 127.0.0.1 - - [27/Apr/2025 19:51:19] "[32mPOST /dodaj_lub_zakonczenie_profilu HTTP/1.1[0m" 302 -
+2025-04-27 19:51:20,639 - INFO - Administrator wszedł na stronę profilu.
+2025-04-27 19:51:20,643 - INFO - 127.0.0.1 - - [27/Apr/2025 19:51:20] "GET /profil HTTP/1.1" 200 -
+2025-04-27 19:51:20,670 - INFO - 127.0.0.1 - - [27/Apr/2025 19:51:20] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-27 19:51:20,680 - INFO - 127.0.0.1 - - [27/Apr/2025 19:51:20] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-27 19:52:06,782 - INFO - Próba usunięcia profilu o ID 63 przez użytkownika Administrator. Szczegóły profilu: ID Taśmy: 51, Data Produkcji: 2025-04-27, Godzina rozpoczęcia: 19:51:12, Godzina zakończenia: None, Zwrot na magazyn (kg): None, ID Szablonu Profilu: 3, Nazwa Klienta: 6, Ilość: None, Ilość na stanie: None, ID Długości: None.
+2025-04-27 19:52:06,785 - INFO - Profil 3 został usunięty przez Administrator.
+2025-04-27 19:52:06,786 - INFO - 127.0.0.1 - - [27/Apr/2025 19:52:06] "[32mPOST /usun_profil/63 HTTP/1.1[0m" 302 -
+2025-04-27 19:52:06,791 - INFO - Administrator wszedł na stronę profilu.
+2025-04-27 19:52:06,795 - INFO - 127.0.0.1 - - [27/Apr/2025 19:52:06] "GET /profil HTTP/1.1" 200 -
+2025-04-27 19:52:06,815 - INFO - 127.0.0.1 - - [27/Apr/2025 19:52:06] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-27 19:52:06,827 - INFO - 127.0.0.1 - - [27/Apr/2025 19:52:06] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-27 19:52:07,678 - INFO - Próba usunięcia profilu o ID 62 przez użytkownika Administrator. Szczegóły profilu: ID Taśmy: 51, Data Produkcji: 2025-04-27, Godzina rozpoczęcia: 19:50:43, Godzina zakończenia: None, Zwrot na magazyn (kg): None, ID Szablonu Profilu: 3, Nazwa Klienta: 5, Ilość: None, Ilość na stanie: None, ID Długości: None.
+2025-04-27 19:52:07,681 - INFO - Profil 3 został usunięty przez Administrator.
+2025-04-27 19:52:07,682 - INFO - 127.0.0.1 - - [27/Apr/2025 19:52:07] "[32mPOST /usun_profil/62 HTTP/1.1[0m" 302 -
+2025-04-27 19:52:07,687 - INFO - Administrator wszedł na stronę profilu.
+2025-04-27 19:52:07,691 - INFO - 127.0.0.1 - - [27/Apr/2025 19:52:07] "GET /profil HTTP/1.1" 200 -
+2025-04-27 19:52:07,709 - INFO - 127.0.0.1 - - [27/Apr/2025 19:52:07] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-27 19:52:07,718 - INFO - 127.0.0.1 - - [27/Apr/2025 19:52:07] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-27 19:52:08,996 - INFO - Próba usunięcia profilu o ID 61 przez użytkownika Administrator. Szczegóły profilu: ID Taśmy: 51, Data Produkcji: 2025-04-27, Godzina rozpoczęcia: 19:49:41, Godzina zakończenia: None, Zwrot na magazyn (kg): None, ID Szablonu Profilu: 3, Nazwa Klienta: 4, Ilość: None, Ilość na stanie: None, ID Długości: None.
+2025-04-27 19:52:08,999 - INFO - Profil 3 został usunięty przez Administrator.
+2025-04-27 19:52:09,000 - INFO - 127.0.0.1 - - [27/Apr/2025 19:52:09] "[32mPOST /usun_profil/61 HTTP/1.1[0m" 302 -
+2025-04-27 19:52:09,006 - INFO - Administrator wszedł na stronę profilu.
+2025-04-27 19:52:09,010 - INFO - 127.0.0.1 - - [27/Apr/2025 19:52:09] "GET /profil HTTP/1.1" 200 -
+2025-04-27 19:52:09,029 - INFO - 127.0.0.1 - - [27/Apr/2025 19:52:09] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-27 19:52:09,038 - INFO - 127.0.0.1 - - [27/Apr/2025 19:52:09] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-27 19:52:11,253 - INFO - Administrator wszedł na stronę główną.
+2025-04-27 19:52:11,254 - INFO - 127.0.0.1 - - [27/Apr/2025 19:52:11] "GET / HTTP/1.1" 200 -
+2025-04-27 19:52:11,277 - INFO - 127.0.0.1 - - [27/Apr/2025 19:52:11] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-27 19:52:11,283 - INFO - 127.0.0.1 - - [27/Apr/2025 19:52:11] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-27 19:52:12,647 - INFO - 127.0.0.1 - - [27/Apr/2025 19:52:12] "GET /sprzedaz HTTP/1.1" 200 -
+2025-04-27 19:52:12,672 - INFO - 127.0.0.1 - - [27/Apr/2025 19:52:12] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-27 19:52:12,677 - INFO - 127.0.0.1 - - [27/Apr/2025 19:52:12] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-27 19:52:17,432 - INFO - Użytkownik Administrator wybrał długość 1 i potrzebuje 1 sztuk.
+2025-04-27 19:52:17,438 - INFO - 127.0.0.1 - - [27/Apr/2025 19:52:17] "POST /sprzedaz HTTP/1.1" 200 -
+2025-04-27 19:52:17,456 - INFO - 127.0.0.1 - - [27/Apr/2025 19:52:17] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-27 19:52:17,462 - INFO - 127.0.0.1 - - [27/Apr/2025 19:52:17] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-27 19:52:19,264 - INFO - Administrator wszedł na stronę główną.
+2025-04-27 19:52:19,265 - INFO - 127.0.0.1 - - [27/Apr/2025 19:52:19] "GET / HTTP/1.1" 200 -
+2025-04-27 19:52:19,289 - INFO - 127.0.0.1 - - [27/Apr/2025 19:52:19] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-27 19:52:19,293 - INFO - 127.0.0.1 - - [27/Apr/2025 19:52:19] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-27 19:52:20,117 - INFO - Administrator wszedł na stronę profilu.
+2025-04-27 19:52:20,120 - INFO - 127.0.0.1 - - [27/Apr/2025 19:52:20] "GET /profil HTTP/1.1" 200 -
+2025-04-27 19:52:20,137 - INFO - 127.0.0.1 - - [27/Apr/2025 19:52:20] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-27 19:52:20,149 - INFO - 127.0.0.1 - - [27/Apr/2025 19:52:20] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-27 19:52:21,128 - INFO - 127.0.0.1 - - [27/Apr/2025 19:52:21] "POST /dodaj_profil_do_bazy HTTP/1.1" 200 -
+2025-04-27 19:52:21,148 - INFO - 127.0.0.1 - - [27/Apr/2025 19:52:21] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-27 19:52:25,561 - INFO - Zakończenie profilu o ID 60 przez użytkownika Administrator.
+2025-04-27 19:52:25,561 - INFO - Poprzednie dane: {'godz_min_zakonczenia': None, 'zwrot_na_magazyn_kg': None, 'ilosc': None, 'ilosc_na_stanie': None, 'id_dlugosci': None}
+2025-04-27 19:52:25,561 - INFO - Nowe dane: {'godz_min_zakonczenia': '19:52:25', 'zwrot_na_magazyn_kg': '1', 'ilosc': '231', 'ilosc_na_stanie': '231', 'id_dlugosci': '1'}
+2025-04-27 19:52:25,564 - INFO - 127.0.0.1 - - [27/Apr/2025 19:52:25] "[32mPOST /dodaj_lub_zakonczenie_profilu HTTP/1.1[0m" 302 -
+2025-04-27 19:52:25,569 - INFO - Administrator wszedł na stronę profilu.
+2025-04-27 19:52:25,574 - INFO - 127.0.0.1 - - [27/Apr/2025 19:52:25] "GET /profil HTTP/1.1" 200 -
+2025-04-27 19:52:25,599 - INFO - 127.0.0.1 - - [27/Apr/2025 19:52:25] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-27 19:52:25,610 - INFO - 127.0.0.1 - - [27/Apr/2025 19:52:25] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-27 19:52:26,516 - INFO - Administrator wszedł na stronę główną.
+2025-04-27 19:52:26,517 - INFO - 127.0.0.1 - - [27/Apr/2025 19:52:26] "GET / HTTP/1.1" 200 -
+2025-04-27 19:52:26,542 - INFO - 127.0.0.1 - - [27/Apr/2025 19:52:26] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-27 19:52:26,549 - INFO - 127.0.0.1 - - [27/Apr/2025 19:52:26] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-27 19:52:27,769 - INFO - 127.0.0.1 - - [27/Apr/2025 19:52:27] "GET /sprzedaz HTTP/1.1" 200 -
+2025-04-27 19:52:27,791 - INFO - 127.0.0.1 - - [27/Apr/2025 19:52:27] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-27 19:52:27,796 - INFO - 127.0.0.1 - - [27/Apr/2025 19:52:27] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-27 19:52:29,303 - INFO - Użytkownik Administrator wybrał długość 1 i potrzebuje 1 sztuk.
+2025-04-27 19:52:29,304 - INFO - [DOSTĘPNE] Profil ID 60, długość 1, na stanie 231
+2025-04-27 19:52:29,306 - INFO - 127.0.0.1 - - [27/Apr/2025 19:52:29] "POST /sprzedaz HTTP/1.1" 200 -
+2025-04-27 19:52:29,326 - INFO - 127.0.0.1 - - [27/Apr/2025 19:52:29] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-27 19:52:29,330 - INFO - 127.0.0.1 - - [27/Apr/2025 19:52:29] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-27 19:52:32,705 - INFO - Użytkownik Administrator pobiera 12 sztuk z profilu ID 60 (długość: 1, stan przed: 231)
+2025-04-27 19:52:32,708 - INFO - Użytkownik Administrator zakończył pobieranie profili.
+2025-04-27 19:52:32,709 - INFO - 127.0.0.1 - - [27/Apr/2025 19:52:32] "[32mPOST /wez_profile HTTP/1.1[0m" 302 -
+2025-04-27 19:52:32,715 - INFO - 127.0.0.1 - - [27/Apr/2025 19:52:32] "GET /sprzedaz HTTP/1.1" 200 -
+2025-04-27 19:52:32,733 - INFO - 127.0.0.1 - - [27/Apr/2025 19:52:32] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-27 19:52:32,737 - INFO - 127.0.0.1 - - [27/Apr/2025 19:52:32] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-27 19:52:34,383 - INFO - Użytkownik Administrator wybrał długość 1 i potrzebuje 1 sztuk.
+2025-04-27 19:52:34,384 - INFO - [DOSTĘPNE] Profil ID 60, długość 1, na stanie 219
+2025-04-27 19:52:34,387 - INFO - 127.0.0.1 - - [27/Apr/2025 19:52:34] "POST /sprzedaz HTTP/1.1" 200 -
+2025-04-27 19:52:34,409 - INFO - 127.0.0.1 - - [27/Apr/2025 19:52:34] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-27 19:52:34,414 - INFO - 127.0.0.1 - - [27/Apr/2025 19:52:34] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-27 19:52:35,962 - INFO - Administrator wszedł na stronę główną.
+2025-04-27 19:52:35,963 - INFO - 127.0.0.1 - - [27/Apr/2025 19:52:35] "GET / HTTP/1.1" 200 -
+2025-04-27 19:52:35,984 - INFO - 127.0.0.1 - - [27/Apr/2025 19:52:35] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-27 19:52:35,989 - INFO - 127.0.0.1 - - [27/Apr/2025 19:52:35] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-27 19:52:37,629 - INFO - Administrator wszedł na stronę dostawców.
+2025-04-27 19:52:37,677 - INFO - 127.0.0.1 - - [27/Apr/2025 19:52:37] "GET /dostawcy HTTP/1.1" 200 -
+2025-04-27 19:52:37,696 - INFO - 127.0.0.1 - - [27/Apr/2025 19:52:37] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-27 19:52:37,705 - INFO - 127.0.0.1 - - [27/Apr/2025 19:52:37] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-27 19:52:40,628 - INFO - 127.0.0.1 - - [27/Apr/2025 19:52:40] "[35m[1mPOST /update-row-dostawcy HTTP/1.1[0m" 500 -
+2025-04-27 19:53:44,502 - INFO - Administrator wszedł na stronę dostawców.
+2025-04-27 19:53:44,551 - INFO - 127.0.0.1 - - [27/Apr/2025 19:53:44] "GET /dostawcy HTTP/1.1" 200 -
+2025-04-27 19:53:44,577 - INFO - 127.0.0.1 - - [27/Apr/2025 19:53:44] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-27 19:53:44,592 - INFO - 127.0.0.1 - - [27/Apr/2025 19:53:44] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-27 19:53:47,310 - INFO - 127.0.0.1 - - [27/Apr/2025 19:53:47] "[35m[1mPOST /update-row-dostawcy HTTP/1.1[0m" 500 -
+2025-04-27 19:53:48,552 - INFO - Administrator wszedł na stronę dostawców.
+2025-04-27 19:53:48,553 - INFO - 127.0.0.1 - - [27/Apr/2025 19:53:48] "GET /dostawcy HTTP/1.1" 200 -
+2025-04-27 19:53:48,574 - INFO - 127.0.0.1 - - [27/Apr/2025 19:53:48] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-27 19:53:48,584 - INFO - 127.0.0.1 - - [27/Apr/2025 19:53:48] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-27 19:53:58,688 - INFO - 127.0.0.1 - - [27/Apr/2025 19:53:58] "[35m[1mPOST /update-row-dostawcy HTTP/1.1[0m" 500 -
+2025-04-27 19:55:21,788 - INFO -  * Detected change in 'C:\\Users\\admin\\Documents\\GitHub\\baza\\baza danych maxmetal\\python\\index.py', reloading
+2025-04-27 19:55:27,212 - INFO - Połączenie z bazą danych zostało nawiązane pomyślnie.
+2025-04-27 19:55:27,274 - INFO - ✅ Kopia zapasowa zapisana do pliku: backups\kopie_zapasowe_bazy_2025-04-27_19-55.sql
+2025-04-27 19:55:27,276 - INFO - 🗑️ Usunięto starą kopię: kopie_zapasowe_bazy_2025-04-22_11-07.sql
+2025-04-27 19:55:27,288 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.0.16:5000
+2025-04-27 19:55:27,288 - INFO - [33mPress CTRL+C to quit[0m
+2025-04-27 19:55:27,289 - INFO -  * Restarting with stat
+2025-04-27 19:55:29,717 - INFO - Połączenie z bazą danych zostało nawiązane pomyślnie.
+2025-04-27 19:55:29,774 - INFO - ✅ Kopia zapasowa zapisana do pliku: backups\kopie_zapasowe_bazy_2025-04-27_19-55.sql
+2025-04-27 19:55:29,780 - WARNING -  * Debugger is active!
+2025-04-27 19:55:29,784 - INFO -  * Debugger PIN: 575-758-812
+2025-04-27 19:55:30,044 - INFO - Administrator wszedł na stronę dostawców.
+2025-04-27 19:55:30,101 - INFO - 127.0.0.1 - - [27/Apr/2025 19:55:30] "GET /dostawcy HTTP/1.1" 200 -
+2025-04-27 19:55:30,146 - INFO - 127.0.0.1 - - [27/Apr/2025 19:55:30] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-27 19:55:30,161 - INFO - 127.0.0.1 - - [27/Apr/2025 19:55:30] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-27 19:55:32,874 - INFO - Otrzymane dane do aktualizacji dostawcy: {'column_0': '4', 'column_1': 'ttttttr6', 'column_2': 'Zapisz'}
+2025-04-27 19:55:32,876 - INFO - Poprzednie dane dostawcy o ID 4: {'id': 4, 'nazwa': 'ttttttr'}
+2025-04-27 19:55:32,884 - INFO - Dostawca ttttttr6 został zaktualizowany przez Administrator.
+2025-04-27 19:55:32,885 - INFO - 127.0.0.1 - - [27/Apr/2025 19:55:32] "POST /update-row-dostawcy HTTP/1.1" 200 -
+2025-04-27 19:55:34,404 - INFO - Administrator wszedł na stronę dostawców.
+2025-04-27 19:55:34,405 - INFO - 127.0.0.1 - - [27/Apr/2025 19:55:34] "GET /dostawcy HTTP/1.1" 200 -
+2025-04-27 19:55:34,440 - INFO - 127.0.0.1 - - [27/Apr/2025 19:55:34] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-27 19:55:34,451 - INFO - 127.0.0.1 - - [27/Apr/2025 19:55:34] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-27 19:55:34,925 - INFO - Administrator wszedł na stronę dostawców.
+2025-04-27 19:55:34,926 - INFO - 127.0.0.1 - - [27/Apr/2025 19:55:34] "GET /dostawcy HTTP/1.1" 200 -
+2025-04-27 19:55:34,967 - INFO - 127.0.0.1 - - [27/Apr/2025 19:55:34] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-27 19:55:34,985 - INFO - 127.0.0.1 - - [27/Apr/2025 19:55:34] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-27 19:56:16,916 - INFO - Administrator wszedł na stronę główną.
+2025-04-27 19:56:17,003 - INFO - 127.0.0.1 - - [27/Apr/2025 19:56:17] "GET / HTTP/1.1" 200 -
+2025-04-27 19:56:17,083 - INFO - 127.0.0.1 - - [27/Apr/2025 19:56:17] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-27 19:56:17,088 - INFO - 127.0.0.1 - - [27/Apr/2025 19:56:17] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-27 19:56:40,565 - INFO - Administrator wszedł na stronę zestawienia.
+2025-04-27 19:56:40,652 - INFO - 127.0.0.1 - - [27/Apr/2025 19:56:40] "GET /zestawienie HTTP/1.1" 200 -
+2025-04-27 19:56:40,691 - INFO - 127.0.0.1 - - [27/Apr/2025 19:56:40] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-27 19:56:40,704 - INFO - 127.0.0.1 - - [27/Apr/2025 19:56:40] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-27 19:56:40,714 - INFO - 127.0.0.1 - - [27/Apr/2025 19:56:40] "[36mGET /static/img/drukarka.png HTTP/1.1[0m" 304 -
+2025-04-27 19:56:41,818 - INFO - Administrator wszedł na stronę główną.
+2025-04-27 19:56:41,819 - INFO - 127.0.0.1 - - [27/Apr/2025 19:56:41] "GET / HTTP/1.1" 200 -
+2025-04-27 19:56:41,860 - INFO - 127.0.0.1 - - [27/Apr/2025 19:56:41] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-27 19:56:41,865 - INFO - 127.0.0.1 - - [27/Apr/2025 19:56:41] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-27 19:56:45,074 - INFO - 127.0.0.1 - - [27/Apr/2025 19:56:45] "GET /sprzedaz HTTP/1.1" 200 -
+2025-04-27 19:56:45,103 - INFO - 127.0.0.1 - - [27/Apr/2025 19:56:45] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-27 19:56:45,107 - INFO - 127.0.0.1 - - [27/Apr/2025 19:56:45] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-27 19:58:05,946 - INFO -  * Detected change in 'C:\\Users\\admin\\Documents\\GitHub\\baza\\baza danych maxmetal\\python\\index.py', reloading
+2025-04-27 19:58:09,303 - INFO -  * Restarting with stat
+2025-04-27 19:58:11,610 - INFO - Połączenie z bazą danych zostało nawiązane pomyślnie.
+2025-04-27 19:58:11,667 - INFO - ✅ Kopia zapasowa zapisana do pliku: backups\kopie_zapasowe_bazy_2025-04-27_19-58.sql
+2025-04-27 19:58:11,668 - INFO - 🗑️ Usunięto starą kopię: kopie_zapasowe_bazy_2025-04-27_15-39.sql
+2025-04-27 19:58:11,674 - WARNING -  * Debugger is active!
+2025-04-27 19:58:11,678 - INFO -  * Debugger PIN: 575-758-812
+2025-04-27 19:58:23,931 - INFO - Połączenie z bazą danych zostało nawiązane pomyślnie.
+2025-04-27 19:58:23,993 - INFO - ✅ Kopia zapasowa zapisana do pliku: backups\kopie_zapasowe_bazy_2025-04-27_19-58.sql
+2025-04-27 19:58:24,006 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.0.16:5000
+2025-04-27 19:58:24,006 - INFO - [33mPress CTRL+C to quit[0m
+2025-04-27 19:58:24,007 - INFO -  * Restarting with stat
+2025-04-27 19:58:26,375 - INFO - Połączenie z bazą danych zostało nawiązane pomyślnie.
+2025-04-27 19:58:26,431 - INFO - ✅ Kopia zapasowa zapisana do pliku: backups\kopie_zapasowe_bazy_2025-04-27_19-58.sql
+2025-04-27 19:58:26,439 - WARNING -  * Debugger is active!
+2025-04-27 19:58:26,443 - INFO -  * Debugger PIN: 575-758-812
+2025-04-27 19:59:23,177 - INFO - Administrator wszedł na stronę główną.
+2025-04-27 19:59:23,275 - INFO - 127.0.0.1 - - [27/Apr/2025 19:59:23] "GET / HTTP/1.1" 200 -
+2025-04-27 19:59:23,313 - INFO - 127.0.0.1 - - [27/Apr/2025 19:59:23] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-27 19:59:23,320 - INFO - 127.0.0.1 - - [27/Apr/2025 19:59:23] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-27 19:59:24,663 - INFO - 127.0.0.1 - - [27/Apr/2025 19:59:24] "GET /sprzedaz HTTP/1.1" 200 -
+2025-04-27 19:59:24,690 - INFO - 127.0.0.1 - - [27/Apr/2025 19:59:24] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-27 19:59:24,695 - INFO - 127.0.0.1 - - [27/Apr/2025 19:59:24] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-27 19:59:25,835 - INFO - Administrator wszedł na stronę główną.
+2025-04-27 19:59:25,836 - INFO - 127.0.0.1 - - [27/Apr/2025 19:59:25] "GET / HTTP/1.1" 200 -
+2025-04-27 19:59:25,856 - INFO - 127.0.0.1 - - [27/Apr/2025 19:59:25] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-27 19:59:25,860 - INFO - 127.0.0.1 - - [27/Apr/2025 19:59:25] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-27 19:59:26,724 - INFO - Administrator wszedł na stronę zestawienia.
+2025-04-27 19:59:26,809 - INFO - 127.0.0.1 - - [27/Apr/2025 19:59:26] "GET /zestawienie HTTP/1.1" 200 -
+2025-04-27 19:59:26,830 - INFO - 127.0.0.1 - - [27/Apr/2025 19:59:26] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-27 19:59:26,840 - INFO - 127.0.0.1 - - [27/Apr/2025 19:59:26] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-27 19:59:26,848 - INFO - 127.0.0.1 - - [27/Apr/2025 19:59:26] "[36mGET /static/img/drukarka.png HTTP/1.1[0m" 304 -
+2025-04-27 19:59:28,937 - INFO - Administrator wszedł na stronę główną.
+2025-04-27 19:59:28,938 - INFO - 127.0.0.1 - - [27/Apr/2025 19:59:28] "GET / HTTP/1.1" 200 -
+2025-04-27 19:59:28,961 - INFO - 127.0.0.1 - - [27/Apr/2025 19:59:28] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-27 19:59:28,966 - INFO - 127.0.0.1 - - [27/Apr/2025 19:59:28] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-27 21:24:27,058 - INFO - Administrator wszedł na stronę zestawienia.
+2025-04-27 21:24:27,142 - INFO - 127.0.0.1 - - [27/Apr/2025 21:24:27] "GET /zestawienie HTTP/1.1" 200 -
+2025-04-27 21:24:27,168 - INFO - 127.0.0.1 - - [27/Apr/2025 21:24:27] "GET /static/style.css HTTP/1.1" 200 -
+2025-04-27 21:24:27,181 - INFO - 127.0.0.1 - - [27/Apr/2025 21:24:27] "GET /static/img/logo-duże.png HTTP/1.1" 200 -
+2025-04-27 21:24:27,193 - INFO - 127.0.0.1 - - [27/Apr/2025 21:24:27] "GET /static/img/drukarka.png HTTP/1.1" 200 -
+2025-04-27 21:24:28,521 - INFO - Administrator wszedł na stronę główną.
+2025-04-27 21:24:28,522 - INFO - 127.0.0.1 - - [27/Apr/2025 21:24:28] "GET / HTTP/1.1" 200 -
+2025-04-27 21:24:28,545 - INFO - 127.0.0.1 - - [27/Apr/2025 21:24:28] "GET /static/style.css HTTP/1.1" 200 -
+2025-04-27 21:24:28,551 - INFO - 127.0.0.1 - - [27/Apr/2025 21:24:28] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-27 21:24:29,338 - INFO - Administrator wszedł na stronę z listą tasm.
+2025-04-27 21:24:29,439 - INFO - 127.0.0.1 - - [27/Apr/2025 21:24:29] "GET /tasma HTTP/1.1" 200 -
+2025-04-27 21:24:29,465 - INFO - 127.0.0.1 - - [27/Apr/2025 21:24:29] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-27 21:24:29,477 - INFO - 127.0.0.1 - - [27/Apr/2025 21:24:29] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-27 21:24:29,483 - INFO - 127.0.0.1 - - [27/Apr/2025 21:24:29] "GET /static/img/drukarka.png HTTP/1.1" 200 -
+2025-04-27 21:24:31,803 - INFO - Administrator wszedł na stronę dodawania tasy.
+2025-04-27 21:24:31,812 - INFO - 127.0.0.1 - - [27/Apr/2025 21:24:31] "GET /dodaj_tasma HTTP/1.1" 200 -
+2025-04-27 21:24:31,846 - INFO - 127.0.0.1 - - [27/Apr/2025 21:24:31] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-27 21:24:47,497 - INFO - Taśma została dodana przez użytkownika Administrator. Szczegóły taśmy: Dostawca ID: 2, Szablon ID: 4, Data z etykiety: 0033-03-21, Grubość: 0.00, Szerokość: 0.00, Waga kręgu: 132, Waga na stanie: 132, Nr etykieta paletowa: 321, Nr z etykiety: 321, Lokalizacja ID: 1, Nr faktury dostawcy: 213, Data dostawy: 0123-03-21.
+2025-04-27 21:24:47,498 - INFO - 127.0.0.1 - - [27/Apr/2025 21:24:47] "[35m[1mPOST /dodaj_tasma_do_bazy HTTP/1.1[0m" 204 -
+2025-04-27 21:24:50,062 - INFO - Administrator wszedł na stronę główną.
+2025-04-27 21:24:50,063 - INFO - 127.0.0.1 - - [27/Apr/2025 21:24:50] "GET / HTTP/1.1" 200 -
+2025-04-27 21:24:50,088 - INFO - 127.0.0.1 - - [27/Apr/2025 21:24:50] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-27 21:24:50,093 - INFO - 127.0.0.1 - - [27/Apr/2025 21:24:50] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-27 21:24:52,064 - INFO - Administrator wszedł na stronę zestawienia.
+2025-04-27 21:24:52,069 - INFO - 127.0.0.1 - - [27/Apr/2025 21:24:52] "GET /zestawienie HTTP/1.1" 200 -
+2025-04-27 21:24:52,093 - INFO - 127.0.0.1 - - [27/Apr/2025 21:24:52] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-27 21:24:52,104 - INFO - 127.0.0.1 - - [27/Apr/2025 21:24:52] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-27 21:24:52,110 - INFO - 127.0.0.1 - - [27/Apr/2025 21:24:52] "[36mGET /static/img/drukarka.png HTTP/1.1[0m" 304 -
+2025-04-27 21:25:49,988 - INFO - Administrator wszedł na stronę zestawienia.
+2025-04-27 21:25:50,070 - INFO - 127.0.0.1 - - [27/Apr/2025 21:25:50] "GET /zestawienie HTTP/1.1" 200 -
+2025-04-27 21:25:50,089 - INFO - 127.0.0.1 - - [27/Apr/2025 21:25:50] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-27 21:25:50,100 - INFO - 127.0.0.1 - - [27/Apr/2025 21:25:50] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-27 21:25:50,107 - INFO - 127.0.0.1 - - [27/Apr/2025 21:25:50] "[36mGET /static/img/drukarka.png HTTP/1.1[0m" 304 -
+2025-04-27 21:25:51,803 - INFO - Administrator wszedł na stronę zestawienia.
+2025-04-27 21:25:51,808 - INFO - 127.0.0.1 - - [27/Apr/2025 21:25:51] "GET /zestawienie HTTP/1.1" 200 -
+2025-04-27 21:25:51,832 - INFO - 127.0.0.1 - - [27/Apr/2025 21:25:51] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-27 21:25:51,845 - INFO - 127.0.0.1 - - [27/Apr/2025 21:25:51] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-27 21:25:51,864 - INFO - 127.0.0.1 - - [27/Apr/2025 21:25:51] "[36mGET /static/img/drukarka.png HTTP/1.1[0m" 304 -
+2025-04-27 21:26:28,421 - INFO - Administrator wszedł na stronę zestawienia.
+2025-04-27 21:26:28,428 - INFO - 127.0.0.1 - - [27/Apr/2025 21:26:28] "GET /zestawienie HTTP/1.1" 200 -
+2025-04-27 21:26:28,448 - INFO - 127.0.0.1 - - [27/Apr/2025 21:26:28] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-27 21:26:28,458 - INFO - 127.0.0.1 - - [27/Apr/2025 21:26:28] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-27 21:26:28,466 - INFO - 127.0.0.1 - - [27/Apr/2025 21:26:28] "[36mGET /static/img/drukarka.png HTTP/1.1[0m" 304 -
+2025-04-27 21:26:31,290 - INFO - Administrator wszedł na stronę zestawienia.
+2025-04-27 21:26:31,296 - INFO - 127.0.0.1 - - [27/Apr/2025 21:26:31] "GET /zestawienie HTTP/1.1" 200 -
+2025-04-27 21:26:31,314 - INFO - 127.0.0.1 - - [27/Apr/2025 21:26:31] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-27 21:26:31,323 - INFO - 127.0.0.1 - - [27/Apr/2025 21:26:31] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-27 21:26:31,331 - INFO - 127.0.0.1 - - [27/Apr/2025 21:26:31] "[36mGET /static/img/drukarka.png HTTP/1.1[0m" 304 -
+2025-04-27 21:30:36,007 - INFO - Administrator wszedł na stronę zestawienia.
+2025-04-27 21:30:36,094 - INFO - 127.0.0.1 - - [27/Apr/2025 21:30:36] "GET /zestawienie HTTP/1.1" 200 -
+2025-04-27 21:30:36,145 - INFO - 127.0.0.1 - - [27/Apr/2025 21:30:36] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-27 21:30:36,162 - INFO - 127.0.0.1 - - [27/Apr/2025 21:30:36] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-27 21:30:36,170 - INFO - 127.0.0.1 - - [27/Apr/2025 21:30:36] "[36mGET /static/img/drukarka.png HTTP/1.1[0m" 304 -
+2025-04-27 21:34:38,601 - INFO - Administrator wszedł na stronę zestawienia.
+2025-04-27 21:34:38,687 - INFO - 127.0.0.1 - - [27/Apr/2025 21:34:38] "GET /zestawienie HTTP/1.1" 200 -
+2025-04-27 21:34:38,743 - INFO - 127.0.0.1 - - [27/Apr/2025 21:34:38] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-27 21:34:38,760 - INFO - 127.0.0.1 - - [27/Apr/2025 21:34:38] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-27 21:34:38,766 - INFO - 127.0.0.1 - - [27/Apr/2025 21:34:38] "[36mGET /static/img/drukarka.png HTTP/1.1[0m" 304 -
+2025-04-27 21:34:40,720 - INFO - Administrator wszedł na stronę zestawienia.
+2025-04-27 21:34:40,726 - INFO - 127.0.0.1 - - [27/Apr/2025 21:34:40] "GET /zestawienie HTTP/1.1" 200 -
+2025-04-27 21:34:40,757 - INFO - 127.0.0.1 - - [27/Apr/2025 21:34:40] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-27 21:34:40,768 - INFO - 127.0.0.1 - - [27/Apr/2025 21:34:40] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-27 21:34:40,775 - INFO - 127.0.0.1 - - [27/Apr/2025 21:34:40] "[36mGET /static/img/drukarka.png HTTP/1.1[0m" 304 -
+2025-04-27 21:34:43,749 - INFO - Administrator wszedł na stronę zestawienia.
+2025-04-27 21:34:43,755 - INFO - 127.0.0.1 - - [27/Apr/2025 21:34:43] "GET /zestawienie HTTP/1.1" 200 -
+2025-04-27 21:34:43,780 - INFO - 127.0.0.1 - - [27/Apr/2025 21:34:43] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-27 21:34:43,791 - INFO - 127.0.0.1 - - [27/Apr/2025 21:34:43] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-27 21:34:43,801 - INFO - 127.0.0.1 - - [27/Apr/2025 21:34:43] "[36mGET /static/img/drukarka.png HTTP/1.1[0m" 304 -
+2025-04-27 21:34:44,356 - INFO - Administrator wszedł na stronę zestawienia.
+2025-04-27 21:34:44,362 - INFO - 127.0.0.1 - - [27/Apr/2025 21:34:44] "GET /zestawienie HTTP/1.1" 200 -
+2025-04-27 21:34:44,382 - INFO - 127.0.0.1 - - [27/Apr/2025 21:34:44] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-27 21:34:44,393 - INFO - 127.0.0.1 - - [27/Apr/2025 21:34:44] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-27 21:34:44,402 - INFO - 127.0.0.1 - - [27/Apr/2025 21:34:44] "[36mGET /static/img/drukarka.png HTTP/1.1[0m" 304 -
+2025-04-27 21:37:38,189 - INFO - Administrator wszedł na stronę zestawienia.
+2025-04-27 21:37:38,269 - INFO - 127.0.0.1 - - [27/Apr/2025 21:37:38] "GET /zestawienie HTTP/1.1" 200 -
+2025-04-27 21:37:38,289 - INFO - 127.0.0.1 - - [27/Apr/2025 21:37:38] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-27 21:37:38,300 - INFO - 127.0.0.1 - - [27/Apr/2025 21:37:38] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-27 21:37:38,309 - INFO - 127.0.0.1 - - [27/Apr/2025 21:37:38] "[36mGET /static/img/drukarka.png HTTP/1.1[0m" 304 -
+2025-04-27 21:39:12,583 - INFO - Administrator wszedł na stronę zestawienia.
+2025-04-27 21:39:12,671 - INFO - 127.0.0.1 - - [27/Apr/2025 21:39:12] "GET /zestawienie HTTP/1.1" 200 -
+2025-04-27 21:39:12,697 - INFO - 127.0.0.1 - - [27/Apr/2025 21:39:12] "GET /static/style.css HTTP/1.1" 200 -
+2025-04-27 21:39:12,711 - INFO - 127.0.0.1 - - [27/Apr/2025 21:39:12] "GET /static/img/logo-duże.png HTTP/1.1" 200 -
+2025-04-27 21:39:12,717 - INFO - 127.0.0.1 - - [27/Apr/2025 21:39:12] "GET /static/img/drukarka.png HTTP/1.1" 200 -
+2025-04-27 21:39:53,108 - INFO - Administrator wszedł na stronę zestawienia.
+2025-04-27 21:39:53,191 - INFO - 127.0.0.1 - - [27/Apr/2025 21:39:53] "GET /zestawienie HTTP/1.1" 200 -
+2025-04-27 21:39:53,222 - INFO - 127.0.0.1 - - [27/Apr/2025 21:39:53] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-27 21:39:53,233 - INFO - 127.0.0.1 - - [27/Apr/2025 21:39:53] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-27 21:39:53,245 - INFO - 127.0.0.1 - - [27/Apr/2025 21:39:53] "[36mGET /static/img/drukarka.png HTTP/1.1[0m" 304 -
+2025-04-27 21:40:00,925 - INFO - Administrator wszedł na stronę zestawienia.
+2025-04-27 21:40:00,931 - INFO - 127.0.0.1 - - [27/Apr/2025 21:40:00] "GET /zestawienie HTTP/1.1" 200 -
+2025-04-27 21:40:00,951 - INFO - 127.0.0.1 - - [27/Apr/2025 21:40:00] "GET /static/style.css HTTP/1.1" 200 -
+2025-04-27 21:40:00,961 - INFO - 127.0.0.1 - - [27/Apr/2025 21:40:00] "GET /static/img/logo-duże.png HTTP/1.1" 200 -
+2025-04-27 21:40:00,971 - INFO - 127.0.0.1 - - [27/Apr/2025 21:40:00] "GET /static/img/drukarka.png HTTP/1.1" 200 -
+2025-04-27 21:40:02,525 - INFO - Administrator wszedł na stronę zestawienia.
+2025-04-27 21:40:02,532 - INFO - 127.0.0.1 - - [27/Apr/2025 21:40:02] "GET /zestawienie HTTP/1.1" 200 -
+2025-04-27 21:40:02,551 - INFO - 127.0.0.1 - - [27/Apr/2025 21:40:02] "GET /static/style.css HTTP/1.1" 200 -
+2025-04-27 21:40:02,561 - INFO - 127.0.0.1 - - [27/Apr/2025 21:40:02] "GET /static/img/logo-duże.png HTTP/1.1" 200 -
+2025-04-27 21:40:02,571 - INFO - 127.0.0.1 - - [27/Apr/2025 21:40:02] "GET /static/img/drukarka.png HTTP/1.1" 200 -
+2025-04-27 21:40:03,151 - INFO - Administrator wszedł na stronę główną.
+2025-04-27 21:40:03,151 - INFO - 127.0.0.1 - - [27/Apr/2025 21:40:03] "GET / HTTP/1.1" 200 -
+2025-04-27 21:40:03,173 - INFO - 127.0.0.1 - - [27/Apr/2025 21:40:03] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-27 21:40:03,179 - INFO - 127.0.0.1 - - [27/Apr/2025 21:40:03] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-27 21:40:03,754 - INFO - Administrator wszedł na stronę profilu.
+2025-04-27 21:40:03,903 - INFO - 127.0.0.1 - - [27/Apr/2025 21:40:03] "GET /profil HTTP/1.1" 200 -
+2025-04-27 21:40:03,926 - INFO - 127.0.0.1 - - [27/Apr/2025 21:40:03] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-27 21:40:03,938 - INFO - 127.0.0.1 - - [27/Apr/2025 21:40:03] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-27 21:40:09,172 - INFO - Administrator wszedł na stronę profilu.
+2025-04-27 21:40:09,176 - INFO - 127.0.0.1 - - [27/Apr/2025 21:40:09] "GET /profil HTTP/1.1" 200 -
+2025-04-27 21:40:09,191 - INFO - 127.0.0.1 - - [27/Apr/2025 21:40:09] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-27 21:40:09,200 - INFO - 127.0.0.1 - - [27/Apr/2025 21:40:09] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-27 21:40:10,270 - INFO - Administrator wszedł na stronę główną.
+2025-04-27 21:40:10,271 - INFO - 127.0.0.1 - - [27/Apr/2025 21:40:10] "GET / HTTP/1.1" 200 -
+2025-04-27 21:40:10,294 - INFO - 127.0.0.1 - - [27/Apr/2025 21:40:10] "GET /static/style.css HTTP/1.1" 200 -
+2025-04-27 21:40:10,300 - INFO - 127.0.0.1 - - [27/Apr/2025 21:40:10] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-27 21:40:47,375 - INFO - Administrator wszedł na stronę zestawienia.
+2025-04-27 21:40:47,380 - INFO - 127.0.0.1 - - [27/Apr/2025 21:40:47] "GET /zestawienie HTTP/1.1" 200 -
+2025-04-27 21:40:47,402 - INFO - 127.0.0.1 - - [27/Apr/2025 21:40:47] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-27 21:40:47,411 - INFO - 127.0.0.1 - - [27/Apr/2025 21:40:47] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-27 21:40:47,420 - INFO - 127.0.0.1 - - [27/Apr/2025 21:40:47] "[36mGET /static/img/drukarka.png HTTP/1.1[0m" 304 -
+2025-04-27 21:46:47,312 - INFO - Administrator wszedł na stronę zestawienia.
+2025-04-27 21:46:47,400 - INFO - 127.0.0.1 - - [27/Apr/2025 21:46:47] "GET /zestawienie HTTP/1.1" 200 -
+2025-04-27 21:46:47,435 - INFO - 127.0.0.1 - - [27/Apr/2025 21:46:47] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-27 21:46:47,449 - INFO - 127.0.0.1 - - [27/Apr/2025 21:46:47] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-27 21:46:47,460 - INFO - 127.0.0.1 - - [27/Apr/2025 21:46:47] "[36mGET /static/img/drukarka.png HTTP/1.1[0m" 304 -
+2025-04-27 21:47:22,047 - INFO - Administrator wszedł na stronę główną.
+2025-04-27 21:47:22,047 - INFO - 127.0.0.1 - - [27/Apr/2025 21:47:22] "GET / HTTP/1.1" 200 -
+2025-04-27 21:47:22,080 - INFO - 127.0.0.1 - - [27/Apr/2025 21:47:22] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-27 21:47:22,085 - INFO - 127.0.0.1 - - [27/Apr/2025 21:47:22] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-27 21:47:23,034 - INFO - Administrator wszedł na stronę profilu.
+2025-04-27 21:47:23,037 - INFO - 127.0.0.1 - - [27/Apr/2025 21:47:23] "GET /profil HTTP/1.1" 200 -
+2025-04-27 21:47:23,062 - INFO - 127.0.0.1 - - [27/Apr/2025 21:47:23] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-27 21:47:23,071 - INFO - 127.0.0.1 - - [27/Apr/2025 21:47:23] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-27 21:47:25,377 - INFO - Administrator wszedł na stronę dodawania profilu.
+2025-04-27 21:47:25,391 - INFO - 127.0.0.1 - - [27/Apr/2025 21:47:25] "GET /dodaj_profil HTTP/1.1" 200 -
+2025-04-27 21:47:25,425 - INFO - 127.0.0.1 - - [27/Apr/2025 21:47:25] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-27 21:47:29,461 - INFO - Nowy profil został dodany przez użytkownika Administrator.
+2025-04-27 21:47:29,461 - INFO - Szczegóły profilu: ID Taśmy: 51, Data Produkcji: 2025-04-27, Godzina rozpoczęcia: 21:47:25, ID Szablonu Profilu: 3, Nazwa Klienta: 21, Ilość: None, ID Długości: None.Imie nazwisko pracownika: 23.
+2025-04-27 21:47:29,463 - INFO - 127.0.0.1 - - [27/Apr/2025 21:47:29] "[32mPOST /dodaj_lub_zakonczenie_profilu HTTP/1.1[0m" 302 -
+2025-04-27 21:47:31,300 - INFO - Administrator wszedł na stronę profilu.
+2025-04-27 21:47:31,304 - INFO - 127.0.0.1 - - [27/Apr/2025 21:47:31] "GET /profil HTTP/1.1" 200 -
+2025-04-27 21:47:31,320 - INFO - 127.0.0.1 - - [27/Apr/2025 21:47:31] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-27 21:47:31,330 - INFO - 127.0.0.1 - - [27/Apr/2025 21:47:31] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-27 21:49:11,549 - INFO - Administrator wszedł na stronę profilu.
+2025-04-27 21:49:11,554 - INFO - 127.0.0.1 - - [27/Apr/2025 21:49:11] "GET /profil HTTP/1.1" 200 -
+2025-04-27 21:49:11,574 - INFO - 127.0.0.1 - - [27/Apr/2025 21:49:11] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-27 21:49:11,584 - INFO - 127.0.0.1 - - [27/Apr/2025 21:49:11] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-27 21:49:12,860 - INFO - Administrator wszedł na stronę główną.
+2025-04-27 21:49:12,861 - INFO - 127.0.0.1 - - [27/Apr/2025 21:49:12] "GET / HTTP/1.1" 200 -
+2025-04-27 21:49:12,887 - INFO - 127.0.0.1 - - [27/Apr/2025 21:49:12] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-27 21:49:12,892 - INFO - 127.0.0.1 - - [27/Apr/2025 21:49:12] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-27 21:49:13,930 - INFO - Administrator wszedł na stronę dostawców.
+2025-04-27 21:49:13,979 - INFO - 127.0.0.1 - - [27/Apr/2025 21:49:13] "GET /lokalizacja HTTP/1.1" 200 -
+2025-04-27 21:49:14,001 - INFO - 127.0.0.1 - - [27/Apr/2025 21:49:14] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-27 21:49:14,013 - INFO - 127.0.0.1 - - [27/Apr/2025 21:49:14] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-27 21:49:14,608 - INFO - Administrator wszedł na stronę główną.
+2025-04-27 21:49:14,609 - INFO - 127.0.0.1 - - [27/Apr/2025 21:49:14] "GET / HTTP/1.1" 200 -
+2025-04-27 21:49:14,634 - INFO - 127.0.0.1 - - [27/Apr/2025 21:49:14] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-27 21:49:14,638 - INFO - 127.0.0.1 - - [27/Apr/2025 21:49:14] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-27 21:49:15,595 - INFO - Administrator wszedł na stronę zestawienia.
+2025-04-27 21:49:15,678 - INFO - 127.0.0.1 - - [27/Apr/2025 21:49:15] "GET /zestawienie HTTP/1.1" 200 -
+2025-04-27 21:49:15,703 - INFO - 127.0.0.1 - - [27/Apr/2025 21:49:15] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-27 21:49:15,715 - INFO - 127.0.0.1 - - [27/Apr/2025 21:49:15] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-27 21:49:15,730 - INFO - 127.0.0.1 - - [27/Apr/2025 21:49:15] "[36mGET /static/img/drukarka.png HTTP/1.1[0m" 304 -
+2025-04-27 21:49:16,120 - INFO - Administrator wszedł na stronę zestawienia.
+2025-04-27 21:49:16,127 - INFO - 127.0.0.1 - - [27/Apr/2025 21:49:16] "GET /zestawienie HTTP/1.1" 200 -
+2025-04-27 21:49:16,146 - INFO - 127.0.0.1 - - [27/Apr/2025 21:49:16] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-27 21:49:16,156 - INFO - 127.0.0.1 - - [27/Apr/2025 21:49:16] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-27 21:49:16,166 - INFO - 127.0.0.1 - - [27/Apr/2025 21:49:16] "[36mGET /static/img/drukarka.png HTTP/1.1[0m" 304 -
+2025-04-27 21:51:19,150 - INFO - Administrator wszedł na stronę zestawienia.
+2025-04-27 21:51:19,236 - INFO - 127.0.0.1 - - [27/Apr/2025 21:51:19] "GET /zestawienie HTTP/1.1" 200 -
+2025-04-27 21:51:19,266 - INFO - 127.0.0.1 - - [27/Apr/2025 21:51:19] "GET /static/style.css HTTP/1.1" 200 -
+2025-04-27 21:51:19,277 - INFO - 127.0.0.1 - - [27/Apr/2025 21:51:19] "GET /static/img/logo-duże.png HTTP/1.1" 200 -
+2025-04-27 21:51:19,287 - INFO - 127.0.0.1 - - [27/Apr/2025 21:51:19] "GET /static/img/drukarka.png HTTP/1.1" 200 -
+2025-04-27 21:52:57,643 - INFO - Administrator wszedł na stronę główną.
+2025-04-27 21:52:57,644 - INFO - 127.0.0.1 - - [27/Apr/2025 21:52:57] "GET / HTTP/1.1" 200 -
+2025-04-27 21:52:57,676 - INFO - 127.0.0.1 - - [27/Apr/2025 21:52:57] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-27 21:52:57,681 - INFO - 127.0.0.1 - - [27/Apr/2025 21:52:57] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-27 21:52:59,050 - INFO - Administrator wszedł na stronę profilu.
+2025-04-27 21:52:59,053 - INFO - 127.0.0.1 - - [27/Apr/2025 21:52:59] "GET /profil HTTP/1.1" 200 -
+2025-04-27 21:52:59,076 - INFO - 127.0.0.1 - - [27/Apr/2025 21:52:59] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-27 21:52:59,089 - INFO - 127.0.0.1 - - [27/Apr/2025 21:52:59] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-27 21:53:00,093 - INFO - 127.0.0.1 - - [27/Apr/2025 21:53:00] "POST /dodaj_profil_do_bazy HTTP/1.1" 200 -
+2025-04-27 21:53:00,115 - INFO - 127.0.0.1 - - [27/Apr/2025 21:53:00] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-27 21:53:06,485 - INFO - Zakończenie profilu o ID 64 przez użytkownika Administrator.
+2025-04-27 21:53:06,485 - INFO - Poprzednie dane: {'godz_min_zakonczenia': None, 'zwrot_na_magazyn_kg': None, 'ilosc': None, 'ilosc_na_stanie': None, 'id_dlugosci': None}
+2025-04-27 21:53:06,485 - INFO - Nowe dane: {'godz_min_zakonczenia': '21:53:06', 'zwrot_na_magazyn_kg': '0', 'ilosc': '21', 'ilosc_na_stanie': '21', 'id_dlugosci': '1'}
+2025-04-27 21:53:06,487 - INFO - 127.0.0.1 - - [27/Apr/2025 21:53:06] "[32mPOST /dodaj_lub_zakonczenie_profilu HTTP/1.1[0m" 302 -
+2025-04-27 21:53:06,493 - INFO - Administrator wszedł na stronę profilu.
+2025-04-27 21:53:06,497 - INFO - 127.0.0.1 - - [27/Apr/2025 21:53:06] "GET /profil HTTP/1.1" 200 -
+2025-04-27 21:53:06,520 - INFO - 127.0.0.1 - - [27/Apr/2025 21:53:06] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-27 21:53:06,532 - INFO - 127.0.0.1 - - [27/Apr/2025 21:53:06] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-27 21:53:07,468 - INFO - Administrator wszedł na stronę główną.
+2025-04-27 21:53:07,469 - INFO - 127.0.0.1 - - [27/Apr/2025 21:53:07] "GET / HTTP/1.1" 200 -
+2025-04-27 21:53:07,493 - INFO - 127.0.0.1 - - [27/Apr/2025 21:53:07] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-27 21:53:07,498 - INFO - 127.0.0.1 - - [27/Apr/2025 21:53:07] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-27 21:53:09,234 - INFO - Administrator wszedł na stronę zestawienia.
+2025-04-27 21:53:09,239 - INFO - 127.0.0.1 - - [27/Apr/2025 21:53:09] "GET /zestawienie HTTP/1.1" 200 -
+2025-04-27 21:53:09,261 - INFO - 127.0.0.1 - - [27/Apr/2025 21:53:09] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-27 21:53:09,273 - INFO - 127.0.0.1 - - [27/Apr/2025 21:53:09] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-27 21:53:09,278 - INFO - 127.0.0.1 - - [27/Apr/2025 21:53:09] "[36mGET /static/img/drukarka.png HTTP/1.1[0m" 304 -
+2025-04-27 21:56:06,510 - INFO - Administrator wszedł na stronę zestawienia.
+2025-04-27 21:56:06,595 - INFO - 127.0.0.1 - - [27/Apr/2025 21:56:06] "GET /zestawienie HTTP/1.1" 200 -
+2025-04-27 21:56:06,619 - INFO - 127.0.0.1 - - [27/Apr/2025 21:56:06] "GET /static/style.css HTTP/1.1" 200 -
+2025-04-27 21:56:06,628 - INFO - 127.0.0.1 - - [27/Apr/2025 21:56:06] "GET /static/img/logo-duże.png HTTP/1.1" 200 -
+2025-04-27 21:56:06,639 - INFO - 127.0.0.1 - - [27/Apr/2025 21:56:06] "GET /static/img/drukarka.png HTTP/1.1" 200 -
+2025-04-27 21:57:46,697 - INFO - Administrator wszedł na stronę główną.
+2025-04-27 21:57:46,698 - INFO - 127.0.0.1 - - [27/Apr/2025 21:57:46] "GET / HTTP/1.1" 200 -
+2025-04-27 21:57:46,730 - INFO - 127.0.0.1 - - [27/Apr/2025 21:57:46] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-27 21:57:46,735 - INFO - 127.0.0.1 - - [27/Apr/2025 21:57:46] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-27 21:57:47,653 - INFO - Administrator wszedł na stronę z listą tasm.
+2025-04-27 21:57:47,655 - INFO - 127.0.0.1 - - [27/Apr/2025 21:57:47] "GET /tasma HTTP/1.1" 200 -
+2025-04-27 21:57:47,675 - INFO - 127.0.0.1 - - [27/Apr/2025 21:57:47] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-27 21:57:47,686 - INFO - 127.0.0.1 - - [27/Apr/2025 21:57:47] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-27 21:57:47,692 - INFO - 127.0.0.1 - - [27/Apr/2025 21:57:47] "[36mGET /static/img/drukarka.png HTTP/1.1[0m" 304 -
+2025-04-27 21:57:53,280 - INFO - Administrator wszedł na stronę główną.
+2025-04-27 21:57:53,281 - INFO - 127.0.0.1 - - [27/Apr/2025 21:57:53] "GET / HTTP/1.1" 200 -
+2025-04-27 21:57:53,303 - INFO - 127.0.0.1 - - [27/Apr/2025 21:57:53] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-27 21:57:53,307 - INFO - 127.0.0.1 - - [27/Apr/2025 21:57:53] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-27 21:57:54,106 - INFO - Administrator wszedł na stronę profilu.
+2025-04-27 21:57:54,109 - INFO - 127.0.0.1 - - [27/Apr/2025 21:57:54] "GET /profil HTTP/1.1" 200 -
+2025-04-27 21:57:54,131 - INFO - 127.0.0.1 - - [27/Apr/2025 21:57:54] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-27 21:57:54,140 - INFO - 127.0.0.1 - - [27/Apr/2025 21:57:54] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-27 21:57:57,965 - INFO - Administrator wszedł na stronę główną.
+2025-04-27 21:57:57,966 - INFO - 127.0.0.1 - - [27/Apr/2025 21:57:57] "GET / HTTP/1.1" 200 -
+2025-04-27 21:57:57,991 - INFO - 127.0.0.1 - - [27/Apr/2025 21:57:57] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-27 21:57:57,995 - INFO - 127.0.0.1 - - [27/Apr/2025 21:57:57] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-27 22:00:42,844 - INFO - Administrator wszedł na stronę zestawienia.
+2025-04-27 22:00:42,927 - INFO - 127.0.0.1 - - [27/Apr/2025 22:00:42] "GET /zestawienie HTTP/1.1" 200 -
+2025-04-27 22:00:42,952 - INFO - 127.0.0.1 - - [27/Apr/2025 22:00:42] "GET /static/style.css HTTP/1.1" 200 -
+2025-04-27 22:00:42,960 - INFO - 127.0.0.1 - - [27/Apr/2025 22:00:42] "GET /static/img/logo-duże.png HTTP/1.1" 200 -
+2025-04-27 22:00:42,970 - INFO - 127.0.0.1 - - [27/Apr/2025 22:00:42] "GET /static/img/drukarka.png HTTP/1.1" 200 -
+2025-04-27 22:02:13,601 - INFO - Administrator wszedł na stronę zestawienia.
+2025-04-27 22:02:13,684 - INFO - 127.0.0.1 - - [27/Apr/2025 22:02:13] "GET /zestawienie HTTP/1.1" 200 -
+2025-04-27 22:02:13,701 - INFO - 127.0.0.1 - - [27/Apr/2025 22:02:13] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-27 22:02:13,714 - INFO - 127.0.0.1 - - [27/Apr/2025 22:02:13] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-27 22:02:13,722 - INFO - 127.0.0.1 - - [27/Apr/2025 22:02:13] "[36mGET /static/img/drukarka.png HTTP/1.1[0m" 304 -
+2025-04-27 22:03:45,097 - INFO - Administrator wszedł na stronę zestawienia.
+2025-04-27 22:03:45,182 - INFO - 127.0.0.1 - - [27/Apr/2025 22:03:45] "GET /zestawienie HTTP/1.1" 200 -
+2025-04-27 22:03:45,201 - INFO - 127.0.0.1 - - [27/Apr/2025 22:03:45] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-27 22:03:45,210 - INFO - 127.0.0.1 - - [27/Apr/2025 22:03:45] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-27 22:03:45,220 - INFO - 127.0.0.1 - - [27/Apr/2025 22:03:45] "[36mGET /static/img/drukarka.png HTTP/1.1[0m" 304 -
+2025-04-27 22:04:25,408 - INFO - Administrator wszedł na stronę główną.
+2025-04-27 22:04:25,409 - INFO - 127.0.0.1 - - [27/Apr/2025 22:04:25] "GET / HTTP/1.1" 200 -
+2025-04-27 22:04:25,434 - INFO - 127.0.0.1 - - [27/Apr/2025 22:04:25] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-27 22:04:25,439 - INFO - 127.0.0.1 - - [27/Apr/2025 22:04:25] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-28 00:21:48,127 - INFO - ✅ Kopia zapasowa zapisana do pliku: backups\kopie_zapasowe_bazy_2025-04-28_00-21.sql
+2025-04-28 00:21:48,129 - INFO - 🗑️ Usunięto starą kopię: kopie_zapasowe_bazy_2025-04-27_15-45.sql
+2025-04-28 00:21:50,548 - INFO - ✅ Kopia zapasowa zapisana do pliku: backups\kopie_zapasowe_bazy_2025-04-28_00-21.sql
+2025-04-28 08:38:24,289 - INFO - Administrator wszedł na stronę profilu.
+2025-04-28 08:38:24,296 - INFO - 127.0.0.1 - - [28/Apr/2025 08:38:24] "GET /profil HTTP/1.1" 200 -
+2025-04-28 08:38:24,324 - INFO - 127.0.0.1 - - [28/Apr/2025 08:38:24] "GET /static/style.css HTTP/1.1" 200 -
+2025-04-28 08:38:24,340 - INFO - 127.0.0.1 - - [28/Apr/2025 08:38:24] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-28 08:38:27,716 - INFO - Administrator wszedł na stronę dodawania profilu.
+2025-04-28 08:38:27,732 - INFO - 127.0.0.1 - - [28/Apr/2025 08:38:27] "GET /dodaj_profil HTTP/1.1" 200 -
+2025-04-28 08:38:27,758 - INFO - 127.0.0.1 - - [28/Apr/2025 08:38:27] "GET /static/style.css HTTP/1.1" 200 -
+2025-04-28 08:38:57,374 - INFO - Administrator wszedł na stronę główną.
+2025-04-28 08:38:57,375 - INFO - 127.0.0.1 - - [28/Apr/2025 08:38:57] "GET / HTTP/1.1" 200 -
+2025-04-28 08:38:57,408 - INFO - 127.0.0.1 - - [28/Apr/2025 08:38:57] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-28 08:38:57,413 - INFO - 127.0.0.1 - - [28/Apr/2025 08:38:57] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-28 08:38:58,366 - INFO - Administrator wszedł na stronę z listą tasm.
+2025-04-28 08:38:58,369 - INFO - 127.0.0.1 - - [28/Apr/2025 08:38:58] "GET /tasma HTTP/1.1" 200 -
+2025-04-28 08:38:58,390 - INFO - 127.0.0.1 - - [28/Apr/2025 08:38:58] "GET /static/style.css HTTP/1.1" 200 -
+2025-04-28 08:38:58,396 - INFO - 127.0.0.1 - - [28/Apr/2025 08:38:58] "[36mGET /static/img/drukarka.png HTTP/1.1[0m" 304 -
+2025-04-28 08:38:58,402 - INFO - 127.0.0.1 - - [28/Apr/2025 08:38:58] "GET /static/img/logo-duże.png HTTP/1.1" 200 -
+2025-04-28 08:39:01,455 - INFO - Administrator wszedł na stronę dodawania tasy.
+2025-04-28 08:39:01,458 - INFO - 127.0.0.1 - - [28/Apr/2025 08:39:01] "GET /dodaj_tasma HTTP/1.1" 200 -
+2025-04-28 08:39:01,486 - INFO - 127.0.0.1 - - [28/Apr/2025 08:39:01] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-28 08:40:21,950 - INFO - Administrator wszedł na stronę dodawania tasy.
+2025-04-28 08:40:21,961 - INFO - 127.0.0.1 - - [28/Apr/2025 08:40:21] "GET /dodaj_tasma HTTP/1.1" 200 -
+2025-04-28 08:40:22,003 - INFO - 127.0.0.1 - - [28/Apr/2025 08:40:22] "GET /static/style.css HTTP/1.1" 200 -
+2025-04-28 08:40:31,976 - INFO - Administrator wszedł na stronę główną.
+2025-04-28 08:40:31,977 - INFO - 127.0.0.1 - - [28/Apr/2025 08:40:31] "GET / HTTP/1.1" 200 -
+2025-04-28 08:40:32,011 - INFO - 127.0.0.1 - - [28/Apr/2025 08:40:32] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-28 08:40:32,016 - INFO - 127.0.0.1 - - [28/Apr/2025 08:40:32] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-28 08:51:31,978 - INFO - Administrator wszedł na stronę zestawienia.
+2025-04-28 08:51:31,984 - INFO - 127.0.0.1 - - [28/Apr/2025 08:51:31] "GET /zestawienie HTTP/1.1" 200 -
+2025-04-28 08:51:32,011 - INFO - 127.0.0.1 - - [28/Apr/2025 08:51:32] "GET /static/style.css HTTP/1.1" 200 -
+2025-04-28 08:51:32,024 - INFO - 127.0.0.1 - - [28/Apr/2025 08:51:32] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-28 08:51:32,030 - INFO - 127.0.0.1 - - [28/Apr/2025 08:51:32] "[36mGET /static/img/drukarka.png HTTP/1.1[0m" 304 -
+2025-04-28 08:59:52,668 - INFO - Administrator wszedł na stronę zestawienia.
+2025-04-28 08:59:52,759 - INFO - 127.0.0.1 - - [28/Apr/2025 08:59:52] "GET /zestawienie HTTP/1.1" 200 -
+2025-04-28 08:59:52,794 - INFO - 127.0.0.1 - - [28/Apr/2025 08:59:52] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-28 08:59:52,806 - INFO - 127.0.0.1 - - [28/Apr/2025 08:59:52] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-28 08:59:52,818 - INFO - 127.0.0.1 - - [28/Apr/2025 08:59:52] "[36mGET /static/img/drukarka.png HTTP/1.1[0m" 304 -
+2025-04-28 09:02:08,774 - INFO - Administrator wszedł na stronę zestawienia.
+2025-04-28 09:02:08,856 - INFO - 127.0.0.1 - - [28/Apr/2025 09:02:08] "GET /zestawienie HTTP/1.1" 200 -
+2025-04-28 09:02:08,876 - INFO - 127.0.0.1 - - [28/Apr/2025 09:02:08] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-28 09:02:08,889 - INFO - 127.0.0.1 - - [28/Apr/2025 09:02:08] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-28 09:02:08,903 - INFO - 127.0.0.1 - - [28/Apr/2025 09:02:08] "[36mGET /static/img/drukarka.png HTTP/1.1[0m" 304 -
+2025-04-28 09:02:09,390 - INFO - Administrator wszedł na stronę zestawienia.
+2025-04-28 09:02:09,396 - INFO - 127.0.0.1 - - [28/Apr/2025 09:02:09] "GET /zestawienie HTTP/1.1" 200 -
+2025-04-28 09:02:09,414 - INFO - 127.0.0.1 - - [28/Apr/2025 09:02:09] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-28 09:02:09,425 - INFO - 127.0.0.1 - - [28/Apr/2025 09:02:09] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-28 09:02:09,432 - INFO - 127.0.0.1 - - [28/Apr/2025 09:02:09] "[36mGET /static/img/drukarka.png HTTP/1.1[0m" 304 -
+2025-04-28 09:02:09,555 - INFO - Administrator wszedł na stronę zestawienia.
+2025-04-28 09:02:09,561 - INFO - 127.0.0.1 - - [28/Apr/2025 09:02:09] "GET /zestawienie HTTP/1.1" 200 -
+2025-04-28 09:02:09,575 - INFO - 127.0.0.1 - - [28/Apr/2025 09:02:09] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-28 09:02:09,585 - INFO - 127.0.0.1 - - [28/Apr/2025 09:02:09] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-28 09:02:09,592 - INFO - 127.0.0.1 - - [28/Apr/2025 09:02:09] "[36mGET /static/img/drukarka.png HTTP/1.1[0m" 304 -
+2025-04-28 09:02:09,705 - INFO - Administrator wszedł na stronę zestawienia.
+2025-04-28 09:02:09,711 - INFO - 127.0.0.1 - - [28/Apr/2025 09:02:09] "GET /zestawienie HTTP/1.1" 200 -
+2025-04-28 09:02:09,735 - INFO - 127.0.0.1 - - [28/Apr/2025 09:02:09] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-28 09:02:09,747 - INFO - 127.0.0.1 - - [28/Apr/2025 09:02:09] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-28 09:02:09,756 - INFO - 127.0.0.1 - - [28/Apr/2025 09:02:09] "[36mGET /static/img/drukarka.png HTTP/1.1[0m" 304 -
+2025-04-28 09:05:40,441 - INFO - Administrator wszedł na stronę zestawienia.
+2025-04-28 09:05:40,626 - INFO - 127.0.0.1 - - [28/Apr/2025 09:05:40] "GET /zestawienie HTTP/1.1" 200 -
+2025-04-28 09:05:40,645 - INFO - 127.0.0.1 - - [28/Apr/2025 09:05:40] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-28 09:05:40,655 - INFO - 127.0.0.1 - - [28/Apr/2025 09:05:40] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-28 09:05:40,663 - INFO - 127.0.0.1 - - [28/Apr/2025 09:05:40] "[36mGET /static/img/drukarka.png HTTP/1.1[0m" 304 -
+2025-04-28 09:06:12,394 - INFO - Administrator wszedł na stronę zestawienia.
+2025-04-28 09:06:12,478 - INFO - 127.0.0.1 - - [28/Apr/2025 09:06:12] "GET /zestawienie HTTP/1.1" 200 -
+2025-04-28 09:06:12,515 - INFO - 127.0.0.1 - - [28/Apr/2025 09:06:12] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-28 09:06:12,525 - INFO - 127.0.0.1 - - [28/Apr/2025 09:06:12] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-28 09:06:12,532 - INFO - 127.0.0.1 - - [28/Apr/2025 09:06:12] "[36mGET /static/img/drukarka.png HTTP/1.1[0m" 304 -
+2025-04-28 09:09:21,643 - INFO - Administrator wszedł na stronę zestawienia.
+2025-04-28 09:09:21,728 - INFO - 127.0.0.1 - - [28/Apr/2025 09:09:21] "GET /zestawienie HTTP/1.1" 200 -
+2025-04-28 09:09:21,755 - INFO - 127.0.0.1 - - [28/Apr/2025 09:09:21] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-28 09:09:21,769 - INFO - 127.0.0.1 - - [28/Apr/2025 09:09:21] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-28 09:09:21,778 - INFO - 127.0.0.1 - - [28/Apr/2025 09:09:21] "[36mGET /static/img/drukarka.png HTTP/1.1[0m" 304 -
+2025-04-28 09:10:57,624 - INFO - Administrator wszedł na stronę zestawienia.
+2025-04-28 09:10:57,707 - INFO - 127.0.0.1 - - [28/Apr/2025 09:10:57] "GET /zestawienie HTTP/1.1" 200 -
+2025-04-28 09:10:57,727 - INFO - 127.0.0.1 - - [28/Apr/2025 09:10:57] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-28 09:10:57,735 - INFO - 127.0.0.1 - - [28/Apr/2025 09:10:57] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-28 09:10:57,744 - INFO - 127.0.0.1 - - [28/Apr/2025 09:10:57] "[36mGET /static/img/drukarka.png HTTP/1.1[0m" 304 -
+2025-04-28 09:12:58,220 - INFO - Administrator wszedł na stronę zestawienia.
+2025-04-28 09:12:58,306 - INFO - 127.0.0.1 - - [28/Apr/2025 09:12:58] "GET /zestawienie HTTP/1.1" 200 -
+2025-04-28 09:12:58,337 - INFO - 127.0.0.1 - - [28/Apr/2025 09:12:58] "GET /static/style.css HTTP/1.1" 200 -
+2025-04-28 09:12:58,351 - INFO - 127.0.0.1 - - [28/Apr/2025 09:12:58] "GET /static/img/logo-duże.png HTTP/1.1" 200 -
+2025-04-28 09:12:58,362 - INFO - 127.0.0.1 - - [28/Apr/2025 09:12:58] "GET /static/img/drukarka.png HTTP/1.1" 200 -
+2025-04-28 09:13:26,614 - INFO - Administrator wszedł na stronę zestawienia.
+2025-04-28 09:13:26,698 - INFO - 127.0.0.1 - - [28/Apr/2025 09:13:26] "GET /zestawienie HTTP/1.1" 200 -
+2025-04-28 09:13:26,714 - INFO - 127.0.0.1 - - [28/Apr/2025 09:13:26] "GET /static/style.css HTTP/1.1" 200 -
+2025-04-28 09:13:26,724 - INFO - 127.0.0.1 - - [28/Apr/2025 09:13:26] "GET /static/img/logo-duże.png HTTP/1.1" 200 -
+2025-04-28 09:13:26,736 - INFO - 127.0.0.1 - - [28/Apr/2025 09:13:26] "GET /static/img/drukarka.png HTTP/1.1" 200 -
+2025-04-28 09:14:16,315 - INFO - Administrator wszedł na stronę zestawienia.
+2025-04-28 09:14:16,400 - INFO - 127.0.0.1 - - [28/Apr/2025 09:14:16] "GET /zestawienie HTTP/1.1" 200 -
+2025-04-28 09:14:16,436 - INFO - 127.0.0.1 - - [28/Apr/2025 09:14:16] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-28 09:14:16,448 - INFO - 127.0.0.1 - - [28/Apr/2025 09:14:16] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-28 09:14:16,460 - INFO - 127.0.0.1 - - [28/Apr/2025 09:14:16] "[36mGET /static/img/drukarka.png HTTP/1.1[0m" 304 -
+2025-04-28 09:20:40,712 - INFO - Administrator wszedł na stronę zestawienia.
+2025-04-28 09:20:40,796 - INFO - 127.0.0.1 - - [28/Apr/2025 09:20:40] "GET /zestawienie HTTP/1.1" 200 -
+2025-04-28 09:20:40,818 - INFO - 127.0.0.1 - - [28/Apr/2025 09:20:40] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-28 09:20:40,830 - INFO - 127.0.0.1 - - [28/Apr/2025 09:20:40] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-28 09:20:40,839 - INFO - 127.0.0.1 - - [28/Apr/2025 09:20:40] "[36mGET /static/img/drukarka.png HTTP/1.1[0m" 304 -
+2025-04-28 09:26:44,332 - INFO - Administrator wszedł na stronę zestawienia.
+2025-04-28 09:26:44,417 - INFO - 127.0.0.1 - - [28/Apr/2025 09:26:44] "GET /zestawienie HTTP/1.1" 200 -
+2025-04-28 09:26:44,448 - INFO - 127.0.0.1 - - [28/Apr/2025 09:26:44] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-28 09:26:44,462 - INFO - 127.0.0.1 - - [28/Apr/2025 09:26:44] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-28 09:26:44,467 - INFO - 127.0.0.1 - - [28/Apr/2025 09:26:44] "[36mGET /static/img/drukarka.png HTTP/1.1[0m" 304 -
+2025-04-28 09:27:45,906 - INFO - Administrator wszedł na stronę główną.
+2025-04-28 09:27:45,907 - INFO - 127.0.0.1 - - [28/Apr/2025 09:27:45] "GET / HTTP/1.1" 200 -
+2025-04-28 09:27:45,929 - INFO - 127.0.0.1 - - [28/Apr/2025 09:27:45] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-28 09:27:45,935 - INFO - 127.0.0.1 - - [28/Apr/2025 09:27:45] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-28 09:27:46,821 - INFO - Administrator wszedł na stronę z listą tasm.
+2025-04-28 09:27:46,824 - INFO - 127.0.0.1 - - [28/Apr/2025 09:27:46] "GET /tasma HTTP/1.1" 200 -
+2025-04-28 09:27:46,844 - INFO - 127.0.0.1 - - [28/Apr/2025 09:27:46] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-28 09:27:46,853 - INFO - 127.0.0.1 - - [28/Apr/2025 09:27:46] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-28 09:27:46,862 - INFO - 127.0.0.1 - - [28/Apr/2025 09:27:46] "[36mGET /static/img/drukarka.png HTTP/1.1[0m" 304 -
+2025-04-28 09:27:50,265 - INFO - Administrator wszedł na stronę dodawania tasy.
+2025-04-28 09:27:50,268 - INFO - 127.0.0.1 - - [28/Apr/2025 09:27:50] "GET /dodaj_tasma HTTP/1.1" 200 -
+2025-04-28 09:27:50,289 - INFO - 127.0.0.1 - - [28/Apr/2025 09:27:50] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-28 09:28:18,199 - INFO - Taśma została dodana przez użytkownika Administrator. Szczegóły taśmy: Dostawca ID: 1, Szablon ID: 4, Data z etykiety: 2025-06-25, Grubość: 0.00, Szerokość: 0.00, Waga kręgu: 5, Waga na stanie: 5, Nr etykieta paletowa: 5, Nr z etykiety: 4, Lokalizacja ID: 1, Nr faktury dostawcy: 15472, Data dostawy: 2025-04-25.
+2025-04-28 09:28:18,199 - INFO - 127.0.0.1 - - [28/Apr/2025 09:28:18] "[35m[1mPOST /dodaj_tasma_do_bazy HTTP/1.1[0m" 204 -
+2025-04-28 09:28:20,030 - INFO - Administrator wszedł na stronę główną.
+2025-04-28 09:28:20,031 - INFO - 127.0.0.1 - - [28/Apr/2025 09:28:20] "GET / HTTP/1.1" 200 -
+2025-04-28 09:28:20,059 - INFO - 127.0.0.1 - - [28/Apr/2025 09:28:20] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-28 09:28:20,064 - INFO - 127.0.0.1 - - [28/Apr/2025 09:28:20] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-28 09:28:21,619 - INFO - Administrator wszedł na stronę zestawienia.
+2025-04-28 09:28:21,626 - INFO - 127.0.0.1 - - [28/Apr/2025 09:28:21] "GET /zestawienie HTTP/1.1" 200 -
+2025-04-28 09:28:21,653 - INFO - 127.0.0.1 - - [28/Apr/2025 09:28:21] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-28 09:28:21,663 - INFO - 127.0.0.1 - - [28/Apr/2025 09:28:21] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-28 09:28:21,684 - INFO - 127.0.0.1 - - [28/Apr/2025 09:28:21] "[36mGET /static/img/drukarka.png HTTP/1.1[0m" 304 -
+2025-04-28 09:48:16,971 - INFO - Administrator wszedł na stronę zestawienia.
+2025-04-28 09:48:17,057 - INFO - 127.0.0.1 - - [28/Apr/2025 09:48:17] "GET /zestawienie HTTP/1.1" 200 -
+2025-04-28 09:48:17,083 - INFO - 127.0.0.1 - - [28/Apr/2025 09:48:17] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-04-28 09:48:17,096 - INFO - 127.0.0.1 - - [28/Apr/2025 09:48:17] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-04-28 09:48:17,105 - INFO - 127.0.0.1 - - [28/Apr/2025 09:48:17] "[36mGET /static/img/drukarka.png HTTP/1.1[0m" 304 -

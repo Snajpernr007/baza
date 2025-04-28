@@ -84,7 +84,7 @@ function filtrujDlugosci() {
         option.style.display = text.includes(input) ? "" : "none";
     }
 }
-function filtruSzablon() {
+function filtrujSzablon() {
     let input = document.getElementById("szukaj_szablon").value.toLowerCase();
     let select = document.getElementById("szablon_profile");
     let options = select.getElementsByTagName("option");
@@ -94,6 +94,11 @@ function filtruSzablon() {
         option.style.display = text.includes(input) ? "" : "none";
     }
 }
+function zamknijOkno() {
+        setTimeout(function() {
+            window.close();
+        }, 1);
+    }
 </script>
 </head>
 <body>
@@ -135,7 +140,8 @@ function filtruSzablon() {
                 <label for="imie_nazwisko_pracownika">Imie Nazwisko</label>
                 <input type="text" name="imie_nazwisko_pracownika" required><br>
                 <button class="button" type="reset">Wyczyść</button>
-                <button class="button" type="submit">Rozpocznij</button>
+                
+                <button class="button" type="submit" onclick="zamknijOkno()">Rozpocznij</button>
         
             {% else %}
                 <!-- ZAKOŃCZENIE PROFILU -->

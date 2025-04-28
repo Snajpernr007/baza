@@ -49,7 +49,7 @@ function filtrujDostawcow() {
     }
     function filtrujLokalizacja() {
         let input = document.getElementById("szukaj_lokalizacje").value.toLowerCase();
-        let select = document.getElementById("szukaj_lokalizacje");
+        let select = document.getElementById("lokalizacja");
         let options = select.getElementsByTagName("option");
 
         for (let option of options) {
@@ -107,7 +107,7 @@ function filtrujDostawcow() {
     <input type="text" name="nr_z_etykiety_na_kregu" required><br>
 
     <label for="szukaj_lokalizacje">Szukaj lokalizację:</label>
-<input type="text" id="szukaj_lokalizacje" onkeyup="filtrujlokalizacja()" placeholder="Wpisz nazwę lokalizacji">
+<input type="text" id="szukaj_lokalizacje" onkeyup="filtrujLokalizacja()" placeholder="Wpisz nazwę lokalizacji">
 
 <label for="lokalizacja">Lokalizacja:</label>
 <select id="lokalizacja" name="lokalizacja" required size="5">
