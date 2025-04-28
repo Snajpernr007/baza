@@ -1,7 +1,7 @@
 from flask import Flask, render_template, request, redirect, url_for, g, make_response, flash, jsonify,  send_file,session
 from flask_sqlalchemy import SQLAlchemy
 import logging
-from sqlalchemy import text, cast, Integer
+from sqlalchemy import text, cast, Integer,Float
 import base64
 import smtplib
 from email.message import EmailMessage
@@ -1350,7 +1350,6 @@ def sprzedaz():
 
     if request.method == "POST":
         try:
-            
             dlugosc_id = int(request.form.get('dlugosc_id'))
         except (TypeError, ValueError):
             flash("Nieprawidłowe dane wejściowe.")
@@ -1363,9 +1362,15 @@ def sprzedaz():
             logger.warning(f"Nie wybrano długości przez użytkownika {g.user.login}")
             return redirect(url_for('sprzedaz'))
 
-        dlugosc_wartosc = int(wybrana_dlugosc.nazwa)
+        # Zamiana przecinka na kropkę i konwersja do float
+        try:
+            dlugosc_wartosc = float(wybrana_dlugosc.nazwa.replace(',', '.'))
+        except ValueError:
+            flash("Błąd w formacie długości.")
+            logger.error(f"Błąd konwersji długości '{wybrana_dlugosc.nazwa}' na liczbę przez użytkownika {g.user.login}")
+            return redirect(url_for('sprzedaz'))
 
-        logger.info(f"Użytkownik {g.user.login} wybrał długość {dlugosc_wartosc} ")
+        logger.info(f"Użytkownik {g.user.login} wybrał długość {dlugosc_wartosc}")
 
         # Profile dokładnie pasujące
         dostepne_profile = Profil.query.filter(
@@ -1380,9 +1385,17 @@ def sprzedaz():
             logger.info(f"[DOSTĘPNE] Profil ID {p.id}, długość {p.dlugosci.nazwa}, na stanie {p.ilosc_na_stanie}")
 
         # Profile większe — możliwe do pocięcia
-        wieksze_dlugosci = Dlugosci.query.filter(
-            cast(Dlugosci.nazwa, Integer) > dlugosc_wartosc
-        ).all()
+        wszystkie_dlugosci = Dlugosci.query.all()
+
+        wieksze_dlugosci = []
+        for d in wszystkie_dlugosci:
+            try:
+                wartosc = float(d.nazwa.replace(',', '.'))
+                if wartosc > dlugosc_wartosc:
+                    wieksze_dlugosci.append(d)
+            except ValueError:
+                logger.error(f"Błąd parsowania długości '{d.nazwa}' (id={d.id})")
+                continue
 
         wieksze_ids = [d.id for d in wieksze_dlugosci]
 
@@ -1393,12 +1406,16 @@ def sprzedaz():
 
         for p in profile_do_ciecia:
             p.ciecie = True
-            wieksza_dlugosc = int(p.dlugosci.nazwa)
-            ile_sie_da_zrobic = wieksza_dlugosc // dlugosc_wartosc
-            p.uwaga = f"Można ciąć na mniejsze profile (max {ile_sie_da_zrobic} szt. z jednej)"
-            p.mozliwa_ilosc = p.ilosc_na_stanie * ile_sie_da_zrobic
-            logger.info(f"[CIĘCIE] Profil ID {p.id}, długość {p.dlugosci.nazwa}, na stanie {p.ilosc_na_stanie}, "
-                        f"możliwe do uzyskania: {p.mozliwa_ilosc}")
+            try:
+                wieksza_dlugosc = float(p.dlugosci.nazwa.replace(',', '.'))
+                ile_sie_da_zrobic = int(wieksza_dlugosc // dlugosc_wartosc)
+                p.uwaga = f"Można ciąć na mniejsze profile (max {ile_sie_da_zrobic} szt. z jednej)"
+                p.mozliwa_ilosc = p.ilosc_na_stanie * ile_sie_da_zrobic
+                logger.info(f"[CIĘCIE] Profil ID {p.id}, długość {p.dlugosci.nazwa}, na stanie {p.ilosc_na_stanie}, "
+                            f"możliwe do uzyskania: {p.mozliwa_ilosc}")
+            except (ValueError, ZeroDivisionError):
+                logger.error(f"Błąd obliczania cięcia dla profilu ID {p.id}")
+                continue
 
         wszystkie_profile = dostepne_profile + profile_do_ciecia
 
@@ -1408,6 +1425,7 @@ def sprzedaz():
         dlugosci=dlugosci,
         wszystkie_profile=wszystkie_profile
     )
+
 
 
 @app.route('/wez_profile', methods=["POST"])
