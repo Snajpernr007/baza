@@ -169,66 +169,86 @@ function resetFilters() {
 document.addEventListener("DOMContentLoaded", () => {
     setupFilters();
 });
-let sortStates = [];
+let currentSortColumn = null;
+let currentSortAsc = true;
 
-function sortTable(columnIndex) {
+function sortCustomTable(colIndex) {
     const table = document.getElementById("tabela");
-    const tbody = table.tBodies[0];
+    const tbody = table.querySelector("tbody");
 
+    // Zbieramy wszystkie wiersze
     const allRows = Array.from(tbody.querySelectorAll("tr"));
-    const tasmy = allRows.filter(row => !row.hasAttribute("data-parent-id"));
-    const profiles = allRows.filter(row => row.hasAttribute("data-parent-id"));
 
-    // Obsługuje stan sortowania dla danej kolumny
-    const existingSort = sortStates.find(s => s.columnIndex === columnIndex);
-    if (existingSort) {
-        existingSort.ascending = !existingSort.ascending;
-    } else {
-        sortStates = [{ columnIndex, ascending: true }];
-    }
-    const ascending = sortStates[0].ascending;
+    // Grupowanie wierszy rodzica i dzieci
+    const groupedRows = [];
+    let currentGroup = null;
 
-    function compareRows(a, b) {
-        const textA = a.cells[columnIndex]?.textContent.trim().toLowerCase() || "";
-        const textB = b.cells[columnIndex]?.textContent.trim().toLowerCase() || "";
-
-        if (!isNaN(textA) && !isNaN(textB)) {
-            return ascending ? textA - textB : textB - textA;
-        } else {
-            return ascending ? textA.localeCompare(textB) : textB.localeCompare(textA);
+    allRows.forEach(row => {
+        // Jeśli row ma atrybut data-parent-id oznacza to, że jest to wiersz podrzędny
+        if (row.getAttribute("data-parent-id") === "null") {
+            currentGroup = { parent: row, children: [] };
+            groupedRows.push(currentGroup);
+        } else if (currentGroup) {
+            currentGroup.children.push(row); // Dodaj wiersz podrzędny do grupy
         }
-    }
-
-    // Sortowanie taśm
-    tasmy.sort(compareRows);
-
-    // Sortowanie profili
-    profiles.sort(compareRows);
-
-    // Wstaw posortowane taśmy i powiązane profile z powrotem do tabeli
-    tbody.innerHTML = "";  // Wyczyść tbody przed dodaniem nowych wierszy
-
-    tasmy.forEach(tasma => {
-        tbody.appendChild(tasma);  // Dodaj główną taśmę do tabeli
-
-        // Pobierz ID taśmy, aby znaleźć powiązane profile
-        const tasmaId = tasma.querySelector("td")?.textContent.trim();
-        const powiazaneProfile = profiles.filter(p => p.dataset.parentId === tasmaId);
-
-        // Dodaj powiązane profile poniżej taśmy
-        powiazaneProfile.forEach(profile => tbody.appendChild(profile));
     });
 
-    // Zaktualizuj strzałki w nagłówkach
-    const headerCells = table.tHead.rows[1].cells;
-    Array.from(headerCells).forEach(cell => {
-        cell.innerHTML = cell.innerHTML.replace(/ ▲| ▼/g, '');
+    // Sortowanie grup (rodziców) na podstawie wartości w kolumnie
+    groupedRows.sort((a, b) => {
+        const aText = a.parent.cells[colIndex]?.innerText.trim() || "";
+        const bText = b.parent.cells[colIndex]?.innerText.trim() || "";
+
+        const isDate = !isNaN(Date.parse(aText)) && !isNaN(Date.parse(bText));
+        const isNumber = !isNaN(parseFloat(aText)) && !isNaN(parseFloat(bText));
+
+        let comparison = 0;
+        if (isDate) {
+            comparison = new Date(aText) - new Date(bText);
+        } else if (isNumber) {
+            comparison = parseFloat(aText) - parseFloat(bText);
+        } else {
+            comparison = aText.localeCompare(bText);
+        }
+
+        return currentSortAsc ? comparison : -comparison;
     });
 
-    const headerCell = headerCells[columnIndex];
-    if (headerCell) {
-        headerCell.innerHTML += ascending ? ' ▲' : ' ▼';
+    // Sortowanie dzieci w każdej grupie (jeśli dzieci są obecne)
+    groupedRows.forEach(group => {
+        group.children.sort((a, b) => {
+            const aText = a.cells[colIndex]?.innerText.trim() || "";
+            const bText = b.cells[colIndex]?.innerText.trim() || "";
+
+            const isDate = !isNaN(Date.parse(aText)) && !isNaN(Date.parse(bText));
+            const isNumber = !isNaN(parseFloat(aText)) && !isNaN(parseFloat(bText));
+
+            let comparison = 0;
+            if (isDate) {
+                comparison = new Date(aText) - new Date(bText);
+            } else if (isNumber) {
+                comparison = parseFloat(aText) - parseFloat(bText);
+            } else {
+                comparison = aText.localeCompare(bText);
+            }
+
+            return currentSortAsc ? comparison : -comparison;
+        });
+    });
+
+    // Zmieniamy kierunek sortowania po kliknięciu w tę samą kolumnę
+    if (currentSortColumn === colIndex) {
+        currentSortAsc = !currentSortAsc;
+    } else {
+        currentSortColumn = colIndex;
+        currentSortAsc = true;
     }
+
+    // Wyczyść tbody i wstaw posortowane grupy
+    tbody.innerHTML = "";
+    groupedRows.forEach(group => {
+        tbody.appendChild(group.parent); // Wstawiamy wiersz rodzica
+        group.children.forEach(child => tbody.appendChild(child)); // Wstawiamy wiersze dzieci
+    });
 }
 
 
@@ -506,40 +526,40 @@ const headers = Array.from(headerRow.querySelectorAll('th'));
                         </tr>
                     
                     <tr>
-                            <th  onclick="sortTable(0)">ID &#9650;&#9660;</th>
-                            <th  onclick="sortTable(1)">Nazwa Dostawcy &#9650;&#9660;</th>
-                            <th  onclick="sortTable(2)">Nazwa Materiału &#9650;&#9660;</th>
-                            <th  onclick="sortTable(3)">Data z Etykiety na Kręgu &#9650;&#9660;</th>
-                            <th  onclick="sortTable(4)">Grubość &#9650;&#9660;</th>
-                            <th  onclick="sortTable(5)">Szerokość &#9650;&#9660;</th>
-                            <th  onclick="sortTable(6)">Waga Kręgu &#9650;&#9660;</th>
-                            <th  onclick="sortTable(7)">Waga Kręgu na Stanie &#9650;&#9660;</th>
-                            <th  onclick="sortTable(8)">Nr Etykieta Paletowa &#9650;&#9660;</th>
-                            <th  onclick="sortTable(9)">Nr z Etykiety na Kręgu &#9650;&#9660;</th>
-                            <th  onclick="sortTable(10)">Lokalizacja &#9650;&#9660;</th>
-                            <th  onclick="sortTable(11)">Nr WZ &#9650;&#9660;</th>
-                            <th  onclick="sortTable(12)">Data Dostawy &#9650;&#9660;</th>
-                            <th  onclick="sortTable(13)">Nazwa Stanowiska &#9650;&#9660;</th>
-                            <th  onclick="sortTable(14)">ID &#9650;&#9660;</th>
-                            <th  onclick="sortTable(15)">Etykieta Materiału &#9650;&#9660;</th>
-                            <th  onclick="sortTable(16)">Data Produkcji &#9650;&#9660;</th>
-                            <th  onclick="sortTable(17)">Godzina rozpoczęcia &#9650;&#9660;</th>
-                            <th  onclick="sortTable(18)">Godzina zakończenia &#9650;&#9660;</th>
-                            <th  onclick="sortTable(19)">Zwrot na magazyn kg &#9650;&#9660;</th>
-                            <th  onclick="sortTable(20)">Nr części klienta &#9650;&#9660;</th>
-                            <th  onclick="sortTable(21)">Nazwa klienta Nr PRODIO &#9650;&#9660;</th>
-                            <th  onclick="sortTable(22)">Ilość &#9650;&#9660;</th>
-                            <th  onclick="sortTable(23)">Ilość na stanie &#9650;&#9660;</th>
-                            <th  onclick="sortTable(24)">Długość &#9650;&#9660;</th>
-                            <th  onclick="sortTable(25)">Rodzaj materiału &#9650;&#9660;</th>
-                            <th  onclick="sortTable(26)">Nazwa Stanowiska i imie i nazwisko &#9650;&#9660;</th>
+                            <th  onclick="sortCustomTable(0)">ID &#9650;&#9660;</th>
+                            <th  onclick="sortCustomTable(1)">Nazwa Dostawcy &#9650;&#9660;</th>
+                            <th  onclick="sortCustomTable(2)">Nazwa Materiału &#9650;&#9660;</th>
+                            <th  onclick="sortCustomTable(3)">Data z Etykiety na Kręgu &#9650;&#9660;</th>
+                            <th  onclick="sortCustomTable(4)">Grubość &#9650;&#9660;</th>
+                            <th  onclick="sortCustomTable(5)">Szerokość &#9650;&#9660;</th>
+                            <th  onclick="sortCustomTable(6)">Waga Kręgu &#9650;&#9660;</th>
+                            <th  onclick="sortCustomTable(7)">Waga Kręgu na Stanie &#9650;&#9660;</th>
+                            <th  onclick="sortCustomTable(8)">Nr Etykieta Paletowa &#9650;&#9660;</th>
+                            <th  onclick="sortCustomTable(9)">Nr z Etykiety na Kręgu &#9650;&#9660;</th>
+                            <th  onclick="sortCustomTable(10)">Lokalizacja &#9650;&#9660;</th>
+                            <th  onclick="sortCustomTable(11)">Nr WZ &#9650;&#9660;</th>
+                            <th  onclick="sortCustomTable(12)">Data Dostawy &#9650;&#9660;</th>
+                            <th  onclick="sortCustomTable(13)">Nazwa Stanowiska &#9650;&#9660;</th>
+                            <th  onclick="sortCustomTable(14)">ID &#9650;&#9660;</th>
+                            <th  onclick="sortCustomTable(15)">Etykieta Materiału &#9650;&#9660;</th>
+                            <th  onclick="sortCustomTable(16)">Data Produkcji &#9650;&#9660;</th>
+                            <th  onclick="sortCustomTable(17)">Godzina rozpoczęcia &#9650;&#9660;</th>
+                            <th  onclick="sortCustomTable(18)">Godzina zakończenia &#9650;&#9660;</th>
+                            <th  onclick="sortCustomTable(19)">Zwrot na magazyn kg &#9650;&#9660;</th>
+                            <th  onclick="sortCustomTable(20)">Nr części klienta &#9650;&#9660;</th>
+                            <th  onclick="sortCustomTable(21)">Nazwa klienta Nr PRODIO &#9650;&#9660;</th>
+                            <th  onclick="sortCustomTable(22)">Ilość &#9650;&#9660;</th>
+                            <th  onclick="sortCustomTable(23)">Ilość na stanie &#9650;&#9660;</th>
+                            <th  onclick="sortCustomTable(24)">Długość &#9650;&#9660;</th>
+                            <th  onclick="sortCustomTable(25)">Rodzaj materiału &#9650;&#9660;</th>
+                            <th  onclick="sortCustomTable(26)">Nazwa Stanowiska i imie i nazwisko &#9650;&#9660;</th>
                         
                     </tr>
                 </thead>
                 <tbody>
                     {% for tasmy in tasma %}
                         <tr data-parent-id="{{ tasmy.id }}">
-                            <td data-parent-id="null">{{ tasmy.id }} <a href="javascript:void(0);" onclick="printID({{ tasmy.id }})">
+                            <td>{{ tasmy.id }} <a href="javascript:void(0);" onclick="printID({{ tasmy.id }})">
                                 <img src="/static/img/drukarka.png" alt="drukuj" height="15" width="15">
                             </a></td>
                             <td  data-dostawca-id="{{ tasmy.dostawca.id }}">{{ tasmy.dostawca.nazwa }}</td>
@@ -570,11 +590,12 @@ const headers = Array.from(headerRow.querySelectorAll('th'));
                             <td ></td>
                             <td ></td>
                             <td ></td>
+                        </tr>
                             {% for profile in profil %}
                             
                             {% if tasmy.id== profile.tasma.id%}
                             
-                                <tr  data-parent-id="{{ tasmy.id }}">
+                                <tr  data-child-id="{{ profile.tasma.id }}">
                                     <td ></td>
                                     <td ></td>
                                     <td ></td>
@@ -610,7 +631,7 @@ const headers = Array.from(headerRow.querySelectorAll('th'));
                             
                             {% endfor %}
                             
-                        </tr>
+                        
                     {% endfor %}
                 </tbody>
             </table>
