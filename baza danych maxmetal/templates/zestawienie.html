@@ -169,87 +169,7 @@ function resetFilters() {
 document.addEventListener("DOMContentLoaded", () => {
     setupFilters();
 });
-let currentSortColumn = null;
-let currentSortAsc = true;
 
-function sortCustomTable(colIndex) {
-    const table = document.getElementById("tabela");
-    const tbody = table.querySelector("tbody");
-
-    // Zbieramy wszystkie wiersze
-    const allRows = Array.from(tbody.querySelectorAll("tr"));
-
-    // Grupowanie wierszy rodzica i dzieci
-    const groupedRows = [];
-    let currentGroup = null;
-
-    allRows.forEach(row => {
-        // Jeśli row ma atrybut data-parent-id oznacza to, że jest to wiersz podrzędny
-        if (row.getAttribute("data-parent-id") === "null") {
-            currentGroup = { parent: row, children: [] };
-            groupedRows.push(currentGroup);
-        } else if (currentGroup) {
-            currentGroup.children.push(row); // Dodaj wiersz podrzędny do grupy
-        }
-    });
-
-    // Sortowanie grup (rodziców) na podstawie wartości w kolumnie
-    groupedRows.sort((a, b) => {
-        const aText = a.parent.cells[colIndex]?.innerText.trim() || "";
-        const bText = b.parent.cells[colIndex]?.innerText.trim() || "";
-
-        const isDate = !isNaN(Date.parse(aText)) && !isNaN(Date.parse(bText));
-        const isNumber = !isNaN(parseFloat(aText)) && !isNaN(parseFloat(bText));
-
-        let comparison = 0;
-        if (isDate) {
-            comparison = new Date(aText) - new Date(bText);
-        } else if (isNumber) {
-            comparison = parseFloat(aText) - parseFloat(bText);
-        } else {
-            comparison = aText.localeCompare(bText);
-        }
-
-        return currentSortAsc ? comparison : -comparison;
-    });
-
-    // Sortowanie dzieci w każdej grupie (jeśli dzieci są obecne)
-    groupedRows.forEach(group => {
-        group.children.sort((a, b) => {
-            const aText = a.cells[colIndex]?.innerText.trim() || "";
-            const bText = b.cells[colIndex]?.innerText.trim() || "";
-
-            const isDate = !isNaN(Date.parse(aText)) && !isNaN(Date.parse(bText));
-            const isNumber = !isNaN(parseFloat(aText)) && !isNaN(parseFloat(bText));
-
-            let comparison = 0;
-            if (isDate) {
-                comparison = new Date(aText) - new Date(bText);
-            } else if (isNumber) {
-                comparison = parseFloat(aText) - parseFloat(bText);
-            } else {
-                comparison = aText.localeCompare(bText);
-            }
-
-            return currentSortAsc ? comparison : -comparison;
-        });
-    });
-
-    // Zmieniamy kierunek sortowania po kliknięciu w tę samą kolumnę
-    if (currentSortColumn === colIndex) {
-        currentSortAsc = !currentSortAsc;
-    } else {
-        currentSortColumn = colIndex;
-        currentSortAsc = true;
-    }
-
-    // Wyczyść tbody i wstaw posortowane grupy
-    tbody.innerHTML = "";
-    groupedRows.forEach(group => {
-        tbody.appendChild(group.parent); // Wstawiamy wiersz rodzica
-        group.children.forEach(child => tbody.appendChild(child)); // Wstawiamy wiersze dzieci
-    });
-}
 
 
 function printID(id) {
@@ -292,49 +212,50 @@ function toggleColumn(index) {
 }
 function downloadSelected(user) {
     console.log("Pobieranie wybranych kolumn do Excela");
-    console.log("User:", user); // Sprawdzamy wartość 'user'
+    console.log("User:", user);
 
-    const table = document.getElementById('tabela'); // Upewnij się, że używasz właściwej tabeli
-    const headerRow = table.querySelectorAll('thead tr')[1]; // Drugi wiersz nagłówków
-const headers = Array.from(headerRow.querySelectorAll('th'));
-    const rows = Array.from(table.querySelectorAll('tbody tr')); // Pobieramy wszystkie wiersze
+    const table = document.getElementById('tabela');
+    const headerRow = table.querySelectorAll('thead tr')[1]; // Drugi wiersz nagłówka (z sortowaniem)
+    const headers = Array.from(headerRow.querySelectorAll('th'));
+    const allRows = Array.from(table.querySelectorAll('tbody tr'));
 
-    // Indeksy widocznych kolumn
-    const visibleColumnIndexes = headers.map((th, idx) => th.hasAttribute('hidden') ? null : idx).filter(idx => idx !== null);
+    // Indeksy kolumn, które NIE są ukryte (na podstawie stylu)
+    const visibleColumnIndexes = headers
+        .map((th, idx) => th.style.display === "none" ? null : idx)
+        .filter(idx => idx !== null);
 
-    // Nagłówki widocznych kolumn
+    // Nazwy widocznych kolumn
     const visibleHeaders = visibleColumnIndexes.map(idx =>
-    headers[idx].innerText.replace(/[▲▼]/g, '').trim()
-);
+        headers[idx].innerText.replace(/[▲▼]/g, '').trim()
+    );
 
-    console.log("Widoczne nagłówki:", visibleHeaders);  // Logowanie nagłówków
+    // Widoczne wiersze
+    const visibleRows = allRows.filter(row => row.style.display !== "none");
 
-    // Zbieramy dane z tabeli zgodnie z widocznymi kolumnami
-    const data = rows.map(row => {
-        const cells = Array.from(row.querySelectorAll('td')); // Pobieramy komórki wiersza
-        return visibleColumnIndexes.map(idx => cells[idx]?.innerText.trim()); // Pobieramy dane tylko dla widocznych kolumn
+    // Dane tylko z widocznych kolumn i wierszy
+    const data = visibleRows.map(row => {
+        const cells = Array.from(row.querySelectorAll('td'));
+        return visibleColumnIndexes.map(idx => {
+            const cell = cells[idx];
+            return (cell && cell.style.display !== "none") ? cell.innerText.trim() : '';
+        });
     });
 
-    console.log("Dane do pobrania:", data);  // Logowanie danych
+    console.log("Widoczne nagłówki:", visibleHeaders);
+    console.log("Dane do pobrania:", data);
 
-    // Logowanie informacji o pobraniu do backendu
+    // Logowanie do backendu
     fetch('/log-download', {
         method: 'POST',
         headers: {'Content-Type': 'application/json'},
-        body: JSON.stringify({
-            user: user, // Dynamicznie przekazywany user
-            columns: visibleHeaders
-        })
+        body: JSON.stringify({ user, columns: visibleHeaders })
     });
 
-    // Wysyłamy dane do backendu, aby wygenerować plik Excel
+    // Pobranie pliku Excel
     fetch('/download-excel', {
         method: 'POST',
         headers: {'Content-Type': 'application/json'},
-        body: JSON.stringify({
-            headers: visibleHeaders,  // Nagłówki widocznych kolumn
-            data: data                // Dane z wybranych kolumn
-        })
+        body: JSON.stringify({ headers: visibleHeaders, data })
     }).then(res => {
         if (!res.ok) {
             throw new Error('Nie udało się pobrać pliku Excel. Status: ' + res.status);
@@ -643,4 +564,90 @@ const headers = Array.from(headerRow.querySelectorAll('th'));
         
     </div>
 </body>
+<script>
+let currentSortColumn = null;
+let currentSortAsc = true;
+
+function sortCustomTable(columnIndex) {
+    const table = document.getElementById("tabela");
+    const thead = table.querySelector("thead");
+    const tbody = table.querySelector("tbody");
+    const headerSortRow = thead.querySelectorAll("tr")[1]; // Drugi wiersz nagłówków (z sortowaniem)
+
+    // Przełącz kierunek sortowania
+    if (currentSortColumn === columnIndex) {
+        currentSortAsc = !currentSortAsc;
+    } else {
+        currentSortColumn = columnIndex;
+        currentSortAsc = true;
+    }
+
+    // Zaktualizuj tylko klikniętą kolumnę – nie ruszaj innych
+    const thList = headerSortRow.querySelectorAll("th");
+    const clickedTh = thList[columnIndex];
+    let currentText = clickedTh.innerHTML.replace(/[\u25B2\u25BC]/g, '').trim();
+    clickedTh.innerHTML = currentText + (currentSortAsc ? ' ▲' : ' ▼');
+
+    const rows = Array.from(tbody.querySelectorAll("tr"));
+    const groupedRows = [];
+
+    for (let i = 0; i < rows.length; i++) {
+        const row = rows[i];
+
+        if (row.hasAttribute("data-parent-id")) {
+            const parentRow = row;
+            const parentId = row.getAttribute("data-parent-id");
+
+            const children = [];
+            let j = i + 1;
+
+            while (j < rows.length && rows[j].getAttribute("data-child-id") === parentId) {
+                children.push(rows[j]);
+                j++;
+            }
+
+            groupedRows.push({ parent: parentRow, children: children });
+            i = j - 1;
+        }
+    }
+
+    if (columnIndex < 14) {
+        // Sortuj grupy wg kolumny rodzica
+        groupedRows.sort((a, b) => {
+            const aText = a.parent.cells[columnIndex]?.textContent.trim() || '';
+            const bText = b.parent.cells[columnIndex]?.textContent.trim() || '';
+
+            const aVal = parseFloat(aText.replace(",", ".")) || aText.toLowerCase();
+            const bVal = parseFloat(bText.replace(",", ".")) || bText.toLowerCase();
+
+            if (aVal < bVal) return currentSortAsc ? -1 : 1;
+            if (aVal > bVal) return currentSortAsc ? 1 : -1;
+            return 0;
+        });
+
+    } else {
+        // Sortuj dzieci w każdej grupie osobno
+        groupedRows.forEach(group => {
+            group.children.sort((a, b) => {
+                const aText = a.cells[columnIndex]?.textContent.trim() || '';
+                const bText = b.cells[columnIndex]?.textContent.trim() || '';
+
+                const aVal = parseFloat(aText.replace(",", ".")) || aText.toLowerCase();
+                const bVal = parseFloat(bText.replace(",", ".")) || bText.toLowerCase();
+
+                if (aVal < bVal) return currentSortAsc ? -1 : 1;
+                if (aVal > bVal) return currentSortAsc ? 1 : -1;
+                return 0;
+            });
+        });
+    }
+
+    // Przepisz posortowane wiersze do <tbody>
+    tbody.innerHTML = '';
+    groupedRows.forEach(group => {
+        tbody.appendChild(group.parent);
+        group.children.forEach(child => tbody.appendChild(child));
+    });
+}
+    </script>
 </html> 
