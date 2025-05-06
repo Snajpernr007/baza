@@ -19,6 +19,15 @@ function filterTable() {
     // Pobierz wartości filtrów tekstowych z inputów
     let filters = table.querySelectorAll("thead tr:first-child input[type='text']");
 
+    // Mapowanie filtrów tekstowych na rzeczywiste indeksy <td>
+    // Pomijamy kolumny 3 (data z etykiety), 4 (ukryta), 13 (data dostawy), 14 (ukryta)
+    const filterColumnIndexes = [
+        0, 1, 2,    // ID, Dostawca, Materiał
+        4, 5, 6, 7, 8, 9, 10, 11, // Grubość, Szerokość, Waga, Etykieta Paletowa, Etykieta Kręgu, Lokalizacja, Nr WZ
+        12,           // Data Dostawy
+        15            // Nazwa Stanowiska
+    ];
+
     // Pobierz zakresy dat
     let dateFromKrag = document.getElementById("dateFromKrag")?.value;
     let dateToKrag = document.getElementById("dateToKrag")?.value;
@@ -29,11 +38,12 @@ function filterTable() {
         let cells = row.getElementsByTagName("td");
         let show = true;
 
-        // Filtr tekstowy (dla kolumn: 0–13 z wyjątkiem dat)
-        filters.forEach((input, index) => {
+        // Filtr tekstowy
+        filters.forEach((input, i) => {
             let filter = input.value.toLowerCase();
-            if (filter && cells[index]) {
-                let cellText = cells[index].textContent.toLowerCase();
+            let colIndex = filterColumnIndexes[i]; // rzeczywisty indeks kolumny w <td>
+            if (filter && cells[colIndex]) {
+                let cellText = cells[colIndex].textContent.toLowerCase();
                 if (!cellText.includes(filter)) {
                     show = false;
                 }
@@ -48,7 +58,7 @@ function filterTable() {
             if (dateToKrag && cellDate > new Date(dateToKrag)) show = false;
         }
 
-        // Filtrowanie Data Dostawy (kolumna 12)
+        // Filtrowanie Data Dostawy (kolumna 13)
         if (show && (dateFromDostawa || dateToDostawa)) {
             let cellDateStr = cells[13].textContent.trim();
             let cellDate = new Date(cellDateStr);
@@ -61,9 +71,13 @@ function filterTable() {
 }
 // Zaktualizuj wywołanie funkcji filterTable w inputach
 function setupFilters() {
-    let filterInputs = document.querySelectorAll("thead input");
-    filterInputs.forEach((input, index) => {
-        input.addEventListener("keyup", filterTable); // Używamy nowej funkcji filterTable
+    let inputs = document.querySelectorAll("thead input");
+    inputs.forEach(input => {
+        if (input.type === "text") {
+            input.addEventListener("keyup", filterTable);
+        } else if (input.type === "date") {
+            input.addEventListener("change", filterTable);
+        }
     });
 }
 
@@ -71,16 +85,14 @@ function setupFilters() {
 document.addEventListener("DOMContentLoaded", setupFilters);
 function resetFilters() {
     let table = document.getElementById("tabela");
-    let filterInputs = table.querySelectorAll("thead input");
-    let rows = table.getElementsByTagName("tbody")[0].getElementsByTagName("tr");
+    let inputs = table.querySelectorAll("thead input");
+    let rows = table.querySelectorAll("tbody tr");
 
-    // Resetuj wszystkie pola filtrów
-    filterInputs.forEach(input => input.value = "");
+    inputs.forEach(input => input.value = "");
 
-    // Przywróć widoczność wszystkich wierszy
-    for (let i = 0; i < rows.length; i++) {
-        rows[i].style.display = "";
-    }
+    rows.forEach(row => {
+        row.style.display = "";
+    });
 }
 let sortStates = []; // Tablica przechowująca stan sortowania dla każdej kolumny
 
@@ -477,6 +489,7 @@ function printID(id) {
                         <th><input type="text" placeholder="Filtruj Materiał" onchange="filterTable()"></th>
                         <th>  OD<input type="date" id="dateFromKrag" onchange="filterTable()">
                             DO<input type="date" id="dateToKrag" onchange="filterTable()"></th>
+                            
                         <th><input type="text" placeholder="Filtruj Grubość" onchange="filterTable()"></th>
                         <th><input type="text" placeholder="Filtruj Szerokość" onchange="filterTable()"></th>
                         <th><input type="text" placeholder="Filtruj Wagę" onchange="filterTable()"></th>
@@ -496,6 +509,7 @@ function printID(id) {
                         <th onclick="sortTable(1)">Nazwa Dostawcy &#9650;&#9660;</th>
                         <th onclick="sortTable(2)">Nazwa Materiału &#9650;&#9660;</th>
                         <th onclick="sortTable(3)">Data z Etykiety na Kręgu &#9650;&#9660;</th>
+                        
                         <th hidden></th>
                         <th onclick="sortTable(5)">Grubość &#9650;&#9660;</th>
                         <th onclick="sortTable(6)">Szerokość &#9650;&#9660;</th>
