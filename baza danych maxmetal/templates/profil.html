@@ -567,20 +567,20 @@ window.open(url, '_blank', windowFeatures); // '_blank' otworzy nowe okno/tab
                 <table id="tabela">
                     <thead>
                         <tr>
-                            <th><input type="text" placeholder="Filtruj ID" ></th>
-                            <th><input type="text" placeholder="Filtruj Materiał" ></th>
+                            <th><input type="text" placeholder="Filtruj ID" onchange="filterTable()"></th>
+                            <th><input type="text" placeholder="Filtruj Materiał" onchange="filterTable()"></th>
                             <th>OD<input type="date" id="dateFrom" onchange="filterTable()">
                                 DO<input type="date" id="dateTo" onchange="filterTable()"></th>
-                            <th><input type="text" placeholder="Filtruj Godzinę rozpoczęcia" ></th>
-                            <th><input type="text" placeholder="Filtruj Godzinę zakończenia" ></th>
-                            <th><input type="text" placeholder="Filtruj Zwrot na magazyn" ></th>
-                            <th><input type="text" placeholder="Filtruj Nr części Klienta" ></th>
-                            <th><input type="text" placeholder="Filtruj Nazwę klienta Nr PRODIO" ></th>
-                            <th><input type="text" placeholder="Filtruj Ilość" ></th>
-                            <th><input type="text" placeholder="Filtruj Ilość na stanie" ></th>
-                            <th><input type="text" placeholder="Filtruj Długość" ></th>
-                            <th><input type="text" placeholder="Filtruj Rodzaj Materiału" ></th>
-                            <th><input type="text" placeholder="Filtruj Nazwę Stanowiska i imie i nazwisko"  ></th>
+                            <th><input type="text" placeholder="Filtruj Godzinę rozpoczęcia" onchange="filterTable()"></th>
+                            <th><input type="text" placeholder="Filtruj Godzinę zakończenia" onchange="filterTable()"></th>
+                            <th><input type="text" placeholder="Filtruj Zwrot na magazyn" onchange="filterTable()"></th>
+                            <th><input type="text" placeholder="Filtruj Nr części Klienta" onchange="filterTable()"></th>
+                            <th><input type="text" placeholder="Filtruj Nazwę klienta Nr PRODIO" onchange="filterTable()"></th>
+                            <th><input type="text" placeholder="Filtruj Ilość" onchange="filterTable()"></th>
+                            <th><input type="text" placeholder="Filtruj Ilość na stanie" onchange="filterTable()"></th>
+                            <th><input type="text" placeholder="Filtruj Długość" onchange="filterTable()"></th>
+                            <th><input type="text" placeholder="Filtruj Rodzaj Materiału" onchange="filterTable()"></th>
+                            <th><input type="text" placeholder="Filtruj Nazwę Stanowiska i imie i nazwisko"  onchange="filterTable()"></th>
                             
                             <th><button class="button" onclick="resetFilters()">Usuń Filtry</button></th>
                         </tr>
@@ -588,17 +588,17 @@ window.open(url, '_blank', windowFeatures); // '_blank' otworzy nowe okno/tab
                             <th onclick="sortTable(0)">ID &#9650;&#9660;</th>
                             <th onclick="sortTable(1)">Etykieta Materiału &#9650;&#9660;</th>
                             <th onclick="sortTable(2)">Data Produkcji &#9650;&#9660;</th>
-                            
-                            <th onclick="sortTable(3)">Godzina rozpoczęcia &#9650;&#9660;</th>
-                            <th onclick="sortTable(4)">Godzina zakończenia &#9650;&#9660;</th>
-                            <th onclick="sortTable(5)">Zwrot na magazyn kg &#9650;&#9660;</th>
-                            <th onclick="sortTable(6)">Nr części klienta &#9650;&#9660;</th>
-                            <th onclick="sortTable(7)">Nazwa klienta Nr PRODIO &#9650;&#9660;</th>
-                            <th onclick="sortTable(8)">Ilość &#9650;&#9660;</th>
-                            <th onclick="sortTable(9)">Ilość na stanie &#9650;&#9660;</th>
-                            <th onclick="sortTable(10)">Długość &#9650;&#9660;</th>
-                            <th onclick="sortTable(11)">Rodzaj materiału &#9650;&#9660;</th>
-                            <th onclick="sortTable(12)">Nazwa Stanowiska i imie i nazwisko &#9650;&#9660;</th>
+                            <th hidden></th>
+                            <th onclick="sortTable(4)">Godzina rozpoczęcia &#9650;&#9660;</th>
+                            <th onclick="sortTable(5)">Godzina zakończenia &#9650;&#9660;</th>
+                            <th onclick="sortTable(6)">Zwrot na magazyn kg &#9650;&#9660;</th>
+                            <th onclick="sortTable(7)">Nr części klienta &#9650;&#9660;</th>
+                            <th onclick="sortTable(8)">Nazwa klienta Nr PRODIO &#9650;&#9660;</th>
+                            <th onclick="sortTable(9)">Ilość &#9650;&#9660;</th>
+                            <th onclick="sortTable(10)">Ilość na stanie &#9650;&#9660;</th>
+                            <th onclick="sortTable(11)">Długość &#9650;&#9660;</th>
+                            <th onclick="sortTable(12)">Rodzaj materiału &#9650;&#9660;</th>
+                            <th onclick="sortTable(13)">Nazwa Stanowiska i imie i nazwisko &#9650;&#9660;</th>
                             
                             <th>Edycja</th>
                         </tr>
