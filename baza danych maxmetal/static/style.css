@@ -86,11 +86,7 @@ footer{
 }
 
 #tabela_on_off, #tabela_on_off th, #tabela_on_off td {
-  border: 1px solid black; /* Czarna ramka */
-}
-#tabela_on_off tr:hover{
-  transition: 1s ease;
-  background-color: #f1f1f1; /* Zmiana koloru tła na szary przy najechaniu */
+  border: 1px solid black; /* Czarna ramka  do wywalenia*/
 }
 
 #tabela_on_off th, #tabela_on_off td {
@@ -98,10 +94,6 @@ footer{
   text-align: left; /* Wyrównanie tekstu */
 }
 
-
-#tabela_on_off tr:first-child th {
-  border: 3px solid black; /* Grubsza ramka */
-}
 #tabela {
   border-collapse: collapse; /* Łączy granice komórek */
   width: 100%; /* Opcjonalnie: pełna szerokość */
@@ -110,23 +102,22 @@ footer{
 #tabela, #tabela th, #tabela td {
   border: 1px solid black; /* Czarna ramka */
 }
-
 #tabela th, #tabela td {
   padding: 8px; /* Dodanie odstępu wewnętrznego */
   text-align: left; /* Wyrównanie tekstu */
 }
-#tabela tr:first-child th {
+#tabela_on_off tr:first-child th {
   border: 3px solid black; /* Grubsza ramka */
 }
-#tabela tr:nth-child(2) th {
+#tabela tr:first-child th, #tabela tr:nth-child(2) th{
   border: 3px solid black; /* Grubsza ramka */
 }
-#tabela tr:hover {
+#tabela tr:hover, #tabela_on_off tr:hover {
   transition: 1s ease;
-  background-color: #f1f1f1; /* Zmiana koloru tła na szary przy najechaniu */
+  background-color: #f1f1f1;
 }
-/* Index */
 
+/* Index */
 
 #title{
   padding-top:115px;
@@ -241,12 +232,14 @@ footer{
   background-color: #3f395d;
   color: white;
   cursor: pointer;
+  border-radius: 5px;
 }
 #togglepasswd{
   border: 2px solid black;
   background-color: #3f395d;
   color: white;
   cursor: pointer;
+  border-radius: 5px;
 }
 #togglepasswd:hover{
   transition: 1s ease;
@@ -605,22 +598,3 @@ textarea {
   position: fixed;
   min-width: 100%;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
