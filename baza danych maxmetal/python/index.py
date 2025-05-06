@@ -675,7 +675,12 @@ def profil():
                            currentDate=date.today().strftime('%Y-%m-%d'), 
                            currentDate1=(date.today() - timedelta(days=1)).strftime('%Y-%m-%d'), 
                            currentDate2=(date.today() - timedelta(days=2)).strftime('%Y-%m-%d'), 
-                           currentDate3=date.today())
+                           currentDate3=(date.today() - timedelta(days=3)).strftime('%Y-%m-%d'),
+                            currentDate4=(date.today() - timedelta(days=4)).strftime('%Y-%m-%d'),
+currentDate5=(date.today() - timedelta(days=5)).strftime('%Y-%m-%d'),
+    
+                            currentDate6=(date.today() - timedelta(days=6)).strftime('%Y-%m-%d'))
+
 
 @app.route('/usun_profil/<int:id>', methods=['POST'])
 def usun_profil(id):

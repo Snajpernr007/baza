@@ -607,7 +607,7 @@ window.open(url, '_blank', windowFeatures); // '_blank' otworzy nowe okno/tab
                         {% for profile in profil %}
                             
                         {% if g.user.id_uprawnienia == 3 and profile.pracownik.login == g.user.login %}
-                        {% if profile.data_produkcji.strftime('%Y-%m-%d') in [currentDate, currentDate1, currentDate2] %}
+                        {% if profile.data_produkcji.strftime('%Y-%m-%d') in [currentDate, currentDate1, currentDate2,currentDate3,currentDate4,currentDate5,currentDate6] %}
                             <tr>
                                 <td>{{ profile.id }}</td>
                                 <td data-tasma-id="{{ profile.tasma.id }}">{{ profile.tasma.nr_z_etykiety_na_kregu }}</td>

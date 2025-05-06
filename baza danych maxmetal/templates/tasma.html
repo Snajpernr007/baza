@@ -50,7 +50,7 @@ function filterTable() {
 
         // Filtrowanie Data Dostawy (kolumna 12)
         if (show && (dateFromDostawa || dateToDostawa)) {
-            let cellDateStr = cells[12].textContent.trim();
+            let cellDateStr = cells[13].textContent.trim();
             let cellDate = new Date(cellDateStr);
             if (dateFromDostawa && cellDate < new Date(dateFromDostawa)) show = false;
             if (dateToDostawa && cellDate > new Date(dateToDostawa)) show = false;
