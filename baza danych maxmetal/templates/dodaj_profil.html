@@ -116,7 +116,7 @@ function zamknijOkno() {
         {pass}
     {%else%}
         <option value="{{ tasma.id }}" >
-            {{ tasma.nr_z_etykiety_na_kregu }} szerokość x grubość {{tasma.szerokosc}}x{{tasma.grubosc}} na stanie {{ tasma.waga_kregu_na_stanie }}kg 
+            {{ tasma.nr_z_etykiety_na_kregu }}  {{tasma.szerokosc}}x{{tasma.grubosc}} na stanie {{ tasma.waga_kregu_na_stanie }}kg 
         </option>
     {% endif %}
     {% endfor %}

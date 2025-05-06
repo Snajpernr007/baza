@@ -1,0 +1,34 @@
+2025-05-06 11:42:57,943 - INFO - Połączenie z bazą danych zostało nawiązane pomyślnie.
+2025-05-06 11:42:58,019 - INFO - ✅ Kopia zapasowa zapisana do pliku: backups\kopie_zapasowe_bazy_2025-05-06_11-42.sql
+2025-05-06 11:42:58,936 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.1.13:5000
+2025-05-06 11:42:58,936 - INFO - [33mPress CTRL+C to quit[0m
+2025-05-06 11:42:58,942 - INFO -  * Restarting with stat
+2025-05-06 11:43:01,067 - INFO - Połączenie z bazą danych zostało nawiązane pomyślnie.
+2025-05-06 11:43:01,139 - INFO - ✅ Kopia zapasowa zapisana do pliku: backups\kopie_zapasowe_bazy_2025-05-06_11-43.sql
+2025-05-06 11:43:01,154 - WARNING -  * Debugger is active!
+2025-05-06 11:43:01,160 - INFO -  * Debugger PIN: 842-370-172
+2025-05-06 11:44:16,957 - INFO - Nieautoryzowany dostęp do strony głównej.
+2025-05-06 11:44:16,964 - INFO - 192.168.1.13 - - [06/May/2025 11:44:16] "GET / HTTP/1.1" 200 -
+2025-05-06 11:44:16,987 - INFO - 192.168.1.13 - - [06/May/2025 11:44:16] "GET /static/style.css HTTP/1.1" 200 -
+2025-05-06 11:44:16,994 - INFO - 192.168.1.13 - - [06/May/2025 11:44:16] "GET /static/img/logo-duże.png HTTP/1.1" 200 -
+2025-05-06 11:44:17,053 - INFO - 192.168.1.13 - - [06/May/2025 11:44:17] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-05-06 11:44:45,830 - INFO - Próba logowania dla logina: Administrator
+2025-05-06 11:44:45,898 - INFO - Użytkownik Administrator zalogowany pomyślnie.
+2025-05-06 11:44:45,900 - INFO - 192.168.1.13 - - [06/May/2025 11:44:45] "[32mPOST /login HTTP/1.1[0m" 302 -
+2025-05-06 11:44:45,909 - INFO - Administrator wszedł na stronę główną.
+2025-05-06 11:44:45,963 - INFO - 192.168.1.13 - - [06/May/2025 11:44:45] "GET / HTTP/1.1" 200 -
+2025-05-06 11:44:45,979 - INFO - 192.168.1.13 - - [06/May/2025 11:44:45] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-05-06 11:44:45,983 - INFO - 192.168.1.13 - - [06/May/2025 11:44:45] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-05-06 11:45:01,911 - INFO - Administrator wszedł na stronę profilu.
+2025-05-06 11:45:02,018 - INFO - 192.168.1.13 - - [06/May/2025 11:45:02] "GET /profil HTTP/1.1" 200 -
+2025-05-06 11:45:02,037 - INFO - 192.168.1.13 - - [06/May/2025 11:45:02] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-05-06 11:45:02,038 - INFO - 192.168.1.13 - - [06/May/2025 11:45:02] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-05-06 11:45:15,756 - INFO - Administrator wszedł na stronę dodawania profilu.
+2025-05-06 11:45:15,770 - INFO - 192.168.1.13 - - [06/May/2025 11:45:15] "GET /dodaj_profil HTTP/1.1" 200 -
+2025-05-06 11:45:15,782 - INFO - 192.168.1.13 - - [06/May/2025 11:45:15] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-05-06 11:46:26,600 - INFO - Administrator wszedł na stronę dodawania profilu.
+2025-05-06 11:46:26,602 - INFO - 192.168.1.13 - - [06/May/2025 11:46:26] "GET /dodaj_profil HTTP/1.1" 200 -
+2025-05-06 11:46:26,615 - INFO - 192.168.1.13 - - [06/May/2025 11:46:26] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
