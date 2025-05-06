@@ -119,9 +119,13 @@ function openEditModal(row) {
     if (editButton.innerText === "Edytuj") {
         // Zamień edytowalne komórki na pola formularza
         cells.forEach((cell, index) => {
-            if (index > 0 && index < cells.length - 1) { // Edytowalne: 1 do przedostatniej
+            if (index > 0 && index < cells.length - 2) { // Edytowalne: 1 do przedostatniej
                 const value = cell.innerText;
                 cell.innerHTML = `<input type="text" value="${value}" style="width: 100%;">`;
+            }
+            else if (index === 2) { // Weight fields
+            const value = cell.innerText;
+            cell.innerHTML = `<input type="number" value="${value}" step="0.01" style="width: 100%;">`;
             }
         });
         editButton.innerText = "Zapisz";
@@ -279,14 +283,14 @@ window.open(url, '_blank', windowFeatures); // '_blank' otworzy nowe okno/tab
                     <tr>
                         <th><input type="text" placeholder="Filtruj ID" onkeyup="filterColumn(0)"></th>
                         <th><input type="text" placeholder="Filtruj Nr części klienta" onkeyup="filterColumn(1)"></th>
-                        
+                        <th><input type="text" placeholder="Filtruj Wagę w kg na jedne metr" onkeyup="filterColumn(2)"></th>
                         
                         <th><button class="button" onclick="resetFilters()">Usuń Filtry</button></th>
                     </tr>
                     <tr>
                         <th onclick="sortTable(0)">ID &#9650;&#9660;</th>
                         <th onclick="sortTable(1)">Nr części klienta &#9650;&#9660;</th>
-                        
+                        <th onclick="sortTable(2)">Waga w kg na jeden metr &#9650;&#9660;</th>
                         
                         <th>Edycja</th>
                     </tr>
@@ -296,7 +300,7 @@ window.open(url, '_blank', windowFeatures); // '_blank' otworzy nowe okno/tab
                         <tr>
                             <td>{{ szablony_profile.id }} </td>
                             <td>{{ szablony_profile.nazwa }}</td>
-
+                            <td>{{szablony_profile.waga_w_kg_na_1_metr}}</td>
                             
                             <td><button type="button" class="button" onclick="openEditModal(this.parentElement.parentElement)">Edytuj</button></td>
                         </tr>

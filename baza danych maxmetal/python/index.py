@@ -68,6 +68,7 @@ class Szablon_profil(db.Model):
     __tablename__ = 'szablon_profile'
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)
     nazwa = db.Column(db.String(255), nullable=False)
+    waga_w_kg_na_1_metr = db.Column(db.Numeric(10, 2), nullable=False)
 
     def __repr__(self):
         return f"<Lokalizacja {self.id} - {self.nazwa}>"
@@ -816,11 +817,19 @@ def dodaj_lub_zakonczenie_profilu():
                 "id_dlugosci": profil.id_dlugosci
             }
         profil.godz_min_zakonczenia = request.form.get('godz_min_zakonczenia')
-        profil.zwrot_na_magazyn_kg = request.form.get('zwrot_na_magazyn_kg')
+        
         profil.ilosc = request.form.get('ilosc')
         profil.ilosc_na_stanie = request.form.get('ilosc')
         profil.id_dlugosci = request.form.get('id_dlugosci')
+        if request.form.get('zwrot_na_magazyn_kg') == "":
+            
+            ilosc = int(request.form.get('ilosc'))     # sztuki
+            dlugosci = Dlugosci.query.get(int(request.form.get('id_dlugosci')))
+            dlugosc = float(dlugosci.nazwa)             # mm, zakładam że 'dlugosc' to pole
 
+            profil.zwrot_na_magazyn_kg = profil.tasma.waga_kregu_na_stanie - Decimal(ilosc * dlugosc *float(profil.szablon_profile.waga_w_kg_na_1_metr))  # kg
+        else:
+            profil.zwrot_na_magazyn_kg = float(request.form.get('zwrot_na_magazyn_kg'))
         tasma = Tasma.query.get(profil.id_tasmy)
         tasma.waga_kregu_na_stanie = float(profil.zwrot_na_magazyn_kg)
         nowe_dane = {
@@ -1298,9 +1307,9 @@ def dodaj_szablon_profil_do_bazy():
     
     if request.method == 'POST':
         nazwa = request.form.get('nazwa_szablonu')
+        waga_w_kg_na_1_metr = request.form.get('waga')
         
-        
-        nowy_szablon_profil = Szablon_profil(nazwa=nazwa)
+        nowy_szablon_profil = Szablon_profil(nazwa=nazwa,waga_w_kg_na_1_metr=waga_w_kg_na_1_metr)
         db.session.add(nowy_szablon_profil)
 
         try:
@@ -1331,10 +1340,12 @@ def update_row_szablon_profil():
             return jsonify({'message': 'Rekord nie znaleziony!'}), 404
         poprzednie_dane = {
             "id": szablon_profil.id,
-            "nazwa": szablon_profil.nazwa
+            "nazwa": szablon_profil.nazwa,
+            "waga_w_kg_na_1_metr": szablon_profil.waga_w_kg_na_1_metr
         }
         logger.info(f"Poprzednie dane szablonu o ID {id}: {poprzednie_dane}")
         szablon_profil.nazwa = dane.get('column_1', szablon_profil.nazwa)
+        szablon_profil.waga_w_kg_na_1_metr = dane.get('column_2', szablon_profil.waga_w_kg_na_1_metr)
 
 
         db.session.commit()
