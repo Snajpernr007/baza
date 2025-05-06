@@ -116,7 +116,13 @@ footer{
   transition: 1s ease;
   background-color: #f1f1f1;
 }
-
+#tabela tr:nth-child(even){
+  background-color: #dbcece; /* Kolor tła dla parzystych wierszy */
+}
+#tabela tr:nth-child(even):hover{
+  transition: 1s ease;
+  background-color: #f1f1f1;
+}
 /* Index */
 
 #title{
