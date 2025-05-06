@@ -50,7 +50,7 @@ function filterTable() {
 
         // Filtrowanie Data Dostawy (kolumna 12)
         if (show && (dateFromDostawa || dateToDostawa)) {
-            let cellDateStr = cells[12].textContent.trim();
+            let cellDateStr = cells[13].textContent.trim();
             let cellDate = new Date(cellDateStr);
             if (dateFromDostawa && cellDate < new Date(dateFromDostawa)) show = false;
             if (dateToDostawa && cellDate > new Date(dateToDostawa)) show = false;
@@ -476,22 +476,22 @@ function printID(id) {
             <table id="tabela">
                 <thead>
                     <tr>
-                        <th><input type="text" placeholder="Filtruj ID" ></th>
-                        <th><input type="text" placeholder="Filtruj Dostawcę" ></th>
-                        <th><input type="text" placeholder="Filtruj Materiał" ></th>
+                        <th><input type="text" placeholder="Filtruj ID" onchange="filterTable()"></th>
+                        <th><input type="text" placeholder="Filtruj Dostawcę" onchange="filterTable()"></th>
+                        <th><input type="text" placeholder="Filtruj Materiał" onchange="filterTable()"></th>
                         <th>  OD<input type="date" id="dateFromKrag" onchange="filterTable()">
                             DO<input type="date" id="dateToKrag" onchange="filterTable()"></th>
-                        <th><input type="text" placeholder="Filtruj Grubość" ></th>
-                        <th><input type="text" placeholder="Filtruj Szerokość" ></th>
-                        <th><input type="text" placeholder="Filtruj Wagę" ></th>
-                        <th><input type="text" placeholder="Filtruj Wagę na Stanie" ></th>
-                        <th><input type="text" placeholder="Filtruj Etyk. Paletową" ></th>
-                        <th><input type="text" placeholder="Filtruj Etyk. Kręgu"></th>
-                        <th><input type="text" placeholder="Filtruj Lokalizację"></th>
-                        <th><input type="text" placeholder="Filtruj Nr WZ" ></th>
+                        <th><input type="text" placeholder="Filtruj Grubość" onchange="filterTable()"></th>
+                        <th><input type="text" placeholder="Filtruj Szerokość" onchange="filterTable()"></th>
+                        <th><input type="text" placeholder="Filtruj Wagę" onchange="filterTable()"></th>
+                        <th><input type="text" placeholder="Filtruj Wagę na Stanie" onchange="filterTable()"></th>
+                        <th><input type="text" placeholder="Filtruj Etyk. Paletową" onchange="filterTable()" ></th>
+                        <th><input type="text" placeholder="Filtruj Etyk. Kręgu" onchange="filterTable()"></th>
+                        <th><input type="text" placeholder="Filtruj Lokalizację" onchange="filterTable()"></th>
+                        <th><input type="text" placeholder="Filtruj Nr WZ" onchange="filterTable()"></th>
                         <th>  OD<input type="date" id="dateFromDostawa" onchange="filterTable()">
                             DO<input type="date" id="dateToDostawa" onchange="filterTable()"></th>
-                        <th><input type="text" placeholder="Filtruj Nazwę Stanowiska" ></th>
+                        <th><input type="text" placeholder="Filtruj Nazwę Stanowiska" onchange="filterTable()"></th>
                         
                         <th><button class="button" onclick="resetFilters()">Usuń Filtry</button></th>
                     </tr>
@@ -500,16 +500,18 @@ function printID(id) {
                         <th onclick="sortTable(1)">Nazwa Dostawcy &#9650;&#9660;</th>
                         <th onclick="sortTable(2)">Nazwa Materiału &#9650;&#9660;</th>
                         <th onclick="sortTable(3)">Data z Etykiety na Kręgu &#9650;&#9660;</th>
-                        <th onclick="sortTable(4)">Grubość &#9650;&#9660;</th>
-                        <th onclick="sortTable(5)">Szerokość &#9650;&#9660;</th>
-                        <th onclick="sortTable(6)">Waga Kręgu &#9650;&#9660;</th>
-                        <th onclick="sortTable(7)">Waga Kręgu na Stanie &#9650;&#9660;</th>
-                        <th onclick="sortTable(8)">Nr Etykieta Paletowa &#9650;&#9660;</th>
-                        <th onclick="sortTable(9)">Nr z Etykiety na Kręgu &#9650;&#9660;</th>
-                        <th onclick="sortTable(10)">Lokalizacja &#9650;&#9660;</th>
-                        <th onclick="sortTable(11)">Nr WZ &#9650;&#9660;</th>
-                        <th onclick="sortTable(12)">Data Dostawy &#9650;&#9660;</th>
-                        <th onclick="sortTable(13)">Nazwa Stanowiska &#9650;&#9660;</th>
+                        <th hidden></th>
+                        <th onclick="sortTable(5)">Grubość &#9650;&#9660;</th>
+                        <th onclick="sortTable(6)">Szerokość &#9650;&#9660;</th>
+                        <th onclick="sortTable(7)">Waga Kręgu &#9650;&#9660;</th>
+                        <th onclick="sortTable(8)">Waga Kręgu na Stanie &#9650;&#9660;</th>
+                        <th onclick="sortTable(9)">Nr Etykieta Paletowa &#9650;&#9660;</th>
+                        <th onclick="sortTable(10)">Nr z Etykiety na Kręgu &#9650;&#9660;</th>
+                        <th onclick="sortTable(11)">Lokalizacja &#9650;&#9660;</th>
+                        <th onclick="sortTable(12)">Nr WZ &#9650;&#9660;</th>
+                        <th onclick="sortTable(13)">Data Dostawy &#9650;&#9660;</th>
+                        <th hidden></th>
+                        <th onclick="sortTable(15)">Nazwa Stanowiska &#9650;&#9660;</th>
                         
                         <th>Edycja</th>
                     </tr>

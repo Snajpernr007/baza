@@ -3790,3 +3790,525 @@
 2025-05-06 11:26:03,286 - INFO - 127.0.0.1 - - [06/May/2025 11:26:03] "GET /uzytkownik HTTP/1.1" 200 -
 2025-05-06 11:26:03,305 - INFO - 127.0.0.1 - - [06/May/2025 11:26:03] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
 2025-05-06 11:26:03,318 - INFO - 127.0.0.1 - - [06/May/2025 11:26:03] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-05-06 11:44:45,698 - INFO - Administrator wszedł na stronę główną.
+2025-05-06 11:44:45,783 - INFO - 127.0.0.1 - - [06/May/2025 11:44:45] "GET / HTTP/1.1" 200 -
+2025-05-06 11:44:45,806 - INFO - 127.0.0.1 - - [06/May/2025 11:44:45] "GET /static/style.css HTTP/1.1" 200 -
+2025-05-06 11:44:45,812 - INFO - 127.0.0.1 - - [06/May/2025 11:44:45] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-05-06 11:44:58,858 - INFO - Administrator wszedł na stronę profilu.
+2025-05-06 11:44:59,016 - INFO - 127.0.0.1 - - [06/May/2025 11:44:59] "GET /profil HTTP/1.1" 200 -
+2025-05-06 11:44:59,037 - INFO - 127.0.0.1 - - [06/May/2025 11:44:59] "GET /static/style.css HTTP/1.1" 200 -
+2025-05-06 11:44:59,048 - INFO - 127.0.0.1 - - [06/May/2025 11:44:59] "GET /static/img/logo-duże.png HTTP/1.1" 200 -
+2025-05-06 11:45:12,883 - INFO - Administrator wszedł na stronę dodawania profilu.
+2025-05-06 11:45:12,896 - INFO - 127.0.0.1 - - [06/May/2025 11:45:12] "GET /dodaj_profil HTTP/1.1" 200 -
+2025-05-06 11:45:12,916 - INFO - 127.0.0.1 - - [06/May/2025 11:45:12] "GET /static/style.css HTTP/1.1" 200 -
+2025-05-06 11:47:37,649 - INFO - Administrator wszedł na stronę główną.
+2025-05-06 11:47:37,650 - INFO - 127.0.0.1 - - [06/May/2025 11:47:37] "GET / HTTP/1.1" 200 -
+2025-05-06 11:47:37,684 - INFO - 127.0.0.1 - - [06/May/2025 11:47:37] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-05-06 11:47:37,689 - INFO - 127.0.0.1 - - [06/May/2025 11:47:37] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-05-06 11:53:59,403 - INFO - Administrator wszedł na stronę z listą tasm.
+2025-05-06 11:53:59,508 - INFO - 127.0.0.1 - - [06/May/2025 11:53:59] "GET /tasma HTTP/1.1" 200 -
+2025-05-06 11:53:59,548 - INFO - 127.0.0.1 - - [06/May/2025 11:53:59] "GET /static/style.css HTTP/1.1" 200 -
+2025-05-06 11:53:59,555 - INFO - 127.0.0.1 - - [06/May/2025 11:53:59] "GET /static/img/drukarka.png HTTP/1.1" 200 -
+2025-05-06 11:53:59,567 - INFO - 127.0.0.1 - - [06/May/2025 11:53:59] "GET /static/img/logo-duże.png HTTP/1.1" 200 -
+2025-05-06 11:58:13,130 - INFO - Administrator wszedł na stronę główną.
+2025-05-06 11:58:13,131 - INFO - 127.0.0.1 - - [06/May/2025 11:58:13] "GET / HTTP/1.1" 200 -
+2025-05-06 11:58:13,158 - INFO - 127.0.0.1 - - [06/May/2025 11:58:13] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-05-06 11:58:13,163 - INFO - 127.0.0.1 - - [06/May/2025 11:58:13] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-05-06 11:58:13,800 - INFO - Administrator wszedł na stronę profilu.
+2025-05-06 11:58:13,807 - INFO - 127.0.0.1 - - [06/May/2025 11:58:13] "GET /profil HTTP/1.1" 200 -
+2025-05-06 11:58:13,833 - INFO - 127.0.0.1 - - [06/May/2025 11:58:13] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-05-06 11:58:13,843 - INFO - 127.0.0.1 - - [06/May/2025 11:58:13] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-05-06 12:00:44,954 - INFO - Administrator wszedł na stronę główną.
+2025-05-06 12:00:44,955 - INFO - 127.0.0.1 - - [06/May/2025 12:00:44] "GET / HTTP/1.1" 200 -
+2025-05-06 12:00:44,981 - INFO - 127.0.0.1 - - [06/May/2025 12:00:44] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-05-06 12:00:44,986 - INFO - 127.0.0.1 - - [06/May/2025 12:00:44] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-05-06 12:00:46,686 - INFO - Administrator wszedł na stronę zestawienia.
+2025-05-06 12:00:46,778 - INFO - 127.0.0.1 - - [06/May/2025 12:00:46] "GET /zestawienie HTTP/1.1" 200 -
+2025-05-06 12:00:46,800 - INFO - 127.0.0.1 - - [06/May/2025 12:00:46] "GET /static/style.css HTTP/1.1" 200 -
+2025-05-06 12:00:46,812 - INFO - 127.0.0.1 - - [06/May/2025 12:00:46] "GET /static/img/logo-duże.png HTTP/1.1" 200 -
+2025-05-06 12:00:46,822 - INFO - 127.0.0.1 - - [06/May/2025 12:00:46] "GET /static/img/drukarka.png HTTP/1.1" 200 -
+2025-05-06 12:03:08,252 - INFO - Administrator wszedł na stronę główną.
+2025-05-06 12:03:08,253 - INFO - 127.0.0.1 - - [06/May/2025 12:03:08] "GET / HTTP/1.1" 200 -
+2025-05-06 12:03:08,280 - INFO - 127.0.0.1 - - [06/May/2025 12:03:08] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-05-06 12:03:08,286 - INFO - 127.0.0.1 - - [06/May/2025 12:03:08] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-05-06 12:03:09,302 - INFO - Administrator wszedł na stronę dostawców.
+2025-05-06 12:03:09,350 - INFO - 127.0.0.1 - - [06/May/2025 12:03:09] "GET /dlugosci HTTP/1.1" 200 -
+2025-05-06 12:03:09,372 - INFO - 127.0.0.1 - - [06/May/2025 12:03:09] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-05-06 12:03:09,386 - INFO - 127.0.0.1 - - [06/May/2025 12:03:09] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-05-06 12:04:35,134 - INFO - Administrator wszedł na stronę główną.
+2025-05-06 12:04:35,135 - INFO - 127.0.0.1 - - [06/May/2025 12:04:35] "GET / HTTP/1.1" 200 -
+2025-05-06 12:04:35,174 - INFO - 127.0.0.1 - - [06/May/2025 12:04:35] "GET /static/style.css HTTP/1.1" 200 -
+2025-05-06 12:04:35,179 - INFO - 127.0.0.1 - - [06/May/2025 12:04:35] "GET /static/img/logo-duże.png HTTP/1.1" 200 -
+2025-05-06 12:04:55,089 - INFO - 127.0.0.1 - - [06/May/2025 12:04:55] "GET /sprzedaz HTTP/1.1" 200 -
+2025-05-06 12:04:55,114 - INFO - 127.0.0.1 - - [06/May/2025 12:04:55] "GET /static/style.css HTTP/1.1" 200 -
+2025-05-06 12:04:55,118 - INFO - 127.0.0.1 - - [06/May/2025 12:04:55] "GET /static/img/logo-duże.png HTTP/1.1" 200 -
+2025-05-06 12:14:17,201 - INFO - Administrator wszedł na stronę główną.
+2025-05-06 12:14:17,203 - INFO - 127.0.0.1 - - [06/May/2025 12:14:17] "GET / HTTP/1.1" 200 -
+2025-05-06 12:14:17,231 - INFO - 127.0.0.1 - - [06/May/2025 12:14:17] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-05-06 12:14:17,237 - INFO - 127.0.0.1 - - [06/May/2025 12:14:17] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-05-06 12:14:18,629 - INFO - Administrator wszedł na stronę zestawienia.
+2025-05-06 12:14:18,718 - INFO - 127.0.0.1 - - [06/May/2025 12:14:18] "GET /zestawienie HTTP/1.1" 200 -
+2025-05-06 12:14:18,737 - INFO - 127.0.0.1 - - [06/May/2025 12:14:18] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-05-06 12:14:18,741 - INFO - 127.0.0.1 - - [06/May/2025 12:14:18] "[36mGET /static/img/drukarka.png HTTP/1.1[0m" 304 -
+2025-05-06 12:14:18,747 - INFO - 127.0.0.1 - - [06/May/2025 12:14:18] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-05-06 12:14:47,748 - INFO - Administrator wszedł na stronę główną.
+2025-05-06 12:14:47,750 - INFO - 127.0.0.1 - - [06/May/2025 12:14:47] "GET / HTTP/1.1" 200 -
+2025-05-06 12:14:47,773 - INFO - 127.0.0.1 - - [06/May/2025 12:14:47] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-05-06 12:14:47,778 - INFO - 127.0.0.1 - - [06/May/2025 12:14:47] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-05-06 12:14:48,818 - INFO - Administrator wszedł na stronę profilu.
+2025-05-06 12:14:48,823 - INFO - 127.0.0.1 - - [06/May/2025 12:14:48] "GET /profil HTTP/1.1" 200 -
+2025-05-06 12:14:48,847 - INFO - 127.0.0.1 - - [06/May/2025 12:14:48] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-05-06 12:14:48,856 - INFO - 127.0.0.1 - - [06/May/2025 12:14:48] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-05-06 12:14:50,955 - INFO - Administrator wszedł na stronę główną.
+2025-05-06 12:14:50,956 - INFO - 127.0.0.1 - - [06/May/2025 12:14:50] "GET / HTTP/1.1" 200 -
+2025-05-06 12:14:50,981 - INFO - 127.0.0.1 - - [06/May/2025 12:14:50] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-05-06 12:14:50,986 - INFO - 127.0.0.1 - - [06/May/2025 12:14:50] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-05-06 12:15:37,981 - INFO - Administrator wszedł na stronę z listą tasm.
+2025-05-06 12:15:38,083 - INFO - 127.0.0.1 - - [06/May/2025 12:15:38] "GET /tasma HTTP/1.1" 200 -
+2025-05-06 12:15:38,111 - INFO - 127.0.0.1 - - [06/May/2025 12:15:38] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-05-06 12:15:38,122 - INFO - 127.0.0.1 - - [06/May/2025 12:15:38] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-05-06 12:15:38,128 - INFO - 127.0.0.1 - - [06/May/2025 12:15:38] "[36mGET /static/img/drukarka.png HTTP/1.1[0m" 304 -
+2025-05-06 12:24:58,331 - INFO - Administrator wszedł na stronę główną.
+2025-05-06 12:24:58,332 - INFO - 127.0.0.1 - - [06/May/2025 12:24:58] "GET / HTTP/1.1" 200 -
+2025-05-06 12:24:58,408 - INFO - 127.0.0.1 - - [06/May/2025 12:24:58] "GET /static/style.css HTTP/1.1" 200 -
+2025-05-06 12:24:58,419 - INFO - 127.0.0.1 - - [06/May/2025 12:24:58] "GET /static/img/logo-duże.png HTTP/1.1" 200 -
+2025-05-06 12:25:00,029 - INFO - Administrator wszedł na stronę z listą tasm.
+2025-05-06 12:25:00,033 - INFO - 127.0.0.1 - - [06/May/2025 12:25:00] "GET /tasma HTTP/1.1" 200 -
+2025-05-06 12:25:00,058 - INFO - 127.0.0.1 - - [06/May/2025 12:25:00] "GET /static/style.css HTTP/1.1" 200 -
+2025-05-06 12:25:00,071 - INFO - 127.0.0.1 - - [06/May/2025 12:25:00] "GET /static/img/logo-duże.png HTTP/1.1" 200 -
+2025-05-06 12:25:00,078 - INFO - 127.0.0.1 - - [06/May/2025 12:25:00] "[36mGET /static/img/drukarka.png HTTP/1.1[0m" 304 -
+2025-05-06 12:25:36,583 - INFO - Administrator wszedł na stronę główną.
+2025-05-06 12:25:36,584 - INFO - 127.0.0.1 - - [06/May/2025 12:25:36] "GET / HTTP/1.1" 200 -
+2025-05-06 12:25:36,610 - INFO - 127.0.0.1 - - [06/May/2025 12:25:36] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-05-06 12:25:36,615 - INFO - 127.0.0.1 - - [06/May/2025 12:25:36] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-05-06 12:25:37,986 - INFO - Administrator wszedł na stronę z listą tasm.
+2025-05-06 12:25:37,989 - INFO - 127.0.0.1 - - [06/May/2025 12:25:37] "GET /tasma HTTP/1.1" 200 -
+2025-05-06 12:25:38,011 - INFO - 127.0.0.1 - - [06/May/2025 12:25:38] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-05-06 12:25:38,025 - INFO - 127.0.0.1 - - [06/May/2025 12:25:38] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-05-06 12:25:38,033 - INFO - 127.0.0.1 - - [06/May/2025 12:25:38] "[36mGET /static/img/drukarka.png HTTP/1.1[0m" 304 -
+2025-05-06 12:28:08,845 - INFO - Administrator wszedł na stronę główną.
+2025-05-06 12:28:08,846 - INFO - 127.0.0.1 - - [06/May/2025 12:28:08] "GET / HTTP/1.1" 200 -
+2025-05-06 12:28:08,871 - INFO - 127.0.0.1 - - [06/May/2025 12:28:08] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-05-06 12:28:08,876 - INFO - 127.0.0.1 - - [06/May/2025 12:28:08] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-05-06 12:28:10,118 - INFO - Administrator wszedł na stronę profilu.
+2025-05-06 12:28:10,123 - INFO - 127.0.0.1 - - [06/May/2025 12:28:10] "GET /profil HTTP/1.1" 200 -
+2025-05-06 12:28:10,145 - INFO - 127.0.0.1 - - [06/May/2025 12:28:10] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-05-06 12:28:10,155 - INFO - 127.0.0.1 - - [06/May/2025 12:28:10] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-05-06 12:28:55,013 - INFO - Administrator wszedł na stronę dodawania profilu.
+2025-05-06 12:28:55,027 - INFO - 127.0.0.1 - - [06/May/2025 12:28:55] "GET /dodaj_profil HTTP/1.1" 200 -
+2025-05-06 12:28:55,049 - INFO - 127.0.0.1 - - [06/May/2025 12:28:55] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-05-06 12:29:01,944 - INFO - Nowy profil został dodany przez użytkownika Administrator.
+2025-05-06 12:29:01,944 - INFO - Szczegóły profilu: ID Taśmy: 54, Data Produkcji: 2025-05-06, Godzina rozpoczęcia: 12:28:55, ID Szablonu Profilu: 3, Nazwa Klienta: 213, Ilość: None, ID Długości: None.Imie nazwisko pracownika: 213.
+2025-05-06 12:29:01,946 - INFO - 127.0.0.1 - - [06/May/2025 12:29:01] "[32mPOST /dodaj_lub_zakonczenie_profilu HTTP/1.1[0m" 302 -
+2025-05-06 12:29:03,513 - INFO - Administrator wszedł na stronę profilu.
+2025-05-06 12:29:03,520 - INFO - 127.0.0.1 - - [06/May/2025 12:29:03] "GET /profil HTTP/1.1" 200 -
+2025-05-06 12:29:03,549 - INFO - 127.0.0.1 - - [06/May/2025 12:29:03] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-05-06 12:29:03,562 - INFO - 127.0.0.1 - - [06/May/2025 12:29:03] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-05-06 12:29:04,178 - INFO - 127.0.0.1 - - [06/May/2025 12:29:04] "POST /dodaj_profil_do_bazy HTTP/1.1" 200 -
+2025-05-06 12:29:04,205 - INFO - 127.0.0.1 - - [06/May/2025 12:29:04] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-05-06 12:29:15,858 - INFO - Zakończenie profilu o ID 70 przez użytkownika Administrator.
+2025-05-06 12:29:15,858 - INFO - Poprzednie dane: {'godz_min_zakonczenia': None, 'zwrot_na_magazyn_kg': None, 'ilosc': None, 'ilosc_na_stanie': None, 'id_dlugosci': None}
+2025-05-06 12:29:15,858 - INFO - Nowe dane: {'godz_min_zakonczenia': '12:29:15', 'zwrot_na_magazyn_kg': '111', 'ilosc': '11', 'ilosc_na_stanie': '11', 'id_dlugosci': '1'}
+2025-05-06 12:29:15,861 - INFO - 127.0.0.1 - - [06/May/2025 12:29:15] "[32mPOST /dodaj_lub_zakonczenie_profilu HTTP/1.1[0m" 302 -
+2025-05-06 12:29:15,867 - INFO - Administrator wszedł na stronę profilu.
+2025-05-06 12:29:15,877 - INFO - 127.0.0.1 - - [06/May/2025 12:29:15] "GET /profil HTTP/1.1" 200 -
+2025-05-06 12:29:15,911 - INFO - 127.0.0.1 - - [06/May/2025 12:29:15] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-05-06 12:29:15,922 - INFO - 127.0.0.1 - - [06/May/2025 12:29:15] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-05-06 12:30:23,836 - INFO - Administrator wszedł na stronę główną.
+2025-05-06 12:30:23,837 - INFO - 127.0.0.1 - - [06/May/2025 12:30:23] "GET / HTTP/1.1" 200 -
+2025-05-06 12:30:23,868 - INFO - 127.0.0.1 - - [06/May/2025 12:30:23] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-05-06 12:30:23,873 - INFO - 127.0.0.1 - - [06/May/2025 12:30:23] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-05-06 12:30:25,177 - INFO - Administrator wszedł na stronę zestawienia.
+2025-05-06 12:30:25,185 - INFO - 127.0.0.1 - - [06/May/2025 12:30:25] "GET /zestawienie HTTP/1.1" 200 -
+2025-05-06 12:30:25,209 - INFO - 127.0.0.1 - - [06/May/2025 12:30:25] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-05-06 12:30:25,220 - INFO - 127.0.0.1 - - [06/May/2025 12:30:25] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-05-06 12:30:25,228 - INFO - 127.0.0.1 - - [06/May/2025 12:30:25] "[36mGET /static/img/drukarka.png HTTP/1.1[0m" 304 -
+2025-05-06 12:31:19,219 - INFO - Administrator wszedł na stronę główną.
+2025-05-06 12:31:19,220 - INFO - 127.0.0.1 - - [06/May/2025 12:31:19] "GET / HTTP/1.1" 200 -
+2025-05-06 12:31:19,253 - INFO - 127.0.0.1 - - [06/May/2025 12:31:19] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-05-06 12:31:19,258 - INFO - 127.0.0.1 - - [06/May/2025 12:31:19] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-05-06 12:31:20,222 - INFO - Administrator wszedł na stronę z listą tasm.
+2025-05-06 12:31:20,226 - INFO - 127.0.0.1 - - [06/May/2025 12:31:20] "GET /tasma HTTP/1.1" 200 -
+2025-05-06 12:31:20,250 - INFO - 127.0.0.1 - - [06/May/2025 12:31:20] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-05-06 12:31:20,260 - INFO - 127.0.0.1 - - [06/May/2025 12:31:20] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-05-06 12:31:20,269 - INFO - 127.0.0.1 - - [06/May/2025 12:31:20] "[36mGET /static/img/drukarka.png HTTP/1.1[0m" 304 -
+2025-05-06 12:35:08,718 - INFO - Administrator wszedł na stronę główną.
+2025-05-06 12:35:08,719 - INFO - 127.0.0.1 - - [06/May/2025 12:35:08] "GET / HTTP/1.1" 200 -
+2025-05-06 12:35:08,747 - INFO - 127.0.0.1 - - [06/May/2025 12:35:08] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-05-06 12:35:08,752 - INFO - 127.0.0.1 - - [06/May/2025 12:35:08] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-05-06 12:35:09,564 - INFO - Administrator wszedł na stronę zarządzania użytkownikami.
+2025-05-06 12:35:09,567 - INFO - 127.0.0.1 - - [06/May/2025 12:35:09] "GET /uzytkownik HTTP/1.1" 200 -
+2025-05-06 12:35:09,591 - INFO - 127.0.0.1 - - [06/May/2025 12:35:09] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-05-06 12:35:09,601 - INFO - 127.0.0.1 - - [06/May/2025 12:35:09] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-05-06 12:35:12,192 - INFO - Administrator wszedł na stronę główną.
+2025-05-06 12:35:12,193 - INFO - 127.0.0.1 - - [06/May/2025 12:35:12] "GET / HTTP/1.1" 200 -
+2025-05-06 12:35:12,221 - INFO - 127.0.0.1 - - [06/May/2025 12:35:12] "GET /static/style.css HTTP/1.1" 200 -
+2025-05-06 12:35:12,226 - INFO - 127.0.0.1 - - [06/May/2025 12:35:12] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-05-06 12:35:13,710 - INFO - Administrator wszedł na stronę zarządzania użytkownikami.
+2025-05-06 12:35:13,712 - INFO - 127.0.0.1 - - [06/May/2025 12:35:13] "GET /uzytkownik HTTP/1.1" 200 -
+2025-05-06 12:35:13,735 - INFO - 127.0.0.1 - - [06/May/2025 12:35:13] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-05-06 12:35:13,743 - INFO - 127.0.0.1 - - [06/May/2025 12:35:13] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-05-06 12:35:26,058 - INFO - Administrator wszedł na stronę rejestracji użytkownika.
+2025-05-06 12:35:26,062 - INFO - 127.0.0.1 - - [06/May/2025 12:35:26] "GET /register HTTP/1.1" 200 -
+2025-05-06 12:35:26,101 - INFO - 127.0.0.1 - - [06/May/2025 12:35:26] "GET /static/style.css HTTP/1.1" 200 -
+2025-05-06 12:35:26,107 - INFO - 127.0.0.1 - - [06/May/2025 12:35:26] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-05-06 12:35:28,616 - INFO - Administrator wszedł na stronę główną.
+2025-05-06 12:35:28,617 - INFO - 127.0.0.1 - - [06/May/2025 12:35:28] "GET / HTTP/1.1" 200 -
+2025-05-06 12:35:28,647 - INFO - 127.0.0.1 - - [06/May/2025 12:35:28] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-05-06 12:35:28,652 - INFO - 127.0.0.1 - - [06/May/2025 12:35:28] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-05-06 12:40:17,674 - INFO - Administrator wszedł na stronę profilu.
+2025-05-06 12:40:17,680 - INFO - 127.0.0.1 - - [06/May/2025 12:40:17] "GET /profil HTTP/1.1" 200 -
+2025-05-06 12:40:17,700 - INFO - 127.0.0.1 - - [06/May/2025 12:40:17] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-05-06 12:40:17,714 - INFO - 127.0.0.1 - - [06/May/2025 12:40:17] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-05-06 12:40:19,017 - INFO - Administrator wszedł na stronę główną.
+2025-05-06 12:40:19,018 - INFO - 127.0.0.1 - - [06/May/2025 12:40:19] "GET / HTTP/1.1" 200 -
+2025-05-06 12:40:19,042 - INFO - 127.0.0.1 - - [06/May/2025 12:40:19] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-05-06 12:40:19,047 - INFO - 127.0.0.1 - - [06/May/2025 12:40:19] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-05-06 12:40:20,047 - INFO - Administrator wszedł na stronę z listą tasm.
+2025-05-06 12:40:20,050 - INFO - 127.0.0.1 - - [06/May/2025 12:40:20] "GET /tasma HTTP/1.1" 200 -
+2025-05-06 12:40:20,076 - INFO - 127.0.0.1 - - [06/May/2025 12:40:20] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-05-06 12:40:20,086 - INFO - 127.0.0.1 - - [06/May/2025 12:40:20] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-05-06 12:40:20,092 - INFO - 127.0.0.1 - - [06/May/2025 12:40:20] "[36mGET /static/img/drukarka.png HTTP/1.1[0m" 304 -
+2025-05-06 12:41:08,740 - INFO - Administrator wszedł na stronę z listą tasm.
+2025-05-06 12:41:08,743 - INFO - 127.0.0.1 - - [06/May/2025 12:41:08] "GET /tasma HTTP/1.1" 200 -
+2025-05-06 12:41:08,757 - INFO - 127.0.0.1 - - [06/May/2025 12:41:08] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-05-06 12:41:08,769 - INFO - 127.0.0.1 - - [06/May/2025 12:41:08] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-05-06 12:41:08,776 - INFO - 127.0.0.1 - - [06/May/2025 12:41:08] "[36mGET /static/img/drukarka.png HTTP/1.1[0m" 304 -
+2025-05-06 12:41:35,284 - INFO - Administrator wszedł na stronę z listą tasm.
+2025-05-06 12:41:35,288 - INFO - 127.0.0.1 - - [06/May/2025 12:41:35] "GET /tasma HTTP/1.1" 200 -
+2025-05-06 12:41:35,302 - INFO - 127.0.0.1 - - [06/May/2025 12:41:35] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-05-06 12:41:35,313 - INFO - 127.0.0.1 - - [06/May/2025 12:41:35] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-05-06 12:41:35,319 - INFO - 127.0.0.1 - - [06/May/2025 12:41:35] "[36mGET /static/img/drukarka.png HTTP/1.1[0m" 304 -
+2025-05-06 12:41:51,468 - INFO - Administrator wszedł na stronę z listą tasm.
+2025-05-06 12:41:51,472 - INFO - 127.0.0.1 - - [06/May/2025 12:41:51] "GET /tasma HTTP/1.1" 200 -
+2025-05-06 12:41:51,487 - INFO - 127.0.0.1 - - [06/May/2025 12:41:51] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-05-06 12:41:51,497 - INFO - 127.0.0.1 - - [06/May/2025 12:41:51] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-05-06 12:41:51,504 - INFO - 127.0.0.1 - - [06/May/2025 12:41:51] "[36mGET /static/img/drukarka.png HTTP/1.1[0m" 304 -
+2025-05-06 12:41:57,989 - INFO - Administrator wszedł na stronę z listą tasm.
+2025-05-06 12:41:57,992 - INFO - 127.0.0.1 - - [06/May/2025 12:41:57] "GET /tasma HTTP/1.1" 200 -
+2025-05-06 12:41:58,008 - INFO - 127.0.0.1 - - [06/May/2025 12:41:58] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-05-06 12:41:58,020 - INFO - 127.0.0.1 - - [06/May/2025 12:41:58] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-05-06 12:41:58,026 - INFO - 127.0.0.1 - - [06/May/2025 12:41:58] "[36mGET /static/img/drukarka.png HTTP/1.1[0m" 304 -
+2025-05-06 12:42:52,133 - INFO - Administrator wszedł na stronę z listą tasm.
+2025-05-06 12:42:52,238 - INFO - 127.0.0.1 - - [06/May/2025 12:42:52] "GET /tasma HTTP/1.1" 200 -
+2025-05-06 12:42:52,262 - INFO - 127.0.0.1 - - [06/May/2025 12:42:52] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-05-06 12:42:52,280 - INFO - 127.0.0.1 - - [06/May/2025 12:42:52] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-05-06 12:42:52,281 - INFO - 127.0.0.1 - - [06/May/2025 12:42:52] "[36mGET /static/img/drukarka.png HTTP/1.1[0m" 304 -
+2025-05-06 12:42:59,219 - INFO - Administrator wszedł na stronę z listą tasm.
+2025-05-06 12:42:59,222 - INFO - 127.0.0.1 - - [06/May/2025 12:42:59] "GET /tasma HTTP/1.1" 200 -
+2025-05-06 12:42:59,239 - INFO - 127.0.0.1 - - [06/May/2025 12:42:59] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-05-06 12:42:59,248 - INFO - 127.0.0.1 - - [06/May/2025 12:42:59] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-05-06 12:42:59,257 - INFO - 127.0.0.1 - - [06/May/2025 12:42:59] "[36mGET /static/img/drukarka.png HTTP/1.1[0m" 304 -
+2025-05-06 12:43:07,685 - INFO - Administrator wszedł na stronę z listą tasm.
+2025-05-06 12:43:07,688 - INFO - 127.0.0.1 - - [06/May/2025 12:43:07] "GET /tasma HTTP/1.1" 200 -
+2025-05-06 12:43:07,705 - INFO - 127.0.0.1 - - [06/May/2025 12:43:07] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-05-06 12:43:07,718 - INFO - 127.0.0.1 - - [06/May/2025 12:43:07] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-05-06 12:43:07,724 - INFO - 127.0.0.1 - - [06/May/2025 12:43:07] "[36mGET /static/img/drukarka.png HTTP/1.1[0m" 304 -
+2025-05-06 12:43:15,492 - INFO - Administrator wszedł na stronę z listą tasm.
+2025-05-06 12:43:15,495 - INFO - 127.0.0.1 - - [06/May/2025 12:43:15] "GET /tasma HTTP/1.1" 200 -
+2025-05-06 12:43:15,510 - INFO - 127.0.0.1 - - [06/May/2025 12:43:15] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-05-06 12:43:15,522 - INFO - 127.0.0.1 - - [06/May/2025 12:43:15] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-05-06 12:43:15,528 - INFO - 127.0.0.1 - - [06/May/2025 12:43:15] "[36mGET /static/img/drukarka.png HTTP/1.1[0m" 304 -
+2025-05-06 12:43:28,758 - INFO - Administrator wszedł na stronę z listą tasm.
+2025-05-06 12:43:28,864 - INFO - 127.0.0.1 - - [06/May/2025 12:43:28] "GET /tasma HTTP/1.1" 200 -
+2025-05-06 12:43:28,886 - INFO - 127.0.0.1 - - [06/May/2025 12:43:28] "GET /static/style.css HTTP/1.1" 200 -
+2025-05-06 12:43:28,895 - INFO - 127.0.0.1 - - [06/May/2025 12:43:28] "GET /static/img/logo-duże.png HTTP/1.1" 200 -
+2025-05-06 12:43:28,903 - INFO - 127.0.0.1 - - [06/May/2025 12:43:28] "[36mGET /static/img/drukarka.png HTTP/1.1[0m" 304 -
+2025-05-06 12:43:50,377 - INFO - Administrator wszedł na stronę z listą tasm.
+2025-05-06 12:43:50,487 - INFO - 127.0.0.1 - - [06/May/2025 12:43:50] "GET /tasma HTTP/1.1" 200 -
+2025-05-06 12:43:50,515 - INFO - 127.0.0.1 - - [06/May/2025 12:43:50] "GET /static/style.css HTTP/1.1" 200 -
+2025-05-06 12:43:50,530 - INFO - 127.0.0.1 - - [06/May/2025 12:43:50] "GET /static/img/logo-duże.png HTTP/1.1" 200 -
+2025-05-06 12:43:50,535 - INFO - 127.0.0.1 - - [06/May/2025 12:43:50] "GET /static/img/drukarka.png HTTP/1.1" 200 -
+2025-05-06 12:44:06,278 - INFO - Administrator wszedł na stronę z listą tasm.
+2025-05-06 12:44:06,281 - INFO - 127.0.0.1 - - [06/May/2025 12:44:06] "GET /tasma HTTP/1.1" 200 -
+2025-05-06 12:44:06,298 - INFO - 127.0.0.1 - - [06/May/2025 12:44:06] "GET /static/style.css HTTP/1.1" 200 -
+2025-05-06 12:44:06,309 - INFO - 127.0.0.1 - - [06/May/2025 12:44:06] "GET /static/img/logo-duże.png HTTP/1.1" 200 -
+2025-05-06 12:44:06,316 - INFO - 127.0.0.1 - - [06/May/2025 12:44:06] "[36mGET /static/img/drukarka.png HTTP/1.1[0m" 304 -
+2025-05-06 12:44:14,172 - INFO - Administrator wszedł na stronę z listą tasm.
+2025-05-06 12:44:14,176 - INFO - 127.0.0.1 - - [06/May/2025 12:44:14] "GET /tasma HTTP/1.1" 200 -
+2025-05-06 12:44:14,191 - INFO - 127.0.0.1 - - [06/May/2025 12:44:14] "GET /static/style.css HTTP/1.1" 200 -
+2025-05-06 12:44:14,200 - INFO - 127.0.0.1 - - [06/May/2025 12:44:14] "GET /static/img/logo-duże.png HTTP/1.1" 200 -
+2025-05-06 12:44:14,206 - INFO - 127.0.0.1 - - [06/May/2025 12:44:14] "GET /static/img/drukarka.png HTTP/1.1" 200 -
+2025-05-06 12:47:57,358 - INFO - Administrator wszedł na stronę z listą tasm.
+2025-05-06 12:47:57,469 - INFO - 127.0.0.1 - - [06/May/2025 12:47:57] "GET /tasma HTTP/1.1" 200 -
+2025-05-06 12:47:57,501 - INFO - 127.0.0.1 - - [06/May/2025 12:47:57] "GET /static/style.css HTTP/1.1" 200 -
+2025-05-06 12:47:57,514 - INFO - 127.0.0.1 - - [06/May/2025 12:47:57] "GET /static/img/logo-duże.png HTTP/1.1" 200 -
+2025-05-06 12:47:57,521 - INFO - 127.0.0.1 - - [06/May/2025 12:47:57] "GET /static/img/drukarka.png HTTP/1.1" 200 -
+2025-05-06 12:48:13,537 - INFO - Administrator wszedł na stronę główną.
+2025-05-06 12:48:13,538 - INFO - 127.0.0.1 - - [06/May/2025 12:48:13] "GET / HTTP/1.1" 200 -
+2025-05-06 12:48:13,563 - INFO - 127.0.0.1 - - [06/May/2025 12:48:13] "GET /static/style.css HTTP/1.1" 200 -
+2025-05-06 12:48:13,568 - INFO - 127.0.0.1 - - [06/May/2025 12:48:13] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-05-06 12:48:14,503 - INFO - Administrator wszedł na stronę zarządzania użytkownikami.
+2025-05-06 12:48:14,505 - INFO - 127.0.0.1 - - [06/May/2025 12:48:14] "GET /uzytkownik HTTP/1.1" 200 -
+2025-05-06 12:48:14,525 - INFO - 127.0.0.1 - - [06/May/2025 12:48:14] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-05-06 12:48:14,535 - INFO - 127.0.0.1 - - [06/May/2025 12:48:14] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-05-06 12:48:16,163 - INFO - 127.0.0.1 - - [06/May/2025 12:48:16] "GET /get-uprawnienia HTTP/1.1" 200 -
+2025-05-06 12:48:20,741 - INFO - Zaktualizowano dane użytkownika test4. Nowy login: test4, Uprawnienia: Pracownik.
+2025-05-06 12:48:20,742 - INFO - 127.0.0.1 - - [06/May/2025 12:48:20] "POST /update-row_uzytkownik HTTP/1.1" 200 -
+2025-05-06 12:48:23,986 - INFO - Użytkownik Administrator wylogowany.
+2025-05-06 12:48:23,987 - INFO - 127.0.0.1 - - [06/May/2025 12:48:23] "[32mGET /logout HTTP/1.1[0m" 302 -
+2025-05-06 12:48:23,991 - INFO - Nieautoryzowany dostęp do strony głównej.
+2025-05-06 12:48:23,994 - INFO - 127.0.0.1 - - [06/May/2025 12:48:23] "GET / HTTP/1.1" 200 -
+2025-05-06 12:48:24,031 - INFO - 127.0.0.1 - - [06/May/2025 12:48:24] "GET /static/style.css HTTP/1.1" 200 -
+2025-05-06 12:48:24,035 - INFO - 127.0.0.1 - - [06/May/2025 12:48:24] "GET /static/img/logo-duże.png HTTP/1.1" 200 -
+2025-05-06 12:48:28,561 - INFO - Próba logowania dla logina: test4
+2025-05-06 12:48:28,665 - INFO - Użytkownik test4 zalogowany pomyślnie.
+2025-05-06 12:48:28,667 - INFO - 127.0.0.1 - - [06/May/2025 12:48:28] "[32mPOST /login HTTP/1.1[0m" 302 -
+2025-05-06 12:48:28,673 - INFO - test4 wszedł na stronę główną.
+2025-05-06 12:48:28,673 - INFO - 127.0.0.1 - - [06/May/2025 12:48:28] "GET / HTTP/1.1" 200 -
+2025-05-06 12:48:28,749 - INFO - 127.0.0.1 - - [06/May/2025 12:48:28] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-05-06 12:48:28,754 - INFO - 127.0.0.1 - - [06/May/2025 12:48:28] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-05-06 12:48:30,365 - INFO - test4 wszedł na stronę profilu.
+2025-05-06 12:48:30,367 - INFO - 127.0.0.1 - - [06/May/2025 12:48:30] "GET /profil HTTP/1.1" 200 -
+2025-05-06 12:48:30,394 - INFO - 127.0.0.1 - - [06/May/2025 12:48:30] "GET /static/style.css HTTP/1.1" 200 -
+2025-05-06 12:48:30,409 - INFO - 127.0.0.1 - - [06/May/2025 12:48:30] "GET /static/img/logo-duże.png HTTP/1.1" 200 -
+2025-05-06 12:48:34,272 - INFO - test4 wszedł na stronę dodawania profilu.
+2025-05-06 12:48:34,274 - INFO - 127.0.0.1 - - [06/May/2025 12:48:34] "GET /dodaj_profil HTTP/1.1" 200 -
+2025-05-06 12:48:34,320 - INFO - 127.0.0.1 - - [06/May/2025 12:48:34] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-05-06 12:48:38,365 - INFO - Nowy profil został dodany przez użytkownika test4.
+2025-05-06 12:48:38,365 - INFO - Szczegóły profilu: ID Taśmy: 54, Data Produkcji: 2025-05-06, Godzina rozpoczęcia: 12:48:34, ID Szablonu Profilu: 3, Nazwa Klienta: 213, Ilość: None, ID Długości: None.Imie nazwisko pracownika: 123.
+2025-05-06 12:48:38,367 - INFO - 127.0.0.1 - - [06/May/2025 12:48:38] "[32mPOST /dodaj_lub_zakonczenie_profilu HTTP/1.1[0m" 302 -
+2025-05-06 12:48:40,052 - INFO - test4 wszedł na stronę profilu.
+2025-05-06 12:48:40,057 - INFO - 127.0.0.1 - - [06/May/2025 12:48:40] "GET /profil HTTP/1.1" 200 -
+2025-05-06 12:48:40,078 - INFO - 127.0.0.1 - - [06/May/2025 12:48:40] "GET /static/style.css HTTP/1.1" 200 -
+2025-05-06 12:48:40,090 - INFO - 127.0.0.1 - - [06/May/2025 12:48:40] "GET /static/img/logo-duże.png HTTP/1.1" 200 -
+2025-05-06 12:48:40,761 - INFO - 127.0.0.1 - - [06/May/2025 12:48:40] "POST /dodaj_profil_do_bazy HTTP/1.1" 200 -
+2025-05-06 12:48:40,781 - INFO - 127.0.0.1 - - [06/May/2025 12:48:40] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-05-06 12:48:45,363 - INFO - Zakończenie profilu o ID 71 przez użytkownika test4.
+2025-05-06 12:48:45,363 - INFO - Poprzednie dane: {'godz_min_zakonczenia': None, 'zwrot_na_magazyn_kg': None, 'ilosc': None, 'ilosc_na_stanie': None, 'id_dlugosci': None}
+2025-05-06 12:48:45,363 - INFO - Nowe dane: {'godz_min_zakonczenia': '12:48:45', 'zwrot_na_magazyn_kg': '1', 'ilosc': '123', 'ilosc_na_stanie': '123', 'id_dlugosci': '1'}
+2025-05-06 12:48:45,364 - INFO - 127.0.0.1 - - [06/May/2025 12:48:45] "[32mPOST /dodaj_lub_zakonczenie_profilu HTTP/1.1[0m" 302 -
+2025-05-06 12:48:45,371 - INFO - test4 wszedł na stronę profilu.
+2025-05-06 12:48:45,376 - INFO - 127.0.0.1 - - [06/May/2025 12:48:45] "GET /profil HTTP/1.1" 200 -
+2025-05-06 12:48:45,404 - INFO - 127.0.0.1 - - [06/May/2025 12:48:45] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-05-06 12:48:45,414 - INFO - 127.0.0.1 - - [06/May/2025 12:48:45] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-05-06 12:48:46,598 - INFO - test4 wszedł na stronę główną.
+2025-05-06 12:48:46,599 - INFO - 127.0.0.1 - - [06/May/2025 12:48:46] "GET / HTTP/1.1" 200 -
+2025-05-06 12:48:46,631 - INFO - 127.0.0.1 - - [06/May/2025 12:48:46] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-05-06 12:48:46,636 - INFO - 127.0.0.1 - - [06/May/2025 12:48:46] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-05-06 12:48:48,216 - INFO - Użytkownik test4 wylogowany.
+2025-05-06 12:48:48,217 - INFO - 127.0.0.1 - - [06/May/2025 12:48:48] "[32mGET /logout HTTP/1.1[0m" 302 -
+2025-05-06 12:48:48,225 - INFO - Nieautoryzowany dostęp do strony głównej.
+2025-05-06 12:48:48,226 - INFO - 127.0.0.1 - - [06/May/2025 12:48:48] "GET / HTTP/1.1" 200 -
+2025-05-06 12:48:48,257 - INFO - 127.0.0.1 - - [06/May/2025 12:48:48] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-05-06 12:48:48,261 - INFO - 127.0.0.1 - - [06/May/2025 12:48:48] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-05-06 12:48:58,109 - INFO - Próba logowania dla logina: Administrator
+2025-05-06 12:48:58,210 - INFO - Użytkownik Administrator zalogowany pomyślnie.
+2025-05-06 12:48:58,211 - INFO - 127.0.0.1 - - [06/May/2025 12:48:58] "[32mPOST /login HTTP/1.1[0m" 302 -
+2025-05-06 12:48:58,217 - INFO - Administrator wszedł na stronę główną.
+2025-05-06 12:48:58,218 - INFO - 127.0.0.1 - - [06/May/2025 12:48:58] "GET / HTTP/1.1" 200 -
+2025-05-06 12:48:58,237 - INFO - 127.0.0.1 - - [06/May/2025 12:48:58] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-05-06 12:48:58,241 - INFO - 127.0.0.1 - - [06/May/2025 12:48:58] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-05-06 12:49:06,326 - INFO - Administrator wszedł na stronę profilu.
+2025-05-06 12:49:06,333 - INFO - 127.0.0.1 - - [06/May/2025 12:49:06] "GET /profil HTTP/1.1" 200 -
+2025-05-06 12:49:06,357 - INFO - 127.0.0.1 - - [06/May/2025 12:49:06] "GET /static/style.css HTTP/1.1" 200 -
+2025-05-06 12:49:06,367 - INFO - 127.0.0.1 - - [06/May/2025 12:49:06] "GET /static/img/logo-duże.png HTTP/1.1" 200 -
+2025-05-06 12:49:07,098 - INFO - Administrator wszedł na stronę główną.
+2025-05-06 12:49:07,099 - INFO - 127.0.0.1 - - [06/May/2025 12:49:07] "GET / HTTP/1.1" 200 -
+2025-05-06 12:49:07,124 - INFO - 127.0.0.1 - - [06/May/2025 12:49:07] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-05-06 12:49:07,129 - INFO - 127.0.0.1 - - [06/May/2025 12:49:07] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-05-06 12:49:08,393 - INFO - Administrator wszedł na stronę profilu.
+2025-05-06 12:49:08,448 - INFO - 127.0.0.1 - - [06/May/2025 12:49:08] "GET /profil HTTP/1.1" 200 -
+2025-05-06 12:49:08,475 - INFO - 127.0.0.1 - - [06/May/2025 12:49:08] "GET /static/style.css HTTP/1.1" 200 -
+2025-05-06 12:49:08,486 - INFO - 127.0.0.1 - - [06/May/2025 12:49:08] "GET /static/img/logo-duże.png HTTP/1.1" 200 -
+2025-05-06 12:49:14,084 - INFO - Administrator wszedł na stronę główną.
+2025-05-06 12:49:14,086 - INFO - 127.0.0.1 - - [06/May/2025 12:49:14] "GET / HTTP/1.1" 200 -
+2025-05-06 12:49:14,108 - INFO - 127.0.0.1 - - [06/May/2025 12:49:14] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-05-06 12:49:14,114 - INFO - 127.0.0.1 - - [06/May/2025 12:49:14] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-05-06 12:49:14,946 - INFO - Administrator wszedł na stronę zarządzania użytkownikami.
+2025-05-06 12:49:14,948 - INFO - 127.0.0.1 - - [06/May/2025 12:49:14] "GET /uzytkownik HTTP/1.1" 200 -
+2025-05-06 12:49:14,973 - INFO - 127.0.0.1 - - [06/May/2025 12:49:14] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-05-06 12:49:14,983 - INFO - 127.0.0.1 - - [06/May/2025 12:49:14] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-05-06 12:49:19,315 - INFO - Administrator wszedł na stronę rejestracji użytkownika.
+2025-05-06 12:49:19,316 - INFO - 127.0.0.1 - - [06/May/2025 12:49:19] "GET /register HTTP/1.1" 200 -
+2025-05-06 12:49:19,357 - INFO - 127.0.0.1 - - [06/May/2025 12:49:19] "GET /static/style.css HTTP/1.1" 200 -
+2025-05-06 12:49:19,362 - INFO - 127.0.0.1 - - [06/May/2025 12:49:19] "GET /static/img/logo-duże.png HTTP/1.1" 200 -
+2025-05-06 12:49:35,128 - INFO - Dane użytkownika test5 z uprawnieniami Administrator zostały pomyślnie zapisane w bazie danych.
+2025-05-06 12:49:35,129 - INFO - 127.0.0.1 - - [06/May/2025 12:49:35] "[32mPOST /rejestracja_do_bazy HTTP/1.1[0m" 302 -
+2025-05-06 12:49:35,134 - INFO - Administrator wszedł na stronę zarządzania użytkownikami.
+2025-05-06 12:49:35,137 - INFO - 127.0.0.1 - - [06/May/2025 12:49:35] "GET /uzytkownik HTTP/1.1" 200 -
+2025-05-06 12:49:35,192 - INFO - 127.0.0.1 - - [06/May/2025 12:49:35] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-05-06 12:49:35,222 - INFO - 127.0.0.1 - - [06/May/2025 12:49:35] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-05-06 12:49:38,626 - INFO - Użytkownik Administrator wylogowany.
+2025-05-06 12:49:38,627 - INFO - 127.0.0.1 - - [06/May/2025 12:49:38] "[32mGET /logout HTTP/1.1[0m" 302 -
+2025-05-06 12:49:38,631 - INFO - Nieautoryzowany dostęp do strony głównej.
+2025-05-06 12:49:38,632 - INFO - 127.0.0.1 - - [06/May/2025 12:49:38] "GET / HTTP/1.1" 200 -
+2025-05-06 12:49:38,667 - INFO - 127.0.0.1 - - [06/May/2025 12:49:38] "GET /static/style.css HTTP/1.1" 200 -
+2025-05-06 12:49:38,670 - INFO - 127.0.0.1 - - [06/May/2025 12:49:38] "GET /static/img/logo-duże.png HTTP/1.1" 200 -
+2025-05-06 12:49:41,206 - INFO - Próba logowania dla logina: test5
+2025-05-06 12:49:41,306 - INFO - Użytkownik test5 zalogowany pomyślnie.
+2025-05-06 12:49:41,307 - INFO - 127.0.0.1 - - [06/May/2025 12:49:41] "[32mPOST /login HTTP/1.1[0m" 302 -
+2025-05-06 12:49:41,313 - INFO - test5 wszedł na stronę główną.
+2025-05-06 12:49:41,314 - INFO - 127.0.0.1 - - [06/May/2025 12:49:41] "GET / HTTP/1.1" 200 -
+2025-05-06 12:49:41,330 - INFO - 127.0.0.1 - - [06/May/2025 12:49:41] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-05-06 12:49:41,335 - INFO - 127.0.0.1 - - [06/May/2025 12:49:41] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-05-06 12:49:45,904 - INFO - test5 wszedł na stronę z listą tasm.
+2025-05-06 12:49:45,908 - INFO - 127.0.0.1 - - [06/May/2025 12:49:45] "GET /tasma HTTP/1.1" 200 -
+2025-05-06 12:49:45,929 - INFO - 127.0.0.1 - - [06/May/2025 12:49:45] "GET /static/style.css HTTP/1.1" 200 -
+2025-05-06 12:49:45,933 - INFO - 127.0.0.1 - - [06/May/2025 12:49:45] "[36mGET /static/img/drukarka.png HTTP/1.1[0m" 304 -
+2025-05-06 12:49:45,939 - INFO - 127.0.0.1 - - [06/May/2025 12:49:45] "GET /static/img/logo-duże.png HTTP/1.1" 200 -
+2025-05-06 12:49:48,732 - INFO - test5 wszedł na stronę dodawania tasy.
+2025-05-06 12:49:48,743 - INFO - 127.0.0.1 - - [06/May/2025 12:49:48] "GET /dodaj_tasma HTTP/1.1" 200 -
+2025-05-06 12:49:48,771 - INFO - 127.0.0.1 - - [06/May/2025 12:49:48] "GET /static/style.css HTTP/1.1" 200 -
+2025-05-06 12:50:14,946 - INFO - Taśma została dodana przez użytkownika test5. Szczegóły taśmy: Dostawca ID: 1, Szablon ID: 3, Data z etykiety: 2025-08-08, Grubość: 1.52, Szerokość: 77.00, Waga kręgu: 324, Waga na stanie: 324, Nr etykieta paletowa: 342, Nr z etykiety: 234, Lokalizacja ID: 1, Nr faktury dostawcy: 234, Data dostawy: 0434-04-04.
+2025-05-06 12:50:14,946 - INFO - 127.0.0.1 - - [06/May/2025 12:50:14] "[35m[1mPOST /dodaj_tasma_do_bazy HTTP/1.1[0m" 204 -
+2025-05-06 12:50:17,892 - INFO - Użytkownik test5 wylogowany.
+2025-05-06 12:50:17,893 - INFO - 127.0.0.1 - - [06/May/2025 12:50:17] "[32mGET /logout HTTP/1.1[0m" 302 -
+2025-05-06 12:50:17,898 - INFO - Nieautoryzowany dostęp do strony głównej.
+2025-05-06 12:50:17,899 - INFO - 127.0.0.1 - - [06/May/2025 12:50:17] "GET / HTTP/1.1" 200 -
+2025-05-06 12:50:17,953 - INFO - 127.0.0.1 - - [06/May/2025 12:50:17] "GET /static/style.css HTTP/1.1" 200 -
+2025-05-06 12:50:17,958 - INFO - 127.0.0.1 - - [06/May/2025 12:50:17] "GET /static/img/logo-duże.png HTTP/1.1" 200 -
+2025-05-06 12:50:20,451 - INFO - Próba logowania dla logina: Administrator
+2025-05-06 12:50:20,551 - INFO - Użytkownik Administrator zalogowany pomyślnie.
+2025-05-06 12:50:20,552 - INFO - 127.0.0.1 - - [06/May/2025 12:50:20] "[32mPOST /login HTTP/1.1[0m" 302 -
+2025-05-06 12:50:20,558 - INFO - Administrator wszedł na stronę główną.
+2025-05-06 12:50:20,560 - INFO - 127.0.0.1 - - [06/May/2025 12:50:20] "GET / HTTP/1.1" 200 -
+2025-05-06 12:50:20,577 - INFO - 127.0.0.1 - - [06/May/2025 12:50:20] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-05-06 12:50:20,582 - INFO - 127.0.0.1 - - [06/May/2025 12:50:20] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-05-06 12:50:21,957 - INFO - Administrator wszedł na stronę z listą tasm.
+2025-05-06 12:50:21,961 - INFO - 127.0.0.1 - - [06/May/2025 12:50:21] "GET /tasma HTTP/1.1" 200 -
+2025-05-06 12:50:21,984 - INFO - 127.0.0.1 - - [06/May/2025 12:50:21] "GET /static/style.css HTTP/1.1" 200 -
+2025-05-06 12:50:21,996 - INFO - 127.0.0.1 - - [06/May/2025 12:50:21] "GET /static/img/logo-duże.png HTTP/1.1" 200 -
+2025-05-06 12:50:22,003 - INFO - 127.0.0.1 - - [06/May/2025 12:50:22] "GET /static/img/drukarka.png HTTP/1.1" 200 -
+2025-05-06 12:51:59,788 - INFO - Administrator wszedł na stronę główną.
+2025-05-06 12:51:59,789 - INFO - 127.0.0.1 - - [06/May/2025 12:51:59] "GET / HTTP/1.1" 200 -
+2025-05-06 12:51:59,822 - INFO - 127.0.0.1 - - [06/May/2025 12:51:59] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-05-06 12:51:59,827 - INFO - 127.0.0.1 - - [06/May/2025 12:51:59] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-05-06 12:52:00,520 - INFO - Administrator wszedł na stronę profilu.
+2025-05-06 12:52:00,678 - INFO - 127.0.0.1 - - [06/May/2025 12:52:00] "GET /profil HTTP/1.1" 200 -
+2025-05-06 12:52:00,706 - INFO - 127.0.0.1 - - [06/May/2025 12:52:00] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-05-06 12:52:00,717 - INFO - 127.0.0.1 - - [06/May/2025 12:52:00] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-05-06 12:52:03,093 - INFO - Administrator wszedł na stronę profilu.
+2025-05-06 12:52:03,100 - INFO - 127.0.0.1 - - [06/May/2025 12:52:03] "GET /profil HTTP/1.1" 200 -
+2025-05-06 12:52:03,117 - INFO - 127.0.0.1 - - [06/May/2025 12:52:03] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-05-06 12:52:03,127 - INFO - 127.0.0.1 - - [06/May/2025 12:52:03] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-05-06 12:52:08,030 - INFO - Administrator wszedł na stronę profilu.
+2025-05-06 12:52:08,039 - INFO - 127.0.0.1 - - [06/May/2025 12:52:08] "GET /profil HTTP/1.1" 200 -
+2025-05-06 12:52:08,057 - INFO - 127.0.0.1 - - [06/May/2025 12:52:08] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-05-06 12:52:08,069 - INFO - 127.0.0.1 - - [06/May/2025 12:52:08] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-05-06 12:52:13,963 - INFO - Administrator wszedł na stronę profilu.
+2025-05-06 12:52:13,970 - INFO - 127.0.0.1 - - [06/May/2025 12:52:13] "GET /profil HTTP/1.1" 200 -
+2025-05-06 12:52:13,989 - INFO - 127.0.0.1 - - [06/May/2025 12:52:13] "GET /static/style.css HTTP/1.1" 200 -
+2025-05-06 12:52:14,002 - INFO - 127.0.0.1 - - [06/May/2025 12:52:14] "GET /static/img/logo-duże.png HTTP/1.1" 200 -
+2025-05-06 12:52:16,466 - INFO - Administrator wszedł na stronę profilu.
+2025-05-06 12:52:16,474 - INFO - 127.0.0.1 - - [06/May/2025 12:52:16] "GET /profil HTTP/1.1" 200 -
+2025-05-06 12:52:16,510 - INFO - 127.0.0.1 - - [06/May/2025 12:52:16] "GET /static/style.css HTTP/1.1" 200 -
+2025-05-06 12:52:16,524 - INFO - 127.0.0.1 - - [06/May/2025 12:52:16] "GET /static/img/logo-duże.png HTTP/1.1" 200 -
+2025-05-06 12:52:19,121 - INFO - Administrator wszedł na stronę profilu.
+2025-05-06 12:52:19,129 - INFO - 127.0.0.1 - - [06/May/2025 12:52:19] "GET /profil HTTP/1.1" 200 -
+2025-05-06 12:52:19,168 - INFO - 127.0.0.1 - - [06/May/2025 12:52:19] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-05-06 12:52:19,178 - INFO - 127.0.0.1 - - [06/May/2025 12:52:19] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-05-06 12:52:23,444 - INFO - Administrator wszedł na stronę profilu.
+2025-05-06 12:52:23,451 - INFO - 127.0.0.1 - - [06/May/2025 12:52:23] "GET /profil HTTP/1.1" 200 -
+2025-05-06 12:52:23,468 - INFO - 127.0.0.1 - - [06/May/2025 12:52:23] "GET /static/style.css HTTP/1.1" 200 -
+2025-05-06 12:52:23,477 - INFO - 127.0.0.1 - - [06/May/2025 12:52:23] "GET /static/img/logo-duże.png HTTP/1.1" 200 -
+2025-05-06 12:53:30,532 - INFO - Administrator wszedł na stronę profilu.
+2025-05-06 12:53:30,685 - INFO - 127.0.0.1 - - [06/May/2025 12:53:30] "GET /profil HTTP/1.1" 200 -
+2025-05-06 12:53:30,705 - INFO - 127.0.0.1 - - [06/May/2025 12:53:30] "GET /static/style.css HTTP/1.1" 200 -
+2025-05-06 12:53:30,716 - INFO - 127.0.0.1 - - [06/May/2025 12:53:30] "GET /static/img/logo-duże.png HTTP/1.1" 200 -
+2025-05-06 12:53:47,330 - INFO - Administrator wszedł na stronę główną.
+2025-05-06 12:53:47,331 - INFO - 127.0.0.1 - - [06/May/2025 12:53:47] "GET / HTTP/1.1" 200 -
+2025-05-06 12:53:47,354 - INFO - 127.0.0.1 - - [06/May/2025 12:53:47] "GET /static/style.css HTTP/1.1" 200 -
+2025-05-06 12:53:47,359 - INFO - 127.0.0.1 - - [06/May/2025 12:53:47] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-05-06 12:53:48,514 - INFO - Administrator wszedł na stronę z listą tasm.
+2025-05-06 12:53:48,517 - INFO - 127.0.0.1 - - [06/May/2025 12:53:48] "GET /tasma HTTP/1.1" 200 -
+2025-05-06 12:53:48,540 - INFO - 127.0.0.1 - - [06/May/2025 12:53:48] "GET /static/style.css HTTP/1.1" 200 -
+2025-05-06 12:53:48,551 - INFO - 127.0.0.1 - - [06/May/2025 12:53:48] "GET /static/img/logo-duże.png HTTP/1.1" 200 -
+2025-05-06 12:53:48,559 - INFO - 127.0.0.1 - - [06/May/2025 12:53:48] "GET /static/img/drukarka.png HTTP/1.1" 200 -
+2025-05-06 12:54:18,625 - INFO - Administrator wszedł na stronę z listą tasm.
+2025-05-06 12:54:18,732 - INFO - 127.0.0.1 - - [06/May/2025 12:54:18] "GET /tasma HTTP/1.1" 200 -
+2025-05-06 12:54:18,749 - INFO - 127.0.0.1 - - [06/May/2025 12:54:18] "GET /static/style.css HTTP/1.1" 200 -
+2025-05-06 12:54:18,760 - INFO - 127.0.0.1 - - [06/May/2025 12:54:18] "GET /static/img/logo-duże.png HTTP/1.1" 200 -
+2025-05-06 12:54:18,766 - INFO - 127.0.0.1 - - [06/May/2025 12:54:18] "GET /static/img/drukarka.png HTTP/1.1" 200 -
+2025-05-06 12:54:21,538 - INFO - Administrator wszedł na stronę z listą tasm.
+2025-05-06 12:54:21,541 - INFO - 127.0.0.1 - - [06/May/2025 12:54:21] "GET /tasma HTTP/1.1" 200 -
+2025-05-06 12:54:21,559 - INFO - 127.0.0.1 - - [06/May/2025 12:54:21] "GET /static/style.css HTTP/1.1" 200 -
+2025-05-06 12:54:21,567 - INFO - 127.0.0.1 - - [06/May/2025 12:54:21] "GET /static/img/logo-duże.png HTTP/1.1" 200 -
+2025-05-06 12:54:21,574 - INFO - 127.0.0.1 - - [06/May/2025 12:54:21] "GET /static/img/drukarka.png HTTP/1.1" 200 -
+2025-05-06 12:59:24,653 - INFO - Administrator wszedł na stronę z listą tasm.
+2025-05-06 12:59:24,763 - INFO - 127.0.0.1 - - [06/May/2025 12:59:24] "GET /tasma HTTP/1.1" 200 -
+2025-05-06 12:59:24,786 - INFO - 127.0.0.1 - - [06/May/2025 12:59:24] "GET /static/style.css HTTP/1.1" 200 -
+2025-05-06 12:59:24,801 - INFO - 127.0.0.1 - - [06/May/2025 12:59:24] "GET /static/img/logo-duże.png HTTP/1.1" 200 -
+2025-05-06 12:59:24,817 - INFO - 127.0.0.1 - - [06/May/2025 12:59:24] "GET /static/img/drukarka.png HTTP/1.1" 200 -
+2025-05-06 12:59:32,923 - INFO - Administrator wszedł na stronę z listą tasm.
+2025-05-06 12:59:32,926 - INFO - 127.0.0.1 - - [06/May/2025 12:59:32] "GET /tasma HTTP/1.1" 200 -
+2025-05-06 12:59:32,943 - INFO - 127.0.0.1 - - [06/May/2025 12:59:32] "GET /static/style.css HTTP/1.1" 200 -
+2025-05-06 12:59:32,953 - INFO - 127.0.0.1 - - [06/May/2025 12:59:32] "GET /static/img/logo-duże.png HTTP/1.1" 200 -
+2025-05-06 12:59:32,959 - INFO - 127.0.0.1 - - [06/May/2025 12:59:32] "[36mGET /static/img/drukarka.png HTTP/1.1[0m" 304 -
+2025-05-06 12:59:56,885 - INFO - Administrator wszedł na stronę z listą tasm.
+2025-05-06 12:59:56,889 - INFO - 127.0.0.1 - - [06/May/2025 12:59:56] "GET /tasma HTTP/1.1" 200 -
+2025-05-06 12:59:56,912 - INFO - 127.0.0.1 - - [06/May/2025 12:59:56] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-05-06 12:59:56,922 - INFO - 127.0.0.1 - - [06/May/2025 12:59:56] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-05-06 12:59:56,930 - INFO - 127.0.0.1 - - [06/May/2025 12:59:56] "[36mGET /static/img/drukarka.png HTTP/1.1[0m" 304 -
+2025-05-06 13:09:35,141 - INFO - Połączenie z bazą danych zostało nawiązane pomyślnie.
+2025-05-06 13:09:35,199 - INFO - ✅ Kopia zapasowa zapisana do pliku: backups\kopie_zapasowe_bazy_2025-05-06_13-09.sql
+2025-05-06 13:09:35,200 - INFO - 🗑️ Usunięto starą kopię: kopie_zapasowe_bazy_2025-04-22_10-40.sql
+2025-05-06 13:09:35,232 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.1.28:5000
+2025-05-06 13:09:35,232 - INFO - [33mPress CTRL+C to quit[0m
+2025-05-06 13:09:35,235 - INFO -  * Restarting with stat
+2025-05-06 13:09:37,855 - INFO - Połączenie z bazą danych zostało nawiązane pomyślnie.
+2025-05-06 13:09:37,916 - INFO - ✅ Kopia zapasowa zapisana do pliku: backups\kopie_zapasowe_bazy_2025-05-06_13-09.sql
+2025-05-06 13:09:37,922 - WARNING -  * Debugger is active!
+2025-05-06 13:09:37,926 - INFO -  * Debugger PIN: 575-758-812
+2025-05-06 13:09:40,320 - INFO - Administrator wszedł na stronę główną.
+2025-05-06 13:09:40,423 - INFO - 127.0.0.1 - - [06/May/2025 13:09:40] "GET / HTTP/1.1" 200 -
+2025-05-06 13:09:40,471 - INFO - 127.0.0.1 - - [06/May/2025 13:09:40] "GET /static/style.css HTTP/1.1" 200 -
+2025-05-06 13:09:40,477 - INFO - 127.0.0.1 - - [06/May/2025 13:09:40] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-05-06 13:09:41,033 - INFO - Administrator wszedł na stronę profilu.
+2025-05-06 13:09:41,202 - INFO - 127.0.0.1 - - [06/May/2025 13:09:41] "GET /profil HTTP/1.1" 200 -
+2025-05-06 13:09:41,233 - INFO - 127.0.0.1 - - [06/May/2025 13:09:41] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-05-06 13:09:41,244 - INFO - 127.0.0.1 - - [06/May/2025 13:09:41] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-05-06 13:09:42,147 - INFO - Administrator wszedł na stronę profilu.
+2025-05-06 13:09:42,154 - INFO - 127.0.0.1 - - [06/May/2025 13:09:42] "GET /profil HTTP/1.1" 200 -
+2025-05-06 13:09:42,169 - INFO - 127.0.0.1 - - [06/May/2025 13:09:42] "GET /static/style.css HTTP/1.1" 200 -
+2025-05-06 13:09:42,180 - INFO - 127.0.0.1 - - [06/May/2025 13:09:42] "GET /static/img/logo-duże.png HTTP/1.1" 200 -
+2025-05-06 13:09:43,476 - INFO - Administrator wszedł na stronę główną.
+2025-05-06 13:09:43,477 - INFO - 127.0.0.1 - - [06/May/2025 13:09:43] "GET / HTTP/1.1" 200 -
+2025-05-06 13:09:43,501 - INFO - 127.0.0.1 - - [06/May/2025 13:09:43] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-05-06 13:09:43,505 - INFO - 127.0.0.1 - - [06/May/2025 13:09:43] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-05-06 13:09:45,124 - INFO - Administrator wszedł na stronę zarządzania użytkownikami.
+2025-05-06 13:09:45,175 - INFO - 127.0.0.1 - - [06/May/2025 13:09:45] "GET /uzytkownik HTTP/1.1" 200 -
+2025-05-06 13:09:45,199 - INFO - 127.0.0.1 - - [06/May/2025 13:09:45] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-05-06 13:09:45,208 - INFO - 127.0.0.1 - - [06/May/2025 13:09:45] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-05-06 13:09:48,441 - INFO - Użytkownik Administrator wylogowany.
+2025-05-06 13:09:48,442 - INFO - 127.0.0.1 - - [06/May/2025 13:09:48] "[32mGET /logout HTTP/1.1[0m" 302 -
+2025-05-06 13:09:48,446 - INFO - Nieautoryzowany dostęp do strony głównej.
+2025-05-06 13:09:48,448 - INFO - 127.0.0.1 - - [06/May/2025 13:09:48] "GET / HTTP/1.1" 200 -
+2025-05-06 13:09:48,488 - INFO - 127.0.0.1 - - [06/May/2025 13:09:48] "GET /static/style.css HTTP/1.1" 200 -
+2025-05-06 13:09:48,492 - INFO - 127.0.0.1 - - [06/May/2025 13:09:48] "GET /static/img/logo-duże.png HTTP/1.1" 200 -
+2025-05-06 13:09:55,383 - INFO - Próba logowania dla logina: test4
+2025-05-06 13:09:55,487 - WARNING - Nieudana próba logowania.
+2025-05-06 13:09:55,488 - INFO - 127.0.0.1 - - [06/May/2025 13:09:55] "POST /login HTTP/1.1" 200 -
+2025-05-06 13:09:55,569 - INFO - 127.0.0.1 - - [06/May/2025 13:09:55] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-05-06 13:09:55,572 - INFO - 127.0.0.1 - - [06/May/2025 13:09:55] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-05-06 13:10:00,818 - INFO - Próba logowania dla logina: test4
+2025-05-06 13:10:00,920 - INFO - Użytkownik test4 zalogowany pomyślnie.
+2025-05-06 13:10:00,921 - INFO - 127.0.0.1 - - [06/May/2025 13:10:00] "[32mPOST /login HTTP/1.1[0m" 302 -
+2025-05-06 13:10:00,926 - INFO - test4 wszedł na stronę główną.
+2025-05-06 13:10:00,928 - INFO - 127.0.0.1 - - [06/May/2025 13:10:00] "GET / HTTP/1.1" 200 -
+2025-05-06 13:10:01,004 - INFO - 127.0.0.1 - - [06/May/2025 13:10:01] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-05-06 13:10:01,010 - INFO - 127.0.0.1 - - [06/May/2025 13:10:01] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-05-06 13:10:02,772 - INFO - test4 wszedł na stronę profilu.
+2025-05-06 13:10:02,776 - INFO - 127.0.0.1 - - [06/May/2025 13:10:02] "GET /profil HTTP/1.1" 200 -
+2025-05-06 13:10:02,804 - INFO - 127.0.0.1 - - [06/May/2025 13:10:02] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-05-06 13:10:02,812 - INFO - 127.0.0.1 - - [06/May/2025 13:10:02] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-05-06 13:10:04,165 - INFO - test4 wszedł na stronę główną.
+2025-05-06 13:10:04,165 - INFO - 127.0.0.1 - - [06/May/2025 13:10:04] "GET / HTTP/1.1" 200 -
+2025-05-06 13:10:04,190 - INFO - 127.0.0.1 - - [06/May/2025 13:10:04] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-05-06 13:10:04,194 - INFO - 127.0.0.1 - - [06/May/2025 13:10:04] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-05-06 13:10:06,281 - INFO - Użytkownik test4 wylogowany.
+2025-05-06 13:10:06,282 - INFO - 127.0.0.1 - - [06/May/2025 13:10:06] "[32mGET /logout HTTP/1.1[0m" 302 -
+2025-05-06 13:10:06,286 - INFO - Nieautoryzowany dostęp do strony głównej.
+2025-05-06 13:10:06,287 - INFO - 127.0.0.1 - - [06/May/2025 13:10:06] "GET / HTTP/1.1" 200 -
+2025-05-06 13:10:06,319 - INFO - 127.0.0.1 - - [06/May/2025 13:10:06] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-05-06 13:10:06,323 - INFO - 127.0.0.1 - - [06/May/2025 13:10:06] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-05-06 13:10:09,713 - INFO - Próba logowania dla logina: Administrator
+2025-05-06 13:10:09,814 - INFO - Użytkownik Administrator zalogowany pomyślnie.
+2025-05-06 13:10:09,815 - INFO - 127.0.0.1 - - [06/May/2025 13:10:09] "[32mPOST /login HTTP/1.1[0m" 302 -
+2025-05-06 13:10:09,821 - INFO - Administrator wszedł na stronę główną.
+2025-05-06 13:10:09,822 - INFO - 127.0.0.1 - - [06/May/2025 13:10:09] "GET / HTTP/1.1" 200 -
+2025-05-06 13:10:09,840 - INFO - 127.0.0.1 - - [06/May/2025 13:10:09] "GET /static/style.css HTTP/1.1" 200 -
+2025-05-06 13:10:09,845 - INFO - 127.0.0.1 - - [06/May/2025 13:10:09] "GET /static/img/logo-duże.png HTTP/1.1" 200 -
