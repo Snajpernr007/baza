@@ -412,6 +412,7 @@ def usun_uzytkownik(id):
         db.session.rollback()
         logger.error(f'Błąd przy usuwaniu użytkownika: {e}')
         flash(f'Błąd przy usuwaniu: {e}', 'danger')
+
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     if request.method == 'POST':
@@ -1425,7 +1426,6 @@ def sprzedaz():
         dlugosci=dlugosci,
         wszystkie_profile=wszystkie_profile
     )
-
 
 
 @app.route('/wez_profile', methods=["POST"])
