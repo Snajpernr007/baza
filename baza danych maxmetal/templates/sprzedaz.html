@@ -92,14 +92,8 @@
                 
             </div>
         </div>
-        <div id="content">
-            <div id="title">
-                {% if user %}
-                <h2 id="witaj">Witaj, {{ user.login }}!</h2>    
-            {% endif %}
-            </div>
-            
-
+        <div id="title">
+            <h2>Sprzedaż</h2>
         </div>
         <hr>
         <form method="POST" action="{{ url_for('sprzedaz') }}">

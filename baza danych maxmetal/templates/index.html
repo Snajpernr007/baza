@@ -14,11 +14,11 @@
                 <nav role="navigation">
                     <div id="menuToggle">
                         <input type="checkbox" id="menuCheckbox">
-
-                        <span></span>
-                        <span></span>
-                        <span></span>
-
+                        
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        
                         <ul id="menu">
                             {% if not g.user %}
                         
@@ -97,15 +97,11 @@
                 
             </div>
         </div>
-        <div id="content">
-            <div id="title">
-                {% if user %}
-                <h2 id="witaj">Witaj, {{ user.login }}!</h2>    
-            {% endif %}
-            </div>
-            
 
-        </div>
+            <div id="title">
+                <h2 class="witaj">Profile</h2>
+            </div>
+
         <hr>
         <div class="man-container">
             {% if g.user.id_uprawnienia==1 or g.user.id_uprawnienia==2%}

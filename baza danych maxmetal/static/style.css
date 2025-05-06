@@ -88,6 +88,10 @@ footer{
 #tabela_on_off, #tabela_on_off th, #tabela_on_off td {
   border: 1px solid black; /* Czarna ramka */
 }
+#tabela_on_off tr:hover{
+  transition: 1s ease;
+  background-color: #f1f1f1; /* Zmiana koloru tła na szary przy najechaniu */
+}
 
 #tabela_on_off th, #tabela_on_off td {
   padding: 8px; /* Dodanie odstępu wewnętrznego */
@@ -128,7 +132,6 @@ footer{
   padding-top:115px;
   display: flex;
   justify-content: center;
-  background-color:#f07d2d;
 }
 
 #modalHeader {
@@ -230,7 +233,6 @@ footer{
 
 
 
-
 /* przyciski */
 .button {
   width: 110px;
@@ -311,8 +313,9 @@ footer{
   height: 4px;
   margin-bottom: 5px;
   position: block; /* zmiana położenia tego obiektu następuje od jego pierwotnego położenia */
-  background: darkgrey;
+  background: #f07d2d;
   border-radius: 3px;
+  border:  1px solid #3f395d;
   z-index: 1;
 }
 
