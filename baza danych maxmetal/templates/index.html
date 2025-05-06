@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Profile MaxMetal</title>
-    <link rel="icon" href="../static/img/logo-duże.png">
+    <link rel="icon" href="../static/img/logo-male.png">
     <link rel="stylesheet" href="../static/style.css">
 </head>
 <body>
@@ -97,15 +97,10 @@
                 
             </div>
         </div>
-        <div id="content">
-            <div id="title">
-                {% if user %}
-                <h2 id="witaj">Witaj, {{ user.login }}!</h2>    
-            {% endif %}
-            </div>
-            
-
+        <div id="title"> 
+            <h2>Profile</h2>
         </div>
+    
         <hr>
         <div class="man-container">
             {% if g.user.id_uprawnienia==1 or g.user.id_uprawnienia==2%}

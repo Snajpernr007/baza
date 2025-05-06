@@ -123,12 +123,12 @@ footer{
 }
 /* Index */
 
-/* napis "kup co chcesz" */
 
 #title{
   padding-top:115px;
   display: flex;
   justify-content: center;
+  background-color:#f07d2d;
 }
 
 #modalHeader {
