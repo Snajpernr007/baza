@@ -97,10 +97,15 @@
                 
             </div>
         </div>
-        <div id="title"> 
-            <h2>Profile</h2>
+        <div id="content">
+            <div id="title">
+                {% if user %}
+                <h2 id="witaj">Witaj, {{ user.login }}!</h2>    
+            {% endif %}
+            </div>
+            
+
         </div>
-    
         <hr>
         <div class="man-container">
             {% if g.user.id_uprawnienia==1 or g.user.id_uprawnienia==2%}
