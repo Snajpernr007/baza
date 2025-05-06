@@ -3757,3 +3757,36 @@
 2025-04-22 11:10:33,852 - INFO - 127.0.0.1 - - [22/Apr/2025 11:10:33] "GET / HTTP/1.1" 200 -
 2025-04-22 11:10:33,877 - INFO - 127.0.0.1 - - [22/Apr/2025 11:10:33] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
 2025-04-22 11:10:33,882 - INFO - 127.0.0.1 - - [22/Apr/2025 11:10:33] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-05-06 11:25:40,841 - INFO -  * Restarting with stat
+2025-05-06 11:25:45,930 - INFO - Połączenie z bazą danych zostało nawiązane pomyślnie.
+2025-05-06 11:25:45,994 - INFO - ✅ Kopia zapasowa zapisana do pliku: backups\kopie_zapasowe_bazy_2025-05-06_11-25.sql
+2025-05-06 11:25:45,997 - INFO - 🗑️ Usunięto starą kopię: kopie_zapasowe_bazy_2025-05-02_19-44.sql
+2025-05-06 11:25:45,997 - INFO - 🗑️ Usunięto starą kopię: kopie_zapasowe_bazy_2025-05-04_14-53.sql
+2025-05-06 11:25:45,997 - INFO - 🗑️ Usunięto starą kopię: kopie_zapasowe_bazy_2025-05-05_12-36.sql
+2025-05-06 11:25:45,998 - INFO - 🗑️ Usunięto starą kopię: kopie_zapasowe_bazy_2025-05-05_18-13.sql
+2025-05-06 11:25:45,998 - INFO - 🗑️ Usunięto starą kopię: kopie_zapasowe_bazy_2025-05-05_18-14.sql
+2025-05-06 11:25:45,998 - INFO - 🗑️ Usunięto starą kopię: kopie_zapasowe_bazy_2025-05-05_23-48.sql
+2025-05-06 11:25:45,999 - INFO - 🗑️ Usunięto starą kopię: kopie_zapasowe_bazy_2025-04-07_08-36.sql
+2025-05-06 11:25:45,999 - INFO - 🗑️ Usunięto starą kopię: kopie_zapasowe_bazy_2025-04-07_08-37.sql
+2025-05-06 11:25:45,999 - INFO - 🗑️ Usunięto starą kopię: kopie_zapasowe_bazy_2025-04-07_08-39.sql
+2025-05-06 11:25:46,000 - INFO - 🗑️ Usunięto starą kopię: kopie_zapasowe_bazy_2025-04-07_08-49.sql
+2025-05-06 11:25:46,000 - INFO - 🗑️ Usunięto starą kopię: kopie_zapasowe_bazy_2025-04-07_08-55.sql
+2025-05-06 11:25:46,000 - INFO - 🗑️ Usunięto starą kopię: kopie_zapasowe_bazy_2025-04-07_09-03.sql
+2025-05-06 11:25:46,000 - INFO - 🗑️ Usunięto starą kopię: kopie_zapasowe_bazy_2025-04-22_10-34.sql
+2025-05-06 11:25:46,032 - WARNING -  * Debugger is active!
+2025-05-06 11:25:46,038 - INFO -  * Debugger PIN: 575-758-812
+2025-05-06 11:25:46,395 - INFO - Administrator wszedł na stronę zarządzania użytkownikami.
+2025-05-06 11:25:46,395 - INFO - Administrator wszedł na stronę zarządzania użytkownikami.
+2025-05-06 11:25:46,398 - INFO - Administrator wszedł na stronę zarządzania użytkownikami.
+2025-05-06 11:25:46,571 - INFO - 127.0.0.1 - - [06/May/2025 11:25:46] "GET /uzytkownik HTTP/1.1" 200 -
+2025-05-06 11:25:46,572 - INFO - 127.0.0.1 - - [06/May/2025 11:25:46] "GET /uzytkownik HTTP/1.1" 200 -
+2025-05-06 11:25:46,572 - INFO - 127.0.0.1 - - [06/May/2025 11:25:46] "GET /uzytkownik HTTP/1.1" 200 -
+2025-05-06 11:25:46,605 - INFO - 127.0.0.1 - - [06/May/2025 11:25:46] "GET /static/style.css HTTP/1.1" 200 -
+2025-05-06 11:25:46,619 - INFO - 127.0.0.1 - - [06/May/2025 11:25:46] "GET /static/img/logo-duże.png HTTP/1.1" 200 -
+2025-05-06 11:25:53,005 - INFO - 127.0.0.1 - - [06/May/2025 11:25:53] "GET /get-uprawnienia HTTP/1.1" 200 -
+2025-05-06 11:26:00,228 - INFO - Zaktualizowano dane użytkownika Administrator. Nowy login: Administrator, Uprawnienia: Administrator.
+2025-05-06 11:26:00,229 - INFO - 127.0.0.1 - - [06/May/2025 11:26:00] "POST /update-row_uzytkownik HTTP/1.1" 200 -
+2025-05-06 11:26:03,284 - INFO - Administrator wszedł na stronę zarządzania użytkownikami.
+2025-05-06 11:26:03,286 - INFO - 127.0.0.1 - - [06/May/2025 11:26:03] "GET /uzytkownik HTTP/1.1" 200 -
+2025-05-06 11:26:03,305 - INFO - 127.0.0.1 - - [06/May/2025 11:26:03] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-05-06 11:26:03,318 - INFO - 127.0.0.1 - - [06/May/2025 11:26:03] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -

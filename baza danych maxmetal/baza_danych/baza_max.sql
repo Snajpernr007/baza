@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 22, 2025 at 11:11 AM
+-- Generation Time: Maj 06, 2025 at 11:26 AM
 -- Wersja serwera: 10.4.32-MariaDB
 -- Wersja PHP: 8.2.12
 
@@ -37,10 +37,12 @@ CREATE TABLE `dlugosci` (
 --
 
 INSERT INTO `dlugosci` (`id`, `nazwa`) VALUES
-(3, '1'),
+(1, '1'),
 (2, '2'),
-(1, '3'),
-(4, '4');
+(5, '2.5'),
+(3, '3'),
+(4, '4'),
+(6, '5');
 
 -- --------------------------------------------------------
 
@@ -52,6 +54,17 @@ CREATE TABLE `dostawcy` (
   `id` int(11) NOT NULL,
   `nazwa` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `dostawcy`
+--
+
+INSERT INTO `dostawcy` (`id`, `nazwa`) VALUES
+(1, 'dostawca1'),
+(2, 'dostawca2'),
+(5, 'nic'),
+(3, 'test1'),
+(4, 'ttttttr6');
 
 -- --------------------------------------------------------
 
@@ -69,7 +82,7 @@ CREATE TABLE `lokalizacja` (
 --
 
 INSERT INTO `lokalizacja` (`id`, `nazwa`) VALUES
-(1, 'Magazyn1');
+(1, 'Magazyn11');
 
 -- --------------------------------------------------------
 
@@ -90,8 +103,20 @@ CREATE TABLE `profil` (
   `ilosc_na_stanie` int(11) DEFAULT NULL,
   `id_dlugosci` int(11) DEFAULT NULL,
   `id_pracownika` int(11) DEFAULT NULL,
+  `Imie_nazwisko_pracownika` varchar(50) NOT NULL,
   `Data_do_usuwania` date DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `profil`
+--
+
+INSERT INTO `profil` (`id`, `id_tasmy`, `data_produkcji`, `godz_min_rozpoczecia`, `godz_min_zakonczenia`, `zwrot_na_magazyn_kg`, `id_szablon_profile`, `nazwa_klienta_nr_zlecenia_PRODIO`, `ilosc`, `ilosc_na_stanie`, `id_dlugosci`, `id_pracownika`, `Imie_nazwisko_pracownika`, `Data_do_usuwania`) VALUES
+(65, 52, '2025-04-28', '19:16:29', '19:16:44', 3.00, 3, '3422', 243, 243, 1, 1, '432', '2026-04-28'),
+(66, 52, '2025-04-28', '19:16:33', '19:16:50', 2.00, 3, '432', 34, 34, 1, 1, '234', '2026-04-28'),
+(67, 52, '2025-04-28', '19:17:32', '20:42:55', 0.00, 3, '1', 567, 567, 5, 19, '1', '2026-04-28'),
+(68, 52, '2025-04-28', '20:42:33', '20:42:47', 1.00, 3, '453', 534, 534, 5, 1, '543', '2026-04-28'),
+(69, 53, '2025-04-28', '20:43:31', '20:44:07', 0.00, 3, '64', 342, 342, 6, 1, '6', '2026-04-28');
 
 -- --------------------------------------------------------
 
@@ -108,6 +133,22 @@ CREATE TABLE `szablon` (
   `szerokosc` decimal(10,2) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Dumping data for table `szablon`
+--
+
+INSERT INTO `szablon` (`id`, `nazwa`, `rodzaj`, `grubosc_i_oznaczenie_ocynku`, `grubosc`, `szerokosc`) VALUES
+(1, 'Dx2', 'D', 'x', 77.00, 3.00),
+(2, 'TT', 't', 'r', 1.00, 1.00),
+(3, 'DX510 2275 1,2x66', 'DX510', '2275', 1.52, 77.00),
+(4, 'ww ww wwxww', 'ww', 'ww', 0.00, 0.00),
+(5, '22 22 TruexTrue', '22', '22', 1.00, 1.00),
+(6, 't t TruexTrue', 't', 't', 1.00, 1.00),
+(7, '11 11 11x11', '11', '11', 11.00, 11.00),
+(8, '121 122 8.1x8.2', '121', '122', 8.20, 8.10),
+(9, 'ttr 4ewr 4,2x4', 'ttr', '4ewr', 4.20, 4.00),
+(10, 'ttr20 mc4 4x5', 'ttr20', 'mc4', 5.00, 4.00);
+
 -- --------------------------------------------------------
 
 --
@@ -118,6 +159,13 @@ CREATE TABLE `szablon_profile` (
   `id` int(11) NOT NULL,
   `nazwa` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `szablon_profile`
+--
+
+INSERT INTO `szablon_profile` (`id`, `nazwa`) VALUES
+(3, '1235');
 
 -- --------------------------------------------------------
 
@@ -142,6 +190,16 @@ CREATE TABLE `tasma` (
   `szablon_id` int(11) NOT NULL,
   `Data_do_usuwania` date NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `tasma`
+--
+
+INSERT INTO `tasma` (`id`, `data_z_etykiety_na_kregu`, `grubosc`, `szerokosc`, `waga_kregu`, `waga_kregu_na_stanie`, `nr_etykieta_paletowa`, `nr_z_etykiety_na_kregu`, `lokalizacja_id`, `nr_faktury_dostawcy`, `data_dostawy`, `pracownik_id`, `dostawca_id`, `szablon_id`, `Data_do_usuwania`) VALUES
+(51, '0023-03-31', 1.52, 77.00, 23.00, 0.00, '23', '23', 1, '32', '0002-03-23', 1, 1, 3, '2026-04-27'),
+(52, '0033-03-21', 0.00, 0.00, 132.00, 0.00, '321', '321', 1, '213', '0123-03-21', 1, 2, 4, '2026-04-27'),
+(53, '2025-06-25', 0.00, 0.00, 5.00, 0.00, '5', '4', 1, '15472', '2025-04-25', 1, 1, 4, '2026-04-28'),
+(54, '0576-06-07', 0.00, 0.00, 765.00, 765.00, '756', '756', 1, '576', '0006-05-07', 1, 5, 4, '2026-04-28');
 
 -- --------------------------------------------------------
 
@@ -181,7 +239,8 @@ CREATE TABLE `uzytkownicy` (
 --
 
 INSERT INTO `uzytkownicy` (`id`, `login`, `haslo`, `id_uprawnienia`) VALUES
-(1, 'Administrator', 'scrypt:32768:8:1$Hj9SEP8K0oUaPATE$2332f998cad623e8624ec649b50fc69216cad1d0671f4eb9f9a74349e130a156a9db10a084805ef189007bcd31a22c31e072d3ced59e37118e3077bed8d7bcc7', 1);
+(1, 'Administrator', 'scrypt:32768:8:1$UCBwCJVWPxR43fNh$e822900a3b12c3c4ac274af1701eedd757ba770bba15d8994d2814684fceaed06db771d8ed214e75ec9cb2d9a95ccf7e01b3c4f49bc407c52fe141547a91077b', 1),
+(19, 'test4', 'scrypt:32768:8:1$39h9Drpvl3mAuyNp$e4709f0dcb0e7b07b53f7424829e1be0f48022cf63a652a1fc4a65923e4d6eb0a33ecd2009fae4cdaa291042f47780d39a027015f6e7c689c5f8d36359c71557', 3);
 
 --
 -- Indeksy dla zrzutów tabel
@@ -261,7 +320,7 @@ ALTER TABLE `uzytkownicy`
 -- AUTO_INCREMENT for table `dlugosci`
 --
 ALTER TABLE `dlugosci`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `dostawcy`
@@ -279,7 +338,7 @@ ALTER TABLE `lokalizacja`
 -- AUTO_INCREMENT for table `profil`
 --
 ALTER TABLE `profil`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=59;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=70;
 
 --
 -- AUTO_INCREMENT for table `szablon`
@@ -291,13 +350,13 @@ ALTER TABLE `szablon`
 -- AUTO_INCREMENT for table `szablon_profile`
 --
 ALTER TABLE `szablon_profile`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `tasma`
 --
 ALTER TABLE `tasma`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=51;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=55;
 
 --
 -- AUTO_INCREMENT for table `uprawnienia`
@@ -309,7 +368,7 @@ ALTER TABLE `uprawnienia`
 -- AUTO_INCREMENT for table `uzytkownicy`
 --
 ALTER TABLE `uzytkownicy`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- Constraints for dumped tables
