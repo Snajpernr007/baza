@@ -827,7 +827,7 @@ def dodaj_lub_zakonczenie_profilu():
             dlugosci = Dlugosci.query.get(int(request.form.get('id_dlugosci')))
             dlugosc = float(dlugosci.nazwa)             # mm, zakładam że 'dlugosc' to pole
 
-            profil.zwrot_na_magazyn_kg = profil.tasma.waga_kregu_na_stanie - Decimal(ilosc * dlugosc *float(profil.szablon_profile.waga_w_kg_na_1_metr))  # kg
+            profil.zwrot_na_magazyn_kg = profil.tasma.waga_kregu_na_stanie - Decimal(dlugosc *float(profil.szablon_profile.waga_w_kg_na_1_metr))  # kg
         else:
             profil.zwrot_na_magazyn_kg = float(request.form.get('zwrot_na_magazyn_kg'))
         tasma = Tasma.query.get(profil.id_tasmy)
