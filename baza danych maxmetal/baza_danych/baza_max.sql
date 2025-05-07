@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Maj 07, 2025 at 02:06 PM
+-- Generation Time: Maj 07, 2025 at 02:14 PM
 -- Wersja serwera: 10.4.32-MariaDB
 -- Wersja PHP: 8.2.12
 
@@ -73,14 +73,14 @@ INSERT INTO `dostawcy` (`id`, `nazwa`) VALUES
 --
 
 CREATE TABLE `ksztaltowanie` (
-  `id` bigint(20) UNSIGNED NOT NULL,
+  `id` int(11) NOT NULL,
   `rozmiar` varchar(255) DEFAULT NULL,
   `data` date DEFAULT NULL,
   `godzina_rozpoczecia` time DEFAULT NULL,
   `godzina_zakonczenia` time DEFAULT NULL,
   `ilosc` int(11) DEFAULT NULL,
   `ilosc_na_stanie` int(11) DEFAULT NULL,
-  `nr_prodio` varchar(255) DEFAULT NULL,
+  `nr_prodio` varchar(100) DEFAULT NULL,
   `id_materialu` int(11) DEFAULT NULL,
   `id_pracownik` int(11) DEFAULT NULL,
   `imie_nazwisko` varchar(255) DEFAULT NULL
@@ -93,7 +93,7 @@ CREATE TABLE `ksztaltowanie` (
 --
 
 CREATE TABLE `laczenie` (
-  `id` bigint(20) UNSIGNED NOT NULL,
+  `id` int(11) NOT NULL,
   `id_zlecenie` int(11) DEFAULT NULL,
   `id_powrot` int(11) DEFAULT NULL,
   `ile_sztuk` int(11) DEFAULT NULL
@@ -124,11 +124,11 @@ INSERT INTO `lokalizacja` (`id`, `nazwa`) VALUES
 --
 
 CREATE TABLE `malarnia` (
-  `id` bigint(20) UNSIGNED NOT NULL,
+  `id` int(11) NOT NULL,
   `id_ksztaltowanie` int(11) DEFAULT NULL,
   `ilosc` int(11) DEFAULT NULL,
   `ilosc_na_stanie` int(11) DEFAULT NULL,
-  `nr_prodio` varchar(255) DEFAULT NULL,
+  `nr_prodio` varchar(100) DEFAULT NULL,
   `data` date DEFAULT NULL,
   `id_pracownik` int(11) DEFAULT NULL,
   `imie_nazwisko` varchar(255) DEFAULT NULL
@@ -141,11 +141,11 @@ CREATE TABLE `malarnia` (
 --
 
 CREATE TABLE `material_obejma` (
-  `id` bigint(20) UNSIGNED NOT NULL,
+  `id` int(11) NOT NULL,
   `certyfikat` varchar(255) DEFAULT NULL,
   `data_dostawy` date DEFAULT NULL,
-  `nr_wytopu` varchar(255) DEFAULT NULL,
-  `nr_prodio` varchar(255) DEFAULT NULL,
+  `nr_wytopu` varchar(100) DEFAULT NULL,
+  `nr_prodio` varchar(100) DEFAULT NULL,
   `ilosc_sztuk` int(11) DEFAULT NULL,
   `ilosc_sztuk_na_stanie` int(11) DEFAULT NULL,
   `id_rozmiaru` int(11) DEFAULT NULL,
@@ -159,11 +159,11 @@ CREATE TABLE `material_obejma` (
 --
 
 CREATE TABLE `powrot` (
-  `id` bigint(20) UNSIGNED NOT NULL,
+  `id` int(11) NOT NULL,
   `data` date DEFAULT NULL,
   `ilosc` int(11) DEFAULT NULL,
   `ilosc_na_stanie` int(11) DEFAULT NULL,
-  `nr_prodio` varchar(255) DEFAULT NULL,
+  `nr_prodio` varchar(100) DEFAULT NULL,
   `id_malowania` int(11) DEFAULT NULL,
   `id_pracownik` int(11) DEFAULT NULL,
   `imie_nazwisko` varchar(255) DEFAULT NULL
@@ -216,7 +216,7 @@ INSERT INTO `profil` (`id`, `id_tasmy`, `data_produkcji`, `godz_min_rozpoczecia`
 --
 
 CREATE TABLE `rozmiary_obejm` (
-  `id` bigint(20) UNSIGNED NOT NULL,
+  `id` int(11) NOT NULL,
   `nazwa` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -355,13 +355,13 @@ INSERT INTO `uzytkownicy` (`id`, `login`, `haslo`, `id_uprawnienia`) VALUES
 --
 
 CREATE TABLE `zlecenie` (
-  `id` bigint(20) UNSIGNED NOT NULL,
-  `nr_zamowienia_zew` varchar(255) DEFAULT NULL,
-  `nr_prodio` varchar(255) DEFAULT NULL,
+  `id` int(11) NOT NULL,
+  `nr_zamowienia_zew` varchar(100) DEFAULT NULL,
+  `nr_prodio` varchar(100) DEFAULT NULL,
   `ile_pianki` int(11) DEFAULT NULL,
-  `seria_tasmy` varchar(255) DEFAULT NULL,
+  `seria_tasmy` varchar(100) DEFAULT NULL,
   `ile_tasmy` int(11) DEFAULT NULL,
-  `nr_kartonu` varchar(255) DEFAULT NULL,
+  `nr_kartonu` varchar(100) DEFAULT NULL,
   `id_pracownik` int(11) DEFAULT NULL,
   `imie_nazwisko` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -388,13 +388,17 @@ ALTER TABLE `dostawcy`
 -- Indeksy dla tabeli `ksztaltowanie`
 --
 ALTER TABLE `ksztaltowanie`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `id_materialu` (`id_materialu`),
+  ADD KEY `id_pracownik` (`id_pracownik`);
 
 --
 -- Indeksy dla tabeli `laczenie`
 --
 ALTER TABLE `laczenie`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `id_zlecenie` (`id_zlecenie`),
+  ADD KEY `id_powrot` (`id_powrot`);
 
 --
 -- Indeksy dla tabeli `lokalizacja`
@@ -406,19 +410,25 @@ ALTER TABLE `lokalizacja`
 -- Indeksy dla tabeli `malarnia`
 --
 ALTER TABLE `malarnia`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `id_ksztaltowanie` (`id_ksztaltowanie`),
+  ADD KEY `id_pracownik` (`id_pracownik`);
 
 --
 -- Indeksy dla tabeli `material_obejma`
 --
 ALTER TABLE `material_obejma`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `id_rozmiaru` (`id_rozmiaru`),
+  ADD KEY `id_pracownik` (`id_pracownik`);
 
 --
 -- Indeksy dla tabeli `powrot`
 --
 ALTER TABLE `powrot`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `id_malowania` (`id_malowania`),
+  ADD KEY `id_pracownik` (`id_pracownik`);
 
 --
 -- Indeksy dla tabeli `profil`
@@ -476,7 +486,8 @@ ALTER TABLE `uzytkownicy`
 -- Indeksy dla tabeli `zlecenie`
 --
 ALTER TABLE `zlecenie`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `id_pracownik` (`id_pracownik`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -498,13 +509,13 @@ ALTER TABLE `dostawcy`
 -- AUTO_INCREMENT for table `ksztaltowanie`
 --
 ALTER TABLE `ksztaltowanie`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `laczenie`
 --
 ALTER TABLE `laczenie`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `lokalizacja`
@@ -516,19 +527,19 @@ ALTER TABLE `lokalizacja`
 -- AUTO_INCREMENT for table `malarnia`
 --
 ALTER TABLE `malarnia`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `material_obejma`
 --
 ALTER TABLE `material_obejma`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `powrot`
 --
 ALTER TABLE `powrot`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `profil`
@@ -540,7 +551,7 @@ ALTER TABLE `profil`
 -- AUTO_INCREMENT for table `rozmiary_obejm`
 --
 ALTER TABLE `rozmiary_obejm`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `szablon`
@@ -576,11 +587,46 @@ ALTER TABLE `uzytkownicy`
 -- AUTO_INCREMENT for table `zlecenie`
 --
 ALTER TABLE `zlecenie`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- Constraints for dumped tables
 --
+
+--
+-- Constraints for table `ksztaltowanie`
+--
+ALTER TABLE `ksztaltowanie`
+  ADD CONSTRAINT `ksztaltowanie_ibfk_1` FOREIGN KEY (`id_materialu`) REFERENCES `material_obejma` (`id`),
+  ADD CONSTRAINT `ksztaltowanie_ibfk_2` FOREIGN KEY (`id_pracownik`) REFERENCES `uzytkownicy` (`id`);
+
+--
+-- Constraints for table `laczenie`
+--
+ALTER TABLE `laczenie`
+  ADD CONSTRAINT `laczenie_ibfk_1` FOREIGN KEY (`id_zlecenie`) REFERENCES `zlecenie` (`id`),
+  ADD CONSTRAINT `laczenie_ibfk_2` FOREIGN KEY (`id_powrot`) REFERENCES `powrot` (`id`);
+
+--
+-- Constraints for table `malarnia`
+--
+ALTER TABLE `malarnia`
+  ADD CONSTRAINT `malarnia_ibfk_1` FOREIGN KEY (`id_ksztaltowanie`) REFERENCES `ksztaltowanie` (`id`),
+  ADD CONSTRAINT `malarnia_ibfk_2` FOREIGN KEY (`id_pracownik`) REFERENCES `uzytkownicy` (`id`);
+
+--
+-- Constraints for table `material_obejma`
+--
+ALTER TABLE `material_obejma`
+  ADD CONSTRAINT `material_obejma_ibfk_1` FOREIGN KEY (`id_rozmiaru`) REFERENCES `rozmiary_obejm` (`id`),
+  ADD CONSTRAINT `material_obejma_ibfk_2` FOREIGN KEY (`id_pracownik`) REFERENCES `uzytkownicy` (`id`);
+
+--
+-- Constraints for table `powrot`
+--
+ALTER TABLE `powrot`
+  ADD CONSTRAINT `powrot_ibfk_1` FOREIGN KEY (`id_malowania`) REFERENCES `malarnia` (`id`),
+  ADD CONSTRAINT `powrot_ibfk_2` FOREIGN KEY (`id_pracownik`) REFERENCES `uzytkownicy` (`id`);
 
 --
 -- Constraints for table `profil`
@@ -605,6 +651,12 @@ ALTER TABLE `tasma`
 --
 ALTER TABLE `uzytkownicy`
   ADD CONSTRAINT `fk_uzytkownicy_uprawnienia` FOREIGN KEY (`id_uprawnienia`) REFERENCES `uprawnienia` (`id_uprawnienia`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `zlecenie`
+--
+ALTER TABLE `zlecenie`
+  ADD CONSTRAINT `zlecenie_ibfk_1` FOREIGN KEY (`id_pracownik`) REFERENCES `uzytkownicy` (`id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
