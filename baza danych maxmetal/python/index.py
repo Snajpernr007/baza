@@ -177,7 +177,121 @@ class Szablon(db.Model):
 
     def __repr__(self):
         return f"<Szablon {self.id} - {self.rodzaj}>"
+class RozmiaryObejm(db.Model):
+    __tablename__ = 'rozmiary_obejm'
+    id = db.Column(db.Integer, primary_key=True, autoincrement=True)
+    nazwa = db.Column(db.String(255), nullable=False)
 
+    def __repr__(self):
+        return f"<RozmiaryObejm {self.id} - {self.nazwa}>"
+
+
+class MaterialObejma(db.Model):
+    __tablename__ = 'material_obejma'
+    id = db.Column(db.Integer, primary_key=True, autoincrement=True)
+    certyfikat = db.Column(db.String(255))
+    data_dostawy = db.Column(db.Date)
+    nr_wytopu = db.Column(db.String(100))
+    nr_prodio = db.Column(db.String(100))
+    ilosc_sztuk = db.Column(db.Integer)
+    ilosc_sztuk_na_stanie = db.Column(db.Integer)
+    id_rozmiaru = db.Column(db.Integer, db.ForeignKey('rozmiary_obejm.id'))
+    id_pracownik = db.Column(db.Integer, db.ForeignKey('uzytkownicy.id'))
+
+    rozmiar = db.relationship('RozmiaryObejm')
+    pracownik = db.relationship('Uzytkownik')
+
+    def __repr__(self):
+        return f"<MaterialObejma {self.id} - {self.nr_prodio}>"
+
+
+class Ksztaltowanie(db.Model):
+    __tablename__ = 'ksztaltowanie'
+    id = db.Column(db.Integer, primary_key=True, autoincrement=True)
+    rozmiar = db.Column(db.String(255))
+    data = db.Column(db.Date)
+    godzina_rozpoczecia = db.Column(db.Time)
+    godzina_zakonczenia = db.Column(db.Time)
+    ilosc = db.Column(db.Integer)
+    ilosc_na_stanie = db.Column(db.Integer)
+    nr_prodio = db.Column(db.String(100))
+    id_materialu = db.Column(db.Integer, db.ForeignKey('material_obejma.id'))
+    id_pracownik = db.Column(db.Integer, db.ForeignKey('uzytkownicy.id'))
+    imie_nazwisko = db.Column(db.String(255))
+
+    material = db.relationship('MaterialObejma')
+    pracownik = db.relationship('Uzytkownik')
+
+    def __repr__(self):
+        return f"<Ksztaltowanie {self.id} - {self.nr_prodio}>"
+
+
+class Malarnia(db.Model):
+    __tablename__ = 'malarnia'
+    id = db.Column(db.Integer, primary_key=True, autoincrement=True)
+    id_ksztaltowanie = db.Column(db.Integer, db.ForeignKey('ksztaltowanie.id'))
+    ilosc = db.Column(db.Integer)
+    ilosc_na_stanie = db.Column(db.Integer)
+    nr_prodio = db.Column(db.String(100))
+    data = db.Column(db.Date)
+    id_pracownik = db.Column(db.Integer, db.ForeignKey('uzytkownicy.id'))
+    imie_nazwisko = db.Column(db.String(255))
+
+    ksztaltowanie = db.relationship('Ksztaltowanie')
+    pracownik = db.relationship('Uzytkownik')
+
+    def __repr__(self):
+        return f"<Malarnia {self.id} - {self.nr_prodio}>"
+
+
+class Powrot(db.Model):
+    __tablename__ = 'powrot'
+    id = db.Column(db.Integer, primary_key=True, autoincrement=True)
+    data = db.Column(db.Date)
+    ilosc = db.Column(db.Integer)
+    ilosc_na_stanie = db.Column(db.Integer)
+    nr_prodio = db.Column(db.String(100))
+    id_malowania = db.Column(db.Integer, db.ForeignKey('malarnia.id'))
+    id_pracownik = db.Column(db.Integer, db.ForeignKey('uzytkownicy.id'))
+    imie_nazwisko = db.Column(db.String(255))
+
+    malarnia = db.relationship('Malarnia')
+    pracownik = db.relationship('Uzytkownik')
+
+    def __repr__(self):
+        return f"<Powrot {self.id} - {self.nr_prodio}>"
+
+
+class Zlecenie(db.Model):
+    __tablename__ = 'zlecenie'
+    id = db.Column(db.Integer, primary_key=True, autoincrement=True)
+    nr_zamowienia_zew = db.Column(db.String(100))
+    nr_prodio = db.Column(db.String(100))
+    ile_pianki = db.Column(db.Integer)
+    seria_tasmy = db.Column(db.String(100))
+    ile_tasmy = db.Column(db.Integer)
+    nr_kartonu = db.Column(db.String(100))
+    id_pracownik = db.Column(db.Integer, db.ForeignKey('uzytkownicy.id'))
+    imie_nazwisko = db.Column(db.String(255))
+
+    pracownik = db.relationship('Uzytkownik')
+
+    def __repr__(self):
+        return f"<Zlecenie {self.id} - {self.nr_prodio}>"
+
+
+class Laczenie(db.Model):
+    __tablename__ = 'laczenie'
+    id = db.Column(db.Integer, primary_key=True, autoincrement=True)
+    id_zlecenie = db.Column(db.Integer, db.ForeignKey('zlecenie.id'))
+    id_powrot = db.Column(db.Integer, db.ForeignKey('powrot.id'))
+    ile_sztuk = db.Column(db.Integer)
+
+    zlecenie = db.relationship('Zlecenie')
+    powrot = db.relationship('Powrot')
+
+    def __repr__(self):
+        return f"<Laczenie {self.id} - {self.ile_sztuk} szt.>"
 # Backup Directory
 BACKUP_DIR = "backups"
 INTERVAL_HOURS = 4
