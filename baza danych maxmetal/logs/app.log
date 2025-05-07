@@ -5351,3 +5351,43 @@
 2025-05-07 14:19:54,896 - INFO - ✅ Kopia zapasowa zapisana do pliku: backups\kopie_zapasowe_bazy_2025-05-07_14-19.sql
 2025-05-07 14:19:54,903 - WARNING -  * Debugger is active!
 2025-05-07 14:19:54,907 - INFO -  * Debugger PIN: 575-758-812
+2025-05-07 14:20:14,373 - INFO - Administrator wszedł na stronę zestawienia.
+2025-05-07 14:20:14,495 - INFO - 127.0.0.1 - - [07/May/2025 14:20:14] "GET /zestawienie HTTP/1.1" 200 -
+2025-05-07 14:20:14,527 - INFO - 127.0.0.1 - - [07/May/2025 14:20:14] "GET /static/style.css HTTP/1.1" 200 -
+2025-05-07 14:20:14,539 - INFO - 127.0.0.1 - - [07/May/2025 14:20:14] "GET /static/img/logo-duże.png HTTP/1.1" 200 -
+2025-05-07 14:20:14,562 - INFO - 127.0.0.1 - - [07/May/2025 14:20:14] "GET /static/img/drukarka.png HTTP/1.1" 200 -
+2025-05-07 14:20:14,569 - INFO - 127.0.0.1 - - [07/May/2025 14:20:14] "GET /static/img/logo-male.png HTTP/1.1" 200 -
+2025-05-07 14:20:15,186 - INFO - Administrator wszedł na stronę główną.
+2025-05-07 14:20:15,280 - INFO - 127.0.0.1 - - [07/May/2025 14:20:15] "GET / HTTP/1.1" 200 -
+2025-05-07 14:20:15,317 - INFO - 127.0.0.1 - - [07/May/2025 14:20:15] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-05-07 14:20:15,322 - INFO - 127.0.0.1 - - [07/May/2025 14:20:15] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-05-07 14:20:16,771 - INFO - Administrator wszedł na stronę główną.
+2025-05-07 14:20:16,772 - INFO - 127.0.0.1 - - [07/May/2025 14:20:16] "GET / HTTP/1.1" 200 -
+2025-05-07 14:20:16,807 - INFO - 127.0.0.1 - - [07/May/2025 14:20:16] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-05-07 14:20:16,811 - INFO - 127.0.0.1 - - [07/May/2025 14:20:16] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-05-07 14:20:17,465 - INFO - Administrator wszedł na stronę profilu.
+2025-05-07 14:20:17,623 - INFO - 127.0.0.1 - - [07/May/2025 14:20:17] "GET /profil HTTP/1.1" 200 -
+2025-05-07 14:20:17,646 - INFO - 127.0.0.1 - - [07/May/2025 14:20:17] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-05-07 14:20:17,659 - INFO - 127.0.0.1 - - [07/May/2025 14:20:17] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-05-07 14:20:18,030 - INFO - Administrator wszedł na stronę profilu.
+2025-05-07 14:20:18,039 - INFO - 127.0.0.1 - - [07/May/2025 14:20:18] "GET /profil HTTP/1.1" 200 -
+2025-05-07 14:20:18,056 - INFO - 127.0.0.1 - - [07/May/2025 14:20:18] "GET /static/style.css HTTP/1.1" 200 -
+2025-05-07 14:20:18,068 - INFO - 127.0.0.1 - - [07/May/2025 14:20:18] "GET /static/img/logo-duże.png HTTP/1.1" 200 -
+2025-05-07 14:21:21,541 - INFO - Administrator wszedł na stronę główną.
+2025-05-07 14:21:21,542 - INFO - 127.0.0.1 - - [07/May/2025 14:21:21] "GET / HTTP/1.1" 200 -
+2025-05-07 14:21:21,580 - INFO - 127.0.0.1 - - [07/May/2025 14:21:21] "GET /static/style.css HTTP/1.1" 200 -
+2025-05-07 14:21:21,585 - INFO - 127.0.0.1 - - [07/May/2025 14:21:21] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-05-07 14:38:24,349 - INFO -  * Detected change in 'C:\\Users\\admin\\Documents\\GitHub\\baza\\baza danych maxmetal\\python\\index.py', reloading
+2025-05-07 14:43:14,364 - INFO - Połączenie z bazą danych zostało nawiązane pomyślnie.
+2025-05-07 14:43:14,442 - INFO - ✅ Kopia zapasowa zapisana do pliku: backups\kopie_zapasowe_bazy_2025-05-07_14-43.sql
+2025-05-07 14:43:14,443 - INFO - 🗑️ Usunięto starą kopię: kopie_zapasowe_bazy_2025-05-06_15-37.sql
+2025-05-07 14:43:14,453 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.0.16:5000
+2025-05-07 14:43:14,453 - INFO - [33mPress CTRL+C to quit[0m
+2025-05-07 14:43:14,454 - INFO -  * Restarting with stat
+2025-05-07 14:43:16,912 - INFO - Połączenie z bazą danych zostało nawiązane pomyślnie.
+2025-05-07 14:43:16,990 - INFO - ✅ Kopia zapasowa zapisana do pliku: backups\kopie_zapasowe_bazy_2025-05-07_14-43.sql
+2025-05-07 14:43:16,995 - WARNING -  * Debugger is active!
+2025-05-07 14:43:16,999 - INFO -  * Debugger PIN: 575-758-812
