@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Maj 06, 2025 at 03:37 PM
+-- Generation Time: Maj 07, 2025 at 02:06 PM
 -- Wersja serwera: 10.4.32-MariaDB
 -- Wersja PHP: 8.2.12
 
@@ -69,6 +69,39 @@ INSERT INTO `dostawcy` (`id`, `nazwa`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Struktura tabeli dla tabeli `ksztaltowanie`
+--
+
+CREATE TABLE `ksztaltowanie` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `rozmiar` varchar(255) DEFAULT NULL,
+  `data` date DEFAULT NULL,
+  `godzina_rozpoczecia` time DEFAULT NULL,
+  `godzina_zakonczenia` time DEFAULT NULL,
+  `ilosc` int(11) DEFAULT NULL,
+  `ilosc_na_stanie` int(11) DEFAULT NULL,
+  `nr_prodio` varchar(255) DEFAULT NULL,
+  `id_materialu` int(11) DEFAULT NULL,
+  `id_pracownik` int(11) DEFAULT NULL,
+  `imie_nazwisko` varchar(255) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Struktura tabeli dla tabeli `laczenie`
+--
+
+CREATE TABLE `laczenie` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `id_zlecenie` int(11) DEFAULT NULL,
+  `id_powrot` int(11) DEFAULT NULL,
+  `ile_sztuk` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Struktura tabeli dla tabeli `lokalizacja`
 --
 
@@ -83,6 +116,58 @@ CREATE TABLE `lokalizacja` (
 
 INSERT INTO `lokalizacja` (`id`, `nazwa`) VALUES
 (1, 'Magazyn11');
+
+-- --------------------------------------------------------
+
+--
+-- Struktura tabeli dla tabeli `malarnia`
+--
+
+CREATE TABLE `malarnia` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `id_ksztaltowanie` int(11) DEFAULT NULL,
+  `ilosc` int(11) DEFAULT NULL,
+  `ilosc_na_stanie` int(11) DEFAULT NULL,
+  `nr_prodio` varchar(255) DEFAULT NULL,
+  `data` date DEFAULT NULL,
+  `id_pracownik` int(11) DEFAULT NULL,
+  `imie_nazwisko` varchar(255) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Struktura tabeli dla tabeli `material_obejma`
+--
+
+CREATE TABLE `material_obejma` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `certyfikat` varchar(255) DEFAULT NULL,
+  `data_dostawy` date DEFAULT NULL,
+  `nr_wytopu` varchar(255) DEFAULT NULL,
+  `nr_prodio` varchar(255) DEFAULT NULL,
+  `ilosc_sztuk` int(11) DEFAULT NULL,
+  `ilosc_sztuk_na_stanie` int(11) DEFAULT NULL,
+  `id_rozmiaru` int(11) DEFAULT NULL,
+  `id_pracownik` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Struktura tabeli dla tabeli `powrot`
+--
+
+CREATE TABLE `powrot` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `data` date DEFAULT NULL,
+  `ilosc` int(11) DEFAULT NULL,
+  `ilosc_na_stanie` int(11) DEFAULT NULL,
+  `nr_prodio` varchar(255) DEFAULT NULL,
+  `id_malowania` int(11) DEFAULT NULL,
+  `id_pracownik` int(11) DEFAULT NULL,
+  `imie_nazwisko` varchar(255) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -121,7 +206,19 @@ INSERT INTO `profil` (`id`, `id_tasmy`, `data_produkcji`, `godz_min_rozpoczecia`
 (71, 54, '2025-05-06', '12:48:34', '12:48:45', 1.00, 3, '213', 123, 123, 1, 19, '123', '2026-05-06'),
 (72, 55, '2025-05-06', '14:45:40', '14:48:29', 0.00, 3, '7', 1, 1, 1, 1, '7', '2026-05-06'),
 (73, 55, '2025-05-06', '14:51:25', '14:51:50', 0.00, 3, '76', 1, 1, 1, 1, '567', '2026-05-06'),
-(74, 55, '2025-05-06', '15:34:12', '15:35:22', 59.02, 4, '6', 1, 1, 1, 1, '6', '2026-05-06');
+(74, 55, '2025-05-06', '15:34:12', '15:35:22', 59.02, 4, '6', 1, 1, 1, 1, '6', '2026-05-06'),
+(75, 54, '2025-05-07', '12:06:21', NULL, NULL, 3, '45334', NULL, NULL, NULL, 1, '534543', '2026-05-07');
+
+-- --------------------------------------------------------
+
+--
+-- Struktura tabeli dla tabeli `rozmiary_obejm`
+--
+
+CREATE TABLE `rozmiary_obejm` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `nazwa` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -203,7 +300,7 @@ CREATE TABLE `tasma` (
 --
 
 INSERT INTO `tasma` (`id`, `data_z_etykiety_na_kregu`, `grubosc`, `szerokosc`, `waga_kregu`, `waga_kregu_na_stanie`, `nr_etykieta_paletowa`, `nr_z_etykiety_na_kregu`, `lokalizacja_id`, `nr_faktury_dostawcy`, `data_dostawy`, `pracownik_id`, `dostawca_id`, `szablon_id`, `Data_do_usuwania`) VALUES
-(51, '0023-03-31', 1.52, 77.00, 23.00, 0.00, '23', '23', 1, '32', '0002-03-23', 1, 1, 3, '2026-04-27'),
+(51, '0023-03-31', 1.52, 77.00, 23.00, 0.00, '23', '23', 1, '32', '0002-03-22', 1, 1, 3, '2026-04-27'),
 (52, '0033-03-21', 0.00, 0.00, 132.00, 0.00, '321', '321', 1, '213', '0123-03-21', 1, 2, 4, '2026-04-27'),
 (53, '2025-06-25', 0.00, 0.00, 5.00, 0.00, '5', '4', 1, '15472', '2025-04-25', 1, 1, 4, '2026-04-28'),
 (54, '0576-06-07', 0.00, 0.00, 765.00, 1.00, '756', '756', 1, '576', '0006-05-07', 1, 5, 4, '2026-04-28'),
@@ -251,6 +348,24 @@ INSERT INTO `uzytkownicy` (`id`, `login`, `haslo`, `id_uprawnienia`) VALUES
 (19, 'test4', 'scrypt:32768:8:1$PQ2il1l6Nw5XvM6y$479d92f3fc6f1591c8ec89c249807369991b49827a039f9bcb4f841030184161ce2d46db35dbb843c37ddd053810ea62ba86537261cb853bd8952714ee48a1fa', 3),
 (20, 'test5', 'scrypt:32768:8:1$dNUmTnd7ZwVAjUJx$4e6e57c0802dc3bb5b6d73f051003d51aeb022f920954ceabd89cfd982bc795d86a1549a49ffc6bfdea1eedd444884d45467a94d46e118dd7bc162d9ab90ea41', 1);
 
+-- --------------------------------------------------------
+
+--
+-- Struktura tabeli dla tabeli `zlecenie`
+--
+
+CREATE TABLE `zlecenie` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `nr_zamowienia_zew` varchar(255) DEFAULT NULL,
+  `nr_prodio` varchar(255) DEFAULT NULL,
+  `ile_pianki` int(11) DEFAULT NULL,
+  `seria_tasmy` varchar(255) DEFAULT NULL,
+  `ile_tasmy` int(11) DEFAULT NULL,
+  `nr_kartonu` varchar(255) DEFAULT NULL,
+  `id_pracownik` int(11) DEFAULT NULL,
+  `imie_nazwisko` varchar(255) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
 --
 -- Indeksy dla zrzutów tabel
 --
@@ -270,9 +385,39 @@ ALTER TABLE `dostawcy`
   ADD UNIQUE KEY `nazwa` (`nazwa`);
 
 --
+-- Indeksy dla tabeli `ksztaltowanie`
+--
+ALTER TABLE `ksztaltowanie`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indeksy dla tabeli `laczenie`
+--
+ALTER TABLE `laczenie`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indeksy dla tabeli `lokalizacja`
 --
 ALTER TABLE `lokalizacja`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indeksy dla tabeli `malarnia`
+--
+ALTER TABLE `malarnia`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indeksy dla tabeli `material_obejma`
+--
+ALTER TABLE `material_obejma`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indeksy dla tabeli `powrot`
+--
+ALTER TABLE `powrot`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -284,6 +429,12 @@ ALTER TABLE `profil`
   ADD KEY `id_pracownika` (`id_pracownika`),
   ADD KEY `profil_ibfk_3` (`id_dlugosci`),
   ADD KEY `profil_ibfk_4` (`id_szablon_profile`);
+
+--
+-- Indeksy dla tabeli `rozmiary_obejm`
+--
+ALTER TABLE `rozmiary_obejm`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indeksy dla tabeli `szablon`
@@ -322,6 +473,12 @@ ALTER TABLE `uzytkownicy`
   ADD KEY `fk_uzytkownicy_uprawnienia` (`id_uprawnienia`);
 
 --
+-- Indeksy dla tabeli `zlecenie`
+--
+ALTER TABLE `zlecenie`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -338,16 +495,52 @@ ALTER TABLE `dostawcy`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
+-- AUTO_INCREMENT for table `ksztaltowanie`
+--
+ALTER TABLE `ksztaltowanie`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `laczenie`
+--
+ALTER TABLE `laczenie`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT for table `lokalizacja`
 --
 ALTER TABLE `lokalizacja`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
+-- AUTO_INCREMENT for table `malarnia`
+--
+ALTER TABLE `malarnia`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `material_obejma`
+--
+ALTER TABLE `material_obejma`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `powrot`
+--
+ALTER TABLE `powrot`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT for table `profil`
 --
 ALTER TABLE `profil`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=75;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=76;
+
+--
+-- AUTO_INCREMENT for table `rozmiary_obejm`
+--
+ALTER TABLE `rozmiary_obejm`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `szablon`
@@ -378,6 +571,12 @@ ALTER TABLE `uprawnienia`
 --
 ALTER TABLE `uzytkownicy`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+
+--
+-- AUTO_INCREMENT for table `zlecenie`
+--
+ALTER TABLE `zlecenie`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
 -- Constraints for dumped tables
