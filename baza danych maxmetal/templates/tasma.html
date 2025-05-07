@@ -13,61 +13,121 @@
 // }, 10000); // 10000 ms = 10 sekund
 
 function filterTable() {
-    let table = document.getElementById("tabela");
-    let rows = table.querySelectorAll("tbody tr");
+    const rows = document.querySelectorAll("#tabela tbody tr");
 
-    // Pobierz wartości filtrów tekstowych z inputów
-    let filters = table.querySelectorAll("thead tr:first-child input[type='text']");
+    const filters = {
+        id: getInput('Filtruj ID'),
+        dostawca: getInput('Filtruj Dostawcę'),
+        material: getInput('Filtruj Materiał'),
+        grubosc: getInput('Filtruj Grubość'),
+        szerokosc: getInput('Filtruj Szerokość'),
+        waga: getInput('Filtruj Wagę'),
+        wagaStanie: getInput('Filtruj Wagę na Stanie'),
+        etykietaP: getInput('Filtruj Etyk. Paletową'),
+        etykietaK: getInput('Filtruj Etyk. Kręgu'),
+        lokalizacja: getInput('Filtruj Lokalizację'),
+        nrWZ: getInput('Filtruj Nr WZ'),
+        stanowisko: getInput('Filtruj Nazwę Stanowiska'),
+        idProfilu: getInput('Filtruj ID Profilu'), // <-- Dodane!
+        etykietaMaterialuProfilu: getInput('Filtruj Etykietę Materiału'), // <-- Dodane!
+        godzRozpoczecia: getInput('Filtruj Godzinę rozpoczęcia'),
+        godzZakonczenia: getInput('Filtruj Godzinę zakończenia'),
+        zwrotNaMagazyn: getInput('Filtruj Zwrot na magazyn'),
+        nrCzesci: getInput('Filtruj Nr części Klienta'),
+        nazwaKlienta: getInput('Filtruj Nazwę klienta Nr PRODIO'),
+        ilosc: getInput('Filtruj Ilość'),
+        iloscNaStanie: getInput('Filtruj Ilość na Stanie'),
+        dlugosc: getInput('Filtruj Długość'),
+        rodzajMaterialu: getInput('Filtruj Rodzaj Materiału'),
+        stanowiskoImieNazwisko: getInput('Filtruj Nazwę Stanowiska i imie i nazwisko'),
+        dateKreguFrom: getDate('dateKreguFrom'),
+        dateKreguTo: getDate('dateKreguTo'),
+        dateDostawyFrom: getDate('dateDostawyFrom'),
+        dateDostawyTo: getDate('dateDostawyTo'),
+        dateProdukcjiFrom: getDate('dateProdukcjiFrom'),
+        dateProdukcjiTo: getDate('dateProdukcjiTo')
+    };
 
-    // Mapowanie filtrów tekstowych na rzeczywiste indeksy <td>
-    // Pomijamy kolumny 3 (data z etykiety), 4 (ukryta), 13 (data dostawy), 14 (ukryta)
-    const filterColumnIndexes = [
-        0, 1, 2,    // ID, Dostawca, Materiał
-        4, 5, 6, 7, 8, 9, 10, 11, // Grubość, Szerokość, Waga, Etykieta Paletowa, Etykieta Kręgu, Lokalizacja, Nr WZ
-        12,           // Data Dostawy
-        15            // Nazwa Stanowiska
-    ];
-
-    // Pobierz zakresy dat
-    let dateFromKrag = document.getElementById("dateFromKrag")?.value;
-    let dateToKrag = document.getElementById("dateToKrag")?.value;
-    let dateFromDostawa = document.getElementById("dateFromDostawa")?.value;
-    let dateToDostawa = document.getElementById("dateToDostawa")?.value;
+    let lastTasmaVisible = false;
 
     rows.forEach(row => {
-        let cells = row.getElementsByTagName("td");
-        let show = true;
+        const cells = row.querySelectorAll("td");
+        const isProfileRow = row.querySelector("td[data-tasma-id]");
 
-        // Filtr tekstowy
-        filters.forEach((input, i) => {
-            let filter = input.value.toLowerCase();
-            let colIndex = filterColumnIndexes[i]; // rzeczywisty indeks kolumny w <td>
-            if (filter && cells[colIndex]) {
-                let cellText = cells[colIndex].textContent.toLowerCase();
-                if (!cellText.includes(filter)) {
-                    show = false;
-                }
+        let visible = true;
+
+        if (!isProfileRow) {
+            // Wiersz taśmy
+            if (!matchesText(cells[0], filters.id)) visible = false;
+            if (!matchesText(cells[1], filters.dostawca)) visible = false;
+            if (!matchesText(cells[2], filters.material)) visible = false;
+            if (!matchesDate(cells[3], filters.dateKreguFrom, filters.dateKreguTo)) visible = false;
+            if (!matchesText(cells[4], filters.grubosc)) visible = false;
+            if (!matchesText(cells[5], filters.szerokosc)) visible = false;
+            if (!matchesText(cells[6], filters.waga)) visible = false;
+            if (!matchesText(cells[7], filters.wagaStanie)) visible = false;
+            if (!matchesText(cells[8], filters.etykietaP)) visible = false;
+            if (!matchesText(cells[9], filters.etykietaK)) visible = false;
+            if (!matchesText(cells[10], filters.lokalizacja)) visible = false;
+            if (!matchesText(cells[11], filters.nrWZ)) visible = false;
+            if (!matchesDate(cells[12], filters.dateDostawyFrom, filters.dateDostawyTo)) visible = false;
+            if (!matchesText(cells[13], filters.stanowisko)) visible = false;
+
+            row.style.display = visible ? "" : "none";
+            lastTasmaVisible = visible;
+        } else {
+            // Wiersz profilu
+            if (!lastTasmaVisible) {
+                row.style.display = "none";
+                return;
             }
-        });
 
-        // Filtrowanie Data z Etykiety na Kręgu (kolumna 3)
-        if (show && (dateFromKrag || dateToKrag)) {
-            let cellDateStr = cells[3].textContent.trim();
-            let cellDate = new Date(cellDateStr);
-            if (dateFromKrag && cellDate < new Date(dateFromKrag)) show = false;
-            if (dateToKrag && cellDate > new Date(dateToKrag)) show = false;
+            if (!matchesText(cells[14], filters.idProfilu)) visible = false; // <-- dodano filtrowanie ID profilu
+            if (!matchesText(cells[15], filters.etykietaMaterialuProfilu)) visible = false; // <-- dodano filtrowanie Etykiety Materiału
+            if (!matchesDate(cells[16], filters.dateProdukcjiFrom, filters.dateProdukcjiTo)) visible = false;
+            if (!matchesText(cells[17], filters.godzRozpoczecia)) visible = false;
+            if (!matchesText(cells[18], filters.godzZakonczenia)) visible = false;
+            if (!matchesText(cells[19], filters.zwrotNaMagazyn)) visible = false;
+            if (!matchesText(cells[20], filters.nrCzesci)) visible = false;
+            if (!matchesText(cells[21], filters.nazwaKlienta)) visible = false;
+            if (!matchesText(cells[22], filters.ilosc)) visible = false;
+            if (!matchesText(cells[23], filters.iloscNaStanie)) visible = false;
+            if (!matchesText(cells[24], filters.dlugosc)) visible = false;
+            if (!matchesText(cells[25], filters.rodzajMaterialu)) visible = false;
+            if (!matchesText(cells[26], filters.stanowiskoImieNazwisko)) visible = false;
+
+            row.style.display = visible ? "" : "none";
         }
-
-        // Filtrowanie Data Dostawy (kolumna 13)
-        if (show && (dateFromDostawa || dateToDostawa)) {
-            let cellDateStr = cells[13].textContent.trim();
-            let cellDate = new Date(cellDateStr);
-            if (dateFromDostawa && cellDate < new Date(dateFromDostawa)) show = false;
-            if (dateToDostawa && cellDate > new Date(dateToDostawa)) show = false;
-        }
-
-        row.style.display = show ? "" : "none";
     });
+
+    function getInput(placeholder) {
+        const el = document.querySelector(`input[placeholder="${placeholder}"]`);
+        return el ? el.value.trim().toLowerCase() : '';
+    }
+
+    function getDate(id) {
+        const el = document.getElementById(id);
+        return el ? el.value : '';
+    }
+
+    function matchesText(cell, filterValue) {
+        if (!filterValue) return true;
+        if (!cell) return false;
+        return cell.textContent.trim().toLowerCase().includes(filterValue);
+    }
+
+    function matchesDate(cell, fromDate, toDate) {
+        if (!cell) return true;
+        const cellText = cell.textContent.trim();
+        if (!cellText) return true;
+
+        const cellDate = new Date(cellText);
+        if (isNaN(cellDate.getTime())) return true;
+
+        if (fromDate && cellDate < new Date(fromDate)) return false;
+        if (toDate && cellDate > new Date(toDate)) return false;
+        return true;
+    }
 }
 // Zaktualizuj wywołanie funkcji filterTable w inputach
 function setupFilters() {
@@ -536,7 +596,7 @@ function printID(id) {
                             <td data-dostawca-id="{{ tasmy.dostawca.id }}">{{ tasmy.dostawca.nazwa }}</td>
         <td data-szablon-id="{{ tasmy.szablon.id }}">{{ tasmy.szablon.nazwa }}</td>
                             <td>{{ tasmy.data_z_etykiety_na_kregu }}</td>
-                            <td hidden></td>
+                            
                             <td>{{ tasmy.grubosc }}</td>
                             <td>{{ tasmy.szerokosc }}</td>
                             <td>{{ tasmy.waga_kregu }}</td>
@@ -546,7 +606,7 @@ function printID(id) {
                             <td data-lokalizacja-id="{{ tasmy.lokalizacja.id }}">{{ tasmy.lokalizacja.nazwa }}</td>
                             <td>{{ tasmy.nr_faktury_dostawcy }}</td>
                             <td>{{ tasmy.data_dostawy }}</td>
-                            <td hidden></td>
+                            
                             <td>{{ tasmy.pracownik.login }}</td>
                             
                             <td><button type="button" class="button" onclick="openEditModal(this.parentElement.parentElement)">Edytuj</button><form method="POST" action="{{ url_for('usun_tasma', id=tasmy.id) }}" style="display:inline;background-color: transparent;width: 0;padding: 0%;" onsubmit="return confirm('Na pewno chcesz usunąć ten materiał?');">
@@ -561,7 +621,7 @@ function printID(id) {
                             <td data-dostawca-id="{{ tasmy.dostawca.id }}">{{ tasmy.dostawca.nazwa }}</td>
                             <td data-szablon-id="{{ tasmy.szablon.id }}">{{ tasmy.szablon.nazwa }}</td>
                             <td>{{ tasmy.data_z_etykiety_na_kregu }}</td>
-                            <td hidden></td>
+                            
                             <td>{{ tasmy.grubosc }}</td>
                             <td>{{ tasmy.szerokosc }}</td>
                             <td>{{ tasmy.waga_kregu }}</td>
@@ -570,7 +630,7 @@ function printID(id) {
                             <td>{{ tasmy.nr_z_etykiety_na_kregu }}</td>
                             <td data-lokalizacja-id="{{ tasmy.lokalizacja.id }}">{{ tasmy.lokalizacja.nazwa }}</td>
                             <td>{{ tasmy.nr_faktury_dostawcy }}</td>
-                            <td hidden></td>
+                            
                             <td>{{ tasmy.data_dostawy }}</td>
                             <td>{{ tasmy.pracownik.login }}</td>
                             
@@ -586,7 +646,7 @@ function printID(id) {
                             <td data-dostawca-id="{{ tasmy.dostawca.id }}">{{ tasmy.dostawca.nazwa }}</td>
                             <td data-szablon-id="{{ tasmy.szablon.id }}">{{ tasmy.szablon.nazwa }}</td>
                             <td>{{ tasmy.data_z_etykiety_na_kregu }}</td>
-                            <td hidden></td>
+                            
                             <td>{{ tasmy.grubosc }}</td>
                             <td>{{ tasmy.szerokosc }}</td>
                             <td>{{ tasmy.waga_kregu }}</td>
@@ -596,7 +656,7 @@ function printID(id) {
                             <td data-lokalizacja-id="{{ tasmy.lokalizacja.id }}">{{ tasmy.lokalizacja.nazwa }}</td>
                             <td>{{ tasmy.nr_faktury_dostawcy }}</td>
                             <td>{{ tasmy.data_dostawy }}</td>
-                            <td hidden></td>
+                            
                             <td>{{ tasmy.pracownik.login }}</td>
                             
                             <td><button type="button" class="button" onclick="openEditModal(this.parentElement.parentElement)">Edytuj</button><form method="POST" action="{{ url_for('usun_tasma', id=tasmy.id) }}" style="display:inline;background-color: transparent;width: 0;padding: 0%;" onsubmit="return confirm('Na pewno chcesz usunąć ten materiał?');">
