@@ -234,7 +234,7 @@ function openEditModal(row) {
 
         // Zamień edytowalne komórki na pola formularza
         cells.forEach((cell, index) => {
-    if (index > 0 && index < cells.length - 2 && index != 5 && index != 6 && index != 4 && index != 14 ) {
+    if (index > 0 && index < cells.length - 2 && index != 5 &&  index != 4 && index != 14 ) {
         if (index === 1) {
             const currentDostawcaId = cell.getAttribute("data-dostawca-id");
             cell.innerHTML = `<select style="width: 100%;" id="dostawcaSelect"></select>`;
@@ -243,15 +243,15 @@ function openEditModal(row) {
             const currentSzablonId = cell.getAttribute("data-szablon-id");
             cell.innerHTML = `<select style="width: 100%;" id="szablonSelect"></select>`;
             populateSzablony(cell.querySelector("#szablonSelect"), currentSzablonId);
-        }else if (index === 11) {
+        }else if (index === 10) {
             const currentLokalizacjaId = cell.getAttribute("data-lokalizacja-id");
             cell.innerHTML = `<select style="width: 100%;" id="lokalizacjaSelect"></select>`;
             populateLokalizacja(cell.querySelector("#lokalizacjaSelect"), currentLokalizacjaId);
         } 
-        else if (index === 3 || index === 13) { // Data fields
+        else if (index === 3 || index === 12) { // Data fields
             const value = cell.innerText;
             cell.innerHTML = `<input type="date" value="${value}" style="width: 100%;">`;
-        } else if (index === 7 || index === 8) { // Weight fields
+        } else if (index === 7 || index === 6) { // Weight fields
             const value = cell.innerText;
             cell.innerHTML = `<input type="number" value="${value}" step="0.01" style="width: 100%;">`;
         } else {
