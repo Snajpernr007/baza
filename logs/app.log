@@ -3609,3 +3609,38 @@
 2025-05-07 14:39:31,343 - INFO - 192.168.1.13 - - [07/May/2025 14:39:31] "[33mGET /rozmiary.obejm HTTP/1.1[0m" 404 -
 2025-05-07 14:39:31,388 - INFO - 192.168.1.13 - - [07/May/2025 14:39:31] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
 2025-05-07 14:39:39,318 - INFO - 192.168.1.13 - - [07/May/2025 14:39:39] "[33mGET /rozmiary_obejm HTTP/1.1[0m" 404 -
+2025-05-07 14:43:49,945 - INFO -  * Detected change in 'C:\\Users\\Windows\\Desktop\\baza\\baza danych maxmetal\\python\\index.py', reloading
+2025-05-07 14:44:04,242 - INFO -  * Restarting with stat
+2025-05-07 14:44:11,498 - INFO - Połączenie z bazą danych zostało nawiązane pomyślnie.
+2025-05-07 14:44:11,594 - INFO - ✅ Kopia zapasowa zapisana do pliku: backups\kopie_zapasowe_bazy_2025-05-07_14-44.sql
+2025-05-07 14:44:11,595 - INFO - 🗑️ Usunięto starą kopię: kopie_zapasowe_bazy_2025-05-06_13-12.sql
+2025-05-07 14:44:12,654 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.1.13:5000
+2025-05-07 14:44:12,654 - INFO - [33mPress CTRL+C to quit[0m
+2025-05-07 14:44:12,656 - INFO -  * Restarting with stat
+2025-05-07 14:44:14,710 - INFO - Połączenie z bazą danych zostało nawiązane pomyślnie.
+2025-05-07 14:44:14,806 - INFO - ✅ Kopia zapasowa zapisana do pliku: backups\kopie_zapasowe_bazy_2025-05-07_14-44.sql
+2025-05-07 14:44:14,825 - WARNING -  * Debugger is active!
+2025-05-07 14:44:14,834 - INFO -  * Debugger PIN: 842-370-172
+2025-05-07 14:44:20,104 - INFO - Administrator wszedł na stronę rozmiarów obejm.
+2025-05-07 14:44:20,136 - INFO - 192.168.1.13 - - [07/May/2025 14:44:20] "GET /rozmiary_obejm HTTP/1.1" 200 -
+2025-05-07 14:44:20,161 - INFO - 192.168.1.13 - - [07/May/2025 14:44:20] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-05-07 14:44:20,165 - INFO - 192.168.1.13 - - [07/May/2025 14:44:20] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-05-07 14:44:39,679 - INFO - Administrator wszedł na stronę główną.
+2025-05-07 14:44:39,725 - INFO - 192.168.1.13 - - [07/May/2025 14:44:39] "GET / HTTP/1.1" 200 -
+2025-05-07 14:44:39,743 - INFO - 192.168.1.13 - - [07/May/2025 14:44:39] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-05-07 14:44:39,744 - INFO - 192.168.1.13 - - [07/May/2025 14:44:39] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-05-07 14:44:55,516 - INFO - Administrator wszedł na stronę rozmiarów obejm.
+2025-05-07 14:44:55,519 - INFO - 192.168.1.13 - - [07/May/2025 14:44:55] "GET /rozmiary_obejm HTTP/1.1" 200 -
+2025-05-07 14:44:55,540 - INFO - 192.168.1.13 - - [07/May/2025 14:44:55] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-05-07 14:44:55,541 - INFO - 192.168.1.13 - - [07/May/2025 14:44:55] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-05-07 14:45:49,071 - INFO - Administrator wszedł na stronę Łączenia.
+2025-05-07 14:45:49,094 - INFO - 192.168.1.13 - - [07/May/2025 14:45:49] "GET /laczenie HTTP/1.1" 200 -
+2025-05-07 14:45:49,113 - INFO - 192.168.1.13 - - [07/May/2025 14:45:49] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-05-07 14:45:49,115 - INFO - 192.168.1.13 - - [07/May/2025 14:45:49] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-05-07 14:45:57,184 - INFO - Administrator wszedł na stronę główną.
+2025-05-07 14:45:57,186 - INFO - 192.168.1.13 - - [07/May/2025 14:45:57] "GET / HTTP/1.1" 200 -
+2025-05-07 14:45:57,207 - INFO - 192.168.1.13 - - [07/May/2025 14:45:57] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-05-07 14:45:57,209 - INFO - 192.168.1.13 - - [07/May/2025 14:45:57] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
