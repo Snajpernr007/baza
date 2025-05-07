@@ -563,19 +563,19 @@ def update_row():
         
         tasma.grubosc = Szablon.query.get(tasma.szablon_id).grubosc
         tasma.szerokosc = Szablon.query.get(tasma.szablon_id).szerokosc
-        tasma.waga_kregu = dane.get('column_7', tasma.waga_kregu)
-        tasma.waga_kregu_na_stanie = dane.get('column_8', tasma.waga_kregu_na_stanie)
-        tasma.nr_etykieta_paletowa = dane.get('column_9', tasma.nr_etykieta_paletowa)
-        tasma.nr_z_etykiety_na_kregu = dane.get('column_10', tasma.nr_z_etykiety_na_kregu)
-        lokalizacja_id = dane.get('column_11')
+        tasma.waga_kregu = dane.get('column_6', tasma.waga_kregu)
+        tasma.waga_kregu_na_stanie = dane.get('column_7', tasma.waga_kregu_na_stanie)
+        tasma.nr_etykieta_paletowa = dane.get('column_8', tasma.nr_etykieta_paletowa)
+        tasma.nr_z_etykiety_na_kregu = dane.get('column_9', tasma.nr_z_etykiety_na_kregu)
+        lokalizacja_id = dane.get('column_10')
         if lokalizacja_id:
             lokalizacja = db.session.get(Lokalizacja, lokalizacja_id)
             if lokalizacja:
                 tasma.lokalizacja = lokalizacja
             else:
                 tasma.lokalizacja = None
-        tasma.nr_faktury_dostawcy = dane.get('column_12', tasma.nr_faktury_dostawcy)
-        tasma.data_dostawy = dane.get('column_13', tasma.data_dostawy)
+        tasma.nr_faktury_dostawcy = dane.get('column_11', tasma.nr_faktury_dostawcy)
+        tasma.data_dostawy = dane.get('column_12', tasma.data_dostawy)
 
         db.session.commit()  # Zapisz zmiany w bazie
         nowe_dane = {
@@ -827,7 +827,7 @@ def dodaj_lub_zakonczenie_profilu():
             dlugosci = Dlugosci.query.get(int(request.form.get('id_dlugosci')))
             dlugosc = float(dlugosci.nazwa)             # mm, zakładam że 'dlugosc' to pole
 
-            profil.zwrot_na_magazyn_kg = profil.tasma.waga_kregu_na_stanie - Decimal(ilosc * dlugosc *float(profil.szablon_profile.waga_w_kg_na_1_metr))  # kg
+            profil.zwrot_na_magazyn_kg = profil.tasma.waga_kregu_na_stanie - Decimal(ilosc *float(profil.szablon_profile.waga_w_kg_na_1_metr))  # kg
         else:
             profil.zwrot_na_magazyn_kg = float(request.form.get('zwrot_na_magazyn_kg'))
         tasma = Tasma.query.get(profil.id_tasmy)
