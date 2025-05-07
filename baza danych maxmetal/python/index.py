@@ -1584,5 +1584,87 @@ def wez_profile():
     logger.info(f"Użytkownik {g.user.login} zakończył pobieranie profili.")
     flash("Profile zostały pobrane.")
     return redirect(url_for('sprzedaz'))
+@app.route('/rozmiary_obejm')
+def rozmiary_obejm():
+    if not g.user:
+        return render_template('login.html', user=g.user)
+    if g.user.id_uprawnienia == 3:
+        return redirect(url_for('home'))
+    
+    rozmiary = RozmiaryObejm.query.all()
+    logger.info(f"{g.user.login} wszedł na stronę rozmiarów obejm.")
+    return render_template("rozmiary_obejm.html", user=g.user, rozmiary=rozmiary)
+
+
+@app.route('/material_obejma')
+def material_obejma():
+    if not g.user:
+        return render_template('login.html', user=g.user)
+    if g.user.id_uprawnienia == 3:
+        return redirect(url_for('home'))
+    
+    meterial = MaterialObejma.query.all()
+    logger.info(f"{g.user.login} wszedł na stronę materialów obejm.")
+    return render_template("material_obejma.html", user=g.user, meterial=meterial)
+
+
+@app.route('/ksztaltowanie')
+def ksztaltowanie():
+    if not g.user:
+        return render_template('login.html', user=g.user)
+    if g.user.id_uprawnienia == 3:
+        return redirect(url_for('home'))
+    
+    ksztaltowanie = Ksztaltowanie.query.all()
+    logger.info(f"{g.user.login} wszedł na stronę ksztaltowania.")
+    return render_template("ksztaltowanie.html", user=g.user, ksztaltowanie=ksztaltowanie)
+
+
+@app.route('/malarnia')
+def malarnia():
+    if not g.user:
+        return render_template('login.html', user=g.user)
+    if g.user.id_uprawnienia == 3:
+        return redirect(url_for('home'))
+    
+    malarnia = Malarnia.query.all()
+    logger.info(f"{g.user.login} wszedł na stronę malarni.")
+    return render_template("malarnia.html", user=g.user, malarnia=malarnia)
+
+
+@app.route('/powrot')
+def powrot():
+    if not g.user:
+        return render_template('login.html', user=g.user)
+    if g.user.id_uprawnienia == 3:
+        return redirect(url_for('home'))
+    
+    powrot = Powrot.query.all()
+    logger.info(f"{g.user.login} wszedł na stronę powrotu.")
+    return render_template("powrot.html", user=g.user, powrot=powrot)
+
+
+@app.route('/zlecenie')
+def zlecenie():
+    if not g.user:
+        return render_template('login.html', user=g.user)
+    if g.user.id_uprawnienia == 3:
+        return redirect(url_for('home'))
+    
+    zlecenie = Zlecenie.query.all()
+    logger.info(f"{g.user.login} wszedł na stronę zlecenia.")
+    return render_template("zlecenie.html", user=g.user, zlecenie=zlecenie)
+
+
+@app.route('/laczenie')
+def laczenie():
+    if not g.user:
+        return render_template('login.html', user=g.user)
+    if g.user.id_uprawnienia == 3:
+        return redirect(url_for('home'))
+    
+    laczenie = Laczenie.query.all()
+    logger.info(f"{g.user.login} wszedł na stronę Łączenia.")
+    return render_template("zlecenie.html", user=g.user, laczenie=laczenie)
 if __name__ == "__main__":
     app.run(host='0.0.0.0', port=5000, debug=True)
