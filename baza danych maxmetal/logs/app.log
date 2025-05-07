@@ -5151,3 +5151,16 @@
 2025-05-07 12:26:02,440 - INFO - 127.0.0.1 - - [07/May/2025 12:26:02] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
 2025-05-07 12:26:02,453 - INFO - 127.0.0.1 - - [07/May/2025 12:26:02] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
 2025-05-07 12:26:02,458 - INFO - 127.0.0.1 - - [07/May/2025 12:26:02] "[36mGET /static/img/drukarka.png HTTP/1.1[0m" 304 -
+2025-05-07 12:28:07,277 - INFO - Połączenie z bazą danych zostało nawiązane pomyślnie.
+2025-05-07 12:28:07,335 - INFO - ✅ Kopia zapasowa zapisana do pliku: backups\kopie_zapasowe_bazy_2025-05-07_12-28.sql
+2025-05-07 12:28:07,335 - INFO - 🗑️ Usunięto starą kopię: kopie_zapasowe_bazy_2025-05-06_14-50.sql
+2025-05-07 12:28:07,346 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.0.16:5000
+2025-05-07 12:28:07,346 - INFO - [33mPress CTRL+C to quit[0m
+2025-05-07 12:28:07,347 - INFO -  * Restarting with stat
+2025-05-07 12:28:09,701 - INFO - Połączenie z bazą danych zostało nawiązane pomyślnie.
+2025-05-07 12:28:09,760 - INFO - ✅ Kopia zapasowa zapisana do pliku: backups\kopie_zapasowe_bazy_2025-05-07_12-28.sql
+2025-05-07 12:28:09,766 - WARNING -  * Debugger is active!
+2025-05-07 12:28:09,770 - INFO -  * Debugger PIN: 575-758-812
