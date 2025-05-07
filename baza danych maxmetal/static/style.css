@@ -275,12 +275,8 @@ footer{
   z-index: 1000;
 }
 
-#right-menu-toggle {
-  display: none;
-}
-
 #right-menu-button {
-  margin:3px 10px 3px 4px;
+  margin: 3px 10px;
   position: fixed;
   top: 32px;
   right: 30px;
@@ -288,7 +284,7 @@ footer{
   flex-direction: column;
   gap: 5px;
   cursor: pointer;
-  z-index: 1100; /* wyżej niż menu */
+  z-index: 1100;
 }
 
 #right-menu-button span {
@@ -296,32 +292,43 @@ footer{
   width: 33px;
   height: 4px;
   background-color: #f07d2d;
-  border:  1px solid #3f395d;
+  border: 1px solid #3f395d;
   border-radius: 5px;
   transition: 0.3s;
 }
 
-/* Wysuwane menu */
 #right-menu {
   position: fixed;
-  top: -14px;
-  right: -290px;
-  width: 250px;
-  height: 750px;
-  background-color: #eee;
-  list-style: none;
-  padding: 60px 20px;
-  box-shadow: -2px 0 5px rgba(0,0,0,0.3);
-  transition: right 0.3s ease;
+  max-width: 400px;
+  width: 100vw;
+  height: 100vh;
+  top: -15px;
+  right: 0;
+  padding: 50px;
+  padding-top: 50px;
+  box-sizing: border-box;
+  overflow-y: auto;
+  background: #ededed;
+  list-style-type: none;
+  transform: translateX(100%);
+  transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0);
+  box-shadow: -2px 0 5px rgba(0, 0, 0, 0.3);
+  pointer-events: all;
   z-index: 1001;
 }
 
-#right-menu-toggle:checked ~ #right-menu {
-  right: 0;
+
+#right-menu.open {
+  transform: translateX(0);
 }
 
 #right-menu li {
-  margin: 20px 0;
+  
+  padding: 10px 0;
+  font-size: 22px;
+}
+#right-menu li input[type="checkbox"] {
+  cursor: pointer;
 }
 
 
@@ -332,8 +339,6 @@ footer{
   top: 50px;
   left: 50px;
   z-index: 1;   /* górne tło */
-  -webkit-user-select: none;  /* nie można zaznaczyć użytkownikem */
-  user-select: none; /* to samo co webkit */
   min-height: 100vh;
   pointer-events: none; /* nie można kliknąć w ten element */
 }
