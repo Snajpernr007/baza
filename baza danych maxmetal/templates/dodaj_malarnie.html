@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile MaxMetal</title>
+    <link rel="icon" href="../static/img/logo-male.png">
+    <link rel="stylesheet" href="../static/style.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>  <!-- Dodaj jQuery -->
+
+</head>
+<body>
+    <div id="strona">
+        <form id="myForm" action="{{ url_for('dodaj_lokalizacje_do_bazy') }}" method="post">
+            
+           
+            <h2>Dodaj Malarnię</h2>
+            <label for="nazwa">Rozmiar:</label>
+            <input type="text" name="nazwa" required><br>
+            <label for="wytop">Nr Wytopu:</label>
+            <input type="text" name="wytop" required><br>
+            <label for="ilosc" name="ilosc">Ilość:</label>
+            <input type="number" name="ilosc" required><br>
+            <label for="ilosc_na_stanie" name="ilosc_na_stanie">Ilość na stanie:</label>
+            <input type="number" name="ilosc_na_stanie" required><br>
+            <label for="prodio" name="prodio">Nr Prodio:</label>
+            <input type="text" name="prodio" required><br>
+            <label for="data">Data:</label>
+            <input type="date" name="data" required><br>
+            <label for="pracownik" name="pracownik">Pracownik:</label>
+            <input type="text" name="pracownik" required><br>
+            <label for="imie">Imię i nazwisko:</label>
+            <input type="text" name="imie" required><br>
+            <button type="reset" class="button">Wyczyść</button>
+            <button type="submit" class="button">Zapisz</button>
+        </form>
+    </div>
+</body>
+</html>

@@ -80,6 +80,11 @@
                             <a href="{{ url_for('sprzedaz') }}"><label for="menuCheckbox" onclick="this.parentNode.click();">Sprzedaż</label></a>
                         </li>
                         {% endif %}
+                        {% if g.user.id_uprawnienia==1 or g.user.id_uprawnienia==2%}
+                        <li>
+                            <a href="{{ url_for('dodaj_malarnie') }}"><label for="menuCheckbox" onclick="this.parentNode.click();">Dodaj Malarnię</label></a>
+                        </li>
+                        {% endif %}
                         <li>
                             <a href=javascript:history.back();><label for="menuCheckbox" onclick="this.parentNode.click();">Powrót</label></a>
                         </li>  
@@ -99,8 +104,61 @@
         </div>
 
             <div id="title">
-                <h2 class="witaj">Profile</h2>
+                <h2 class="witaj">Malarnia</h2>
             </div>
+            <table id="tabela">
+                <thead>
+                    <tr>
+                        <th><input type="text" placeholder="Filtruj ID" onkeyup="filterColumn(0)"></th>
+                        <th><input type="text" placeholder="Filtruj Rozmiar" onkeyup="filterColumn(1)"></th>
+                        <th><input type="text" placeholder="Filtruj Nr wytopu" onkeyup="filterColumn(2)"></th>
+                        <th><input type="text" placeholder="Filtruj Ilość" onkeyup="filterColumn(3)"></th>
+                        <th><input type="text" placeholder="Filtruj Ilość na stanie" onkeyup="filterColumn(4)"></th>
+                        <th><input type="text" placeholder="Filtruj Nr Prodio" onkeyup="filterColumn(5)"></th>
+                        <th><input type="text" placeholder="Filtruj Data" onkeyup="filterColumn(6)"></th>
+                        <th><input type="text" placeholder="Filtruj Pracownika" onkeyup="filterColumn(7)"></th>
+                        <th><input type="text" placeholder="Filtruj Imię i nazwisko" onkeyup="filterColumn(8)"></th>
+                        
+                        <th><button class="button" onclick="resetFilters()">Usuń Filtry</button></th>
+                    </tr>
+                    <tr>
+                        <th onclick="sortTable(0)">ID &#9650;&#9660;</th>
+                        <th onclick="sortTable(1)">Rozmiar &#9650;&#9660;</th>
+                        <th onclick="sortTable(2)">Nr wytopu &#9650;&#9660;</th>
+                        <th onclick="sortTable(3)">Ilość &#9650;&#9660;</th>
+                        <th onclick="sortTable(4)">Ilość na stanie &#9650;&#9660;</th>
+                        <th onclick="sortTable(5)">Nr prodio &#9650;&#9660;</th>
+                        <th onclick="sortTable(6)">Data &#9650;&#9660;</th>
+                        <th onclick="sortTable(7)">Pracownik &#9650;&#9660;</th>
+                        <th onclick="sortTable(8)">Imię i nazwisko &#9650;&#9660;</th>
+                        
+                        
+                        <th>Edycja</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for malarnie in malarnia %}
+                        <tr>
+                            <td>{{ malarnia.id }} </td>
+                            <td>{{ malarnia.ksztaltowanie.material.rozmiar.nazwa }}</td>
+                            <td>{{ malarnia.ksztaltowanie.material.nr_wytopu}}</td>
+                            <td>{{ malarnia.ilosc }} </td>
+                            <td>{{ malarnia.ilosc_na_stanie }}</td>
+                            <td>{{ malarnia.nr_prodio }}</td>
+                            <td>{{ malarnia.data }} </td>
+                            <td>{{ malarnia.pracownik.login}}</td>
+                            <td>{{ malarnia.imie_nazwisko}}</td>
+                            
+                            
+                            
+                            <td>{{ malarnia.imie_nazwisko}}</td>
+
+                            
+                            <td><button type="button" class="button" onclick="openEditModal(this.parentElement.parentElement)">Edytuj</button></td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
     </div>
 </body>
 </html> 
