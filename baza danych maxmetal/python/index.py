@@ -1603,7 +1603,27 @@ def dodaj_rozmiar_obejma():
     
     logger.info(f"{g.user.login} wszedł na stronę dodawania rozmiaru obejm.")
     return render_template("dodaj_rozmiar_obejma.html", user=g.user)
+@app.route('/dodaj_rozmiar_obejma_do_bazy', methods=['POST'])
+def dodaj_rozmiar_obejma_do_bazy():
+    if not g.user:
+        return render_template('login.html', user=g.user)
+    if g.user.id_uprawnienia == 3:
+        return redirect(url_for('home'))
+    if request.method == 'POST':
+        nazwa = request.form.get('rozmiar_obejm')
+        
+        
+        nowy_rozmiar = RozmiaryObejm(nazwa=nazwa)
+        db.session.add(nowy_rozmiar)
 
+    try:
+        db.session.commit()
+        logger.info(f"Rozmiar {nazwa} został dodany przez {g.user.login}.")
+        return redirect(url_for('rozmiary_obejm'))  # Przekierowanie na stronę rozmiarów obejm
+    except Exception as e:
+        db.session.rollback()
+        logger.error(f"Nie udało się zapisać danych: {e}")
+        return render_template('rozmiary_obejm.html', error="Wystąpił błąd przy zapisywaniu danych.", user=g.user)
 
 @app.route('/material_obejma')
 def material_obejma():
@@ -1623,7 +1643,35 @@ def dodaj_material_obejma():
         return redirect(url_for('home'))
     
     logger.info(f"{g.user.login} wszedł na stronę dodawania materiału obejm.")
-    return render_template("dodaj_material_obejma.html", user=g.user)
+    return render_template("dodaj_material_obejma.html", user=g.user, rozmiar=RozmiaryObejm.query.all())
+@app.route('/dodaj_material_obejma_do_bazy', methods=['POST'])
+def dodaj_material_obejma_do_bazy():
+    if not g.user:
+        return render_template('login.html', user=g.user)
+    if g.user.id_uprawnienia == 3:
+        return redirect(url_for('home'))
+    if request.method == 'POST':
+        certyfikat = request.form.get('certyfikat')
+        data= request.form.get('data')
+        numer_wytopu = request.form.get('wytop')
+        numer_prodio=request.form.get('prodio')
+        ilosc = request.form.get('ilosc')
+        ilosc_na_stanie = request.form.get('ilosc')
+        pracownik=g.user.id
+        id_rozmiar = request.form.get('nazwa_materiału')
+        
+        
+        nowy_material = MaterialObejma(certyfikat=certyfikat, data_dostawy=data, nr_wytopu=numer_wytopu,
+                                      nr_prodio=numer_prodio, ilosc_sztuk=ilosc, ilosc_sztuk_na_stanie=ilosc_na_stanie,id_rozmiaru=id_rozmiar, id_pracownik=pracownik)
+        db.session.add(nowy_material)
+        try:
+            db.session.commit()
+            logger.info(f"Materiał {certyfikat} został dodany przez {g.user.login}.")
+            return redirect(url_for('material_obejma'))  # Przekierowanie na stronę materiałów obejm
+        except Exception as e:
+            db.session.rollback()
+            logger.error(f"Nie udało się zapisać danych: {e}")
+            return render_template('material_obejma.html', error="Wystąpił błąd przy zapisywaniu danych.", user=g.user)
 
 @app.route('/ksztaltowanie')
 def ksztaltowanie():
