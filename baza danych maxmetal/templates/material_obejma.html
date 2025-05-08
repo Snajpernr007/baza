@@ -6,6 +6,108 @@
     <title>Profile MaxMetal</title>
     <link rel="icon" href="../static/img/logo-male.png">
     <link rel="stylesheet" href="../static/style.css">
+    <script>
+        function filterTable() {
+    let table = document.getElementById("tabela");
+    let filterInputs = table.querySelectorAll("thead input");
+    let rows = table.getElementsByTagName("tbody")[0].getElementsByTagName("tr");
+
+    // Pętla przez wszystkie wiersze tabeli
+    for (let i = 0; i < rows.length; i++) {
+        let cells = rows[i].getElementsByTagName("td");
+        let isRowVisible = true; // Flaga określająca, czy wiersz ma być widoczny
+
+        // Pętla przez wszystkie kolumny i odpowiednie filtry
+        for (let columnIndex = 0; columnIndex < filterInputs.length; columnIndex++) {
+            let filter = filterInputs[columnIndex].value.toLowerCase();
+            if (cells[columnIndex]) {
+                let cellValue = cells[columnIndex].textContent || cells[columnIndex].innerText;
+                if (filter && !cellValue.toLowerCase().includes(filter)) {
+                    isRowVisible = false; // Ukryj wiersz, jeśli nie spełnia filtru
+                    break; // Przerywamy, gdy znajdziemy filtr, który nie pasuje
+                }
+            }
+        }
+        rows[i].style.display = isRowVisible ? "" : "none"; // Ustaw widoczność wiersza
+    }
+}
+
+// Zaktualizuj wywołanie funkcji filterTable w inputach
+function setupFilters() {
+    let filterInputs = document.querySelectorAll("thead input");
+    filterInputs.forEach((input, index) => {
+        input.addEventListener("keyup", filterTable); // Używamy nowej funkcji filterTable
+    });
+}
+
+// Wywołaj setupFilters po załadowaniu strony
+document.addEventListener("DOMContentLoaded", setupFilters);
+    function resetFilters() {
+        let table = document.getElementById("tabela");
+        let filterInputs = table.querySelectorAll("thead input");
+        let rows = table.getElementsByTagName("tbody")[0].getElementsByTagName("tr");
+    
+        // Resetuj wszystkie pola filtrów
+        filterInputs.forEach(input => input.value = "");
+    
+        // Przywróć widoczność wszystkich wierszy
+        for (let i = 0; i < rows.length; i++) {
+            rows[i].style.display = "";
+        }
+    }
+    let sortStates = []; // Tablica przechowująca stan sortowania dla każdej kolumny
+
+function sortTable(columnIndex) {
+    const table = document.getElementById("tabela");
+    const rows = Array.from(table.rows).slice(2); // Pobieramy wszystkie wiersze poza nagłówkami
+    const tbody = table.tBodies[0];
+
+    // Sprawdzamy, czy kolumna już istnieje w tablicy sortStates
+    const existingSortIndex = sortStates.findIndex(sort => sort.columnIndex === columnIndex);
+
+    if (existingSortIndex !== -1) {
+        // Jeśli kolumna jest już sortowana, zmieniamy jej kierunek
+        sortStates[existingSortIndex].ascending = !sortStates[existingSortIndex].ascending;
+    } else {
+        // Jeśli kolumna nie jest jeszcze sortowana, dodajemy ją na początek tablicy
+        sortStates.unshift({ columnIndex, ascending: true });
+    }
+
+    // Sortowanie wierszy na podstawie stanu w tablicy sortStates
+    rows.sort((rowA, rowB) => {
+        for (const sort of sortStates) {
+            const cellA = rowA.cells[sort.columnIndex]?.innerText.toLowerCase() || "";
+            const cellB = rowB.cells[sort.columnIndex]?.innerText.toLowerCase() || "";
+
+            if (!isNaN(cellA) && !isNaN(cellB)) {
+                // Sortowanie liczb
+                const comparison = sort.ascending ? cellA - cellB : cellB - cellA;
+                if (comparison !== 0) return comparison;
+            } else {
+                // Sortowanie tekstowe
+                const comparison = sort.ascending
+                    ? cellA.localeCompare(cellB)
+                    : cellB.localeCompare(cellA);
+                if (comparison !== 0) return comparison;
+            }
+        }
+        return 0; // Jeśli wszystkie kolumny są równe, nie zmieniamy kolejności
+    });
+
+    // Przypisanie posortowanych wierszy do tabeli
+    tbody.innerHTML = "";
+    rows.forEach(row => tbody.appendChild(row));
+
+    // Resetowanie strzałek i ustawienie odpowiednich w nagłówkach
+    Array.from(table.tHead.rows[1].cells).forEach((cell, index) => {
+        cell.innerHTML = cell.innerHTML.replace(/ ▲| ▼/g, '');
+        const sortState = sortStates.find(sort => sort.columnIndex === index);
+        if (sortState) {
+            cell.innerHTML += sortState.ascending ? ' ▲' : ' ▼';
+        }
+    });
+}
+    </script>
 </head>
 <body>
     <div id="strona">
@@ -99,8 +201,57 @@
         </div>
 
             <div id="title">
-                <h2 class="witaj">Profile</h2>
+                <h2 class="witaj">Materiały obejm</h2>
             </div>
+            <table id="tabela">
+                <thead>
+                    <tr>
+                        <th><input type="text" placeholder="Filtruj ID" onkeyup="filterColumn(0)"></th>
+                        <th><input type="text" placeholder="Filtruj Certyfikat" onkeyup="filterColumn(1)"></th>
+                        <th><input type="text" placeholder="Filtruj Data" onkeyup="filterColumn(2)"></th>
+                        <th><input type="text" placeholder="Filtruj Nr wytopu" onkeyup="filterColumn(3)"></th>
+                        <th><input type="text" placeholder="Filtruj Nr Prodio" onkeyup="filterColumn(4)"></th>
+                        <th><input type="text" placeholder="Filtruj Ilość sztuk" onkeyup="filterColumn(5)"></th>
+                        <th><input type="text" placeholder="Filtruj Ilość na stanie" onkeyup="filterColumn(6)"></th>
+                        <th><input type="text" placeholder="Filtruj Rozmiar" onkeyup="filterColumn(7)"></th>
+                        <th><input type="text" placeholder="Filtruj Pracownika" onkeyup="filterColumn(8)"></th>
+                        
+                        <th><button class="button" onclick="resetFilters()">Usuń Filtry</button></th>
+                    </tr>
+                    <tr>
+                        <th onclick="sortTable(0)">ID &#9650;&#9660;</th>
+                        <th onclick="sortTable(1)">Certyfikat &#9650;&#9660;</th>
+                        <th onclick="sortTable(2)">Data &#9650;&#9660;</th>
+                        <th onclick="sortTable(3)">Nr wytopu &#9650;&#9660;</th>
+                        <th onclick="sortTable(4)">Nr prodio &#9650;&#9660;</th>
+                        <th onclick="sortTable(5)">Ilość sztuk &#9650;&#9660;</th>
+                        <th onclick="sortTable(6)">Ilość na stanie &#9650;&#9660;</th>
+                        <th onclick="sortTable(7)">Rozmiar &#9650;&#9660;</th>
+                        <th onclick="sortTable(8)">Pracownik &#9650;&#9660;</th>
+                        
+                        
+                        <th>Edycja</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for materialy in meterial %}
+                        <tr>
+                            <td>{{ materialy.id }} </td>
+                            <td>{{ materialy.certyfikat }}</td>
+                            <td>{{ materialy.data_dostawy }} </td>
+                            <td>{{ materialy.nr_wytopu }}</td>
+                            <td>{{ materialy.nr_prodio }} </td>
+                            <td>{{ materialy.ilosc_sztuk }}</td>
+                            <td>{{ materialy.ilosc_sztuk_na_stanie }} </td>
+                            <td>{{ materialy.rozmiar.nazwa }}</td>
+                            <td>{{ materialy.pracownik.login}}</td>
+
+                            
+                            <td><button type="button" class="button" onclick="openEditModal(this.parentElement.parentElement)">Edytuj</button></td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
     </div>
 </body>
 </html> 
