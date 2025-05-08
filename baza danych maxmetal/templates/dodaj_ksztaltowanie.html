@@ -7,78 +7,37 @@
     <link rel="icon" href="../static/img/logo-male.png">
     <link rel="stylesheet" href="../static/style.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>  <!-- Dodaj jQuery -->
+
 </head>
 <body>
     <div id="strona">
-        <form id="myForm" method="POST" action="{{ url_for('dodaj_lub_zakonczenie_profilu') }}">
-            {% if not profil %}
-                <!-- ROZPOCZĘCIE PROFILU -->
-                <h2>Rozpocznij profil</h2>
-        
-                <label for="etykieta">Etykieta Materiału:</label><br>
-<input type="text" id="szukaj_etykiety" onkeyup="filtrujEtykiete()" placeholder="Szukaj etykiety..."><br>
-<select id="etykieta" name="etykieta" required>
-    {% for tasma in tasmy %}
-    {%if tasma.waga_kregu_na_stanie == 0%} 
-        {pass}
-    {%else%}
-        <option value="{{ tasma.id }}" >
-            {{ tasma.nr_z_etykiety_na_kregu }}  {{tasma.szerokosc}}x{{tasma.grubosc}} na stanie {{ tasma.waga_kregu_na_stanie }}kg 
-        </option>
-    {% endif %}
-    {% endfor %}
-</select><br>
-        
-                <input type="hidden" name="data_produkcji" value="{{ dzisiaj }}">
-                <input type="hidden" name="godz_min_rozpoczecia" value="{{ teraz }}">
-        
-                <label for="szablon">Nr części klienta:</label><br>
-                <input type="text" id="szukaj_szablon" onkeyup="filtrujSzablon()" placeholder="Szukaj numeru części klienta..."><br>
-                <select id="szablon_profile" name="szablon_profile" required>
-                    {% for szablon_profile in szablony%}
-                    
-                    <option value="{{ szablon_profile.id }}">{{ szablon_profile.nazwa }}</option>
-                    
-                    {% endfor %}
-                </select><br>
-        
-                <label for="nazwa_klienta_nr_zlecenia_PRODIO">Nazwa Klienta / Nr Zlecenia:</label>
-                <input type="text" name="nazwa_klienta_nr_zlecenia_PRODIO" required><br>
-                <label for="imie_nazwisko_pracownika">Imie Nazwisko</label>
-                <input type="text" name="imie_nazwisko_pracownika" required><br>
-                <button class="button" type="reset">Wyczyść</button>
-                <button class="button" type="submit">Rozpocznij</button>
-        
-            {% else %}
-                <!-- ZAKOŃCZENIE PROFILU -->
-                <h2>Zakończ profil #{{ profil.id }}</h2>
-                <input type="hidden" name="profil_id" value="{{ profil.id }}">
-        
-                
-                <input type="hidden" name="godz_min_zakonczenia" value="{{ teraz }}">
-        
-                <label for="zwrot_na_magazyn_kg">Zwrot na Magazyn (kg) obecnie {{ilosc}}:</label>
-                <input type="number" name="zwrot_na_magazyn_kg" data-waga-kregu="{{ ilosc }}" ><br>
-        
-                <label for="ilosc">Ilość:</label>
-                <input type="number" name="ilosc" required><br>
-        
-                <label for="dlugosc">Długość:</label><br>
-<input type="text" id="szukaj_dlugosci" onkeyup="filtrujDlugosci()" placeholder="Szukaj długości..."><br>
-<select id="dlugosc" name="id_dlugosci" required>
-    {% for d in dlugosci %}
-        <option value="{{ d.id }}">{{ d.nazwa }}</option>
-    {% endfor %}
-</select><br>
-<button class="button" type="reset">Wyczyść</button>
-                <button class="button" type="submit">Zakończ</button>
-                
-            {% endif %}
-        </form>
-
-            <!-- <button type="reset" class="button">Wyczyść</button>
+        <form id="myForm" action="{{ url_for('dodaj_lokalizacje_do_bazy') }}" method="post">
+            
+           
+            <h2>Dodaj Kształt</h2>
+            <label for="nazwa">Nazwa:</label>
+            <input type="text" name="nazwa" required><br>
+            <label for="wytop">Nr Wytopu:</label>
+            <input type="text" name="wytop" required><br>
+            <label for="data">Data:</label>
+            <input type="date" name="data" required><br>
+            <labelf for="grozp" name="grozp">Godzina rozpoczęcia:</label>
+            <input type="time" name="grozp" required><br>
+            <label for="gzak" name="gzak">Godzina zakończenia:</label>
+            <input type="time" name="gzak" required><br>
+            <label for="ilosc" name="ilosc">Ilość:</label>
+            <input type="number" name="ilosc" required><br>
+            <label for="ilosc_na_stanie" name="ilosc_na_stanie">Ilość na stanie:</label>
+            <input type="number" name="ilosc_na_stanie" required><br>
+            <label for="prodio" name="prodio">Nr Prodio:</label>
+            <input type="text" name="prodio" required><br>
+            <label for="pracownik" name="pracownik">Pracownik:</label>
+            <input type="text" name="pracownik" required><br>
+            <label for="imie">Imię i nazwisko:</label>
+            <input type="text" name="imie" required><br>
+            <button type="reset" class="button">Wyczyść</button>
             <button type="submit" class="button">Zapisz</button>
-        </form> -->
+        </form>
     </div>
 </body>
 </html>

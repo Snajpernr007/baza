@@ -4304,3 +4304,22 @@
 2025-05-08 14:36:28,652 - INFO - Administrator wszedł na stronę dodawania ksztaltowania.
 2025-05-08 14:36:28,667 - INFO - 192.168.1.13 - - [08/May/2025 14:36:28] "GET /dodaj_ksztaltowanie HTTP/1.1" 200 -
 2025-05-08 14:36:28,682 - INFO - 192.168.1.13 - - [08/May/2025 14:36:28] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-05-08 14:50:29,857 - INFO - Administrator wszedł na stronę główną.
+2025-05-08 14:50:29,858 - INFO - 192.168.1.13 - - [08/May/2025 14:50:29] "GET / HTTP/1.1" 200 -
+2025-05-08 14:50:29,876 - INFO - 192.168.1.13 - - [08/May/2025 14:50:29] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-05-08 14:50:29,877 - INFO - 192.168.1.13 - - [08/May/2025 14:50:29] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-05-08 14:50:30,913 - INFO - Administrator wszedł na stronę materialów obejm.
+2025-05-08 14:50:30,915 - INFO - 192.168.1.13 - - [08/May/2025 14:50:30] "GET /material_obejma HTTP/1.1" 200 -
+2025-05-08 14:50:30,933 - INFO - 192.168.1.13 - - [08/May/2025 14:50:30] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-05-08 14:50:30,934 - INFO - 192.168.1.13 - - [08/May/2025 14:50:30] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-05-08 14:50:33,403 - INFO - Administrator wszedł na stronę dodawania materiału obejm.
+2025-05-08 14:50:33,406 - INFO - 192.168.1.13 - - [08/May/2025 14:50:33] "GET /dodaj_material_obejma HTTP/1.1" 200 -
+2025-05-08 14:50:33,423 - INFO - 192.168.1.13 - - [08/May/2025 14:50:33] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-05-08 14:50:42,556 - INFO - Administrator wszedł na stronę główną.
+2025-05-08 14:50:42,559 - INFO - 192.168.1.13 - - [08/May/2025 14:50:42] "GET / HTTP/1.1" 200 -
+2025-05-08 14:50:42,578 - INFO - 192.168.1.13 - - [08/May/2025 14:50:42] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-05-08 14:50:42,580 - INFO - 192.168.1.13 - - [08/May/2025 14:50:42] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-05-08 14:50:44,089 - INFO - Administrator wszedł na stronę ksztaltowania.
+2025-05-08 14:50:44,090 - INFO - 192.168.1.13 - - [08/May/2025 14:50:44] "GET /ksztaltowanie HTTP/1.1" 200 -
+2025-05-08 14:50:44,108 - INFO - 192.168.1.13 - - [08/May/2025 14:50:44] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-05-08 14:50:44,109 - INFO - 192.168.1.13 - - [08/May/2025 14:50:44] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
