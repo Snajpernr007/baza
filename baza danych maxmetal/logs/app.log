@@ -5391,3 +5391,84 @@
 2025-05-07 14:43:16,990 - INFO - ✅ Kopia zapasowa zapisana do pliku: backups\kopie_zapasowe_bazy_2025-05-07_14-43.sql
 2025-05-07 14:43:16,995 - WARNING -  * Debugger is active!
 2025-05-07 14:43:16,999 - INFO -  * Debugger PIN: 575-758-812
+2025-05-07 14:44:46,274 - INFO - Administrator wszedł na stronę Łączenia.
+2025-05-07 14:44:46,284 - INFO - 127.0.0.1 - - [07/May/2025 14:44:46] "GET /laczenie HTTP/1.1" 200 -
+2025-05-07 17:02:20,797 - INFO - Administrator wszedł na stronę główną.
+2025-05-07 17:02:20,893 - INFO - 127.0.0.1 - - [07/May/2025 17:02:20] "GET / HTTP/1.1" 200 -
+2025-05-07 17:02:20,928 - INFO - 127.0.0.1 - - [07/May/2025 17:02:20] "GET /static/style.css HTTP/1.1" 200 -
+2025-05-07 17:02:20,935 - INFO - 127.0.0.1 - - [07/May/2025 17:02:20] "GET /static/img/logo-duże.png HTTP/1.1" 200 -
+2025-05-07 17:02:20,945 - INFO - 127.0.0.1 - - [07/May/2025 17:02:20] "GET /static/img/logo-male.png HTTP/1.1" 200 -
+2025-05-07 17:02:21,659 - INFO - Administrator wszedł na stronę profilu.
+2025-05-07 17:02:21,818 - INFO - 127.0.0.1 - - [07/May/2025 17:02:21] "GET /profil HTTP/1.1" 200 -
+2025-05-07 17:02:21,851 - INFO - 127.0.0.1 - - [07/May/2025 17:02:21] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-05-07 17:02:21,866 - INFO - 127.0.0.1 - - [07/May/2025 17:02:21] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-05-07 17:02:24,743 - INFO - Administrator wszedł na stronę główną.
+2025-05-07 17:02:24,744 - INFO - 127.0.0.1 - - [07/May/2025 17:02:24] "GET / HTTP/1.1" 200 -
+2025-05-07 17:02:24,768 - INFO - 127.0.0.1 - - [07/May/2025 17:02:24] "GET /static/style.css HTTP/1.1" 200 -
+2025-05-07 17:02:24,772 - INFO - 127.0.0.1 - - [07/May/2025 17:02:24] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-05-08 00:02:02,054 - INFO - ✅ Kopia zapasowa zapisana do pliku: backups\kopie_zapasowe_bazy_2025-05-08_00-02.sql
+2025-05-08 00:02:02,057 - INFO - 🗑️ Usunięto starą kopię: kopie_zapasowe_bazy_2025-05-06_23-00.sql
+2025-05-08 00:02:04,554 - INFO - ✅ Kopia zapasowa zapisana do pliku: backups\kopie_zapasowe_bazy_2025-05-08_00-02.sql
+2025-05-08 10:42:19,845 - INFO - Administrator wszedł na stronę zestawienia.
+2025-05-08 10:42:19,963 - INFO - 127.0.0.1 - - [08/May/2025 10:42:19] "GET /zestawienie HTTP/1.1" 200 -
+2025-05-08 10:42:19,993 - INFO - 127.0.0.1 - - [08/May/2025 10:42:19] "GET /static/style.css HTTP/1.1" 200 -
+2025-05-08 10:42:19,999 - INFO - 127.0.0.1 - - [08/May/2025 10:42:19] "GET /static/img/drukarka.png HTTP/1.1" 200 -
+2025-05-08 10:42:20,011 - INFO - 127.0.0.1 - - [08/May/2025 10:42:20] "GET /static/img/logo-duże.png HTTP/1.1" 200 -
+2025-05-08 10:42:20,029 - INFO - 127.0.0.1 - - [08/May/2025 10:42:20] "GET /static/img/logo-male.png HTTP/1.1" 200 -
+2025-05-08 11:01:52,344 - INFO - Administrator wszedł na stronę główną.
+2025-05-08 11:01:52,345 - INFO - 127.0.0.1 - - [08/May/2025 11:01:52] "GET / HTTP/1.1" 200 -
+2025-05-08 11:01:52,375 - INFO - 127.0.0.1 - - [08/May/2025 11:01:52] "GET /static/style.css HTTP/1.1" 200 -
+2025-05-08 11:01:52,382 - INFO - 127.0.0.1 - - [08/May/2025 11:01:52] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-05-08 12:06:27,662 - INFO - ✅ Kopia zapasowa zapisana do pliku: backups\kopie_zapasowe_bazy_2025-05-08_12-06.sql
+2025-05-08 12:06:27,663 - INFO - 🗑️ Usunięto starą kopię: kopie_zapasowe_bazy_2025-05-07_12-25.sql
+2025-05-08 12:06:30,157 - INFO - ✅ Kopia zapasowa zapisana do pliku: backups\kopie_zapasowe_bazy_2025-05-08_12-06.sql
+2025-05-08 12:50:27,002 - INFO - Administrator wszedł na stronę dostawców.
+2025-05-08 12:50:27,053 - INFO - 127.0.0.1 - - [08/May/2025 12:50:27] "GET /dlugosci HTTP/1.1" 200 -
+2025-05-08 12:50:27,078 - INFO - 127.0.0.1 - - [08/May/2025 12:50:27] "GET /static/style.css HTTP/1.1" 200 -
+2025-05-08 12:50:27,090 - INFO - 127.0.0.1 - - [08/May/2025 12:50:27] "GET /static/img/logo-duże.png HTTP/1.1" 200 -
+2025-05-08 12:50:27,098 - INFO - 127.0.0.1 - - [08/May/2025 12:50:27] "GET /static/img/logo-male.png HTTP/1.1" 200 -
+2025-05-08 12:50:30,820 - INFO - Administrator wszedł na stronę główną.
+2025-05-08 12:50:30,821 - INFO - 127.0.0.1 - - [08/May/2025 12:50:30] "GET / HTTP/1.1" 200 -
+2025-05-08 12:50:30,851 - INFO - 127.0.0.1 - - [08/May/2025 12:50:30] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-05-08 12:50:30,856 - INFO - 127.0.0.1 - - [08/May/2025 12:50:30] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-05-08 12:50:31,746 - INFO - Administrator wszedł na stronę dostawców.
+2025-05-08 12:50:31,747 - INFO - 127.0.0.1 - - [08/May/2025 12:50:31] "GET /dlugosci HTTP/1.1" 200 -
+2025-05-08 12:50:31,768 - INFO - 127.0.0.1 - - [08/May/2025 12:50:31] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-05-08 12:50:31,777 - INFO - 127.0.0.1 - - [08/May/2025 12:50:31] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-05-08 12:50:37,563 - INFO - Administrator wszedł na stronę główną.
+2025-05-08 12:50:37,564 - INFO - 127.0.0.1 - - [08/May/2025 12:50:37] "GET / HTTP/1.1" 200 -
+2025-05-08 12:50:37,595 - INFO - 127.0.0.1 - - [08/May/2025 12:50:37] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-05-08 12:50:37,600 - INFO - 127.0.0.1 - - [08/May/2025 12:50:37] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-05-08 12:52:30,138 - INFO - Administrator wszedł na stronę profilu.
+2025-05-08 12:52:30,147 - INFO - 127.0.0.1 - - [08/May/2025 12:52:30] "GET /profil HTTP/1.1" 200 -
+2025-05-08 12:52:30,171 - INFO - 127.0.0.1 - - [08/May/2025 12:52:30] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-05-08 12:52:30,185 - INFO - 127.0.0.1 - - [08/May/2025 12:52:30] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-05-08 12:52:31,686 - INFO - Administrator wszedł na stronę główną.
+2025-05-08 12:52:31,687 - INFO - 127.0.0.1 - - [08/May/2025 12:52:31] "GET / HTTP/1.1" 200 -
+2025-05-08 12:52:31,711 - INFO - 127.0.0.1 - - [08/May/2025 12:52:31] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-05-08 12:52:31,716 - INFO - 127.0.0.1 - - [08/May/2025 12:52:31] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-05-08 13:28:19,814 - INFO - Administrator wszedł na stronę profilu.
+2025-05-08 13:28:19,823 - INFO - 127.0.0.1 - - [08/May/2025 13:28:19] "GET /profil HTTP/1.1" 200 -
+2025-05-08 13:28:19,858 - INFO - 127.0.0.1 - - [08/May/2025 13:28:19] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-05-08 13:28:19,871 - INFO - 127.0.0.1 - - [08/May/2025 13:28:19] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-05-08 13:29:25,014 - INFO - Administrator wszedł na stronę główną.
+2025-05-08 13:29:25,015 - INFO - 127.0.0.1 - - [08/May/2025 13:29:25] "GET / HTTP/1.1" 200 -
+2025-05-08 13:29:25,040 - INFO - 127.0.0.1 - - [08/May/2025 13:29:25] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-05-08 13:29:25,046 - INFO - 127.0.0.1 - - [08/May/2025 13:29:25] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-05-08 13:29:26,027 - INFO - Administrator wszedł na stronę profilu.
+2025-05-08 13:29:26,037 - INFO - 127.0.0.1 - - [08/May/2025 13:29:26] "GET /profil HTTP/1.1" 200 -
+2025-05-08 13:29:26,059 - INFO - 127.0.0.1 - - [08/May/2025 13:29:26] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-05-08 13:29:26,072 - INFO - 127.0.0.1 - - [08/May/2025 13:29:26] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-05-08 13:47:52,803 - INFO - Połączenie z bazą danych zostało nawiązane pomyślnie.
+2025-05-08 13:47:52,884 - INFO - ✅ Kopia zapasowa zapisana do pliku: backups\kopie_zapasowe_bazy_2025-05-08_13-47.sql
+2025-05-08 13:47:52,885 - INFO - 🗑️ Usunięto starą kopię: kopie_zapasowe_bazy_2025-05-07_12-28.sql
+2025-05-08 13:47:52,928 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.1.28:5000
+2025-05-08 13:47:52,928 - INFO - [33mPress CTRL+C to quit[0m
+2025-05-08 13:47:52,931 - INFO -  * Restarting with stat
+2025-05-08 13:47:55,409 - INFO - Połączenie z bazą danych zostało nawiązane pomyślnie.
+2025-05-08 13:47:55,491 - INFO - ✅ Kopia zapasowa zapisana do pliku: backups\kopie_zapasowe_bazy_2025-05-08_13-47.sql
+2025-05-08 13:47:55,497 - WARNING -  * Debugger is active!
+2025-05-08 13:47:55,501 - INFO -  * Debugger PIN: 575-758-812
