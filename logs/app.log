@@ -3979,3 +3979,87 @@
 2025-05-08 14:01:29,732 - INFO - 192.168.1.13 - - [08/May/2025 14:01:29] "GET / HTTP/1.1" 200 -
 2025-05-08 14:01:29,752 - INFO - 192.168.1.13 - - [08/May/2025 14:01:29] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
 2025-05-08 14:01:29,754 - INFO - 192.168.1.13 - - [08/May/2025 14:01:29] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-05-08 14:01:48,139 - INFO - Administrator wszedł na stronę główną.
+2025-05-08 14:01:48,141 - INFO - 192.168.1.13 - - [08/May/2025 14:01:48] "GET / HTTP/1.1" 200 -
+2025-05-08 14:01:48,158 - INFO - 192.168.1.13 - - [08/May/2025 14:01:48] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-05-08 14:01:48,159 - INFO - 192.168.1.13 - - [08/May/2025 14:01:48] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-05-08 14:01:49,264 - INFO - Administrator wszedł na stronę profilu.
+2025-05-08 14:01:49,277 - INFO - 192.168.1.13 - - [08/May/2025 14:01:49] "GET /profil HTTP/1.1" 200 -
+2025-05-08 14:01:49,297 - INFO - 192.168.1.13 - - [08/May/2025 14:01:49] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-05-08 14:01:49,298 - INFO - 192.168.1.13 - - [08/May/2025 14:01:49] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-05-08 14:01:51,702 - INFO - Administrator wszedł na stronę dodawania profilu.
+2025-05-08 14:01:51,704 - INFO - 192.168.1.13 - - [08/May/2025 14:01:51] "GET /dodaj_profil HTTP/1.1" 200 -
+2025-05-08 14:01:51,718 - INFO - 192.168.1.13 - - [08/May/2025 14:01:51] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-05-08 14:03:05,115 - INFO - 192.168.1.13 - - [08/May/2025 14:03:05] "[33mGET /dodaj_ksztaltowanie HTTP/1.1[0m" 404 -
+2025-05-08 14:03:18,195 - INFO - Administrator wszedł na stronę główną.
+2025-05-08 14:03:18,198 - INFO - 192.168.1.13 - - [08/May/2025 14:03:18] "GET / HTTP/1.1" 200 -
+2025-05-08 14:03:18,218 - INFO - 192.168.1.13 - - [08/May/2025 14:03:18] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-05-08 14:03:18,220 - INFO - 192.168.1.13 - - [08/May/2025 14:03:18] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-05-08 14:03:35,137 - INFO -  * Detected change in 'C:\\Users\\Windows\\Desktop\\baza\\baza danych maxmetal\\python\\index.py', reloading
+2025-05-08 14:03:49,122 - INFO -  * Restarting with stat
+2025-05-08 14:03:53,644 - INFO - Połączenie z bazą danych zostało nawiązane pomyślnie.
+2025-05-08 14:03:53,751 - INFO - ✅ Kopia zapasowa zapisana do pliku: backups\kopie_zapasowe_bazy_2025-05-08_14-03.sql
+2025-05-08 14:03:53,752 - INFO - 🗑️ Usunięto starą kopię: kopie_zapasowe_bazy_2025-05-06_15-40.sql
+2025-05-08 14:03:54,810 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.1.13:5000
+2025-05-08 14:03:54,810 - INFO - [33mPress CTRL+C to quit[0m
+2025-05-08 14:03:54,812 - INFO -  * Restarting with stat
+2025-05-08 14:03:56,927 - INFO - Połączenie z bazą danych zostało nawiązane pomyślnie.
+2025-05-08 14:03:57,025 - INFO - ✅ Kopia zapasowa zapisana do pliku: backups\kopie_zapasowe_bazy_2025-05-08_14-03.sql
+2025-05-08 14:03:57,038 - WARNING -  * Debugger is active!
+2025-05-08 14:03:57,044 - INFO -  * Debugger PIN: 842-370-172
+2025-05-08 14:03:57,528 - INFO - Administrator wszedł na stronę główną.
+2025-05-08 14:03:57,586 - INFO - 192.168.1.13 - - [08/May/2025 14:03:57] "GET / HTTP/1.1" 200 -
+2025-05-08 14:03:57,610 - INFO - 192.168.1.13 - - [08/May/2025 14:03:57] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-05-08 14:03:57,612 - INFO - 192.168.1.13 - - [08/May/2025 14:03:57] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-05-08 14:03:57,629 - INFO - 192.168.1.13 - - [08/May/2025 14:03:57] "[36mGET /static/img/logo-male.png HTTP/1.1[0m" 304 -
+2025-05-08 14:04:01,531 - INFO - Administrator wszedł na stronę profilu.
+2025-05-08 14:04:01,637 - INFO - 192.168.1.13 - - [08/May/2025 14:04:01] "GET /profil HTTP/1.1" 200 -
+2025-05-08 14:04:01,656 - INFO - 192.168.1.13 - - [08/May/2025 14:04:01] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-05-08 14:04:01,657 - INFO - 192.168.1.13 - - [08/May/2025 14:04:01] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-05-08 14:04:03,914 - INFO - Administrator wszedł na stronę dodawania profilu.
+2025-05-08 14:04:03,928 - INFO - 192.168.1.13 - - [08/May/2025 14:04:03] "GET /dodaj_profil HTTP/1.1" 200 -
+2025-05-08 14:04:03,946 - INFO - 192.168.1.13 - - [08/May/2025 14:04:03] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-05-08 14:04:10,656 - INFO - Administrator wszedł na stronę dodawania ksztaltowania.
+2025-05-08 14:04:10,670 - INFO - 192.168.1.13 - - [08/May/2025 14:04:10] "GET /dodaj_ksztaltowanie HTTP/1.1" 200 -
+2025-05-08 14:04:10,686 - INFO - 192.168.1.13 - - [08/May/2025 14:04:10] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-05-08 14:05:02,297 - INFO - Administrator wszedł na stronę dodawania profilu.
+2025-05-08 14:05:02,298 - INFO - 192.168.1.13 - - [08/May/2025 14:05:02] "GET /dodaj_profil HTTP/1.1" 200 -
+2025-05-08 14:05:02,317 - INFO - 192.168.1.13 - - [08/May/2025 14:05:02] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-05-08 14:05:10,976 - INFO - Administrator wszedł na stronę dodawania ksztaltowania.
+2025-05-08 14:05:10,978 - INFO - 192.168.1.13 - - [08/May/2025 14:05:10] "GET /dodaj_ksztaltowanie HTTP/1.1" 200 -
+2025-05-08 14:05:10,996 - INFO - 192.168.1.13 - - [08/May/2025 14:05:10] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-05-08 14:05:47,696 - INFO - 192.168.1.13 - - [08/May/2025 14:05:47] "[33mGET /dodaj_rozmiar HTTP/1.1[0m" 404 -
+2025-05-08 14:06:09,621 - INFO - 192.168.1.13 - - [08/May/2025 14:06:09] "[33mGET /dodaj_rozmiar_obejm HTTP/1.1[0m" 404 -
+2025-05-08 14:06:20,916 - INFO - Administrator wszedł na stronę dodawania rozmiaru obejm.
+2025-05-08 14:06:20,953 - INFO - 192.168.1.13 - - [08/May/2025 14:06:20] "[35m[1mGET /dodaj_rozmiar_obejma HTTP/1.1[0m" 500 -
+2025-05-08 14:06:20,964 - INFO - 192.168.1.13 - - [08/May/2025 14:06:20] "GET /dodaj_rozmiar_obejma?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1" 200 -
+2025-05-08 14:06:20,966 - INFO - 192.168.1.13 - - [08/May/2025 14:06:20] "GET /dodaj_rozmiar_obejma?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1" 200 -
+2025-05-08 14:06:20,987 - INFO - 192.168.1.13 - - [08/May/2025 14:06:20] "GET /dodaj_rozmiar_obejma?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+2025-05-08 14:06:51,679 - INFO - 192.168.1.13 - - [08/May/2025 14:06:51] "[33mGET /dodaj_rozmiary_obejma HTTP/1.1[0m" 404 -
+2025-05-08 14:07:41,019 - INFO - Administrator wszedł na stronę dodawania rozmiaru obejm.
+2025-05-08 14:07:41,051 - INFO - 192.168.1.13 - - [08/May/2025 14:07:41] "[35m[1mGET /dodaj_rozmiar_obejma HTTP/1.1[0m" 500 -
+2025-05-08 14:07:41,069 - INFO - 192.168.1.13 - - [08/May/2025 14:07:41] "[36mGET /dodaj_rozmiar_obejma?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+2025-05-08 14:07:41,073 - INFO - 192.168.1.13 - - [08/May/2025 14:07:41] "[36mGET /dodaj_rozmiar_obejma?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+2025-05-08 14:08:18,548 - INFO - Administrator wszedł na stronę dodawania rozmiaru obejm.
+2025-05-08 14:08:18,550 - INFO - 192.168.1.13 - - [08/May/2025 14:08:18] "GET /dodaj_rozmiar_obejma HTTP/1.1" 200 -
+2025-05-08 14:08:31,639 - INFO - Administrator wszedł na stronę dodawania rozmiaru obejm.
+2025-05-08 14:08:31,652 - INFO - 192.168.1.13 - - [08/May/2025 14:08:31] "GET /dodaj_rozmiar_obejma HTTP/1.1" 200 -
+2025-05-08 14:08:31,665 - INFO - 192.168.1.13 - - [08/May/2025 14:08:31] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-05-08 14:08:55,328 - INFO - Administrator wszedł na stronę dodawania materiału obejm.
+2025-05-08 14:08:55,330 - INFO - 192.168.1.13 - - [08/May/2025 14:08:55] "GET /dodaj_material_obejma HTTP/1.1" 200 -
+2025-05-08 14:09:07,069 - INFO - Administrator wszedł na stronę dodawania ksztaltowania.
+2025-05-08 14:09:07,071 - INFO - 192.168.1.13 - - [08/May/2025 14:09:07] "GET /dodaj_ksztaltowanie HTTP/1.1" 200 -
+2025-05-08 14:09:07,086 - INFO - 192.168.1.13 - - [08/May/2025 14:09:07] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-05-08 14:09:13,694 - INFO - Administrator wszedł na stronę dodawania malarni.
+2025-05-08 14:09:13,726 - INFO - 192.168.1.13 - - [08/May/2025 14:09:13] "[35m[1mGET /dodaj_malarnie HTTP/1.1[0m" 500 -
+2025-05-08 14:09:13,739 - INFO - 192.168.1.13 - - [08/May/2025 14:09:13] "GET /dodaj_malarnie?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1" 200 -
+2025-05-08 14:09:13,741 - INFO - 192.168.1.13 - - [08/May/2025 14:09:13] "GET /dodaj_malarnie?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1" 200 -
+2025-05-08 14:09:13,760 - INFO - 192.168.1.13 - - [08/May/2025 14:09:13] "GET /dodaj_malarnie?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+2025-05-08 14:09:18,710 - INFO - 192.168.1.13 - - [08/May/2025 14:09:18] "[33mGET /dodaj_malarnia HTTP/1.1[0m" 404 -
+2025-05-08 14:09:34,938 - INFO - Administrator wszedł na stronę dodawania malarni.
+2025-05-08 14:09:34,941 - INFO - 192.168.1.13 - - [08/May/2025 14:09:34] "GET /dodaj_malarnie HTTP/1.1" 200 -
+2025-05-08 14:09:42,531 - INFO - Administrator wszedł na stronę dodawania powrotu.
+2025-05-08 14:09:42,535 - INFO - 192.168.1.13 - - [08/May/2025 14:09:42] "GET /dodaj_powrot HTTP/1.1" 200 -
