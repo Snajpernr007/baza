@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile MaxMetal</title>
+    <link rel="icon" href="../static/img/logo-male.png">
+    <link rel="stylesheet" href="../static/style.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>  <!-- Dodaj jQuery -->
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    // Funkcja do formatowania czasu z sekundami (HH:MM:SS)
+    function formatTimeWithSeconds(date) {
+        const hours = String(date.getHours()).padStart(2, '0');
+        const minutes = String(date.getMinutes()).padStart(2, '0');
+        const seconds = String(date.getSeconds()).padStart(2, '0');
+        return `${hours}:${minutes}:${seconds}`;
+    }
+
+    // Ustaw aktualną datę i godzinę rozpoczęcia przy załadowaniu strony
+    const now = new Date();
+    const today = now.toISOString().split('T')[0]; // Format daty YYYY-MM-DD
+    const currentTimeWithSeconds = formatTimeWithSeconds(now);
+
+    // Ustaw wartości pól ukrytych
+    const dataProd = document.querySelector('input[name="data_produkcji"]');
+    const godzStart = document.querySelector('input[name="godz_min_rozpoczecia"]');
+    if (dataProd && godzStart) {
+        dataProd.value = today;
+        godzStart.value = currentTimeWithSeconds;
+    }
+
+    // Dodanie godziny zakończenia przy wysyłaniu formularza + walidacja zwrotu
+    const form = document.getElementById('myForm');
+    form.addEventListener('submit', function (event) {
+        const endTime = new Date();
+        const godzEnd = document.querySelector('input[name="godz_min_zakonczenia"]');
+godzEnd.value = formatTimeWithSeconds(endTime);
+
+        // Pobierz wartość zwrotu i wagę kręgu na stanie
+        const zwrotInput = document.querySelector('input[name="zwrot_na_magazyn_kg"]');
+        if (zwrotInput) {
+            const zwrotNaMagazynKg = parseFloat(zwrotInput.value);
+            let wagaKreguNaStanie = 0;
+
+            const etykietaSelect = document.querySelector('select[name="etykieta"]');
+            if (etykietaSelect) {
+                const selectedOption = etykietaSelect.selectedOptions[0];
+                wagaKreguNaStanie = parseFloat(selectedOption.getAttribute('data-waga-kregu'));
+            } else {
+                wagaKreguNaStanie = parseFloat(zwrotInput.getAttribute('data-waga-kregu'));
+            }
+
+            if (!isNaN(zwrotNaMagazynKg) && !isNaN(wagaKreguNaStanie)) {
+                if (zwrotNaMagazynKg > wagaKreguNaStanie) {
+                    alert(`Wartość zwrotu na magazyn nie może być większa niż ${wagaKreguNaStanie} kg.`);
+                    event.preventDefault(); // Zatrzymaj wysyłanie formularza
+                   
+                }
+            }
+        }
+    });
+});
+
+// Funkcja do filtrowania etykiet
+function filtrujEtykiete() {
+    let input = document.getElementById("szukaj_etykiety").value.toLowerCase();
+    let select = document.getElementById("etykieta");
+    let options = select.getElementsByTagName("option");
+
+    for (let option of options) {
+        let text = option.textContent.toLowerCase();
+        option.style.display = text.includes(input) ? "" : "none";
+    }
+}
+function filtrujDlugosci() {
+    let input = document.getElementById("szukaj_dlugosci").value.toLowerCase();
+    let select = document.getElementById("dlugosc");
+    let options = select.getElementsByTagName("option");
+
+    for (let option of options) {
+        let text = option.textContent.toLowerCase();
+        option.style.display = text.includes(input) ? "" : "none";
+    }
+}
+function filtrujSzablon() {
+    let input = document.getElementById("szukaj_szablon").value.toLowerCase();
+    let select = document.getElementById("szablon_profile");
+    let options = select.getElementsByTagName("option");
+
+    for (let option of options) {
+        let text = option.textContent.toLowerCase();
+        option.style.display = text.includes(input) ? "" : "none";
+    }
+}
+function zamknijOkno() {
+        setTimeout(function() {
+            window.close();
+        }, 1);
+    }
+</script>
+</head>
+<body>
+    <div id="strona">
+        <form id="myForm" method="POST" action="{{ url_for('dodaj_lub_zakonczenie_profilu') }}">
+            {% if not profil %}
+                <!-- ROZPOCZĘCIE PROFILU -->
+                <h2>Rozpocznij profil</h2>
+        
+                <label for="etykieta">Etykieta Materiału:</label><br>
+<input type="text" id="szukaj_etykiety" onkeyup="filtrujEtykiete()" placeholder="Szukaj etykiety..."><br>
+<select id="etykieta" name="etykieta" required>
+    {% for tasma in tasmy %}
+    {%if tasma.waga_kregu_na_stanie == 0%} 
+        {pass}
+    {%else%}
+        <option value="{{ tasma.id }}" >
+            {{ tasma.nr_z_etykiety_na_kregu }}  {{tasma.szerokosc}}x{{tasma.grubosc}} na stanie {{ tasma.waga_kregu_na_stanie }}kg 
+        </option>
+    {% endif %}
+    {% endfor %}
+</select><br>
+        
+                <input type="hidden" name="data_produkcji" value="{{ dzisiaj }}">
+                <input type="hidden" name="godz_min_rozpoczecia" value="{{ teraz }}">
+        
+                <label for="szablon">Nr części klienta:</label><br>
+                <input type="text" id="szukaj_szablon" onkeyup="filtrujSzablon()" placeholder="Szukaj numeru części klienta..."><br>
+                <select id="szablon_profile" name="szablon_profile" required>
+                    {% for szablon_profile in szablony%}
+                    
+                    <option value="{{ szablon_profile.id }}">{{ szablon_profile.nazwa }}</option>
+                    
+                    {% endfor %}
+                </select><br>
+        
+                <label for="nazwa_klienta_nr_zlecenia_PRODIO">Nazwa Klienta / Nr Zlecenia:</label>
+                <input type="text" name="nazwa_klienta_nr_zlecenia_PRODIO" required><br>
+                <label for="imie_nazwisko_pracownika">Imie Nazwisko</label>
+                <input type="text" name="imie_nazwisko_pracownika" required><br>
+                <button class="button" type="reset">Wyczyść</button>
+                <button class="button" type="submit">Rozpocznij</button>
+        
+            {% else %}
+                <!-- ZAKOŃCZENIE PROFILU -->
+                <h2>Zakończ profil #{{ profil.id }}</h2>
+                <input type="hidden" name="profil_id" value="{{ profil.id }}">
+        
+                
+                <input type="hidden" name="godz_min_zakonczenia" value="{{ teraz }}">
+        
+                <label for="zwrot_na_magazyn_kg">Zwrot na Magazyn (kg) obecnie {{ilosc}}:</label>
+                <input type="number" name="zwrot_na_magazyn_kg" data-waga-kregu="{{ ilosc }}" ><br>
+        
+                <label for="ilosc">Ilość:</label>
+                <input type="number" name="ilosc" required><br>
+        
+                <label for="dlugosc">Długość:</label><br>
+<input type="text" id="szukaj_dlugosci" onkeyup="filtrujDlugosci()" placeholder="Szukaj długości..."><br>
+<select id="dlugosc" name="id_dlugosci" required>
+    {% for d in dlugosci %}
+        <option value="{{ d.id }}">{{ d.nazwa }}</option>
+    {% endfor %}
+</select><br>
+<button class="button" type="reset">Wyczyść</button>
+                <button class="button" type="submit">Zakończ</button>
+                
+            {% endif %}
+        </form>
+
+            <!-- <button type="reset" class="button">Wyczyść</button>
+            <button type="submit" class="button">Zapisz</button>
+        </form> -->
+    </div>
+</body>
+</html>
