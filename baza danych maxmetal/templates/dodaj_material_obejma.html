@@ -7,11 +7,22 @@
     <link rel="icon" href="../static/img/logo-male.png">
     <link rel="stylesheet" href="../static/style.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>  <!-- Dodaj jQuery -->
+<script>
+        function filtrujMaterial() {
+        let input = document.getElementById("szukaj_material").value.toLowerCase();
+        let select = document.getElementById("nazwa_materiału");
+        let options = select.getElementsByTagName("option");
 
+        for (let option of options) {
+            let text = option.textContent.toLowerCase();
+            option.style.display = text.includes(input) ? "" : "none";
+        }
+    }
+</script>
 </head>
 <body>
     <div id="strona">
-        <form id="myForm" action="{{ url_for('dodaj_lokalizacje_do_bazy') }}" method="post">
+        <form id="myForm" action="{{ url_for('dodaj_material_obejma_do_bazy') }}" method="post">
             
            
             <h2>Dodaj Materiał Obejm</h2>
@@ -25,12 +36,18 @@
             <input type="text" name="prodio" required><br>
             <label for="ilosc" name="ilosc">Ilość:</label>
             <input type="number" name="ilosc" required><br>
-            <label for="ilosc_na_stanie" name="ilosc_na_stanie">Ilość na stanie:</label>
-            <input type="number" name="ilosc_na_stanie" required><br>
-            <label for="rozmiar" name="rozmiar">Rozmiar:</label>
-            <input type="text" name="rozmiar" required><br>
-            <label for="pracownik" name="pracownik">Pracownik:</label>
-            <input type="text" name="pracownik" required><br>
+            <label for="szukaj_material">Szukaj Rozmiar:</label>
+<input type="text" id="szukaj_material" onkeyup="filtrujMaterial()" placeholder="Wpisz rozmiar.."><br>
+            
+
+<label for="nazwa_materiału">Rozmiar:</label>
+<select id="nazwa_materiału" name="nazwa_materiału" required size="5">
+    {% for nazwa_materiału in rozmiar %}
+        <option value="{{ nazwa_materiału.id }}">{{ nazwa_materiału.nazwa }}</option>
+    {% endfor %}
+</select><br>
+            
+            
 
             <button type="reset" class="button">Wyczyść</button>
             <button type="submit" class="button">Zapisz</button>
