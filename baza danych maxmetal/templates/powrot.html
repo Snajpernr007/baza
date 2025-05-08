@@ -80,6 +80,11 @@
                             <a href="{{ url_for('sprzedaz') }}"><label for="menuCheckbox" onclick="this.parentNode.click();">Sprzedaż</label></a>
                         </li>
                         {% endif %}
+                        {% if g.user.id_uprawnienia==1 or g.user.id_uprawnienia==2%}
+                        <li>
+                            <a href="{{ url_for('dodaj_powrot') }}"><label for="menuCheckbox" onclick="this.parentNode.click();">Dodaj Powrót z Malarni</label></a>
+                        </li>
+                        {% endif %}
                         <li>
                             <a href=javascript:history.back();><label for="menuCheckbox" onclick="this.parentNode.click();">Powrót</label></a>
                         </li>  
@@ -99,7 +104,7 @@
         </div>
 
             <div id="title">
-                <h2 class="witaj">Profile</h2>
+                <h2 class="witaj">Powrót z Malarni</h2>
             </div>
             <table id="tabela">
                 <thead>
@@ -135,20 +140,16 @@
                     {% for powroty in powrot %}
                         <tr>
                             <td>{{ powrot.id }} </td>
-                            <td>{{ powrot.ksztaltowanie.material.rozmiar.nazwa }}</td>
-                            <td>{{ powrot.ksztaltowanie.material.nr_wytopu}}</td>
+                            <td>{{ powrot.malarnia.ksztaltowanie.material.rozmiar.nazwa }}</td>
+                            <td>{{ powrot.malarnia.ksztaltowanie.material.nr_wytopu}}</td>
                             <td>{{ powrot.ilosc }} </td>
                             <td>{{ powrot.ilosc_na_stanie }}</td>
                             <td>{{ powrot.nr_prodio }}</td>
                             <td>{{ powrot.data }} </td>
+                            <td>{{ powrot.malarnia }} </td>
                             <td>{{ powrot.pracownik.login}}</td>
                             <td>{{ powrot.imie_nazwisko}}</td>
-                            
-                            
-                            
-                            <td>{{ malarnia.imie_nazwisko}}</td>
 
-                            
                             <td><button type="button" class="button" onclick="openEditModal(this.parentElement.parentElement)">Edytuj</button></td>
                         </tr>
                     {% endfor %}
