@@ -184,7 +184,7 @@ function sortTable(columnIndex) {
                         {% endif %}
                         {% if g.user.id_uprawnienia==1 or g.user.id_uprawnienia==2%}
                         <li>
-                            <a href="{{ url_for('sprzedaz') }}"><label for="menuCheckbox" onclick="this.parentNode.click();">Dodaj kształt</label></a>
+                            <a href="{{ url_for('dodaj_ksztaltowanie') }}"><label for="menuCheckbox" onclick="this.parentNode.click();">Dodaj kształt</label></a>
                         </li>
                         {% endif %}
                         <li>

@@ -142,6 +142,9 @@
             {% if g.user.id==1 %}
             <button class="button" onclick="window.location.href='{{ url_for('material_obejma') }}'">Materiały</button>
             {% endif %}
+            {% if g.user.id==1 %}
+            <button class="button" onclick="window.location.href='{{ url_for('ksztaltowanie') }}'">Kształtowanie</button>
+            {% endif %}
         </div>
         
     </div>
