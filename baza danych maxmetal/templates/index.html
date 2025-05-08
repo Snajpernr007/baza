@@ -145,6 +145,12 @@
             {% if g.user.id==1 %}
             <button class="button" onclick="window.location.href='{{ url_for('ksztaltowanie') }}'">Kształtowanie</button>
             {% endif %}
+            {% if g.user.id==1 %}
+            <button class="button" onclick="window.location.href='{{ url_for('malarnia') }}'">Malarnia</button>
+            {% endif %}
+            {% if g.user.id==1 %}
+            <button class="button" onclick="window.location.href='{{ url_for('powrot') }}'">Powrót Malarnia</button>
+            {% endif %}
         </div>
         
     </div>
