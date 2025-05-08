@@ -1594,6 +1594,15 @@ def rozmiary_obejm():
     rozmiary = RozmiaryObejm.query.all()
     logger.info(f"{g.user.login} wszedł na stronę rozmiarów obejm.")
     return render_template("rozmiary_obejm.html", user=g.user, rozmiary=rozmiary)
+@app.route('/dodaj_rozmiar_obejma')
+def dodaj_rozmiar_obejma():
+    if not g.user:
+        return render_template('login.html', user=g.user)
+    if g.user.id_uprawnienia == 3:
+        return redirect(url_for('home'))
+    
+    logger.info(f"{g.user.login} wszedł na stronę dodawania rozmiaru obejm.")
+    return render_template("dodaj_rozmiar_obejma.html", user=g.user)
 
 
 @app.route('/material_obejma')
@@ -1606,7 +1615,15 @@ def material_obejma():
     meterial = MaterialObejma.query.all()
     logger.info(f"{g.user.login} wszedł na stronę materialów obejm.")
     return render_template("material_obejma.html", user=g.user, meterial=meterial)
-
+@app.route('/dodaj_material_obejma')
+def dodaj_material_obejma():
+    if not g.user:
+        return render_template('login.html', user=g.user)
+    if g.user.id_uprawnienia == 3:
+        return redirect(url_for('home'))
+    
+    logger.info(f"{g.user.login} wszedł na stronę dodawania materiału obejm.")
+    return render_template("dodaj_material_obejma.html", user=g.user)
 
 @app.route('/ksztaltowanie')
 def ksztaltowanie():
@@ -1618,7 +1635,15 @@ def ksztaltowanie():
     ksztaltowanie = Ksztaltowanie.query.all()
     logger.info(f"{g.user.login} wszedł na stronę ksztaltowania.")
     return render_template("ksztaltowanie.html", user=g.user, ksztaltowanie=ksztaltowanie)
-
+@app.route('/dodaj_ksztaltowanie')
+def dodaj_ksztaltowanie():
+    if not g.user:
+        return render_template('login.html', user=g.user)
+    if g.user.id_uprawnienia == 3:
+        return redirect(url_for('home'))
+    
+    logger.info(f"{g.user.login} wszedł na stronę dodawania ksztaltowania.")
+    return render_template("dodaj_ksztaltowanie.html", user=g.user)
 
 @app.route('/malarnia')
 def malarnia():
@@ -1630,6 +1655,15 @@ def malarnia():
     malarnia = Malarnia.query.all()
     logger.info(f"{g.user.login} wszedł na stronę malarni.")
     return render_template("malarnia.html", user=g.user, malarnia=malarnia)
+@app.route('/dodaj_malarnie')
+def dodaj_malarnie():
+    if not g.user:
+        return render_template('login.html', user=g.user)
+    if g.user.id_uprawnienia == 3:
+        return redirect(url_for('home'))
+    
+    logger.info(f"{g.user.login} wszedł na stronę dodawania malarni.")
+    return render_template("dodaj_malarnie.html", user=g.user)
 
 
 @app.route('/powrot')
@@ -1642,6 +1676,15 @@ def powrot():
     powrot = Powrot.query.all()
     logger.info(f"{g.user.login} wszedł na stronę powrotu.")
     return render_template("powrot.html", user=g.user, powrot=powrot)
+@app.route('/dodaj_powrot')
+def dodaj_powrot():
+    if not g.user:
+        return render_template('login.html', user=g.user)
+    if g.user.id_uprawnienia == 3:
+        return redirect(url_for('home'))
+    
+    logger.info(f"{g.user.login} wszedł na stronę dodawania powrotu.")
+    return render_template("dodaj_powrot.html", user=g.user)
 
 
 @app.route('/zlecenie')
@@ -1654,6 +1697,15 @@ def zlecenie():
     zlecenie = Zlecenie.query.all()
     logger.info(f"{g.user.login} wszedł na stronę zlecenia.")
     return render_template("zlecenie.html", user=g.user, zlecenie=zlecenie)
+@app.route('/dodaj_zlecenie')
+def dodaj_zlecenie():
+    if not g.user:
+        return render_template('login.html', user=g.user)
+    if g.user.id_uprawnienia == 3:
+        return redirect(url_for('home'))
+    
+    logger.info(f"{g.user.login} wszedł na stronę dodawania zlecenia.")
+    return render_template("dodaj_zlecenie.html", user=g.user)
 
 
 @app.route('/laczenie')
@@ -1666,5 +1718,14 @@ def laczenie():
     laczenie = Laczenie.query.all()
     logger.info(f"{g.user.login} wszedł na stronę Łączenia.")
     return render_template("zlecenie.html", user=g.user, laczenie=laczenie)
+@app.route('/dodaj_laczenie')
+def dodaj_laczenie():
+    if not g.user:
+        return render_template('login.html', user=g.user)
+    if g.user.id_uprawnienia == 3:
+        return redirect(url_for('home'))
+    
+    logger.info(f"{g.user.login} wszedł na stronę dodawania łączenia.")
+    return render_template("dodaj_laczenie.html", user=g.user)
 if __name__ == "__main__":
     app.run(host='0.0.0.0', port=5000, debug=True)
