@@ -107,6 +107,42 @@ function sortTable(columnIndex) {
         }
     });
 }
+function filterTable() {
+    let table = document.getElementById("tabela");
+    let rows = table.querySelectorAll("tbody tr");
+    let filters = table.querySelectorAll("thead tr:first-child input[type='text']");
+
+    let dateFrom = document.getElementById("dateFrom")?.value;
+    let dateTo = document.getElementById("dateTo")?.value;
+
+    rows.forEach(row => {
+        let cells = row.querySelectorAll("td");
+        let show = true;
+
+        // Filtrowanie tekstowe (kolumny poza "Data produkcji")
+        filters.forEach((input, index) => {
+            let value = input.value.toLowerCase();
+            if (value && cells[index]) {
+                let text = cells[index].textContent.toLowerCase();
+                if (!text.includes(value)) {
+                    show = false;
+                }
+            }
+        });
+
+        // Filtrowanie po dacie (kolumna 2 - Data Produkcji)
+        if (show && (dateFrom || dateTo)) {
+            let dateCell = cells[2]?.textContent.trim(); // Zakłada, że data jest w 3. kolumnie (indeks 2)
+            if (dateCell) {
+                let cellDate = new Date(dateCell);
+                if (dateFrom && cellDate < new Date(dateFrom)) show = false;
+                if (dateTo && cellDate > new Date(dateTo)) show = false;
+            }
+        }
+
+        row.style.display = show ? "" : "none";
+    });
+}
     </script>
 </head>
 <body>
@@ -226,7 +262,8 @@ function sortTable(columnIndex) {
                     <tr>
                         <th onclick="sortTable(0)">ID &#9650;&#9660;</th>
                         <th onclick="sortTable(1)">Certyfikat &#9650;&#9660;</th>
-                        <th onclick="sortTable(2)">Data &#9650;&#9660;</th>
+                        <th>OD<input type="date" id="dateFrom" onchange="filterTable()">
+                                DO<input type="date" id="dateTo" onchange="filterTable()"></th>
                         <th onclick="sortTable(3)">Nr wytopu &#9650;&#9660;</th>
                         <th onclick="sortTable(4)">Nr prodio &#9650;&#9660;</th>
                         <th onclick="sortTable(5)">Ilość sztuk &#9650;&#9660;</th>
