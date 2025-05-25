@@ -6961,3 +6961,150 @@
 2025-05-25 16:33:33,520 - INFO - 127.0.0.1 - - [25/May/2025 16:33:33] "GET /ksztaltowanie HTTP/1.1" 200 -
 2025-05-25 16:33:33,544 - INFO - 127.0.0.1 - - [25/May/2025 16:33:33] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
 2025-05-25 16:33:33,555 - INFO - 127.0.0.1 - - [25/May/2025 16:33:33] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-05-25 16:34:05,944 - INFO - Administrator wszedł na stronę ksztaltowania.
+2025-05-25 16:34:05,949 - INFO - 127.0.0.1 - - [25/May/2025 16:34:05] "GET /ksztaltowanie HTTP/1.1" 200 -
+2025-05-25 16:34:05,968 - INFO - 127.0.0.1 - - [25/May/2025 16:34:05] "GET /static/style.css HTTP/1.1" 200 -
+2025-05-25 16:34:05,982 - INFO - 127.0.0.1 - - [25/May/2025 16:34:05] "GET /static/img/logo-duże.png HTTP/1.1" 200 -
+2025-05-25 16:59:21,300 - INFO - Połączenie z bazą danych zostało nawiązane pomyślnie.
+2025-05-25 16:59:21,395 - INFO - ✅ Kopia zapasowa zapisana do pliku: backups\kopie_zapasowe_bazy_2025-05-25_16-59.sql
+2025-05-25 16:59:21,397 - INFO - 🗑️ Usunięto starą kopię: kopie_zapasowe_bazy_2025-05-25_16-17.sql
+2025-05-25 16:59:21,408 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.0.16:5000
+2025-05-25 16:59:21,408 - INFO - [33mPress CTRL+C to quit[0m
+2025-05-25 16:59:21,409 - INFO -  * Restarting with stat
+2025-05-25 16:59:23,933 - INFO - Połączenie z bazą danych zostało nawiązane pomyślnie.
+2025-05-25 16:59:24,024 - INFO - ✅ Kopia zapasowa zapisana do pliku: backups\kopie_zapasowe_bazy_2025-05-25_16-59.sql
+2025-05-25 16:59:24,030 - WARNING -  * Debugger is active!
+2025-05-25 16:59:24,033 - INFO -  * Debugger PIN: 575-758-812
+2025-05-25 16:59:24,333 - INFO - Administrator wszedł na stronę główną.
+2025-05-25 16:59:24,487 - INFO - 127.0.0.1 - - [25/May/2025 16:59:24] "GET / HTTP/1.1" 200 -
+2025-05-25 16:59:24,516 - INFO - 127.0.0.1 - - [25/May/2025 16:59:24] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-05-25 16:59:24,522 - INFO - 127.0.0.1 - - [25/May/2025 16:59:24] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-05-25 17:00:26,156 - INFO - Administrator wszedł na stronę materialów obejm.
+2025-05-25 17:00:26,212 - INFO - 127.0.0.1 - - [25/May/2025 17:00:26] "GET /material_obejma HTTP/1.1" 200 -
+2025-05-25 17:00:26,234 - INFO - 127.0.0.1 - - [25/May/2025 17:00:26] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-05-25 17:00:26,249 - INFO - 127.0.0.1 - - [25/May/2025 17:00:26] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-05-25 17:00:28,734 - INFO - Administrator wszedł na stronę główną.
+2025-05-25 17:00:28,735 - INFO - 127.0.0.1 - - [25/May/2025 17:00:28] "GET / HTTP/1.1" 200 -
+2025-05-25 17:00:28,757 - INFO - 127.0.0.1 - - [25/May/2025 17:00:28] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-05-25 17:00:28,763 - INFO - 127.0.0.1 - - [25/May/2025 17:00:28] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-05-25 17:00:29,742 - INFO - Administrator wszedł na stronę ksztaltowania.
+2025-05-25 17:00:29,802 - INFO - 127.0.0.1 - - [25/May/2025 17:00:29] "GET /ksztaltowanie HTTP/1.1" 200 -
+2025-05-25 17:00:29,826 - INFO - 127.0.0.1 - - [25/May/2025 17:00:29] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-05-25 17:00:29,835 - INFO - 127.0.0.1 - - [25/May/2025 17:00:29] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-05-25 17:00:32,485 - INFO - Administrator wszedł na stronę dodawania ksztaltowania.
+2025-05-25 17:00:32,491 - INFO - 127.0.0.1 - - [25/May/2025 17:00:32] "GET /dodaj_ksztaltowanie HTTP/1.1" 200 -
+2025-05-25 17:00:32,515 - INFO - 127.0.0.1 - - [25/May/2025 17:00:32] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-05-25 17:00:43,172 - INFO - 127.0.0.1 - - [25/May/2025 17:00:43] "[35m[1mPOST /dodaj_ksztaltowanie_do_bazy HTTP/1.1[0m" 500 -
+2025-05-25 17:00:43,194 - INFO - 127.0.0.1 - - [25/May/2025 17:00:43] "[36mGET /dodaj_ksztaltowanie_do_bazy?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+2025-05-25 17:00:43,195 - INFO - 127.0.0.1 - - [25/May/2025 17:00:43] "[36mGET /dodaj_ksztaltowanie_do_bazy?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+2025-05-25 17:00:43,210 - INFO - 127.0.0.1 - - [25/May/2025 17:00:43] "GET /dodaj_ksztaltowanie_do_bazy?__debugger__=yes&cmd=resource&f=console.png&s=gwy34Y4UgwjAVVbjSKnr HTTP/1.1" 200 -
+2025-05-25 17:01:26,765 - INFO - Połączenie z bazą danych zostało nawiązane pomyślnie.
+2025-05-25 17:01:26,854 - INFO - ✅ Kopia zapasowa zapisana do pliku: backups\kopie_zapasowe_bazy_2025-05-25_17-01.sql
+2025-05-25 17:01:26,855 - INFO - 🗑️ Usunięto starą kopię: kopie_zapasowe_bazy_2025-05-25_16-18.sql
+2025-05-25 17:01:26,865 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.0.16:5000
+2025-05-25 17:01:26,865 - INFO - [33mPress CTRL+C to quit[0m
+2025-05-25 17:01:26,867 - INFO -  * Restarting with stat
+2025-05-25 17:01:29,575 - INFO - Połączenie z bazą danych zostało nawiązane pomyślnie.
+2025-05-25 17:01:29,664 - INFO - ✅ Kopia zapasowa zapisana do pliku: backups\kopie_zapasowe_bazy_2025-05-25_17-01.sql
+2025-05-25 17:01:29,670 - WARNING -  * Debugger is active!
+2025-05-25 17:01:29,674 - INFO -  * Debugger PIN: 575-758-812
+2025-05-25 17:02:02,057 - INFO - 127.0.0.1 - - [25/May/2025 17:02:02] "[35m[1mPOST /dodaj_ksztaltowanie_do_bazy HTTP/1.1[0m" 500 -
+2025-05-25 17:02:02,074 - INFO - 127.0.0.1 - - [25/May/2025 17:02:02] "[36mGET /dodaj_ksztaltowanie_do_bazy?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+2025-05-25 17:02:02,074 - INFO - 127.0.0.1 - - [25/May/2025 17:02:02] "GET /dodaj_ksztaltowanie_do_bazy?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1" 200 -
+2025-05-25 17:02:02,089 - INFO - 127.0.0.1 - - [25/May/2025 17:02:02] "GET /dodaj_ksztaltowanie_do_bazy?__debugger__=yes&cmd=resource&f=console.png&s=PNXWumPDRoZxhq64smuK HTTP/1.1" 200 -
+2025-05-25 17:02:41,063 - INFO - Administrator wszedł na stronę dodawania ksztaltowania.
+2025-05-25 17:02:41,084 - INFO - 127.0.0.1 - - [25/May/2025 17:02:41] "GET /dodaj_ksztaltowanie HTTP/1.1" 200 -
+2025-05-25 17:02:41,106 - INFO - 127.0.0.1 - - [25/May/2025 17:02:41] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-05-25 17:02:42,814 - INFO - 127.0.0.1 - - [25/May/2025 17:02:42] "[35m[1mPOST /dodaj_ksztaltowanie_do_bazy HTTP/1.1[0m" 500 -
+2025-05-25 17:02:42,837 - INFO - 127.0.0.1 - - [25/May/2025 17:02:42] "[36mGET /dodaj_ksztaltowanie_do_bazy?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+2025-05-25 17:02:42,838 - INFO - 127.0.0.1 - - [25/May/2025 17:02:42] "[36mGET /dodaj_ksztaltowanie_do_bazy?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+2025-05-25 17:02:42,847 - INFO - 127.0.0.1 - - [25/May/2025 17:02:42] "[36mGET /dodaj_ksztaltowanie_do_bazy?__debugger__=yes&cmd=resource&f=console.png&s=PNXWumPDRoZxhq64smuK HTTP/1.1[0m" 304 -
+2025-05-25 17:03:47,804 - INFO - Połączenie z bazą danych zostało nawiązane pomyślnie.
+2025-05-25 17:03:47,894 - INFO - ✅ Kopia zapasowa zapisana do pliku: backups\kopie_zapasowe_bazy_2025-05-25_17-03.sql
+2025-05-25 17:03:47,896 - INFO - 🗑️ Usunięto starą kopię: kopie_zapasowe_bazy_2025-05-25_16-21.sql
+2025-05-25 17:03:47,909 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.0.16:5000
+2025-05-25 17:03:47,909 - INFO - [33mPress CTRL+C to quit[0m
+2025-05-25 17:03:47,911 - INFO -  * Restarting with stat
+2025-05-25 17:03:50,357 - INFO - Połączenie z bazą danych zostało nawiązane pomyślnie.
+2025-05-25 17:03:50,458 - INFO - ✅ Kopia zapasowa zapisana do pliku: backups\kopie_zapasowe_bazy_2025-05-25_17-03.sql
+2025-05-25 17:03:50,464 - WARNING -  * Debugger is active!
+2025-05-25 17:03:50,468 - INFO -  * Debugger PIN: 575-758-812
+2025-05-25 17:03:50,789 - INFO - Ksztaltowanie Operacaja 9 zostało dodane przez Administrator.
+2025-05-25 17:03:50,790 - INFO - 127.0.0.1 - - [25/May/2025 17:03:50] "[32mPOST /dodaj_ksztaltowanie_do_bazy HTTP/1.1[0m" 302 -
+2025-05-25 17:03:50,800 - INFO - Administrator wszedł na stronę ksztaltowania.
+2025-05-25 17:03:50,878 - INFO - 127.0.0.1 - - [25/May/2025 17:03:50] "GET /ksztaltowanie HTTP/1.1" 200 -
+2025-05-25 17:03:50,917 - INFO - 127.0.0.1 - - [25/May/2025 17:03:50] "GET /static/style.css HTTP/1.1" 200 -
+2025-05-25 17:03:50,932 - INFO - 127.0.0.1 - - [25/May/2025 17:03:50] "GET /static/img/logo-duże.png HTTP/1.1" 200 -
+2025-05-25 17:03:50,941 - INFO - 127.0.0.1 - - [25/May/2025 17:03:50] "GET /static/img/logo-male.png HTTP/1.1" 200 -
+2025-05-25 17:05:51,952 - INFO - Połączenie z bazą danych zostało nawiązane pomyślnie.
+2025-05-25 17:05:52,038 - INFO - ✅ Kopia zapasowa zapisana do pliku: backups\kopie_zapasowe_bazy_2025-05-25_17-05.sql
+2025-05-25 17:05:52,040 - INFO - 🗑️ Usunięto starą kopię: kopie_zapasowe_bazy_2025-05-25_16-22.sql
+2025-05-25 17:05:52,051 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.0.16:5000
+2025-05-25 17:05:52,052 - INFO - [33mPress CTRL+C to quit[0m
+2025-05-25 17:05:52,053 - INFO -  * Restarting with stat
+2025-05-25 17:05:54,461 - INFO - Połączenie z bazą danych zostało nawiązane pomyślnie.
+2025-05-25 17:05:54,557 - INFO - ✅ Kopia zapasowa zapisana do pliku: backups\kopie_zapasowe_bazy_2025-05-25_17-05.sql
+2025-05-25 17:05:54,562 - WARNING -  * Debugger is active!
+2025-05-25 17:05:54,567 - INFO -  * Debugger PIN: 575-758-812
+2025-05-25 17:06:47,256 - INFO - Administrator wszedł na stronę główną.
+2025-05-25 17:06:47,400 - INFO - 127.0.0.1 - - [25/May/2025 17:06:47] "GET / HTTP/1.1" 200 -
+2025-05-25 17:06:47,426 - INFO - 127.0.0.1 - - [25/May/2025 17:06:47] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-05-25 17:06:47,433 - INFO - 127.0.0.1 - - [25/May/2025 17:06:47] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-05-25 17:06:48,606 - INFO - Administrator wszedł na stronę materialów obejm.
+2025-05-25 17:06:48,666 - INFO - 127.0.0.1 - - [25/May/2025 17:06:48] "GET /material_obejma HTTP/1.1" 200 -
+2025-05-25 17:06:48,690 - INFO - 127.0.0.1 - - [25/May/2025 17:06:48] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-05-25 17:06:48,703 - INFO - 127.0.0.1 - - [25/May/2025 17:06:48] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-05-25 17:06:50,830 - INFO - Administrator wszedł na stronę główną.
+2025-05-25 17:06:50,831 - INFO - 127.0.0.1 - - [25/May/2025 17:06:50] "GET / HTTP/1.1" 200 -
+2025-05-25 17:06:50,855 - INFO - 127.0.0.1 - - [25/May/2025 17:06:50] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-05-25 17:06:50,862 - INFO - 127.0.0.1 - - [25/May/2025 17:06:50] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-05-25 17:06:51,753 - INFO - Administrator wszedł na stronę ksztaltowania.
+2025-05-25 17:06:51,818 - INFO - 127.0.0.1 - - [25/May/2025 17:06:51] "GET /ksztaltowanie HTTP/1.1" 200 -
+2025-05-25 17:06:51,843 - INFO - 127.0.0.1 - - [25/May/2025 17:06:51] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-05-25 17:06:51,852 - INFO - 127.0.0.1 - - [25/May/2025 17:06:51] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-05-25 17:06:54,965 - INFO - Administrator wszedł na stronę dodawania ksztaltowania.
+2025-05-25 17:06:54,975 - INFO - 127.0.0.1 - - [25/May/2025 17:06:54] "GET /dodaj_ksztaltowanie HTTP/1.1" 200 -
+2025-05-25 17:06:54,999 - INFO - 127.0.0.1 - - [25/May/2025 17:06:54] "GET /static/style.css HTTP/1.1" 200 -
+2025-05-25 17:07:02,216 - INFO - Ksztaltowanie Operacaja 13 zostało dodane przez Administrator.
+2025-05-25 17:07:02,217 - INFO - 127.0.0.1 - - [25/May/2025 17:07:02] "[32mPOST /dodaj_ksztaltowanie_do_bazy HTTP/1.1[0m" 302 -
+2025-05-25 17:07:02,226 - INFO - Administrator wszedł na stronę ksztaltowania.
+2025-05-25 17:07:02,231 - INFO - 127.0.0.1 - - [25/May/2025 17:07:02] "GET /ksztaltowanie HTTP/1.1" 200 -
+2025-05-25 17:07:02,254 - INFO - 127.0.0.1 - - [25/May/2025 17:07:02] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-05-25 17:07:02,268 - INFO - 127.0.0.1 - - [25/May/2025 17:07:02] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-05-25 17:07:04,906 - INFO - Administrator wszedł na stronę główną.
+2025-05-25 17:07:04,908 - INFO - 127.0.0.1 - - [25/May/2025 17:07:04] "GET / HTTP/1.1" 200 -
+2025-05-25 17:07:04,935 - INFO - 127.0.0.1 - - [25/May/2025 17:07:04] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-05-25 17:07:04,942 - INFO - 127.0.0.1 - - [25/May/2025 17:07:04] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-05-25 17:07:05,859 - INFO - Administrator wszedł na stronę materialów obejm.
+2025-05-25 17:07:05,861 - INFO - 127.0.0.1 - - [25/May/2025 17:07:05] "GET /material_obejma HTTP/1.1" 200 -
+2025-05-25 17:07:05,883 - INFO - 127.0.0.1 - - [25/May/2025 17:07:05] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-05-25 17:07:05,894 - INFO - 127.0.0.1 - - [25/May/2025 17:07:05] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-05-25 17:09:38,428 - INFO - Administrator wszedł na stronę główną.
+2025-05-25 17:09:38,429 - INFO - 127.0.0.1 - - [25/May/2025 17:09:38] "GET / HTTP/1.1" 200 -
+2025-05-25 17:09:38,456 - INFO - 127.0.0.1 - - [25/May/2025 17:09:38] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-05-25 17:09:38,463 - INFO - 127.0.0.1 - - [25/May/2025 17:09:38] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-05-25 17:09:41,150 - INFO - Administrator wszedł na stronę ksztaltowania.
+2025-05-25 17:09:41,154 - INFO - 127.0.0.1 - - [25/May/2025 17:09:41] "GET /ksztaltowanie HTTP/1.1" 200 -
+2025-05-25 17:09:41,179 - INFO - 127.0.0.1 - - [25/May/2025 17:09:41] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-05-25 17:09:41,192 - INFO - 127.0.0.1 - - [25/May/2025 17:09:41] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-05-25 17:09:43,853 - INFO - Administrator wszedł na stronę dodawania ksztaltowania.
+2025-05-25 17:09:43,860 - INFO - 127.0.0.1 - - [25/May/2025 17:09:43] "GET /dodaj_ksztaltowanie HTTP/1.1" 200 -
+2025-05-25 17:09:43,885 - INFO - 127.0.0.1 - - [25/May/2025 17:09:43] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-05-25 17:09:56,966 - INFO - Ksztaltowanie Operacaja 14 zostało dodane przez Administrator.
+2025-05-25 17:09:56,967 - INFO - 127.0.0.1 - - [25/May/2025 17:09:56] "[32mPOST /dodaj_ksztaltowanie_do_bazy HTTP/1.1[0m" 302 -
+2025-05-25 17:09:56,975 - INFO - Administrator wszedł na stronę ksztaltowania.
+2025-05-25 17:09:56,980 - INFO - 127.0.0.1 - - [25/May/2025 17:09:56] "GET /ksztaltowanie HTTP/1.1" 200 -
+2025-05-25 17:09:57,002 - INFO - 127.0.0.1 - - [25/May/2025 17:09:57] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-05-25 17:09:57,015 - INFO - 127.0.0.1 - - [25/May/2025 17:09:57] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -

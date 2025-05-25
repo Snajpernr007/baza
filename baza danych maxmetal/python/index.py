@@ -1731,7 +1731,10 @@ def dodaj_ksztaltowanie_do_bazy():
         nowy_ksztaltowanie = Ksztaltowanie(godzina_rozpoczecia=godzina_rozpoczencia,godzina_zakonczenia=godzina_zakonczenia, data=data, id_materialu=material,
                                       nr_prodio=numer_prodio, ilosc=ilosc, ilosc_na_stanie=ilosc_na_stanie,nazwa=nazwa, id_pracownik=pracownik,imie_nazwisko=imie_nazwisko)
         db.session.add(nowy_ksztaltowanie)
-
+        profil = Ksztaltowanie.query.get(int(nr))
+        material = MaterialObejma.query.get(profil.id_materialu )
+        material.ilosc_sztuk_na_stanie = material.ilosc_sztuk_na_stanie-int(ilosc)
+        db.session.add(material)
         try:
             db.session.commit()
             logger.info(f"Ksztaltowanie {nazwa} zostało dodane przez {g.user.login}.")
