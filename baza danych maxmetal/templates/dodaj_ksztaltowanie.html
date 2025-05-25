@@ -53,7 +53,7 @@
 
             if (!isNaN(zwrotNaMagazynKg) && !isNaN(wagaKreguNaStanie)) {
               if (zwrotNaMagazynKg > wagaKreguNaStanie) {
-                alert(`Wartość zwrotu na magazyn nie może być większa niż ${wagaKreguNaStanie} kg.`);
+                alert(`Wartość zwrotu na magazyn nie może być większa niż ${wagaKreguNaStanie} .`);
                 return; // zatrzymujemy wysyłanie
               }
             }
@@ -93,8 +93,8 @@
       <label for="nazwa_materiału">Numer wytopu:</label>
       <select id="nazwa_materiału" name="nazwa_materiału" required size="5">
         {% for nazwa_materiału in rozmiar %}
-        <option value="{{ nazwa_materiału.id }}" data-waga-kregu="{{ nazwa_materiału.waga }}">
-          {{ nazwa_materiału.nr_wytopu }}
+        <option value="{{ nazwa_materiału.id }}" data-waga-kregu="{{ nazwa_materiału.ilosc_sztuk_na_stanie }}">
+          {{ nazwa_materiału.nr_wytopu }} na stanie: {{ nazwa_materiału.ilosc_sztuk_na_stanie }} 
         </option>
         {% endfor %}
       </select><br />
