@@ -20,22 +20,10 @@
                             <span></span>
                         
                         <ul id="menu">
-                            {% if not g.user %}
-                        
-                            <li>
-                                <a href="{{ url_for('login') }}"><label for="menuCheckbox" onclick="this.parentNode.click();">Zaloguj się!</label></a>
-                            </li>
-                        
-                            
-                        {% else %}
-                        <li>
-                            <a href="{{ url_for('logout') }}"><label for="menuCheckbox" onclick="this.parentNode.click();">Wyloguj się</label></a>
-                        </li>
-                        {% endif %}
                         {%if g.user.id_uprawnienia==1 or g.user.id_uprawnienia==2%}
                         <li>
                             {% if g.user.id_uprawnienia==1 %}
-                            <h2>Administrator</h2>
+                            <h3>Administrator</h3>
                             {% endif %}
                             <ul>
                                 {% if g.user.id_uprawnienia==1 %}
@@ -136,6 +124,18 @@
                             <a href="{{ url_for('uzytkownik') }}"><label for="menuCheckbox" onclick="this.parentNode.click();">Uzytkownicy</label></a>
                         </li>
                         {% endif %} -->
+                        {% if not g.user %}
+                        
+                            <li>
+                                <a href="{{ url_for('login') }}"><label for="menuCheckbox" onclick="this.parentNode.click();">Zaloguj się!</label></a>
+                            </li>
+                        
+                            
+                        {% else %}
+                        <li>
+                            <h3><a href="{{ url_for('logout') }}"><label for="menuCheckbox" onclick="this.parentNode.click();">Wyloguj się</label></a></h3>
+                        </li>
+                        {% endif %}
                         <li>
                             <h3><a href=javascript:history.back();><label for="menuCheckbox" onclick="this.parentNode.click();">Powrót</label></a></h3>
                         </li>  

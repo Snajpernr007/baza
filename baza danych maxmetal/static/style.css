@@ -126,13 +126,38 @@ footer{
 /* Index */
 
 #title{
+    background-position: center bottom;
+  background-repeat: no-repeat;
+  background-origin: border-box;
+  background-color: #d9d8d8;
+  border-top: 1px solid;
+    border-top-color: currentcolor;
+  border-bottom: 1px solid;
+    border-bottom-color: currentcolor;
+  background-image: url("./img/maxmetal.png");
+  border-color: #d2d3d4;
+  background-size: auto;
   padding-top:115px;
   display: flex;
   justify-content: center;
+  /* background-color: #443f66;
+  color: white; */
 }
 #nag{
   display: flex;
   justify-content: center;
+  /* background-color: #ffffff; */;
+    background-position: center center;
+  background-repeat: no-repeat;
+  background-origin: border-box;
+  background-color: #d9d8d8;
+  border-top: 1px solid;
+    border-top-color: currentcolor;
+  border-bottom: 1px solid;
+    border-bottom-color: currentcolor;
+  background-image: url("./img/maxmetal.png");
+  border-color: #d2d3d4;
+  background-size: auto;
 }
 
 #modalHeader {
@@ -176,6 +201,16 @@ footer{
   -webkit-user-select: none;
   user-select: none;
   z-index: 2;
+    /* background-position: center center;
+  background-repeat: repeat;
+  background-origin: border-box;
+  border-top: 1px solid;
+    border-top-color: currentcolor;
+  border-bottom: 1px solid;
+    border-bottom-color: currentcolor;
+  background-image: url("./img/maxmetal.png");
+  border-color: #d2d3d4;
+  background-size: auto; */
 }
 
 #logo-duże{
