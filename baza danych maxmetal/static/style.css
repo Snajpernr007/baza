@@ -130,6 +130,10 @@ footer{
   display: flex;
   justify-content: center;
 }
+#nag{
+  display: flex;
+  justify-content: center;
+}
 
 #modalHeader {
   cursor: move;
