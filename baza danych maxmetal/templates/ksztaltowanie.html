@@ -227,16 +227,17 @@ function sortTable(columnIndex) {
                     </tr>
                     <tr>
                         <th onclick="sortTable(0)">ID &#9650;&#9660;</th>
-                        <th onclick="sortTable(1)">Nazwa &#9650;&#9660;</th>
-                        <th onclick="sortTable(2)">Nr wytopu &#9650;&#9660;</th>
-                        <th onclick="sortTable(3)">Data &#9650;&#9660;</th>
-                        <th onclick="sortTable(4)">Godzina rozpoczecia &#9650;&#9660;</th>
-                        <th onclick="sortTable(5)">Godzina zakończenia &#9650;&#9660;</th>
-                        <th onclick="sortTable(6)">Ilość &#9650;&#9660;</th>
-                        <th onclick="sortTable(7)">Ilość na stanie &#9650;&#9660;</th>
-                        <th onclick="sortTable(7)">Nr prodio &#9650;&#9660;</th>
-                        <th onclick="sortTable(8)">Pracownik &#9650;&#9660;</th>
-                        <th onclick="sortTable(9)">Imię i nazwisko &#9650;&#9660;</th>
+                        <th onclick="sortTable(1)">Nazwa</th>
+                        <th onclick="sortTable(2)">Rozmiar &#9650;&#9660;</th>
+                        <th onclick="sortTable(3)">Nr wytopu &#9650;&#9660;</th>
+                        <th onclick="sortTable(4)">Data &#9650;&#9660;</th>
+                        <th onclick="sortTable(5)">Godzina rozpoczecia &#9650;&#9660;</th>
+                        <th onclick="sortTable(6)">Godzina zakończenia &#9650;&#9660;</th>
+                        <th onclick="sortTable(7)">Ilość &#9650;&#9660;</th>
+                        <th onclick="sortTable(8)">Ilość na stanie &#9650;&#9660;</th>
+                        <th onclick="sortTable(9)">Nr prodio &#9650;&#9660;</th>
+                        <th onclick="sortTable(10)">Pracownik &#9650;&#9660;</th>
+                        <th onclick="sortTable(11)">Imię i nazwisko &#9650;&#9660;</th>
                         
                         
                         <th>Edycja</th>
@@ -245,18 +246,19 @@ function sortTable(columnIndex) {
                 <tbody>
                     {% for ksztaltowania in ksztaltowanie %}
                         <tr>
-                            <td>{{ ksztaltowanie.id }} </td>
-                            <td>{{ ksztaltowanie.material.rozmiar.nazwa }}</td>
-                            <td>{{ ksztaltowanie.material.nr_wytopu}}</td>
-                            <td>{{ ksztaltowanie.data }} </td>
-                            <td>{{ ksztaltowanie.godzina_rozpoczecia }}</td>
-                            <td>{{ ksztaltowanie.godzina_zakonczenia }} </td>
-                            <td>{{ ksztaltowanie.ilosc }}</td>
-                            <td>{{ ksztaltowanie.ilosc_na_stanie }} </td>
-                            <td>{{ ksztaltowanie.nr_prodio }}</td>
+                            <td>{{ ksztaltowania.id }} </td>
+                            <td>{{ ksztaltowania.nazwa }}</td>
+                            <td>{{ ksztaltowania.material.rozmiar.nazwa }}</td>
+                            <td>{{ ksztaltowania.material.nr_wytopu}}</td>
+                            <td>{{ ksztaltowania.data }} </td>
+                            <td>{{ ksztaltowania.godzina_rozpoczecia }}</td>
+                            <td>{{ ksztaltowania.godzina_zakonczenia }} </td>
+                            <td>{{ ksztaltowania.ilosc }}</td>
+                            <td>{{ ksztaltowania.ilosc_na_stanie }} </td>
+                            <td>{{ ksztaltowania.nr_prodio }}</td>
                             
-                            <td>{{ ksztaltowanie.pracownik.login}}</td>
-                            <td>{{ ksztaltowanie.imie_nazwisko}}</td>
+                            <td>{{ ksztaltowania.pracownik.login}}</td>
+                            <td>{{ ksztaltowania.imie_nazwisko}}</td>
 
                             
                             <td><button type="button" class="button" onclick="openEditModal(this.parentElement.parentElement)">Edytuj</button></td>
