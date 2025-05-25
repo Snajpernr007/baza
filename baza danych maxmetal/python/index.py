@@ -1584,7 +1584,7 @@ def wez_profile():
     logger.info(f"Użytkownik {g.user.login} zakończył pobieranie profili.")
     flash("Profile zostały pobrane.")
     return redirect(url_for('sprzedaz'))
-@app.route('/uprawnienia', methods=["POST"])
+@app.route('/uprawnienia')
 def uprawnienia():
     if not g.user:
         return render_template('login.html', user=g.user)
