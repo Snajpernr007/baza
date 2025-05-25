@@ -1584,6 +1584,16 @@ def wez_profile():
     logger.info(f"Użytkownik {g.user.login} zakończył pobieranie profili.")
     flash("Profile zostały pobrane.")
     return redirect(url_for('sprzedaz'))
+@app.route('/uprawnienia', methods=["POST"])
+def uprawnienia():
+    if not g.user:
+        return render_template('login.html', user=g.user)
+    if g.user.id_uprawnienia != 1:
+        return redirect(url_for('home'))
+
+    uprawnienia = Uprawnienia.query.all()
+    logger.info(f"{g.user.login} wszedł na stronę uprawnień.")
+    return render_template("uprawnienia.html", user=g.user, uprawnienia=uprawnienia)
 @app.route('/rozmiary_obejm')
 def rozmiary_obejm():
     if not g.user:
