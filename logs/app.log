@@ -4800,3 +4800,12 @@
 2025-05-10 22:05:00,086 - INFO - 192.168.1.13 - - [10/May/2025 22:05:00] "GET /lokalizacja HTTP/1.1" 200 -
 2025-05-10 22:05:00,105 - INFO - 192.168.1.13 - - [10/May/2025 22:05:00] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
 2025-05-10 22:05:00,106 - INFO - 192.168.1.13 - - [10/May/2025 22:05:00] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-05-25 14:56:10,066 - INFO - Połączenie z bazą danych zostało nawiązane pomyślnie.
+2025-05-25 14:56:10,196 - INFO - ✅ Kopia zapasowa zapisana do pliku: backups\kopie_zapasowe_bazy_2025-05-25_14-56.sql
+2025-05-25 14:56:10,199 - INFO - 🗑️ Usunięto starą kopię: kopie_zapasowe_bazy_2025-05-08_12-49.sql
+2025-05-25 14:56:11,080 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.1.13:5000
+2025-05-25 14:56:11,080 - INFO - [33mPress CTRL+C to quit[0m
+2025-05-25 14:56:11,084 - INFO -  * Restarting with stat
