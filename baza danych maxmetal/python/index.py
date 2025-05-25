@@ -218,6 +218,7 @@ class Ksztaltowanie(db.Model):
     id_materialu = db.Column(db.Integer, db.ForeignKey('material_obejma.id'))
     id_pracownik = db.Column(db.Integer, db.ForeignKey('uzytkownicy.id'))
     imie_nazwisko = db.Column(db.String(255))
+    nazwa = db.Column(db.String(255), nullable=True)
 
     material = db.relationship('MaterialObejma')
     pracownik = db.relationship('Uzytkownik')
@@ -1701,8 +1702,45 @@ def dodaj_ksztaltowanie():
         return redirect(url_for('home'))
     
     logger.info(f"{g.user.login} wszedł na stronę dodawania ksztaltowania.")
-    return render_template("dodaj_ksztaltowanie.html", user=g.user)
+    return render_template("dodaj_ksztaltowanie.html", user=g.user,rozmiar=MaterialObejma.query.all())
+@app.route('/dodaj_ksztaltowanie_do_bazy', methods=['POST'])
+def dodaj_ksztaltowanie_do_bazy():
+    if not g.user:
+        return render_template('login.html', user=g.user)
+    if g.user.id_uprawnienia == 3:
+        return redirect(url_for('home'))
+    
+    if request.method == 'POST':
+        godzina_rozpoczencia = request.form.get('godz_min_rozpoczecia')
+        godzina_zakonczenia = request.form.get('godz_min_zakonczenia')
+        data= request.form.get('data')
+        material = request.form.get('nazwa_materiału')
+        numer_prodio=request.form.get('prodio')
+        ilosc = request.form.get('ilosc')
+        ilosc_na_stanie = request.form.get('ilosc')
+        pracownik=g.user.id
+        if Ksztaltowanie.query.order_by(Ksztaltowanie.id.desc()).first():
+            nr = Ksztaltowanie.query.order_by(Ksztaltowanie.id.desc()).first().id
+            nr=str(nr)
+        else:
+            nr = "1"
+        nazwa="Operacaja "+nr
+        imie_nazwisko = request.form.get('imie')
+        
+        
+        nowy_ksztaltowanie = Ksztaltowanie(godzina_rozpoczecia=godzina_rozpoczencia,godzina_zakonczenia=godzina_zakonczenia, data=data, id_materialu=material,
+                                      nr_prodio=numer_prodio, ilosc=ilosc, ilosc_na_stanie=ilosc_na_stanie,nazwa=nazwa, id_pracownik=pracownik,imie_nazwisko=imie_nazwisko)
+        db.session.add(nowy_ksztaltowanie)
 
+        try:
+            db.session.commit()
+            logger.info(f"Ksztaltowanie {nazwa} zostało dodane przez {g.user.login}.")
+            
+            return redirect(url_for('ksztaltowanie'))  # Przekierowanie na stronę ksztaltowania
+        except Exception as e:
+            db.session.rollback()
+            logger.error(f"Nie udało się zapisać danych: {e}")
+            return render_template('ksztaltowanie.html', error="Wystąpił błąd przy zapisywaniu danych.", user=g.user)
 @app.route('/malarnia')
 def malarnia():
     if not g.user:
