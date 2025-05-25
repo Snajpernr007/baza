@@ -5817,3 +5817,440 @@
 2025-05-25 17:04:07,684 - INFO - 192.168.1.13 - - [25/May/2025 17:04:07] "GET /static/style.css HTTP/1.1" 200 -
 2025-05-25 17:04:07,686 - INFO - 192.168.1.13 - - [25/May/2025 17:04:07] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
 2025-05-25 17:04:07,735 - INFO - 192.168.1.13 - - [25/May/2025 17:04:07] "[36mGET /static/img/logo-male.png HTTP/1.1[0m" 304 -
+2025-05-25 17:04:53,323 - INFO - Administrator wszedł na stronę główną.
+2025-05-25 17:04:53,325 - INFO - 192.168.1.13 - - [25/May/2025 17:04:53] "GET / HTTP/1.1" 200 -
+2025-05-25 17:04:53,353 - INFO - 192.168.1.13 - - [25/May/2025 17:04:53] "GET /static/style.css HTTP/1.1" 200 -
+2025-05-25 17:04:53,353 - INFO - 192.168.1.13 - - [25/May/2025 17:04:53] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-05-25 17:04:53,411 - INFO - 192.168.1.13 - - [25/May/2025 17:04:53] "[36mGET /static/img/logo-male.png HTTP/1.1[0m" 304 -
+2025-05-25 17:05:56,867 - INFO - Administrator wszedł na stronę główną.
+2025-05-25 17:05:56,870 - INFO - 192.168.1.13 - - [25/May/2025 17:05:56] "GET / HTTP/1.1" 200 -
+2025-05-25 17:05:56,890 - INFO - 192.168.1.13 - - [25/May/2025 17:05:56] "GET /static/style.css HTTP/1.1" 200 -
+2025-05-25 17:05:56,894 - INFO - 192.168.1.13 - - [25/May/2025 17:05:56] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-05-25 17:05:56,950 - INFO - 192.168.1.13 - - [25/May/2025 17:05:56] "[36mGET /static/img/logo-male.png HTTP/1.1[0m" 304 -
+2025-05-25 17:06:23,980 - INFO - Administrator wszedł na stronę główną.
+2025-05-25 17:06:23,982 - INFO - 192.168.1.13 - - [25/May/2025 17:06:23] "GET / HTTP/1.1" 200 -
+2025-05-25 17:06:24,003 - INFO - 192.168.1.13 - - [25/May/2025 17:06:24] "GET /static/style.css HTTP/1.1" 200 -
+2025-05-25 17:06:24,004 - INFO - 192.168.1.13 - - [25/May/2025 17:06:24] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-05-25 17:06:24,058 - INFO - 192.168.1.13 - - [25/May/2025 17:06:24] "[36mGET /static/img/logo-male.png HTTP/1.1[0m" 304 -
+2025-05-25 17:06:44,020 - INFO - Administrator wszedł na stronę główną.
+2025-05-25 17:06:44,023 - INFO - 192.168.1.13 - - [25/May/2025 17:06:44] "GET / HTTP/1.1" 200 -
+2025-05-25 17:06:44,046 - INFO - 192.168.1.13 - - [25/May/2025 17:06:44] "GET /static/style.css HTTP/1.1" 200 -
+2025-05-25 17:06:44,046 - INFO - 192.168.1.13 - - [25/May/2025 17:06:44] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-05-25 17:06:44,099 - INFO - 192.168.1.13 - - [25/May/2025 17:06:44] "[36mGET /static/img/logo-male.png HTTP/1.1[0m" 304 -
+2025-05-25 17:06:49,143 - INFO - Administrator wszedł na stronę główną.
+2025-05-25 17:06:49,146 - INFO - 192.168.1.13 - - [25/May/2025 17:06:49] "GET / HTTP/1.1" 200 -
+2025-05-25 17:06:49,165 - INFO - 192.168.1.13 - - [25/May/2025 17:06:49] "GET /static/style.css HTTP/1.1" 200 -
+2025-05-25 17:06:49,165 - INFO - 192.168.1.13 - - [25/May/2025 17:06:49] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-05-25 17:06:49,222 - INFO - 192.168.1.13 - - [25/May/2025 17:06:49] "[36mGET /static/img/logo-male.png HTTP/1.1[0m" 304 -
+2025-05-25 17:09:26,036 - INFO - Administrator wszedł na stronę główną.
+2025-05-25 17:09:26,039 - INFO - 192.168.1.13 - - [25/May/2025 17:09:26] "GET / HTTP/1.1" 200 -
+2025-05-25 17:09:26,058 - INFO - 192.168.1.13 - - [25/May/2025 17:09:26] "GET /static/style.css HTTP/1.1" 200 -
+2025-05-25 17:09:26,058 - INFO - 192.168.1.13 - - [25/May/2025 17:09:26] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-05-25 17:09:26,099 - INFO - 192.168.1.13 - - [25/May/2025 17:09:26] "[36mGET /static/img/logo-male.png HTTP/1.1[0m" 304 -
+2025-05-25 17:09:49,675 - INFO - Administrator wszedł na stronę główną.
+2025-05-25 17:09:49,678 - INFO - 192.168.1.13 - - [25/May/2025 17:09:49] "GET / HTTP/1.1" 200 -
+2025-05-25 17:09:49,697 - INFO - 192.168.1.13 - - [25/May/2025 17:09:49] "GET /static/style.css HTTP/1.1" 200 -
+2025-05-25 17:09:49,698 - INFO - 192.168.1.13 - - [25/May/2025 17:09:49] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-05-25 17:09:49,717 - INFO - 192.168.1.13 - - [25/May/2025 17:09:49] "[36mGET /static/img/logo-male.png HTTP/1.1[0m" 304 -
+2025-05-25 17:10:09,510 - INFO - Administrator wszedł na stronę główną.
+2025-05-25 17:10:09,514 - INFO - 192.168.1.13 - - [25/May/2025 17:10:09] "GET / HTTP/1.1" 200 -
+2025-05-25 17:10:09,533 - INFO - 192.168.1.13 - - [25/May/2025 17:10:09] "GET /static/style.css HTTP/1.1" 200 -
+2025-05-25 17:10:09,534 - INFO - 192.168.1.13 - - [25/May/2025 17:10:09] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-05-25 17:10:09,553 - INFO - 192.168.1.13 - - [25/May/2025 17:10:09] "[36mGET /static/img/logo-male.png HTTP/1.1[0m" 304 -
+2025-05-25 17:13:42,219 - INFO - Administrator wszedł na stronę główną.
+2025-05-25 17:13:42,223 - INFO - 192.168.1.13 - - [25/May/2025 17:13:42] "GET / HTTP/1.1" 200 -
+2025-05-25 17:13:42,242 - INFO - 192.168.1.13 - - [25/May/2025 17:13:42] "GET /static/style.css HTTP/1.1" 200 -
+2025-05-25 17:13:42,243 - INFO - 192.168.1.13 - - [25/May/2025 17:13:42] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-05-25 17:13:42,269 - INFO - 192.168.1.13 - - [25/May/2025 17:13:42] "[36mGET /static/img/logo-male.png HTTP/1.1[0m" 304 -
+2025-05-25 17:14:00,092 - INFO - Administrator wszedł na stronę główną.
+2025-05-25 17:14:00,095 - INFO - 192.168.1.13 - - [25/May/2025 17:14:00] "GET / HTTP/1.1" 200 -
+2025-05-25 17:14:00,111 - INFO - 192.168.1.13 - - [25/May/2025 17:14:00] "GET /static/style.css HTTP/1.1" 200 -
+2025-05-25 17:14:00,113 - INFO - 192.168.1.13 - - [25/May/2025 17:14:00] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-05-25 17:14:00,131 - INFO - 192.168.1.13 - - [25/May/2025 17:14:00] "[36mGET /static/img/logo-male.png HTTP/1.1[0m" 304 -
+2025-05-25 17:14:40,698 - INFO - Administrator wszedł na stronę główną.
+2025-05-25 17:14:40,701 - INFO - 192.168.1.13 - - [25/May/2025 17:14:40] "GET / HTTP/1.1" 200 -
+2025-05-25 17:14:40,720 - INFO - 192.168.1.13 - - [25/May/2025 17:14:40] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-05-25 17:14:40,722 - INFO - 192.168.1.13 - - [25/May/2025 17:14:40] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-05-25 17:14:40,741 - INFO - 192.168.1.13 - - [25/May/2025 17:14:40] "[36mGET /static/img/logo-male.png HTTP/1.1[0m" 304 -
+2025-05-25 17:15:36,140 - INFO - Administrator wszedł na stronę główną.
+2025-05-25 17:15:36,143 - INFO - 192.168.1.13 - - [25/May/2025 17:15:36] "GET / HTTP/1.1" 200 -
+2025-05-25 17:15:36,161 - INFO - 192.168.1.13 - - [25/May/2025 17:15:36] "GET /static/style.css HTTP/1.1" 200 -
+2025-05-25 17:15:36,162 - INFO - 192.168.1.13 - - [25/May/2025 17:15:36] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-05-25 17:15:36,182 - INFO - 192.168.1.13 - - [25/May/2025 17:15:36] "[36mGET /static/img/logo-male.png HTTP/1.1[0m" 304 -
+2025-05-25 17:15:47,731 - INFO - Administrator wszedł na stronę główną.
+2025-05-25 17:15:47,734 - INFO - 192.168.1.13 - - [25/May/2025 17:15:47] "GET / HTTP/1.1" 200 -
+2025-05-25 17:15:47,756 - INFO - 192.168.1.13 - - [25/May/2025 17:15:47] "GET /static/style.css HTTP/1.1" 200 -
+2025-05-25 17:15:47,757 - INFO - 192.168.1.13 - - [25/May/2025 17:15:47] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-05-25 17:15:47,778 - INFO - 192.168.1.13 - - [25/May/2025 17:15:47] "[36mGET /static/img/logo-male.png HTTP/1.1[0m" 304 -
+2025-05-25 17:16:00,915 - INFO - Administrator wszedł na stronę główną.
+2025-05-25 17:16:00,919 - INFO - 192.168.1.13 - - [25/May/2025 17:16:00] "GET / HTTP/1.1" 200 -
+2025-05-25 17:16:00,937 - INFO - 192.168.1.13 - - [25/May/2025 17:16:00] "GET /static/style.css HTTP/1.1" 200 -
+2025-05-25 17:16:00,939 - INFO - 192.168.1.13 - - [25/May/2025 17:16:00] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-05-25 17:16:00,961 - INFO - 192.168.1.13 - - [25/May/2025 17:16:00] "[36mGET /static/img/logo-male.png HTTP/1.1[0m" 304 -
+2025-05-25 17:19:29,252 - INFO - Administrator wszedł na stronę główną.
+2025-05-25 17:19:29,254 - INFO - 192.168.1.13 - - [25/May/2025 17:19:29] "GET / HTTP/1.1" 200 -
+2025-05-25 17:19:29,276 - INFO - 192.168.1.13 - - [25/May/2025 17:19:29] "GET /static/style.css HTTP/1.1" 200 -
+2025-05-25 17:19:29,277 - INFO - 192.168.1.13 - - [25/May/2025 17:19:29] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-05-25 17:19:29,299 - INFO - 192.168.1.13 - - [25/May/2025 17:19:29] "[36mGET /static/img/logo-male.png HTTP/1.1[0m" 304 -
+2025-05-25 17:20:57,334 - INFO - Administrator wszedł na stronę profilu.
+2025-05-25 17:20:57,349 - INFO - 192.168.1.13 - - [25/May/2025 17:20:57] "GET /profil HTTP/1.1" 200 -
+2025-05-25 17:20:57,377 - INFO - 192.168.1.13 - - [25/May/2025 17:20:57] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-05-25 17:20:57,379 - INFO - 192.168.1.13 - - [25/May/2025 17:20:57] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-05-25 17:21:06,717 - INFO - Administrator wszedł na stronę główną.
+2025-05-25 17:21:06,720 - INFO - 192.168.1.13 - - [25/May/2025 17:21:06] "GET / HTTP/1.1" 200 -
+2025-05-25 17:21:06,740 - INFO - 192.168.1.13 - - [25/May/2025 17:21:06] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-05-25 17:21:06,744 - INFO - 192.168.1.13 - - [25/May/2025 17:21:06] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-05-25 17:21:18,734 - INFO - Administrator wszedł na stronę główną.
+2025-05-25 17:21:18,738 - INFO - 192.168.1.13 - - [25/May/2025 17:21:18] "GET / HTTP/1.1" 200 -
+2025-05-25 17:21:18,755 - INFO - 192.168.1.13 - - [25/May/2025 17:21:18] "GET /static/style.css HTTP/1.1" 200 -
+2025-05-25 17:21:18,757 - INFO - 192.168.1.13 - - [25/May/2025 17:21:18] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-05-25 17:21:33,771 - INFO - Administrator wszedł na stronę główną.
+2025-05-25 17:21:33,775 - INFO - 192.168.1.13 - - [25/May/2025 17:21:33] "GET / HTTP/1.1" 200 -
+2025-05-25 17:21:33,797 - INFO - 192.168.1.13 - - [25/May/2025 17:21:33] "GET /static/style.css HTTP/1.1" 200 -
+2025-05-25 17:21:33,798 - INFO - 192.168.1.13 - - [25/May/2025 17:21:33] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-05-25 17:21:33,819 - INFO - 192.168.1.13 - - [25/May/2025 17:21:33] "[36mGET /static/img/logo-male.png HTTP/1.1[0m" 304 -
+2025-05-25 17:22:20,784 - INFO - Administrator wszedł na stronę główną.
+2025-05-25 17:22:20,787 - INFO - 192.168.1.13 - - [25/May/2025 17:22:20] "GET / HTTP/1.1" 200 -
+2025-05-25 17:22:20,810 - INFO - 192.168.1.13 - - [25/May/2025 17:22:20] "GET /static/style.css HTTP/1.1" 200 -
+2025-05-25 17:22:20,812 - INFO - 192.168.1.13 - - [25/May/2025 17:22:20] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-05-25 17:22:20,832 - INFO - 192.168.1.13 - - [25/May/2025 17:22:20] "[36mGET /static/img/logo-male.png HTTP/1.1[0m" 304 -
+2025-05-25 17:22:32,012 - INFO - Administrator wszedł na stronę główną.
+2025-05-25 17:22:32,016 - INFO - 192.168.1.13 - - [25/May/2025 17:22:32] "GET / HTTP/1.1" 200 -
+2025-05-25 17:22:32,033 - INFO - 192.168.1.13 - - [25/May/2025 17:22:32] "GET /static/style.css HTTP/1.1" 200 -
+2025-05-25 17:22:32,034 - INFO - 192.168.1.13 - - [25/May/2025 17:22:32] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-05-25 17:22:32,056 - INFO - 192.168.1.13 - - [25/May/2025 17:22:32] "[36mGET /static/img/logo-male.png HTTP/1.1[0m" 304 -
+2025-05-25 17:22:37,718 - INFO - Administrator wszedł na stronę główną.
+2025-05-25 17:22:37,721 - INFO - 192.168.1.13 - - [25/May/2025 17:22:37] "GET / HTTP/1.1" 200 -
+2025-05-25 17:22:37,739 - INFO - 192.168.1.13 - - [25/May/2025 17:22:37] "GET /static/style.css HTTP/1.1" 200 -
+2025-05-25 17:22:37,740 - INFO - 192.168.1.13 - - [25/May/2025 17:22:37] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-05-25 17:22:37,762 - INFO - 192.168.1.13 - - [25/May/2025 17:22:37] "[36mGET /static/img/logo-male.png HTTP/1.1[0m" 304 -
+2025-05-25 17:22:46,828 - INFO - Administrator wszedł na stronę główną.
+2025-05-25 17:22:46,831 - INFO - 192.168.1.13 - - [25/May/2025 17:22:46] "GET / HTTP/1.1" 200 -
+2025-05-25 17:22:46,849 - INFO - 192.168.1.13 - - [25/May/2025 17:22:46] "GET /static/style.css HTTP/1.1" 200 -
+2025-05-25 17:22:46,850 - INFO - 192.168.1.13 - - [25/May/2025 17:22:46] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-05-25 17:22:46,871 - INFO - 192.168.1.13 - - [25/May/2025 17:22:46] "[36mGET /static/img/logo-male.png HTTP/1.1[0m" 304 -
+2025-05-25 17:22:51,981 - INFO - Administrator wszedł na stronę główną.
+2025-05-25 17:22:51,985 - INFO - 192.168.1.13 - - [25/May/2025 17:22:51] "GET / HTTP/1.1" 200 -
+2025-05-25 17:22:52,004 - INFO - 192.168.1.13 - - [25/May/2025 17:22:52] "GET /static/style.css HTTP/1.1" 200 -
+2025-05-25 17:22:52,005 - INFO - 192.168.1.13 - - [25/May/2025 17:22:52] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-05-25 17:22:52,027 - INFO - 192.168.1.13 - - [25/May/2025 17:22:52] "[36mGET /static/img/logo-male.png HTTP/1.1[0m" 304 -
+2025-05-25 17:23:14,460 - INFO - Administrator wszedł na stronę profilu.
+2025-05-25 17:23:14,474 - INFO - 192.168.1.13 - - [25/May/2025 17:23:14] "GET /profil HTTP/1.1" 200 -
+2025-05-25 17:23:14,494 - INFO - 192.168.1.13 - - [25/May/2025 17:23:14] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-05-25 17:23:14,496 - INFO - 192.168.1.13 - - [25/May/2025 17:23:14] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-05-25 17:23:26,543 - INFO - Administrator wszedł na stronę główną.
+2025-05-25 17:23:26,546 - INFO - 192.168.1.13 - - [25/May/2025 17:23:26] "GET / HTTP/1.1" 200 -
+2025-05-25 17:23:26,571 - INFO - 192.168.1.13 - - [25/May/2025 17:23:26] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-05-25 17:23:26,571 - INFO - 192.168.1.13 - - [25/May/2025 17:23:26] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-05-25 17:24:14,199 - INFO - Administrator wszedł na stronę główną.
+2025-05-25 17:24:14,202 - INFO - 192.168.1.13 - - [25/May/2025 17:24:14] "GET / HTTP/1.1" 200 -
+2025-05-25 17:24:14,227 - INFO - 192.168.1.13 - - [25/May/2025 17:24:14] "GET /static/style.css HTTP/1.1" 200 -
+2025-05-25 17:24:14,229 - INFO - 192.168.1.13 - - [25/May/2025 17:24:14] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-05-25 17:24:14,252 - INFO - 192.168.1.13 - - [25/May/2025 17:24:14] "[36mGET /static/img/logo-male.png HTTP/1.1[0m" 304 -
+2025-05-25 17:24:35,540 - INFO - Administrator wszedł na stronę profilu.
+2025-05-25 17:24:35,554 - INFO - 192.168.1.13 - - [25/May/2025 17:24:35] "GET /profil HTTP/1.1" 200 -
+2025-05-25 17:24:35,578 - INFO - 192.168.1.13 - - [25/May/2025 17:24:35] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-05-25 17:24:35,579 - INFO - 192.168.1.13 - - [25/May/2025 17:24:35] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-05-25 17:24:52,863 - INFO - Administrator wszedł na stronę profilu.
+2025-05-25 17:24:52,881 - INFO - 192.168.1.13 - - [25/May/2025 17:24:52] "GET /profil HTTP/1.1" 200 -
+2025-05-25 17:24:52,902 - INFO - 192.168.1.13 - - [25/May/2025 17:24:52] "GET /static/style.css HTTP/1.1" 200 -
+2025-05-25 17:24:52,903 - INFO - 192.168.1.13 - - [25/May/2025 17:24:52] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-05-25 17:24:52,931 - INFO - 192.168.1.13 - - [25/May/2025 17:24:52] "[36mGET /static/img/logo-male.png HTTP/1.1[0m" 304 -
+2025-05-25 17:24:54,349 - INFO - Administrator wszedł na stronę główną.
+2025-05-25 17:24:54,352 - INFO - 192.168.1.13 - - [25/May/2025 17:24:54] "GET / HTTP/1.1" 200 -
+2025-05-25 17:24:54,376 - INFO - 192.168.1.13 - - [25/May/2025 17:24:54] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-05-25 17:24:54,377 - INFO - 192.168.1.13 - - [25/May/2025 17:24:54] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-05-25 17:25:01,540 - INFO - Administrator wszedł na stronę główną.
+2025-05-25 17:25:01,543 - INFO - 192.168.1.13 - - [25/May/2025 17:25:01] "GET / HTTP/1.1" 200 -
+2025-05-25 17:25:01,564 - INFO - 192.168.1.13 - - [25/May/2025 17:25:01] "GET /static/style.css HTTP/1.1" 200 -
+2025-05-25 17:25:01,565 - INFO - 192.168.1.13 - - [25/May/2025 17:25:01] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-05-25 17:25:01,586 - INFO - 192.168.1.13 - - [25/May/2025 17:25:01] "[36mGET /static/img/logo-male.png HTTP/1.1[0m" 304 -
+2025-05-25 17:27:17,803 - INFO - Administrator wszedł na stronę główną.
+2025-05-25 17:27:17,883 - INFO - 192.168.1.13 - - [25/May/2025 17:27:17] "GET / HTTP/1.1" 200 -
+2025-05-25 17:27:17,903 - INFO - 192.168.1.13 - - [25/May/2025 17:27:17] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-05-25 17:27:17,903 - INFO - 192.168.1.13 - - [25/May/2025 17:27:17] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-05-25 17:27:17,927 - INFO - 192.168.1.13 - - [25/May/2025 17:27:17] "[36mGET /static/img/logo-male.png HTTP/1.1[0m" 304 -
+2025-05-25 17:27:38,076 - INFO - Administrator wszedł na stronę główną.
+2025-05-25 17:27:38,193 - INFO - 192.168.1.13 - - [25/May/2025 17:27:38] "GET / HTTP/1.1" 200 -
+2025-05-25 17:27:38,211 - INFO - 192.168.1.13 - - [25/May/2025 17:27:38] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-05-25 17:27:38,212 - INFO - 192.168.1.13 - - [25/May/2025 17:27:38] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-05-25 17:27:38,233 - INFO - 192.168.1.13 - - [25/May/2025 17:27:38] "[36mGET /static/img/logo-male.png HTTP/1.1[0m" 304 -
+2025-05-25 17:27:52,787 - INFO - Administrator wszedł na stronę główną.
+2025-05-25 17:27:52,867 - INFO - 192.168.1.13 - - [25/May/2025 17:27:52] "GET / HTTP/1.1" 200 -
+2025-05-25 17:27:52,885 - INFO - 192.168.1.13 - - [25/May/2025 17:27:52] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-05-25 17:27:52,887 - INFO - 192.168.1.13 - - [25/May/2025 17:27:52] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-05-25 17:27:52,906 - INFO - 192.168.1.13 - - [25/May/2025 17:27:52] "[36mGET /static/img/logo-male.png HTTP/1.1[0m" 304 -
+2025-05-25 17:29:15,790 - INFO - Administrator wszedł na stronę główną.
+2025-05-25 17:29:15,794 - INFO - 192.168.1.13 - - [25/May/2025 17:29:15] "GET / HTTP/1.1" 200 -
+2025-05-25 17:29:15,818 - INFO - 192.168.1.13 - - [25/May/2025 17:29:15] "GET /static/style.css HTTP/1.1" 200 -
+2025-05-25 17:29:15,819 - INFO - 192.168.1.13 - - [25/May/2025 17:29:15] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-05-25 17:29:15,841 - INFO - 192.168.1.13 - - [25/May/2025 17:29:15] "[36mGET /static/img/logo-male.png HTTP/1.1[0m" 304 -
+2025-05-25 17:30:25,624 - INFO - Administrator wszedł na stronę główną.
+2025-05-25 17:30:25,627 - INFO - 192.168.1.13 - - [25/May/2025 17:30:25] "GET / HTTP/1.1" 200 -
+2025-05-25 17:30:25,646 - INFO - 192.168.1.13 - - [25/May/2025 17:30:25] "GET /static/style.css HTTP/1.1" 200 -
+2025-05-25 17:30:25,647 - INFO - 192.168.1.13 - - [25/May/2025 17:30:25] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-05-25 17:30:25,674 - INFO - 192.168.1.13 - - [25/May/2025 17:30:25] "[36mGET /static/img/logo-male.png HTTP/1.1[0m" 304 -
+2025-05-25 17:30:26,564 - INFO - Administrator wszedł na stronę główną.
+2025-05-25 17:30:26,568 - INFO - 192.168.1.13 - - [25/May/2025 17:30:26] "GET / HTTP/1.1" 200 -
+2025-05-25 17:30:26,586 - INFO - 192.168.1.13 - - [25/May/2025 17:30:26] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-05-25 17:30:26,587 - INFO - 192.168.1.13 - - [25/May/2025 17:30:26] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-05-25 17:30:26,607 - INFO - 192.168.1.13 - - [25/May/2025 17:30:26] "[36mGET /static/img/logo-male.png HTTP/1.1[0m" 304 -
+2025-05-25 17:30:28,338 - INFO - Administrator wszedł na stronę profilu.
+2025-05-25 17:30:28,351 - INFO - 192.168.1.13 - - [25/May/2025 17:30:28] "GET /profil HTTP/1.1" 200 -
+2025-05-25 17:30:28,370 - INFO - 192.168.1.13 - - [25/May/2025 17:30:28] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-05-25 17:30:28,376 - INFO - 192.168.1.13 - - [25/May/2025 17:30:28] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-05-25 17:30:30,204 - INFO - Administrator wszedł na stronę główną.
+2025-05-25 17:30:30,209 - INFO - 192.168.1.13 - - [25/May/2025 17:30:30] "GET / HTTP/1.1" 200 -
+2025-05-25 17:30:30,234 - INFO - 192.168.1.13 - - [25/May/2025 17:30:30] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-05-25 17:30:30,235 - INFO - 192.168.1.13 - - [25/May/2025 17:30:30] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-05-25 17:30:56,877 - INFO - Administrator wszedł na stronę główną.
+2025-05-25 17:30:56,880 - INFO - 192.168.1.13 - - [25/May/2025 17:30:56] "GET / HTTP/1.1" 200 -
+2025-05-25 17:30:56,902 - INFO - 192.168.1.13 - - [25/May/2025 17:30:56] "GET /static/style.css HTTP/1.1" 200 -
+2025-05-25 17:30:56,903 - INFO - 192.168.1.13 - - [25/May/2025 17:30:56] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-05-25 17:30:56,925 - INFO - 192.168.1.13 - - [25/May/2025 17:30:56] "[36mGET /static/img/logo-male.png HTTP/1.1[0m" 304 -
+2025-05-25 17:30:57,828 - INFO - Administrator wszedł na stronę główną.
+2025-05-25 17:30:57,831 - INFO - 192.168.1.13 - - [25/May/2025 17:30:57] "GET / HTTP/1.1" 200 -
+2025-05-25 17:30:57,849 - INFO - 192.168.1.13 - - [25/May/2025 17:30:57] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-05-25 17:30:57,851 - INFO - 192.168.1.13 - - [25/May/2025 17:30:57] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-05-25 17:30:57,870 - INFO - 192.168.1.13 - - [25/May/2025 17:30:57] "[36mGET /static/img/logo-male.png HTTP/1.1[0m" 304 -
+2025-05-25 17:34:04,597 - INFO - Administrator wszedł na stronę główną.
+2025-05-25 17:34:04,600 - INFO - 192.168.1.13 - - [25/May/2025 17:34:04] "GET / HTTP/1.1" 200 -
+2025-05-25 17:34:04,623 - INFO - 192.168.1.13 - - [25/May/2025 17:34:04] "GET /static/style.css HTTP/1.1" 200 -
+2025-05-25 17:34:04,624 - INFO - 192.168.1.13 - - [25/May/2025 17:34:04] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-05-25 17:34:04,645 - INFO - 192.168.1.13 - - [25/May/2025 17:34:04] "[33mGET /static/images/logo.png HTTP/1.1[0m" 404 -
+2025-05-25 17:34:04,647 - INFO - 192.168.1.13 - - [25/May/2025 17:34:04] "[36mGET /static/img/logo-male.png HTTP/1.1[0m" 304 -
+2025-05-25 17:35:18,455 - INFO - Administrator wszedł na stronę główną.
+2025-05-25 17:35:18,458 - INFO - 192.168.1.13 - - [25/May/2025 17:35:18] "GET / HTTP/1.1" 200 -
+2025-05-25 17:35:18,481 - INFO - 192.168.1.13 - - [25/May/2025 17:35:18] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-05-25 17:35:18,482 - INFO - 192.168.1.13 - - [25/May/2025 17:35:18] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-05-25 17:35:20,131 - INFO - Administrator wszedł na stronę profilu.
+2025-05-25 17:35:20,144 - INFO - 192.168.1.13 - - [25/May/2025 17:35:20] "GET /profil HTTP/1.1" 200 -
+2025-05-25 17:35:20,166 - INFO - 192.168.1.13 - - [25/May/2025 17:35:20] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-05-25 17:35:20,167 - INFO - 192.168.1.13 - - [25/May/2025 17:35:20] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-05-25 17:36:04,934 - INFO - Administrator wszedł na stronę główną.
+2025-05-25 17:36:04,937 - INFO - 192.168.1.13 - - [25/May/2025 17:36:04] "GET / HTTP/1.1" 200 -
+2025-05-25 17:36:04,955 - INFO - 192.168.1.13 - - [25/May/2025 17:36:04] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-05-25 17:36:04,962 - INFO - 192.168.1.13 - - [25/May/2025 17:36:04] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-05-25 17:39:40,967 - INFO - Administrator wszedł na stronę główną.
+2025-05-25 17:39:40,969 - INFO - 192.168.1.13 - - [25/May/2025 17:39:40] "GET / HTTP/1.1" 200 -
+2025-05-25 17:39:40,993 - INFO - 192.168.1.13 - - [25/May/2025 17:39:40] "GET /static/style.css HTTP/1.1" 200 -
+2025-05-25 17:39:40,995 - INFO - 192.168.1.13 - - [25/May/2025 17:39:40] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-05-25 17:39:41,018 - INFO - 192.168.1.13 - - [25/May/2025 17:39:41] "[36mGET /static/img/logo-male.png HTTP/1.1[0m" 304 -
+2025-05-25 17:40:00,295 - INFO - Administrator wszedł na stronę główną.
+2025-05-25 17:40:00,298 - INFO - 192.168.1.13 - - [25/May/2025 17:40:00] "GET / HTTP/1.1" 200 -
+2025-05-25 17:40:00,318 - INFO - 192.168.1.13 - - [25/May/2025 17:40:00] "GET /static/style.css HTTP/1.1" 200 -
+2025-05-25 17:40:00,319 - INFO - 192.168.1.13 - - [25/May/2025 17:40:00] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-05-25 17:40:00,328 - INFO - 192.168.1.13 - - [25/May/2025 17:40:00] "[33mGET /static/logo.jpg HTTP/1.1[0m" 404 -
+2025-05-25 17:40:00,347 - INFO - 192.168.1.13 - - [25/May/2025 17:40:00] "[36mGET /static/img/logo-male.png HTTP/1.1[0m" 304 -
+2025-05-25 17:41:17,197 - INFO - Administrator wszedł na stronę główną.
+2025-05-25 17:41:17,200 - INFO - 192.168.1.13 - - [25/May/2025 17:41:17] "GET / HTTP/1.1" 200 -
+2025-05-25 17:41:17,222 - INFO - 192.168.1.13 - - [25/May/2025 17:41:17] "GET /static/style.css HTTP/1.1" 200 -
+2025-05-25 17:41:17,226 - INFO - 192.168.1.13 - - [25/May/2025 17:41:17] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-05-25 17:41:17,234 - INFO - 192.168.1.13 - - [25/May/2025 17:41:17] "[36mGET /static/img/logo-male.png HTTP/1.1[0m" 304 -
+2025-05-25 17:41:17,254 - INFO - 192.168.1.13 - - [25/May/2025 17:41:17] "[36mGET /static/img/logo-male.png HTTP/1.1[0m" 304 -
+2025-05-25 17:41:41,773 - INFO - Administrator wszedł na stronę główną.
+2025-05-25 17:41:41,777 - INFO - 192.168.1.13 - - [25/May/2025 17:41:41] "GET / HTTP/1.1" 200 -
+2025-05-25 17:41:41,792 - INFO - 192.168.1.13 - - [25/May/2025 17:41:41] "GET /static/style.css HTTP/1.1" 200 -
+2025-05-25 17:41:41,794 - INFO - 192.168.1.13 - - [25/May/2025 17:41:41] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-05-25 17:41:41,804 - INFO - 192.168.1.13 - - [25/May/2025 17:41:41] "[36mGET /static/img/logo-male.png HTTP/1.1[0m" 304 -
+2025-05-25 17:41:41,823 - INFO - 192.168.1.13 - - [25/May/2025 17:41:41] "[36mGET /static/img/logo-male.png HTTP/1.1[0m" 304 -
+2025-05-25 17:41:52,036 - INFO - Administrator wszedł na stronę główną.
+2025-05-25 17:41:52,040 - INFO - 192.168.1.13 - - [25/May/2025 17:41:52] "GET / HTTP/1.1" 200 -
+2025-05-25 17:41:52,060 - INFO - 192.168.1.13 - - [25/May/2025 17:41:52] "GET /static/style.css HTTP/1.1" 200 -
+2025-05-25 17:41:52,061 - INFO - 192.168.1.13 - - [25/May/2025 17:41:52] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-05-25 17:41:52,069 - INFO - 192.168.1.13 - - [25/May/2025 17:41:52] "[36mGET /static/img/logo-male.png HTTP/1.1[0m" 304 -
+2025-05-25 17:41:52,087 - INFO - 192.168.1.13 - - [25/May/2025 17:41:52] "[36mGET /static/img/logo-male.png HTTP/1.1[0m" 304 -
+2025-05-25 17:42:36,596 - INFO - Administrator wszedł na stronę główną.
+2025-05-25 17:42:36,599 - INFO - 192.168.1.13 - - [25/May/2025 17:42:36] "GET / HTTP/1.1" 200 -
+2025-05-25 17:42:36,620 - INFO - 192.168.1.13 - - [25/May/2025 17:42:36] "GET /static/style.css HTTP/1.1" 200 -
+2025-05-25 17:42:36,623 - INFO - 192.168.1.13 - - [25/May/2025 17:42:36] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-05-25 17:42:36,736 - INFO - 192.168.1.13 - - [25/May/2025 17:42:36] "[36mGET /static/img/logo-male.png HTTP/1.1[0m" 304 -
+2025-05-25 17:43:50,408 - INFO - Administrator wszedł na stronę główną.
+2025-05-25 17:43:50,412 - INFO - 192.168.1.13 - - [25/May/2025 17:43:50] "GET / HTTP/1.1" 200 -
+2025-05-25 17:43:50,432 - INFO - 192.168.1.13 - - [25/May/2025 17:43:50] "GET /static/style.css HTTP/1.1" 200 -
+2025-05-25 17:43:50,435 - INFO - 192.168.1.13 - - [25/May/2025 17:43:50] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-05-25 17:43:50,446 - INFO - 192.168.1.13 - - [25/May/2025 17:43:50] "GET /static/img/maxmetal.png HTTP/1.1" 200 -
+2025-05-25 17:43:50,467 - INFO - 192.168.1.13 - - [25/May/2025 17:43:50] "[36mGET /static/img/logo-male.png HTTP/1.1[0m" 304 -
+2025-05-25 17:43:52,416 - INFO - Administrator wszedł na stronę główną.
+2025-05-25 17:43:52,419 - INFO - 192.168.1.13 - - [25/May/2025 17:43:52] "GET / HTTP/1.1" 200 -
+2025-05-25 17:43:52,438 - INFO - 192.168.1.13 - - [25/May/2025 17:43:52] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-05-25 17:43:52,439 - INFO - 192.168.1.13 - - [25/May/2025 17:43:52] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-05-25 17:43:52,461 - INFO - 192.168.1.13 - - [25/May/2025 17:43:52] "[36mGET /static/img/logo-male.png HTTP/1.1[0m" 304 -
+2025-05-25 17:43:53,365 - INFO - Administrator wszedł na stronę główną.
+2025-05-25 17:43:53,367 - INFO - 192.168.1.13 - - [25/May/2025 17:43:53] "GET / HTTP/1.1" 200 -
+2025-05-25 17:43:53,387 - INFO - 192.168.1.13 - - [25/May/2025 17:43:53] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-05-25 17:43:53,389 - INFO - 192.168.1.13 - - [25/May/2025 17:43:53] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-05-25 17:43:53,416 - INFO - 192.168.1.13 - - [25/May/2025 17:43:53] "[36mGET /static/img/logo-male.png HTTP/1.1[0m" 304 -
+2025-05-25 17:44:10,581 - INFO - Administrator wszedł na stronę główną.
+2025-05-25 17:44:10,584 - INFO - 192.168.1.13 - - [25/May/2025 17:44:10] "GET / HTTP/1.1" 200 -
+2025-05-25 17:44:10,605 - INFO - 192.168.1.13 - - [25/May/2025 17:44:10] "GET /static/style.css HTTP/1.1" 200 -
+2025-05-25 17:44:10,607 - INFO - 192.168.1.13 - - [25/May/2025 17:44:10] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-05-25 17:44:10,617 - INFO - 192.168.1.13 - - [25/May/2025 17:44:10] "[36mGET /static/img/maxmetal.png HTTP/1.1[0m" 304 -
+2025-05-25 17:44:10,636 - INFO - 192.168.1.13 - - [25/May/2025 17:44:10] "[36mGET /static/img/logo-male.png HTTP/1.1[0m" 304 -
+2025-05-25 17:45:15,094 - INFO - Administrator wszedł na stronę główną.
+2025-05-25 17:45:15,097 - INFO - 192.168.1.13 - - [25/May/2025 17:45:15] "GET / HTTP/1.1" 200 -
+2025-05-25 17:45:15,118 - INFO - 192.168.1.13 - - [25/May/2025 17:45:15] "GET /static/style.css HTTP/1.1" 200 -
+2025-05-25 17:45:15,119 - INFO - 192.168.1.13 - - [25/May/2025 17:45:15] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-05-25 17:45:15,129 - INFO - 192.168.1.13 - - [25/May/2025 17:45:15] "[36mGET /static/img/maxmetal.png HTTP/1.1[0m" 304 -
+2025-05-25 17:45:15,149 - INFO - 192.168.1.13 - - [25/May/2025 17:45:15] "[36mGET /static/img/logo-male.png HTTP/1.1[0m" 304 -
+2025-05-25 17:45:26,604 - INFO - Administrator wszedł na stronę główną.
+2025-05-25 17:45:26,607 - INFO - 192.168.1.13 - - [25/May/2025 17:45:26] "GET / HTTP/1.1" 200 -
+2025-05-25 17:45:26,627 - INFO - 192.168.1.13 - - [25/May/2025 17:45:26] "GET /static/style.css HTTP/1.1" 200 -
+2025-05-25 17:45:26,629 - INFO - 192.168.1.13 - - [25/May/2025 17:45:26] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-05-25 17:45:26,637 - INFO - 192.168.1.13 - - [25/May/2025 17:45:26] "[36mGET /static/img/drukarka.png HTTP/1.1[0m" 304 -
+2025-05-25 17:45:26,656 - INFO - 192.168.1.13 - - [25/May/2025 17:45:26] "[36mGET /static/img/logo-male.png HTTP/1.1[0m" 304 -
+2025-05-25 17:45:36,679 - INFO - Administrator wszedł na stronę główną.
+2025-05-25 17:45:36,682 - INFO - 192.168.1.13 - - [25/May/2025 17:45:36] "GET / HTTP/1.1" 200 -
+2025-05-25 17:45:36,700 - INFO - 192.168.1.13 - - [25/May/2025 17:45:36] "GET /static/style.css HTTP/1.1" 200 -
+2025-05-25 17:45:36,701 - INFO - 192.168.1.13 - - [25/May/2025 17:45:36] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-05-25 17:45:36,712 - INFO - 192.168.1.13 - - [25/May/2025 17:45:36] "[36mGET /static/img/maxmetal.png HTTP/1.1[0m" 304 -
+2025-05-25 17:45:36,730 - INFO - 192.168.1.13 - - [25/May/2025 17:45:36] "[36mGET /static/img/logo-male.png HTTP/1.1[0m" 304 -
+2025-05-25 17:45:52,000 - INFO - Administrator wszedł na stronę główną.
+2025-05-25 17:45:52,004 - INFO - 192.168.1.13 - - [25/May/2025 17:45:52] "GET / HTTP/1.1" 200 -
+2025-05-25 17:45:52,023 - INFO - 192.168.1.13 - - [25/May/2025 17:45:52] "GET /static/style.css HTTP/1.1" 200 -
+2025-05-25 17:45:52,024 - INFO - 192.168.1.13 - - [25/May/2025 17:45:52] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-05-25 17:45:52,047 - INFO - 192.168.1.13 - - [25/May/2025 17:45:52] "[36mGET /static/img/logo-male.png HTTP/1.1[0m" 304 -
+2025-05-25 17:46:04,149 - INFO - Administrator wszedł na stronę główną.
+2025-05-25 17:46:04,151 - INFO - 192.168.1.13 - - [25/May/2025 17:46:04] "GET / HTTP/1.1" 200 -
+2025-05-25 17:46:04,173 - INFO - 192.168.1.13 - - [25/May/2025 17:46:04] "GET /static/style.css HTTP/1.1" 200 -
+2025-05-25 17:46:04,173 - INFO - 192.168.1.13 - - [25/May/2025 17:46:04] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-05-25 17:46:04,182 - INFO - 192.168.1.13 - - [25/May/2025 17:46:04] "[36mGET /static/img/maxmetal.png HTTP/1.1[0m" 304 -
+2025-05-25 17:46:04,200 - INFO - 192.168.1.13 - - [25/May/2025 17:46:04] "[36mGET /static/img/logo-male.png HTTP/1.1[0m" 304 -
+2025-05-25 17:46:26,621 - INFO - Administrator wszedł na stronę główną.
+2025-05-25 17:46:26,624 - INFO - 192.168.1.13 - - [25/May/2025 17:46:26] "GET / HTTP/1.1" 200 -
+2025-05-25 17:46:26,645 - INFO - 192.168.1.13 - - [25/May/2025 17:46:26] "GET /static/style.css HTTP/1.1" 200 -
+2025-05-25 17:46:26,646 - INFO - 192.168.1.13 - - [25/May/2025 17:46:26] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-05-25 17:46:26,655 - INFO - 192.168.1.13 - - [25/May/2025 17:46:26] "[36mGET /static/img/maxmetal.png HTTP/1.1[0m" 304 -
+2025-05-25 17:46:26,675 - INFO - 192.168.1.13 - - [25/May/2025 17:46:26] "[36mGET /static/img/logo-male.png HTTP/1.1[0m" 304 -
+2025-05-25 17:46:34,118 - INFO - Administrator wszedł na stronę główną.
+2025-05-25 17:46:34,121 - INFO - 192.168.1.13 - - [25/May/2025 17:46:34] "GET / HTTP/1.1" 200 -
+2025-05-25 17:46:34,139 - INFO - 192.168.1.13 - - [25/May/2025 17:46:34] "GET /static/style.css HTTP/1.1" 200 -
+2025-05-25 17:46:34,141 - INFO - 192.168.1.13 - - [25/May/2025 17:46:34] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-05-25 17:46:34,152 - INFO - 192.168.1.13 - - [25/May/2025 17:46:34] "[36mGET /static/img/logo-male.png HTTP/1.1[0m" 304 -
+2025-05-25 17:46:34,170 - INFO - 192.168.1.13 - - [25/May/2025 17:46:34] "[36mGET /static/img/logo-male.png HTTP/1.1[0m" 304 -
+2025-05-25 17:46:59,525 - INFO - Administrator wszedł na stronę główną.
+2025-05-25 17:46:59,528 - INFO - 192.168.1.13 - - [25/May/2025 17:46:59] "GET / HTTP/1.1" 200 -
+2025-05-25 17:46:59,544 - INFO - 192.168.1.13 - - [25/May/2025 17:46:59] "GET /static/style.css HTTP/1.1" 200 -
+2025-05-25 17:46:59,546 - INFO - 192.168.1.13 - - [25/May/2025 17:46:59] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-05-25 17:46:59,553 - INFO - 192.168.1.13 - - [25/May/2025 17:46:59] "[36mGET /static/img/drukarka.png HTTP/1.1[0m" 304 -
+2025-05-25 17:46:59,571 - INFO - 192.168.1.13 - - [25/May/2025 17:46:59] "[36mGET /static/img/logo-male.png HTTP/1.1[0m" 304 -
+2025-05-25 17:47:31,368 - INFO - Administrator wszedł na stronę główną.
+2025-05-25 17:47:31,372 - INFO - 192.168.1.13 - - [25/May/2025 17:47:31] "GET / HTTP/1.1" 200 -
+2025-05-25 17:47:31,389 - INFO - 192.168.1.13 - - [25/May/2025 17:47:31] "GET /static/style.css HTTP/1.1" 200 -
+2025-05-25 17:47:31,391 - INFO - 192.168.1.13 - - [25/May/2025 17:47:31] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-05-25 17:47:31,403 - INFO - 192.168.1.13 - - [25/May/2025 17:47:31] "[36mGET /static/img/drukarka.png HTTP/1.1[0m" 304 -
+2025-05-25 17:47:31,423 - INFO - 192.168.1.13 - - [25/May/2025 17:47:31] "[36mGET /static/img/logo-male.png HTTP/1.1[0m" 304 -
+2025-05-25 17:47:45,389 - INFO - Administrator wszedł na stronę główną.
+2025-05-25 17:47:45,392 - INFO - 192.168.1.13 - - [25/May/2025 17:47:45] "GET / HTTP/1.1" 200 -
+2025-05-25 17:47:45,410 - INFO - 192.168.1.13 - - [25/May/2025 17:47:45] "GET /static/style.css HTTP/1.1" 200 -
+2025-05-25 17:47:45,411 - INFO - 192.168.1.13 - - [25/May/2025 17:47:45] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-05-25 17:47:45,420 - INFO - 192.168.1.13 - - [25/May/2025 17:47:45] "[36mGET /static/img/maxmetal.png HTTP/1.1[0m" 304 -
+2025-05-25 17:47:45,439 - INFO - 192.168.1.13 - - [25/May/2025 17:47:45] "[36mGET /static/img/logo-male.png HTTP/1.1[0m" 304 -
+2025-05-25 17:49:45,335 - INFO - Administrator wszedł na stronę główną.
+2025-05-25 17:49:45,338 - INFO - 192.168.1.13 - - [25/May/2025 17:49:45] "GET / HTTP/1.1" 200 -
+2025-05-25 17:49:45,358 - INFO - 192.168.1.13 - - [25/May/2025 17:49:45] "GET /static/style.css HTTP/1.1" 200 -
+2025-05-25 17:49:45,361 - INFO - 192.168.1.13 - - [25/May/2025 17:49:45] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-05-25 17:49:45,369 - INFO - 192.168.1.13 - - [25/May/2025 17:49:45] "[36mGET /static/img/maxmetal.png HTTP/1.1[0m" 304 -
+2025-05-25 17:49:45,389 - INFO - 192.168.1.13 - - [25/May/2025 17:49:45] "[36mGET /static/img/logo-male.png HTTP/1.1[0m" 304 -
+2025-05-25 17:50:02,021 - INFO - Administrator wszedł na stronę główną.
+2025-05-25 17:50:02,024 - INFO - 192.168.1.13 - - [25/May/2025 17:50:02] "GET / HTTP/1.1" 200 -
+2025-05-25 17:50:02,049 - INFO - 192.168.1.13 - - [25/May/2025 17:50:02] "GET /static/style.css HTTP/1.1" 200 -
+2025-05-25 17:50:02,051 - INFO - 192.168.1.13 - - [25/May/2025 17:50:02] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-05-25 17:50:02,061 - INFO - 192.168.1.13 - - [25/May/2025 17:50:02] "[36mGET /static/img/maxmetal.png HTTP/1.1[0m" 304 -
+2025-05-25 17:50:02,081 - INFO - 192.168.1.13 - - [25/May/2025 17:50:02] "[36mGET /static/img/logo-male.png HTTP/1.1[0m" 304 -
+2025-05-25 17:50:16,205 - INFO - Administrator wszedł na stronę główną.
+2025-05-25 17:50:16,208 - INFO - 192.168.1.13 - - [25/May/2025 17:50:16] "GET / HTTP/1.1" 200 -
+2025-05-25 17:50:16,231 - INFO - 192.168.1.13 - - [25/May/2025 17:50:16] "GET /static/style.css HTTP/1.1" 200 -
+2025-05-25 17:50:16,232 - INFO - 192.168.1.13 - - [25/May/2025 17:50:16] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-05-25 17:50:16,242 - INFO - 192.168.1.13 - - [25/May/2025 17:50:16] "[36mGET /static/img/maxmetal.png HTTP/1.1[0m" 304 -
+2025-05-25 17:50:16,262 - INFO - 192.168.1.13 - - [25/May/2025 17:50:16] "[36mGET /static/img/logo-male.png HTTP/1.1[0m" 304 -
+2025-05-25 17:50:50,861 - INFO - Administrator wszedł na stronę główną.
+2025-05-25 17:50:50,941 - INFO - 192.168.1.13 - - [25/May/2025 17:50:50] "GET / HTTP/1.1" 200 -
+2025-05-25 17:50:50,959 - INFO - 192.168.1.13 - - [25/May/2025 17:50:50] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-05-25 17:50:50,961 - INFO - 192.168.1.13 - - [25/May/2025 17:50:50] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-05-25 17:50:50,984 - INFO - 192.168.1.13 - - [25/May/2025 17:50:50] "[36mGET /static/img/maxmetal.png HTTP/1.1[0m" 304 -
+2025-05-25 17:50:50,986 - INFO - 192.168.1.13 - - [25/May/2025 17:50:50] "[36mGET /static/img/logo-male.png HTTP/1.1[0m" 304 -
+2025-05-25 17:50:57,030 - INFO - Administrator wszedł na stronę główną.
+2025-05-25 17:50:57,103 - INFO - 192.168.1.13 - - [25/May/2025 17:50:57] "GET / HTTP/1.1" 200 -
+2025-05-25 17:50:57,122 - INFO - 192.168.1.13 - - [25/May/2025 17:50:57] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-05-25 17:50:57,123 - INFO - 192.168.1.13 - - [25/May/2025 17:50:57] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-05-25 17:50:57,144 - INFO - 192.168.1.13 - - [25/May/2025 17:50:57] "[36mGET /static/img/logo-male.png HTTP/1.1[0m" 304 -
+2025-05-25 17:51:07,958 - INFO - 192.168.1.13 - - [25/May/2025 17:51:07] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-05-25 17:54:55,656 - INFO - Administrator wszedł na stronę główną.
+2025-05-25 17:54:55,661 - INFO - 192.168.1.13 - - [25/May/2025 17:54:55] "GET / HTTP/1.1" 200 -
+2025-05-25 17:54:55,680 - INFO - 192.168.1.13 - - [25/May/2025 17:54:55] "GET /static/style.css HTTP/1.1" 200 -
+2025-05-25 17:54:55,680 - INFO - 192.168.1.13 - - [25/May/2025 17:54:55] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-05-25 17:54:55,723 - INFO - 192.168.1.13 - - [25/May/2025 17:54:55] "[36mGET /static/img/maxmetal.png HTTP/1.1[0m" 304 -
+2025-05-25 17:54:55,732 - INFO - 192.168.1.13 - - [25/May/2025 17:54:55] "[36mGET /static/img/logo-male.png HTTP/1.1[0m" 304 -
+2025-05-25 17:55:08,542 - INFO - Administrator wszedł na stronę główną.
+2025-05-25 17:55:08,546 - INFO - 192.168.1.13 - - [25/May/2025 17:55:08] "GET / HTTP/1.1" 200 -
+2025-05-25 17:55:08,568 - INFO - 192.168.1.13 - - [25/May/2025 17:55:08] "GET /static/style.css HTTP/1.1" 200 -
+2025-05-25 17:55:08,569 - INFO - 192.168.1.13 - - [25/May/2025 17:55:08] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-05-25 17:55:08,578 - INFO - 192.168.1.13 - - [25/May/2025 17:55:08] "[36mGET /static/img/maxmetal.png HTTP/1.1[0m" 304 -
+2025-05-25 17:55:08,598 - INFO - 192.168.1.13 - - [25/May/2025 17:55:08] "[36mGET /static/img/logo-male.png HTTP/1.1[0m" 304 -
+2025-05-25 17:56:21,225 - INFO - Administrator wszedł na stronę główną.
+2025-05-25 17:56:21,228 - INFO - 192.168.1.13 - - [25/May/2025 17:56:21] "GET / HTTP/1.1" 200 -
+2025-05-25 17:56:21,247 - INFO - 192.168.1.13 - - [25/May/2025 17:56:21] "GET /static/style.css HTTP/1.1" 200 -
+2025-05-25 17:56:21,248 - INFO - 192.168.1.13 - - [25/May/2025 17:56:21] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-05-25 17:56:21,261 - INFO - 192.168.1.13 - - [25/May/2025 17:56:21] "[36mGET /static/img/maxmetal.png HTTP/1.1[0m" 304 -
+2025-05-25 17:56:21,273 - INFO - 192.168.1.13 - - [25/May/2025 17:56:21] "[36mGET /static/img/logo-male.png HTTP/1.1[0m" 304 -
+2025-05-25 17:56:47,598 - INFO - Administrator wszedł na stronę główną.
+2025-05-25 17:56:47,602 - INFO - 192.168.1.13 - - [25/May/2025 17:56:47] "GET / HTTP/1.1" 200 -
+2025-05-25 17:56:47,620 - INFO - 192.168.1.13 - - [25/May/2025 17:56:47] "GET /static/style.css HTTP/1.1" 200 -
+2025-05-25 17:56:47,620 - INFO - 192.168.1.13 - - [25/May/2025 17:56:47] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-05-25 17:56:47,630 - INFO - 192.168.1.13 - - [25/May/2025 17:56:47] "[36mGET /static/img/maxmetal.png HTTP/1.1[0m" 304 -
+2025-05-25 17:56:47,648 - INFO - 192.168.1.13 - - [25/May/2025 17:56:47] "[36mGET /static/img/logo-male.png HTTP/1.1[0m" 304 -
+2025-05-25 17:57:07,718 - INFO - Administrator wszedł na stronę główną.
+2025-05-25 17:57:07,722 - INFO - 192.168.1.13 - - [25/May/2025 17:57:07] "GET / HTTP/1.1" 200 -
+2025-05-25 17:57:07,740 - INFO - 192.168.1.13 - - [25/May/2025 17:57:07] "GET /static/style.css HTTP/1.1" 200 -
+2025-05-25 17:57:07,742 - INFO - 192.168.1.13 - - [25/May/2025 17:57:07] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-05-25 17:57:07,750 - INFO - 192.168.1.13 - - [25/May/2025 17:57:07] "[36mGET /static/img/maxmetal.png HTTP/1.1[0m" 304 -
+2025-05-25 17:57:07,767 - INFO - 192.168.1.13 - - [25/May/2025 17:57:07] "[36mGET /static/img/logo-male.png HTTP/1.1[0m" 304 -
+2025-05-25 17:57:37,565 - INFO - Administrator wszedł na stronę profilu.
+2025-05-25 17:57:37,579 - INFO - 192.168.1.13 - - [25/May/2025 17:57:37] "GET /profil HTTP/1.1" 200 -
+2025-05-25 17:57:37,598 - INFO - 192.168.1.13 - - [25/May/2025 17:57:37] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-05-25 17:57:37,600 - INFO - 192.168.1.13 - - [25/May/2025 17:57:37] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-05-25 17:57:42,895 - INFO - Administrator wszedł na stronę główną.
+2025-05-25 17:57:42,900 - INFO - 192.168.1.13 - - [25/May/2025 17:57:42] "GET / HTTP/1.1" 200 -
+2025-05-25 17:57:42,920 - INFO - 192.168.1.13 - - [25/May/2025 17:57:42] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-05-25 17:57:42,922 - INFO - 192.168.1.13 - - [25/May/2025 17:57:42] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-05-25 17:57:46,220 - INFO - Administrator wszedł na stronę szablonów.
+2025-05-25 17:57:46,245 - INFO - 192.168.1.13 - - [25/May/2025 17:57:46] "GET /szablon_profil HTTP/1.1" 200 -
+2025-05-25 17:57:46,264 - INFO - 192.168.1.13 - - [25/May/2025 17:57:46] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-05-25 17:57:46,265 - INFO - 192.168.1.13 - - [25/May/2025 17:57:46] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-05-25 17:57:47,223 - INFO - Administrator wszedł na stronę główną.
+2025-05-25 17:57:47,228 - INFO - 192.168.1.13 - - [25/May/2025 17:57:47] "GET / HTTP/1.1" 200 -
+2025-05-25 17:57:47,248 - INFO - 192.168.1.13 - - [25/May/2025 17:57:47] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-05-25 17:57:47,250 - INFO - 192.168.1.13 - - [25/May/2025 17:57:47] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-05-25 17:58:06,870 - INFO - Administrator wszedł na stronę główną.
+2025-05-25 17:58:06,875 - INFO - 192.168.1.13 - - [25/May/2025 17:58:06] "GET / HTTP/1.1" 200 -
+2025-05-25 17:58:06,894 - INFO - 192.168.1.13 - - [25/May/2025 17:58:06] "GET /static/style.css HTTP/1.1" 200 -
+2025-05-25 17:58:06,895 - INFO - 192.168.1.13 - - [25/May/2025 17:58:06] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-05-25 17:58:06,903 - INFO - 192.168.1.13 - - [25/May/2025 17:58:06] "[36mGET /static/img/maxmetal.png HTTP/1.1[0m" 304 -
+2025-05-25 17:58:06,920 - INFO - 192.168.1.13 - - [25/May/2025 17:58:06] "[36mGET /static/img/logo-male.png HTTP/1.1[0m" 304 -
+2025-05-25 17:58:13,626 - INFO - Administrator wszedł na stronę główną.
+2025-05-25 17:58:13,631 - INFO - 192.168.1.13 - - [25/May/2025 17:58:13] "GET / HTTP/1.1" 200 -
+2025-05-25 17:58:13,647 - INFO - 192.168.1.13 - - [25/May/2025 17:58:13] "GET /static/style.css HTTP/1.1" 200 -
+2025-05-25 17:58:13,649 - INFO - 192.168.1.13 - - [25/May/2025 17:58:13] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-05-25 17:58:13,661 - INFO - 192.168.1.13 - - [25/May/2025 17:58:13] "[36mGET /static/img/maxmetal.png HTTP/1.1[0m" 304 -
+2025-05-25 17:58:13,679 - INFO - 192.168.1.13 - - [25/May/2025 17:58:13] "[36mGET /static/img/logo-male.png HTTP/1.1[0m" 304 -
+2025-05-25 17:58:47,048 - INFO - Administrator wszedł na stronę główną.
+2025-05-25 17:58:47,053 - INFO - 192.168.1.13 - - [25/May/2025 17:58:47] "GET / HTTP/1.1" 200 -
+2025-05-25 17:58:47,073 - INFO - 192.168.1.13 - - [25/May/2025 17:58:47] "GET /static/style.css HTTP/1.1" 200 -
+2025-05-25 17:58:47,074 - INFO - 192.168.1.13 - - [25/May/2025 17:58:47] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-05-25 17:58:47,093 - INFO - 192.168.1.13 - - [25/May/2025 17:58:47] "[36mGET /static/img/maxmetal.png HTTP/1.1[0m" 304 -
+2025-05-25 17:58:47,103 - INFO - 192.168.1.13 - - [25/May/2025 17:58:47] "[36mGET /static/img/logo-male.png HTTP/1.1[0m" 304 -
+2025-05-25 17:59:42,014 - INFO - Administrator wszedł na stronę główną.
+2025-05-25 17:59:42,018 - INFO - 192.168.1.13 - - [25/May/2025 17:59:42] "GET / HTTP/1.1" 200 -
+2025-05-25 17:59:42,039 - INFO - 192.168.1.13 - - [25/May/2025 17:59:42] "GET /static/style.css HTTP/1.1" 200 -
+2025-05-25 17:59:42,041 - INFO - 192.168.1.13 - - [25/May/2025 17:59:42] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-05-25 17:59:42,061 - INFO - 192.168.1.13 - - [25/May/2025 17:59:42] "[36mGET /static/img/maxmetal.png HTTP/1.1[0m" 304 -
+2025-05-25 17:59:42,072 - INFO - 192.168.1.13 - - [25/May/2025 17:59:42] "[36mGET /static/img/logo-male.png HTTP/1.1[0m" 304 -
+2025-05-25 18:00:36,717 - INFO - Administrator wszedł na stronę główną.
+2025-05-25 18:00:36,723 - INFO - 192.168.1.13 - - [25/May/2025 18:00:36] "GET / HTTP/1.1" 200 -
+2025-05-25 18:00:36,748 - INFO - 192.168.1.13 - - [25/May/2025 18:00:36] "GET /static/style.css HTTP/1.1" 200 -
+2025-05-25 18:00:36,750 - INFO - 192.168.1.13 - - [25/May/2025 18:00:36] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-05-25 18:00:36,761 - INFO - 192.168.1.13 - - [25/May/2025 18:00:36] "[36mGET /static/img/maxmetal.png HTTP/1.1[0m" 304 -
+2025-05-25 18:00:36,785 - INFO - 192.168.1.13 - - [25/May/2025 18:00:36] "[36mGET /static/img/logo-male.png HTTP/1.1[0m" 304 -
+2025-05-25 18:13:47,556 - INFO -  * Detected change in 'C:\\Users\\Windows\\Desktop\\baza\\baza danych maxmetal\\python\\index.py', reloading
+2025-05-25 18:17:46,366 - INFO -  * Restarting with stat
