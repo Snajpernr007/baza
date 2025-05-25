@@ -266,12 +266,6 @@ footer{
 /* do wszystkiego */
 
 /* menu */
-#menu-main{
-  width: 115px;
-  height: 115px;
-
-}
-
 #right-menu-container {
   position: fixed;
   top: 0;
@@ -439,7 +433,7 @@ footer{
 /* -------------------------------------------------------------------------------------------------------------- */
 /* formularze */
 
-form {
+form{
   background-color: #fff;
   max-width: 600px;
   margin: 0 auto;
