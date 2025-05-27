@@ -210,6 +210,134 @@ function sendDataToBackend(data) {
                 <nav role="navigation">
                     <div id="menuToggle">
                         <input type="checkbox" id="menuCheckbox">
+                        
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        
+                        <ul id="menu">
+                        {%if g.user.id_uprawnienia==1 or g.user.id_uprawnienia==2%}
+                        <li>
+                            {% if g.user.id_uprawnienia==1 %}
+                            <h3>Administrator</h3>
+                            {% endif %}
+                            <ul>
+                                {% if g.user.id_uprawnienia==1 %}
+                                    <li>
+                                        <a href="{{ url_for('uprawnienia') }}"><label for="menuCheckbox" onclick="this.parentNode.click();">Uprawnienia</label></a>
+                                    </li>
+                                {% endif %}
+                                {% if g.user.id_uprawnienia==1 %}
+                                    <li>
+                                        <a href="{{ url_for('register') }}"><label for="menuCheckbox" onclick="this.parentNode.click();">Dodaj pracownika</label></a>
+                                    </li>
+                                 {% endif %}
+                            </ul>
+                        </li>
+                        {% endif %}
+                        <h2>Profile</h2>
+                        <ul>
+                                {%if g.user.id_uprawnienia==1 or g.user.id_uprawnienia==2%}
+                                    <li>
+                                        <a href="{{ url_for('tasma') }}"><label for="menuCheckbox" onclick="this.parentNode.click();">Materiały</label></a>
+                                    </li>
+                                 {% endif %}
+                                
+                                    <li>
+                                        <a href="{{ url_for('profil') }}"><label for="menuCheckbox" onclick="this.parentNode.click();">Profile</label></a>
+                                    </li>
+                                {% if g.user.id_uprawnienia==1 %}
+                                    <li>
+                                        <a href="{{ url_for('dostawcy') }}"><label for="menuCheckbox" onclick="this.parentNode.click();">Dostawcy</label></a>
+                                    </li>
+                                {% endif %}
+                                {% if g.user.id_uprawnienia==1 %}
+                                    <li>
+                                        <a href="{{ url_for('szablon') }}"><label for="menuCheckbox" onclick="this.parentNode.click();">Nazwy</label></a>
+                                    </li>
+                                {% endif %}
+                                {% if g.user.id_uprawnienia==1 or g.user.id_uprawnienia==2%}
+                                    <li>
+                                        <a href="{{ url_for('lokalizacja') }}"><label for="menuCheckbox" onclick="this.parentNode.click();">Magazyny</label></a>
+                                    </li>
+                                {% endif %}
+                                {% if g.user.id_uprawnienia==1 or g.user.id_uprawnienia==2%}
+                                    <li>
+                                        <a href="{{ url_for('dlugosci') }}"><label for="menuCheckbox" onclick="this.parentNode.click();">Długości</label></a>
+                                    </li>
+                                {% endif %}
+                                {% if g.user.id_uprawnienia==1 or g.user.id_uprawnienia==2%}
+                                    <li>
+                                        <a href="{{ url_for('szablon_profil') }}"><label for="menuCheckbox" onclick="this.parentNode.click();">Nazwy profili</label></a>
+                                    </li>
+                                {% endif %}
+                                {% if g.user.id_uprawnienia==1 %}
+                                    <li>
+                                        <a href="{{ url_for('zestawienie') }}"><label for="menuCheckbox" onclick="this.parentNode.click();">Zestawienie</label></a>
+                                    </li>
+                                {% endif %}
+                                {% if g.user.id_uprawnienia==1 or g.user.id_uprawnienia==2%}
+                                    <li>
+                                        <a href="{{ url_for('sprzedaz') }}"><label for="menuCheckbox" onclick="this.parentNode.click();">Sprzedaż</label></a>
+                                    </li>
+                                {% endif %}
+                            </ul>
+                            {% if g.user.id==1 %}
+                                <h2>Obejmy</h2>
+                            {% endif %}
+                            <ul>
+                                {% if g.user.id==1 %}
+                                    <li>
+                                        <a href="{{ url_for('rozmiary_obejm') }}"><label for="menuCheckbox" onclick="this.parentNode.click();">Rozmiary</label></a>
+                                    </li>
+                                {% endif %}
+                                {% if g.user.id==1 %}
+                                    <li>
+                                        <a href="{{ url_for('material_obejma') }}"><label for="menuCheckbox" onclick="this.parentNode.click();">Materiały</label></a>
+                                    </li>
+                                {% endif %}
+                                {% if g.user.id==1 %}
+                                    <li>
+                                        <a href="{{ url_for('ksztaltowanie') }}"><label for="menuCheckbox" onclick="this.parentNode.click();">Kształtowanie</label></a>
+                                    </li>
+                                {% endif %}
+                                {% if g.user.id==1 %}
+                                    <li>
+                                        <a href="{{ url_for('malarnia') }}"><label for="menuCheckbox" onclick="this.parentNode.click();">Malarnia</label></a>
+                                    </li>
+                                {% endif %}
+                                {% if g.user.id==1 %}
+                                    <li>
+                                        <a href="{{ url_for('powrot') }}"><label for="menuCheckbox" onclick="this.parentNode.click();">Powrót Malarnia</label></a>
+                                    </li>
+                                {% endif %}
+                            </ul>
+                        {% if not g.user %}
+                        
+                            <li>
+                                <a href="{{ url_for('login') }}"><label for="menuCheckbox" onclick="this.parentNode.click();">Zaloguj się!</label></a>
+                            </li>
+                        
+                            
+                        {% else %}
+                        <li>
+                            <h3><a href="{{ url_for('logout') }}"><label for="menuCheckbox" onclick="this.parentNode.click();">Wyloguj się</label></a></h3>
+                        </li>
+                        {% endif %}
+                        <li>
+                            <h3><a href=javascript:history.back();><label for="menuCheckbox" onclick="this.parentNode.click();">Powrót</label></a></h3>
+                        </li>  
+                            
+                            
+                            <li>
+                                <img id="logo1" src="../static/img/logo-duże.png" alt="logo">
+                            </li>
+                        </ul>   
+                    </div>
+                </nav>
+                <!-- <nav role="navigation">
+                    <div id="menuToggle">
+                        <input type="checkbox" id="menuCheckbox">
 
                         <span></span>
                         <span></span>
@@ -282,7 +410,7 @@ function sendDataToBackend(data) {
                             </li>
                         </ul>   
                     </div>
-                </nav>
+                </nav> -->
                 <div id="logo-banner">
                     <a href="{{ url_for('home') }}"><img id="logo-duże" src="../static/img/logo-duże.png" alt="logo"></a>
                 </div>
