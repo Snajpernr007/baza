@@ -1762,8 +1762,46 @@ def dodaj_malarnie():
         return redirect(url_for('home'))
     
     logger.info(f"{g.user.login} wszedł na stronę dodawania malarni.")
-    return render_template("dodaj_malarnie.html", user=g.user)
+    return render_template("dodaj_malarnie.html", user=g.user,nazwy_materiału=Ksztaltowanie.query.all())
+@app.route('/dodaj_malarnie_do_bazy', methods=['POST'])
+def dodaj_malarnie_do_bazy():
+    if not g.user:
+        return render_template('login.html', user=g.user)
+    if g.user.id_uprawnienia == 3:
+        return redirect(url_for('home'))
 
+    data = request.form.get('data')
+    id_ksztaltowanie = request.form.get('nazwa_materiału')
+    numer_prodio = request.form.get('prodio')
+    ilosc = int(request.form.get('ilosc'))  # Konwertujemy od razu do int
+    pracownik = g.user.id
+    imie_nazwisko = request.form.get('imie')
+
+    nowa_malarnia = Malarnia(
+        data=data,
+        id_ksztaltowanie=id_ksztaltowanie,
+        nr_prodio=numer_prodio,
+        ilosc=ilosc,
+        ilosc_na_stanie=ilosc,
+        id_pracownik=pracownik,
+        imie_nazwisko=imie_nazwisko
+    )
+
+    db.session.add(nowa_malarnia)
+
+    ksztaltowanie = Ksztaltowanie.query.get(int(id_ksztaltowanie))
+    if ksztaltowanie:
+        ksztaltowanie.ilosc_na_stanie = ksztaltowanie.ilosc_na_stanie - ilosc
+        db.session.add(ksztaltowanie)
+
+    try:
+        db.session.commit()
+        logger.info(f"Malarnia została dodana przez {g.user.login}.")
+        return redirect(url_for('malarnia'))
+    except Exception as e:
+        db.session.rollback()
+        logger.error(f"Nie udało się zapisać danych: {e}")
+        return render_template('malarnia.html', error="Wystąpił błąd przy zapisywaniu danych.", user=g.user)
 
 @app.route('/powrot')
 def powrot():
