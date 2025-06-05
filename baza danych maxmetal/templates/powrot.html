@@ -182,16 +182,16 @@
                 <tbody>
                     {% for powroty in powrot %}
                         <tr>
-                            <td>{{ powrot.id }} </td>
-                            <td>{{ powrot.malarnia.ksztaltowanie.material.rozmiar.nazwa }}</td>
-                            <td>{{ powrot.malarnia.ksztaltowanie.material.nr_wytopu}}</td>
-                            <td>{{ powrot.ilosc }} </td>
-                            <td>{{ powrot.ilosc_na_stanie }}</td>
-                            <td>{{ powrot.nr_prodio }}</td>
-                            <td>{{ powrot.data }} </td>
-                            <td>{{ powrot.malarnia }} </td>
-                            <td>{{ powrot.pracownik.login}}</td>
-                            <td>{{ powrot.imie_nazwisko}}</td>
+                            <td>{{ powroty.id }} </td>
+                            <td>{{ powroty.malarnia.ksztaltowanie.material.rozmiar.nazwa }}</td>
+                            <td>{{ powroty.malarnia.ksztaltowanie.material.nr_wytopu}}</td>
+                            <td>{{ powroty.ilosc }} </td>
+                            <td>{{ powroty.ilosc_na_stanie }}</td>
+                            <td>{{ powroty.nr_prodio }}</td>
+                            <td>{{ powroty.data }} </td>
+                            <td>{{ powroty.malarnia }} </td>
+                            <td>{{ powroty.pracownik.login}}</td>
+                            <td>{{ powroty.imie_nazwisko}}</td>
 
                             <td><button type="button" class="button" onclick="openEditModal(this.parentElement.parentElement)">Edytuj</button></td>
                         </tr>

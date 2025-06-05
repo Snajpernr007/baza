@@ -1821,8 +1821,38 @@ def dodaj_powrot():
         return redirect(url_for('home'))
     
     logger.info(f"{g.user.login} wszedł na stronę dodawania powrotu.")
-    return render_template("dodaj_powrot.html", user=g.user)
-
+    return render_template("dodaj_powrot.html", user=g.user,nazwy_materiału=Malarnia.query.all())
+@app.route('/dodaj_powrot_do_bazy', methods=['POST'])
+def dodaj_powrot_do_bazy():
+    if not g.user:
+        return render_template('login.html', user=g.user)
+    if g.user.id_uprawnienia == 3:
+        return redirect(url_for('home'))
+    
+    if request.method == 'POST':
+        data = request.form.get('data')
+        id_malarnia = request.form.get('nazwa_materiału')
+        numer_prodio = request.form.get('prodio')
+        ilosc = int(request.form.get('ilosc'))
+        ilosc_na_stanie = int(request.form.get('ilosc'))
+        pracownik = g.user.id
+        imie_nazwisko = request.form.get('imie')
+        nowy_powrot = Powrot(data=data, id_malowania=id_malarnia, nr_prodio=numer_prodio,
+                            ilosc=ilosc, ilosc_na_stanie=ilosc_na_stanie, id_pracownik=pracownik, imie_nazwisko=imie_nazwisko)
+        db.session.add(nowy_powrot)
+        malarnia = Malarnia.query.get(int(id_malarnia))
+        if malarnia:
+            malarnia.ilosc_na_stanie = malarnia.ilosc_na_stanie - ilosc
+            db.session.add(malarnia)
+        try:
+            db.session.commit()
+            logger.info(f"Powrót został dodany przez {g.user.login}.")
+            return redirect(url_for('powrot'))  # Przekierowanie na stronę powrotu
+        except Exception as e:
+            db.session.rollback()
+            logger.error(f"Nie udało się zapisać danych: {e}")
+            return render_template('powrot.html', error="Wystąpił błąd przy zapisywaniu danych.", user=g.user)
+        
 
 @app.route('/zlecenie')
 def zlecenie():
