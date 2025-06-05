@@ -103,6 +103,15 @@ function zamknijOkno() {
 </head>
 <body>
     <div id="strona">
+        <div id="banner">
+            <div id="logo-banner">
+                    <a href="{{ url_for('home') }}"><img id="logo-duże" src="../static/img/logo-duże.png" alt="logo"></a>
+                </div>
+        </div>
+        <div id="test">
+            
+        </div>
+        <br>
         <form id="myForm" method="POST" action="{{ url_for('dodaj_lub_zakonczenie_profilu') }}">
             {% if not profil %}
                 <!-- ROZPOCZĘCIE PROFILU -->
