@@ -261,7 +261,7 @@ window.open(url, '_blank', windowFeatures); // '_blank' otworzy nowe okno/tab
                                     </li>
                                 {% endif %}
                                 <li>
-                                <a href="{{ url_for('dodaj_dlugosci') }}";><label for="menuCheckbox" onclick="this.parentNode.click();">Dodaj długość</label></a>
+                                <a href="{{ url_for('dodaj_dlugosci') }}";><label for="menuCheckbox" style="color:black;" onclick="this.parentNode.click();"><strong>Dodaj długość</strong></label></a>
                                 </li>
                             </ul>
                             {% if g.user.id==1 %}
@@ -409,8 +409,8 @@ window.open(url, '_blank', windowFeatures); // '_blank' otworzy nowe okno/tab
                 
             </div>
         </div>
-        
-        <div id="title">
+        <div id="test">
+            <div id="title">
             <h2>Długości</h2>
         </div>
            <div>
@@ -446,9 +446,7 @@ window.open(url, '_blank', windowFeatures); // '_blank' otworzy nowe okno/tab
            </div> 
 
         </div>
-        
-        
-        
+        </div>
     </div>
 </body>
 </html> 

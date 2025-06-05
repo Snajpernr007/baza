@@ -229,7 +229,7 @@ function sendDataToBackend(data) {
                                 {% endif %}
                                 {% if g.user.id_uprawnienia==1 %}
                                     <li>
-                                        <a href="{{ url_for('register') }}"><label for="menuCheckbox" onclick="this.parentNode.click();">Dodaj pracownika</label></a>
+                                        <a href="{{ url_for('register') }}"><label for="menuCheckbox" style="color:black;" onclick="this.parentNode.click();"><strong>Dodaj pracownika</strong></label></a>
                                     </li>
                                  {% endif %}
                             </ul>
@@ -417,7 +417,8 @@ function sendDataToBackend(data) {
                
             </div>
         </div>
-        <div id="title">
+        <div id="test">
+            <div id="title">
             <h2>Użytkownicy</h2>
         </div>
                 <table id="tabela">
@@ -497,9 +498,7 @@ function sendDataToBackend(data) {
                </div> 
 
         </div>
-                <hr>
-        
-        
+        </div>
     </div>
 </body>
 </html> 

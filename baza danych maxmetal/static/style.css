@@ -119,6 +119,13 @@ footer{
 #tabela tr:nth-child(even){
   background-color: #dbcece; /* Kolor tła dla parzystych wierszy */
 }
+#tabela tr:nth-child(odd){
+  background: #e6dfdf; /* Kolor tła dla nieparzystych wierszy */
+}
+#tabela tr:nth-child(odd):hover{
+  transition: 1s ease;
+  background-color: #f1f1f1;
+}
 #tabela tr:nth-child(even):hover{
   transition: 1s ease;
   background-color: #f1f1f1;
@@ -137,7 +144,6 @@ footer{
   background-image: url("./img/maxmetal.png");
   border-color: #d2d3d4;
   background-size: auto;
-  padding-top:115px;
   display: flex;
   justify-content: center;
   /* background-color: #443f66;
@@ -255,6 +261,9 @@ footer{
   gap: 16px; /* Odstępy między elementami */
   padding: 25px;
   justify-items: center; /* Wyśrodkowanie elementów w siatce */
+}
+#test{
+  margin-top: 115px;
 }
 
 .grid-container div {

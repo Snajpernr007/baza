@@ -153,87 +153,90 @@
                 
             </div>
         </div>
-        {% if g.user.id_uprawnienia==1 %}
-                <div id="title">
-                    <h2 class="witaj">Administrator</h2>
-                </div>
-            {% endif %}
-                 <hr>
-        <div class="man-container">
-            {% if g.user.id_uprawnienia==1 %}
-            <button class="button" onclick="window.location.href='{{ url_for('uzytkownik') }}'">Użytkownicy</button>
-            {% endif %}
-            {% if g.user.id_uprawnienia==1 %}
-            <button class="button" onclick="window.location.href='{{ url_for('uprawnienia') }}'">Uprawnienia</button>
-            {% endif %}
-        </div>
-        <hr>
-
-            <div id="nag">
-                <h2 class="witaj">Profile</h2>
+        <div id="test">
+                {% if g.user.id_uprawnienia==1 %}
+                    <div id="title">
+                        <h2 class="witaj">Administrator</h2>
+                    </div>
+                    <hr>
+                    <div class="man-container">
+                {% if g.user.id_uprawnienia==1 %}
+                <button class="button" onclick="window.location.href='{{ url_for('uzytkownik') }}'">Użytkownicy</button>
+                {% endif %}
+                {% if g.user.id_uprawnienia==1 %}
+                <button class="button" onclick="window.location.href='{{ url_for('uprawnienia') }}'">Uprawnienia</button>
+                {% endif %}
             </div>
+                {% endif %}
+            <hr>
 
-        <hr>
-        <div class="man-container">
-            {% if g.user.id_uprawnienia==1 or g.user.id_uprawnienia==2%}
-            <button class="button" onclick="window.location.href='{{ url_for('tasma') }}'">Materiały</button>
-            {% endif %}
-            <button class="button" onclick="window.location.href='{{ url_for('profil') }}'">Profile</button>
-            <!-- {% if g.user.id_uprawnienia==1 %}
-            <button class="button" onclick="window.location.href='{{ url_for('uzytkownik') }}'">Uzytkownicy</button>
-            {% endif %} -->
-            {% if g.user.id_uprawnienia==1 or g.user.id_uprawnienia==2%}
-            <button class="button" onclick="window.location.href='{{ url_for('dostawcy') }}'">Dostawcy</button>
-            {% endif %}
-            {% if g.user.id_uprawnienia==1 or g.user.id_uprawnienia==2%}
-            <button class="button" onclick="window.location.href='{{ url_for('szablon') }}'">Nazwy</button>
-            {% endif %}
-            {% if g.user.id_uprawnienia==1 or g.user.id_uprawnienia==2%}
-            <button class="button" onclick="window.location.href='{{ url_for('lokalizacja') }}'">Magazyny</button>
-            {% endif %}
-            {% if g.user.id_uprawnienia==1 or g.user.id_uprawnienia==2%}
-            <button class="button" onclick="window.location.href='{{ url_for('dlugosci') }}'">Długości</button>
-            {% endif %}
-            {% if g.user.id_uprawnienia==1 or g.user.id_uprawnienia==2%}
-            <button class="button" onclick="window.location.href='{{ url_for('szablon_profil') }}'">Nazwy profili</button>
-            {% endif %}
-            {% if g.user.id_uprawnienia==1 %}
-            <button class="button" onclick="window.location.href='{{ url_for('zestawienie') }}'">Zestawienie</button>
-            {% endif %}
-            {% if g.user.id_uprawnienia==1 or g.user.id_uprawnienia==2%}
-            <button class="button" onclick="window.location.href='{{ url_for('sprzedaz') }}'">Sprzedaż</button>
-            {% endif %}
-            
-        </div>
-                <hr>
-                {% if g.user.id==1 %}
-                
                 <div id="nag">
-                    <h2 class="witaj">Obejmy Ogniowe</h2>
+                    <h2 class="witaj">Profile</h2>
                 </div>
-                <hr>
-                 {% endif %}
-                 
-        <div class="man-container">
+
+            <hr>
+            <div class="man-container">
+                {% if g.user.id_uprawnienia==1 or g.user.id_uprawnienia==2%}
+                <button class="button" onclick="window.location.href='{{ url_for('tasma') }}'">Materiały</button>
+                {% endif %}
+                <button class="button" onclick="window.location.href='{{ url_for('profil') }}'">Profile</button>
+                <!-- {% if g.user.id_uprawnienia==1 %}
+                <button class="button" onclick="window.location.href='{{ url_for('uzytkownik') }}'">Uzytkownicy</button>
+                {% endif %} -->
+                {% if g.user.id_uprawnienia==1 or g.user.id_uprawnienia==2%}
+                <button class="button" onclick="window.location.href='{{ url_for('dostawcy') }}'">Dostawcy</button>
+                {% endif %}
+                {% if g.user.id_uprawnienia==1 or g.user.id_uprawnienia==2%}
+                <button class="button" onclick="window.location.href='{{ url_for('szablon') }}'">Nazwy</button>
+                {% endif %}
+                {% if g.user.id_uprawnienia==1 or g.user.id_uprawnienia==2%}
+                <button class="button" onclick="window.location.href='{{ url_for('lokalizacja') }}'">Magazyny</button>
+                {% endif %}
+                {% if g.user.id_uprawnienia==1 or g.user.id_uprawnienia==2%}
+                <button class="button" onclick="window.location.href='{{ url_for('dlugosci') }}'">Długości</button>
+                {% endif %}
+                {% if g.user.id_uprawnienia==1 or g.user.id_uprawnienia==2%}
+                <button class="button" onclick="window.location.href='{{ url_for('szablon_profil') }}'">Nazwy profili</button>
+                {% endif %}
+                {% if g.user.id_uprawnienia==1 %}
+                <button class="button" onclick="window.location.href='{{ url_for('zestawienie') }}'">Zestawienie</button>
+                {% endif %}
+                {% if g.user.id_uprawnienia==1 or g.user.id_uprawnienia==2%}
+                <button class="button" onclick="window.location.href='{{ url_for('sprzedaz') }}'">Sprzedaż</button>
+                {% endif %}
+                
+            </div>
+                    <hr>
+                    {% if g.user.id==1 %}
+                    
+                    <div id="nag">
+                        <h2 class="witaj">Obejmy Ogniowe</h2>
+                    </div>
+                    <hr>
+                    {% endif %}
+                    
+            <div class="man-container">
+                {% if g.user.id==1 %}
+                <button class="button" onclick="window.location.href='{{ url_for('rozmiary_obejm') }}'">Rozmiary</button>
+                {% endif %}
+                {% if g.user.id==1 %}
+                <button class="button" onclick="window.location.href='{{ url_for('material_obejma') }}'">Materiały</button>
+                {% endif %}
+                {% if g.user.id==1 %}
+                <button class="button" onclick="window.location.href='{{ url_for('ksztaltowanie') }}'">Kształtowanie</button>
+                {% endif %}
+                {% if g.user.id==1 %}
+                <button class="button" onclick="window.location.href='{{ url_for('malarnia') }}'">Malarnia</button>
+                {% endif %}
+                {% if g.user.id==1 %}
+                <button class="button" onclick="window.location.href='{{ url_for('powrot') }}'">Powrót Malarnia</button>
+                {% endif %}
+            </div>
             {% if g.user.id==1 %}
-            <button class="button" onclick="window.location.href='{{ url_for('rozmiary_obejm') }}'">Rozmiary</button>
-            {% endif %}
-            {% if g.user.id==1 %}
-            <button class="button" onclick="window.location.href='{{ url_for('material_obejma') }}'">Materiały</button>
-            {% endif %}
-            {% if g.user.id==1 %}
-            <button class="button" onclick="window.location.href='{{ url_for('ksztaltowanie') }}'">Kształtowanie</button>
-            {% endif %}
-            {% if g.user.id==1 %}
-            <button class="button" onclick="window.location.href='{{ url_for('malarnia') }}'">Malarnia</button>
-            {% endif %}
-            {% if g.user.id==1 %}
-            <button class="button" onclick="window.location.href='{{ url_for('powrot') }}'">Powrót Malarnia</button>
+            <hr>
             {% endif %}
         </div>
-        {% if g.user.id==1 %}
-        <hr>
-        {% endif %}
+        
     </div>
 </body>
 </html> 

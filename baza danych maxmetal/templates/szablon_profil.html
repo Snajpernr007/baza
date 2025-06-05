@@ -265,7 +265,7 @@ window.open(url, '_blank', windowFeatures); // '_blank' otworzy nowe okno/tab
                                     </li>
                                 {% endif %}
                                 <li>
-                                    <a href="{{ url_for('dodaj_szablon_profil') }}";><label for="menuCheckbox" onclick="this.parentNode.click();">Dodaj nr części klienta</label></a>
+                                    <a href="{{ url_for('dodaj_szablon_profil') }}";><label for="menuCheckbox" style="color:black;" onclick="this.parentNode.click();"><strong>Dodaj nr części klienta</strong></label></a>
                                 </li>
                             </ul>
                             {% if g.user.id==1 %}
@@ -407,8 +407,8 @@ window.open(url, '_blank', windowFeatures); // '_blank' otworzy nowe okno/tab
                 
             </div>
         </div>
-        
-        <div id="title">
+        <div id="test">
+            <div id="title">
             <h2>Nazwy Profili</h2>
         </div>
            <div>
@@ -444,9 +444,7 @@ window.open(url, '_blank', windowFeatures); // '_blank' otworzy nowe okno/tab
            </div> 
 
         </div>
-        
-        
-        
+        </div>
     </div>
 </body>
 </html> 

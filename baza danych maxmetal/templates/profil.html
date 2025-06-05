@@ -540,7 +540,7 @@ window.open(url, '_blank', windowFeatures); // '_blank' otworzy nowe okno/tab
                                     </li>
                                 {% endif %}
                                 <li>
-                                    <a href="{{ url_for('dodaj_profil') }}"><label for="menuCheckbox" onclick="this.parentNode.click();">Dodaj Profil</a>
+                                    <a href="{{ url_for('dodaj_profil') }}"><label for="menuCheckbox" style="color:black;" onclick="this.parentNode.click();"><strong>Dodaj Profil</strong></a>
                                 </li>
                             </ul>
                             {% if g.user.id==1 %}
@@ -690,7 +690,8 @@ window.open(url, '_blank', windowFeatures); // '_blank' otworzy nowe okno/tab
                 
             </div>
         </div>
-        <div id="title">
+        <div id="test">
+            <div id="title">
             <h2>Profile</h2>
         </div>
             <div>
@@ -878,7 +879,8 @@ window.open(url, '_blank', windowFeatures); // '_blank' otworzy nowe okno/tab
                </div> 
 
         </div>
-                <hr>
+        </div>
+
         
         
     </div>
