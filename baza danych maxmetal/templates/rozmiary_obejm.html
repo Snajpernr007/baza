@@ -6,6 +6,70 @@
     <title>Obejmy MaxMetal</title>
     <link rel="icon" href="../static/img/logo-male.png">
     <link rel="stylesheet" href="../static/style.css">
+    <script>
+function openEditModal(row) {
+    const cells = row.querySelectorAll("td");
+    const editButton = row.querySelector("button");
+
+    if (editButton.innerText === "Edytuj") {
+        // Zamień edytowalne komórki na pola formularza
+        cells.forEach((cell, index) => {
+            if (index > 0 && index < cells.length - 1) { // Edytowalne: 1 do przedostatniej
+                const value = cell.innerText;
+                cell.innerHTML = `<input type="text" value="${value}" style="width: 100%;">`;
+            }
+        });
+        editButton.innerText = "Zapisz";
+    } else if (editButton.innerText === "Zapisz") {
+        // Zbierz dane z formularza
+        const updatedData = {};
+        let isValid = true;
+        
+        cells.forEach((cell, index) => {
+            if (index > 0 && index < cells.length - 1) {
+                const input = cell.querySelector("input");
+                if (input) {
+                    const value = input.value.trim();
+                    if (!value) {
+                        isValid = false; // Walidacja: sprawdź, czy pole nie jest puste
+                    }
+                    updatedData[`column_${index}`] = value;
+                    cell.innerText = value; // Zapisz nowe wartości
+                }
+            } else if (index === 0 || index >= cells.length - 1) {
+                updatedData[`column_${index}`] = cell.innerText;
+            }
+        });
+
+        if (isValid) {
+            sendDataToBackend(updatedData);
+            editButton.innerText = "Edytuj";
+        } else {
+            alert("Proszę wypełnić wszystkie edytowalne pola.");
+        }
+    }
+}
+
+function sendDataToBackend(data) {
+    fetch('/update-row-rozmiary_obejm', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+    })
+    .then(response => response.json())
+    .then(result => {
+        console.log("Wynik z backendu:", result);
+        alert("Dane zostały pomyślnie zapisane!");
+    })
+    .catch(error => {
+        console.error("Błąd podczas wysyłania danych:", error);
+        alert("Wystąpił błąd podczas zapisywania danych!");
+    });
+}
+
+    </script>
 </head>
 <body>
     <div id="strona">

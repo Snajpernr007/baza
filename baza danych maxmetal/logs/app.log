@@ -8319,3 +8319,733 @@
 2025-06-05 18:50:44,411 - INFO - 127.0.0.1 - - [05/Jun/2025 18:50:44] "GET /static/style.css HTTP/1.1" 200 -
 2025-06-05 18:50:44,421 - INFO - 127.0.0.1 - - [05/Jun/2025 18:50:44] "GET /static/img/logo-duże.png HTTP/1.1" 200 -
 2025-06-05 18:50:44,425 - INFO - 127.0.0.1 - - [05/Jun/2025 18:50:44] "GET /static/img/maxmetal.png HTTP/1.1" 200 -
+2025-06-05 18:51:27,930 - INFO - Administrator wszedł na stronę główną.
+2025-06-05 18:51:28,071 - INFO - 127.0.0.1 - - [05/Jun/2025 18:51:28] "GET / HTTP/1.1" 200 -
+2025-06-05 18:51:28,112 - INFO - 127.0.0.1 - - [05/Jun/2025 18:51:28] "GET /static/style.css HTTP/1.1" 200 -
+2025-06-05 18:51:28,121 - INFO - 127.0.0.1 - - [05/Jun/2025 18:51:28] "GET /static/img/logo-duże.png HTTP/1.1" 200 -
+2025-06-05 18:51:28,130 - INFO - 127.0.0.1 - - [05/Jun/2025 18:51:28] "GET /static/img/maxmetal.png HTTP/1.1" 200 -
+2025-06-05 18:51:28,140 - INFO - 127.0.0.1 - - [05/Jun/2025 18:51:28] "GET /static/img/logo-male.png HTTP/1.1" 200 -
+2025-06-05 18:51:29,798 - INFO - Administrator wszedł na stronę malarni.
+2025-06-05 18:51:29,863 - INFO - 127.0.0.1 - - [05/Jun/2025 18:51:29] "GET /malarnia HTTP/1.1" 200 -
+2025-06-05 18:51:29,895 - INFO - 127.0.0.1 - - [05/Jun/2025 18:51:29] "GET /static/style.css HTTP/1.1" 200 -
+2025-06-05 18:51:29,904 - INFO - 127.0.0.1 - - [05/Jun/2025 18:51:29] "GET /static/img/logo-duże.png HTTP/1.1" 200 -
+2025-06-05 18:51:29,913 - INFO - 127.0.0.1 - - [05/Jun/2025 18:51:29] "GET /static/img/maxmetal.png HTTP/1.1" 200 -
+2025-06-05 18:51:32,594 - INFO - Administrator wszedł na stronę główną.
+2025-06-05 18:51:32,596 - INFO - 127.0.0.1 - - [05/Jun/2025 18:51:32] "GET / HTTP/1.1" 200 -
+2025-06-05 18:51:32,632 - INFO - 127.0.0.1 - - [05/Jun/2025 18:51:32] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-06-05 18:51:32,641 - INFO - 127.0.0.1 - - [05/Jun/2025 18:51:32] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-06-05 18:51:32,643 - INFO - 127.0.0.1 - - [05/Jun/2025 18:51:32] "[36mGET /static/img/maxmetal.png HTTP/1.1[0m" 304 -
+2025-06-05 18:51:33,741 - INFO - Administrator wszedł na stronę powrotu.
+2025-06-05 18:51:33,745 - INFO - 127.0.0.1 - - [05/Jun/2025 18:51:33] "GET /powrot HTTP/1.1" 200 -
+2025-06-05 18:51:33,777 - INFO - 127.0.0.1 - - [05/Jun/2025 18:51:33] "GET /static/style.css HTTP/1.1" 200 -
+2025-06-05 18:51:33,788 - INFO - 127.0.0.1 - - [05/Jun/2025 18:51:33] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-06-05 18:51:33,792 - INFO - 127.0.0.1 - - [05/Jun/2025 18:51:33] "GET /static/img/maxmetal.png HTTP/1.1" 200 -
+2025-06-05 18:51:36,207 - INFO - Administrator wszedł na stronę dodawania powrotu.
+2025-06-05 18:51:36,227 - INFO - 127.0.0.1 - - [05/Jun/2025 18:51:36] "GET /dodaj_powrot HTTP/1.1" 200 -
+2025-06-05 18:51:36,261 - INFO - 127.0.0.1 - - [05/Jun/2025 18:51:36] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-06-05 18:51:42,889 - INFO - Powrót został dodany przez Administrator.
+2025-06-05 18:51:42,890 - INFO - 127.0.0.1 - - [05/Jun/2025 18:51:42] "[32mPOST /dodaj_powrot_do_bazy HTTP/1.1[0m" 302 -
+2025-06-05 18:51:42,897 - INFO - Administrator wszedł na stronę powrotu.
+2025-06-05 18:51:42,905 - INFO - 127.0.0.1 - - [05/Jun/2025 18:51:42] "GET /powrot HTTP/1.1" 200 -
+2025-06-05 18:51:42,941 - INFO - 127.0.0.1 - - [05/Jun/2025 18:51:42] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-06-05 18:51:42,948 - INFO - 127.0.0.1 - - [05/Jun/2025 18:51:42] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-06-05 18:51:42,953 - INFO - 127.0.0.1 - - [05/Jun/2025 18:51:42] "[36mGET /static/img/maxmetal.png HTTP/1.1[0m" 304 -
+2025-06-05 18:51:44,391 - INFO - Administrator wszedł na stronę główną.
+2025-06-05 18:51:44,392 - INFO - 127.0.0.1 - - [05/Jun/2025 18:51:44] "GET / HTTP/1.1" 200 -
+2025-06-05 18:51:44,423 - INFO - 127.0.0.1 - - [05/Jun/2025 18:51:44] "GET /static/style.css HTTP/1.1" 200 -
+2025-06-05 18:51:44,433 - INFO - 127.0.0.1 - - [05/Jun/2025 18:51:44] "GET /static/img/logo-duże.png HTTP/1.1" 200 -
+2025-06-05 18:51:44,435 - INFO - 127.0.0.1 - - [05/Jun/2025 18:51:44] "GET /static/img/maxmetal.png HTTP/1.1" 200 -
+2025-06-05 18:51:46,299 - INFO - Administrator wszedł na stronę malarni.
+2025-06-05 18:51:46,303 - INFO - 127.0.0.1 - - [05/Jun/2025 18:51:46] "GET /malarnia HTTP/1.1" 200 -
+2025-06-05 18:51:46,339 - INFO - 127.0.0.1 - - [05/Jun/2025 18:51:46] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-06-05 18:51:46,346 - INFO - 127.0.0.1 - - [05/Jun/2025 18:51:46] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-06-05 18:51:46,353 - INFO - 127.0.0.1 - - [05/Jun/2025 18:51:46] "[36mGET /static/img/maxmetal.png HTTP/1.1[0m" 304 -
+2025-06-05 18:51:49,075 - INFO - Administrator wszedł na stronę główną.
+2025-06-05 18:51:49,076 - INFO - 127.0.0.1 - - [05/Jun/2025 18:51:49] "GET / HTTP/1.1" 200 -
+2025-06-05 18:51:49,105 - INFO - 127.0.0.1 - - [05/Jun/2025 18:51:49] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-06-05 18:51:49,115 - INFO - 127.0.0.1 - - [05/Jun/2025 18:51:49] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-06-05 18:51:49,118 - INFO - 127.0.0.1 - - [05/Jun/2025 18:51:49] "[36mGET /static/img/maxmetal.png HTTP/1.1[0m" 304 -
+2025-06-05 18:52:55,434 - INFO - Administrator wszedł na stronę malarni.
+2025-06-05 18:52:55,438 - INFO - 127.0.0.1 - - [05/Jun/2025 18:52:55] "GET /malarnia HTTP/1.1" 200 -
+2025-06-05 18:52:55,476 - INFO - 127.0.0.1 - - [05/Jun/2025 18:52:55] "GET /static/style.css HTTP/1.1" 200 -
+2025-06-05 18:52:55,485 - INFO - 127.0.0.1 - - [05/Jun/2025 18:52:55] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-06-05 18:52:55,501 - INFO - 127.0.0.1 - - [05/Jun/2025 18:52:55] "GET /static/img/maxmetal.png HTTP/1.1" 200 -
+2025-06-05 18:52:57,550 - INFO - Administrator wszedł na stronę dodawania malarni.
+2025-06-05 18:52:57,568 - INFO - 127.0.0.1 - - [05/Jun/2025 18:52:57] "GET /dodaj_malarnie HTTP/1.1" 200 -
+2025-06-05 18:52:57,595 - INFO - 127.0.0.1 - - [05/Jun/2025 18:52:57] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-06-05 18:53:05,786 - INFO - 127.0.0.1 - - [05/Jun/2025 18:53:05] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-06-05 18:53:07,210 - INFO - Administrator wszedł na stronę główną.
+2025-06-05 18:53:07,211 - INFO - 127.0.0.1 - - [05/Jun/2025 18:53:07] "GET / HTTP/1.1" 200 -
+2025-06-05 18:53:07,242 - INFO - 127.0.0.1 - - [05/Jun/2025 18:53:07] "GET /static/style.css HTTP/1.1" 200 -
+2025-06-05 18:53:07,251 - INFO - 127.0.0.1 - - [05/Jun/2025 18:53:07] "GET /static/img/logo-duże.png HTTP/1.1" 200 -
+2025-06-05 18:53:07,256 - INFO - 127.0.0.1 - - [05/Jun/2025 18:53:07] "GET /static/img/maxmetal.png HTTP/1.1" 200 -
+2025-06-05 18:53:08,183 - INFO - Administrator wszedł na stronę powrotu.
+2025-06-05 18:53:08,189 - INFO - 127.0.0.1 - - [05/Jun/2025 18:53:08] "GET /powrot HTTP/1.1" 200 -
+2025-06-05 18:53:08,217 - INFO - 127.0.0.1 - - [05/Jun/2025 18:53:08] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-06-05 18:53:08,223 - INFO - 127.0.0.1 - - [05/Jun/2025 18:53:08] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-06-05 18:53:08,230 - INFO - 127.0.0.1 - - [05/Jun/2025 18:53:08] "[36mGET /static/img/maxmetal.png HTTP/1.1[0m" 304 -
+2025-06-05 18:54:15,514 - INFO - Administrator wszedł na stronę główną.
+2025-06-05 18:54:15,515 - INFO - 127.0.0.1 - - [05/Jun/2025 18:54:15] "GET / HTTP/1.1" 200 -
+2025-06-05 18:54:15,544 - INFO - 127.0.0.1 - - [05/Jun/2025 18:54:15] "GET /static/style.css HTTP/1.1" 200 -
+2025-06-05 18:54:15,555 - INFO - 127.0.0.1 - - [05/Jun/2025 18:54:15] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-06-05 18:54:15,557 - INFO - 127.0.0.1 - - [05/Jun/2025 18:54:15] "GET /static/img/maxmetal.png HTTP/1.1" 200 -
+2025-06-05 18:54:17,017 - INFO - Administrator wszedł na stronę powrotu.
+2025-06-05 18:54:17,022 - INFO - 127.0.0.1 - - [05/Jun/2025 18:54:17] "GET /powrot HTTP/1.1" 200 -
+2025-06-05 18:54:17,054 - INFO - 127.0.0.1 - - [05/Jun/2025 18:54:17] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-06-05 18:54:17,061 - INFO - 127.0.0.1 - - [05/Jun/2025 18:54:17] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-06-05 18:54:17,066 - INFO - 127.0.0.1 - - [05/Jun/2025 18:54:17] "[36mGET /static/img/maxmetal.png HTTP/1.1[0m" 304 -
+2025-06-05 18:54:19,312 - INFO - Administrator wszedł na stronę dodawania powrotu.
+2025-06-05 18:54:19,331 - INFO - 127.0.0.1 - - [05/Jun/2025 18:54:19] "GET /dodaj_powrot HTTP/1.1" 200 -
+2025-06-05 18:54:19,362 - INFO - 127.0.0.1 - - [05/Jun/2025 18:54:19] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-06-05 18:59:14,007 - INFO - Powrót został dodany przez Administrator.
+2025-06-05 18:59:14,007 - INFO - 127.0.0.1 - - [05/Jun/2025 18:59:14] "[32mPOST /dodaj_powrot_do_bazy HTTP/1.1[0m" 302 -
+2025-06-05 18:59:14,015 - INFO - Administrator wszedł na stronę powrotu.
+2025-06-05 18:59:14,022 - INFO - 127.0.0.1 - - [05/Jun/2025 18:59:14] "GET /powrot HTTP/1.1" 200 -
+2025-06-05 18:59:14,059 - INFO - 127.0.0.1 - - [05/Jun/2025 18:59:14] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-06-05 18:59:14,067 - INFO - 127.0.0.1 - - [05/Jun/2025 18:59:14] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-06-05 18:59:14,075 - INFO - 127.0.0.1 - - [05/Jun/2025 18:59:14] "[36mGET /static/img/maxmetal.png HTTP/1.1[0m" 304 -
+2025-06-05 19:19:54,708 - INFO - Administrator wszedł na stronę główną.
+2025-06-05 19:19:55,169 - INFO - 127.0.0.1 - - [05/Jun/2025 19:19:55] "GET / HTTP/1.1" 200 -
+2025-06-05 19:19:55,220 - INFO - 127.0.0.1 - - [05/Jun/2025 19:19:55] "GET /static/style.css HTTP/1.1" 200 -
+2025-06-05 19:19:55,233 - INFO - 127.0.0.1 - - [05/Jun/2025 19:19:55] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-06-05 19:19:55,235 - INFO - 127.0.0.1 - - [05/Jun/2025 19:19:55] "GET /static/img/maxmetal.png HTTP/1.1" 200 -
+2025-06-05 19:19:55,247 - INFO - 127.0.0.1 - - [05/Jun/2025 19:19:55] "GET /static/img/logo-male.png HTTP/1.1" 200 -
+2025-06-05 19:19:56,507 - INFO - Administrator wszedł na stronę zarządzania użytkownikami.
+2025-06-05 19:19:56,677 - INFO - 127.0.0.1 - - [05/Jun/2025 19:19:56] "GET /uzytkownik HTTP/1.1" 200 -
+2025-06-05 19:19:56,711 - INFO - 127.0.0.1 - - [05/Jun/2025 19:19:56] "GET /static/style.css HTTP/1.1" 200 -
+2025-06-05 19:19:56,727 - INFO - 127.0.0.1 - - [05/Jun/2025 19:19:56] "GET /static/img/logo-duże.png HTTP/1.1" 200 -
+2025-06-05 19:19:56,738 - INFO - 127.0.0.1 - - [05/Jun/2025 19:19:56] "[36mGET /static/img/maxmetal.png HTTP/1.1[0m" 304 -
+2025-06-05 19:20:59,285 - INFO - Administrator wszedł na stronę główną.
+2025-06-05 19:20:59,288 - INFO - 127.0.0.1 - - [05/Jun/2025 19:20:59] "GET / HTTP/1.1" 200 -
+2025-06-05 19:20:59,470 - INFO - 127.0.0.1 - - [05/Jun/2025 19:20:59] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-06-05 19:20:59,483 - INFO - 127.0.0.1 - - [05/Jun/2025 19:20:59] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-06-05 19:20:59,526 - INFO - 127.0.0.1 - - [05/Jun/2025 19:20:59] "[36mGET /static/img/maxmetal.png HTTP/1.1[0m" 304 -
+2025-06-05 19:21:02,481 - INFO - Użytkownik Administrator wylogowany.
+2025-06-05 19:21:02,482 - INFO - 127.0.0.1 - - [05/Jun/2025 19:21:02] "[32mGET /logout HTTP/1.1[0m" 302 -
+2025-06-05 19:21:02,499 - INFO - Nieautoryzowany dostęp do strony głównej.
+2025-06-05 19:21:02,506 - INFO - 127.0.0.1 - - [05/Jun/2025 19:21:02] "GET / HTTP/1.1" 200 -
+2025-06-05 19:21:02,579 - INFO - 127.0.0.1 - - [05/Jun/2025 19:21:02] "GET /static/style.css HTTP/1.1" 200 -
+2025-06-05 19:21:02,589 - INFO - 127.0.0.1 - - [05/Jun/2025 19:21:02] "GET /static/img/logo-duże.png HTTP/1.1" 200 -
+2025-06-05 19:21:02,617 - INFO - 127.0.0.1 - - [05/Jun/2025 19:21:02] "GET /static/img/maxmetal.png HTTP/1.1" 200 -
+2025-06-05 19:21:02,639 - INFO - 127.0.0.1 - - [05/Jun/2025 19:21:02] "GET /static/img/logo-male.png HTTP/1.1" 200 -
+2025-06-05 19:21:05,879 - INFO - Próba logowania dla logina: test5
+2025-06-05 19:21:06,019 - INFO - Użytkownik test5 zalogowany pomyślnie.
+2025-06-05 19:21:06,021 - INFO - 127.0.0.1 - - [05/Jun/2025 19:21:06] "[32mPOST /login HTTP/1.1[0m" 302 -
+2025-06-05 19:21:06,033 - INFO - test5 wszedł na stronę główną.
+2025-06-05 19:21:06,035 - INFO - 127.0.0.1 - - [05/Jun/2025 19:21:06] "GET / HTTP/1.1" 200 -
+2025-06-05 19:21:06,071 - INFO - 127.0.0.1 - - [05/Jun/2025 19:21:06] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-06-05 19:21:06,084 - INFO - 127.0.0.1 - - [05/Jun/2025 19:21:06] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-06-05 19:21:06,092 - INFO - 127.0.0.1 - - [05/Jun/2025 19:21:06] "[36mGET /static/img/maxmetal.png HTTP/1.1[0m" 304 -
+2025-06-05 19:21:06,133 - INFO - 127.0.0.1 - - [05/Jun/2025 19:21:06] "[36mGET /static/img/logo-male.png HTTP/1.1[0m" 304 -
+2025-06-05 19:21:07,349 - INFO - test5 wszedł na stronę zarządzania użytkownikami.
+2025-06-05 19:21:07,358 - INFO - 127.0.0.1 - - [05/Jun/2025 19:21:07] "GET /uzytkownik HTTP/1.1" 200 -
+2025-06-05 19:21:07,418 - INFO - 127.0.0.1 - - [05/Jun/2025 19:21:07] "GET /static/style.css HTTP/1.1" 200 -
+2025-06-05 19:21:07,456 - INFO - 127.0.0.1 - - [05/Jun/2025 19:21:07] "GET /static/img/logo-duże.png HTTP/1.1" 200 -
+2025-06-05 19:21:07,477 - INFO - 127.0.0.1 - - [05/Jun/2025 19:21:07] "GET /static/img/maxmetal.png HTTP/1.1" 200 -
+2025-06-05 19:21:12,512 - INFO - Użytkownik test5 wylogowany.
+2025-06-05 19:21:12,513 - INFO - 127.0.0.1 - - [05/Jun/2025 19:21:12] "[32mGET /logout HTTP/1.1[0m" 302 -
+2025-06-05 19:21:12,525 - INFO - Nieautoryzowany dostęp do strony głównej.
+2025-06-05 19:21:12,526 - INFO - 127.0.0.1 - - [05/Jun/2025 19:21:12] "GET / HTTP/1.1" 200 -
+2025-06-05 19:21:12,590 - INFO - 127.0.0.1 - - [05/Jun/2025 19:21:12] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-06-05 19:21:12,598 - INFO - 127.0.0.1 - - [05/Jun/2025 19:21:12] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-06-05 19:21:12,605 - INFO - 127.0.0.1 - - [05/Jun/2025 19:21:12] "[36mGET /static/img/maxmetal.png HTTP/1.1[0m" 304 -
+2025-06-05 19:21:12,617 - INFO - 127.0.0.1 - - [05/Jun/2025 19:21:12] "[36mGET /static/img/logo-male.png HTTP/1.1[0m" 304 -
+2025-06-05 19:21:15,573 - INFO - Próba logowania dla logina: Administrator
+2025-06-05 19:21:15,734 - INFO - Użytkownik Administrator zalogowany pomyślnie.
+2025-06-05 19:21:15,736 - INFO - 127.0.0.1 - - [05/Jun/2025 19:21:15] "[32mPOST /login HTTP/1.1[0m" 302 -
+2025-06-05 19:21:15,747 - INFO - Administrator wszedł na stronę główną.
+2025-06-05 19:21:15,749 - INFO - 127.0.0.1 - - [05/Jun/2025 19:21:15] "GET / HTTP/1.1" 200 -
+2025-06-05 19:21:15,784 - INFO - 127.0.0.1 - - [05/Jun/2025 19:21:15] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-06-05 19:21:15,795 - INFO - 127.0.0.1 - - [05/Jun/2025 19:21:15] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-06-05 19:21:15,798 - INFO - 127.0.0.1 - - [05/Jun/2025 19:21:15] "[36mGET /static/img/maxmetal.png HTTP/1.1[0m" 304 -
+2025-06-05 19:21:15,808 - INFO - 127.0.0.1 - - [05/Jun/2025 19:21:15] "[36mGET /static/img/logo-male.png HTTP/1.1[0m" 304 -
+2025-06-05 22:48:49,488 - INFO - ✅ Kopia zapasowa zapisana do pliku: backups\kopie_zapasowe_bazy_2025-06-05_22-48.sql
+2025-06-05 22:48:49,490 - INFO - 🗑️ Usunięto starą kopię: kopie_zapasowe_bazy_2025-06-03_19-23.sql
+2025-06-05 22:48:49,498 - INFO - ✅ Kopia zapasowa zapisana do pliku: backups\kopie_zapasowe_bazy_2025-06-05_22-48.sql
+2025-06-06 12:24:47,914 - INFO - Administrator wszedł na stronę rozmiarów obejm.
+2025-06-06 12:24:48,049 - INFO - 127.0.0.1 - - [06/Jun/2025 12:24:48] "GET /rozmiary_obejm HTTP/1.1" 200 -
+2025-06-06 12:24:48,106 - INFO - 127.0.0.1 - - [06/Jun/2025 12:24:48] "GET /static/style.css HTTP/1.1" 200 -
+2025-06-06 12:24:48,119 - INFO - 127.0.0.1 - - [06/Jun/2025 12:24:48] "GET /static/img/logo-duże.png HTTP/1.1" 200 -
+2025-06-06 12:24:48,121 - INFO - 127.0.0.1 - - [06/Jun/2025 12:24:48] "GET /static/img/maxmetal.png HTTP/1.1" 200 -
+2025-06-06 12:24:48,132 - INFO - 127.0.0.1 - - [06/Jun/2025 12:24:48] "GET /static/img/logo-male.png HTTP/1.1" 200 -
+2025-06-06 12:24:51,477 - INFO - Administrator wszedł na stronę dodawania rozmiaru obejm.
+2025-06-06 12:24:51,482 - INFO - 127.0.0.1 - - [06/Jun/2025 12:24:51] "GET /dodaj_rozmiar_obejma HTTP/1.1" 200 -
+2025-06-06 12:24:51,511 - INFO - 127.0.0.1 - - [06/Jun/2025 12:24:51] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-06-06 12:24:51,526 - INFO - 127.0.0.1 - - [06/Jun/2025 12:24:51] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-06-06 12:24:53,837 - INFO - Rozmiar sda został dodany przez Administrator.
+2025-06-06 12:24:53,838 - INFO - 127.0.0.1 - - [06/Jun/2025 12:24:53] "[32mPOST /dodaj_rozmiar_obejma_do_bazy HTTP/1.1[0m" 302 -
+2025-06-06 12:24:53,846 - INFO - Administrator wszedł na stronę rozmiarów obejm.
+2025-06-06 12:24:53,847 - INFO - 127.0.0.1 - - [06/Jun/2025 12:24:53] "GET /rozmiary_obejm HTTP/1.1" 200 -
+2025-06-06 12:24:53,873 - INFO - 127.0.0.1 - - [06/Jun/2025 12:24:53] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-06-06 12:24:53,881 - INFO - 127.0.0.1 - - [06/Jun/2025 12:24:53] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-06-06 12:24:53,883 - INFO - 127.0.0.1 - - [06/Jun/2025 12:24:53] "[36mGET /static/img/maxmetal.png HTTP/1.1[0m" 304 -
+2025-06-06 12:26:48,524 - INFO -  * Detected change in 'C:\\Users\\admin\\Documents\\GitHub\\baza\\baza danych maxmetal\\python\\index.py', reloading
+2025-06-06 12:26:56,761 - INFO - Połączenie z bazą danych zostało nawiązane pomyślnie.
+2025-06-06 12:26:56,867 - INFO - ✅ Kopia zapasowa zapisana do pliku: backups\kopie_zapasowe_bazy_2025-06-06_12-26.sql
+2025-06-06 12:26:56,870 - INFO - 🗑️ Usunięto starą kopię: kopie_zapasowe_bazy_2025-06-03_23-23.sql
+2025-06-06 12:26:56,910 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.1.28:5000
+2025-06-06 12:26:56,910 - INFO - [33mPress CTRL+C to quit[0m
+2025-06-06 12:26:56,913 - INFO -  * Restarting with stat
+2025-06-06 12:26:59,495 - INFO - Połączenie z bazą danych zostało nawiązane pomyślnie.
+2025-06-06 12:26:59,588 - INFO - ✅ Kopia zapasowa zapisana do pliku: backups\kopie_zapasowe_bazy_2025-06-06_12-26.sql
+2025-06-06 12:26:59,594 - WARNING -  * Debugger is active!
+2025-06-06 12:26:59,599 - INFO -  * Debugger PIN: 575-758-812
+2025-06-06 12:26:59,907 - INFO - Administrator wszedł na stronę rozmiarów obejm.
+2025-06-06 12:27:00,037 - INFO - 127.0.0.1 - - [06/Jun/2025 12:27:00] "GET /rozmiary_obejm HTTP/1.1" 200 -
+2025-06-06 12:27:00,075 - INFO - 127.0.0.1 - - [06/Jun/2025 12:27:00] "GET /static/style.css HTTP/1.1" 200 -
+2025-06-06 12:27:00,093 - INFO - 127.0.0.1 - - [06/Jun/2025 12:27:00] "GET /static/img/logo-duże.png HTTP/1.1" 200 -
+2025-06-06 12:27:00,115 - INFO - 127.0.0.1 - - [06/Jun/2025 12:27:00] "GET /static/img/maxmetal.png HTTP/1.1" 200 -
+2025-06-06 12:27:03,742 - INFO - Otrzymane dane do aktualizacji rozmiaru obejm: {'column_0': '2', 'column_1': 'sda2', 'column_2': 'Zapisz'}
+2025-06-06 12:27:03,745 - INFO - Poprzednie dane rozmiaru obejm o ID 2: {'id': 2, 'nazwa': 'sda'}
+2025-06-06 12:27:03,752 - INFO - Rozmiar obejm o ID 2 został zaktualizowany przez Administrator.
+2025-06-06 12:27:03,753 - INFO - 127.0.0.1 - - [06/Jun/2025 12:27:03] "POST /update-row-rozmiary_obejm HTTP/1.1" 200 -
+2025-06-06 12:27:05,312 - INFO - Administrator wszedł na stronę rozmiarów obejm.
+2025-06-06 12:27:05,313 - INFO - 127.0.0.1 - - [06/Jun/2025 12:27:05] "GET /rozmiary_obejm HTTP/1.1" 200 -
+2025-06-06 12:27:05,334 - INFO - 127.0.0.1 - - [06/Jun/2025 12:27:05] "GET /static/style.css HTTP/1.1" 200 -
+2025-06-06 12:27:05,348 - INFO - 127.0.0.1 - - [06/Jun/2025 12:27:05] "GET /static/img/logo-duże.png HTTP/1.1" 200 -
+2025-06-06 12:27:05,351 - INFO - 127.0.0.1 - - [06/Jun/2025 12:27:05] "GET /static/img/maxmetal.png HTTP/1.1" 200 -
+2025-06-06 12:27:05,360 - INFO - 127.0.0.1 - - [06/Jun/2025 12:27:05] "GET /static/img/logo-male.png HTTP/1.1" 200 -
+2025-06-06 12:27:05,871 - INFO - Administrator wszedł na stronę rozmiarów obejm.
+2025-06-06 12:27:05,872 - INFO - 127.0.0.1 - - [06/Jun/2025 12:27:05] "GET /rozmiary_obejm HTTP/1.1" 200 -
+2025-06-06 12:27:05,892 - INFO - 127.0.0.1 - - [06/Jun/2025 12:27:05] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-06-06 12:27:05,902 - INFO - 127.0.0.1 - - [06/Jun/2025 12:27:05] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-06-06 12:27:05,906 - INFO - 127.0.0.1 - - [06/Jun/2025 12:27:05] "[36mGET /static/img/maxmetal.png HTTP/1.1[0m" 304 -
+2025-06-06 12:27:06,165 - INFO - Administrator wszedł na stronę rozmiarów obejm.
+2025-06-06 12:27:06,166 - INFO - 127.0.0.1 - - [06/Jun/2025 12:27:06] "GET /rozmiary_obejm HTTP/1.1" 200 -
+2025-06-06 12:27:06,184 - INFO - 127.0.0.1 - - [06/Jun/2025 12:27:06] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-06-06 12:27:06,194 - INFO - 127.0.0.1 - - [06/Jun/2025 12:27:06] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-06-06 12:27:06,203 - INFO - 127.0.0.1 - - [06/Jun/2025 12:27:06] "[36mGET /static/img/maxmetal.png HTTP/1.1[0m" 304 -
+2025-06-06 12:27:07,468 - INFO - Administrator wszedł na stronę główną.
+2025-06-06 12:27:07,656 - INFO - 127.0.0.1 - - [06/Jun/2025 12:27:07] "GET / HTTP/1.1" 200 -
+2025-06-06 12:27:07,685 - INFO - 127.0.0.1 - - [06/Jun/2025 12:27:07] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-06-06 12:27:07,692 - INFO - 127.0.0.1 - - [06/Jun/2025 12:27:07] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-06-06 12:27:07,694 - INFO - 127.0.0.1 - - [06/Jun/2025 12:27:07] "[36mGET /static/img/maxmetal.png HTTP/1.1[0m" 304 -
+2025-06-06 12:27:08,717 - INFO - Administrator wszedł na stronę materialów obejm.
+2025-06-06 12:27:08,794 - INFO - 127.0.0.1 - - [06/Jun/2025 12:27:08] "GET /material_obejma HTTP/1.1" 200 -
+2025-06-06 12:27:08,822 - INFO - 127.0.0.1 - - [06/Jun/2025 12:27:08] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-06-06 12:27:08,835 - INFO - 127.0.0.1 - - [06/Jun/2025 12:27:08] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-06-06 12:27:08,849 - INFO - 127.0.0.1 - - [06/Jun/2025 12:27:08] "[36mGET /static/img/maxmetal.png HTTP/1.1[0m" 304 -
+2025-06-06 12:27:13,549 - INFO - Administrator wszedł na stronę główną.
+2025-06-06 12:27:13,550 - INFO - 127.0.0.1 - - [06/Jun/2025 12:27:13] "GET / HTTP/1.1" 200 -
+2025-06-06 12:27:13,585 - INFO - 127.0.0.1 - - [06/Jun/2025 12:27:13] "GET /static/style.css HTTP/1.1" 200 -
+2025-06-06 12:27:13,593 - INFO - 127.0.0.1 - - [06/Jun/2025 12:27:13] "GET /static/img/logo-duże.png HTTP/1.1" 200 -
+2025-06-06 12:27:13,597 - INFO - 127.0.0.1 - - [06/Jun/2025 12:27:13] "GET /static/img/maxmetal.png HTTP/1.1" 200 -
+2025-06-06 12:27:14,441 - INFO - Administrator wszedł na stronę dostawców.
+2025-06-06 12:27:14,553 - INFO - 127.0.0.1 - - [06/Jun/2025 12:27:14] "GET /dostawcy HTTP/1.1" 200 -
+2025-06-06 12:27:14,580 - INFO - 127.0.0.1 - - [06/Jun/2025 12:27:14] "GET /static/style.css HTTP/1.1" 200 -
+2025-06-06 12:27:14,594 - INFO - 127.0.0.1 - - [06/Jun/2025 12:27:14] "GET /static/img/logo-duże.png HTTP/1.1" 200 -
+2025-06-06 12:27:14,604 - INFO - 127.0.0.1 - - [06/Jun/2025 12:27:14] "GET /static/img/maxmetal.png HTTP/1.1" 200 -
+2025-06-06 12:27:15,550 - INFO - Administrator wszedł na stronę główną.
+2025-06-06 12:27:15,551 - INFO - 127.0.0.1 - - [06/Jun/2025 12:27:15] "GET / HTTP/1.1" 200 -
+2025-06-06 12:27:15,579 - INFO - 127.0.0.1 - - [06/Jun/2025 12:27:15] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-06-06 12:27:15,585 - INFO - 127.0.0.1 - - [06/Jun/2025 12:27:15] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-06-06 12:27:15,592 - INFO - 127.0.0.1 - - [06/Jun/2025 12:27:15] "[36mGET /static/img/maxmetal.png HTTP/1.1[0m" 304 -
+2025-06-06 12:27:16,417 - INFO - Administrator wszedł na stronę materialów obejm.
+2025-06-06 12:27:16,419 - INFO - 127.0.0.1 - - [06/Jun/2025 12:27:16] "GET /material_obejma HTTP/1.1" 200 -
+2025-06-06 12:27:16,448 - INFO - 127.0.0.1 - - [06/Jun/2025 12:27:16] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-06-06 12:27:16,458 - INFO - 127.0.0.1 - - [06/Jun/2025 12:27:16] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-06-06 12:27:16,467 - INFO - 127.0.0.1 - - [06/Jun/2025 12:27:16] "[36mGET /static/img/maxmetal.png HTTP/1.1[0m" 304 -
+2025-06-06 12:27:55,168 - INFO - Administrator wszedł na stronę materialów obejm.
+2025-06-06 12:27:55,169 - INFO - 127.0.0.1 - - [06/Jun/2025 12:27:55] "GET /material_obejma HTTP/1.1" 200 -
+2025-06-06 12:27:55,190 - INFO - 127.0.0.1 - - [06/Jun/2025 12:27:55] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-06-06 12:27:55,201 - INFO - 127.0.0.1 - - [06/Jun/2025 12:27:55] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-06-06 12:27:55,210 - INFO - 127.0.0.1 - - [06/Jun/2025 12:27:55] "[36mGET /static/img/maxmetal.png HTTP/1.1[0m" 304 -
+2025-06-06 12:53:23,386 - INFO - Administrator wszedł na stronę główną.
+2025-06-06 12:53:23,387 - INFO - 127.0.0.1 - - [06/Jun/2025 12:53:23] "GET / HTTP/1.1" 200 -
+2025-06-06 12:53:23,429 - INFO - 127.0.0.1 - - [06/Jun/2025 12:53:23] "GET /static/style.css HTTP/1.1" 200 -
+2025-06-06 12:53:23,439 - INFO - 127.0.0.1 - - [06/Jun/2025 12:53:23] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-06-06 12:53:23,445 - INFO - 127.0.0.1 - - [06/Jun/2025 12:53:23] "GET /static/img/maxmetal.png HTTP/1.1" 200 -
+2025-06-06 12:53:24,839 - INFO - Administrator wszedł na stronę materialów obejm.
+2025-06-06 12:53:24,841 - INFO - 127.0.0.1 - - [06/Jun/2025 12:53:24] "GET /material_obejma HTTP/1.1" 200 -
+2025-06-06 12:53:24,871 - INFO - 127.0.0.1 - - [06/Jun/2025 12:53:24] "GET /static/style.css HTTP/1.1" 200 -
+2025-06-06 12:53:24,888 - INFO - 127.0.0.1 - - [06/Jun/2025 12:53:24] "GET /static/img/logo-duże.png HTTP/1.1" 200 -
+2025-06-06 12:53:24,890 - INFO - 127.0.0.1 - - [06/Jun/2025 12:53:24] "[36mGET /static/img/maxmetal.png HTTP/1.1[0m" 304 -
+2025-06-06 12:53:50,812 - INFO - Administrator wszedł na stronę główną.
+2025-06-06 12:53:50,813 - INFO - 127.0.0.1 - - [06/Jun/2025 12:53:50] "GET / HTTP/1.1" 200 -
+2025-06-06 12:53:50,841 - INFO - 127.0.0.1 - - [06/Jun/2025 12:53:50] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-06-06 12:53:50,848 - INFO - 127.0.0.1 - - [06/Jun/2025 12:53:50] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-06-06 12:53:50,854 - INFO - 127.0.0.1 - - [06/Jun/2025 12:53:50] "[36mGET /static/img/maxmetal.png HTTP/1.1[0m" 304 -
+2025-06-06 12:53:51,655 - INFO - Administrator wszedł na stronę profilu.
+2025-06-06 12:53:51,887 - INFO - 127.0.0.1 - - [06/Jun/2025 12:53:51] "GET /profil HTTP/1.1" 200 -
+2025-06-06 12:53:51,927 - INFO - 127.0.0.1 - - [06/Jun/2025 12:53:51] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-06-06 12:53:51,946 - INFO - 127.0.0.1 - - [06/Jun/2025 12:53:51] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-06-06 12:53:51,961 - INFO - 127.0.0.1 - - [06/Jun/2025 12:53:51] "[36mGET /static/img/maxmetal.png HTTP/1.1[0m" 304 -
+2025-06-06 12:53:53,066 - INFO - 127.0.0.1 - - [06/Jun/2025 12:53:53] "GET /get-tasma HTTP/1.1" 200 -
+2025-06-06 12:53:53,076 - INFO - 127.0.0.1 - - [06/Jun/2025 12:53:53] "GET /get-dlugosci HTTP/1.1" 200 -
+2025-06-06 12:53:53,077 - INFO - 127.0.0.1 - - [06/Jun/2025 12:53:53] "GET /get-szablon_profile HTTP/1.1" 200 -
+2025-06-06 12:53:56,480 - INFO - 127.0.0.1 - - [06/Jun/2025 12:53:56] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-06-06 12:53:57,852 - INFO - Administrator wszedł na stronę z listą tasm.
+2025-06-06 12:53:58,017 - INFO - 127.0.0.1 - - [06/Jun/2025 12:53:58] "GET /tasma HTTP/1.1" 200 -
+2025-06-06 12:53:58,048 - INFO - 127.0.0.1 - - [06/Jun/2025 12:53:58] "GET /static/style.css HTTP/1.1" 200 -
+2025-06-06 12:53:58,058 - INFO - 127.0.0.1 - - [06/Jun/2025 12:53:58] "GET /static/img/drukarka.png HTTP/1.1" 200 -
+2025-06-06 12:53:58,068 - INFO - 127.0.0.1 - - [06/Jun/2025 12:53:58] "GET /static/img/logo-duże.png HTTP/1.1" 200 -
+2025-06-06 12:53:58,090 - INFO - 127.0.0.1 - - [06/Jun/2025 12:53:58] "GET /static/img/maxmetal.png HTTP/1.1" 200 -
+2025-06-06 12:53:58,099 - INFO - 127.0.0.1 - - [06/Jun/2025 12:53:58] "GET /static/img/logo-male.png HTTP/1.1" 200 -
+2025-06-06 12:53:59,197 - INFO - 127.0.0.1 - - [06/Jun/2025 12:53:59] "GET /get-szablon HTTP/1.1" 200 -
+2025-06-06 12:53:59,197 - INFO - 127.0.0.1 - - [06/Jun/2025 12:53:59] "GET /get-dostawcy HTTP/1.1" 200 -
+2025-06-06 12:53:59,201 - INFO - 127.0.0.1 - - [06/Jun/2025 12:53:59] "GET /get-lokalizacja HTTP/1.1" 200 -
+2025-06-06 12:56:42,496 - INFO - Administrator wszedł na stronę materialów obejm.
+2025-06-06 12:56:42,497 - INFO - 127.0.0.1 - - [06/Jun/2025 12:56:42] "GET /material_obejma HTTP/1.1" 200 -
+2025-06-06 12:56:42,524 - INFO - 127.0.0.1 - - [06/Jun/2025 12:56:42] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-06-06 12:56:42,541 - INFO - 127.0.0.1 - - [06/Jun/2025 12:56:42] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-06-06 12:56:42,542 - INFO - 127.0.0.1 - - [06/Jun/2025 12:56:42] "[36mGET /static/img/maxmetal.png HTTP/1.1[0m" 304 -
+2025-06-06 13:00:00,001 - INFO - Administrator wszedł na stronę główną.
+2025-06-06 13:00:00,003 - INFO - 127.0.0.1 - - [06/Jun/2025 13:00:00] "GET / HTTP/1.1" 200 -
+2025-06-06 13:00:00,038 - INFO - 127.0.0.1 - - [06/Jun/2025 13:00:00] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-06-06 13:00:00,047 - INFO - 127.0.0.1 - - [06/Jun/2025 13:00:00] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-06-06 13:00:00,052 - INFO - 127.0.0.1 - - [06/Jun/2025 13:00:00] "[36mGET /static/img/maxmetal.png HTTP/1.1[0m" 304 -
+2025-06-06 13:00:00,982 - INFO - Administrator wszedł na stronę z listą tasm.
+2025-06-06 13:00:00,986 - INFO - 127.0.0.1 - - [06/Jun/2025 13:00:00] "GET /tasma HTTP/1.1" 200 -
+2025-06-06 13:00:01,013 - INFO - 127.0.0.1 - - [06/Jun/2025 13:00:01] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-06-06 13:00:01,025 - INFO - 127.0.0.1 - - [06/Jun/2025 13:00:01] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-06-06 13:00:01,036 - INFO - 127.0.0.1 - - [06/Jun/2025 13:00:01] "[36mGET /static/img/maxmetal.png HTTP/1.1[0m" 304 -
+2025-06-06 13:00:01,036 - INFO - 127.0.0.1 - - [06/Jun/2025 13:00:01] "[36mGET /static/img/drukarka.png HTTP/1.1[0m" 304 -
+2025-06-06 13:00:03,946 - INFO - Administrator wszedł na stronę główną.
+2025-06-06 13:00:03,947 - INFO - 127.0.0.1 - - [06/Jun/2025 13:00:03] "GET / HTTP/1.1" 200 -
+2025-06-06 13:00:03,973 - INFO - 127.0.0.1 - - [06/Jun/2025 13:00:03] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-06-06 13:00:03,981 - INFO - 127.0.0.1 - - [06/Jun/2025 13:00:03] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-06-06 13:00:03,985 - INFO - 127.0.0.1 - - [06/Jun/2025 13:00:03] "[36mGET /static/img/maxmetal.png HTTP/1.1[0m" 304 -
+2025-06-06 13:00:05,944 - INFO - Administrator wszedł na stronę materialów obejm.
+2025-06-06 13:00:05,947 - INFO - 127.0.0.1 - - [06/Jun/2025 13:00:05] "GET /material_obejma HTTP/1.1" 200 -
+2025-06-06 13:00:05,975 - INFO - 127.0.0.1 - - [06/Jun/2025 13:00:05] "GET /static/style.css HTTP/1.1" 200 -
+2025-06-06 13:00:05,987 - INFO - 127.0.0.1 - - [06/Jun/2025 13:00:05] "GET /static/img/logo-duże.png HTTP/1.1" 200 -
+2025-06-06 13:00:06,003 - INFO - 127.0.0.1 - - [06/Jun/2025 13:00:06] "GET /static/img/maxmetal.png HTTP/1.1" 200 -
+2025-06-06 13:00:06,025 - INFO - 127.0.0.1 - - [06/Jun/2025 13:00:06] "GET /static/img/logo-male.png HTTP/1.1" 200 -
+2025-06-06 13:04:22,587 - INFO -  * Detected change in 'C:\\Users\\admin\\Documents\\GitHub\\baza\\baza danych maxmetal\\python\\index.py', reloading
+2025-06-06 13:04:34,496 - INFO - Połączenie z bazą danych zostało nawiązane pomyślnie.
+2025-06-06 13:04:34,582 - INFO - ✅ Kopia zapasowa zapisana do pliku: backups\kopie_zapasowe_bazy_2025-06-06_13-04.sql
+2025-06-06 13:04:34,583 - INFO - 🗑️ Usunięto starą kopię: kopie_zapasowe_bazy_2025-06-04_15-03.sql
+2025-06-06 13:04:34,595 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.1.28:5000
+2025-06-06 13:04:34,596 - INFO - [33mPress CTRL+C to quit[0m
+2025-06-06 13:04:34,597 - INFO -  * Restarting with stat
+2025-06-06 13:04:37,005 - INFO - Połączenie z bazą danych zostało nawiązane pomyślnie.
+2025-06-06 13:04:37,096 - INFO - ✅ Kopia zapasowa zapisana do pliku: backups\kopie_zapasowe_bazy_2025-06-06_13-04.sql
+2025-06-06 13:04:37,100 - WARNING -  * Debugger is active!
+2025-06-06 13:04:37,104 - INFO -  * Debugger PIN: 575-758-812
+2025-06-06 13:04:43,148 - INFO - Administrator wszedł na stronę materialów obejm.
+2025-06-06 13:04:43,242 - INFO - 127.0.0.1 - - [06/Jun/2025 13:04:43] "GET /material_obejma HTTP/1.1" 200 -
+2025-06-06 13:04:43,266 - INFO - 127.0.0.1 - - [06/Jun/2025 13:04:43] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-06-06 13:04:43,279 - INFO - 127.0.0.1 - - [06/Jun/2025 13:04:43] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-06-06 13:04:43,285 - INFO - 127.0.0.1 - - [06/Jun/2025 13:04:43] "[36mGET /static/img/maxmetal.png HTTP/1.1[0m" 304 -
+2025-06-06 13:05:42,861 - INFO - Administrator wszedł na stronę materialów obejm.
+2025-06-06 13:05:42,942 - INFO - 127.0.0.1 - - [06/Jun/2025 13:05:42] "GET /material_obejma HTTP/1.1" 200 -
+2025-06-06 13:05:42,965 - INFO - 127.0.0.1 - - [06/Jun/2025 13:05:42] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-06-06 13:05:42,979 - INFO - 127.0.0.1 - - [06/Jun/2025 13:05:42] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-06-06 13:05:42,986 - INFO - 127.0.0.1 - - [06/Jun/2025 13:05:42] "[36mGET /static/img/maxmetal.png HTTP/1.1[0m" 304 -
+2025-06-06 13:05:45,161 - INFO - 127.0.0.1 - - [06/Jun/2025 13:05:45] "GET /get-rozmiar HTTP/1.1" 200 -
+2025-06-06 13:05:56,367 - INFO - Administrator wszedł na stronę materialów obejm.
+2025-06-06 13:05:56,369 - INFO - 127.0.0.1 - - [06/Jun/2025 13:05:56] "GET /material_obejma HTTP/1.1" 200 -
+2025-06-06 13:05:56,389 - INFO - 127.0.0.1 - - [06/Jun/2025 13:05:56] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-06-06 13:05:56,402 - INFO - 127.0.0.1 - - [06/Jun/2025 13:05:56] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-06-06 13:05:56,420 - INFO - 127.0.0.1 - - [06/Jun/2025 13:05:56] "[36mGET /static/img/maxmetal.png HTTP/1.1[0m" 304 -
+2025-06-06 13:06:45,466 - INFO -  * Detected change in 'C:\\Users\\admin\\Documents\\GitHub\\baza\\baza danych maxmetal\\python\\index.py', reloading
+2025-06-06 13:06:50,099 - INFO - Połączenie z bazą danych zostało nawiązane pomyślnie.
+2025-06-06 13:06:50,186 - INFO - ✅ Kopia zapasowa zapisana do pliku: backups\kopie_zapasowe_bazy_2025-06-06_13-06.sql
+2025-06-06 13:06:50,188 - INFO - 🗑️ Usunięto starą kopię: kopie_zapasowe_bazy_2025-06-05_18-37.sql
+2025-06-06 13:06:50,198 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.1.28:5000
+2025-06-06 13:06:50,198 - INFO - [33mPress CTRL+C to quit[0m
+2025-06-06 13:06:50,199 - INFO -  * Restarting with stat
+2025-06-06 13:06:52,763 - INFO - Połączenie z bazą danych zostało nawiązane pomyślnie.
+2025-06-06 13:06:52,861 - INFO - ✅ Kopia zapasowa zapisana do pliku: backups\kopie_zapasowe_bazy_2025-06-06_13-06.sql
+2025-06-06 13:06:52,866 - WARNING -  * Debugger is active!
+2025-06-06 13:06:52,870 - INFO -  * Debugger PIN: 575-758-812
+2025-06-06 13:07:35,929 - INFO - Administrator wszedł na stronę materialów obejm.
+2025-06-06 13:07:36,018 - INFO - 127.0.0.1 - - [06/Jun/2025 13:07:36] "GET /material_obejma HTTP/1.1" 200 -
+2025-06-06 13:07:36,038 - INFO - 127.0.0.1 - - [06/Jun/2025 13:07:36] "GET /static/style.css HTTP/1.1" 200 -
+2025-06-06 13:07:36,052 - INFO - 127.0.0.1 - - [06/Jun/2025 13:07:36] "GET /static/img/logo-duże.png HTTP/1.1" 200 -
+2025-06-06 13:07:36,063 - INFO - 127.0.0.1 - - [06/Jun/2025 13:07:36] "GET /static/img/maxmetal.png HTTP/1.1" 200 -
+2025-06-06 13:07:37,736 - INFO - 127.0.0.1 - - [06/Jun/2025 13:07:37] "GET /get-rozmiar HTTP/1.1" 200 -
+2025-06-06 13:08:04,735 - INFO - Otrzymane dane do aktualizacji materiału obejm: {'column_0': '7', 'column_1': '3212', 'column_2': '0720-03-23', 'column_3': '32', 'column_4': '23', 'column_5': '32', 'column_6': '32', 'column_7': '', 'column_8': 'Administrator', 'column_9': 'Zapisz'}
+2025-06-06 13:08:04,737 - INFO - Poprzednie dane materiału o ID 7: {'id': 7, 'certyfikat': '321', 'data_dostawy': datetime.date(3, 2, 23), 'nr_wytopu': '32', 'nr_prodio': '23', 'ilosc_sztuk': 32, 'ilosc_sztuk_na_stanie': 32, 'id_rozmiaru': 1}
+2025-06-06 13:08:04,749 - ERROR - Wystąpił błąd podczas aktualizacji: (pymysql.err.IntegrityError) (1452, 'Cannot add or update a child row: a foreign key constraint fails (`baza_max`.`material_obejma`, CONSTRAINT `material_obejma_ibfk_1` FOREIGN KEY (`id_rozmiaru`) REFERENCES `rozmiary_obejm` (`id`))')
+[SQL: UPDATE material_obejma SET certyfikat=%(certyfikat)s, data_dostawy=%(data_dostawy)s, ilosc_sztuk=%(ilosc_sztuk)s, ilosc_sztuk_na_stanie=%(ilosc_sztuk_na_stanie)s, id_rozmiaru=%(id_rozmiaru)s WHERE material_obejma.id = %(material_obejma_id)s]
+[parameters: {'certyfikat': '3212', 'data_dostawy': '0720-03-23', 'ilosc_sztuk': '32', 'ilosc_sztuk_na_stanie': '32', 'id_rozmiaru': '', 'material_obejma_id': 7}]
+(Background on this error at: https://sqlalche.me/e/20/gkpj)
+2025-06-06 13:08:04,750 - INFO - 127.0.0.1 - - [06/Jun/2025 13:08:04] "[35m[1mPOST /update-row-material_obejma HTTP/1.1[0m" 500 -
+2025-06-06 13:08:09,505 - INFO - Administrator wszedł na stronę materialów obejm.
+2025-06-06 13:08:09,507 - INFO - 127.0.0.1 - - [06/Jun/2025 13:08:09] "GET /material_obejma HTTP/1.1" 200 -
+2025-06-06 13:08:09,531 - INFO - 127.0.0.1 - - [06/Jun/2025 13:08:09] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-06-06 13:08:09,543 - INFO - 127.0.0.1 - - [06/Jun/2025 13:08:09] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-06-06 13:08:09,553 - INFO - 127.0.0.1 - - [06/Jun/2025 13:08:09] "[36mGET /static/img/maxmetal.png HTTP/1.1[0m" 304 -
+2025-06-06 13:08:11,223 - INFO - Administrator wszedł na stronę materialów obejm.
+2025-06-06 13:08:11,225 - INFO - 127.0.0.1 - - [06/Jun/2025 13:08:11] "GET /material_obejma HTTP/1.1" 200 -
+2025-06-06 13:08:11,263 - INFO - 127.0.0.1 - - [06/Jun/2025 13:08:11] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-06-06 13:08:11,277 - INFO - 127.0.0.1 - - [06/Jun/2025 13:08:11] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-06-06 13:08:11,283 - INFO - 127.0.0.1 - - [06/Jun/2025 13:08:11] "[36mGET /static/img/maxmetal.png HTTP/1.1[0m" 304 -
+2025-06-06 13:08:11,753 - INFO - Administrator wszedł na stronę materialów obejm.
+2025-06-06 13:08:11,755 - INFO - 127.0.0.1 - - [06/Jun/2025 13:08:11] "GET /material_obejma HTTP/1.1" 200 -
+2025-06-06 13:08:11,785 - INFO - 127.0.0.1 - - [06/Jun/2025 13:08:11] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-06-06 13:08:11,796 - INFO - 127.0.0.1 - - [06/Jun/2025 13:08:11] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-06-06 13:08:11,804 - INFO - 127.0.0.1 - - [06/Jun/2025 13:08:11] "[36mGET /static/img/maxmetal.png HTTP/1.1[0m" 304 -
+2025-06-06 13:10:20,256 - INFO - Administrator wszedł na stronę materialów obejm.
+2025-06-06 13:10:20,335 - INFO - 127.0.0.1 - - [06/Jun/2025 13:10:20] "GET /material_obejma HTTP/1.1" 200 -
+2025-06-06 13:10:20,358 - INFO - 127.0.0.1 - - [06/Jun/2025 13:10:20] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-06-06 13:10:20,370 - INFO - 127.0.0.1 - - [06/Jun/2025 13:10:20] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-06-06 13:10:20,376 - INFO - 127.0.0.1 - - [06/Jun/2025 13:10:20] "[36mGET /static/img/maxmetal.png HTTP/1.1[0m" 304 -
+2025-06-06 13:10:21,957 - INFO - 127.0.0.1 - - [06/Jun/2025 13:10:21] "GET /get-rozmiar HTTP/1.1" 200 -
+2025-06-06 13:10:27,551 - INFO - Otrzymane dane do aktualizacji materiału obejm: {'column_0': '7', 'column_1': '3212', 'column_2': '0003-02-23', 'column_3': '32', 'column_4': '23', 'column_5': '32', 'column_6': '322', 'column_7': '', 'column_8': 'Administrator', 'column_9': 'Zapisz'}
+2025-06-06 13:10:27,552 - INFO - Poprzednie dane materiału o ID 7: {'id': 7, 'certyfikat': '321', 'data_dostawy': datetime.date(3, 2, 23), 'nr_wytopu': '32', 'nr_prodio': '23', 'ilosc_sztuk': 32, 'ilosc_sztuk_na_stanie': 32, 'id_rozmiaru': 1}
+2025-06-06 13:10:27,557 - ERROR - Wystąpił błąd podczas aktualizacji: (pymysql.err.IntegrityError) (1452, 'Cannot add or update a child row: a foreign key constraint fails (`baza_max`.`material_obejma`, CONSTRAINT `material_obejma_ibfk_1` FOREIGN KEY (`id_rozmiaru`) REFERENCES `rozmiary_obejm` (`id`))')
+[SQL: UPDATE material_obejma SET certyfikat=%(certyfikat)s, data_dostawy=%(data_dostawy)s, ilosc_sztuk=%(ilosc_sztuk)s, ilosc_sztuk_na_stanie=%(ilosc_sztuk_na_stanie)s, id_rozmiaru=%(id_rozmiaru)s WHERE material_obejma.id = %(material_obejma_id)s]
+[parameters: {'certyfikat': '3212', 'data_dostawy': '0003-02-23', 'ilosc_sztuk': '32', 'ilosc_sztuk_na_stanie': '322', 'id_rozmiaru': '', 'material_obejma_id': 7}]
+(Background on this error at: https://sqlalche.me/e/20/gkpj)
+2025-06-06 13:10:27,557 - INFO - 127.0.0.1 - - [06/Jun/2025 13:10:27] "[35m[1mPOST /update-row-material_obejma HTTP/1.1[0m" 500 -
+2025-06-06 13:10:30,480 - INFO - Administrator wszedł na stronę materialów obejm.
+2025-06-06 13:10:30,482 - INFO - 127.0.0.1 - - [06/Jun/2025 13:10:30] "GET /material_obejma HTTP/1.1" 200 -
+2025-06-06 13:10:30,503 - INFO - 127.0.0.1 - - [06/Jun/2025 13:10:30] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-06-06 13:10:30,515 - INFO - 127.0.0.1 - - [06/Jun/2025 13:10:30] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-06-06 13:10:30,521 - INFO - 127.0.0.1 - - [06/Jun/2025 13:10:30] "[36mGET /static/img/maxmetal.png HTTP/1.1[0m" 304 -
+2025-06-06 13:10:31,688 - INFO - Administrator wszedł na stronę materialów obejm.
+2025-06-06 13:10:31,691 - INFO - 127.0.0.1 - - [06/Jun/2025 13:10:31] "GET /material_obejma HTTP/1.1" 200 -
+2025-06-06 13:10:31,710 - INFO - 127.0.0.1 - - [06/Jun/2025 13:10:31] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-06-06 13:10:31,720 - INFO - 127.0.0.1 - - [06/Jun/2025 13:10:31] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-06-06 13:10:31,731 - INFO - 127.0.0.1 - - [06/Jun/2025 13:10:31] "[36mGET /static/img/maxmetal.png HTTP/1.1[0m" 304 -
+2025-06-06 13:12:52,877 - INFO - Administrator wszedł na stronę materialów obejm.
+2025-06-06 13:12:52,958 - INFO - 127.0.0.1 - - [06/Jun/2025 13:12:52] "GET /material_obejma HTTP/1.1" 200 -
+2025-06-06 13:12:52,996 - INFO - 127.0.0.1 - - [06/Jun/2025 13:12:52] "GET /static/style.css HTTP/1.1" 200 -
+2025-06-06 13:12:53,016 - INFO - 127.0.0.1 - - [06/Jun/2025 13:12:53] "GET /static/img/logo-duże.png HTTP/1.1" 200 -
+2025-06-06 13:12:53,022 - INFO - 127.0.0.1 - - [06/Jun/2025 13:12:53] "GET /static/img/maxmetal.png HTTP/1.1" 200 -
+2025-06-06 13:12:54,028 - INFO - 127.0.0.1 - - [06/Jun/2025 13:12:54] "GET /get-rozmiar HTTP/1.1" 200 -
+2025-06-06 13:12:57,945 - INFO - Otrzymane dane do aktualizacji materiału obejm: {'column_0': '7', 'column_1': '321', 'column_2': '0003-02-23', 'column_3': '32', 'column_4': '23', 'column_5': '32', 'column_6': '32432', 'column_7': '', 'column_8': 'Administrator', 'column_9': 'Zapisz'}
+2025-06-06 13:12:57,946 - INFO - Poprzednie dane materiału o ID 7: {'id': 7, 'certyfikat': '321', 'data_dostawy': datetime.date(3, 2, 23), 'nr_wytopu': '32', 'nr_prodio': '23', 'ilosc_sztuk': 32, 'ilosc_sztuk_na_stanie': 32, 'id_rozmiaru': 1}
+2025-06-06 13:12:57,950 - ERROR - Wystąpił błąd podczas aktualizacji: (pymysql.err.IntegrityError) (1452, 'Cannot add or update a child row: a foreign key constraint fails (`baza_max`.`material_obejma`, CONSTRAINT `material_obejma_ibfk_1` FOREIGN KEY (`id_rozmiaru`) REFERENCES `rozmiary_obejm` (`id`))')
+[SQL: UPDATE material_obejma SET data_dostawy=%(data_dostawy)s, ilosc_sztuk=%(ilosc_sztuk)s, ilosc_sztuk_na_stanie=%(ilosc_sztuk_na_stanie)s, id_rozmiaru=%(id_rozmiaru)s WHERE material_obejma.id = %(material_obejma_id)s]
+[parameters: {'data_dostawy': '0003-02-23', 'ilosc_sztuk': '32', 'ilosc_sztuk_na_stanie': '32432', 'id_rozmiaru': '', 'material_obejma_id': 7}]
+(Background on this error at: https://sqlalche.me/e/20/gkpj)
+2025-06-06 13:12:57,951 - INFO - 127.0.0.1 - - [06/Jun/2025 13:12:57] "[35m[1mPOST /update-row-material_obejma HTTP/1.1[0m" 500 -
+2025-06-06 13:12:59,833 - INFO - Administrator wszedł na stronę materialów obejm.
+2025-06-06 13:12:59,835 - INFO - 127.0.0.1 - - [06/Jun/2025 13:12:59] "GET /material_obejma HTTP/1.1" 200 -
+2025-06-06 13:12:59,857 - INFO - 127.0.0.1 - - [06/Jun/2025 13:12:59] "GET /static/style.css HTTP/1.1" 200 -
+2025-06-06 13:12:59,869 - INFO - 127.0.0.1 - - [06/Jun/2025 13:12:59] "GET /static/img/logo-duże.png HTTP/1.1" 200 -
+2025-06-06 13:12:59,875 - INFO - 127.0.0.1 - - [06/Jun/2025 13:12:59] "GET /static/img/maxmetal.png HTTP/1.1" 200 -
+2025-06-06 13:13:00,467 - INFO - Administrator wszedł na stronę materialów obejm.
+2025-06-06 13:13:00,470 - INFO - 127.0.0.1 - - [06/Jun/2025 13:13:00] "GET /material_obejma HTTP/1.1" 200 -
+2025-06-06 13:13:00,500 - INFO - 127.0.0.1 - - [06/Jun/2025 13:13:00] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-06-06 13:13:00,518 - INFO - 127.0.0.1 - - [06/Jun/2025 13:13:00] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-06-06 13:13:00,523 - INFO - 127.0.0.1 - - [06/Jun/2025 13:13:00] "[36mGET /static/img/maxmetal.png HTTP/1.1[0m" 304 -
+2025-06-06 13:13:00,835 - INFO - Administrator wszedł na stronę materialów obejm.
+2025-06-06 13:13:00,838 - INFO - 127.0.0.1 - - [06/Jun/2025 13:13:00] "GET /material_obejma HTTP/1.1" 200 -
+2025-06-06 13:13:00,872 - INFO - 127.0.0.1 - - [06/Jun/2025 13:13:00] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-06-06 13:13:00,884 - INFO - 127.0.0.1 - - [06/Jun/2025 13:13:00] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-06-06 13:13:00,903 - INFO - 127.0.0.1 - - [06/Jun/2025 13:13:00] "[36mGET /static/img/maxmetal.png HTTP/1.1[0m" 304 -
+2025-06-06 13:13:01,097 - INFO - Administrator wszedł na stronę materialów obejm.
+2025-06-06 13:13:01,099 - INFO - 127.0.0.1 - - [06/Jun/2025 13:13:01] "GET /material_obejma HTTP/1.1" 200 -
+2025-06-06 13:13:01,120 - INFO - 127.0.0.1 - - [06/Jun/2025 13:13:01] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-06-06 13:13:01,131 - INFO - 127.0.0.1 - - [06/Jun/2025 13:13:01] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-06-06 13:13:01,139 - INFO - 127.0.0.1 - - [06/Jun/2025 13:13:01] "[36mGET /static/img/maxmetal.png HTTP/1.1[0m" 304 -
+2025-06-06 13:13:01,383 - INFO - Administrator wszedł na stronę materialów obejm.
+2025-06-06 13:13:01,385 - INFO - 127.0.0.1 - - [06/Jun/2025 13:13:01] "GET /material_obejma HTTP/1.1" 200 -
+2025-06-06 13:13:01,423 - INFO - 127.0.0.1 - - [06/Jun/2025 13:13:01] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-06-06 13:13:01,435 - INFO - 127.0.0.1 - - [06/Jun/2025 13:13:01] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-06-06 13:13:01,452 - INFO - 127.0.0.1 - - [06/Jun/2025 13:13:01] "[36mGET /static/img/maxmetal.png HTTP/1.1[0m" 304 -
+2025-06-06 13:19:07,258 - INFO - Administrator wszedł na stronę materialów obejm.
+2025-06-06 13:19:07,260 - INFO - 127.0.0.1 - - [06/Jun/2025 13:19:07] "GET /material_obejma HTTP/1.1" 200 -
+2025-06-06 13:19:07,293 - INFO - 127.0.0.1 - - [06/Jun/2025 13:19:07] "GET /static/style.css HTTP/1.1" 200 -
+2025-06-06 13:19:07,305 - INFO - 127.0.0.1 - - [06/Jun/2025 13:19:07] "GET /static/img/logo-duże.png HTTP/1.1" 200 -
+2025-06-06 13:19:07,313 - INFO - 127.0.0.1 - - [06/Jun/2025 13:19:07] "GET /static/img/maxmetal.png HTTP/1.1" 200 -
+2025-06-06 13:19:07,995 - INFO - Administrator wszedł na stronę materialów obejm.
+2025-06-06 13:19:07,996 - INFO - 127.0.0.1 - - [06/Jun/2025 13:19:07] "GET /material_obejma HTTP/1.1" 200 -
+2025-06-06 13:19:08,024 - INFO - 127.0.0.1 - - [06/Jun/2025 13:19:08] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-06-06 13:19:08,040 - INFO - 127.0.0.1 - - [06/Jun/2025 13:19:08] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-06-06 13:19:08,058 - INFO - 127.0.0.1 - - [06/Jun/2025 13:19:08] "[36mGET /static/img/maxmetal.png HTTP/1.1[0m" 304 -
+2025-06-06 13:19:09,213 - INFO - 127.0.0.1 - - [06/Jun/2025 13:19:09] "GET /get-rozmiar HTTP/1.1" 200 -
+2025-06-06 13:19:12,892 - INFO - Otrzymane dane do aktualizacji materiału obejm: {'column_0': '7', 'column_1': '321', 'column_2': '0003-02-23', 'column_3': '32', 'column_4': '23', 'column_5': '32', 'column_6': '32', 'column_7': '', 'column_8': 'Administrator', 'column_9': 'Zapisz'}
+2025-06-06 13:19:12,893 - INFO - Poprzednie dane materiału o ID 7: {'id': 7, 'certyfikat': '321', 'data_dostawy': datetime.date(3, 2, 23), 'nr_wytopu': '32', 'nr_prodio': '23', 'ilosc_sztuk': 32, 'ilosc_sztuk_na_stanie': 32, 'id_rozmiaru': 1}
+2025-06-06 13:19:12,897 - ERROR - Wystąpił błąd podczas aktualizacji: (pymysql.err.IntegrityError) (1452, 'Cannot add or update a child row: a foreign key constraint fails (`baza_max`.`material_obejma`, CONSTRAINT `material_obejma_ibfk_1` FOREIGN KEY (`id_rozmiaru`) REFERENCES `rozmiary_obejm` (`id`))')
+[SQL: UPDATE material_obejma SET data_dostawy=%(data_dostawy)s, ilosc_sztuk=%(ilosc_sztuk)s, ilosc_sztuk_na_stanie=%(ilosc_sztuk_na_stanie)s, id_rozmiaru=%(id_rozmiaru)s WHERE material_obejma.id = %(material_obejma_id)s]
+[parameters: {'data_dostawy': '0003-02-23', 'ilosc_sztuk': '32', 'ilosc_sztuk_na_stanie': '32', 'id_rozmiaru': '', 'material_obejma_id': 7}]
+(Background on this error at: https://sqlalche.me/e/20/gkpj)
+2025-06-06 13:19:12,897 - INFO - 127.0.0.1 - - [06/Jun/2025 13:19:12] "[35m[1mPOST /update-row-material_obejma HTTP/1.1[0m" 500 -
+2025-06-06 13:19:17,016 - INFO - 127.0.0.1 - - [06/Jun/2025 13:19:17] "GET /get-rozmiar HTTP/1.1" 200 -
+2025-06-06 13:19:18,401 - INFO - Administrator wszedł na stronę materialów obejm.
+2025-06-06 13:19:18,403 - INFO - 127.0.0.1 - - [06/Jun/2025 13:19:18] "GET /material_obejma HTTP/1.1" 200 -
+2025-06-06 13:19:18,424 - INFO - 127.0.0.1 - - [06/Jun/2025 13:19:18] "GET /static/style.css HTTP/1.1" 200 -
+2025-06-06 13:19:18,437 - INFO - 127.0.0.1 - - [06/Jun/2025 13:19:18] "GET /static/img/logo-duże.png HTTP/1.1" 200 -
+2025-06-06 13:19:18,449 - INFO - 127.0.0.1 - - [06/Jun/2025 13:19:18] "GET /static/img/maxmetal.png HTTP/1.1" 200 -
+2025-06-06 13:19:20,726 - INFO - Administrator wszedł na stronę materialów obejm.
+2025-06-06 13:19:20,729 - INFO - 127.0.0.1 - - [06/Jun/2025 13:19:20] "GET /material_obejma HTTP/1.1" 200 -
+2025-06-06 13:19:20,756 - INFO - 127.0.0.1 - - [06/Jun/2025 13:19:20] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-06-06 13:19:20,766 - INFO - 127.0.0.1 - - [06/Jun/2025 13:19:20] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-06-06 13:19:20,776 - INFO - 127.0.0.1 - - [06/Jun/2025 13:19:20] "[36mGET /static/img/maxmetal.png HTTP/1.1[0m" 304 -
+2025-06-06 13:19:21,377 - INFO - Administrator wszedł na stronę materialów obejm.
+2025-06-06 13:19:21,379 - INFO - 127.0.0.1 - - [06/Jun/2025 13:19:21] "GET /material_obejma HTTP/1.1" 200 -
+2025-06-06 13:19:21,421 - INFO - 127.0.0.1 - - [06/Jun/2025 13:19:21] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-06-06 13:19:21,437 - INFO - 127.0.0.1 - - [06/Jun/2025 13:19:21] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-06-06 13:19:21,442 - INFO - 127.0.0.1 - - [06/Jun/2025 13:19:21] "[36mGET /static/img/maxmetal.png HTTP/1.1[0m" 304 -
+2025-06-06 13:19:21,875 - INFO - Administrator wszedł na stronę materialów obejm.
+2025-06-06 13:19:21,876 - INFO - 127.0.0.1 - - [06/Jun/2025 13:19:21] "GET /material_obejma HTTP/1.1" 200 -
+2025-06-06 13:19:21,898 - INFO - 127.0.0.1 - - [06/Jun/2025 13:19:21] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-06-06 13:19:21,905 - INFO - Administrator wszedł na stronę materialów obejm.
+2025-06-06 13:19:21,907 - INFO - 127.0.0.1 - - [06/Jun/2025 13:19:21] "GET /material_obejma HTTP/1.1" 200 -
+2025-06-06 13:19:21,928 - INFO - 127.0.0.1 - - [06/Jun/2025 13:19:21] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-06-06 13:19:21,938 - INFO - Administrator wszedł na stronę materialów obejm.
+2025-06-06 13:19:21,940 - INFO - 127.0.0.1 - - [06/Jun/2025 13:19:21] "GET /material_obejma HTTP/1.1" 200 -
+2025-06-06 13:19:21,963 - INFO - 127.0.0.1 - - [06/Jun/2025 13:19:21] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-06-06 13:19:21,967 - INFO - Administrator wszedł na stronę materialów obejm.
+2025-06-06 13:19:21,970 - INFO - 127.0.0.1 - - [06/Jun/2025 13:19:21] "GET /material_obejma HTTP/1.1" 200 -
+2025-06-06 13:19:21,990 - INFO - 127.0.0.1 - - [06/Jun/2025 13:19:21] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-06-06 13:19:22,000 - INFO - 127.0.0.1 - - [06/Jun/2025 13:19:22] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-06-06 13:19:22,013 - INFO - 127.0.0.1 - - [06/Jun/2025 13:19:22] "[36mGET /static/img/maxmetal.png HTTP/1.1[0m" 304 -
+2025-06-06 13:19:22,019 - INFO - Administrator wszedł na stronę materialów obejm.
+2025-06-06 13:19:22,022 - INFO - 127.0.0.1 - - [06/Jun/2025 13:19:22] "GET /material_obejma HTTP/1.1" 200 -
+2025-06-06 13:19:22,049 - INFO - Administrator wszedł na stronę materialów obejm.
+2025-06-06 13:19:22,052 - INFO - 127.0.0.1 - - [06/Jun/2025 13:19:22] "GET /material_obejma HTTP/1.1" 200 -
+2025-06-06 13:19:22,071 - INFO - 127.0.0.1 - - [06/Jun/2025 13:19:22] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-06-06 13:19:22,078 - INFO - Administrator wszedł na stronę materialów obejm.
+2025-06-06 13:19:22,080 - INFO - 127.0.0.1 - - [06/Jun/2025 13:19:22] "GET /material_obejma HTTP/1.1" 200 -
+2025-06-06 13:19:22,103 - INFO - 127.0.0.1 - - [06/Jun/2025 13:19:22] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-06-06 13:19:22,108 - INFO - Administrator wszedł na stronę materialów obejm.
+2025-06-06 13:19:22,112 - INFO - 127.0.0.1 - - [06/Jun/2025 13:19:22] "GET /material_obejma HTTP/1.1" 200 -
+2025-06-06 13:19:22,130 - INFO - 127.0.0.1 - - [06/Jun/2025 13:19:22] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-06-06 13:19:22,140 - INFO - Administrator wszedł na stronę materialów obejm.
+2025-06-06 13:19:22,142 - INFO - 127.0.0.1 - - [06/Jun/2025 13:19:22] "GET /material_obejma HTTP/1.1" 200 -
+2025-06-06 13:19:22,162 - INFO - 127.0.0.1 - - [06/Jun/2025 13:19:22] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-06-06 13:19:22,170 - INFO - Administrator wszedł na stronę materialów obejm.
+2025-06-06 13:19:22,172 - INFO - 127.0.0.1 - - [06/Jun/2025 13:19:22] "GET /material_obejma HTTP/1.1" 200 -
+2025-06-06 13:19:22,188 - INFO - 127.0.0.1 - - [06/Jun/2025 13:19:22] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-06-06 13:19:22,201 - INFO - Administrator wszedł na stronę materialów obejm.
+2025-06-06 13:19:22,203 - INFO - 127.0.0.1 - - [06/Jun/2025 13:19:22] "GET /material_obejma HTTP/1.1" 200 -
+2025-06-06 13:19:22,225 - INFO - 127.0.0.1 - - [06/Jun/2025 13:19:22] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-06-06 13:19:22,248 - INFO - 127.0.0.1 - - [06/Jun/2025 13:19:22] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-06-06 13:19:22,254 - INFO - 127.0.0.1 - - [06/Jun/2025 13:19:22] "[36mGET /static/img/maxmetal.png HTTP/1.1[0m" 304 -
+2025-06-06 13:19:22,264 - INFO - Administrator wszedł na stronę materialów obejm.
+2025-06-06 13:19:22,265 - INFO - 127.0.0.1 - - [06/Jun/2025 13:19:22] "GET /material_obejma HTTP/1.1" 200 -
+2025-06-06 13:19:22,280 - INFO - Administrator wszedł na stronę materialów obejm.
+2025-06-06 13:19:22,282 - INFO - 127.0.0.1 - - [06/Jun/2025 13:19:22] "GET /material_obejma HTTP/1.1" 200 -
+2025-06-06 13:19:22,303 - INFO - 127.0.0.1 - - [06/Jun/2025 13:19:22] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-06-06 13:19:22,307 - INFO - Administrator wszedł na stronę materialów obejm.
+2025-06-06 13:19:22,310 - INFO - 127.0.0.1 - - [06/Jun/2025 13:19:22] "GET /material_obejma HTTP/1.1" 200 -
+2025-06-06 13:19:22,331 - INFO - 127.0.0.1 - - [06/Jun/2025 13:19:22] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-06-06 13:19:22,340 - INFO - Administrator wszedł na stronę materialów obejm.
+2025-06-06 13:19:22,342 - INFO - 127.0.0.1 - - [06/Jun/2025 13:19:22] "GET /material_obejma HTTP/1.1" 200 -
+2025-06-06 13:19:22,362 - INFO - 127.0.0.1 - - [06/Jun/2025 13:19:22] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-06-06 13:19:22,371 - INFO - Administrator wszedł na stronę materialów obejm.
+2025-06-06 13:19:22,373 - INFO - 127.0.0.1 - - [06/Jun/2025 13:19:22] "GET /material_obejma HTTP/1.1" 200 -
+2025-06-06 13:19:22,393 - INFO - 127.0.0.1 - - [06/Jun/2025 13:19:22] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-06-06 13:19:22,401 - INFO - Administrator wszedł na stronę materialów obejm.
+2025-06-06 13:19:22,403 - INFO - 127.0.0.1 - - [06/Jun/2025 13:19:22] "GET /material_obejma HTTP/1.1" 200 -
+2025-06-06 13:19:22,426 - INFO - 127.0.0.1 - - [06/Jun/2025 13:19:22] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-06-06 13:19:22,436 - INFO - Administrator wszedł na stronę materialów obejm.
+2025-06-06 13:19:22,439 - INFO - 127.0.0.1 - - [06/Jun/2025 13:19:22] "GET /material_obejma HTTP/1.1" 200 -
+2025-06-06 13:19:22,463 - INFO - Administrator wszedł na stronę materialów obejm.
+2025-06-06 13:19:22,464 - INFO - 127.0.0.1 - - [06/Jun/2025 13:19:22] "GET /material_obejma HTTP/1.1" 200 -
+2025-06-06 13:19:22,500 - INFO - 127.0.0.1 - - [06/Jun/2025 13:19:22] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-06-06 13:19:22,513 - INFO - 127.0.0.1 - - [06/Jun/2025 13:19:22] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-06-06 13:19:22,519 - INFO - 127.0.0.1 - - [06/Jun/2025 13:19:22] "[36mGET /static/img/maxmetal.png HTTP/1.1[0m" 304 -
+2025-06-06 13:21:54,410 - INFO - Administrator wszedł na stronę materialów obejm.
+2025-06-06 13:21:54,488 - INFO - 127.0.0.1 - - [06/Jun/2025 13:21:54] "GET /material_obejma HTTP/1.1" 200 -
+2025-06-06 13:21:54,510 - INFO - 127.0.0.1 - - [06/Jun/2025 13:21:54] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-06-06 13:21:54,523 - INFO - 127.0.0.1 - - [06/Jun/2025 13:21:54] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-06-06 13:21:54,533 - INFO - 127.0.0.1 - - [06/Jun/2025 13:21:54] "[36mGET /static/img/maxmetal.png HTTP/1.1[0m" 304 -
+2025-06-06 13:21:59,230 - INFO - 127.0.0.1 - - [06/Jun/2025 13:21:59] "GET /get-rozmiar HTTP/1.1" 200 -
+2025-06-06 13:22:01,780 - INFO - Otrzymane dane do aktualizacji materiału obejm: {'column_0': '7', 'column_1': '321', 'column_2': '0003-02-23', 'column_3': '32', 'column_4': '23', 'column_5': '32', 'column_6': '32', 'column_7': '', 'column_8': 'Administrator', 'column_9': 'Zapisz'}
+2025-06-06 13:22:01,781 - INFO - Poprzednie dane materiału o ID 7: {'id': 7, 'certyfikat': '321', 'data_dostawy': datetime.date(3, 2, 23), 'nr_wytopu': '32', 'nr_prodio': '23', 'ilosc_sztuk': 32, 'ilosc_sztuk_na_stanie': 32, 'id_rozmiaru': 1}
+2025-06-06 13:22:01,793 - ERROR - Wystąpił błąd podczas aktualizacji: (pymysql.err.IntegrityError) (1452, 'Cannot add or update a child row: a foreign key constraint fails (`baza_max`.`material_obejma`, CONSTRAINT `material_obejma_ibfk_1` FOREIGN KEY (`id_rozmiaru`) REFERENCES `rozmiary_obejm` (`id`))')
+[SQL: UPDATE material_obejma SET data_dostawy=%(data_dostawy)s, ilosc_sztuk=%(ilosc_sztuk)s, ilosc_sztuk_na_stanie=%(ilosc_sztuk_na_stanie)s, id_rozmiaru=%(id_rozmiaru)s WHERE material_obejma.id = %(material_obejma_id)s]
+[parameters: {'data_dostawy': '0003-02-23', 'ilosc_sztuk': '32', 'ilosc_sztuk_na_stanie': '32', 'id_rozmiaru': '', 'material_obejma_id': 7}]
+(Background on this error at: https://sqlalche.me/e/20/gkpj)
+2025-06-06 13:22:01,793 - INFO - 127.0.0.1 - - [06/Jun/2025 13:22:01] "[35m[1mPOST /update-row-material_obejma HTTP/1.1[0m" 500 -
+2025-06-06 13:22:04,218 - INFO - Administrator wszedł na stronę materialów obejm.
+2025-06-06 13:22:04,220 - INFO - 127.0.0.1 - - [06/Jun/2025 13:22:04] "GET /material_obejma HTTP/1.1" 200 -
+2025-06-06 13:22:04,241 - INFO - 127.0.0.1 - - [06/Jun/2025 13:22:04] "GET /static/style.css HTTP/1.1" 200 -
+2025-06-06 13:22:04,253 - INFO - 127.0.0.1 - - [06/Jun/2025 13:22:04] "GET /static/img/logo-duże.png HTTP/1.1" 200 -
+2025-06-06 13:22:04,259 - INFO - 127.0.0.1 - - [06/Jun/2025 13:22:04] "GET /static/img/maxmetal.png HTTP/1.1" 200 -
+2025-06-06 13:22:04,740 - INFO - Administrator wszedł na stronę materialów obejm.
+2025-06-06 13:22:04,742 - INFO - 127.0.0.1 - - [06/Jun/2025 13:22:04] "GET /material_obejma HTTP/1.1" 200 -
+2025-06-06 13:22:04,774 - INFO - 127.0.0.1 - - [06/Jun/2025 13:22:04] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-06-06 13:22:04,789 - INFO - 127.0.0.1 - - [06/Jun/2025 13:22:04] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-06-06 13:22:04,803 - INFO - 127.0.0.1 - - [06/Jun/2025 13:22:04] "[36mGET /static/img/maxmetal.png HTTP/1.1[0m" 304 -
+2025-06-06 13:22:05,923 - INFO - 127.0.0.1 - - [06/Jun/2025 13:22:05] "GET /get-rozmiar HTTP/1.1" 200 -
+2025-06-06 13:22:07,297 - INFO - Otrzymane dane do aktualizacji materiału obejm: {'column_0': '7', 'column_1': '321', 'column_2': '0003-02-23', 'column_3': '32', 'column_4': '23', 'column_5': '32', 'column_6': '32', 'column_7': '', 'column_8': 'Administrator', 'column_9': 'Zapisz'}
+2025-06-06 13:22:07,298 - INFO - Poprzednie dane materiału o ID 7: {'id': 7, 'certyfikat': '321', 'data_dostawy': datetime.date(3, 2, 23), 'nr_wytopu': '32', 'nr_prodio': '23', 'ilosc_sztuk': 32, 'ilosc_sztuk_na_stanie': 32, 'id_rozmiaru': 1}
+2025-06-06 13:22:07,301 - ERROR - Wystąpił błąd podczas aktualizacji: (pymysql.err.IntegrityError) (1452, 'Cannot add or update a child row: a foreign key constraint fails (`baza_max`.`material_obejma`, CONSTRAINT `material_obejma_ibfk_1` FOREIGN KEY (`id_rozmiaru`) REFERENCES `rozmiary_obejm` (`id`))')
+[SQL: UPDATE material_obejma SET data_dostawy=%(data_dostawy)s, ilosc_sztuk=%(ilosc_sztuk)s, ilosc_sztuk_na_stanie=%(ilosc_sztuk_na_stanie)s, id_rozmiaru=%(id_rozmiaru)s WHERE material_obejma.id = %(material_obejma_id)s]
+[parameters: {'data_dostawy': '0003-02-23', 'ilosc_sztuk': '32', 'ilosc_sztuk_na_stanie': '32', 'id_rozmiaru': '', 'material_obejma_id': 7}]
+(Background on this error at: https://sqlalche.me/e/20/gkpj)
+2025-06-06 13:22:07,302 - INFO - 127.0.0.1 - - [06/Jun/2025 13:22:07] "[35m[1mPOST /update-row-material_obejma HTTP/1.1[0m" 500 -
+2025-06-06 13:23:32,206 - INFO - Administrator wszedł na stronę materialów obejm.
+2025-06-06 13:23:32,287 - INFO - 127.0.0.1 - - [06/Jun/2025 13:23:32] "GET /material_obejma HTTP/1.1" 200 -
+2025-06-06 13:23:32,327 - INFO - 127.0.0.1 - - [06/Jun/2025 13:23:32] "GET /static/style.css HTTP/1.1" 200 -
+2025-06-06 13:23:32,349 - INFO - 127.0.0.1 - - [06/Jun/2025 13:23:32] "GET /static/img/logo-duże.png HTTP/1.1" 200 -
+2025-06-06 13:23:32,372 - INFO - 127.0.0.1 - - [06/Jun/2025 13:23:32] "GET /static/img/maxmetal.png HTTP/1.1" 200 -
+2025-06-06 13:23:33,177 - INFO - 127.0.0.1 - - [06/Jun/2025 13:23:33] "GET /get-rozmiar HTTP/1.1" 200 -
+2025-06-06 13:23:35,272 - INFO - Otrzymane dane do aktualizacji materiału obejm: {'column_0': '7', 'column_1': '321', 'column_2': '0003-02-23', 'column_3': '32', 'column_4': '23', 'column_5': '32', 'column_6': '32', 'column_7': '', 'column_8': 'Administrator', 'column_9': 'Zapisz'}
+2025-06-06 13:23:35,273 - INFO - Poprzednie dane materiału o ID 7: {'id': 7, 'certyfikat': '321', 'data_dostawy': datetime.date(3, 2, 23), 'nr_wytopu': '32', 'nr_prodio': '23', 'ilosc_sztuk': 32, 'ilosc_sztuk_na_stanie': 32, 'id_rozmiaru': 1}
+2025-06-06 13:23:35,276 - ERROR - Wystąpił błąd podczas aktualizacji: (pymysql.err.IntegrityError) (1452, 'Cannot add or update a child row: a foreign key constraint fails (`baza_max`.`material_obejma`, CONSTRAINT `material_obejma_ibfk_1` FOREIGN KEY (`id_rozmiaru`) REFERENCES `rozmiary_obejm` (`id`))')
+[SQL: UPDATE material_obejma SET data_dostawy=%(data_dostawy)s, ilosc_sztuk=%(ilosc_sztuk)s, ilosc_sztuk_na_stanie=%(ilosc_sztuk_na_stanie)s, id_rozmiaru=%(id_rozmiaru)s WHERE material_obejma.id = %(material_obejma_id)s]
+[parameters: {'data_dostawy': '0003-02-23', 'ilosc_sztuk': '32', 'ilosc_sztuk_na_stanie': '32', 'id_rozmiaru': '', 'material_obejma_id': 7}]
+(Background on this error at: https://sqlalche.me/e/20/gkpj)
+2025-06-06 13:23:35,276 - INFO - 127.0.0.1 - - [06/Jun/2025 13:23:35] "[35m[1mPOST /update-row-material_obejma HTTP/1.1[0m" 500 -
+2025-06-06 13:23:36,681 - INFO - Administrator wszedł na stronę materialów obejm.
+2025-06-06 13:23:36,683 - INFO - 127.0.0.1 - - [06/Jun/2025 13:23:36] "GET /material_obejma HTTP/1.1" 200 -
+2025-06-06 13:23:36,706 - INFO - 127.0.0.1 - - [06/Jun/2025 13:23:36] "GET /static/style.css HTTP/1.1" 200 -
+2025-06-06 13:23:36,719 - INFO - 127.0.0.1 - - [06/Jun/2025 13:23:36] "GET /static/img/logo-duże.png HTTP/1.1" 200 -
+2025-06-06 13:23:36,724 - INFO - 127.0.0.1 - - [06/Jun/2025 13:23:36] "GET /static/img/maxmetal.png HTTP/1.1" 200 -
+2025-06-06 13:24:48,162 - INFO - Administrator wszedł na stronę materialów obejm.
+2025-06-06 13:24:48,238 - INFO - 127.0.0.1 - - [06/Jun/2025 13:24:48] "GET /material_obejma HTTP/1.1" 200 -
+2025-06-06 13:24:48,259 - INFO - 127.0.0.1 - - [06/Jun/2025 13:24:48] "GET /static/style.css HTTP/1.1" 200 -
+2025-06-06 13:24:48,280 - INFO - 127.0.0.1 - - [06/Jun/2025 13:24:48] "GET /static/img/logo-duże.png HTTP/1.1" 200 -
+2025-06-06 13:24:48,296 - INFO - 127.0.0.1 - - [06/Jun/2025 13:24:48] "GET /static/img/maxmetal.png HTTP/1.1" 200 -
+2025-06-06 13:25:30,096 - INFO - Administrator wszedł na stronę materialów obejm.
+2025-06-06 13:25:30,097 - INFO - 127.0.0.1 - - [06/Jun/2025 13:25:30] "GET /material_obejma HTTP/1.1" 200 -
+2025-06-06 13:25:30,121 - INFO - 127.0.0.1 - - [06/Jun/2025 13:25:30] "GET /static/style.css HTTP/1.1" 200 -
+2025-06-06 13:25:30,133 - INFO - 127.0.0.1 - - [06/Jun/2025 13:25:30] "GET /static/img/logo-duże.png HTTP/1.1" 200 -
+2025-06-06 13:25:30,144 - INFO - 127.0.0.1 - - [06/Jun/2025 13:25:30] "GET /static/img/maxmetal.png HTTP/1.1" 200 -
+2025-06-06 13:25:31,488 - INFO - 127.0.0.1 - - [06/Jun/2025 13:25:31] "GET /get-rozmiar HTTP/1.1" 200 -
+2025-06-06 13:25:33,470 - INFO - Otrzymane dane do aktualizacji materiału obejm: {'column_0': '7', 'column_1': '321', 'column_2': '0003-02-23', 'column_3': '32', 'column_4': '23', 'column_5': '32', 'column_6': '32', 'column_7': '', 'column_8': 'Administrator', 'column_9': 'Zapisz'}
+2025-06-06 13:25:33,471 - INFO - Poprzednie dane materiału o ID 7: {'id': 7, 'certyfikat': '321', 'data_dostawy': datetime.date(3, 2, 23), 'nr_wytopu': '32', 'nr_prodio': '23', 'ilosc_sztuk': 32, 'ilosc_sztuk_na_stanie': 32, 'id_rozmiaru': 1}
+2025-06-06 13:25:33,474 - ERROR - Wystąpił błąd podczas aktualizacji: (pymysql.err.IntegrityError) (1452, 'Cannot add or update a child row: a foreign key constraint fails (`baza_max`.`material_obejma`, CONSTRAINT `material_obejma_ibfk_1` FOREIGN KEY (`id_rozmiaru`) REFERENCES `rozmiary_obejm` (`id`))')
+[SQL: UPDATE material_obejma SET data_dostawy=%(data_dostawy)s, ilosc_sztuk=%(ilosc_sztuk)s, ilosc_sztuk_na_stanie=%(ilosc_sztuk_na_stanie)s, id_rozmiaru=%(id_rozmiaru)s WHERE material_obejma.id = %(material_obejma_id)s]
+[parameters: {'data_dostawy': '0003-02-23', 'ilosc_sztuk': '32', 'ilosc_sztuk_na_stanie': '32', 'id_rozmiaru': '', 'material_obejma_id': 7}]
+(Background on this error at: https://sqlalche.me/e/20/gkpj)
+2025-06-06 13:25:33,475 - INFO - 127.0.0.1 - - [06/Jun/2025 13:25:33] "[35m[1mPOST /update-row-material_obejma HTTP/1.1[0m" 500 -
+2025-06-06 13:30:44,202 - INFO - Administrator wszedł na stronę materialów obejm.
+2025-06-06 13:30:44,203 - INFO - 127.0.0.1 - - [06/Jun/2025 13:30:44] "GET /material_obejma HTTP/1.1" 200 -
+2025-06-06 13:30:44,225 - INFO - 127.0.0.1 - - [06/Jun/2025 13:30:44] "GET /static/style.css HTTP/1.1" 200 -
+2025-06-06 13:30:44,239 - INFO - 127.0.0.1 - - [06/Jun/2025 13:30:44] "GET /static/img/logo-duże.png HTTP/1.1" 200 -
+2025-06-06 13:30:44,250 - INFO - 127.0.0.1 - - [06/Jun/2025 13:30:44] "GET /static/img/maxmetal.png HTTP/1.1" 200 -
+2025-06-06 13:30:46,692 - INFO - 127.0.0.1 - - [06/Jun/2025 13:30:46] "GET /get-rozmiar HTTP/1.1" 200 -
+2025-06-06 13:31:06,467 - INFO - Administrator wszedł na stronę główną.
+2025-06-06 13:31:06,669 - INFO - 127.0.0.1 - - [06/Jun/2025 13:31:06] "GET / HTTP/1.1" 200 -
+2025-06-06 13:31:06,768 - INFO - 127.0.0.1 - - [06/Jun/2025 13:31:06] "GET /static/style.css HTTP/1.1" 200 -
+2025-06-06 13:31:06,777 - INFO - 127.0.0.1 - - [06/Jun/2025 13:31:06] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-06-06 13:31:06,804 - INFO - 127.0.0.1 - - [06/Jun/2025 13:31:06] "GET /static/img/maxmetal.png HTTP/1.1" 200 -
+2025-06-06 13:31:06,833 - INFO - 127.0.0.1 - - [06/Jun/2025 13:31:06] "GET /static/img/logo-male.png HTTP/1.1" 200 -
+2025-06-06 13:31:08,104 - INFO - Administrator wszedł na stronę z listą tasm.
+2025-06-06 13:31:08,273 - INFO - 127.0.0.1 - - [06/Jun/2025 13:31:08] "GET /tasma HTTP/1.1" 200 -
+2025-06-06 13:31:08,338 - INFO - 127.0.0.1 - - [06/Jun/2025 13:31:08] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-06-06 13:31:08,370 - INFO - 127.0.0.1 - - [06/Jun/2025 13:31:08] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-06-06 13:31:08,386 - INFO - 127.0.0.1 - - [06/Jun/2025 13:31:08] "[36mGET /static/img/maxmetal.png HTTP/1.1[0m" 304 -
+2025-06-06 13:31:08,392 - INFO - 127.0.0.1 - - [06/Jun/2025 13:31:08] "GET /static/img/drukarka.png HTTP/1.1" 200 -
+2025-06-06 13:31:09,582 - INFO - 127.0.0.1 - - [06/Jun/2025 13:31:09] "GET /get-dostawcy HTTP/1.1" 200 -
+2025-06-06 13:31:09,586 - INFO - 127.0.0.1 - - [06/Jun/2025 13:31:09] "GET /get-szablon HTTP/1.1" 200 -
+2025-06-06 13:31:09,587 - INFO - 127.0.0.1 - - [06/Jun/2025 13:31:09] "GET /get-lokalizacja HTTP/1.1" 200 -
+2025-06-06 13:31:19,459 - INFO - Administrator wszedł na stronę główną.
+2025-06-06 13:31:19,460 - INFO - 127.0.0.1 - - [06/Jun/2025 13:31:19] "GET / HTTP/1.1" 200 -
+2025-06-06 13:31:19,519 - INFO - 127.0.0.1 - - [06/Jun/2025 13:31:19] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-06-06 13:31:19,526 - INFO - 127.0.0.1 - - [06/Jun/2025 13:31:19] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-06-06 13:31:19,533 - INFO - 127.0.0.1 - - [06/Jun/2025 13:31:19] "[36mGET /static/img/maxmetal.png HTTP/1.1[0m" 304 -
+2025-06-06 13:31:23,289 - INFO - Administrator wszedł na stronę materialów obejm.
+2025-06-06 13:31:23,290 - INFO - 127.0.0.1 - - [06/Jun/2025 13:31:23] "GET /material_obejma HTTP/1.1" 200 -
+2025-06-06 13:31:23,336 - INFO - 127.0.0.1 - - [06/Jun/2025 13:31:23] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-06-06 13:31:23,353 - INFO - 127.0.0.1 - - [06/Jun/2025 13:31:23] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-06-06 13:31:23,369 - INFO - 127.0.0.1 - - [06/Jun/2025 13:31:23] "[36mGET /static/img/maxmetal.png HTTP/1.1[0m" 304 -
+2025-06-06 13:31:27,802 - INFO - 127.0.0.1 - - [06/Jun/2025 13:31:27] "GET /get-rozmiar HTTP/1.1" 200 -
+2025-06-06 13:31:45,982 - INFO - Administrator wszedł na stronę materialów obejm.
+2025-06-06 13:31:45,983 - INFO - 127.0.0.1 - - [06/Jun/2025 13:31:45] "GET /material_obejma HTTP/1.1" 200 -
+2025-06-06 13:31:46,022 - INFO - 127.0.0.1 - - [06/Jun/2025 13:31:46] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-06-06 13:31:46,039 - INFO - 127.0.0.1 - - [06/Jun/2025 13:31:46] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-06-06 13:31:46,058 - INFO - 127.0.0.1 - - [06/Jun/2025 13:31:46] "[36mGET /static/img/maxmetal.png HTTP/1.1[0m" 304 -
+2025-06-06 13:31:47,402 - INFO - 127.0.0.1 - - [06/Jun/2025 13:31:47] "GET /get-rozmiar HTTP/1.1" 200 -
+2025-06-06 13:34:09,920 - INFO - Administrator wszedł na stronę materialów obejm.
+2025-06-06 13:34:09,999 - INFO - 127.0.0.1 - - [06/Jun/2025 13:34:09] "GET /material_obejma HTTP/1.1" 200 -
+2025-06-06 13:34:10,081 - INFO - 127.0.0.1 - - [06/Jun/2025 13:34:10] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-06-06 13:34:10,112 - INFO - 127.0.0.1 - - [06/Jun/2025 13:34:10] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-06-06 13:34:10,135 - INFO - 127.0.0.1 - - [06/Jun/2025 13:34:10] "[36mGET /static/img/maxmetal.png HTTP/1.1[0m" 304 -
+2025-06-06 13:34:11,488 - INFO - 127.0.0.1 - - [06/Jun/2025 13:34:11] "GET /get-rozmiar HTTP/1.1" 200 -
+2025-06-06 13:34:15,902 - INFO - Otrzymane dane do aktualizacji materiału obejm: {'column_0': '7', 'column_1': '321', 'column_2': '0003-02-23', 'column_3': '32', 'column_4': '23', 'column_5': '32', 'column_6': '32', 'column_7': '', 'column_8': 'Administrator', 'column_9': 'Zapisz'}
+2025-06-06 13:34:15,904 - INFO - Poprzednie dane materiału o ID 7: {'id': 7, 'certyfikat': '321', 'data_dostawy': datetime.date(3, 2, 23), 'nr_wytopu': '32', 'nr_prodio': '23', 'ilosc_sztuk': 32, 'ilosc_sztuk_na_stanie': 32, 'id_rozmiaru': 1}
+2025-06-06 13:34:15,907 - ERROR - Wystąpił błąd podczas aktualizacji: (pymysql.err.IntegrityError) (1452, 'Cannot add or update a child row: a foreign key constraint fails (`baza_max`.`material_obejma`, CONSTRAINT `material_obejma_ibfk_1` FOREIGN KEY (`id_rozmiaru`) REFERENCES `rozmiary_obejm` (`id`))')
+[SQL: UPDATE material_obejma SET data_dostawy=%(data_dostawy)s, ilosc_sztuk=%(ilosc_sztuk)s, ilosc_sztuk_na_stanie=%(ilosc_sztuk_na_stanie)s, id_rozmiaru=%(id_rozmiaru)s WHERE material_obejma.id = %(material_obejma_id)s]
+[parameters: {'data_dostawy': '0003-02-23', 'ilosc_sztuk': '32', 'ilosc_sztuk_na_stanie': '32', 'id_rozmiaru': '', 'material_obejma_id': 7}]
+(Background on this error at: https://sqlalche.me/e/20/gkpj)
+2025-06-06 13:34:15,907 - INFO - 127.0.0.1 - - [06/Jun/2025 13:34:15] "[35m[1mPOST /update-row-material_obejma HTTP/1.1[0m" 500 -
+2025-06-06 13:38:50,480 - INFO - Administrator wszedł na stronę materialów obejm.
+2025-06-06 13:38:50,561 - INFO - 127.0.0.1 - - [06/Jun/2025 13:38:50] "GET /material_obejma HTTP/1.1" 200 -
+2025-06-06 13:38:50,600 - INFO - 127.0.0.1 - - [06/Jun/2025 13:38:50] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-06-06 13:38:50,616 - INFO - 127.0.0.1 - - [06/Jun/2025 13:38:50] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-06-06 13:38:50,633 - INFO - 127.0.0.1 - - [06/Jun/2025 13:38:50] "[36mGET /static/img/maxmetal.png HTTP/1.1[0m" 304 -
+2025-06-06 13:38:51,454 - INFO - 127.0.0.1 - - [06/Jun/2025 13:38:51] "GET /get-rozmiar HTTP/1.1" 200 -
+2025-06-06 13:38:54,329 - INFO - Otrzymane dane do aktualizacji materiału obejm: {'column_0': '7', 'column_1': '321', 'column_2': '0003-02-23', 'column_3': '32', 'column_4': '23', 'column_5': '32', 'column_6': '32', 'column_7': '', 'column_8': 'Administrator', 'column_9': 'Zapisz'}
+2025-06-06 13:38:54,330 - INFO - Poprzednie dane materiału o ID 7: {'id': 7, 'certyfikat': '321', 'data_dostawy': datetime.date(3, 2, 23), 'nr_wytopu': '32', 'nr_prodio': '23', 'ilosc_sztuk': 32, 'ilosc_sztuk_na_stanie': 32, 'id_rozmiaru': 1}
+2025-06-06 13:38:54,333 - ERROR - Wystąpił błąd podczas aktualizacji: (pymysql.err.IntegrityError) (1452, 'Cannot add or update a child row: a foreign key constraint fails (`baza_max`.`material_obejma`, CONSTRAINT `material_obejma_ibfk_1` FOREIGN KEY (`id_rozmiaru`) REFERENCES `rozmiary_obejm` (`id`))')
+[SQL: UPDATE material_obejma SET data_dostawy=%(data_dostawy)s, ilosc_sztuk=%(ilosc_sztuk)s, ilosc_sztuk_na_stanie=%(ilosc_sztuk_na_stanie)s, id_rozmiaru=%(id_rozmiaru)s WHERE material_obejma.id = %(material_obejma_id)s]
+[parameters: {'data_dostawy': '0003-02-23', 'ilosc_sztuk': '32', 'ilosc_sztuk_na_stanie': '32', 'id_rozmiaru': '', 'material_obejma_id': 7}]
+(Background on this error at: https://sqlalche.me/e/20/gkpj)
+2025-06-06 13:38:54,334 - INFO - 127.0.0.1 - - [06/Jun/2025 13:38:54] "[35m[1mPOST /update-row-material_obejma HTTP/1.1[0m" 500 -
+2025-06-06 13:38:56,733 - INFO - Administrator wszedł na stronę materialów obejm.
+2025-06-06 13:38:56,735 - INFO - 127.0.0.1 - - [06/Jun/2025 13:38:56] "GET /material_obejma HTTP/1.1" 200 -
+2025-06-06 13:38:56,773 - INFO - 127.0.0.1 - - [06/Jun/2025 13:38:56] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-06-06 13:38:56,788 - INFO - 127.0.0.1 - - [06/Jun/2025 13:38:56] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-06-06 13:38:56,802 - INFO - 127.0.0.1 - - [06/Jun/2025 13:38:56] "[36mGET /static/img/maxmetal.png HTTP/1.1[0m" 304 -
+2025-06-06 13:38:57,339 - INFO - Administrator wszedł na stronę materialów obejm.
+2025-06-06 13:38:57,393 - INFO - 127.0.0.1 - - [06/Jun/2025 13:38:57] "GET /material_obejma HTTP/1.1" 200 -
+2025-06-06 13:38:57,438 - INFO - 127.0.0.1 - - [06/Jun/2025 13:38:57] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-06-06 13:38:57,456 - INFO - 127.0.0.1 - - [06/Jun/2025 13:38:57] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-06-06 13:38:57,476 - INFO - 127.0.0.1 - - [06/Jun/2025 13:38:57] "[36mGET /static/img/maxmetal.png HTTP/1.1[0m" 304 -
+2025-06-06 13:38:58,726 - INFO - 127.0.0.1 - - [06/Jun/2025 13:38:58] "GET /get-rozmiar HTTP/1.1" 200 -
+2025-06-06 13:39:00,954 - INFO - Otrzymane dane do aktualizacji materiału obejm: {'column_0': '7', 'column_1': '321', 'column_2': '0003-02-23', 'column_3': '32', 'column_4': '23', 'column_5': '32', 'column_6': '32', 'column_7': '', 'column_8': 'Administrator', 'column_9': 'Zapisz'}
+2025-06-06 13:39:00,954 - INFO - Poprzednie dane materiału o ID 7: {'id': 7, 'certyfikat': '321', 'data_dostawy': datetime.date(3, 2, 23), 'nr_wytopu': '32', 'nr_prodio': '23', 'ilosc_sztuk': 32, 'ilosc_sztuk_na_stanie': 32, 'id_rozmiaru': 1}
+2025-06-06 13:39:00,957 - ERROR - Wystąpił błąd podczas aktualizacji: (pymysql.err.IntegrityError) (1452, 'Cannot add or update a child row: a foreign key constraint fails (`baza_max`.`material_obejma`, CONSTRAINT `material_obejma_ibfk_1` FOREIGN KEY (`id_rozmiaru`) REFERENCES `rozmiary_obejm` (`id`))')
+[SQL: UPDATE material_obejma SET data_dostawy=%(data_dostawy)s, ilosc_sztuk=%(ilosc_sztuk)s, ilosc_sztuk_na_stanie=%(ilosc_sztuk_na_stanie)s, id_rozmiaru=%(id_rozmiaru)s WHERE material_obejma.id = %(material_obejma_id)s]
+[parameters: {'data_dostawy': '0003-02-23', 'ilosc_sztuk': '32', 'ilosc_sztuk_na_stanie': '32', 'id_rozmiaru': '', 'material_obejma_id': 7}]
+(Background on this error at: https://sqlalche.me/e/20/gkpj)
+2025-06-06 13:39:00,957 - INFO - 127.0.0.1 - - [06/Jun/2025 13:39:00] "[35m[1mPOST /update-row-material_obejma HTTP/1.1[0m" 500 -
+2025-06-06 13:40:23,211 - INFO - Administrator wszedł na stronę materialów obejm.
+2025-06-06 13:40:23,286 - INFO - 127.0.0.1 - - [06/Jun/2025 13:40:23] "GET /material_obejma HTTP/1.1" 200 -
+2025-06-06 13:40:23,325 - INFO - 127.0.0.1 - - [06/Jun/2025 13:40:23] "GET /static/style.css HTTP/1.1" 200 -
+2025-06-06 13:40:23,342 - INFO - 127.0.0.1 - - [06/Jun/2025 13:40:23] "GET /static/img/logo-duże.png HTTP/1.1" 200 -
+2025-06-06 13:40:23,349 - INFO - 127.0.0.1 - - [06/Jun/2025 13:40:23] "GET /static/img/maxmetal.png HTTP/1.1" 200 -
+2025-06-06 13:40:24,935 - INFO - 127.0.0.1 - - [06/Jun/2025 13:40:24] "GET /get-rozmiar HTTP/1.1" 200 -
+2025-06-06 13:40:27,353 - INFO - Otrzymane dane do aktualizacji materiału obejm: {'column_0': '7', 'column_1': '321', 'column_2': '0003-02-23', 'column_3': '32', 'column_4': '23', 'column_5': '32', 'column_6': '32', 'column_7': '', 'column_8': 'Administrator', 'column_9': 'Zapisz'}
+2025-06-06 13:40:27,354 - INFO - Poprzednie dane materiału o ID 7: {'id': 7, 'certyfikat': '321', 'data_dostawy': datetime.date(3, 2, 23), 'nr_wytopu': '32', 'nr_prodio': '23', 'ilosc_sztuk': 32, 'ilosc_sztuk_na_stanie': 32, 'id_rozmiaru': 1}
+2025-06-06 13:40:27,358 - ERROR - Wystąpił błąd podczas aktualizacji: (pymysql.err.IntegrityError) (1452, 'Cannot add or update a child row: a foreign key constraint fails (`baza_max`.`material_obejma`, CONSTRAINT `material_obejma_ibfk_1` FOREIGN KEY (`id_rozmiaru`) REFERENCES `rozmiary_obejm` (`id`))')
+[SQL: UPDATE material_obejma SET data_dostawy=%(data_dostawy)s, ilosc_sztuk=%(ilosc_sztuk)s, ilosc_sztuk_na_stanie=%(ilosc_sztuk_na_stanie)s, id_rozmiaru=%(id_rozmiaru)s WHERE material_obejma.id = %(material_obejma_id)s]
+[parameters: {'data_dostawy': '0003-02-23', 'ilosc_sztuk': '32', 'ilosc_sztuk_na_stanie': '32', 'id_rozmiaru': '', 'material_obejma_id': 7}]
+(Background on this error at: https://sqlalche.me/e/20/gkpj)
+2025-06-06 13:40:27,359 - INFO - 127.0.0.1 - - [06/Jun/2025 13:40:27] "[35m[1mPOST /update-row-material_obejma HTTP/1.1[0m" 500 -
+2025-06-06 13:40:29,406 - INFO - Administrator wszedł na stronę materialów obejm.
+2025-06-06 13:40:29,408 - INFO - 127.0.0.1 - - [06/Jun/2025 13:40:29] "GET /material_obejma HTTP/1.1" 200 -
+2025-06-06 13:40:29,462 - INFO - 127.0.0.1 - - [06/Jun/2025 13:40:29] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-06-06 13:40:29,497 - INFO - 127.0.0.1 - - [06/Jun/2025 13:40:29] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-06-06 13:40:29,508 - INFO - 127.0.0.1 - - [06/Jun/2025 13:40:29] "[36mGET /static/img/maxmetal.png HTTP/1.1[0m" 304 -
+2025-06-06 13:40:30,478 - INFO - Administrator wszedł na stronę materialów obejm.
+2025-06-06 13:40:30,480 - INFO - 127.0.0.1 - - [06/Jun/2025 13:40:30] "GET /material_obejma HTTP/1.1" 200 -
+2025-06-06 13:40:30,538 - INFO - 127.0.0.1 - - [06/Jun/2025 13:40:30] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-06-06 13:40:30,564 - INFO - 127.0.0.1 - - [06/Jun/2025 13:40:30] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-06-06 13:40:30,586 - INFO - 127.0.0.1 - - [06/Jun/2025 13:40:30] "[36mGET /static/img/maxmetal.png HTTP/1.1[0m" 304 -
+2025-06-06 13:44:03,065 - INFO -  * Detected change in 'C:\\Users\\admin\\Documents\\GitHub\\baza\\baza danych maxmetal\\python\\index.py', reloading
+2025-06-06 13:45:10,351 - INFO - Połączenie z bazą danych zostało nawiązane pomyślnie.
+2025-06-06 13:45:10,437 - INFO - ✅ Kopia zapasowa zapisana do pliku: backups\kopie_zapasowe_bazy_2025-06-06_13-45.sql
+2025-06-06 13:45:10,439 - INFO - 🗑️ Usunięto starą kopię: kopie_zapasowe_bazy_2025-06-05_18-44.sql
+2025-06-06 13:45:10,451 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.1.28:5000
+2025-06-06 13:45:10,451 - INFO - [33mPress CTRL+C to quit[0m
+2025-06-06 13:45:10,452 - INFO -  * Restarting with stat
+2025-06-06 13:45:13,125 - INFO - Połączenie z bazą danych zostało nawiązane pomyślnie.
+2025-06-06 13:45:13,226 - INFO - ✅ Kopia zapasowa zapisana do pliku: backups\kopie_zapasowe_bazy_2025-06-06_13-45.sql
+2025-06-06 13:45:13,234 - WARNING -  * Debugger is active!
+2025-06-06 13:45:13,239 - INFO -  * Debugger PIN: 575-758-812
+2025-06-06 13:45:14,486 - INFO - Administrator wszedł na stronę materialów obejm.
+2025-06-06 13:45:14,585 - INFO - 127.0.0.1 - - [06/Jun/2025 13:45:14] "GET /material_obejma HTTP/1.1" 200 -
+2025-06-06 13:45:14,634 - INFO - 127.0.0.1 - - [06/Jun/2025 13:45:14] "GET /static/style.css HTTP/1.1" 200 -
+2025-06-06 13:45:14,654 - INFO - 127.0.0.1 - - [06/Jun/2025 13:45:14] "GET /static/img/logo-duże.png HTTP/1.1" 200 -
+2025-06-06 13:45:14,673 - INFO - 127.0.0.1 - - [06/Jun/2025 13:45:14] "GET /static/img/maxmetal.png HTTP/1.1" 200 -
+2025-06-06 13:45:16,344 - INFO - 127.0.0.1 - - [06/Jun/2025 13:45:16] "GET /get-rozmiar HTTP/1.1" 200 -
+2025-06-06 13:45:18,352 - INFO - 127.0.0.1 - - [06/Jun/2025 13:45:18] "POST /update-row-material_obejma HTTP/1.1" 200 -
+2025-06-06 13:45:20,562 - INFO - Administrator wszedł na stronę materialów obejm.
+2025-06-06 13:45:20,565 - INFO - 127.0.0.1 - - [06/Jun/2025 13:45:20] "GET /material_obejma HTTP/1.1" 200 -
+2025-06-06 13:45:20,644 - INFO - 127.0.0.1 - - [06/Jun/2025 13:45:20] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-06-06 13:45:20,673 - INFO - 127.0.0.1 - - [06/Jun/2025 13:45:20] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-06-06 13:45:20,680 - INFO - 127.0.0.1 - - [06/Jun/2025 13:45:20] "[36mGET /static/img/maxmetal.png HTTP/1.1[0m" 304 -
+2025-06-06 13:45:21,246 - INFO - Administrator wszedł na stronę materialów obejm.
+2025-06-06 13:45:21,248 - INFO - 127.0.0.1 - - [06/Jun/2025 13:45:21] "GET /material_obejma HTTP/1.1" 200 -
+2025-06-06 13:45:21,293 - INFO - 127.0.0.1 - - [06/Jun/2025 13:45:21] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-06-06 13:45:21,311 - INFO - 127.0.0.1 - - [06/Jun/2025 13:45:21] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-06-06 13:45:21,343 - INFO - 127.0.0.1 - - [06/Jun/2025 13:45:21] "[36mGET /static/img/maxmetal.png HTTP/1.1[0m" 304 -
+2025-06-06 13:45:21,867 - INFO - Administrator wszedł na stronę materialów obejm.
+2025-06-06 13:45:21,869 - INFO - 127.0.0.1 - - [06/Jun/2025 13:45:21] "GET /material_obejma HTTP/1.1" 200 -
+2025-06-06 13:45:21,913 - INFO - 127.0.0.1 - - [06/Jun/2025 13:45:21] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-06-06 13:45:21,930 - INFO - 127.0.0.1 - - [06/Jun/2025 13:45:21] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-06-06 13:45:21,952 - INFO - 127.0.0.1 - - [06/Jun/2025 13:45:21] "[36mGET /static/img/maxmetal.png HTTP/1.1[0m" 304 -

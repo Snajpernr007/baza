@@ -143,6 +143,133 @@ function filterTable() {
         row.style.display = show ? "" : "none";
     });
 }
+function openEditModal(row) {
+    const cells = row.querySelectorAll("td");
+    const editButton = row.querySelector("button");
+
+    if (editButton.innerText === "Edytuj") {
+        // Dodaj filtr
+        const filterRow = document.createElement("tr");
+        let filterCells = '';
+        for (let i = 0; i < cells.length - 2; i++) {
+            if (i === 7) {
+                filterCells += `<td><input type="text" placeholder="Filtruj Rozmiar" onkeyup="filterRozmiary(this.value)" style="width: 100%;"></td>`;
+            } else {
+                filterCells += `<td></td>`;
+            }
+        }
+        filterRow.innerHTML = filterCells;
+        row.parentElement.insertBefore(filterRow, row);
+
+        // Zamień komórki na input/select
+        cells.forEach((cell, index) => {
+            if (index > 0 && index < cells.length - 2) {
+                if (index === 7) {
+                    const currentRozmiarId = cell.getAttribute("data-rozmiar-id");
+                    cell.innerHTML = `<select id="rozmiarSelect" style="width: 100%;"></select>`;
+                    populateRozmiary(cell.querySelector("select"), currentRozmiarId);
+                } else if (index === 2) {
+                    const value = cell.innerText;
+                    cell.innerHTML = `<input type="date" value="${value}" style="width: 100%;">`;
+                } else if (index === 5 || index === 6) {
+                    const value = cell.innerText;
+                    cell.innerHTML = `<input type="number" value="${value}" style="width: 100%;">`;
+                } else {
+                    const value = cell.innerText;
+                    cell.innerHTML = `<input type="text" value="${value}" style="width: 100%;">`;
+                }
+            }
+        });
+
+        editButton.innerText = "Zapisz";
+    } else if (editButton.innerText === "Zapisz") {
+        const updatedData = {};
+        let isValid = true;
+
+        cells.forEach((cell, index) => {
+            if (index > 0 && index < cells.length - 2) {
+                const input = cell.querySelector("input") || cell.querySelector("select");
+                if (input) {
+                    const value = input.value.trim();
+                    if (!value || (index === 7 && value === "")) {
+                        isValid = false;
+                    } else {
+                        if (input.tagName === "SELECT") {
+                            const selectedId = value;
+                            cell.innerText = input.options[input.selectedIndex].text;
+                            cell.setAttribute("data-rozmiar-id", selectedId);
+                            updatedData[`column_${index}`] = selectedId;
+                        } else {
+                            cell.innerText = value;
+                            updatedData[`column_${index}`] = value;
+                        }
+                    }
+                }
+            } else if (index === 0 || index >= cells.length - 3) {
+                updatedData[`column_${index}`] = cell.innerText;
+            }
+        });
+
+        if (isValid) {
+            sendDataToBackend(updatedData);
+            editButton.innerText = "Edytuj";
+
+            const filterRow = row.previousElementSibling;
+            if (filterRow) filterRow.remove();
+        } else {
+            alert("Proszę wypełnić wszystkie edytowalne pola.");
+        }
+    }
+}
+
+function populateRozmiary(selectElement, selectedValue) {
+    fetch('/get-rozmiar')
+        .then(response => response.json())
+        .then(data => {
+            data.forEach(rozmiar => {
+                const option = document.createElement('option');
+                option.value = rozmiar.id.toString();
+                option.textContent = rozmiar.nazwa;
+                selectElement.appendChild(option);
+            });
+
+            if (selectedValue) {
+                selectElement.value = selectedValue.toString();
+            }
+        })
+        .catch(error => console.error('Błąd podczas pobierania rozmiarów:', error));
+}
+
+function filterRozmiary(searchTerm) {
+    const select = document.getElementById("rozmiarSelect");
+    if (!select) return;
+    for (let i = 0; i < select.options.length; i++) {
+        const optionText = select.options[i].text.toLowerCase();
+        select.options[i].style.display = optionText.includes(searchTerm.toLowerCase()) ? "" : "none";
+    }
+}
+
+function sendDataToBackend(data) {
+    fetch('/update-row-material_obejma', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data),
+    })
+    .then(response => response.json())
+    .then(result => {
+        if (result.error) {
+            alert("Błąd: " + result.error);
+            console.error("Backend error:", result.error);
+        } else {
+            alert(result.message || "Dane zapisane pomyślnie!");
+        }
+    })
+    .catch(error => {
+        alert("Wystąpił błąd podczas zapisywania danych!");
+        console.error("Fetch error:", error);
+    });
+}
+
     </script>
 </head>
 <body>
@@ -328,7 +455,7 @@ function filterTable() {
                             <td>{{ materialy.nr_prodio }} </td>
                             <td>{{ materialy.ilosc_sztuk }}</td>
                             <td>{{ materialy.ilosc_sztuk_na_stanie }} </td>
-                            <td>{{ materialy.rozmiar.nazwa }}</td>
+                            <td data-rozmiar-id="{{ materialy.rozmiar.id }}">{{ materialy.rozmiar.nazwa }}</td>
                             <td>{{ materialy.pracownik.login}}</td>
 
                             

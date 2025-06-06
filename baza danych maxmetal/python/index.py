@@ -475,6 +475,29 @@ def get_lokalizacja():
 def get_dlugosci():
     dlugosci = Dlugosci.query.all()
     return jsonify([{"id": d.id, "nazwa": d.nazwa} for d in dlugosci])
+@app.route('/get-rozmiar', methods=['GET'])
+def get_rozmiar():
+    rozmiary = RozmiaryObejm.query.all()
+    result = [{"id": r.id, "nazwa": r.nazwa} for r in rozmiary]
+    return jsonify(result)
+
+@app.route('/get-material', methods=['GET'])
+def get_material():
+    material = MaterialObejma.query.all()
+    return jsonify([{"id": m.id, "certyfikat": m.certyfikat, "data_dostawy": m.data_dostawy, "nr_wytopu": m.nr_wytopu, "nr_prodio": m.nr_prodio, "ilosc_sztuk": m.ilosc_sztuk, "ilosc_sztuk_na_stanie": m.ilosc_sztuk_na_stanie, "id_rozmiaru": m.id_rozmiaru, "id_pracownik": m.id_pracownik} for m in material])
+@app.route('/get-ksztaltowanie', methods=['GET'])
+def get_ksztaltowanie():
+    ksztaltowanie = Ksztaltowanie.query.all()
+    return jsonify([{"id": k.id, "rozmiar": k.rozmiar, "data": k.data, "godzina_rozpoczecia": k.godzina_rozpoczecia, "godzina_zakonczenia": k.godzina_zakonczenia, "ilosc": k.ilosc, "ilosc_na_stanie": k.ilosc_na_stanie, "nr_prodio": k.nr_prodio, "id_materialu": k.id_materialu, "id_pracownik": k.id_pracownik, "imie_nazwisko": k.imie_nazwisko} for k in ksztaltowanie])
+@app.route('/get-malarnia', methods=['GET'])
+def get_malarnia():
+    malarnia = Malarnia.query.all()
+    return jsonify([{"id": m.id, "ilosc": m.ilosc, "ilosc_na_stanie": m.ilosc_na_stanie, "nr_prodio": m.nr_prodio, "data": m.data, "id_pracownik": m.id_pracownik, "imie_nazwisko": m.imie_nazwisko} for m in malarnia])
+@app.route('/get-powrot', methods=['GET'])
+def get_powrot():
+    powrot = Powrot.query.all()
+    return jsonify([{"id": p.id, "data": p.data, "ilosc": p.ilosc, "ilosc_na_stanie": p.ilosc_na_stanie, "nr_prodio": p.nr_prodio, "id_malowania": p.id_malowania, "id_pracownik": p.id_pracownik, "imie_nazwisko": p.imie_nazwisko} for p in powrot])
+
 @app.route('/update-row_uzytkownik', methods=['POST'])
 def update_user():
     if g.user.id_uprawnienia != 1:
@@ -1635,7 +1658,38 @@ def dodaj_rozmiar_obejma_do_bazy():
         db.session.rollback()
         logger.error(f"Nie udało się zapisać danych: {e}")
         return render_template('rozmiary_obejm.html', error="Wystąpił błąd przy zapisywaniu danych.", user=g.user)
+@app.route('/update-row-rozmiary_obejm', methods=['POST'])
+def update_row_rozmiary_obejm():
+    if not g.user:
+        return render_template('login.html', user=g.user)
+    if g.user.id_uprawnienia == 3:
+        return redirect(url_for('home'))
+    
+    try:
+        dane = request.get_json()
+        logger.info(f'Otrzymane dane do aktualizacji rozmiaru obejm: {dane}')
 
+        id = dane.get('column_0')
+        if id is None:
+            return jsonify({'message': 'Id jest wymagane!'}), 400
+
+        rozmiar = RozmiaryObejm.query.get(id)
+        if rozmiar is None:
+            return jsonify({'message': 'Rekord nie znaleziony!'}), 404
+        
+        poprzednie_dane = {"id": rozmiar.id, "nazwa": rozmiar.nazwa}
+        logger.info(f"Poprzednie dane rozmiaru obejm o ID {id}: {poprzednie_dane}")
+        
+        rozmiar.nazwa = dane.get('column_1', rozmiar.nazwa)
+
+        db.session.commit()
+        logger.info(f"Rozmiar obejm o ID {id} został zaktualizowany przez {g.user.login}.")
+        
+        return jsonify({'message': 'Rekord zaktualizowany pomyślnie!'}), 200  # Dodany status 200 OK
+    except Exception as e:
+        db.session.rollback()
+        logger.error(f'Wystąpił błąd podczas aktualizacji: {str(e)}')
+        return jsonify({'message': 'Wystąpił błąd podczas aktualizacji!', 'error': str(e)}), 500
 @app.route('/material_obejma')
 def material_obejma():
     if not g.user:
@@ -1683,6 +1737,47 @@ def dodaj_material_obejma_do_bazy():
             db.session.rollback()
             logger.error(f"Nie udało się zapisać danych: {e}")
             return render_template('material_obejma.html', error="Wystąpił błąd przy zapisywaniu danych.", user=g.user)
+@app.route('/update-row-material_obejma', methods=['POST'])
+def update_row_material_obejma():
+    if not g.user:
+        return jsonify({'message': 'Brak dostępu!'}), 401
+    if g.user.id_uprawnienia == 3:
+        return jsonify({'message': 'Brak uprawnień!'}), 403
+    
+    try:
+        dane = request.get_json()
+        id = dane.get('column_0')
+        if id is None:
+            return jsonify({'message': 'Id jest wymagane!'}), 400
+
+        material = MaterialObejma.query.get(id)
+        if material is None:
+            return jsonify({'message': 'Rekord nie znaleziony!'}), 404
+        
+        # Walidacja id_rozmiaru
+        id_rozmiaru = dane.get('column_7')
+        if id_rozmiaru is None or id_rozmiaru == "":
+            return jsonify({'message': 'Pole id_rozmiaru nie może być puste!'}), 400
+
+        # Sprawdź, czy id_rozmiaru istnieje w tabeli rozmiarów
+        rozmiar = RozmiaryObejm.query.get(int(id_rozmiaru))
+        if rozmiar is None:
+            return jsonify({'message': 'Wybrany rozmiar nie istnieje!'}), 400
+
+        # Aktualizacja
+        material.certyfikat = dane.get('column_1', material.certyfikat)
+        material.data_dostawy = dane.get('column_2', material.data_dostawy)
+        material.nr_wytopu = dane.get('column_3', material.nr_wytopu)
+        material.nr_prodio = dane.get('column_4', material.nr_prodio)
+        material.ilosc_sztuk = dane.get('column_5', material.ilosc_sztuk)
+        material.ilosc_sztuk_na_stanie = dane.get('column_6', material.ilosc_sztuk_na_stanie)
+        material.id_rozmiaru = int(id_rozmiaru)
+
+        db.session.commit()
+        return jsonify({'message': 'Rekord zaktualizowany pomyślnie!'}), 200
+    except Exception as e:
+        db.session.rollback()
+        return jsonify({'message': 'Wystąpił błąd podczas aktualizacji!', 'error': str(e)}), 500
 
 @app.route('/ksztaltowanie')
 def ksztaltowanie():
