@@ -488,7 +488,7 @@ def get_material():
 @app.route('/get-ksztaltowanie', methods=['GET'])
 def get_ksztaltowanie():
     ksztaltowanie = Ksztaltowanie.query.all()
-    return jsonify([{"id": k.id, "rozmiar": k.rozmiar, "data": k.data, "godzina_rozpoczecia": k.godzina_rozpoczecia, "godzina_zakonczenia": k.godzina_zakonczenia, "ilosc": k.ilosc, "ilosc_na_stanie": k.ilosc_na_stanie, "nr_prodio": k.nr_prodio, "id_materialu": k.id_materialu, "id_pracownik": k.id_pracownik, "imie_nazwisko": k.imie_nazwisko} for k in ksztaltowanie])
+    return jsonify([{"id": k.id, "imie_nazwisko": k.imie_nazwisko,"nazwa":k.nazwa} for k in ksztaltowanie])
 @app.route('/get-malarnia', methods=['GET'])
 def get_malarnia():
     malarnia = Malarnia.query.all()
@@ -1974,7 +1974,54 @@ def dodaj_malarnie_do_bazy():
         db.session.rollback()
         logger.error(f"Nie udało się zapisać danych: {e}")
         return render_template('malarnia.html', error="Wystąpił błąd przy zapisywaniu danych.", user=g.user)
+@app.route('/update-row-malarnia', methods=['POST'])
+def update_row_malarnia():
+    if not g.user:
+        return render_template('login.html', user=g.user)
+    if g.user.id_uprawnienia == 3:
+        return redirect(url_for('home'))
+    
+    try:
+        dane = request.get_json()
+        logger.info(f'Otrzymane dane do aktualizacji malarni: {dane}')
 
+        id = dane.get('column_0')
+        if id is None:
+            return jsonify({'message': 'Id jest wymagane!'}), 400
+
+        malarnia = Malarnia.query.get(id)
+        if malarnia is None:
+            return jsonify({'message': 'Rekord nie znaleziony!'}), 404
+        
+        poprzednie_dane = {
+            "id": malarnia.id,
+            "data": malarnia.data,
+            "id_ksztaltowanie": malarnia.id_ksztaltowanie,
+            "nr_prodio": malarnia.nr_prodio,
+            "ilosc": malarnia.ilosc,
+            "ilosc_na_stanie": malarnia.ilosc_na_stanie
+        }
+        logger.info(f"Poprzednie dane malarni o ID {id}: {poprzednie_dane}")
+        
+        # Aktualizacja pól
+        data_val = dane.get('column_7', malarnia.data)
+        if data_val:
+                logger.info(f"Przetwarzanie daty: {data_val}")
+                malarnia.data = datetime.strptime(data_val, '%Y-%m-%d').date()
+        malarnia.id_ksztaltowanie = int(dane.get('column_3', malarnia.id_ksztaltowanie))
+        malarnia.nr_prodio = dane.get('column_6', malarnia.nr_prodio)
+        malarnia.ilosc = int(dane.get('column_4', malarnia.ilosc))
+        malarnia.ilosc_na_stanie = int(dane.get('column_5', malarnia.ilosc_na_stanie))
+        malarnia.imie_nazwisko = dane.get('column_9', malarnia.imie_nazwisko)
+
+        db.session.commit()
+        logger.info(f"Malarnia o ID {id} została zaktualizowana przez {g.user.login}.")
+        
+        return jsonify({'message': 'Rekord zaktualizowany pomyślnie!'}), 200
+    except Exception as e:
+        db.session.rollback()
+        logger.error(f'Wystąpił błąd podczas aktualizacji: {str(e)}')
+        return jsonify({'message': 'Wystąpił błąd podczas aktualizacji!', 'error': str(e)}), 500
 @app.route('/powrot')
 def powrot():
     if not g.user:

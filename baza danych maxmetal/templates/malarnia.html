@@ -6,6 +6,134 @@
     <title>Obejmy MaxMetal</title>
     <link rel="icon" href="../static/img/logo-male.png">
     <link rel="stylesheet" href="../static/style.css">
+    <script>
+        function openEditModal(row) {
+    const cells = row.querySelectorAll("td");
+    const editButton = row.querySelector("button");
+
+    if (editButton.innerText === "Edytuj") {
+        // Dodaj filtr
+        const filterRow = document.createElement("tr");
+        let filterCells = '';
+        for (let i = 0; i < cells.length - 2; i++) {
+            if (i === 3) {
+                filterCells += `<td><input type="text" placeholder="Filtruj Ksztaltowanie" onkeyup="filterKsztaltowania(this.value)" style="width: 100%;"></td>`;
+            } else {
+                filterCells += `<td></td>`;
+            }
+        }
+        filterRow.innerHTML = filterCells;
+        row.parentElement.insertBefore(filterRow, row);
+
+        // Zamień komórki na input/select
+        cells.forEach((cell, index) => {
+            if (index > 1 && index < cells.length - 1 && index != 8 && index != 2) {
+                if (index === 3) {
+                    const currentKsztaltowanieId = cell.getAttribute("data-ksztaltowanie-id");
+                    cell.innerHTML = `<select id="ksztaltowanieSelect" style="width: 100%;"></select>`;
+                    populateKsztaltowania(cell.querySelector("select"), currentKsztaltowanieId);
+                } else if (index === 7) {
+                    const value = cell.innerText;
+                    cell.innerHTML = `<input type="date" value="${value}" style="width: 100%;">`;
+                } else if (index === 4 || index === 5) {
+                    const value = cell.innerText;
+                    cell.innerHTML = `<input type="number" value="${value}" style="width: 100%;">`;
+                }else {
+                    const value = cell.innerText;
+                    cell.innerHTML = `<input type="text" value="${value}" style="width: 100%;">`;
+                }
+            }
+        });
+
+        editButton.innerText = "Zapisz";
+    } else if (editButton.innerText === "Zapisz") {
+        const updatedData = {};
+        let isValid = true;
+
+        cells.forEach((cell, index) => {
+            if (index > 1 && index < cells.length - 1 && index != 8 && index != 2) {
+                const input = cell.querySelector("input") || cell.querySelector("select");
+                if (input) {
+                    const value = input.value.trim();
+                    if (!value || (index === 3 && value === "")) {
+                        isValid = false;
+                    } else {
+                        if (input.tagName === "SELECT") {
+                            const selectedId = value;
+                            cell.innerText = input.options[input.selectedIndex].text;
+                            cell.setAttribute("data-ksztaltowanie-id", selectedId);
+                            updatedData[`column_${index}`] = selectedId;
+                        } else {
+                            cell.innerText = value;
+                            updatedData[`column_${index}`] = value;
+                        }
+                    }
+                }
+            } else if (index === 0 || index >= cells.length - 3) {
+                updatedData[`column_${index}`] = cell.innerText;
+            }
+        });
+
+        if (isValid) {
+            sendDataToBackend(updatedData);
+            editButton.innerText = "Edytuj";
+
+            const filterRow = row.previousElementSibling;
+            if (filterRow) filterRow.remove();
+        } else {
+            alert("Proszę wypełnić wszystkie edytowalne pola.");
+        }
+    }
+}
+
+function populateKsztaltowania(selectElement, selectedValue) {
+    fetch('/get-ksztaltowanie')
+        .then(response => response.json())
+        .then(data => {
+            data.forEach(ksztaltowanie => {
+                const option = document.createElement('option');
+                option.value = ksztaltowanie.id.toString();
+                option.textContent = ksztaltowanie.nazwa;
+                selectElement.appendChild(option);
+            });
+
+            if (selectedValue) {
+                selectElement.value = selectedValue.toString();
+            }
+        })
+        .catch(error => console.error('Błąd podczas pobierania ksztaltowanieów:', error));
+}
+
+function filterKsztaltowania(searchTerm) {
+    const select = document.getElementById("ksztaltowanieSelect");
+    if (!select) return;
+    for (let i = 0; i < select.options.length; i++) {
+        const optionText = select.options[i].text.toLowerCase();
+        select.options[i].style.display = optionText.includes(searchTerm.toLowerCase()) ? "" : "none";
+    }
+}
+
+function sendDataToBackend(data) {
+    fetch('/update-row-malarnia', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data),
+    })
+    .then(response => response.json())
+    .then(result => {
+        if (result.error) {
+            alert("Błąd: " + result.error);
+            console.error("Backend error:", result.error);
+        } else {
+            alert(result.message || "Dane zapisane pomyślnie!");
+        }
+    })
+    .catch(error => {
+        alert("Wystąpił błąd podczas zapisywania danych!");
+        console.error("Fetch error:", error);
+    });
+}
+    </script>
 </head>
 <body>
     <div id="strona">
@@ -187,7 +315,7 @@
                             <td>{{ malarnie.id }} </td>
                             <td>{{ malarnie.ksztaltowanie.material.rozmiar.nazwa }}</td>
                             <td>{{ malarnie.ksztaltowanie.material.nr_wytopu}}</td>
-                            <td>{{ malarnie.ksztaltowanie.nazwa }} </td>
+                            <td data-ksztaltowanie-id="{{ malarnie.ksztaltowanie.id }}">{{ malarnie.ksztaltowanie.nazwa }} </td>
                             <td>{{ malarnie.ilosc }} </td>
                             <td>{{ malarnie.ilosc_na_stanie }}</td>
                             <td>{{ malarnie.nr_prodio }}</td>
