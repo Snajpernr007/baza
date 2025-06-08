@@ -419,7 +419,8 @@ function sendDataToBackend(data) {
                     <tr>
                         <th><input type="text" placeholder="Filtruj ID" onkeyup="filterColumn(0)"></th>
                         <th><input type="text" placeholder="Filtruj Certyfikat" onkeyup="filterColumn(1)"></th>
-                        <th><input type="text" placeholder="Filtruj Data" onkeyup="filterColumn(2)"></th>
+                        <th>OD<input type="date" id="dateFrom" onchange="filterTable()">
+                                DO<input type="date" id="dateTo" onchange="filterTable()"></th>
                         <th><input type="text" placeholder="Filtruj Nr wytopu" onkeyup="filterColumn(3)"></th>
                         <th><input type="text" placeholder="Filtruj Nr Prodio" onkeyup="filterColumn(4)"></th>
                         <th><input type="text" placeholder="Filtruj Ilość sztuk" onkeyup="filterColumn(5)"></th>
@@ -432,8 +433,7 @@ function sendDataToBackend(data) {
                     <tr>
                         <th onclick="sortTable(0)">ID &#9650;&#9660;</th>
                         <th onclick="sortTable(1)">Certyfikat &#9650;&#9660;</th>
-                        <th>OD<input type="date" id="dateFrom" onchange="filterTable()">
-                                DO<input type="date" id="dateTo" onchange="filterTable()"></th>
+                        <th onclick="sortTable(2)">Data dostawy &#9650;&#9660;</th>
                         <th onclick="sortTable(3)">Nr wytopu &#9650;&#9660;</th>
                         <th onclick="sortTable(4)">Nr prodio &#9650;&#9660;</th>
                         <th onclick="sortTable(5)">Ilość sztuk &#9650;&#9660;</th>
