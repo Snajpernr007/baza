@@ -374,6 +374,11 @@ function filterTable() {
                                         <a href="{{ url_for('powrot') }}"><label for="menuCheckbox" onclick="this.parentNode.click();">Powrót Malarnia</label></a>
                                     </li>
                                 {% endif %}
+                                {% if g.user.id==1 %}
+                                    <li>
+                                        <a href="{{ url_for('zlecenie') }}"><label for="menuCheckbox" onclick="this.parentNode.click();">Zlecenie</label></a>
+                                    </li>
+                                {% endif %}
                                 {% if g.user.id_uprawnienia==1 or g.user.id_uprawnienia==2%}
                                 <li>
                                     <a href="{{ url_for('dodaj_malarnie') }}"><label for="menuCheckbox" style="color:black;" onclick="this.parentNode.click();"><strong>Dodaj Malarnię</strong></label></a>
@@ -420,12 +425,12 @@ function filterTable() {
                         <th><input type="text" placeholder="Filtruj Rozmiar" onkeyup="filterColumn(1)"></th>
                         <th><input type="text" placeholder="Filtruj Nr wytopu" onkeyup="filterColumn(2)"></th>
                         <th><input type="text" placeholder="Filtruj Partia" onkeyup="filterColumn(3)"></th>
-                        <th><input type="text" placeholder="Filtruj Ilość" onkeyup="filterColumn(3)"></th>
-                        <th><input type="text" placeholder="Filtruj Ilość na stanie" onkeyup="filterColumn(4)"></th>
-                        <th><input type="text" placeholder="Filtruj Nr Prodio" onkeyup="filterColumn(5)"></th>
-                        <th><input type="text" placeholder="Filtruj Data" onkeyup="filterColumn(6)"></th>
-                        <th><input type="text" placeholder="Filtruj Pracownika" onkeyup="filterColumn(7)"></th>
-                        <th><input type="text" placeholder="Filtruj Imię i nazwisko" onkeyup="filterColumn(8)"></th>
+                        <th><input type="text" placeholder="Filtruj Ilość" onkeyup="filterColumn(4)"></th>
+                        <th><input type="text" placeholder="Filtruj Ilość na stanie" onkeyup="filterColumn(5)"></th>
+                        <th><input type="text" placeholder="Filtruj Nr Prodio" onkeyup="filterColumn(6)"></th>
+                        <th><input type="text" placeholder="Filtruj Data" onkeyup="filterColumn(7)"></th>
+                        <th><input type="text" placeholder="Filtruj Pracownika" onkeyup="filterColumn(8)"></th>
+                        <th><input type="text" placeholder="Filtruj Imię i nazwisko" onkeyup="filterColumn(9)"></th>
                         
                         <th><button class="button" onclick="resetFilters()">Usuń Filtry</button></th>
                     </tr>
@@ -434,12 +439,12 @@ function filterTable() {
                         <th onclick="sortTable(1)">Rozmiar &#9650;&#9660;</th>
                         <th onclick="sortTable(2)">Nr wytopu &#9650;&#9660;</th>
                         <th onclick="sortTable(3)">Partia &#9650;&#9660;</th>
-                        <th onclick="sortTable(3)">Ilość &#9650;&#9660;</th>
-                        <th onclick="sortTable(4)">Ilość na stanie &#9650;&#9660;</th>
-                        <th onclick="sortTable(5)">Nr prodio &#9650;&#9660;</th>
-                        <th onclick="sortTable(6)">Data &#9650;&#9660;</th>
-                        <th onclick="sortTable(7)">Pracownik &#9650;&#9660;</th>
-                        <th onclick="sortTable(8)">Imię i nazwisko &#9650;&#9660;</th>
+                        <th onclick="sortTable(4)">Ilość &#9650;&#9660;</th>
+                        <th onclick="sortTable(5)">Ilość na stanie &#9650;&#9660;</th>
+                        <th onclick="sortTable(6)">Nr prodio &#9650;&#9660;</th>
+                        <th onclick="sortTable(7)">Data &#9650;&#9660;</th>
+                        <th onclick="sortTable(8)">Pracownik &#9650;&#9660;</th>
+                        <th onclick="sortTable(9)">Imię i nazwisko &#9650;&#9660;</th>
                         
                         
                         <th>Edycja</th>

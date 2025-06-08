@@ -343,6 +343,11 @@ function sendDataToBackend(data) {
                                         <a href="{{ url_for('powrot') }}"><label for="menuCheckbox" onclick="this.parentNode.click();">Powrót Malarnia</label></a>
                                     </li>
                                 {% endif %}
+                                {% if g.user.id==1 %}
+                                    <li>
+                                        <a href="{{ url_for('zlecenie') }}"><label for="menuCheckbox" onclick="this.parentNode.click();">Zlecenie</label></a>
+                                    </li>
+                                {% endif %}
                                 {% if g.user.id_uprawnienia==1 or g.user.id_uprawnienia==2%}
                                 <li>
                                     <a href="{{ url_for('dodaj_ksztaltowanie') }}"><label for="menuCheckbox" style="color:black;" onclick="this.parentNode.click();"><strong>Dodaj kształt</strong></label></a>

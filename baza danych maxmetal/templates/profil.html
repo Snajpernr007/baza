@@ -572,6 +572,11 @@ window.open(url, '_blank', windowFeatures); // '_blank' otworzy nowe okno/tab
                                         <a href="{{ url_for('powrot') }}"><label for="menuCheckbox" onclick="this.parentNode.click();">Powrót Malarnia</label></a>
                                     </li>
                                 {% endif %}
+                                {% if g.user.id==1 %}
+                                    <li>
+                                        <a href="{{ url_for('zlecenie') }}"><label for="menuCheckbox" onclick="this.parentNode.click();">Zlecenie</label></a>
+                                    </li>
+                                {% endif %}
                             </ul>
                         <!-- <li>
                             <a href="{{ url_for('profil') }}"><label for="menuCheckbox" onclick="this.parentNode.click();">Profile</label></a>
