@@ -6,6 +6,270 @@
     <title>Obejmy MaxMetal</title>
     <link rel="icon" href="../static/img/logo-male.png">
     <link rel="stylesheet" href="../static/style.css">
+    <script>
+            function openEditModal(row) {
+    const cells = row.querySelectorAll("td");
+    const editButton = row.querySelector("button");
+
+    if (editButton.innerText === "Edytuj") {
+        // Dodaj filtr
+        const filterRow = document.createElement("tr");
+        let filterCells = '';
+        for (let i = 0; i < cells.length - 2; i++) {
+            if (i === 3) {
+                filterCells += `<td><input type="text" placeholder="Filtruj Ksztaltowanie" onkeyup="filterKsztaltowania(this.value)" style="width: 100%;"></td>`;
+            } else {
+                filterCells += `<td></td>`;
+            }
+        }
+        filterRow.innerHTML = filterCells;
+        row.parentElement.insertBefore(filterRow, row);
+
+        // Zamień komórki na input/select
+        cells.forEach((cell, index) => {
+            if (index > 1 && index < cells.length - 1 && index != 8 && index != 2) {
+                if (index === 3) {
+                    const currentKsztaltowanieId = cell.getAttribute("data-ksztaltowanie-id");
+                    cell.innerHTML = `<select id="ksztaltowanieSelect" style="width: 100%;"></select>`;
+                    populateKsztaltowania(cell.querySelector("select"), currentKsztaltowanieId);
+                } else if (index === 7) {
+                    const value = cell.innerText;
+                    cell.innerHTML = `<input type="date" value="${value}" style="width: 100%;">`;
+                } else if (index === 4 || index === 5) {
+                    const value = cell.innerText;
+                    cell.innerHTML = `<input type="number" value="${value}" style="width: 100%;">`;
+                }else {
+                    const value = cell.innerText;
+                    cell.innerHTML = `<input type="text" value="${value}" style="width: 100%;">`;
+                }
+            }
+        });
+
+        editButton.innerText = "Zapisz";
+    } else if (editButton.innerText === "Zapisz") {
+        const updatedData = {};
+        let isValid = true;
+
+        cells.forEach((cell, index) => {
+            if (index > 1 && index < cells.length - 1 && index != 8 && index != 2) {
+                const input = cell.querySelector("input") || cell.querySelector("select");
+                if (input) {
+                    const value = input.value.trim();
+                    if (!value || (index === 3 && value === "")) {
+                        isValid = false;
+                    } else {
+                        if (input.tagName === "SELECT") {
+                            const selectedId = value;
+                            cell.innerText = input.options[input.selectedIndex].text;
+                            cell.setAttribute("data-ksztaltowanie-id", selectedId);
+                            updatedData[`column_${index}`] = selectedId;
+                        } else {
+                            cell.innerText = value;
+                            updatedData[`column_${index}`] = value;
+                        }
+                    }
+                }
+            } else if (index === 0 || index >= cells.length - 3) {
+                updatedData[`column_${index}`] = cell.innerText;
+            }
+        });
+
+        if (isValid) {
+            sendDataToBackend(updatedData);
+            editButton.innerText = "Edytuj";
+
+            const filterRow = row.previousElementSibling;
+            if (filterRow) filterRow.remove();
+        } else {
+            alert("Proszę wypełnić wszystkie edytowalne pola.");
+        }
+    }
+}
+
+function populateKsztaltowania(selectElement, selectedValue) {
+    fetch('/get-ksztaltowanie')
+        .then(response => response.json())
+        .then(data => {
+            data.forEach(ksztaltowanie => {
+                const option = document.createElement('option');
+                option.value = ksztaltowanie.id.toString();
+                option.textContent = ksztaltowanie.nazwa;
+                selectElement.appendChild(option);
+            });
+
+            if (selectedValue) {
+                selectElement.value = selectedValue.toString();
+            }
+        })
+        .catch(error => console.error('Błąd podczas pobierania ksztaltowanieów:', error));
+}
+
+function filterKsztaltowania(searchTerm) {
+    const select = document.getElementById("ksztaltowanieSelect");
+    if (!select) return;
+    for (let i = 0; i < select.options.length; i++) {
+        const optionText = select.options[i].text.toLowerCase();
+        select.options[i].style.display = optionText.includes(searchTerm.toLowerCase()) ? "" : "none";
+    }
+}
+
+function sendDataToBackend(data) {
+    fetch('/update-row-malarnia', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data),
+    })
+    .then(response => response.json())
+    .then(result => {
+        if (result.error) {
+            alert("Błąd: " + result.error);
+            console.error("Backend error:", result.error);
+        } else {
+            alert(result.message || "Dane zapisane pomyślnie!");
+        }
+    })
+    .catch(error => {
+        alert("Wystąpił błąd podczas zapisywania danych!");
+        console.error("Fetch error:", error);
+    });
+}
+ function filterTable() {
+    let table = document.getElementById("tabela");
+    let filterInputs = table.querySelectorAll("thead input");
+    let rows = table.getElementsByTagName("tbody")[0].getElementsByTagName("tr");
+
+    // Pętla przez wszystkie wiersze tabeli
+    for (let i = 0; i < rows.length; i++) {
+        let cells = rows[i].getElementsByTagName("td");
+        let isRowVisible = true; // Flaga określająca, czy wiersz ma być widoczny
+
+        // Pętla przez wszystkie kolumny i odpowiednie filtry
+        for (let columnIndex = 0; columnIndex < filterInputs.length; columnIndex++) {
+            let filter = filterInputs[columnIndex].value.toLowerCase();
+            if (cells[columnIndex]) {
+                let cellValue = cells[columnIndex].textContent || cells[columnIndex].innerText;
+                if (filter && !cellValue.toLowerCase().includes(filter)) {
+                    isRowVisible = false; // Ukryj wiersz, jeśli nie spełnia filtru
+                    break; // Przerywamy, gdy znajdziemy filtr, który nie pasuje
+                }
+            }
+        }
+        rows[i].style.display = isRowVisible ? "" : "none"; // Ustaw widoczność wiersza
+    }
+}
+
+// Zaktualizuj wywołanie funkcji filterTable w inputach
+function setupFilters() {
+    let filterInputs = document.querySelectorAll("thead input");
+    filterInputs.forEach((input, index) => {
+        input.addEventListener("keyup", filterTable); // Używamy nowej funkcji filterTable
+    });
+}
+
+// Wywołaj setupFilters po załadowaniu strony
+document.addEventListener("DOMContentLoaded", setupFilters);
+    function resetFilters() {
+        let table = document.getElementById("tabela");
+        let filterInputs = table.querySelectorAll("thead input");
+        let rows = table.getElementsByTagName("tbody")[0].getElementsByTagName("tr");
+    
+        // Resetuj wszystkie pola filtrów
+        filterInputs.forEach(input => input.value = "");
+    
+        // Przywróć widoczność wszystkich wierszy
+        for (let i = 0; i < rows.length; i++) {
+            rows[i].style.display = "";
+        }
+    }
+    let sortStates = []; // Tablica przechowująca stan sortowania dla każdej kolumny
+
+function sortTable(columnIndex) {
+    const table = document.getElementById("tabela");
+    const rows = Array.from(table.rows).slice(2); // Pobieramy wszystkie wiersze poza nagłówkami
+    const tbody = table.tBodies[0];
+
+    // Sprawdzamy, czy kolumna już istnieje w tablicy sortStates
+    const existingSortIndex = sortStates.findIndex(sort => sort.columnIndex === columnIndex);
+
+    if (existingSortIndex !== -1) {
+        // Jeśli kolumna jest już sortowana, zmieniamy jej kierunek
+        sortStates[existingSortIndex].ascending = !sortStates[existingSortIndex].ascending;
+    } else {
+        // Jeśli kolumna nie jest jeszcze sortowana, dodajemy ją na początek tablicy
+        sortStates.unshift({ columnIndex, ascending: true });
+    }
+
+    // Sortowanie wierszy na podstawie stanu w tablicy sortStates
+    rows.sort((rowA, rowB) => {
+        for (const sort of sortStates) {
+            const cellA = rowA.cells[sort.columnIndex]?.innerText.toLowerCase() || "";
+            const cellB = rowB.cells[sort.columnIndex]?.innerText.toLowerCase() || "";
+
+            if (!isNaN(cellA) && !isNaN(cellB)) {
+                // Sortowanie liczb
+                const comparison = sort.ascending ? cellA - cellB : cellB - cellA;
+                if (comparison !== 0) return comparison;
+            } else {
+                // Sortowanie tekstowe
+                const comparison = sort.ascending
+                    ? cellA.localeCompare(cellB)
+                    : cellB.localeCompare(cellA);
+                if (comparison !== 0) return comparison;
+            }
+        }
+        return 0; // Jeśli wszystkie kolumny są równe, nie zmieniamy kolejności
+    });
+
+    // Przypisanie posortowanych wierszy do tabeli
+    tbody.innerHTML = "";
+    rows.forEach(row => tbody.appendChild(row));
+
+    // Resetowanie strzałek i ustawienie odpowiednich w nagłówkach
+    Array.from(table.tHead.rows[1].cells).forEach((cell, index) => {
+        cell.innerHTML = cell.innerHTML.replace(/ ▲| ▼/g, '');
+        const sortState = sortStates.find(sort => sort.columnIndex === index);
+        if (sortState) {
+            cell.innerHTML += sortState.ascending ? ' ▲' : ' ▼';
+        }
+    });
+}
+function filterTable() {
+    let table = document.getElementById("tabela");
+    let rows = table.querySelectorAll("tbody tr");
+    let filters = table.querySelectorAll("thead tr:first-child input[type='text']");
+
+    let dateFrom = document.getElementById("dateFrom")?.value;
+    let dateTo = document.getElementById("dateTo")?.value;
+
+    rows.forEach(row => {
+        let cells = row.querySelectorAll("td");
+        let show = true;
+
+        // Filtrowanie tekstowe (kolumny poza "Data produkcji")
+        filters.forEach((input, index) => {
+            let value = input.value.toLowerCase();
+            if (value && cells[index]) {
+                let text = cells[index].textContent.toLowerCase();
+                if (!text.includes(value)) {
+                    show = false;
+                }
+            }
+        });
+
+        // Filtrowanie po dacie (kolumna 2 - Data Produkcji)
+        if (show && (dateFrom || dateTo)) {
+            let dateCell = cells[2]?.textContent.trim(); // Zakłada, że data jest w 3. kolumnie (indeks 2)
+            if (dateCell) {
+                let cellDate = new Date(dateCell);
+                if (dateFrom && cellDate < new Date(dateFrom)) show = false;
+                if (dateTo && cellDate > new Date(dateTo)) show = false;
+            }
+        }
+
+        row.style.display = show ? "" : "none";
+    });
+}
+    </script>
 </head>
 <body>
     <div id="strona">
