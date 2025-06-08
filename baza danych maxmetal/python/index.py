@@ -2034,8 +2034,9 @@ def zlecenie():
         return redirect(url_for('home'))
     
     zlecenie = Zlecenie.query.all()
+    laczenie = Laczenie.query.all()
     logger.info(f"{g.user.login} wszedł na stronę zlecenia.")
-    return render_template("zlecenie.html", user=g.user, zlecenie=zlecenie)
+    return render_template("zlecenie.html", user=g.user, zlecenie=zlecenie, laczenie=laczenie)
 @app.route('/dodaj_zlecenie')
 def dodaj_zlecenie():
     if not g.user:
@@ -2047,24 +2048,6 @@ def dodaj_zlecenie():
     return render_template("dodaj_zlecenie.html", user=g.user)
 
 
-@app.route('/laczenie')
-def laczenie():
-    if not g.user:
-        return render_template('login.html', user=g.user)
-    if g.user.id_uprawnienia == 3:
-        return redirect(url_for('home'))
-    
-    laczenie = Laczenie.query.all()
-    logger.info(f"{g.user.login} wszedł na stronę Łączenia.")
-    return render_template("zlecenie.html", user=g.user, laczenie=laczenie)
-@app.route('/dodaj_laczenie')
-def dodaj_laczenie():
-    if not g.user:
-        return render_template('login.html', user=g.user)
-    if g.user.id_uprawnienia == 3:
-        return redirect(url_for('home'))
-    
-    logger.info(f"{g.user.login} wszedł na stronę dodawania łączenia.")
-    return render_template("dodaj_laczenie.html", user=g.user)
+
 if __name__ == "__main__":
     app.run(host='0.0.0.0', port=5000, debug=True)
