@@ -2071,7 +2071,54 @@ def dodaj_powrot_do_bazy():
             db.session.rollback()
             logger.error(f"Nie udało się zapisać danych: {e}")
             return render_template('powrot.html', error="Wystąpił błąd przy zapisywaniu danych.", user=g.user)
+@app.route('/update-row-powrot', methods=['POST'])
+def update_row_powrot():
+    if not g.user:
+        return render_template('login.html', user=g.user)
+    if g.user.id_uprawnienia == 3:
+        return redirect(url_for('home'))
+    
+    try:
+        dane = request.get_json()
+        logger.info(f'Otrzymane dane do aktualizacji powrotu: {dane}')
+
+        id = dane.get('column_0')
+        if id is None:
+            return jsonify({'message': 'Id jest wymagane!'}), 400
+
+        powrot = Powrot.query.get(id)
+        if powrot is None:
+            return jsonify({'message': 'Rekord nie znaleziony!'}), 404
         
+        poprzednie_dane = {
+            "id": powrot.id,
+            "data": powrot.data,
+            "id_malowania": powrot.id_malowania,
+            "nr_prodio": powrot.nr_prodio,
+            "ilosc": powrot.ilosc,
+            "ilosc_na_stanie": powrot.ilosc_na_stanie
+        }
+        logger.info(f"Poprzednie dane powrotu o ID {id}: {poprzednie_dane}")
+        
+        # Aktualizacja pól
+        data_val = dane.get('column_7', powrot.data)
+        if data_val:
+                logger.info(f"Przetwarzanie daty: {data_val}")
+                powrot.data = datetime.strptime(data_val, '%Y-%m-%d').date()
+        powrot.id_malowania = int(dane.get('column_3', powrot.id_malowania))
+        powrot.nr_prodio = dane.get('column_6', powrot.nr_prodio)
+        powrot.ilosc = int(dane.get('column_4', powrot.ilosc))
+        powrot.ilosc_na_stanie = int(dane.get('column_5', powrot.ilosc_na_stanie))
+        powrot.imie_nazwisko = dane.get('column_9', powrot.imie_nazwisko)
+
+        db.session.commit()
+        logger.info(f"Powrót o ID {id} został zaktualizowany przez {g.user.login}.")
+        
+        return jsonify({'message': 'Rekord zaktualizowany pomyślnie!'}), 200
+    except Exception as e:
+        db.session.rollback()
+        logger.error(f'Wystąpił błąd podczas aktualizacji: {str(e)}')
+        return jsonify({'message': 'Wystąpił błąd podczas aktualizacji!', 'error': str(e)}), 500        
 
 @app.route('/zlecenie')
 def zlecenie():
