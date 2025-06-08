@@ -1839,6 +1839,83 @@ def dodaj_ksztaltowanie_do_bazy():
             db.session.rollback()
             logger.error(f"Nie udało się zapisać danych: {e}")
             return render_template('ksztaltowanie.html', error="Wystąpił błąd przy zapisywaniu danych.", user=g.user)
+@app.route('/update-row-ksztaltowanie', methods=['POST'])
+def update_row_ksztaltowanie():
+    if not g.user:
+        return render_template('login.html', user=g.user)
+    
+    if g.user.id_uprawnienia == 3:
+        return redirect(url_for('home'))
+
+    try:
+        dane = request.get_json()
+        logger.info(f'Otrzymane dane do aktualizacji ksztaltowania: {dane}')
+
+        id = dane.get('column_0')
+        if id is None:
+            return jsonify({'message': 'Id jest wymagane!'}), 400
+
+        ksztaltowanie = Ksztaltowanie.query.get(id)
+        if ksztaltowanie is None:
+            return jsonify({'message': 'Rekord nie znaleziony!'}), 404
+
+        # Zapisz poprzednie dane do logów
+        poprzednie_dane = {
+            "id": ksztaltowanie.id,
+            "godzina_rozpoczecia": ksztaltowanie.godzina_rozpoczecia,
+            "godzina_zakonczenia": ksztaltowanie.godzina_zakonczenia,
+            "data": ksztaltowanie.data,
+            "id_materialu": ksztaltowanie.id_materialu,
+            "nr_prodio": ksztaltowanie.nr_prodio,
+            "ilosc": ksztaltowanie.ilosc,
+            "ilosc_na_stanie": ksztaltowanie.ilosc_na_stanie,
+            "nazwa": ksztaltowanie.nazwa
+        }
+        logger.info(f"Poprzednie dane ksztaltowania o ID {id}: {poprzednie_dane}")
+
+        # Parsowanie i przypisanie nowych danych
+        try:
+            data_val = dane.get('column_4')
+            if data_val:
+                ksztaltowanie.data = datetime.strptime(data_val, '%Y-%m-%d').date()
+            
+            godz_roz = dane.get('column_5')
+            if godz_roz:
+                ksztaltowanie.godzina_rozpoczecia = datetime.strptime(godz_roz, '%H:%M:%S').time()
+
+            godz_zak = dane.get('column_6')
+            if godz_zak:
+                ksztaltowanie.godzina_zakonczenia = datetime.strptime(godz_zak, '%H:%M:%S').time()
+        except ValueError as e:
+            return jsonify({'message': 'Nieprawidłowy format daty lub czasu!', 'error': str(e)}), 400
+
+        # Pozostałe pola
+        ksztaltowanie.id_materialu = int(dane.get('column_3', ksztaltowanie.id_materialu))
+        ksztaltowanie.nr_prodio = dane.get('column_9', ksztaltowanie.nr_prodio)
+        ksztaltowanie.ilosc = int(dane.get('column_7', ksztaltowanie.ilosc))
+        ksztaltowanie.ilosc_na_stanie = int(dane.get('column_8', ksztaltowanie.ilosc_na_stanie))
+        ksztaltowanie.nazwa = dane.get('column_1', ksztaltowanie.nazwa)
+        ksztaltowanie.imie_nazwisko = dane.get('column_11', ksztaltowanie.imie_nazwisko)
+
+        # Sprawdzenie, czy materiał istnieje
+        material = MaterialObejma.query.get(ksztaltowanie.id_materialu)
+        if material is None:
+            return jsonify({'message': 'Wybrany materiał nie istnieje!'}), 400
+
+        # Aktualizacja stanu materiału
+        roznica = ksztaltowanie.ilosc_na_stanie - ksztaltowanie.ilosc
+        material.ilosc_sztuk_na_stanie += roznica
+        db.session.add(material)
+
+        db.session.commit()
+        logger.info(f"Ksztaltowanie o ID {id} zostało zaktualizowane przez {g.user.login}.")
+        return jsonify({'message': 'Rekord zaktualizowany pomyślnie!'}), 200
+
+    except Exception as e:
+        db.session.rollback()
+        logger.error(f'Wystąpił błąd podczas aktualizacji: {str(e)}')
+        return jsonify({'message': 'Wystąpił błąd podczas aktualizacji!', 'error': str(e)}), 500
+
 @app.route('/malarnia')
 def malarnia():
     if not g.user:
