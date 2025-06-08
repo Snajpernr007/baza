@@ -20,7 +20,108 @@
                             <span></span>
                         
                         <ul id="menu">
-                            {% if not g.user %}
+                        {%if g.user.id_uprawnienia==1 or g.user.id_uprawnienia==2%}
+                        <li>
+                            {% if g.user.id_uprawnienia==1 %}
+                            <h3>Administrator</h3>
+                            {% endif %}
+                            <ul>
+                                {% if g.user.id_uprawnienia==1 %}
+                                    <li>
+                                        <a href="{{ url_for('uzytkownik') }}"><label for="menuCheckbox" onclick="this.parentNode.click();">Uzytkownicy</label></a>
+                                    </li>
+                                 {% endif %}
+                                {% if g.user.id_uprawnienia==1 %}
+                                    <li>
+                                        <a href="{{ url_for('uprawnienia') }}"><label for="menuCheckbox" onclick="this.parentNode.click();">Uprawnienia</label></a>
+                                    </li>
+                                {% endif %}
+                            </ul>
+                        </li>
+                        {% endif %}
+                        <h2>Profile</h2>
+                        <ul>
+                                {%if g.user.id_uprawnienia==1 or g.user.id_uprawnienia==2%}
+                                    <li>
+                                        <a href="{{ url_for('tasma') }}"><label for="menuCheckbox" onclick="this.parentNode.click();">Materiały</label></a>
+                                    </li>
+                                 {% endif %}
+                                
+                                    <li>
+                                        <a href="{{ url_for('profil') }}"><label for="menuCheckbox" onclick="this.parentNode.click();">Profile</label></a>
+                                    </li>
+                                {% if g.user.id_uprawnienia==1 %}
+                                    <li>
+                                        <a href="{{ url_for('dostawcy') }}"><label for="menuCheckbox" onclick="this.parentNode.click();">Dostawcy</label></a>
+                                    </li>
+                                {% endif %}
+                                {% if g.user.id_uprawnienia==1 %}
+                                    <li>
+                                        <a href="{{ url_for('szablon') }}"><label for="menuCheckbox" onclick="this.parentNode.click();">Nazwy</label></a>
+                                    </li>
+                                {% endif %}
+                                {% if g.user.id_uprawnienia==1 or g.user.id_uprawnienia==2%}
+                                    <li>
+                                        <a href="{{ url_for('lokalizacja') }}"><label for="menuCheckbox" onclick="this.parentNode.click();">Magazyny</label></a>
+                                    </li>
+                                {% endif %}
+                                {% if g.user.id_uprawnienia==1 or g.user.id_uprawnienia==2%}
+                                    <li>
+                                        <a href="{{ url_for('dlugosci') }}"><label for="menuCheckbox" onclick="this.parentNode.click();">Długości</label></a>
+                                    </li>
+                                {% endif %}
+                                {% if g.user.id_uprawnienia==1 or g.user.id_uprawnienia==2%}
+                                    <li>
+                                        <a href="{{ url_for('szablon_profil') }}"><label for="menuCheckbox" onclick="this.parentNode.click();">Nazwy profili</label></a>
+                                    </li>
+                                {% endif %}
+                                {% if g.user.id_uprawnienia==1 %}
+                                    <li>
+                                        <a href="{{ url_for('zestawienie') }}"><label for="menuCheckbox" onclick="this.parentNode.click();">Zestawienie</label></a>
+                                    </li>
+                                {% endif %}
+                                {% if g.user.id_uprawnienia==1 or g.user.id_uprawnienia==2%}
+                                    <li>
+                                        <a href="{{ url_for('sprzedaz') }}"><label for="menuCheckbox" onclick="this.parentNode.click();">Sprzedaż</label></a>
+                                    </li>
+                                {% endif %}
+                            </ul>
+                            {% if g.user.id==1 %}
+                                <h2>Obejmy Ogniowe</h2>
+                            {% endif %}
+                            <ul>
+                                {% if g.user.id==1 %}
+                                    <li>
+                                        <a href="{{ url_for('rozmiary_obejm') }}"><label for="menuCheckbox" onclick="this.parentNode.click();">Rozmiary</label></a>
+                                    </li>
+                                {% endif %}
+                                {% if g.user.id==1 %}
+                                    <li>
+                                        <a href="{{ url_for('material_obejma') }}"><label for="menuCheckbox" onclick="this.parentNode.click();">Materiały</label></a>
+                                    </li>
+                                {% endif %}
+                                {% if g.user.id==1 %}
+                                    <li>
+                                        <a href="{{ url_for('ksztaltowanie') }}"><label for="menuCheckbox" onclick="this.parentNode.click();">Kształtowanie</label></a>
+                                    </li>
+                                {% endif %}
+                                {% if g.user.id==1 %}
+                                    <li>
+                                        <a href="{{ url_for('malarnia') }}"><label for="menuCheckbox" onclick="this.parentNode.click();">Malarnia</label></a>
+                                    </li>
+                                {% endif %}
+                                {% if g.user.id==1 %}
+                                    <li>
+                                        <a href="{{ url_for('powrot') }}"><label for="menuCheckbox" onclick="this.parentNode.click();">Powrót Malarnia</label></a>
+                                    </li>
+                                {% endif %}
+                                {% if g.user.id==1 %}
+                                    <li>
+                                        <a href="{{ url_for('dodaj_zlecenie') }}"><label for="menuCheckbox" style="color:black;" onclick="this.parentNode.click();"><strong>Dodaj zlecenie</strong></label></a>
+                                    </li>
+                                {% endif %}
+                            </ul>
+                        {% if not g.user %}
                         
                             <li>
                                 <a href="{{ url_for('login') }}"><label for="menuCheckbox" onclick="this.parentNode.click();">Zaloguj się!</label></a>
@@ -29,59 +130,11 @@
                             
                         {% else %}
                         <li>
-                            <a href="{{ url_for('logout') }}"><label for="menuCheckbox" onclick="this.parentNode.click();">Wyloguj się</label></a>
-                        </li>
-                        {% endif %}
-                        {%if g.user.id_uprawnienia==1 or g.user.id_uprawnienia==2%}
-                        <li>
-                            <a href="{{ url_for('tasma') }}"><label for="menuCheckbox" onclick="this.parentNode.click();">Materiały</label></a>
+                            <h3><a href="{{ url_for('logout') }}"><label for="menuCheckbox" onclick="this.parentNode.click();">Wyloguj się</label></a></h3>
                         </li>
                         {% endif %}
                         <li>
-                            <a href="{{ url_for('profil') }}"><label for="menuCheckbox" onclick="this.parentNode.click();">Profile</label></a>
-                        </li>
-                        {% if g.user.id_uprawnienia==1 %}
-                        <li>
-                            <a href="{{ url_for('uzytkownik') }}"><label for="menuCheckbox" onclick="this.parentNode.click();">Uzytkownicy</label></a>
-                        </li>
-                        {% endif %}
-                        {% if g.user.id_uprawnienia==1 %}
-                        <li>
-                            <a href="{{ url_for('dostawcy') }}"><label for="menuCheckbox" onclick="this.parentNode.click();">Dostawcy</label></a>
-                        </li>
-                        {% endif %}
-                        {% if g.user.id_uprawnienia==1 %}
-                        <li>
-                            <a href="{{ url_for('szablon') }}"><label for="menuCheckbox" onclick="this.parentNode.click();">Nazwy</label></a>
-                        </li>
-                        {% endif %}
-                        {% if g.user.id_uprawnienia==1 or g.user.id_uprawnienia==2%}
-                        <li>
-                            <a href="{{ url_for('lokalizacja') }}"><label for="menuCheckbox" onclick="this.parentNode.click();">Magazyny</label></a>
-                        </li>
-                        {% endif %}
-                        {% if g.user.id_uprawnienia==1 or g.user.id_uprawnienia==2%}
-                        <li>
-                            <a href="{{ url_for('dlugosci') }}"><label for="menuCheckbox" onclick="this.parentNode.click();">Długości</label></a>
-                        </li>
-                        {% endif %}
-                        {% if g.user.id_uprawnienia==1 or g.user.id_uprawnienia==2%}
-                        <li>
-                            <a href="{{ url_for('szablon_profil') }}"><label for="menuCheckbox" onclick="this.parentNode.click();">Nazwy profili</label></a>
-                        </li>
-                        {% endif %}
-                        {% if g.user.id_uprawnienia==1 %}
-                        <li>
-                            <a href="{{ url_for('zestawienie') }}"><label for="menuCheckbox" onclick="this.parentNode.click();">Zestawienie</label></a>
-                        </li>
-                        {% endif %}
-                        {% if g.user.id_uprawnienia==1 or g.user.id_uprawnienia==2%}
-                        <li>
-                            <a href="{{ url_for('sprzedaz') }}"><label for="menuCheckbox" onclick="this.parentNode.click();">Sprzedaż</label></a>
-                        </li>
-                        {% endif %}
-                        <li>
-                            <a href=javascript:history.back();><label for="menuCheckbox" onclick="this.parentNode.click();">Powrót</label></a>
+                            <h3><a href=javascript:history.back();><label for="menuCheckbox" onclick="this.parentNode.click();">Powrót</label></a></h3>
                         </li>  
                             
                             
@@ -97,10 +150,168 @@
                 
             </div>
         </div>
-
+        <div id="test">
             <div id="title">
-                <h2 class="witaj">Profile</h2>
+                <h2 class="witaj">Zlecenie</h2>
             </div>
+        </div>
+                <table id="tabela">
+                    <thead>
+                        <tr>
+                            <th><input type="text" placeholder="Filtruj ID" onchange="filterTable()"></th>
+                            <th><input type="text" placeholder="Filtruj Nr Zamówienia" onchange="filterTable()"></th>
+                            <th><input type="text" placeholder="Filtruj Prodio" onchange="filterTable()"></th>
+                            <th><input type="text" placeholder="Filtruj Ilość pianki" onchange="filterTable()"></th>
+                            <th><input type="text" placeholder="Filtruj Serie taśmy" onchange="filterTable()"></th>
+                            <th><input type="text" placeholder="Filtruj Ilość taśmy" onchange="filterTable()"></th>
+                            <th><input type="text" placeholder="Filtruj Nr kartonu" onchange="filterTable()"></th>
+                            <th><input type="text" placeholder="Filtruj Pracownik" onchange="filterTable()"></th>
+                            <th><input type="text" placeholder="Filtruj Imię i nazw." onchange="filterTable()"></th>
+                            <th><input type="text" placeholder="Filtruj Rozmiar" onchange="filterTable()"></th>
+                            <th><input type="text" placeholder="Filtruj Nr wytopu" onchange="filterTable()"></th>
+                            <th>OD<input type="date" id="dateDostawyFrom" onchange="filterTable()" style="width: 90px;">
+                                DO<input type="date" id="dateDostawyTo" onchange="filterTable()" style="width: 90px;">
+                            </th>
+                            <th><input type="text" placeholder="Filtruj Ilość sztuk" onchange="filterTable()"></th>
+                        </tr>
+                    
+                    <tr>
+                            <th  onclick="sortCustomTable(0)">ID &#9650;&#9660;</th>
+                            <th  onclick="sortCustomTable(1)">Nr zamówienia &#9650;&#9660;</th>
+                            <th  onclick="sortCustomTable(2)">Nr prodio &#9650;&#9660;</th>
+                            <th  onclick="sortCustomTable(3)">Ilość pianki &#9650;&#9660;</th>
+                            <th  onclick="sortCustomTable(4)">Seria taśmy &#9650;&#9660;</th>
+                            <th  onclick="sortCustomTable(5)">Ilość taśmy &#9650;&#9660;</th>
+                            <th  onclick="sortCustomTable(6)">Nr kartonu &#9650;&#9660;</th>
+                            <th  onclick="sortCustomTable(7)">Pracownik &#9650;&#9660;</th>
+                            <th  onclick="sortCustomTable(8)">Imię i nazwisko &#9650;&#9660;</th>
+                            <th  onclick="sortCustomTable(9)">Rozmiar &#9650;&#9660;</th>
+                            <th  onclick="sortCustomTable(10)">Nr wytopu &#9650;&#9660;</th>
+                            <th  onclick="sortCustomTable(11)">Data powrotu &#9650;&#9660;</th>
+                            <th  onclick="sortCustomTable(12)">Ilość sztuk &#9650;&#9660;</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for zlecenia in zlecenie %}
+                        <tr data-parent-id="{{ zlecenia.id }}">
+                            <td  >{{ zlecenia.id }}</td>
+                            <td >{{ zlecenia.nr_zamowienia_zew }}</td>
+                            <td >{{ zlecenia.nr_prodio }}</td>
+                            <td >{{ zlecenia.ile_pianki }}</td>
+                            <td >{{ zlecenia.seria_tasmy }}</td>
+                            <td >{{ zlecenia.ile_tasmy }}</td>
+                            <td >{{ zlecenia.nr_kartonu }}</td>
+                            <td >{{ zlecenia.id_pracownik }}</td>
+                            <td >{{ zlecenia.imie_nazwisko }}</td>
+                        </tr>
+                            {% for laczenia in laczenie %}
+                            
+                            {% if laczenia.id_zlecenie== zlecenia.id%}
+                            
+                                <tr  data-child-id="{{ laczenia.tasma.id }}">
+                                    <td >{{ laczenia.powrot.malarnia.ksztaltowanie.material.rozmiar.nazwa }}</td>
+                                    <td >{{ laczenia.powrot.malarnia.ksztaltowanie.material.nr_wytopu }}</td>
+                                    <td >{{ laczenia.powrot.data }}</td>
+                                    <td >{{ laczenia.ile_sztuk }}</td>
+                                </tr>
+                            {% endif %}
+                            
+                            {% endfor %}
+                            
+                        
+                    {% endfor %}
+                </tbody>
+            </table>
     </div>
+    <script>
+let currentSortColumn = null;
+let currentSortAsc = true;
+
+function sortCustomTable(columnIndex) {
+    const table = document.getElementById("tabela");
+    const thead = table.querySelector("thead");
+    const tbody = table.querySelector("tbody");
+    const headerSortRow = thead.querySelectorAll("tr")[1]; // Drugi wiersz nagłówków (z sortowaniem)
+
+    // Przełącz kierunek sortowania
+    if (currentSortColumn === columnIndex) {
+        currentSortAsc = !currentSortAsc;
+    } else {
+        currentSortColumn = columnIndex;
+        currentSortAsc = true;
+    }
+
+    // Zaktualizuj tylko klikniętą kolumnę – nie ruszaj innych
+    const thList = headerSortRow.querySelectorAll("th");
+    const clickedTh = thList[columnIndex];
+    let currentText = clickedTh.innerHTML.replace(/[\u25B2\u25BC]/g, '').trim();
+    clickedTh.innerHTML = currentText + (currentSortAsc ? ' ▲' : ' ▼');
+
+    const rows = Array.from(tbody.querySelectorAll("tr"));
+    const groupedRows = [];
+
+    for (let i = 0; i < rows.length; i++) {
+        const row = rows[i];
+
+        if (row.hasAttribute("data-parent-id")) {
+            const parentRow = row;
+            const parentId = row.getAttribute("data-parent-id");
+
+            const children = [];
+            let j = i + 1;
+
+            while (j < rows.length && rows[j].getAttribute("data-child-id") === parentId) {
+                children.push(rows[j]);
+                j++;
+            }
+
+            groupedRows.push({ parent: parentRow, children: children });
+            i = j - 1;
+        }
+    }
+
+    if (columnIndex < 14) {
+        // Sortuj grupy wg kolumny rodzica
+        groupedRows.sort((a, b) => {
+            const aText = a.parent.cells[columnIndex]?.textContent.trim() || '';
+            const bText = b.parent.cells[columnIndex]?.textContent.trim() || '';
+
+            const aVal = parseFloat(aText.replace(",", ".")) || aText.toLowerCase();
+            const bVal = parseFloat(bText.replace(",", ".")) || bText.toLowerCase();
+
+            if (aVal < bVal) return currentSortAsc ? -1 : 1;
+            if (aVal > bVal) return currentSortAsc ? 1 : -1;
+            return 0;
+        });
+
+    } else {
+        // Sortuj dzieci w każdej grupie osobno
+        groupedRows.forEach(group => {
+            group.children.sort((a, b) => {
+                const aText = a.cells[columnIndex]?.textContent.trim() || '';
+                const bText = b.cells[columnIndex]?.textContent.trim() || '';
+
+                const aVal = parseFloat(aText.replace(",", ".")) || aText.toLowerCase();
+                const bVal = parseFloat(bText.replace(",", ".")) || bText.toLowerCase();
+
+                if (aVal < bVal) return currentSortAsc ? -1 : 1;
+                if (aVal > bVal) return currentSortAsc ? 1 : -1;
+                return 0;
+            });
+        });
+    }
+
+    // Przepisz posortowane wiersze do <tbody>
+    tbody.innerHTML = '';
+    groupedRows.forEach(group => {
+        tbody.appendChild(group.parent);
+        group.children.forEach(child => tbody.appendChild(child));
+    });
+}
+function toggleRightMenu() {
+    const menu = document.getElementById('right-menu');
+    menu.classList.toggle('open');
+  }
+    </script>
 </body>
 </html> 
