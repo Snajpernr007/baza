@@ -16,7 +16,7 @@ CREATE TABLE `uzytkownicy` (
   PRIMARY KEY (`id`),
   KEY `fk_uzytkownicy_uprawnienia` (`id_uprawnienia`),
   CONSTRAINT `fk_uzytkownicy_uprawnienia` FOREIGN KEY (`id_uprawnienia`) REFERENCES `uprawnienia` (`id_uprawnienia`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- Struktura tabeli `dostawcy`
 CREATE TABLE `dostawcy` (
@@ -43,7 +43,7 @@ CREATE TABLE `lokalizacja` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `nazwa` varchar(255) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- Struktura tabeli `dlugosci`
 CREATE TABLE `dlugosci` (
@@ -125,6 +125,7 @@ INSERT INTO `uprawnienia` (id_uprawnienia, nazwa) VALUES ('3', 'Pracownik');
 INSERT INTO `uzytkownicy` (id, login, haslo, id_uprawnienia) VALUES ('1', 'Administrator', 'scrypt:32768:8:1$UCBwCJVWPxR43fNh$e822900a3b12c3c4ac274af1701eedd757ba770bba15d8994d2814684fceaed06db771d8ed214e75ec9cb2d9a95ccf7e01b3c4f49bc407c52fe141547a91077b', '1');
 INSERT INTO `uzytkownicy` (id, login, haslo, id_uprawnienia) VALUES ('19', 'test4', 'scrypt:32768:8:1$ru0bUjJ8KMhoBWiB$49d1f7d3fd182298e9f5b4ac825740cb790a60287ffa17541291c4338c421f1c7e352a348e196d4c3af39a21506348c7cb6817ddf495bfaa4b7a59d6a5d7de59', '3');
 INSERT INTO `uzytkownicy` (id, login, haslo, id_uprawnienia) VALUES ('20', 'Aleks', 'scrypt:32768:8:1$LViPGZQvkqWPGQUz$be90658041523554eb467ddf37855b84a50825b1439c5fb9eba198a49a47a5441da7d35455978767128e4dd3560c535b3818b9f978c04c7b8e68ee35012092cb', '2');
+INSERT INTO `uzytkownicy` (id, login, haslo, id_uprawnienia) VALUES ('21', 'Artur', 'scrypt:32768:8:1$VZLQlBHsRqQUUoS5$b923bc20a380aeddbe2ebf91b825400743373381bceba622632738769715b7c807274e44eed955b2e6df1f473cb519815b37f94800faed794b930aaeef911cf0', '3');
 
 -- Dane z tabeli `dostawcy`
 INSERT INTO `dostawcy` (id, nazwa) VALUES ('1', 'dostawca1');
@@ -147,6 +148,7 @@ INSERT INTO `szablon` (id, nazwa, rodzaj, grubosc_i_oznaczenie_ocynku, grubosc, 
 
 -- Dane z tabeli `lokalizacja`
 INSERT INTO `lokalizacja` (id, nazwa) VALUES ('1', 'Magazyn11');
+INSERT INTO `lokalizacja` (id, nazwa) VALUES ('4', 'Dupa');
 
 -- Dane z tabeli `dlugosci`
 INSERT INTO `dlugosci` (id, nazwa) VALUES ('1', '1');
