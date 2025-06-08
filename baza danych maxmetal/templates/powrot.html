@@ -6,6 +6,134 @@
     <title>Obejmy MaxMetal</title>
     <link rel="icon" href="../static/img/logo-male.png">
     <link rel="stylesheet" href="../static/style.css">
+    <script>
+            function openEditModal(row) {
+    const cells = row.querySelectorAll("td");
+    const editButton = row.querySelector("button");
+
+    if (editButton.innerText === "Edytuj") {
+        // Dodaj filtr
+        const filterRow = document.createElement("tr");
+        let filterCells = '';
+        for (let i = 0; i < cells.length - 2; i++) {
+            if (i === 3) {
+                filterCells += `<td><input type="text" placeholder="Filtruj Malarnie" onkeyup="filterMalarnii(this.value)" style="width: 100%;"></td>`;
+            } else {
+                filterCells += `<td></td>`;
+            }
+        }
+        filterRow.innerHTML = filterCells;
+        row.parentElement.insertBefore(filterRow, row);
+
+        // Zamień komórki na input/select
+        cells.forEach((cell, index) => {
+            if (index > 1 && index < cells.length - 1 && index != 8 && index != 2) {
+                if (index === 3) {
+                    const currentMalarnieId = cell.getAttribute("data-malarnia-id");
+                    cell.innerHTML = `<select id="malarniaSelect" style="width: 100%;"></select>`;
+                    populateMalarnii(cell.querySelector("select"), currentMalarnieId);
+                } else if (index === 7) {
+                    const value = cell.innerText;
+                    cell.innerHTML = `<input type="date" value="${value}" style="width: 100%;">`;
+                } else if (index === 4 || index === 5) {
+                    const value = cell.innerText;
+                    cell.innerHTML = `<input type="number" value="${value}" style="width: 100%;">`;
+                }else {
+                    const value = cell.innerText;
+                    cell.innerHTML = `<input type="text" value="${value}" style="width: 100%;">`;
+                }
+            }
+        });
+
+        editButton.innerText = "Zapisz";
+    } else if (editButton.innerText === "Zapisz") {
+        const updatedData = {};
+        let isValid = true;
+
+        cells.forEach((cell, index) => {
+            if (index > 1 && index < cells.length - 1 && index != 8 && index != 2) {
+                const input = cell.querySelector("input") || cell.querySelector("select");
+                if (input) {
+                    const value = input.value.trim();
+                    if (!value || (index === 3 && value === "")) {
+                        isValid = false;
+                    } else {
+                        if (input.tagName === "SELECT") {
+                            const selectedId = value;
+                            cell.innerText = input.options[input.selectedIndex].text;
+                            cell.setAttribute("data-malarnia-id", selectedId);
+                            updatedData[`column_${index}`] = selectedId;
+                        } else {
+                            cell.innerText = value;
+                            updatedData[`column_${index}`] = value;
+                        }
+                    }
+                }
+            } else if (index === 0 || index >= cells.length - 3) {
+                updatedData[`column_${index}`] = cell.innerText;
+            }
+        });
+
+        if (isValid) {
+            sendDataToBackend(updatedData);
+            editButton.innerText = "Edytuj";
+
+            const filterRow = row.previousElementSibling;
+            if (filterRow) filterRow.remove();
+        } else {
+            alert("Proszę wypełnić wszystkie edytowalne pola.");
+        }
+    }
+}
+
+function populateMalarnii(selectElement, selectedValue) {
+    fetch('/get-malarnia')
+        .then(response => response.json())
+        .then(data => {
+            data.forEach(malarnia => {
+                const option = document.createElement('option');
+                option.value = malarnia.id.toString();
+                option.textContent = malarnia.data;
+                selectElement.appendChild(option);
+            });
+
+            if (selectedValue) {
+                selectElement.value = selectedValue.toString();
+            }
+        })
+        .catch(error => console.error('Błąd podczas pobierania malarnii:', error));
+}
+
+function filterMalarnii(searchTerm) {
+    const select = document.getElementById("malarniaSelect");
+    if (!select) return;
+    for (let i = 0; i < select.options.length; i++) {
+        const optionText = select.options[i].text.toLowerCase();
+        select.options[i].style.display = optionText.includes(searchTerm.toLowerCase()) ? "" : "none";
+    }
+}
+
+function sendDataToBackend(data) {
+    fetch('/update-row-powrot', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data),
+    })
+    .then(response => response.json())
+    .then(result => {
+        if (result.error) {
+            alert("Błąd: " + result.error);
+            console.error("Backend error:", result.error);
+        } else {
+            alert(result.message || "Dane zapisane pomyślnie!");
+        }
+    })
+    .catch(error => {
+        alert("Wystąpił błąd podczas zapisywania danych!");
+        console.error("Fetch error:", error);
+    });
+}
+    </script>
 </head>
 <body>
     <div id="strona">
@@ -155,12 +283,13 @@
                         <th><input type="text" placeholder="Filtruj ID" onkeyup="filterColumn(0)"></th>
                         <th><input type="text" placeholder="Filtruj Rozmiar" onkeyup="filterColumn(1)"></th>
                         <th><input type="text" placeholder="Filtruj Nr wytopu" onkeyup="filterColumn(2)"></th>
-                        <th><input type="text" placeholder="Filtruj Ilość" onkeyup="filterColumn(3)"></th>
-                        <th><input type="text" placeholder="Filtruj Ilość na stanie" onkeyup="filterColumn(4)"></th>
-                        <th><input type="text" placeholder="Filtruj Nr Prodio" onkeyup="filterColumn(5)"></th>
-                        <th><input type="text" placeholder="Filtruj Data" onkeyup="filterColumn(6)"></th>
-                        <th><input type="text" placeholder="Filtruj Pracownika" onkeyup="filterColumn(7)"></th>
-                        <th><input type="text" placeholder="Filtruj Imię i nazwisko" onkeyup="filterColumn(8)"></th>
+                        <th><input type="text" placeholder="Filtruj Data wyjazdu" onkeyup="filterColumn(3)"></th>
+                        <th><input type="text" placeholder="Filtruj Ilość" onkeyup="filterColumn(4)"></th>
+                        <th><input type="text" placeholder="Filtruj Ilość na stanie" onkeyup="filterColumn(5)"></th>
+                        <th><input type="text" placeholder="Filtruj Nr Prodio" onkeyup="filterColumn(6)"></th>
+                        <th><input type="text" placeholder="Filtruj Data" onkeyup="filterColumn(7)"></th>
+                        <th><input type="text" placeholder="Filtruj Pracownika" onkeyup="filterColumn(8)"></th>
+                        <th><input type="text" placeholder="Filtruj Imię i nazwisko" onkeyup="filterColumn(9)"></th>
                         
                         <th><button class="button" onclick="resetFilters()">Usuń Filtry</button></th>
                     </tr>
@@ -168,12 +297,13 @@
                         <th onclick="sortTable(0)">ID &#9650;&#9660;</th>
                         <th onclick="sortTable(1)">Rozmiar &#9650;&#9660;</th>
                         <th onclick="sortTable(2)">Nr wytopu &#9650;&#9660;</th>
-                        <th onclick="sortTable(3)">Ilość &#9650;&#9660;</th>
-                        <th onclick="sortTable(4)">Ilość na stanie &#9650;&#9660;</th>
-                        <th onclick="sortTable(5)">Nr prodio &#9650;&#9660;</th>
-                        <th onclick="sortTable(6)">Data &#9650;&#9660;</th>
-                        <th onclick="sortTable(7)">Pracownik &#9650;&#9660;</th>
-                        <th onclick="sortTable(8)">Imię i nazwisko &#9650;&#9660;</th>
+                        <th onclick="sortTable(3)">Data wyjazdu</th>
+                        <th onclick="sortTable(4)">Ilość &#9650;&#9660;</th>
+                        <th onclick="sortTable(5)">Ilość na stanie &#9650;&#9660;</th>
+                        <th onclick="sortTable(6)">Nr prodio &#9650;&#9660;</th>
+                        <th onclick="sortTable(7)">Data powrotu &#9650;&#9660;</th>
+                        <th onclick="sortTable(8)">Pracownik &#9650;&#9660;</th>
+                        <th onclick="sortTable(9)">Imię i nazwisko &#9650;&#9660;</th>
                         
                         
                         <th>Edycja</th>
@@ -185,6 +315,7 @@
                             <td>{{ powroty.id }} </td>
                             <td>{{ powroty.malarnia.ksztaltowanie.material.rozmiar.nazwa }}</td>
                             <td>{{ powroty.malarnia.ksztaltowanie.material.nr_wytopu}}</td>
+                            <td>{{ powroty.malarnia.data}}</td>
                             <td>{{ powroty.ilosc }} </td>
                             <td>{{ powroty.ilosc_na_stanie }}</td>
                             <td>{{ powroty.nr_prodio }}</td>
