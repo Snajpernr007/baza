@@ -315,7 +315,7 @@ function sendDataToBackend(data) {
                             <td>{{ powroty.id }} </td>
                             <td>{{ powroty.malarnia.ksztaltowanie.material.rozmiar.nazwa }}</td>
                             <td>{{ powroty.malarnia.ksztaltowanie.material.nr_wytopu}}</td>
-                            <td>{{ powroty.malarnia.data}}</td>
+                            <td data-malarnia-id="{{ powroty.malarnia.id }}">{{ powroty.malarnia.data}}</td>
                             <td>{{ powroty.ilosc }} </td>
                             <td>{{ powroty.ilosc_na_stanie }}</td>
                             <td>{{ powroty.nr_prodio }}</td>

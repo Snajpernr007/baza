@@ -492,7 +492,17 @@ def get_ksztaltowanie():
 @app.route('/get-malarnia', methods=['GET'])
 def get_malarnia():
     malarnia = Malarnia.query.all()
-    return jsonify([{"id": m.id, "ilosc": m.ilosc, "ilosc_na_stanie": m.ilosc_na_stanie, "nr_prodio": m.nr_prodio, "data": m.data, "id_pracownik": m.id_pracownik, "imie_nazwisko": m.imie_nazwisko} for m in malarnia])
+    return jsonify([
+        {
+            "id": m.id,
+            "ilosc": m.ilosc,
+            "ilosc_na_stanie": m.ilosc_na_stanie,
+            "nr_prodio": m.nr_prodio,
+            "data": m.data.strftime('%Y-%m-%d') if m.data else None,  # <-- kluczowa zmiana
+            "id_pracownik": m.id_pracownik,
+            "imie_nazwisko": m.imie_nazwisko
+        } for m in malarnia
+    ])
 @app.route('/get-powrot', methods=['GET'])
 def get_powrot():
     powrot = Powrot.query.all()
