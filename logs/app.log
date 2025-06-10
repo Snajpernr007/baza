@@ -11366,3 +11366,45 @@
 2025-06-10 17:40:16,927 - INFO - 192.168.1.13 - - [10/Jun/2025 17:40:16] "GET /malarnia HTTP/1.1" 200 -
 2025-06-10 17:40:16,947 - INFO - 192.168.1.13 - - [10/Jun/2025 17:40:16] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
 2025-06-10 17:40:16,949 - INFO - 192.168.1.13 - - [10/Jun/2025 17:40:16] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-06-10 17:42:32,599 - INFO - Administrator wszedł na stronę malarni.
+2025-06-10 17:42:32,657 - INFO - 192.168.1.13 - - [10/Jun/2025 17:42:32] "GET /malarnia HTTP/1.1" 200 -
+2025-06-10 17:42:32,675 - INFO - 192.168.1.13 - - [10/Jun/2025 17:42:32] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-06-10 17:42:32,676 - INFO - 192.168.1.13 - - [10/Jun/2025 17:42:32] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-06-10 17:42:32,701 - INFO - 192.168.1.13 - - [10/Jun/2025 17:42:32] "[36mGET /static/img/logo-male.png HTTP/1.1[0m" 304 -
+2025-06-10 17:43:53,219 - INFO - Administrator wszedł na stronę malarni.
+2025-06-10 17:43:53,275 - INFO - 192.168.1.13 - - [10/Jun/2025 17:43:53] "GET /malarnia HTTP/1.1" 200 -
+2025-06-10 17:43:53,293 - INFO - 192.168.1.13 - - [10/Jun/2025 17:43:53] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-06-10 17:43:53,293 - INFO - 192.168.1.13 - - [10/Jun/2025 17:43:53] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-06-10 17:43:53,317 - INFO - 192.168.1.13 - - [10/Jun/2025 17:43:53] "[36mGET /static/img/logo-male.png HTTP/1.1[0m" 304 -
+2025-06-10 17:43:56,500 - INFO - Administrator wszedł na stronę malarni.
+2025-06-10 17:43:56,505 - INFO - 192.168.1.13 - - [10/Jun/2025 17:43:56] "GET /malarnia HTTP/1.1" 200 -
+2025-06-10 17:43:56,520 - INFO - 192.168.1.13 - - [10/Jun/2025 17:43:56] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-06-10 17:43:56,523 - INFO - 192.168.1.13 - - [10/Jun/2025 17:43:56] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-06-10 17:43:56,545 - INFO - 192.168.1.13 - - [10/Jun/2025 17:43:56] "[36mGET /static/img/logo-male.png HTTP/1.1[0m" 304 -
+2025-06-10 17:48:38,583 - INFO - Administrator wszedł na stronę malarni.
+2025-06-10 17:48:38,635 - INFO - 192.168.1.13 - - [10/Jun/2025 17:48:38] "GET /malarnia HTTP/1.1" 200 -
+2025-06-10 17:48:38,656 - INFO - 192.168.1.13 - - [10/Jun/2025 17:48:38] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-06-10 17:48:38,657 - INFO - 192.168.1.13 - - [10/Jun/2025 17:48:38] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-06-10 17:48:38,666 - INFO - 192.168.1.13 - - [10/Jun/2025 17:48:38] "[36mGET /static/img/maxmetal.png HTTP/1.1[0m" 304 -
+2025-06-10 17:48:38,708 - INFO - 192.168.1.13 - - [10/Jun/2025 17:48:38] "[36mGET /static/img/logo-male.png HTTP/1.1[0m" 304 -
+2025-06-10 17:48:51,319 - INFO - 192.168.1.13 - - [10/Jun/2025 17:48:51] "GET /get-ksztaltowanie HTTP/1.1" 200 -
+2025-06-10 17:48:57,185 - INFO - Otrzymane dane do aktualizacji malarni: {'column_0': '1', 'column_3': '2', 'column_4': '22', 'column_5': '-1', 'column_6': '43', 'column_7': '2025-06-20', 'column_8': 'Administrator', 'column_9': 'Jędrzej', 'column_10': 'Zapisz'}
+2025-06-10 17:48:57,187 - INFO - Poprzednie dane malarni o ID 1: {'id': 1, 'data': datetime.date(2025, 6, 20), 'id_ksztaltowanie': 2, 'nr_prodio': '43', 'ilosc': 22, 'ilosc_na_stanie': -1}
+2025-06-10 17:48:57,188 - INFO - Przetwarzanie daty: 2025-06-20
+2025-06-10 17:48:57,196 - INFO - Malarnia o ID 1 została zaktualizowana przez Administrator.
+2025-06-10 17:48:57,197 - INFO - 192.168.1.13 - - [10/Jun/2025 17:48:57] "POST /update-row-malarnia HTTP/1.1" 200 -
+2025-06-10 17:48:59,118 - INFO - Administrator wszedł na stronę malarni.
+2025-06-10 17:48:59,124 - INFO - 192.168.1.13 - - [10/Jun/2025 17:48:59] "GET /malarnia HTTP/1.1" 200 -
+2025-06-10 17:48:59,139 - INFO - 192.168.1.13 - - [10/Jun/2025 17:48:59] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-06-10 17:48:59,140 - INFO - 192.168.1.13 - - [10/Jun/2025 17:48:59] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-06-10 17:48:59,166 - INFO - 192.168.1.13 - - [10/Jun/2025 17:48:59] "[36mGET /static/img/logo-male.png HTTP/1.1[0m" 304 -
+2025-06-10 17:49:00,181 - INFO - Administrator wszedł na stronę malarni.
+2025-06-10 17:49:00,187 - INFO - 192.168.1.13 - - [10/Jun/2025 17:49:00] "GET /malarnia HTTP/1.1" 200 -
+2025-06-10 17:49:00,207 - INFO - 192.168.1.13 - - [10/Jun/2025 17:49:00] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-06-10 17:49:00,208 - INFO - 192.168.1.13 - - [10/Jun/2025 17:49:00] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-06-10 17:49:00,236 - INFO - 192.168.1.13 - - [10/Jun/2025 17:49:00] "[36mGET /static/img/logo-male.png HTTP/1.1[0m" 304 -
+2025-06-10 17:49:22,820 - INFO - Administrator wszedł na stronę malarni.
+2025-06-10 17:49:22,825 - INFO - 192.168.1.13 - - [10/Jun/2025 17:49:22] "GET /malarnia HTTP/1.1" 200 -
+2025-06-10 17:49:22,843 - INFO - 192.168.1.13 - - [10/Jun/2025 17:49:22] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-06-10 17:49:22,844 - INFO - 192.168.1.13 - - [10/Jun/2025 17:49:22] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-06-10 17:49:22,869 - INFO - 192.168.1.13 - - [10/Jun/2025 17:49:22] "[36mGET /static/img/logo-male.png HTTP/1.1[0m" 304 -

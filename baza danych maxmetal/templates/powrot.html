@@ -133,6 +133,98 @@ function sendDataToBackend(data) {
         console.error("Fetch error:", error);
     });
 }
+// Stan sortowania dla każdej kolumny
+let sortDirection = Array(10).fill(true); // true = asc, false = desc
+
+function filterTable() {
+    const table = document.getElementById("tabela");
+    const rows = table.querySelectorAll("tbody tr");
+    // Pobieramy inputy filtrujące
+    const filters = [
+        document.querySelector('input[placeholder="Filtruj ID"]'),
+        document.querySelector('input[placeholder="Filtruj Rozmiar"]'),
+        document.querySelector('input[placeholder="Filtruj Nr wytopu"]'),
+        document.querySelector('input[placeholder="Filtruj Data wyjazdu"]'),
+        document.querySelector('input[placeholder="Filtruj Ilość"]'),
+        document.querySelector('input[placeholder="Filtruj Ilość na stanie"]'),
+        document.querySelector('input[placeholder="Filtruj Nr Prodio"]'),
+        document.querySelector('input[placeholder="Filtruj Data"]'),
+        document.querySelector('input[placeholder="Filtruj Pracownika"]'),
+        document.querySelector('input[placeholder="Filtruj Imię i nazwisko"]')
+    ];
+
+    rows.forEach(row => {
+        const cells = row.querySelectorAll("td");
+        let show = true;
+        filters.forEach((input, i) => {
+            const value = input.value.toLowerCase();
+            if (value && cells[i]) {
+                const text = cells[i].textContent.toLowerCase();
+                if (!text.includes(value)) show = false;
+            }
+        });
+        row.style.display = show ? "" : "none";
+    });
+}
+
+function resetFilters() {
+    const inputs = document.querySelectorAll('thead input[type="text"]');
+    inputs.forEach(input => input.value = "");
+    filterTable();
+}
+
+function sortTable(col) {
+    const table = document.getElementById("tabela");
+    const tbody = table.tBodies[0];
+    const rows = Array.from(tbody.rows);
+    const asc = sortDirection[col];
+
+    rows.sort((a, b) => {
+        let aText = a.cells[col]?.textContent.trim() || "";
+        let bText = b.cells[col]?.textContent.trim() || "";
+
+        // Jeśli to kolumna z datą (kolumna 3 lub 7), porównuj jako daty
+        if (col === 3 || col === 7) {
+            let aDate = new Date(aText);
+            let bDate = new Date(bText);
+            if (!isNaN(aDate) && !isNaN(bDate)) {
+                return asc ? aDate - bDate : bDate - aDate;
+            }
+        }
+
+        // Jeśli liczby
+        let aNum = parseFloat(aText.replace(',', '.'));
+        let bNum = parseFloat(bText.replace(',', '.'));
+        if (!isNaN(aNum) && !isNaN(bNum) && aText.match(/^\d/)) {
+            return asc ? aNum - bNum : bNum - aNum;
+        }
+
+        // Inaczej jako tekst
+        return asc ? aText.localeCompare(bText) : bText.localeCompare(aText);
+    });
+
+    rows.forEach(row => tbody.appendChild(row));
+    sortDirection[col] = !asc;
+
+    // Aktualizuj strzałki w nagłówkach
+    for (let i = 0; i < sortDirection.length; i++) {
+        const th = document.getElementById(`th-sort-${i}`);
+        if (th) {
+            if (i === col) {
+                th.innerHTML = th.textContent.replace(/[\u25B2\u25BC]+/g, '') + (sortDirection[col] ? ' &#9650;' : ' &#9660;');
+            } else {
+                th.innerHTML = th.textContent.replace(/[\u25B2\u25BC]+/g, '') + ' &#9650;&#9660;';
+            }
+        }
+    }
+}
+
+// Podpinamy filtry do inputów po załadowaniu strony
+document.addEventListener("DOMContentLoaded", () => {
+    document.querySelectorAll('thead input[type="text"]').forEach(input => {
+        input.addEventListener("keyup", filterTable);
+    });
+});
     </script>
 </head>
 <body>
@@ -294,16 +386,16 @@ function sendDataToBackend(data) {
                         <th><button class="button" onclick="resetFilters()">Usuń Filtry</button></th>
                     </tr>
                     <tr>
-                        <th onclick="sortTable(0)">ID &#9650;&#9660;</th>
-                        <th onclick="sortTable(1)">Rozmiar &#9650;&#9660;</th>
-                        <th onclick="sortTable(2)">Nr wytopu &#9650;&#9660;</th>
-                        <th onclick="sortTable(3)">Data wyjazdu</th>
-                        <th onclick="sortTable(4)">Ilość &#9650;&#9660;</th>
-                        <th onclick="sortTable(5)">Ilość na stanie &#9650;&#9660;</th>
-                        <th onclick="sortTable(6)">Nr prodio &#9650;&#9660;</th>
-                        <th onclick="sortTable(7)">Data powrotu &#9650;&#9660;</th>
-                        <th onclick="sortTable(8)">Pracownik &#9650;&#9660;</th>
-                        <th onclick="sortTable(9)">Imię i nazwisko &#9650;&#9660;</th>
+                        <th id="th-sort-0" onclick="sortTable(0)">ID &#9650;&#9660;</th>
+                        <th id="th-sort-1" onclick="sortTable(1)">Rozmiar &#9650;&#9660;</th>
+                        <th id="th-sort-2" onclick="sortTable(2)">Nr wytopu &#9650;&#9660;</th>
+                        <th id="th-sort-3" onclick="sortTable(3)">Data wyjazdu</th>
+                        <th id="th-sort-4" onclick="sortTable(4)">Ilość &#9650;&#9660;</th>
+                        <th id="th-sort-5" onclick="sortTable(5)">Ilość na stanie &#9650;&#9660;</th>
+                        <th id="th-sort-6" onclick="sortTable(6)">Nr prodio &#9650;&#9660;</th>
+                        <th id="th-sort-7" onclick="sortTable(7)">Data powrotu &#9650;&#9660;</th>
+                        <th id="th-sort-8" onclick="sortTable(8)">Pracownik &#9650;&#9660;</th>
+                        <th id="th-sort-9" onclick="sortTable(9)">Imię i nazwisko &#9650;&#9660;</th>
                         
                         
                         <th>Edycja</th>
@@ -332,4 +424,4 @@ function sendDataToBackend(data) {
         </div>
     </div>
 </body>
-</html> 
+</html>
