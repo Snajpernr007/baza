@@ -236,7 +236,18 @@ function sortTable(columnIndex) {
 function filterTable() {
     let table = document.getElementById("tabela");
     let rows = table.querySelectorAll("tbody tr");
-    let filters = table.querySelectorAll("thead tr:first-child input[type='text']");
+    // Pobieramy tylko inputy tekstowe (pomijamy inputy typu date)
+    let filters = [
+        document.querySelector('input[placeholder="Filtruj ID"]'),
+        document.querySelector('input[placeholder="Filtruj Rozmiar"]'),
+        document.querySelector('input[placeholder="Filtruj Nr wytopu"]'),
+        document.querySelector('input[placeholder="Filtruj Partia"]'),
+        document.querySelector('input[placeholder="Filtruj Ilość"]'),
+        document.querySelector('input[placeholder="Filtruj Ilość na stanie"]'),
+        document.querySelector('input[placeholder="Filtruj Nr Prodio"]'),
+        document.querySelector('input[placeholder="Filtruj Pracownika"]'),
+        document.querySelector('input[placeholder="Filtruj Imię i nazwisko"]')
+    ];
 
     let dateFrom = document.getElementById("dateFrom")?.value;
     let dateTo = document.getElementById("dateTo")?.value;
@@ -245,20 +256,22 @@ function filterTable() {
         let cells = row.querySelectorAll("td");
         let show = true;
 
-        // Filtrowanie tekstowe (kolumny poza "Data produkcji")
-        filters.forEach((input, index) => {
+        // Filtrowanie tekstowe (pomijamy kolumnę z datą - index 7)
+        filters.forEach((input, i) => {
+            // Kolumna daty to index 7, więc po 7-mym filtrze przesuwamy index o 1
+            let cellIndex = i < 7 ? i : i + 1;
             let value = input.value.toLowerCase();
-            if (value && cells[index]) {
-                let text = cells[index].textContent.toLowerCase();
+            if (value && cells[cellIndex]) {
+                let text = cells[cellIndex].textContent.toLowerCase();
                 if (!text.includes(value)) {
                     show = false;
                 }
             }
         });
 
-        // Filtrowanie po dacie (kolumna 2 - Data Produkcji)
+        // Filtrowanie po dacie (kolumna 7)
         if (show && (dateFrom || dateTo)) {
-            let dateCell = cells[2]?.textContent.trim(); // Zakłada, że data jest w 3. kolumnie (indeks 2)
+            let dateCell = cells[7]?.textContent.trim();
             if (dateCell) {
                 let cellDate = new Date(dateCell);
                 if (dateFrom && cellDate < new Date(dateFrom)) show = false;
@@ -428,7 +441,8 @@ function filterTable() {
                         <th><input type="text" placeholder="Filtruj Ilość" onkeyup="filterColumn(4)"></th>
                         <th><input type="text" placeholder="Filtruj Ilość na stanie" onkeyup="filterColumn(5)"></th>
                         <th><input type="text" placeholder="Filtruj Nr Prodio" onkeyup="filterColumn(6)"></th>
-                        <th><input type="text" placeholder="Filtruj Data" onkeyup="filterColumn(7)"></th>
+                        <th>OD<input type="date" id="dateFrom" onchange="filterTable(7)">
+                                DO<input type="date" id="dateTo" onchange="filterTable(7)"></th>
                         <th><input type="text" placeholder="Filtruj Pracownika" onkeyup="filterColumn(8)"></th>
                         <th><input type="text" placeholder="Filtruj Imię i nazwisko" onkeyup="filterColumn(9)"></th>
                         
@@ -477,4 +491,4 @@ function filterTable() {
         </div>
     </div>
 </body>
-</html> 
+</html>
