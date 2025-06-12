@@ -206,12 +206,25 @@
                             <td >{{ zlecenia.nr_kartonu }}</td>
                             <td >{{ zlecenia.id_pracownik }}</td>
                             <td >{{ zlecenia.imie_nazwisko }}</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
                         </tr>
                             {% for laczenia in laczenie %}
                             
                             {% if laczenia.id_zlecenie== zlecenia.id%}
                             
                                 <tr  data-child-id="{{ laczenia.id }}">
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
                                     <td >{{ laczenia.powrot.malarnia.ksztaltowanie.material.rozmiar.nazwa }}</td>
                                     <td >{{ laczenia.powrot.malarnia.ksztaltowanie.material.nr_wytopu }}</td>
                                     <td >{{ laczenia.powrot.data }}</td>
