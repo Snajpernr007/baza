@@ -95,8 +95,9 @@ footer{
 }
 
 #tabela {
-  border-collapse: collapse; /* Łączy granice komórek */
   width: 100%; /* Opcjonalnie: pełna szerokość */
+  border-spacing: 0;
+  border-collapse: separate;
 }
 
 #tabela, #tabela th, #tabela td {
@@ -107,10 +108,10 @@ footer{
   text-align: left; /* Wyrównanie tekstu */
 }
 #tabela_on_off tr:first-child th {
-  border: 3px solid black; /* Grubsza ramka */
+  border: 1px solid black; /* Grubsza ramka */
 }
 #tabela tr:first-child th, #tabela tr:nth-child(2) th{
-  border: 3px solid black; /* Grubsza ramka */
+  border: 1px solid black; /* Grubsza ramka */
 }
 #tabela tr:hover, #tabela_on_off tr:hover {
   transition: 1s ease;
@@ -129,6 +130,11 @@ footer{
 #tabela tr:nth-child(even):hover{
   transition: 1s ease;
   background-color: #f1f1f1;
+}
+.sticky-sort{
+  position: sticky;
+  top: 115px;
+  box-shadow: 0 2px 3px rgba(0, 0, 0, 0.2); /* delikatna linia */
 }
 /* Index */
 
