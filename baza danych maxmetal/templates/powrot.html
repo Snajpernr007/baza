@@ -138,33 +138,56 @@ let sortDirection = Array(10).fill(true); // true = asc, false = desc
 
 function filterTable() {
     const table = document.getElementById("tabela");
-    const rows = table.querySelectorAll("tbody tr");
-    // Pobieramy inputy filtrujące
-    const filters = [
-        document.querySelector('input[placeholder="Filtruj ID"]'),
-        document.querySelector('input[placeholder="Filtruj Rozmiar"]'),
-        document.querySelector('input[placeholder="Filtruj Nr wytopu"]'),
-        document.querySelector('input[placeholder="Filtruj Data wyjazdu"]'),
-        document.querySelector('input[placeholder="Filtruj Ilość"]'),
-        document.querySelector('input[placeholder="Filtruj Ilość na stanie"]'),
-        document.querySelector('input[placeholder="Filtruj Nr Prodio"]'),
-        document.querySelector('input[placeholder="Filtruj Data"]'),
-        document.querySelector('input[placeholder="Filtruj Pracownika"]'),
-        document.querySelector('input[placeholder="Filtruj Imię i nazwisko"]')
-    ];
+    const filterInputs = table.querySelectorAll("thead tr:first-child input[type='text']");
+    // Daty wyjazdu (kolumna 3)
+    const dateWyjazduFrom = table.querySelectorAll("thead tr:first-child input[type='date']")[0]?.value;
+    const dateWyjazduTo = table.querySelectorAll("thead tr:first-child input[type='date']")[1]?.value;
+    // Daty powrotu (kolumna 7)
+    const datePowrotuFrom = table.querySelectorAll("thead tr:first-child input[type='date']")[2]?.value;
+    const datePowrotuTo = table.querySelectorAll("thead tr:first-child input[type='date']")[3]?.value;
+    const rows = table.tBodies[0].rows;
 
-    rows.forEach(row => {
-        const cells = row.querySelectorAll("td");
-        let show = true;
-        filters.forEach((input, i) => {
-            const value = input.value.toLowerCase();
-            if (value && cells[i]) {
-                const text = cells[i].textContent.toLowerCase();
-                if (!text.includes(value)) show = false;
+    for (let i = 0; i < rows.length; i++) {
+        const cells = rows[i].cells;
+        let isRowVisible = true;
+
+        // Filtrowanie po inputach tekstowych (pomijamy kolumny z datą)
+        // Kolumny: 0,1,2,4,5,6,8,9 (pomijamy 3 i 7)
+        const map = [0,1,2,4,5,6,8,9];
+        for (let j = 0; j < filterInputs.length; j++) {
+            const filter = filterInputs[j].value.toLowerCase();
+            const cellIndex = map[j];
+            if (filter && cells[cellIndex]) {
+                const cellValue = cells[cellIndex].textContent.toLowerCase();
+                if (!cellValue.includes(filter)) {
+                    isRowVisible = false;
+                    break;
+                }
             }
-        });
-        row.style.display = show ? "" : "none";
-    });
+        }
+
+        // Filtrowanie po dacie wyjazdu (kolumna 3)
+        if (isRowVisible && (dateWyjazduFrom || dateWyjazduTo)) {
+            let dateCell = cells[3]?.textContent.trim();
+            if (dateCell) {
+                let cellDate = new Date(dateCell);
+                if (dateWyjazduFrom && cellDate < new Date(dateWyjazduFrom)) isRowVisible = false;
+                if (dateWyjazduTo && cellDate > new Date(dateWyjazduTo)) isRowVisible = false;
+            }
+        }
+
+        // Filtrowanie po dacie powrotu (kolumna 7)
+        if (isRowVisible && (datePowrotuFrom || datePowrotuTo)) {
+            let dateCell = cells[7]?.textContent.trim();
+            if (dateCell) {
+                let cellDate = new Date(dateCell);
+                if (datePowrotuFrom && cellDate < new Date(datePowrotuFrom)) isRowVisible = false;
+                if (datePowrotuTo && cellDate > new Date(datePowrotuTo)) isRowVisible = false;
+            }
+        }
+
+        rows[i].style.display = isRowVisible ? "" : "none";
+    }
 }
 
 function resetFilters() {
@@ -372,16 +395,18 @@ document.addEventListener("DOMContentLoaded", () => {
             <table id="tabela">
                 <thead>
                     <tr>
-                        <th><input type="text" placeholder="Filtruj ID" onkeyup="filterColumn(0)"></th>
-                        <th><input type="text" placeholder="Filtruj Rozmiar" onkeyup="filterColumn(1)"></th>
-                        <th><input type="text" placeholder="Filtruj Nr wytopu" onkeyup="filterColumn(2)"></th>
-                        <th><input type="text" placeholder="Filtruj Data wyjazdu" onkeyup="filterColumn(3)"></th>
-                        <th><input type="text" placeholder="Filtruj Ilość" onkeyup="filterColumn(4)"></th>
-                        <th><input type="text" placeholder="Filtruj Ilość na stanie" onkeyup="filterColumn(5)"></th>
-                        <th><input type="text" placeholder="Filtruj Nr Prodio" onkeyup="filterColumn(6)"></th>
-                        <th><input type="text" placeholder="Filtruj Data" onkeyup="filterColumn(7)"></th>
-                        <th><input type="text" placeholder="Filtruj Pracownika" onkeyup="filterColumn(8)"></th>
-                        <th><input type="text" placeholder="Filtruj Imię i nazwisko" onkeyup="filterColumn(9)"></th>
+                        <th><input type="text" placeholder="Filtruj ID" onkeyup="filterTable()"></th>
+                        <th><input type="text" placeholder="Filtruj Rozmiar" onkeyup="filterTable()"></th>
+                        <th><input type="text" placeholder="Filtruj Nr wytopu" onkeyup="filterTable()"></th>
+                        <th>OD<input type="date" id="dateFrom" onchange="filterTable()">
+                                DO<input type="date" id="dateTo" onchange="filterTable()"></th>
+                        <th><input type="text" placeholder="Filtruj Ilość" onkeyup="filterTable()"></th>
+                        <th><input type="text" placeholder="Filtruj Ilość na stanie" onkeyup="filterTable()"></th>
+                        <th><input type="text" placeholder="Filtruj Nr Prodio" onkeyup="filterTable()"></th>
+                        <th>OD<input type="date" id="dateFrom" onchange="filterTable()">
+                                DO<input type="date" id="dateTo" onchange="filterTable()"></th>
+                        <th><input type="text" placeholder="Filtruj Pracownika" onkeyup="filterTable()"></th>
+                        <th><input type="text" placeholder="Filtruj Imię i nazwisko" onkeyup="filterTable()"></th>
                         
                         <th><button class="button" onclick="resetFilters()">Usuń Filtry</button></th>
                     </tr>

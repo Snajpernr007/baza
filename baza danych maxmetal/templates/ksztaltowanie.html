@@ -8,27 +8,41 @@
     <link rel="stylesheet" href="../static/style.css">
     <script>
         function filterTable() {
-    let table = document.getElementById("tabela");
-    let filterInputs = table.querySelectorAll("thead input");
-    let rows = table.getElementsByTagName("tbody")[0].getElementsByTagName("tr");
+    const table = document.getElementById("tabela");
+    const filterInputs = table.querySelectorAll("thead tr:first-child input[type='text']");
+    const dateFrom = document.getElementById("dateFrom")?.value;
+    const dateTo = document.getElementById("dateTo")?.value;
+    const rows = table.tBodies[0].rows;
 
-    // Pętla przez wszystkie wiersze tabeli
     for (let i = 0; i < rows.length; i++) {
-        let cells = rows[i].getElementsByTagName("td");
-        let isRowVisible = true; // Flaga określająca, czy wiersz ma być widoczny
+        const cells = rows[i].cells;
+        let isRowVisible = true;
 
-        // Pętla przez wszystkie kolumny i odpowiednie filtry
-        for (let columnIndex = 0; columnIndex < filterInputs.length; columnIndex++) {
-            let filter = filterInputs[columnIndex].value.toLowerCase();
-            if (cells[columnIndex]) {
-                let cellValue = cells[columnIndex].textContent || cells[columnIndex].innerText;
-                if (filter && !cellValue.toLowerCase().includes(filter)) {
-                    isRowVisible = false; // Ukryj wiersz, jeśli nie spełnia filtru
-                    break; // Przerywamy, gdy znajdziemy filtr, który nie pasuje
+        // Filtrowanie po inputach tekstowych (pomijamy kolumnę z datą)
+        for (let j = 0; j < filterInputs.length; j++) {
+            // Kolumna daty to index 4 w danych, więc po 3-cim filtrze przesuwamy index o 1
+            let cellIndex = j < 4 ? j : j + 1;
+            const filter = filterInputs[j].value.toLowerCase();
+            if (filter && cells[cellIndex]) {
+                const cellValue = cells[cellIndex].textContent.toLowerCase();
+                if (!cellValue.includes(filter)) {
+                    isRowVisible = false;
+                    break;
                 }
             }
         }
-        rows[i].style.display = isRowVisible ? "" : "none"; // Ustaw widoczność wiersza
+
+        // Filtrowanie po dacie (kolumna 4)
+        if (isRowVisible && (dateFrom || dateTo)) {
+            let dateCell = cells[4]?.textContent.trim();
+            if (dateCell) {
+                let cellDate = new Date(dateCell);
+                if (dateFrom && cellDate < new Date(dateFrom)) isRowVisible = false;
+                if (dateTo && cellDate > new Date(dateTo)) isRowVisible = false;
+            }
+        }
+
+        rows[i].style.display = isRowVisible ? "" : "none";
     }
 }
 
@@ -390,18 +404,19 @@ function sendDataToBackend(data) {
             <table id="tabela">
                 <thead>
                     <tr>
-                        <th><input type="text" placeholder="Filtruj ID" onkeyup="filterColumn(0)"></th>
-                        <th><input type="text" placeholder="Filtruj Nazwe" onkeyup="filterColumn(1)"></th>
-                        <th><input type="text" placeholder="Filtruj Rozmiar" onkeyup="filterColumn(2)"></th>
-                        <th><input type="text" placeholder="Filtruj Nr wytopu" onkeyup="filterColumn(2)"></th>
-                        <th><input type="text" placeholder="Filtruj Date" onkeyup="filterColumn(3)"></th>
-                        <th><input type="text" placeholder="Filtruj Godzina rozpoczęcia" onkeyup="filterColumn(4)"></th>
-                        <th><input type="text" placeholder="Filtruj Godzina zakończenia" onkeyup="filterColumn(5)"></th>
-                        <th><input type="text" placeholder="Filtruj Ilość" onkeyup="filterColumn(6)"></th>
-                        <th><input type="text" placeholder="Filtruj Ilość na stanie" onkeyup="filterColumn(7)"></th>
-                        <th><input type="text" placeholder="Filtruj Nr Prodio" onkeyup="filterColumn(8)"></th>
-                        <th><input type="text" placeholder="Filtruj Pracownika" onkeyup="filterColumn(9)"></th>
-                        <th><input type="text" placeholder="Filtruj Imię i nazwisko" onkeyup="filterColumn(10)"></th>
+                        <th><input type="text" placeholder="Filtruj ID" onkeyup="filterTable()"></th>
+                        <th><input type="text" placeholder="Filtruj Nazwe" onkeyup="filterTable()"></th>
+                        <th><input type="text" placeholder="Filtruj Rozmiar" onkeyup="filterTable()"></th>
+                        <th><input type="text" placeholder="Filtruj Nr wytopu" onkeyup="filterTable()"></th>
+                        <th>OD<input type="date" id="dateFrom" onchange="filterTable()">
+                                DO<input type="date" id="dateTo" onchange="filterTable()"></th>
+                        <th><input type="text" placeholder="Filtruj Godzina rozpoczęcia" onkeyup="filterTable()"></th>
+                        <th><input type="text" placeholder="Filtruj Godzina zakończenia" onkeyup="filterTable()"></th>
+                        <th><input type="text" placeholder="Filtruj Ilość" onkeyup="filterTable()"></th>
+                        <th><input type="text" placeholder="Filtruj Ilość na stanie" onkeyup="filterTable()"></th>
+                        <th><input type="text" placeholder="Filtruj Nr Prodio" onkeyup="filterTable()"></th>
+                        <th><input type="text" placeholder="Filtruj Pracownika" onkeyup="filterTable()"></th>
+                        <th><input type="text" placeholder="Filtruj Imię i nazwisko" onkeyup="filterTable()"></th>
                         
                         <th><button class="button" onclick="resetFilters()">Usuń Filtry</button></th>
                     </tr>
@@ -409,15 +424,15 @@ function sendDataToBackend(data) {
                         <th onclick="sortTable(0)">ID &#9650;&#9660;</th>
                         <th onclick="sortTable(1)">Nazwa</th>
                         <th onclick="sortTable(2)">Rozmiar &#9650;&#9660;</th>
-                        <th onclick="sortTable(2)">Nr wytopu &#9650;&#9660;</th>
-                        <th onclick="sortTable(3)">Data &#9650;&#9660;</th>
-                        <th onclick="sortTable(4)">Godzina rozpoczecia &#9650;&#9660;</th>
-                        <th onclick="sortTable(5)">Godzina zakończenia &#9650;&#9660;</th>
-                        <th onclick="sortTable(6)">Ilość &#9650;&#9660;</th>
-                        <th onclick="sortTable(7)">Ilość na stanie &#9650;&#9660;</th>
-                        <th onclick="sortTable(8)">Nr prodio &#9650;&#9660;</th>
-                        <th onclick="sortTable(9)">Pracownik &#9650;&#9660;</th>
-                        <th onclick="sortTable(10)">Imię i nazwisko &#9650;&#9660;</th>
+                        <th onclick="sortTable(3)">Nr wytopu &#9650;&#9660;</th>
+                        <th onclick="sortTable(4)">Data &#9650;&#9660;</th>
+                        <th onclick="sortTable(5)">Godzina rozpoczecia &#9650;&#9660;</th>
+                        <th onclick="sortTable(6)">Godzina zakończenia &#9650;&#9660;</th>
+                        <th onclick="sortTable(7)">Ilość &#9650;&#9660;</th>
+                        <th onclick="sortTable(8)">Ilość na stanie &#9650;&#9660;</th>
+                        <th onclick="sortTable(9)">Nr prodio &#9650;&#9660;</th>
+                        <th onclick="sortTable(10)">Pracownik &#9650;&#9660;</th>
+                        <th onclick="sortTable(11)">Imię i nazwisko &#9650;&#9660;</th>
                         
                         
                         <th>Edycja</th>
@@ -449,4 +464,4 @@ function sendDataToBackend(data) {
         </div>
     </div>
 </body>
-</html> 
+</html>

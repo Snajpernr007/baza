@@ -87,7 +87,7 @@ CREATE TABLE `szablon_profile` (
   `nazwa` varchar(255) NOT NULL,
   `waga_w_kg_na_1_metr` decimal(10,2) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- Struktura tabeli `profil`
 CREATE TABLE `profil` (
@@ -114,7 +114,7 @@ CREATE TABLE `profil` (
   CONSTRAINT `profil_ibfk_2` FOREIGN KEY (`id_pracownika`) REFERENCES `uzytkownicy` (`id`) ON DELETE CASCADE,
   CONSTRAINT `profil_ibfk_3` FOREIGN KEY (`id_dlugosci`) REFERENCES `dlugosci` (`id`) ON DELETE CASCADE,
   CONSTRAINT `profil_ibfk_4` FOREIGN KEY (`id_szablon_profile`) REFERENCES `szablon_profile` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=71 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=74 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- Dane z tabeli `uprawnienia`
 INSERT INTO `uprawnienia` (id_uprawnienia, nazwa) VALUES ('1', 'Administrator');
@@ -166,6 +166,7 @@ INSERT INTO `tasma` (id, data_z_etykiety_na_kregu, grubosc, szerokosc, waga_kreg
 
 -- Dane z tabeli `szablon_profile`
 INSERT INTO `szablon_profile` (id, nazwa, waga_w_kg_na_1_metr) VALUES ('3', '1235', '0.00');
+INSERT INTO `szablon_profile` (id, nazwa, waga_w_kg_na_1_metr) VALUES ('4', '534t2', '234.00');
 
 -- Dane z tabeli `profil`
 INSERT INTO `profil` (id, id_tasmy, data_produkcji, godz_min_rozpoczecia, godz_min_zakonczenia, zwrot_na_magazyn_kg, id_szablon_profile, nazwa_klienta_nr_zlecenia_PRODIO, ilosc, ilosc_na_stanie, id_dlugosci, id_pracownika, Imie_nazwisko_pracownika, Data_do_usuwania) VALUES ('65', '52', '2025-04-28', '19:16:29', '19:16:44', '3.00', '3', '3422', '243', '243', '1', '1', '432', '2026-04-28');
@@ -174,6 +175,9 @@ INSERT INTO `profil` (id, id_tasmy, data_produkcji, godz_min_rozpoczecia, godz_m
 INSERT INTO `profil` (id, id_tasmy, data_produkcji, godz_min_rozpoczecia, godz_min_zakonczenia, zwrot_na_magazyn_kg, id_szablon_profile, nazwa_klienta_nr_zlecenia_PRODIO, ilosc, ilosc_na_stanie, id_dlugosci, id_pracownika, Imie_nazwisko_pracownika, Data_do_usuwania) VALUES ('68', '52', '2025-04-28', '20:42:33', '20:42:47', '1.00', '3', '453', '534', '533', '5', '1', '543', '2026-04-28');
 INSERT INTO `profil` (id, id_tasmy, data_produkcji, godz_min_rozpoczecia, godz_min_zakonczenia, zwrot_na_magazyn_kg, id_szablon_profile, nazwa_klienta_nr_zlecenia_PRODIO, ilosc, ilosc_na_stanie, id_dlugosci, id_pracownika, Imie_nazwisko_pracownika, Data_do_usuwania) VALUES ('69', '53', '2025-04-28', '20:43:31', '20:44:07', '0.00', '3', '64', '342', '342', '6', '1', '6', '2026-04-28');
 INSERT INTO `profil` (id, id_tasmy, data_produkcji, godz_min_rozpoczecia, godz_min_zakonczenia, zwrot_na_magazyn_kg, id_szablon_profile, nazwa_klienta_nr_zlecenia_PRODIO, ilosc, ilosc_na_stanie, id_dlugosci, id_pracownika, Imie_nazwisko_pracownika, Data_do_usuwania) VALUES ('70', '54', '2025-05-27', '17:31:05', NULL, NULL, '3', '1213', NULL, NULL, NULL, '1', '11213', '2026-05-27');
+INSERT INTO `profil` (id, id_tasmy, data_produkcji, godz_min_rozpoczecia, godz_min_zakonczenia, zwrot_na_magazyn_kg, id_szablon_profile, nazwa_klienta_nr_zlecenia_PRODIO, ilosc, ilosc_na_stanie, id_dlugosci, id_pracownika, Imie_nazwisko_pracownika, Data_do_usuwania) VALUES ('71', '54', '2025-06-11', '21:54:20', NULL, NULL, '3', '1213', NULL, NULL, NULL, '1', 'adam', '2026-06-11');
+INSERT INTO `profil` (id, id_tasmy, data_produkcji, godz_min_rozpoczecia, godz_min_zakonczenia, zwrot_na_magazyn_kg, id_szablon_profile, nazwa_klienta_nr_zlecenia_PRODIO, ilosc, ilosc_na_stanie, id_dlugosci, id_pracownika, Imie_nazwisko_pracownika, Data_do_usuwania) VALUES ('72', '54', '2025-06-11', '21:54:56', NULL, NULL, '3', '58', NULL, NULL, NULL, '1', 'adam', '2026-06-11');
+INSERT INTO `profil` (id, id_tasmy, data_produkcji, godz_min_rozpoczecia, godz_min_zakonczenia, zwrot_na_magazyn_kg, id_szablon_profile, nazwa_klienta_nr_zlecenia_PRODIO, ilosc, ilosc_na_stanie, id_dlugosci, id_pracownika, Imie_nazwisko_pracownika, Data_do_usuwania) VALUES ('73', '54', '2025-06-11', '22:59:25', NULL, NULL, '3', '876', NULL, NULL, NULL, '1', 'adam', '2026-06-11');
 
 
 SET FOREIGN_KEY_CHECKS = 1;
