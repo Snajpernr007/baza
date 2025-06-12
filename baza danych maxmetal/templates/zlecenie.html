@@ -176,6 +176,7 @@
                                 DO<input type="date" id="dateDostawyTo" onchange="filterTable()" style="width: 90px;">
                             </th>
                             <th><input type="text" placeholder="Filtruj Ilość sztuk" onchange="filterTable()"></th>
+                            <th><button class="button" onclick="resetFilters()">Usuń filtry</button></th>
                         </tr>
                     
                     <tr>
@@ -192,6 +193,7 @@
                             <th  onclick="sortCustomTable(10)">Nr wytopu &#9650;&#9660;</th>
                             <th  onclick="sortCustomTable(11)">Data powrotu &#9650;&#9660;</th>
                             <th  onclick="sortCustomTable(12)">Ilość sztuk &#9650;&#9660;</th>
+                            <th>Edycja</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -204,12 +206,14 @@
                             <td >{{ zlecenia.seria_tasmy }}</td>
                             <td >{{ zlecenia.ile_tasmy }}</td>
                             <td >{{ zlecenia.nr_kartonu }}</td>
-                            <td >{{ zlecenia.id_pracownik }}</td>
+                            <td >{{ zlecenia.pracownik.login }}</td>
                             <td >{{ zlecenia.imie_nazwisko }}</td>
                             <td></td>
                             <td></td>
                             <td></td>
                             <td></td>
+                            <td><button type="button" class="button" onclick="openEditModal(this.parentElement.parentElement)">Edytuj</button></td>
+                                
                         </tr>
                             {% for laczenia in laczenie %}
                             
@@ -229,6 +233,7 @@
                                     <td >{{ laczenia.powrot.malarnia.ksztaltowanie.material.nr_wytopu }}</td>
                                     <td >{{ laczenia.powrot.data }}</td>
                                     <td >{{ laczenia.ile_sztuk }}</td>
+                                    <td></td>
                                 </tr>
                             {% endif %}
                             
