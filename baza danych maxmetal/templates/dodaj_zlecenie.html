@@ -27,21 +27,26 @@
                     <a href="{{ url_for('home') }}"><img id="logo-duże" src="../static/img/logo-duże.png" alt="logo"></a>
                 </div>
         </div>
+        <br>
+        <br>
+        <br>
+        <br>
         <div id="test"></div><br>
-        <form id="myForm" action="{{ url_for('dodaj_material_obejma_do_bazy') }}" method="post">
+        
+        <form id="myForm" action="{{ url_for('dodaj_zlecenie_do_bazy') }}" method="post">
             
            
             <h2>Dodaj Zlecenie</h2>
             <label for="Nr_zamowienia">Nr zamówienia</label>
             <input type="text" name="Nr_zamowienia" required><br>
             <label for="nr_kartonu" name="nr_kartonu">Nr kartonu:</label>
-            <input type="number" name="nr_kartonu" required><br>
+            <input type="text" name="nr_kartonu" required><br>
             <label for="prodio" name="prodio">Nr Prodio:</label>
             <input type="text" name="prodio" required><br>
             <label for="ilosc_pianki" name="ilosc">Ilość pianki:</label>
             <input type="number" name="ilosc_pianki" required><br>
             <label for="seria_tasmy" name="seria_tasmy">Seria taśmy:</label>
-            <input type="number" name="seria_tasmy" required><br>
+            <input type="text" name="seria_tasmy" required><br>
             <label for="ilosc_tasmy" name="ilosc_tasmy">Ilość taśmy:</label>
             <input type="number" name="ilosc_tasmy" required><br>
             <label for="imie">Imię i nazwisko:</label>
@@ -52,17 +57,25 @@
 <input type="text" id="szukaj_material" onkeyup="filtrujMaterial()" placeholder="Wpisz rozmiar.."><br> -->
             
 
-<label>Numer wytopu:</label><br>
+<label>Obejmy:</label><br>
 {% for nazwa_materiału in rozmiar %}
-  {% if nazwa_materiału.ilosc_sztuk_na_stanie > 0 %}
+  {% if nazwa_materiału.ilosc_na_stanie > 0 %}
     <label>
-      <input 
-        type="checkbox" 
-        name="nazwa_materiału" 
-        value="{{ nazwa_materiału.id }}" 
-        data-waga-kregu="{{ nazwa_materiału.ilosc_sztuk_na_stanie }}">
-      {{ nazwa_materiału.nr_wytopu }} na stanie: {{ nazwa_materiału.ilosc_sztuk_na_stanie }}
-    </label><br>
+  <input 
+    type="checkbox" 
+    name="nazwa_materiału" 
+    value="{{ nazwa_materiału.id }}" 
+    data-waga-kregu="{{ nazwa_materiału.ilosc_na_stanie }}"
+  >
+  {{ nazwa_materiału.data }} na stanie: {{ nazwa_materiału.ilosc_na_stanie }}
+  <input 
+    type="number" 
+    name="ilosc_{{ nazwa_materiału.id }}" 
+    min="1" 
+    max="{{ nazwa_materiału.ilosc_na_stanie }}" 
+    placeholder="ilość"
+  >
+</label><br>
   {% endif %}
 {% endfor %}
             

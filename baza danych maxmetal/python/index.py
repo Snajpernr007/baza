@@ -2147,11 +2147,80 @@ def dodaj_zlecenie():
         return render_template('login.html', user=g.user)
     if g.user.id_uprawnienia == 3:
         return redirect(url_for('home'))
-    
+    rozmiar = Powrot.query.all()
     logger.info(f"{g.user.login} wszedł na stronę dodawania zlecenia.")
-    return render_template("dodaj_zlecenie.html", user=g.user)
+    return render_template("dodaj_zlecenie.html", user=g.user,rozmiar=rozmiar)
+@app.route('/dodaj_zlecenie_do_bazy', methods=['POST'])
+def dodaj_zlecenie_do_bazy():
+    if not g.user:
+        return render_template('login.html', user=g.user)
+    if g.user.id_uprawnienia == 3:
+        return redirect(url_for('home'))
 
+    try:
+        Nr_zamowienia = request.form.get('Nr_zamowienia')
+        nr_kartonu = request.form.get('nr_kartonu')
+        numer_prodio = request.form.get('prodio')
+        ilosc_pianki = int(request.form.get('ilosc_pianki') or 0)
+        ilosc_tasmy = int(request.form.get('ilosc_tasmy') or 0)
+        seria_tasmy = request.form.get('seria_tasmy')
+        imie_nazwisko = request.form.get('imie')  # nie jako int
+        pracownik = g.user.id
 
+        # Pobierz zaznaczone materiały (checkboxy)
+        id_powrot_list = request.form.getlist('nazwa_materiału')
+        if not id_powrot_list:
+            return render_template('zlecenie.html', error="Nie wybrano żadnych materiałów.", user=g.user)
+
+        # Stwórz zlecenie
+        nowy_zlecenie = Zlecenie(
+            nr_zamowienia_zew=Nr_zamowienia,
+            nr_kartonu=nr_kartonu,
+            nr_prodio=numer_prodio,
+            ile_pianki=ilosc_pianki,
+            ile_tasmy=ilosc_tasmy,
+            seria_tasmy=seria_tasmy,
+            id_pracownik=pracownik,
+            imie_nazwisko=imie_nazwisko
+        )
+        db.session.add(nowy_zlecenie)
+        db.session.flush()  # Uzyskaj ID nowego zlecenia zanim dodamy powiązania
+
+        # Dodaj powiązania z materiałami (Laczenie)
+        for id_powrot in id_powrot_list:
+            ilosc_key = f'ilosc_{id_powrot}'
+            ilosc_str = request.form.get(ilosc_key)
+            if not ilosc_str:
+                continue
+            try:
+                ile_sztuk = int(ilosc_str)
+            except ValueError:
+                continue
+
+            powrot = Powrot.query.get(int(id_powrot))
+            if not powrot or ile_sztuk > powrot.ilosc_na_stanie:
+                continue
+
+            laczenie = Laczenie(
+                id_zlecenie=nowy_zlecenie.id,
+                id_powrot=powrot.id,
+                ile_sztuk=ile_sztuk
+            )
+            db.session.add(laczenie)
+
+            powrot.ilosc_na_stanie -= ile_sztuk
+            db.session.add(powrot)
+
+        db.session.commit()
+        logger.info(f"Zlecenie dodane przez {g.user.login}")
+        return redirect(url_for('zlecenie'))
+
+    except Exception as e:
+        db.session.rollback()
+        logger.error(f"Błąd przy dodawaniu zlecenia: {e}")
+        return render_template('zlecenie.html', error="Błąd przy dodawaniu zlecenia.", user=g.user)
+
+        
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0', port=5000, debug=True)
