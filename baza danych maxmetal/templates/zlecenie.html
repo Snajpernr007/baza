@@ -6,8 +6,175 @@
     <title>Profile MaxMetal</title>
     <link rel="icon" href="../static/img/logo-male.png">
     <link rel="stylesheet" href="../static/style.css">
-    <script>
+     <script>
+// Filtrowanie
+function filterTable() {
+    const table = document.getElementById("tabela");
+    const filterInputs = table.querySelectorAll("thead tr:first-child input[type='text']");
+    const dateFrom = document.getElementById("dateDostawyFrom")?.value;
+    const dateTo = document.getElementById("dateDostawyTo")?.value;
+    const rows = table.tBodies[0].rows;
 
+    for (let i = 0; i < rows.length; i++) {
+        const cells = rows[i].cells;
+        let isRowVisible = true;
+
+        // Filtrowanie po inputach tekstowych (pomijamy kolumnę z datą - index 11)
+        for (let j = 0; j < filterInputs.length; j++) {
+            // Kolumna daty to index 11, więc po 11-tym filtrze przesuwamy index o 1
+            let cellIndex = j < 11 ? j : j + 1;
+            const filter = filterInputs[j].value.toLowerCase();
+            if (filter && cells[cellIndex]) {
+                const cellValue = cells[cellIndex].textContent.toLowerCase();
+                if (!cellValue.includes(filter)) {
+                    isRowVisible = false;
+                    break;
+                }
+            }
+        }
+
+        // Filtrowanie po dacie (kolumna 11)
+        if (isRowVisible && (dateFrom || dateTo)) {
+            let dateCell = cells[11]?.textContent.trim();
+            if (dateCell) {
+                let cellDate = new Date(dateCell);
+                if (dateFrom && cellDate < new Date(dateFrom)) isRowVisible = false;
+                if (dateTo && cellDate > new Date(dateTo)) isRowVisible = false;
+            }
+        }
+
+        rows[i].style.display = isRowVisible ? "" : "none";
+    }
+}
+
+// Reset filtrów
+function resetFilters() {
+    const table = document.getElementById("tabela");
+    const filterInputs = table.querySelectorAll("thead tr:first-child input[type='text'], thead tr:first-child input[type='date']");
+    filterInputs.forEach(input => input.value = "");
+    filterTable();
+}
+
+// Sortowanie
+let sortStates = [];
+function sortCustomTable(columnIndex) {
+    const table = document.getElementById("tabela");
+    const rows = Array.from(table.tBodies[0].rows);
+    const tbody = table.tBodies[0];
+
+    // Sprawdzamy, czy kolumna już istnieje w tablicy sortStates
+    const existingSortIndex = sortStates.findIndex(sort => sort.columnIndex === columnIndex);
+
+    if (existingSortIndex !== -1) {
+        // Jeśli kolumna jest już sortowana, zmieniamy jej kierunek
+        sortStates[existingSortIndex].ascending = !sortStates[existingSortIndex].ascending;
+    } else {
+        // Jeśli kolumna nie jest jeszcze sortowana, dodajemy ją na początek tablicy
+        sortStates.unshift({ columnIndex, ascending: true });
+    }
+
+    // Sortowanie wierszy na podstawie stanu w tablicy sortStates
+    rows.sort((rowA, rowB) => {
+        for (const sort of sortStates) {
+            const cellA = rowA.cells[sort.columnIndex]?.innerText.toLowerCase() || "";
+            const cellB = rowB.cells[sort.columnIndex]?.innerText.toLowerCase() || "";
+
+            // Jeśli to kolumna z datą (kolumna 11), porównuj jako daty
+            if (sort.columnIndex === 11) {
+                let aDate = new Date(cellA);
+                let bDate = new Date(cellB);
+                if (!isNaN(aDate) && !isNaN(bDate)) {
+                    const comparison = sort.ascending ? aDate - bDate : bDate - aDate;
+                    if (comparison !== 0) return comparison;
+                }
+            }
+
+            // Jeśli liczby
+            let aNum = parseFloat(cellA.replace(',', '.'));
+            let bNum = parseFloat(cellB.replace(',', '.'));
+            if (!isNaN(aNum) && !isNaN(bNum) && cellA.match(/^\d/)) {
+                const comparison = sort.ascending ? aNum - bNum : bNum - aNum;
+                if (comparison !== 0) return comparison;
+            }
+
+            // Inaczej jako tekst
+            const comparison = sort.ascending
+                ? cellA.localeCompare(cellB)
+                : cellB.localeCompare(cellA);
+            if (comparison !== 0) return comparison;
+        }
+        return 0;
+    });
+
+    // Przypisanie posortowanych wierszy do tabeli
+    tbody.innerHTML = "";
+    rows.forEach(row => tbody.appendChild(row));
+
+    // Resetowanie strzałek i ustawienie odpowiednich w nagłówkach
+    Array.from(table.tHead.rows[1].cells).forEach((cell, index) => {
+        cell.innerHTML = cell.innerHTML.replace(/ ▲| ▼/g, '');
+        const sortState = sortStates.find(sort => sort.columnIndex === index);
+        if (sortState) {
+            cell.innerHTML += sortState.ascending ? ' ▲' : ' ▼';
+        }
+    });
+}
+
+// Edycja wiersza (przykład – dostosuj do swoich potrzeb)
+function openEditModal(row) {
+    const cells = row.querySelectorAll("td");
+    const editButton = row.querySelector("button");
+
+    if (editButton.innerText === "Edytuj") {
+        // Zamień komórki na input/select
+        cells.forEach((cell, index) => {
+            if (index > 0 && index < cells.length - 1) {
+                const value = cell.innerText;
+                if (index === 11) {
+                    cell.innerHTML = `<input type="date" value="${value}" style="width: 100%;">`;
+                } else if (index === 3 || index === 5 || index === 12) {
+                    cell.innerHTML = `<input type="number" value="${value}" style="width: 100%;">`;
+                } else {
+                    cell.innerHTML = `<input type="text" value="${value}" style="width: 100%;">`;
+                }
+            }
+        });
+        editButton.innerText = "Zapisz";
+    } else if (editButton.innerText === "Zapisz") {
+        let isValid = true;
+        const updatedData = {};
+        cells.forEach((cell, index) => {
+            if (index > 0 && index < cells.length - 1) {
+                const input = cell.querySelector("input");
+                if (input) {
+                    const value = input.value.trim();
+                    if (!value) {
+                        isValid = false;
+                    } else {
+                        cell.innerText = value;
+                        updatedData[`column_${index}`] = value;
+                    }
+                }
+            }
+        });
+
+        if (isValid) {
+            // Wywołaj backend, jeśli chcesz zapisać zmiany
+            // sendDataToBackend(updatedData);
+            editButton.innerText = "Edytuj";
+        } else {
+            alert("Proszę wypełnić wszystkie edytowalne pola.");
+        }
+    }
+}
+
+// Automatyczne podpięcie filtrów po załadowaniu strony
+document.addEventListener("DOMContentLoaded", () => {
+    document.querySelectorAll('thead input[type="text"], thead input[type="date"]').forEach(input => {
+        input.addEventListener("keyup", filterTable);
+        input.addEventListener("change", filterTable);
+    });
+});
     </script>
 </head>
 <body>
@@ -159,7 +326,7 @@
             </div>
         </div>
                 <table id="tabela">
-                    <thead>
+                    <thead class="sticky-sort">
                         <tr>
                             <th><input type="text" placeholder="Filtruj ID" onchange="filterTable()"></th>
                             <th><input type="text" placeholder="Filtruj Nr Zamówienia" onchange="filterTable()"></th>
@@ -245,4 +412,4 @@
             </table>
     </div>
 </body>
-</html> 
+</html>
