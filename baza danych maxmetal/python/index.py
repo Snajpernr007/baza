@@ -277,9 +277,11 @@ class Zlecenie(db.Model):
 
     pracownik = db.relationship('Uzytkownik')
 
+    # <-- dodaj tę linijkę:
+    laczenie = db.relationship('Laczenie', back_populates='zlecenie', cascade="all, delete-orphan")
+
     def __repr__(self):
         return f"<Zlecenie {self.id} - {self.nr_prodio}>"
-
 
 class Laczenie(db.Model):
     __tablename__ = 'laczenie'
@@ -288,7 +290,7 @@ class Laczenie(db.Model):
     id_powrot = db.Column(db.Integer, db.ForeignKey('powrot.id'))
     ile_sztuk = db.Column(db.Integer)
 
-    zlecenie = db.relationship('Zlecenie')
+    zlecenie = db.relationship('Zlecenie', back_populates='laczenie')
     powrot = db.relationship('Powrot')
 
     def __repr__(self):
@@ -506,7 +508,7 @@ def get_malarnia():
 @app.route('/get-powrot', methods=['GET'])
 def get_powrot():
     powrot = Powrot.query.all()
-    return jsonify([{"id": p.id, "data": p.data, "ilosc": p.ilosc, "ilosc_na_stanie": p.ilosc_na_stanie, "nr_prodio": p.nr_prodio, "id_malowania": p.id_malowania, "id_pracownik": p.id_pracownik, "imie_nazwisko": p.imie_nazwisko} for p in powrot])
+    return jsonify([{"id": p.id, "data": p.data.strftime('%Y-%m-%d') if p.data else None, "ilosc": p.ilosc, "ilosc_na_stanie": p.ilosc_na_stanie, "nr_prodio": p.nr_prodio, "id_malowania": p.id_malowania, "id_pracownik": p.id_pracownik, "imie_nazwisko": p.imie_nazwisko} for p in powrot])
 
 @app.route('/update-row_uzytkownik', methods=['POST'])
 def update_user():
@@ -2219,6 +2221,87 @@ def dodaj_zlecenie_do_bazy():
         db.session.rollback()
         logger.error(f"Błąd przy dodawaniu zlecenia: {e}")
         return render_template('zlecenie.html', error="Błąd przy dodawaniu zlecenia.", user=g.user)
+
+
+@app.route('/update-row-zlecenie', methods=['POST'])
+def update_row_zlecenie():
+    data = request.get_json()
+    if not data:
+        return jsonify({'error': 'Brak danych'}), 400
+
+    zlecenie_id = data.get('id')
+    if not zlecenie_id:
+        return jsonify({'error': 'Brak ID zlecenia'}), 400
+
+    # Znajdź istniejące zlecenie
+    zlecenie = Zlecenie.query.get(zlecenie_id)
+    if not zlecenie:
+        return jsonify({'error': 'Nie znaleziono zlecenia'}), 404
+
+    try:
+        # Aktualizuj pola zlecenia - dopasuj klucze z frontu do kolumn modeli
+        # Zakładam, że col_1 -> nr_zamowienia_zew, col_2 -> nr_prodio itd., dopasuj wg własnego frontu
+        # Na przykład:
+        if 'col_1' in data:
+            zlecenie.nr_zamowienia_zew = data['col_1']
+        if 'col_2' in data:
+            zlecenie.nr_prodio = data['col_2']
+        if 'col_3' in data:
+            zlecenie.ile_pianki = int(data['col_3']) if data['col_3'].isdigit() else None
+        if 'col_4' in data:
+            zlecenie.seria_tasmy = data['col_4']
+        if 'col_5' in data:
+            zlecenie.ile_tasmy = int(data['col_5']) if data['col_5'].isdigit() else None
+        if 'col_6' in data:
+            zlecenie.nr_kartonu = data['col_6']
+        if 'col_7' in data:
+            # Jeśli masz id_pracownik jako input tekstowy to konwertuj na int lub wyszukaj w bazie
+            try:
+                zlecenie.id_pracownik = int(data['col_7'])
+            except:
+                pass
+        if 'col_8' in data:
+            zlecenie.imie_nazwisko = data['col_8']
+
+        # Obsługa dzieci (laczenie)
+        sent_children = data.get('children', [])
+
+        # Pobierz istniejące laczenia dla tego zlecenia
+        existing_laczenia = {str(laczenie.id): laczenie for laczenie in zlecenie.laczenie}
+
+        # Przechowuj ID laczen do usunięcia, które nie są w przesłanych children
+        sent_ids = set()
+        for child in sent_children:
+            child_id = child.get('id')
+            sent_ids.add(child_id)
+            id_powrot = int(child.get('data')) if child.get('data') else None
+            ile_sztuk = int(child.get('ile_sztuk')) if child.get('ile_sztuk') and child.get('ile_sztuk').isdigit() else 0
+        
+            if not id_powrot:
+                continue
+            
+            if not child_id:
+                # Nowy wpis laczenia
+                nowy = Laczenie(id_zlecenie=zlecenie.id, id_powrot=id_powrot, ile_sztuk=ile_sztuk)
+                db.session.add(nowy)
+            else:
+                laczenie = existing_laczenia.get(str(child_id))
+                if laczenie:
+                    laczenie.id_powrot = id_powrot
+                    laczenie.ile_sztuk = ile_sztuk
+
+        # Usuwanie laczen, które nie ma w sent_children (opcjonalnie)
+        for existing_id in existing_laczenia.keys():
+            if existing_id not in sent_ids and existing_id != "new":
+                db.session.delete(existing_laczenia[existing_id])
+
+        db.session.commit()
+
+        return jsonify({'message': 'Zlecenie i powroty zostały zaktualizowane'}), 200
+
+    except Exception as e:
+        db.session.rollback()
+        return jsonify({'error': f'Błąd podczas aktualizacji: {str(e)}'}), 500
 
         
 
