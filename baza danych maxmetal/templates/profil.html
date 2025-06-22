@@ -890,4 +890,14 @@ window.open(url, '_blank', windowFeatures); // '_blank' otworzy nowe okno/tab
         
     </div>
 </body>
+<script>
+        //skrypt na ukrywanie menu po kliknięciu poza nim
+    document.addEventListener('click', function(event) {
+    const menu = document.getElementById('menuToggle');
+    const checkbox = document.getElementById('menuCheckbox');
+    if (!menu.contains(event.target) && checkbox.checked) {
+        checkbox.checked = false;
+    }
+});
+</script>
 </html> 

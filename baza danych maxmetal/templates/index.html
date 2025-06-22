@@ -184,7 +184,7 @@
                 <button class="button" onclick="window.location.href='{{ url_for('dostawcy') }}'">Dostawcy</button>
                 {% endif %}
                 {% if g.user.id_uprawnienia==1 or g.user.id_uprawnienia==2%}
-                <button class="button" onclick="window.location.href='{{ url_for('szablon') }}'">Nazwy</button>
+                <button class="button" onclick="window.location.href='{{ url_for('szablon') }}'">Gatunki taśm</button>
                 {% endif %}
                 {% if g.user.id_uprawnienia==1 or g.user.id_uprawnienia==2%}
                 <button class="button" onclick="window.location.href='{{ url_for('lokalizacja') }}'">Magazyny</button>
@@ -239,4 +239,14 @@
         
     </div>
 </body>
+<script>
+    //skrypt na ukrywanie menu po kliknięciu poza nim
+    document.addEventListener('click', function(event) {
+    const menu = document.getElementById('menuToggle');
+    const checkbox = document.getElementById('menuCheckbox');
+    if (!menu.contains(event.target) && checkbox.checked) {
+        checkbox.checked = false;
+    }
+});
+</script>
 </html> 

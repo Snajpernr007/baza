@@ -472,4 +472,13 @@ function filterTable() {
         </div>
     </div>
 </body>
+<script>
+    document.addEventListener('click', function(event) {
+    const menu = document.getElementById('menuToggle');
+    const checkbox = document.getElementById('menuCheckbox');
+    if (!menu.contains(event.target) && checkbox.checked) {
+        checkbox.checked = false;
+    }
+});
+</script>
 </html> 
