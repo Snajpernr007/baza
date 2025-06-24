@@ -1816,41 +1816,64 @@ def dodaj_ksztaltowanie_do_bazy():
         return render_template('login.html', user=g.user)
     if g.user.id_uprawnienia == 3:
         return redirect(url_for('home'))
-    
+
     if request.method == 'POST':
         godzina_rozpoczencia = request.form.get('godz_min_rozpoczecia')
         godzina_zakonczenia = request.form.get('godz_min_zakonczenia')
-        data= request.form.get('data')
-        material = request.form.get('nazwa_materiału')
-        numer_prodio=request.form.get('prodio')
+        data = request.form.get('data')
+        material_id = request.form.get('nazwa_materiału')
+        numer_prodio = request.form.get('prodio')
         ilosc = request.form.get('ilosc')
-        ilosc_na_stanie = request.form.get('ilosc')
-        pracownik=g.user.id
-        if Ksztaltowanie.query.order_by(Ksztaltowanie.id.desc()).first():
-            nr = Ksztaltowanie.query.order_by(Ksztaltowanie.id.desc()).first().id
-            nr=str(nr)
-        else:
-            nr = "1"
-        nazwa="Operacaja "+nr
+        ilosc_na_stanie = ilosc
         imie_nazwisko = request.form.get('imie')
-        
-        
-        nowy_ksztaltowanie = Ksztaltowanie(godzina_rozpoczecia=godzina_rozpoczencia,godzina_zakonczenia=godzina_zakonczenia, data=data, id_materialu=material,
-                                      nr_prodio=numer_prodio, ilosc=ilosc, ilosc_na_stanie=ilosc_na_stanie,nazwa=nazwa, id_pracownik=pracownik,imie_nazwisko=imie_nazwisko)
-        db.session.add(nowy_ksztaltowanie)
-        profil = Ksztaltowanie.query.get(int(nr))
-        material = MaterialObejma.query.get(profil.id_materialu )
-        material.ilosc_sztuk_na_stanie = material.ilosc_sztuk_na_stanie-int(ilosc)
-        db.session.add(material)
+        pracownik = g.user.id
+
+        # Pobierz obiekt materiału
+        material_obj = MaterialObejma.query.get(int(material_id)) if material_id else None
+        if not material_obj:
+            return render_template('ksztaltowanie.html', error="Nie znaleziono wybranego materiału.", user=g.user)
+
+        # Pobierz rozmiar poprzez relację
+        if not material_obj.rozmiar:
+            return render_template('ksztaltowanie.html', error="Materiał nie ma przypisanego rozmiaru.", user=g.user)
+
+        rozmiar = material_obj.rozmiar.nazwa
+        wytop = material_obj.nr_wytopu
+
+        # Ustal numer nowego wpisu
+        ostatni = Ksztaltowanie.query.order_by(Ksztaltowanie.id.desc()).first()
+        nr = str(ostatni.id + 1) if ostatni else "1"
+
+        nazwa = f"{nr}/{numer_prodio}/{rozmiar}/{wytop}/{data}"
+
+        # Utwórz nowy wpis
+        nowy_ksztaltowanie = Ksztaltowanie(
+            godzina_rozpoczecia=godzina_rozpoczencia,
+            godzina_zakonczenia=godzina_zakonczenia,
+            data=data,
+            id_materialu=material_id,
+            nr_prodio=numer_prodio,
+            ilosc=ilosc,
+            ilosc_na_stanie=ilosc_na_stanie,
+            nazwa=nazwa,
+            id_pracownik=pracownik,
+            imie_nazwisko=imie_nazwisko
+        )
+
+        # Aktualizuj stan magazynowy
         try:
+            material_obj.ilosc_sztuk_na_stanie -= int(ilosc)
+            db.session.add(nowy_ksztaltowanie)
             db.session.commit()
+
             logger.info(f"Ksztaltowanie {nazwa} zostało dodane przez {g.user.login}.")
-            
-            return redirect(url_for('ksztaltowanie'))  # Przekierowanie na stronę ksztaltowania
+            return redirect(url_for('ksztaltowanie'))
+
         except Exception as e:
             db.session.rollback()
             logger.error(f"Nie udało się zapisać danych: {e}")
-            return render_template('ksztaltowanie.html', error="Wystąpił błąd przy zapisywaniu danych.", user=g.user)
+            return render_template('ksztaltowanie.html', error="Wystąpił błąd przy zapisie danych.", user=g.user)
+
 @app.route('/update-row-ksztaltowanie', methods=['POST'])
 def update_row_ksztaltowanie():
     if not g.user:
