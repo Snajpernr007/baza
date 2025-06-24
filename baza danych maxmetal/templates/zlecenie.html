@@ -369,11 +369,6 @@ function sendDataToBackend(data) {
                                         <a href="{{ url_for('powrot') }}"><label for="menuCheckbox" onclick="this.parentNode.click();">Powrót Malarnia</label></a>
                                     </li>
                                 {% endif %}
-                                {% if g.user.id==1 %}
-                                    <li>
-                                        <a href="{{ url_for('dodaj_zlecenie') }}"><label for="menuCheckbox" style="color:black;" onclick="this.parentNode.click();"><strong>Dodaj zlecenie</strong></label></a>
-                                    </li>
-                                {% endif %}
                             </ul>
                         {% if not g.user %}
                         
@@ -401,7 +396,7 @@ function sendDataToBackend(data) {
                 <div id="logo-banner">
                     <a href="{{ url_for('home') }}"><img id="logo-duże" src="../static/img/logo-duże.png" alt="logo"></a>
                 </div>
-                
+                <button class="button2" onclick="window.location.href='{{ url_for('dodaj_zlecenie') }}'">Dodaj Zlecenie</button>
             </div>
         </div>
         <div id="test">

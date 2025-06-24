@@ -260,9 +260,6 @@ window.open(url, '_blank', windowFeatures); // '_blank' otworzy nowe okno/tab
                                         <a href="{{ url_for('sprzedaz') }}"><label for="menuCheckbox" onclick="this.parentNode.click();">Sprzedaż</label></a>
                                     </li>
                                 {% endif %}
-                                <li>
-                                    <a href="{{ url_for('dodaj_lokalizacje') }}";><label for="menuCheckbox" style="color:black;" onclick="this.parentNode.click();"><strong>Dodaj Lokalizacje</strong></label></a>
-                                </li>
                             </ul>
                             {% if g.user.id==1 %}
                                 <h2>Obejmy</h2>
@@ -299,14 +296,6 @@ window.open(url, '_blank', windowFeatures); // '_blank' otworzy nowe okno/tab
                                     </li>
                                 {% endif %}
                             </ul>
-                        <!-- <li>
-                            <a href="{{ url_for('profil') }}"><label for="menuCheckbox" onclick="this.parentNode.click();">Profile</label></a>
-                        </li> -->
-                        <!-- {% if g.user.id_uprawnienia==1 %}
-                        <li>
-                            <a href="{{ url_for('uzytkownik') }}"><label for="menuCheckbox" onclick="this.parentNode.click();">Uzytkownicy</label></a>
-                        </li>
-                        {% endif %} -->
                         {% if not g.user %}
                         
                             <li>
@@ -330,87 +319,10 @@ window.open(url, '_blank', windowFeatures); // '_blank' otworzy nowe okno/tab
                         </ul>   
                     </div>
                 </nav>
-                <!-- <nav role="navigation">
-                    <div id="menuToggle">
-                        <input type="checkbox" id="menuCheckbox">
-
-                        <span></span>
-                        <span></span>
-                        <span></span>
-
-                        <ul id="menu">
-                            {% if not g.user %}
-                        
-                            <li>
-                                <a href="{{ url_for('login') }}"><label for="menuCheckbox" onclick="this.parentNode.click();">Zaloguj się!</label></a>
-                            </li>
-                        
-                            
-                        {% else %}
-                        <li>
-                            <a href="{{ url_for('logout') }}"><label for="menuCheckbox" onclick="this.parentNode.click();">Wyloguj się</label></a>
-                        </li>
-                        {% endif %}
-                        {%if g.user.id_uprawnienia==1 or g.user.id_uprawnienia==2%}
-                        <li>
-                            <a href="{{ url_for('tasma') }}"><label for="menuCheckbox" onclick="this.parentNode.click();">Materiały</label></a>
-                        </li>
-                        {% endif %}
-                        <li>
-                            <a href="{{ url_for('profil') }}"><label for="menuCheckbox" onclick="this.parentNode.click();">Profile</label></a>
-                        </li>
-                        {% if g.user.id_uprawnienia==1 %}
-                        <li>
-                            <a href="{{ url_for('uzytkownik') }}"><label for="menuCheckbox" onclick="this.parentNode.click();">Uzytkownicy</label></a>
-                        </li>
-                        {% endif %}
-                        {% if g.user.id_uprawnienia==1 or g.user.id_uprawnienia==2%}
-                        <li>
-                            <a href="{{ url_for('dostawcy') }}"><label for="menuCheckbox" onclick="this.parentNode.click();">Dostawcy</label></a>
-                        </li>
-                        {% endif %}
-                        {% if g.user.id_uprawnienia==1 or g.user.id_uprawnienia==2%}
-                        <li>
-                            <a href="{{ url_for('szablon') }}"><label for="menuCheckbox" onclick="this.parentNode.click();">Nazwy</label></a>
-                        </li>
-                        {% endif %}
-                        {% if g.user.id_uprawnienia==1 or g.user.id_uprawnienia==2%}
-                        <li>
-                            <a href="{{ url_for('dlugosci') }}"><label for="menuCheckbox" onclick="this.parentNode.click();">Długości</label></a>
-                        </li>
-                        {% endif %}
-                        {% if g.user.id_uprawnienia==1 or g.user.id_uprawnienia==2%}
-                        <li>
-                            <a href="{{ url_for('szablon_profil') }}"><label for="menuCheckbox" onclick="this.parentNode.click();">Nazwy profili</label></a>
-                        </li>
-                        {% endif %}
-                        {% if g.user.id_uprawnienia==1 %}
-                        <li>
-                            <a href="{{ url_for('zestawienie') }}"><label for="menuCheckbox" onclick="this.parentNode.click();">Zestawienie</label></a>
-                        </li>
-                        {% endif %}
-                        {% if g.user.id_uprawnienia==1 or g.user.id_uprawnienia==2%}
-                        <li>
-                            <a href="{{ url_for('sprzedaz') }}"><label for="menuCheckbox" onclick="this.parentNode.click();">Sprzedaż</label></a>
-                        </li>
-                        {% endif %}
-                        <li>
-                            <a href=javascript:history.back();><label for="menuCheckbox" onclick="this.parentNode.click();">Powrót</label></a>
-                        </li>
-                            <li>
-                                <a href="{{ url_for('dodaj_lokalizacje') }}";><label for="menuCheckbox" onclick="this.parentNode.click();">Dodaj Lokalizacje</label></a>
-                            </li>
-                            
-                            <li>
-                                <img id="logo1" src="../static/img/logo-duże.png" alt="logo">
-                            </li>
-                        </ul>   
-                    </div>
-                </nav> -->
                 <div id="logo-banner">
                     <a href="{{ url_for('home') }}"><img id="logo-duże" src="../static/img/logo-duże.png" alt="logo"></a>
                 </div>
-                
+                <button class="button2" onclick="window.location.href='{{ url_for('dodaj_lokalizacje') }}'">Dodaj Magazyn</button>
             </div>
         </div>
         <div id="test">
