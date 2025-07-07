@@ -436,7 +436,8 @@ document.addEventListener("DOMContentLoaded", () => {
                             <td>{{ powroty.pracownik.login}}</td>
                             <td>{{ powroty.imie_nazwisko}}</td>
 
-                            <td><button type="button" class="button" onclick="openEditModal(this.parentElement.parentElement)">Edytuj</button></td>
+                            <td><button type="button" class="button" onclick="openEditModal(this.parentElement.parentElement)">Edytuj</button>
+                            <button type="button" class="button">Usuń</button></td>
                         </tr>
                     {% endfor %}
                 </tbody>
