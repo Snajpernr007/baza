@@ -170,7 +170,7 @@ document.addEventListener("DOMContentLoaded", setupFilters);
 
         // Zamień edytowalne komórki na pola formularza
         cells.forEach((cell, index) => {
-            if (index > 0 && index < cells.length - 3 && index !== 2 && index !== 3 && index !== 4) {
+            if (index > 0 && index < cells.length - 1 && index !== 2 && index !== 3 && index !== 4 && index !==12) {
                 if (index === 1) {
                     const currentTasmaId = cell.getAttribute("data-tasma-id");
                     cell.innerHTML = `<select style="width: 100%;" id="tasmaSelect"></select>`;
@@ -195,7 +195,7 @@ document.addEventListener("DOMContentLoaded", setupFilters);
         let isValid = true;
 
         cells.forEach((cell, index) => {
-            if (index > 0 && index < cells.length - 3 && index !== 2 && index !== 3 && index !== 4) {
+            if (index > 0 && index < cells.length - 1 && index !== 2 && index !== 3 && index !== 4 && index !==12)  {
                 const input = cell.querySelector("input") || cell.querySelector("select");
                 if (input) {
                     const value = input.value.trim();
@@ -276,7 +276,7 @@ function sendDataToBackenda(data) {
 
         // Zamień edytowalne komórki na pola formularza
         cells.forEach((cell, index) => {
-    if (index > 0 && index < cells.length - 3 && index != 3) {
+    if (index > 0 && index < cells.length - 1 && index != 3 &&  index != 13) {
         if (index === 1) {
             const currentTasmaId = cell.getAttribute("data-tasma-id");
             cell.innerHTML = `<select style="width: 100%;" id="tasmaSelect"></select>`;
@@ -311,7 +311,7 @@ function sendDataToBackenda(data) {
         let isValid = true;
 
         cells.forEach((cell, index) => {
-            if (index > 0 && index < cells.length - 3 && index != 3) { 
+            if (index > 0 && index < cells.length - 1 && index != 3 &&  index != 13)  { 
                 const input = cell.querySelector("input") || cell.querySelector("select");
                 if (input) {
                     const value = input.value.trim();
@@ -636,6 +636,7 @@ window.open(url, '_blank', windowFeatures); // '_blank' otworzy nowe okno/tab
                             <th><input type="text" placeholder="Filtruj Długość" onchange="filterTable()"></th>
                             <th><input type="text" placeholder="Filtruj Rodzaj Materiału" onchange="filterTable()"></th>
                             <th><input type="text" placeholder="Filtruj Nazwę Stanowiska i imie i nazwisko"  onchange="filterTable()"></th>
+                            <th><input type="text" placeholder="Filtruj Imie i Nazwisko"  onchange="filterTable()"></th>
                             
                             <th><button class="button" onclick="resetFilters()">Usuń Filtry</button></th>
                         </tr>
@@ -653,7 +654,8 @@ window.open(url, '_blank', windowFeatures); // '_blank' otworzy nowe okno/tab
                             <th onclick="sortTable(10)">Ilość na stanie &#9650;&#9660;</th>
                             <th onclick="sortTable(11)">Długość &#9650;&#9660;</th>
                             <th onclick="sortTable(12)">Rodzaj materiału &#9650;&#9660;</th>
-                            <th onclick="sortTable(13)">Nazwa Stanowiska i imie i nazwisko &#9650;&#9660;</th>
+                            <th onclick="sortTable(13)">Nazwa Stanowiska  &#9650;&#9660;</th>
+                            <th onclick="sortTable(14)">Imie i Nazwisko  &#9650;&#9660;</th>
                             
                             <th>Edycja</th>
                         </tr>
@@ -677,7 +679,8 @@ window.open(url, '_blank', windowFeatures); // '_blank' otworzy nowe okno/tab
                                 <td>{{profile.ilosc_na_stanie}}</td>
                                 <td data-dlugosci-id="{{ profile.dlugosci.id }}">{{ profile.dlugosci.nazwa }}</td>
                                 <td>{{ profile.tasma.szablon.nazwa }}</td>
-                                <td>{{ profile.pracownik.login }} {{profile.imie_nazwisko_pracownika}}</td>
+                                <td>{{ profile.pracownik.login }} </td>
+                                <td>{{ profile.imie_nazwisko_pracownika }}</td>
                                 <td>
                                     
                                         
@@ -711,7 +714,8 @@ window.open(url, '_blank', windowFeatures); // '_blank' otworzy nowe okno/tab
                                     <td>{{profile.ilosc_na_stanie}}</td>
                                     <td data-dlugosci-id="{{profile.dlugosci.id}}">{{profile.dlugosci.nazwa}}</td>
                                     <td>{{profile.tasma.szablon.nazwa}}</td>
-                                    <td>{{ profile.pracownik.login }} {{profile.imie_nazwisko_pracownika}}</td>
+                                    <td>{{ profile.pracownik.login }} </td>
+                                    <td>{{ profile.imie_nazwisko_pracownika }}</td>
                                     
                                     
                                     <td>{% if not profile.godz_min_zakonczenia %}
@@ -744,7 +748,8 @@ window.open(url, '_blank', windowFeatures); // '_blank' otworzy nowe okno/tab
                                     <td>{{profile.ilosc_na_stanie}}</td>
                                     <td data-dlugosci-id="{{profile.dlugosci.id}}">{{profile.dlugosci.nazwa}}</td>
                                     <td>{{profile.tasma.szablon.nazwa}}</td>
-                                    <td>{{ profile.pracownik.login }} {{profile.imie_nazwisko_pracownika}}</td>
+                                    <td>{{ profile.pracownik.login }} </td>
+                                    <td>{{ profile.imie_nazwisko_pracownika }}</td>
                                     
                                     
                                     <td>{% if not profile.godz_min_zakonczenia %}
@@ -777,7 +782,8 @@ window.open(url, '_blank', windowFeatures); // '_blank' otworzy nowe okno/tab
                                     <td>{{profile.ilosc_na_stanie}}</td>
                                     <td>{{profile.dlugosci.nazwa}}</td>
                                     <td data-dlugosci-id="{{profile.dlugosci.id}}">{{profile.tasma.szablon.nazwa}}</td>
-                                    <td>{{ profile.pracownik.login }} {{profile.imie_nazwisko_pracownika}}</td>
+                                    <td>{{ profile.pracownik.login }} </td>
+                                    <td>{{ profile.imie_nazwisko_pracownika }}</td>
                                     
                                     
                                     <td>{% if not profile.godz_min_zakonczenia %}

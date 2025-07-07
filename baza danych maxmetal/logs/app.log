@@ -12030,3 +12030,292 @@
 2025-07-07 13:41:53,184 - INFO - 🗑️ Usunięto starą kopię: kopie_zapasowe_bazy_2025-07-02_19-26.sql
 2025-07-07 13:41:53,190 - WARNING -  * Debugger is active!
 2025-07-07 13:41:53,194 - INFO -  * Debugger PIN: 268-383-297
+2025-07-07 13:47:55,291 - INFO -  * Detected change in 'C:\\Users\\admin\\Documents\\GitHub\\baza\\baza danych maxmetal\\python\\index.py', reloading
+2025-07-07 13:52:07,561 - INFO - Połączenie z bazą danych zostało nawiązane pomyślnie.
+2025-07-07 13:52:07,669 - INFO - ✅ Kopia zapasowa zapisana do pliku: backups\kopie_zapasowe_bazy_2025-07-07_13-52.sql
+2025-07-07 13:52:07,670 - INFO - 🗑️ Usunięto starą kopię: kopie_zapasowe_bazy_2025-07-07_12-37.sql
+2025-07-07 13:52:07,681 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.0.16:5000
+2025-07-07 13:52:07,682 - INFO - [33mPress CTRL+C to quit[0m
+2025-07-07 13:52:07,683 - INFO -  * Restarting with stat
+2025-07-07 13:52:10,226 - INFO - Połączenie z bazą danych zostało nawiązane pomyślnie.
+2025-07-07 13:52:10,360 - INFO - ✅ Kopia zapasowa zapisana do pliku: backups\kopie_zapasowe_bazy_2025-07-07_13-52.sql
+2025-07-07 13:52:10,371 - WARNING -  * Debugger is active!
+2025-07-07 13:52:10,376 - INFO -  * Debugger PIN: 268-383-297
+2025-07-07 13:52:12,280 - INFO - Administrator wszedł na stronę główną.
+2025-07-07 13:52:12,434 - INFO - 127.0.0.1 - - [07/Jul/2025 13:52:12] "GET / HTTP/1.1" 200 -
+2025-07-07 13:52:12,475 - INFO - 127.0.0.1 - - [07/Jul/2025 13:52:12] "GET /static/style.css HTTP/1.1" 200 -
+2025-07-07 13:52:12,483 - INFO - 127.0.0.1 - - [07/Jul/2025 13:52:12] "GET /static/img/logo-duże.png HTTP/1.1" 200 -
+2025-07-07 13:52:12,491 - INFO - 127.0.0.1 - - [07/Jul/2025 13:52:12] "GET /static/img/maxmetal.png HTTP/1.1" 200 -
+2025-07-07 13:52:15,126 - INFO - Administrator wszedł na stronę ksztaltowania1.
+2025-07-07 13:52:15,235 - INFO - 127.0.0.1 - - [07/Jul/2025 13:52:15] "[35m[1mGET /ksztaltowanie1 HTTP/1.1[0m" 500 -
+2025-07-07 13:52:15,263 - INFO - 127.0.0.1 - - [07/Jul/2025 13:52:15] "GET /ksztaltowanie1?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1" 200 -
+2025-07-07 13:52:15,264 - INFO - 127.0.0.1 - - [07/Jul/2025 13:52:15] "GET /ksztaltowanie1?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1" 200 -
+2025-07-07 13:52:15,285 - INFO - 127.0.0.1 - - [07/Jul/2025 13:52:15] "GET /ksztaltowanie1?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+2025-07-07 13:52:15,287 - INFO - 127.0.0.1 - - [07/Jul/2025 13:52:15] "GET /ksztaltowanie1?__debugger__=yes&cmd=resource&f=console.png&s=hUNtr8Ai4ZzSH0DDOomh HTTP/1.1" 200 -
+2025-07-07 13:52:20,609 - INFO - 127.0.0.1 - - [07/Jul/2025 13:52:20] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-07-07 13:59:14,056 - INFO - Administrator wszedł na stronę malarni.
+2025-07-07 13:59:14,164 - INFO - 127.0.0.1 - - [07/Jul/2025 13:59:14] "[35m[1mGET /malarnia HTTP/1.1[0m" 500 -
+2025-07-07 13:59:14,194 - INFO - 127.0.0.1 - - [07/Jul/2025 13:59:14] "GET /malarnia?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1" 200 -
+2025-07-07 13:59:14,194 - INFO - 127.0.0.1 - - [07/Jul/2025 13:59:14] "GET /malarnia?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1" 200 -
+2025-07-07 13:59:14,207 - INFO - 127.0.0.1 - - [07/Jul/2025 13:59:14] "GET /malarnia?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+2025-07-07 13:59:14,212 - INFO - 127.0.0.1 - - [07/Jul/2025 13:59:14] "GET /malarnia?__debugger__=yes&cmd=resource&f=console.png&s=hUNtr8Ai4ZzSH0DDOomh HTTP/1.1" 200 -
+2025-07-07 14:05:20,575 - INFO - Administrator wszedł na stronę z listą tasm.
+2025-07-07 14:05:20,706 - INFO - 127.0.0.1 - - [07/Jul/2025 14:05:20] "GET /tasma HTTP/1.1" 200 -
+2025-07-07 14:05:20,738 - INFO - 127.0.0.1 - - [07/Jul/2025 14:05:20] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-07-07 14:05:20,746 - INFO - 127.0.0.1 - - [07/Jul/2025 14:05:20] "[36mGET /static/img/drukarka.png HTTP/1.1[0m" 304 -
+2025-07-07 14:05:20,757 - INFO - 127.0.0.1 - - [07/Jul/2025 14:05:20] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-07-07 14:05:20,769 - INFO - 127.0.0.1 - - [07/Jul/2025 14:05:20] "[36mGET /static/img/maxmetal.png HTTP/1.1[0m" 304 -
+2025-07-07 14:05:21,656 - INFO - Administrator wszedł na stronę główną.
+2025-07-07 14:05:21,657 - INFO - 127.0.0.1 - - [07/Jul/2025 14:05:21] "GET / HTTP/1.1" 200 -
+2025-07-07 14:05:21,683 - INFO - 127.0.0.1 - - [07/Jul/2025 14:05:21] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-07-07 14:05:21,691 - INFO - 127.0.0.1 - - [07/Jul/2025 14:05:21] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-07-07 14:05:21,696 - INFO - 127.0.0.1 - - [07/Jul/2025 14:05:21] "[36mGET /static/img/maxmetal.png HTTP/1.1[0m" 304 -
+2025-07-07 14:05:22,494 - INFO - Administrator wszedł na stronę profilu.
+2025-07-07 14:05:22,676 - INFO - 127.0.0.1 - - [07/Jul/2025 14:05:22] "GET /profil HTTP/1.1" 200 -
+2025-07-07 14:05:22,702 - INFO - 127.0.0.1 - - [07/Jul/2025 14:05:22] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-07-07 14:05:22,716 - INFO - 127.0.0.1 - - [07/Jul/2025 14:05:22] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-07-07 14:05:22,727 - INFO - 127.0.0.1 - - [07/Jul/2025 14:05:22] "[36mGET /static/img/maxmetal.png HTTP/1.1[0m" 304 -
+2025-07-07 14:11:39,672 - INFO - Połączenie z bazą danych zostało nawiązane pomyślnie.
+2025-07-07 14:11:39,775 - INFO - ✅ Kopia zapasowa zapisana do pliku: backups\kopie_zapasowe_bazy_2025-07-07_14-11.sql
+2025-07-07 14:11:39,777 - INFO - 🗑️ Usunięto starą kopię: kopie_zapasowe_bazy_2025-07-07_12-40.sql
+2025-07-07 14:11:39,788 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.0.16:5000
+2025-07-07 14:11:39,788 - INFO - [33mPress CTRL+C to quit[0m
+2025-07-07 14:11:39,789 - INFO -  * Restarting with stat
+2025-07-07 14:11:42,307 - INFO - Połączenie z bazą danych zostało nawiązane pomyślnie.
+2025-07-07 14:11:42,417 - INFO - ✅ Kopia zapasowa zapisana do pliku: backups\kopie_zapasowe_bazy_2025-07-07_14-11.sql
+2025-07-07 14:11:42,422 - WARNING -  * Debugger is active!
+2025-07-07 14:11:42,426 - INFO -  * Debugger PIN: 268-383-297
+2025-07-07 14:11:46,531 - INFO - Administrator wszedł na stronę profilu.
+2025-07-07 14:11:46,732 - INFO - 127.0.0.1 - - [07/Jul/2025 14:11:46] "GET /profil HTTP/1.1" 200 -
+2025-07-07 14:11:46,776 - INFO - 127.0.0.1 - - [07/Jul/2025 14:11:46] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-07-07 14:11:46,793 - INFO - 127.0.0.1 - - [07/Jul/2025 14:11:46] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-07-07 14:11:46,811 - INFO - 127.0.0.1 - - [07/Jul/2025 14:11:46] "[36mGET /static/img/maxmetal.png HTTP/1.1[0m" 304 -
+2025-07-07 14:11:48,939 - INFO - 127.0.0.1 - - [07/Jul/2025 14:11:48] "GET /get-tasma HTTP/1.1" 200 -
+2025-07-07 14:11:48,948 - INFO - 127.0.0.1 - - [07/Jul/2025 14:11:48] "GET /get-szablon_profile HTTP/1.1" 200 -
+2025-07-07 14:11:48,952 - INFO - 127.0.0.1 - - [07/Jul/2025 14:11:48] "GET /get-dlugosci HTTP/1.1" 200 -
+2025-07-07 14:11:52,394 - INFO - Administrator wszedł na stronę profilu.
+2025-07-07 14:11:52,405 - INFO - 127.0.0.1 - - [07/Jul/2025 14:11:52] "GET /profil HTTP/1.1" 200 -
+2025-07-07 14:11:52,432 - INFO - 127.0.0.1 - - [07/Jul/2025 14:11:52] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-07-07 14:11:52,445 - INFO - 127.0.0.1 - - [07/Jul/2025 14:11:52] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-07-07 14:11:52,451 - INFO - 127.0.0.1 - - [07/Jul/2025 14:11:52] "[36mGET /static/img/maxmetal.png HTTP/1.1[0m" 304 -
+2025-07-07 14:18:24,599 - INFO - 127.0.0.1 - - [07/Jul/2025 14:18:24] "GET /get-tasma HTTP/1.1" 200 -
+2025-07-07 14:18:24,609 - INFO - 127.0.0.1 - - [07/Jul/2025 14:18:24] "GET /get-dlugosci HTTP/1.1" 200 -
+2025-07-07 14:18:24,610 - INFO - 127.0.0.1 - - [07/Jul/2025 14:18:24] "GET /get-szablon_profile HTTP/1.1" 200 -
+2025-07-07 14:18:29,781 - INFO - Administrator wszedł na stronę profilu.
+2025-07-07 14:18:29,791 - INFO - 127.0.0.1 - - [07/Jul/2025 14:18:29] "GET /profil HTTP/1.1" 200 -
+2025-07-07 14:18:29,820 - INFO - 127.0.0.1 - - [07/Jul/2025 14:18:29] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-07-07 14:18:29,832 - INFO - 127.0.0.1 - - [07/Jul/2025 14:18:29] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-07-07 14:18:29,837 - INFO - 127.0.0.1 - - [07/Jul/2025 14:18:29] "[36mGET /static/img/maxmetal.png HTTP/1.1[0m" 304 -
+2025-07-07 14:19:40,682 - INFO - Administrator wszedł na stronę profilu.
+2025-07-07 14:19:40,872 - INFO - 127.0.0.1 - - [07/Jul/2025 14:19:40] "GET /profil HTTP/1.1" 200 -
+2025-07-07 14:19:40,917 - INFO - 127.0.0.1 - - [07/Jul/2025 14:19:40] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-07-07 14:19:40,931 - INFO - 127.0.0.1 - - [07/Jul/2025 14:19:40] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-07-07 14:19:40,937 - INFO - 127.0.0.1 - - [07/Jul/2025 14:19:40] "[36mGET /static/img/maxmetal.png HTTP/1.1[0m" 304 -
+2025-07-07 14:19:41,963 - INFO - 127.0.0.1 - - [07/Jul/2025 14:19:41] "GET /get-tasma HTTP/1.1" 200 -
+2025-07-07 14:19:41,972 - INFO - 127.0.0.1 - - [07/Jul/2025 14:19:41] "GET /get-szablon_profile HTTP/1.1" 200 -
+2025-07-07 14:19:41,973 - INFO - 127.0.0.1 - - [07/Jul/2025 14:19:41] "GET /get-dlugosci HTTP/1.1" 200 -
+2025-07-07 14:19:47,604 - INFO - Otrzymane dane do aktualizacji profilu: {'column_0': '65', 'column_1': '52', 'column_2': '2025-04-28', 'column_4': '19:16:29', 'column_5': '19:16:44', 'column_6': '3.00', 'column_7': '3', 'column_8': '3422', 'column_9': '243', 'column_10': '238', 'column_11': '1', 'column_12': 'ww ww wwxww', 'column_13': 'Administrator', 'column_14': '432 kuba', 'column_15': 'Zapisz Usuń'}
+2025-07-07 14:19:47,608 - ERROR - Wystąpił błąd podczas aktualizacji: 'Profil' object has no attribute 'imie_nazwisko'
+2025-07-07 14:19:47,608 - INFO - 127.0.0.1 - - [07/Jul/2025 14:19:47] "[35m[1mPOST /update-row_profil HTTP/1.1[0m" 500 -
+2025-07-07 14:19:49,575 - INFO - Administrator wszedł na stronę profilu.
+2025-07-07 14:19:49,586 - INFO - 127.0.0.1 - - [07/Jul/2025 14:19:49] "GET /profil HTTP/1.1" 200 -
+2025-07-07 14:19:49,607 - INFO - 127.0.0.1 - - [07/Jul/2025 14:19:49] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-07-07 14:19:49,621 - INFO - 127.0.0.1 - - [07/Jul/2025 14:19:49] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-07-07 14:19:49,631 - INFO - 127.0.0.1 - - [07/Jul/2025 14:19:49] "[36mGET /static/img/maxmetal.png HTTP/1.1[0m" 304 -
+2025-07-07 14:20:22,701 - INFO - 127.0.0.1 - - [07/Jul/2025 14:20:22] "GET /get-tasma HTTP/1.1" 200 -
+2025-07-07 14:20:22,712 - INFO - 127.0.0.1 - - [07/Jul/2025 14:20:22] "GET /get-szablon_profile HTTP/1.1" 200 -
+2025-07-07 14:20:22,712 - INFO - 127.0.0.1 - - [07/Jul/2025 14:20:22] "GET /get-dlugosci HTTP/1.1" 200 -
+2025-07-07 14:20:25,958 - INFO - Otrzymane dane do aktualizacji profilu: {'column_0': '65', 'column_1': '52', 'column_2': '2025-04-28', 'column_4': '19:16:29', 'column_5': '19:16:44', 'column_6': '3.00', 'column_7': '3', 'column_8': '3422', 'column_9': '243', 'column_10': '238', 'column_11': '1', 'column_12': 'ww ww wwxww', 'column_13': 'Administrator', 'column_14': '4328', 'column_15': 'Zapisz Usuń'}
+2025-07-07 14:20:25,959 - ERROR - Wystąpił błąd podczas aktualizacji: 'Profil' object has no attribute 'imie_nazwisko'
+2025-07-07 14:20:25,960 - INFO - 127.0.0.1 - - [07/Jul/2025 14:20:25] "[35m[1mPOST /update-row_profil HTTP/1.1[0m" 500 -
+2025-07-07 14:20:27,516 - INFO - Administrator wszedł na stronę profilu.
+2025-07-07 14:20:27,525 - INFO - 127.0.0.1 - - [07/Jul/2025 14:20:27] "GET /profil HTTP/1.1" 200 -
+2025-07-07 14:20:27,549 - INFO - 127.0.0.1 - - [07/Jul/2025 14:20:27] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-07-07 14:20:27,559 - INFO - 127.0.0.1 - - [07/Jul/2025 14:20:27] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-07-07 14:20:27,565 - INFO - 127.0.0.1 - - [07/Jul/2025 14:20:27] "[36mGET /static/img/maxmetal.png HTTP/1.1[0m" 304 -
+2025-07-07 14:21:42,113 - INFO -  * Detected change in 'C:\\Users\\admin\\Documents\\GitHub\\baza\\baza danych maxmetal\\python\\index.py', reloading
+2025-07-07 14:21:50,938 - INFO - Połączenie z bazą danych zostało nawiązane pomyślnie.
+2025-07-07 14:21:51,051 - INFO - ✅ Kopia zapasowa zapisana do pliku: backups\kopie_zapasowe_bazy_2025-07-07_14-21.sql
+2025-07-07 14:21:51,053 - INFO - 🗑️ Usunięto starą kopię: kopie_zapasowe_bazy_2025-07-07_12-45.sql
+2025-07-07 14:21:51,064 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.0.16:5000
+2025-07-07 14:21:51,064 - INFO - [33mPress CTRL+C to quit[0m
+2025-07-07 14:21:51,065 - INFO -  * Restarting with stat
+2025-07-07 14:21:53,649 - INFO - Połączenie z bazą danych zostało nawiązane pomyślnie.
+2025-07-07 14:21:53,755 - INFO - ✅ Kopia zapasowa zapisana do pliku: backups\kopie_zapasowe_bazy_2025-07-07_14-21.sql
+2025-07-07 14:21:53,762 - WARNING -  * Debugger is active!
+2025-07-07 14:21:53,766 - INFO -  * Debugger PIN: 268-383-297
+2025-07-07 14:21:54,088 - INFO - Administrator wszedł na stronę profilu.
+2025-07-07 14:21:54,095 - INFO - 127.0.0.1 - - [07/Jul/2025 14:21:54] "GET /get-szablon_profile HTTP/1.1" 200 -
+2025-07-07 14:21:54,110 - INFO - 127.0.0.1 - - [07/Jul/2025 14:21:54] "GET /get-dlugosci HTTP/1.1" 200 -
+2025-07-07 14:21:54,131 - INFO - 127.0.0.1 - - [07/Jul/2025 14:21:54] "GET /get-tasma HTTP/1.1" 200 -
+2025-07-07 14:21:54,305 - INFO - 127.0.0.1 - - [07/Jul/2025 14:21:54] "GET /profil HTTP/1.1" 200 -
+2025-07-07 14:21:54,341 - INFO - 127.0.0.1 - - [07/Jul/2025 14:21:54] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-07-07 14:21:54,353 - INFO - 127.0.0.1 - - [07/Jul/2025 14:21:54] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-07-07 14:21:54,376 - INFO - 127.0.0.1 - - [07/Jul/2025 14:21:54] "[36mGET /static/img/maxmetal.png HTTP/1.1[0m" 304 -
+2025-07-07 14:21:55,851 - INFO - 127.0.0.1 - - [07/Jul/2025 14:21:55] "GET /get-tasma HTTP/1.1" 200 -
+2025-07-07 14:21:55,861 - INFO - 127.0.0.1 - - [07/Jul/2025 14:21:55] "GET /get-szablon_profile HTTP/1.1" 200 -
+2025-07-07 14:21:55,861 - INFO - 127.0.0.1 - - [07/Jul/2025 14:21:55] "GET /get-dlugosci HTTP/1.1" 200 -
+2025-07-07 14:21:57,347 - INFO - Otrzymane dane do aktualizacji profilu: {'column_0': '65', 'column_1': '52', 'column_2': '2025-04-28', 'column_4': '19:16:29', 'column_5': '19:16:44', 'column_6': '3.00', 'column_7': '3', 'column_8': '3422', 'column_9': '243', 'column_10': '238', 'column_11': '1', 'column_12': 'ww ww wwxww', 'column_13': 'Administrator', 'column_14': '4326', 'column_15': 'Zapisz Usuń'}
+2025-07-07 14:21:57,350 - ERROR - Wystąpił błąd podczas aktualizacji: 'Profil' object has no attribute 'imie_nazwisko'
+2025-07-07 14:21:57,351 - INFO - 127.0.0.1 - - [07/Jul/2025 14:21:57] "[35m[1mPOST /update-row_profil HTTP/1.1[0m" 500 -
+2025-07-07 14:21:58,795 - INFO - Administrator wszedł na stronę profilu.
+2025-07-07 14:21:58,804 - INFO - 127.0.0.1 - - [07/Jul/2025 14:21:58] "GET /profil HTTP/1.1" 200 -
+2025-07-07 14:21:58,825 - INFO - 127.0.0.1 - - [07/Jul/2025 14:21:58] "GET /static/style.css HTTP/1.1" 200 -
+2025-07-07 14:21:58,837 - INFO - 127.0.0.1 - - [07/Jul/2025 14:21:58] "GET /static/img/logo-duże.png HTTP/1.1" 200 -
+2025-07-07 14:21:58,848 - INFO - 127.0.0.1 - - [07/Jul/2025 14:21:58] "[36mGET /static/img/maxmetal.png HTTP/1.1[0m" 304 -
+2025-07-07 14:22:55,501 - INFO -  * Detected change in 'C:\\Users\\admin\\Documents\\GitHub\\baza\\baza danych maxmetal\\python\\index.py', reloading
+2025-07-07 14:23:01,343 - INFO - Połączenie z bazą danych zostało nawiązane pomyślnie.
+2025-07-07 14:23:01,447 - INFO - ✅ Kopia zapasowa zapisana do pliku: backups\kopie_zapasowe_bazy_2025-07-07_14-23.sql
+2025-07-07 14:23:01,448 - INFO - 🗑️ Usunięto starą kopię: kopie_zapasowe_bazy_2025-07-07_13-34.sql
+2025-07-07 14:23:01,459 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.0.16:5000
+2025-07-07 14:23:01,459 - INFO - [33mPress CTRL+C to quit[0m
+2025-07-07 14:23:01,461 - INFO -  * Restarting with stat
+2025-07-07 14:23:04,062 - INFO - Połączenie z bazą danych zostało nawiązane pomyślnie.
+2025-07-07 14:23:04,175 - INFO - ✅ Kopia zapasowa zapisana do pliku: backups\kopie_zapasowe_bazy_2025-07-07_14-23.sql
+2025-07-07 14:23:04,180 - WARNING -  * Debugger is active!
+2025-07-07 14:23:04,185 - INFO -  * Debugger PIN: 268-383-297
+2025-07-07 14:23:04,504 - INFO - Administrator wszedł na stronę profilu.
+2025-07-07 14:23:04,709 - INFO - 127.0.0.1 - - [07/Jul/2025 14:23:04] "GET /get-tasma HTTP/1.1" 200 -
+2025-07-07 14:23:04,709 - INFO - 127.0.0.1 - - [07/Jul/2025 14:23:04] "GET /get-szablon_profile HTTP/1.1" 200 -
+2025-07-07 14:23:04,710 - INFO - 127.0.0.1 - - [07/Jul/2025 14:23:04] "GET /get-dlugosci HTTP/1.1" 200 -
+2025-07-07 14:23:04,721 - INFO - 127.0.0.1 - - [07/Jul/2025 14:23:04] "GET /profil HTTP/1.1" 200 -
+2025-07-07 14:23:04,758 - INFO - 127.0.0.1 - - [07/Jul/2025 14:23:04] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-07-07 14:23:04,772 - INFO - 127.0.0.1 - - [07/Jul/2025 14:23:04] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-07-07 14:23:04,788 - INFO - 127.0.0.1 - - [07/Jul/2025 14:23:04] "[36mGET /static/img/maxmetal.png HTTP/1.1[0m" 304 -
+2025-07-07 14:23:05,785 - INFO - 127.0.0.1 - - [07/Jul/2025 14:23:05] "GET /get-tasma HTTP/1.1" 200 -
+2025-07-07 14:23:05,794 - INFO - 127.0.0.1 - - [07/Jul/2025 14:23:05] "GET /get-szablon_profile HTTP/1.1" 200 -
+2025-07-07 14:23:05,794 - INFO - 127.0.0.1 - - [07/Jul/2025 14:23:05] "GET /get-dlugosci HTTP/1.1" 200 -
+2025-07-07 14:23:07,773 - INFO - Otrzymane dane do aktualizacji profilu: {'column_0': '65', 'column_1': '52', 'column_2': '2025-04-28', 'column_4': '19:16:29', 'column_5': '19:16:44', 'column_6': '3.00', 'column_7': '3', 'column_8': '3422', 'column_9': '243', 'column_10': '238', 'column_11': '1', 'column_12': 'ww ww wwxww', 'column_13': 'Administrator', 'column_14': '4322', 'column_15': 'Zapisz Usuń'}
+2025-07-07 14:23:07,775 - INFO - Poprzednie dane profilu o ID 65: {'id_tasmy': 52, 'data_produkcji': datetime.date(2025, 4, 28), 'godz_min_rozpoczecia': datetime.time(19, 16, 29), 'godz_min_zakonczenia': datetime.time(19, 16, 44), 'zwrot_na_magazyn_kg': Decimal('3.00'), 'id_szablon_profile': 3, 'nazwa_klienta_nr_zlecenia_PRODIO': '3422', 'ilosc': 243, 'ilosc_na_stanie': 238, 'id_dlugosci': 1, 'imie_nazwisko_pracownika': '432'}
+2025-07-07 14:23:07,775 - INFO - Nowe dane profilu o ID 65: {'id_tasmy': '52', 'data_produkcji': '2025-04-28', 'godz_min_rozpoczecia': '19:16:29', 'godz_min_zakonczenia': '19:16:44', 'zwrot_na_magazyn_kg': '3.00', 'id_szablon_profile': '3', 'nazwa_klienta_nr_zlecenia_PRODIO': '3422', 'ilosc': '243', 'ilosc_na_stanie': '238', 'id_dlugosci': '1', 'imie_nazwisko_pracownika': 'Administrator'}
+2025-07-07 14:23:07,775 - INFO - Zmiany wprowadzone przez użytkownika: Administrator
+2025-07-07 14:23:07,782 - INFO - 127.0.0.1 - - [07/Jul/2025 14:23:07] "POST /update-row_profil HTTP/1.1" 200 -
+2025-07-07 14:23:09,268 - INFO - Administrator wszedł na stronę profilu.
+2025-07-07 14:23:09,277 - INFO - 127.0.0.1 - - [07/Jul/2025 14:23:09] "GET /profil HTTP/1.1" 200 -
+2025-07-07 14:23:09,302 - INFO - 127.0.0.1 - - [07/Jul/2025 14:23:09] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-07-07 14:23:09,313 - INFO - 127.0.0.1 - - [07/Jul/2025 14:23:09] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-07-07 14:23:09,323 - INFO - 127.0.0.1 - - [07/Jul/2025 14:23:09] "[36mGET /static/img/maxmetal.png HTTP/1.1[0m" 304 -
+2025-07-07 14:23:26,081 - INFO - 127.0.0.1 - - [07/Jul/2025 14:23:26] "GET /get-tasma HTTP/1.1" 200 -
+2025-07-07 14:23:26,093 - INFO - 127.0.0.1 - - [07/Jul/2025 14:23:26] "GET /get-szablon_profile HTTP/1.1" 200 -
+2025-07-07 14:23:26,093 - INFO - 127.0.0.1 - - [07/Jul/2025 14:23:26] "GET /get-dlugosci HTTP/1.1" 200 -
+2025-07-07 14:23:30,996 - INFO - Administrator wszedł na stronę z listą tasm.
+2025-07-07 14:23:31,124 - INFO - 127.0.0.1 - - [07/Jul/2025 14:23:31] "GET /tasma HTTP/1.1" 200 -
+2025-07-07 14:23:31,156 - INFO - 127.0.0.1 - - [07/Jul/2025 14:23:31] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-07-07 14:23:31,168 - INFO - 127.0.0.1 - - [07/Jul/2025 14:23:31] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-07-07 14:23:31,175 - INFO - 127.0.0.1 - - [07/Jul/2025 14:23:31] "GET /static/img/drukarka.png HTTP/1.1" 200 -
+2025-07-07 14:23:31,176 - INFO - 127.0.0.1 - - [07/Jul/2025 14:23:31] "[36mGET /static/img/maxmetal.png HTTP/1.1[0m" 304 -
+2025-07-07 14:23:32,219 - INFO - Administrator wszedł na stronę główną.
+2025-07-07 14:23:32,361 - INFO - 127.0.0.1 - - [07/Jul/2025 14:23:32] "GET / HTTP/1.1" 200 -
+2025-07-07 14:23:32,399 - INFO - 127.0.0.1 - - [07/Jul/2025 14:23:32] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-07-07 14:23:32,405 - INFO - 127.0.0.1 - - [07/Jul/2025 14:23:32] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-07-07 14:23:32,410 - INFO - 127.0.0.1 - - [07/Jul/2025 14:23:32] "[36mGET /static/img/maxmetal.png HTTP/1.1[0m" 304 -
+2025-07-07 14:23:33,290 - INFO - Administrator wszedł na stronę profilu.
+2025-07-07 14:23:33,300 - INFO - 127.0.0.1 - - [07/Jul/2025 14:23:33] "GET /profil HTTP/1.1" 200 -
+2025-07-07 14:23:33,327 - INFO - 127.0.0.1 - - [07/Jul/2025 14:23:33] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-07-07 14:23:33,340 - INFO - 127.0.0.1 - - [07/Jul/2025 14:23:33] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-07-07 14:23:33,349 - INFO - 127.0.0.1 - - [07/Jul/2025 14:23:33] "[36mGET /static/img/maxmetal.png HTTP/1.1[0m" 304 -
+2025-07-07 14:23:34,507 - INFO - 127.0.0.1 - - [07/Jul/2025 14:23:34] "GET /get-tasma HTTP/1.1" 200 -
+2025-07-07 14:23:34,529 - INFO - 127.0.0.1 - - [07/Jul/2025 14:23:34] "GET /get-szablon_profile HTTP/1.1" 200 -
+2025-07-07 14:23:34,543 - INFO - 127.0.0.1 - - [07/Jul/2025 14:23:34] "GET /get-dlugosci HTTP/1.1" 200 -
+2025-07-07 14:23:36,157 - INFO - Otrzymane dane do aktualizacji profilu: {'column_0': '66', 'column_1': '52', 'column_2': '2025-04-28', 'column_4': '19:16:33', 'column_5': '19:16:50', 'column_6': '2.00', 'column_7': '3', 'column_8': '432', 'column_9': '34', 'column_10': '34', 'column_11': '1', 'column_12': 'ww ww wwxww', 'column_13': 'Administrator', 'column_14': '2346', 'column_15': 'Zapisz Usuń'}
+2025-07-07 14:23:36,158 - INFO - Poprzednie dane profilu o ID 66: {'id_tasmy': 52, 'data_produkcji': datetime.date(2025, 4, 28), 'godz_min_rozpoczecia': datetime.time(19, 16, 33), 'godz_min_zakonczenia': datetime.time(19, 16, 50), 'zwrot_na_magazyn_kg': Decimal('2.00'), 'id_szablon_profile': 3, 'nazwa_klienta_nr_zlecenia_PRODIO': '432', 'ilosc': 34, 'ilosc_na_stanie': 34, 'id_dlugosci': 1, 'imie_nazwisko_pracownika': '234'}
+2025-07-07 14:23:36,159 - INFO - Nowe dane profilu o ID 66: {'id_tasmy': '52', 'data_produkcji': '2025-04-28', 'godz_min_rozpoczecia': '19:16:33', 'godz_min_zakonczenia': '19:16:50', 'zwrot_na_magazyn_kg': '2.00', 'id_szablon_profile': '3', 'nazwa_klienta_nr_zlecenia_PRODIO': '432', 'ilosc': '34', 'ilosc_na_stanie': '34', 'id_dlugosci': '1', 'imie_nazwisko_pracownika': 'Administrator'}
+2025-07-07 14:23:36,159 - INFO - Zmiany wprowadzone przez użytkownika: Administrator
+2025-07-07 14:23:36,162 - INFO - 127.0.0.1 - - [07/Jul/2025 14:23:36] "POST /update-row_profil HTTP/1.1" 200 -
+2025-07-07 14:23:38,347 - INFO - Administrator wszedł na stronę profilu.
+2025-07-07 14:23:38,357 - INFO - 127.0.0.1 - - [07/Jul/2025 14:23:38] "GET /profil HTTP/1.1" 200 -
+2025-07-07 14:23:38,376 - INFO - 127.0.0.1 - - [07/Jul/2025 14:23:38] "GET /static/style.css HTTP/1.1" 200 -
+2025-07-07 14:23:38,388 - INFO - 127.0.0.1 - - [07/Jul/2025 14:23:38] "GET /static/img/logo-duże.png HTTP/1.1" 200 -
+2025-07-07 14:23:38,396 - INFO - 127.0.0.1 - - [07/Jul/2025 14:23:38] "[36mGET /static/img/maxmetal.png HTTP/1.1[0m" 304 -
+2025-07-07 14:23:39,256 - INFO - 127.0.0.1 - - [07/Jul/2025 14:23:39] "GET /get-tasma HTTP/1.1" 200 -
+2025-07-07 14:23:39,265 - INFO - 127.0.0.1 - - [07/Jul/2025 14:23:39] "GET /get-szablon_profile HTTP/1.1" 200 -
+2025-07-07 14:23:39,266 - INFO - 127.0.0.1 - - [07/Jul/2025 14:23:39] "GET /get-dlugosci HTTP/1.1" 200 -
+2025-07-07 14:25:02,065 - INFO -  * Detected change in 'C:\\Users\\admin\\Documents\\GitHub\\baza\\baza danych maxmetal\\python\\index.py', reloading
+2025-07-07 14:25:06,479 - INFO -  * Restarting with stat
+2025-07-07 14:25:09,009 - INFO - Połączenie z bazą danych zostało nawiązane pomyślnie.
+2025-07-07 14:25:09,115 - INFO - ✅ Kopia zapasowa zapisana do pliku: backups\kopie_zapasowe_bazy_2025-07-07_14-25.sql
+2025-07-07 14:25:09,116 - INFO - 🗑️ Usunięto starą kopię: kopie_zapasowe_bazy_2025-07-07_13-38.sql
+2025-07-07 14:25:09,121 - WARNING -  * Debugger is active!
+2025-07-07 14:25:09,124 - INFO -  * Debugger PIN: 268-383-297
+2025-07-07 14:25:10,772 - INFO - Administrator wszedł na stronę profilu.
+2025-07-07 14:25:10,967 - INFO - 127.0.0.1 - - [07/Jul/2025 14:25:10] "GET /profil HTTP/1.1" 200 -
+2025-07-07 14:25:10,989 - INFO - 127.0.0.1 - - [07/Jul/2025 14:25:10] "GET /static/style.css HTTP/1.1" 200 -
+2025-07-07 14:25:11,004 - INFO - 127.0.0.1 - - [07/Jul/2025 14:25:11] "GET /static/img/logo-duże.png HTTP/1.1" 200 -
+2025-07-07 14:25:11,013 - INFO - 127.0.0.1 - - [07/Jul/2025 14:25:11] "GET /static/img/maxmetal.png HTTP/1.1" 200 -
+2025-07-07 14:25:14,399 - INFO - 127.0.0.1 - - [07/Jul/2025 14:25:14] "GET /get-tasma HTTP/1.1" 200 -
+2025-07-07 14:25:14,409 - INFO - 127.0.0.1 - - [07/Jul/2025 14:25:14] "GET /get-szablon_profile HTTP/1.1" 200 -
+2025-07-07 14:25:14,412 - INFO - 127.0.0.1 - - [07/Jul/2025 14:25:14] "GET /get-dlugosci HTTP/1.1" 200 -
+2025-07-07 14:25:15,883 - INFO - Otrzymane dane do aktualizacji profilu: {'column_0': '66', 'column_1': '52', 'column_2': '2025-04-28', 'column_4': '19:16:33', 'column_5': '19:16:50', 'column_6': '2.00', 'column_7': '3', 'column_8': '432', 'column_9': '34', 'column_10': '34', 'column_11': '1', 'column_12': 'ww ww wwxww', 'column_13': 'Administrator', 'column_14': 'Administrator4', 'column_15': 'Zapisz Usuń'}
+2025-07-07 14:25:15,886 - INFO - Poprzednie dane profilu o ID 66: {'id_tasmy': 52, 'data_produkcji': datetime.date(2025, 4, 28), 'godz_min_rozpoczecia': datetime.time(19, 16, 33), 'godz_min_zakonczenia': datetime.time(19, 16, 50), 'zwrot_na_magazyn_kg': Decimal('2.00'), 'id_szablon_profile': 3, 'nazwa_klienta_nr_zlecenia_PRODIO': '432', 'ilosc': 34, 'ilosc_na_stanie': 34, 'id_dlugosci': 1, 'imie_nazwisko_pracownika': 'Administrator'}
+2025-07-07 14:25:15,886 - INFO - Nowe dane profilu o ID 66: {'id_tasmy': '52', 'data_produkcji': '2025-04-28', 'godz_min_rozpoczecia': '19:16:33', 'godz_min_zakonczenia': '19:16:50', 'zwrot_na_magazyn_kg': '2.00', 'id_szablon_profile': '3', 'nazwa_klienta_nr_zlecenia_PRODIO': '432', 'ilosc': '34', 'ilosc_na_stanie': '34', 'id_dlugosci': '1', 'imie_nazwisko_pracownika': 'Administrator'}
+2025-07-07 14:25:15,886 - INFO - Zmiany wprowadzone przez użytkownika: Administrator
+2025-07-07 14:25:15,890 - INFO - 127.0.0.1 - - [07/Jul/2025 14:25:15] "POST /update-row_profil HTTP/1.1" 200 -
+2025-07-07 14:25:18,235 - INFO - Administrator wszedł na stronę profilu.
+2025-07-07 14:25:18,246 - INFO - 127.0.0.1 - - [07/Jul/2025 14:25:18] "GET /profil HTTP/1.1" 200 -
+2025-07-07 14:25:18,270 - INFO - 127.0.0.1 - - [07/Jul/2025 14:25:18] "GET /static/style.css HTTP/1.1" 200 -
+2025-07-07 14:25:18,285 - INFO - 127.0.0.1 - - [07/Jul/2025 14:25:18] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-07-07 14:25:18,286 - INFO - 127.0.0.1 - - [07/Jul/2025 14:25:18] "[36mGET /static/img/maxmetal.png HTTP/1.1[0m" 304 -
+2025-07-07 14:25:19,199 - INFO - Administrator wszedł na stronę profilu.
+2025-07-07 14:25:19,211 - INFO - 127.0.0.1 - - [07/Jul/2025 14:25:19] "GET /profil HTTP/1.1" 200 -
+2025-07-07 14:25:19,239 - INFO - 127.0.0.1 - - [07/Jul/2025 14:25:19] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-07-07 14:25:19,252 - INFO - 127.0.0.1 - - [07/Jul/2025 14:25:19] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-07-07 14:25:19,271 - INFO - 127.0.0.1 - - [07/Jul/2025 14:25:19] "[36mGET /static/img/maxmetal.png HTTP/1.1[0m" 304 -
+2025-07-07 14:25:57,062 - INFO - 127.0.0.1 - - [07/Jul/2025 14:25:57] "GET /get-tasma HTTP/1.1" 200 -
+2025-07-07 14:25:57,073 - INFO - 127.0.0.1 - - [07/Jul/2025 14:25:57] "GET /get-szablon_profile HTTP/1.1" 200 -
+2025-07-07 14:25:57,074 - INFO - 127.0.0.1 - - [07/Jul/2025 14:25:57] "GET /get-dlugosci HTTP/1.1" 200 -
+2025-07-07 14:26:01,161 - INFO - Otrzymane dane do aktualizacji profilu: {'column_0': '67', 'column_1': '52', 'column_2': '2025-04-28', 'column_4': '19:17:32', 'column_5': '20:42:55', 'column_6': '0.00', 'column_7': '3', 'column_8': '1', 'column_9': '567', 'column_10': '567', 'column_11': '5', 'column_12': 'ww ww wwxww', 'column_13': 'test4', 'column_14': '15', 'column_15': 'Zapisz Usuń'}
+2025-07-07 14:26:01,162 - INFO - Poprzednie dane profilu o ID 67: {'id_tasmy': 52, 'data_produkcji': datetime.date(2025, 4, 28), 'godz_min_rozpoczecia': datetime.time(19, 17, 32), 'godz_min_zakonczenia': datetime.time(20, 42, 55), 'zwrot_na_magazyn_kg': Decimal('0.00'), 'id_szablon_profile': 3, 'nazwa_klienta_nr_zlecenia_PRODIO': '1', 'ilosc': 567, 'ilosc_na_stanie': 567, 'id_dlugosci': 5, 'imie_nazwisko_pracownika': '1'}
+2025-07-07 14:26:01,162 - INFO - Nowe dane profilu o ID 67: {'id_tasmy': '52', 'data_produkcji': '2025-04-28', 'godz_min_rozpoczecia': '19:17:32', 'godz_min_zakonczenia': '20:42:55', 'zwrot_na_magazyn_kg': '0.00', 'id_szablon_profile': '3', 'nazwa_klienta_nr_zlecenia_PRODIO': '1', 'ilosc': '567', 'ilosc_na_stanie': '567', 'id_dlugosci': '5', 'imie_nazwisko_pracownika': 'test4'}
+2025-07-07 14:26:01,162 - INFO - Zmiany wprowadzone przez użytkownika: Administrator
+2025-07-07 14:26:01,165 - INFO - 127.0.0.1 - - [07/Jul/2025 14:26:01] "POST /update-row_profil HTTP/1.1" 200 -
+2025-07-07 14:26:05,300 - INFO - Administrator wszedł na stronę profilu.
+2025-07-07 14:26:05,309 - INFO - 127.0.0.1 - - [07/Jul/2025 14:26:05] "GET /profil HTTP/1.1" 200 -
+2025-07-07 14:26:05,330 - INFO - 127.0.0.1 - - [07/Jul/2025 14:26:05] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-07-07 14:26:05,341 - INFO - 127.0.0.1 - - [07/Jul/2025 14:26:05] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-07-07 14:26:05,350 - INFO - 127.0.0.1 - - [07/Jul/2025 14:26:05] "[36mGET /static/img/maxmetal.png HTTP/1.1[0m" 304 -
+2025-07-07 14:26:45,384 - INFO - Połączenie z bazą danych zostało nawiązane pomyślnie.
+2025-07-07 14:26:45,520 - INFO - ✅ Kopia zapasowa zapisana do pliku: backups\kopie_zapasowe_bazy_2025-07-07_14-26.sql
+2025-07-07 14:26:45,523 - INFO - 🗑️ Usunięto starą kopię: kopie_zapasowe_bazy_2025-07-07_13-41.sql
+2025-07-07 14:26:45,539 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.0.16:5000
+2025-07-07 14:26:45,540 - INFO - [33mPress CTRL+C to quit[0m
+2025-07-07 14:26:45,542 - INFO -  * Restarting with stat
+2025-07-07 14:26:48,135 - INFO - Połączenie z bazą danych zostało nawiązane pomyślnie.
+2025-07-07 14:26:48,250 - INFO - ✅ Kopia zapasowa zapisana do pliku: backups\kopie_zapasowe_bazy_2025-07-07_14-26.sql
+2025-07-07 14:26:48,257 - WARNING -  * Debugger is active!
+2025-07-07 14:26:48,261 - INFO -  * Debugger PIN: 268-383-297
+2025-07-07 14:26:48,600 - INFO - 127.0.0.1 - - [07/Jul/2025 14:26:48] "GET /get-tasma HTTP/1.1" 200 -
+2025-07-07 14:26:48,607 - INFO - 127.0.0.1 - - [07/Jul/2025 14:26:48] "GET /get-dlugosci HTTP/1.1" 200 -
+2025-07-07 14:26:48,607 - INFO - 127.0.0.1 - - [07/Jul/2025 14:26:48] "GET /get-szablon_profile HTTP/1.1" 200 -
+2025-07-07 14:26:48,615 - INFO - Administrator wszedł na stronę profilu.
+2025-07-07 14:26:48,818 - INFO - 127.0.0.1 - - [07/Jul/2025 14:26:48] "GET /profil HTTP/1.1" 200 -
+2025-07-07 14:26:48,847 - INFO - 127.0.0.1 - - [07/Jul/2025 14:26:48] "GET /static/style.css HTTP/1.1" 200 -
+2025-07-07 14:26:48,859 - INFO - 127.0.0.1 - - [07/Jul/2025 14:26:48] "GET /static/img/logo-duże.png HTTP/1.1" 200 -
+2025-07-07 14:26:48,871 - INFO - 127.0.0.1 - - [07/Jul/2025 14:26:48] "[36mGET /static/img/maxmetal.png HTTP/1.1[0m" 304 -
+2025-07-07 14:26:50,519 - INFO - 127.0.0.1 - - [07/Jul/2025 14:26:50] "GET /get-tasma HTTP/1.1" 200 -
+2025-07-07 14:26:50,529 - INFO - 127.0.0.1 - - [07/Jul/2025 14:26:50] "GET /get-dlugosci HTTP/1.1" 200 -
+2025-07-07 14:26:50,529 - INFO - 127.0.0.1 - - [07/Jul/2025 14:26:50] "GET /get-szablon_profile HTTP/1.1" 200 -
+2025-07-07 14:26:53,111 - INFO - Otrzymane dane do aktualizacji profilu: {'column_0': '65', 'column_1': '52', 'column_2': '2025-04-28', 'column_4': '19:16:29', 'column_5': '19:16:44', 'column_6': '3.00', 'column_7': '3', 'column_8': '3422', 'column_9': '243', 'column_10': '238', 'column_11': '1', 'column_12': 'ww ww wwxww', 'column_13': 'Administrator', 'column_14': 'Administrator5', 'column_15': 'Zapisz Usuń'}
+2025-07-07 14:26:53,113 - INFO - Poprzednie dane profilu o ID 65: {'id_tasmy': 52, 'data_produkcji': datetime.date(2025, 4, 28), 'godz_min_rozpoczecia': datetime.time(19, 16, 29), 'godz_min_zakonczenia': datetime.time(19, 16, 44), 'zwrot_na_magazyn_kg': Decimal('3.00'), 'id_szablon_profile': 3, 'nazwa_klienta_nr_zlecenia_PRODIO': '3422', 'ilosc': 243, 'ilosc_na_stanie': 238, 'id_dlugosci': 1, 'imie_nazwisko_pracownika': 'Administrator'}
+2025-07-07 14:26:53,114 - INFO - Nowe dane profilu o ID 65: {'id_tasmy': '52', 'data_produkcji': '2025-04-28', 'godz_min_rozpoczecia': '19:16:29', 'godz_min_zakonczenia': '19:16:44', 'zwrot_na_magazyn_kg': '3.00', 'id_szablon_profile': '3', 'nazwa_klienta_nr_zlecenia_PRODIO': '3422', 'ilosc': '243', 'ilosc_na_stanie': '238', 'id_dlugosci': '1', 'imie_nazwisko_pracownika': 'Administrator5'}
+2025-07-07 14:26:53,114 - INFO - Zmiany wprowadzone przez użytkownika: Administrator
+2025-07-07 14:26:53,119 - INFO - 127.0.0.1 - - [07/Jul/2025 14:26:53] "POST /update-row_profil HTTP/1.1" 200 -
+2025-07-07 14:26:54,803 - INFO - Administrator wszedł na stronę profilu.
+2025-07-07 14:26:54,813 - INFO - 127.0.0.1 - - [07/Jul/2025 14:26:54] "GET /profil HTTP/1.1" 200 -
+2025-07-07 14:26:54,836 - INFO - 127.0.0.1 - - [07/Jul/2025 14:26:54] "GET /static/style.css HTTP/1.1" 200 -
+2025-07-07 14:26:54,850 - INFO - 127.0.0.1 - - [07/Jul/2025 14:26:54] "GET /static/img/logo-duże.png HTTP/1.1" 200 -
+2025-07-07 14:26:54,854 - INFO - 127.0.0.1 - - [07/Jul/2025 14:26:54] "[36mGET /static/img/maxmetal.png HTTP/1.1[0m" 304 -
