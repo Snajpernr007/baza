@@ -12010,3 +12010,23 @@
 2025-07-07 13:34:14,776 - INFO - ✅ Kopia zapasowa zapisana do pliku: backups\kopie_zapasowe_bazy_2025-07-07_13-34.sql
 2025-07-07 13:34:14,783 - WARNING -  * Debugger is active!
 2025-07-07 13:34:14,787 - INFO -  * Debugger PIN: 268-383-297
+2025-07-07 13:38:52,544 - INFO - Połączenie z bazą danych zostało nawiązane pomyślnie.
+2025-07-07 13:38:52,714 - INFO - ✅ Kopia zapasowa zapisana do pliku: backups\kopie_zapasowe_bazy_2025-07-07_13-38.sql
+2025-07-07 13:38:52,716 - INFO - 🗑️ Usunięto starą kopię: kopie_zapasowe_bazy_2025-07-02_15-26.sql
+2025-07-07 13:38:52,734 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.0.16:5000
+2025-07-07 13:38:52,734 - INFO - [33mPress CTRL+C to quit[0m
+2025-07-07 13:38:52,736 - INFO -  * Restarting with stat
+2025-07-07 13:38:55,243 - INFO - Połączenie z bazą danych zostało nawiązane pomyślnie.
+2025-07-07 13:38:55,345 - INFO - ✅ Kopia zapasowa zapisana do pliku: backups\kopie_zapasowe_bazy_2025-07-07_13-38.sql
+2025-07-07 13:38:55,351 - WARNING -  * Debugger is active!
+2025-07-07 13:38:55,355 - INFO -  * Debugger PIN: 268-383-297
+2025-07-07 13:41:48,142 - INFO -  * Detected change in 'C:\\Users\\admin\\Documents\\GitHub\\baza\\baza danych maxmetal\\python\\index.py', reloading
+2025-07-07 13:41:50,475 - INFO -  * Restarting with stat
+2025-07-07 13:41:53,083 - INFO - Połączenie z bazą danych zostało nawiązane pomyślnie.
+2025-07-07 13:41:53,182 - INFO - ✅ Kopia zapasowa zapisana do pliku: backups\kopie_zapasowe_bazy_2025-07-07_13-41.sql
+2025-07-07 13:41:53,184 - INFO - 🗑️ Usunięto starą kopię: kopie_zapasowe_bazy_2025-07-02_19-26.sql
+2025-07-07 13:41:53,190 - WARNING -  * Debugger is active!
+2025-07-07 13:41:53,194 - INFO -  * Debugger PIN: 268-383-297

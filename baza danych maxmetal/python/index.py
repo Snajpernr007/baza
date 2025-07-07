@@ -205,7 +205,7 @@ class MaterialObejma(db.Model):
         return f"<MaterialObejma {self.id} - {self.nr_prodio}>"
 
 
-class Ksztaltowanie1(db.Model):
+class Ksztaltowanie_1(db.Model):
     __tablename__ = 'ksztaltowanie_1'
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)
     rozmiar = db.Column(db.String(255))
@@ -224,9 +224,9 @@ class Ksztaltowanie1(db.Model):
     pracownik = db.relationship('Uzytkownik')
 
     def __repr__(self):
-        return f"<Ksztaltowanie1 {self.id} - {self.nr_prodio}>"
+        return f"<Ksztaltowanie_1 {self.id} - {self.nr_prodio}>"
 
-class Ksztaltowanie2(db.Model):
+class Ksztaltowanie_2(db.Model):
     __tablename__ = 'ksztaltowanie_2'
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)
     rozmiar = db.Column(db.String(255))
@@ -241,13 +241,13 @@ class Ksztaltowanie2(db.Model):
     imie_nazwisko = db.Column(db.String(255))
     nazwa = db.Column(db.String(255), nullable=True)
 
-    ksztaltowanie_1 = db.relationship('Ksztaltowanie1')
+    ksztaltowanie_1 = db.relationship('Ksztaltowanie_1')
     pracownik = db.relationship('Uzytkownik')
 
     def __repr__(self):
-        return f"<Ksztaltowanie2 {self.id} - {self.nr_prodio}>"
+        return f"<Ksztaltowanie_2 {self.id} - {self.nr_prodio}>"
 
-class Ksztaltowanie3(db.Model):
+class Ksztaltowanie_3(db.Model):
     __tablename__ = 'ksztaltowanie_3'
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)
     rozmiar = db.Column(db.String(255))
@@ -262,11 +262,11 @@ class Ksztaltowanie3(db.Model):
     imie_nazwisko = db.Column(db.String(255))
     nazwa = db.Column(db.String(255), nullable=True)
 
-    ksztaltowanie_2 = db.relationship('Ksztaltowanie2')
+    ksztaltowanie_2 = db.relationship('Ksztaltowanie_2')
     pracownik = db.relationship('Uzytkownik')
 
     def __repr__(self):
-        return f"<Ksztaltowanie3 {self.id} - {self.nr_prodio}>"
+        return f"<Ksztaltowanie_3 {self.id} - {self.nr_prodio}>"
 
 
 
@@ -281,7 +281,7 @@ class Malarnia(db.Model):
     id_pracownik = db.Column(db.Integer, db.ForeignKey('uzytkownicy.id'))
     imie_nazwisko = db.Column(db.String(255))
 
-    ksztaltowanie_3 = db.relationship('Ksztaltowanie3')
+    ksztaltowanie_3 = db.relationship('Ksztaltowanie_3')
     pracownik = db.relationship('Uzytkownik')
 
     def __repr__(self):
@@ -532,15 +532,15 @@ def get_material():
     return jsonify([{"id": m.id, "certyfikat": m.certyfikat, "data_dostawy": m.data_dostawy, "nr_wytopu": m.nr_wytopu, "nr_prodio": m.nr_prodio, "ilosc_sztuk": m.ilosc_sztuk, "ilosc_sztuk_na_stanie": m.ilosc_sztuk_na_stanie, "id_rozmiaru": m.id_rozmiaru, "id_pracownik": m.id_pracownik} for m in material])
 @app.route('/get-ksztaltowanie1', methods=['GET'])
 def get_ksztaltowanie1():
-    ksztaltowanie = Ksztaltowanie1.query.all()
+    ksztaltowanie = Ksztaltowanie_1.query.all()
     return jsonify([{"id": k.id, "imie_nazwisko": k.imie_nazwisko,"nazwa":k.nazwa} for k in ksztaltowanie])
 @app.route('/get-ksztaltowanie2', methods=['GET'])
 def get_ksztaltowanie2():
-    ksztaltowanie = Ksztaltowanie2.query.all()
+    ksztaltowanie = Ksztaltowanie_2.query.all()
     return jsonify([{"id": k.id, "imie_nazwisko": k.imie_nazwisko,"nazwa":k.nazwa} for k in ksztaltowanie])
 @app.route('/get-ksztaltowanie3', methods=['GET'])
 def get_ksztaltowanie3():
-    ksztaltowanie = Ksztaltowanie3.query.all()
+    ksztaltowanie = Ksztaltowanie_3.query.all()
     return jsonify([{"id": k.id, "imie_nazwisko": k.imie_nazwisko,"nazwa":k.nazwa} for k in ksztaltowanie])
 @app.route('/get-malarnia', methods=['GET'])
 def get_malarnia():
@@ -1849,7 +1849,7 @@ def ksztaltowanie1():
     if g.user.id_uprawnienia == 3:
         return redirect(url_for('home'))
     
-    ksztaltowanie = Ksztaltowanie1.query.all()
+    ksztaltowanie = Ksztaltowanie_1.query.all()
     logger.info(f"{g.user.login} wszedł na stronę ksztaltowania1.")
     return render_template("ksztaltowanie1.html", user=g.user, ksztaltowanie=ksztaltowanie)
 @app.route('/dodaj_ksztaltowanie1')
@@ -1892,13 +1892,13 @@ def dodaj_ksztaltowanie1_do_bazy():
         wytop = material_obj.nr_wytopu
 
         # Ustal numer nowego wpisu
-        ostatni = Ksztaltowanie1.query.order_by(Ksztaltowanie1.id.desc()).first()
+        ostatni = Ksztaltowanie_1.query.order_by(Ksztaltowanie_1.id.desc()).first()
         nr = str(ostatni.id + 1) if ostatni else "1"
 
         nazwa = f"{nr}/{numer_prodio}/{rozmiar}/{wytop}/{data}"
 
         # Utwórz nowy wpis
-        nowy_ksztaltowanie = Ksztaltowanie1(
+        nowy_ksztaltowanie = Ksztaltowanie_1(
             godzina_rozpoczecia=godzina_rozpoczencia,
             godzina_zakonczenia=godzina_zakonczenia,
             data=data,
@@ -1917,7 +1917,7 @@ def dodaj_ksztaltowanie1_do_bazy():
             db.session.add(nowy_ksztaltowanie)
             db.session.commit()
 
-            logger.info(f"Ksztaltowanie1 {nazwa} zostało dodane przez {g.user.login}.")
+            logger.info(f"Ksztaltowanie_1 {nazwa} zostało dodane przez {g.user.login}.")
             return redirect(url_for('ksztaltowanie1'))
 
         except Exception as e:
@@ -1941,7 +1941,7 @@ def update_row_ksztaltowanie1():
         if id is None:
             return jsonify({'message': 'Id jest wymagane!'}), 400
 
-        ksztaltowanie = Ksztaltowanie1.query.get(id)
+        ksztaltowanie = Ksztaltowanie_1.query.get(id)
         if ksztaltowanie is None:
             return jsonify({'message': 'Rekord nie znaleziony!'}), 404
 
@@ -1994,7 +1994,7 @@ def update_row_ksztaltowanie1():
         db.session.add(material)
 
         db.session.commit()
-        logger.info(f"Ksztaltowanie1 o ID {id} zostało zaktualizowane przez {g.user.login}.")
+        logger.info(f"Ksztaltowanie_1 o ID {id} zostało zaktualizowane przez {g.user.login}.")
         return jsonify({'message': 'Rekord zaktualizowany pomyślnie!'}), 200
 
     except Exception as e:
@@ -2020,7 +2020,7 @@ def dodaj_malarnie():
         return redirect(url_for('home'))
     
     logger.info(f"{g.user.login} wszedł na stronę dodawania malarni.")
-    return render_template("dodaj_malarnie.html", user=g.user,nazwy_materiału=Ksztaltowanie3.query.all())
+    return render_template("dodaj_malarnie.html", user=g.user,nazwy_materiału=Ksztaltowanie_3.query.all())
 @app.route('/dodaj_malarnie_do_bazy', methods=['POST'])
 def dodaj_malarnie_do_bazy():
     if not g.user:
@@ -2047,7 +2047,7 @@ def dodaj_malarnie_do_bazy():
 
     db.session.add(nowa_malarnia)
 
-    ksztaltowanie = Ksztaltowanie3.query.get(int(id_ksztaltowanie))
+    ksztaltowanie = Ksztaltowanie_3.query.get(int(id_ksztaltowanie))
     if ksztaltowanie:
         ksztaltowanie.ilosc_na_stanie = ksztaltowanie.ilosc_na_stanie - ilosc
         db.session.add(ksztaltowanie)
