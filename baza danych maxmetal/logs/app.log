@@ -11723,3 +11723,176 @@
 2025-06-24 14:02:03,350 - INFO - 127.0.0.1 - - [24/Jun/2025 14:02:03] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
 2025-06-24 14:02:03,362 - INFO - 127.0.0.1 - - [24/Jun/2025 14:02:03] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
 2025-06-24 14:02:03,371 - INFO - 127.0.0.1 - - [24/Jun/2025 14:02:03] "[36mGET /static/img/maxmetal.png HTTP/1.1[0m" 304 -
+2025-06-24 17:55:41,772 - INFO - ✅ Kopia zapasowa zapisana do pliku: backups\kopie_zapasowe_bazy_2025-06-24_17-55.sql
+2025-06-24 17:55:41,774 - INFO - 🗑️ Usunięto starą kopię: kopie_zapasowe_bazy_2025-06-23_19-33.sql
+2025-06-24 18:01:48,083 - INFO - ✅ Kopia zapasowa zapisana do pliku: backups\kopie_zapasowe_bazy_2025-06-24_18-01.sql
+2025-06-24 18:01:48,084 - INFO - 🗑️ Usunięto starą kopię: kopie_zapasowe_bazy_2025-06-23_23-33.sql
+2025-06-24 21:55:41,785 - INFO - ✅ Kopia zapasowa zapisana do pliku: backups\kopie_zapasowe_bazy_2025-06-24_21-55.sql
+2025-06-24 21:55:41,787 - INFO - 🗑️ Usunięto starą kopię: kopie_zapasowe_bazy_2025-06-24_13-55.sql
+2025-06-24 22:01:48,103 - INFO - ✅ Kopia zapasowa zapisana do pliku: backups\kopie_zapasowe_bazy_2025-06-24_22-01.sql
+2025-06-24 22:01:48,104 - INFO - 🗑️ Usunięto starą kopię: kopie_zapasowe_bazy_2025-06-24_13-57.sql
+2025-06-25 20:21:21,582 - INFO - ✅ Kopia zapasowa zapisana do pliku: backups\kopie_zapasowe_bazy_2025-06-25_20-21.sql
+2025-06-25 20:21:21,584 - INFO - 🗑️ Usunięto starą kopię: kopie_zapasowe_bazy_2025-06-24_13-59.sql
+2025-06-25 20:27:27,826 - INFO - ✅ Kopia zapasowa zapisana do pliku: backups\kopie_zapasowe_bazy_2025-06-25_20-27.sql
+2025-06-25 20:27:27,827 - INFO - 🗑️ Usunięto starą kopię: kopie_zapasowe_bazy_2025-06-24_14-01.sql
+2025-06-26 13:29:06,501 - INFO - ✅ Kopia zapasowa zapisana do pliku: backups\kopie_zapasowe_bazy_2025-06-26_13-29.sql
+2025-06-26 13:29:06,503 - INFO - 🗑️ Usunięto starą kopię: kopie_zapasowe_bazy_2025-06-24_17-55.sql
+2025-06-26 13:35:12,738 - INFO - ✅ Kopia zapasowa zapisana do pliku: backups\kopie_zapasowe_bazy_2025-06-26_13-35.sql
+2025-06-26 13:35:12,739 - INFO - 🗑️ Usunięto starą kopię: kopie_zapasowe_bazy_2025-06-24_18-01.sql
+2025-06-26 17:29:06,525 - INFO - ✅ Kopia zapasowa zapisana do pliku: backups\kopie_zapasowe_bazy_2025-06-26_17-29.sql
+2025-06-26 17:29:06,526 - INFO - 🗑️ Usunięto starą kopię: kopie_zapasowe_bazy_2025-06-24_21-55.sql
+2025-06-26 17:35:12,759 - INFO - ✅ Kopia zapasowa zapisana do pliku: backups\kopie_zapasowe_bazy_2025-06-26_17-35.sql
+2025-06-26 17:35:12,761 - INFO - 🗑️ Usunięto starą kopię: kopie_zapasowe_bazy_2025-06-24_22-01.sql
+2025-06-30 15:11:54,018 - INFO - Połączenie z bazą danych zostało nawiązane pomyślnie.
+2025-06-30 15:11:54,186 - INFO - ✅ Kopia zapasowa zapisana do pliku: backups\kopie_zapasowe_bazy_2025-06-30_15-11.sql
+2025-06-30 15:11:54,190 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.1.14:5000
+2025-06-30 15:11:54,190 - INFO - [33mPress CTRL+C to quit[0m
+2025-06-30 15:11:54,191 - INFO - 🗑️ Usunięto starą kopię: kopie_zapasowe_bazy_2025-06-25_20-21.sql
+2025-06-30 15:11:54,194 - INFO -  * Restarting with stat
+2025-06-30 15:11:56,710 - INFO - Połączenie z bazą danych zostało nawiązane pomyślnie.
+2025-06-30 15:11:56,805 - INFO - ✅ Kopia zapasowa zapisana do pliku: backups\kopie_zapasowe_bazy_2025-06-30_15-11.sql
+2025-06-30 15:11:56,811 - WARNING -  * Debugger is active!
+2025-06-30 15:11:56,816 - INFO -  * Debugger PIN: 686-732-664
+2025-06-30 15:13:08,452 - INFO - Administrator wszedł na stronę główną.
+2025-06-30 15:13:08,615 - INFO - 127.0.0.1 - - [30/Jun/2025 15:13:08] "GET / HTTP/1.1" 200 -
+2025-06-30 15:13:08,653 - INFO - 127.0.0.1 - - [30/Jun/2025 15:13:08] "GET /static/style.css HTTP/1.1" 200 -
+2025-06-30 15:13:08,665 - INFO - 127.0.0.1 - - [30/Jun/2025 15:13:08] "GET /static/img/logo-duże.png HTTP/1.1" 200 -
+2025-06-30 15:13:08,692 - INFO - 127.0.0.1 - - [30/Jun/2025 15:13:08] "GET /static/img/maxmetal.png HTTP/1.1" 200 -
+2025-06-30 15:13:08,704 - INFO - 127.0.0.1 - - [30/Jun/2025 15:13:08] "GET /static/img/logo-male.png HTTP/1.1" 200 -
+2025-06-30 20:33:37,666 - INFO - ✅ Kopia zapasowa zapisana do pliku: backups\kopie_zapasowe_bazy_2025-06-30_20-33.sql
+2025-06-30 20:33:37,668 - INFO - 🗑️ Usunięto starą kopię: kopie_zapasowe_bazy_2025-06-25_20-27.sql
+2025-06-30 20:33:40,203 - INFO - ✅ Kopia zapasowa zapisana do pliku: backups\kopie_zapasowe_bazy_2025-06-30_20-33.sql
+2025-07-01 00:33:37,681 - INFO - ✅ Kopia zapasowa zapisana do pliku: backups\kopie_zapasowe_bazy_2025-07-01_00-33.sql
+2025-07-01 00:33:37,681 - INFO - 🗑️ Usunięto starą kopię: kopie_zapasowe_bazy_2025-06-26_13-29.sql
+2025-07-01 00:33:40,231 - INFO - ✅ Kopia zapasowa zapisana do pliku: backups\kopie_zapasowe_bazy_2025-07-01_00-33.sql
+2025-07-01 20:25:53,025 - INFO - ✅ Kopia zapasowa zapisana do pliku: backups\kopie_zapasowe_bazy_2025-07-01_20-25.sql
+2025-07-01 20:25:53,027 - INFO - 🗑️ Usunięto starą kopię: kopie_zapasowe_bazy_2025-06-26_13-35.sql
+2025-07-01 20:25:55,566 - INFO - ✅ Kopia zapasowa zapisana do pliku: backups\kopie_zapasowe_bazy_2025-07-01_20-25.sql
+2025-07-02 00:25:53,051 - INFO - ✅ Kopia zapasowa zapisana do pliku: backups\kopie_zapasowe_bazy_2025-07-02_00-25.sql
+2025-07-02 00:25:53,052 - INFO - 🗑️ Usunięto starą kopię: kopie_zapasowe_bazy_2025-06-26_17-29.sql
+2025-07-02 00:25:55,612 - INFO - ✅ Kopia zapasowa zapisana do pliku: backups\kopie_zapasowe_bazy_2025-07-02_00-25.sql
+2025-07-02 15:26:32,263 - INFO - ✅ Kopia zapasowa zapisana do pliku: backups\kopie_zapasowe_bazy_2025-07-02_15-26.sql
+2025-07-02 15:26:32,265 - INFO - 🗑️ Usunięto starą kopię: kopie_zapasowe_bazy_2025-06-26_17-35.sql
+2025-07-02 15:26:34,811 - INFO - ✅ Kopia zapasowa zapisana do pliku: backups\kopie_zapasowe_bazy_2025-07-02_15-26.sql
+2025-07-02 19:26:32,285 - INFO - ✅ Kopia zapasowa zapisana do pliku: backups\kopie_zapasowe_bazy_2025-07-02_19-26.sql
+2025-07-02 19:26:32,286 - INFO - 🗑️ Usunięto starą kopię: kopie_zapasowe_bazy_2025-06-30_15-11.sql
+2025-07-02 19:26:34,831 - INFO - ✅ Kopia zapasowa zapisana do pliku: backups\kopie_zapasowe_bazy_2025-07-02_19-26.sql
+2025-07-07 12:37:33,981 - INFO - Połączenie z bazą danych zostało nawiązane pomyślnie.
+2025-07-07 12:37:34,105 - INFO - ✅ Kopia zapasowa zapisana do pliku: backups\kopie_zapasowe_bazy_2025-07-07_12-37.sql
+2025-07-07 12:37:34,107 - INFO - 🗑️ Usunięto starą kopię: kopie_zapasowe_bazy_2025-06-30_20-33.sql
+2025-07-07 12:37:34,134 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.1.14:5000
+2025-07-07 12:37:34,134 - INFO - [33mPress CTRL+C to quit[0m
+2025-07-07 12:37:34,137 - INFO -  * Restarting with stat
+2025-07-07 12:37:36,742 - INFO - Połączenie z bazą danych zostało nawiązane pomyślnie.
+2025-07-07 12:37:36,836 - INFO - ✅ Kopia zapasowa zapisana do pliku: backups\kopie_zapasowe_bazy_2025-07-07_12-37.sql
+2025-07-07 12:37:36,840 - WARNING -  * Debugger is active!
+2025-07-07 12:37:36,845 - INFO -  * Debugger PIN: 268-383-297
+2025-07-07 12:40:30,081 - INFO - Połączenie z bazą danych zostało nawiązane pomyślnie.
+2025-07-07 12:40:30,172 - INFO - ✅ Kopia zapasowa zapisana do pliku: backups\kopie_zapasowe_bazy_2025-07-07_12-40.sql
+2025-07-07 12:40:30,174 - INFO - 🗑️ Usunięto starą kopię: kopie_zapasowe_bazy_2025-07-01_00-33.sql
+2025-07-07 12:40:30,185 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.1.14:5000
+2025-07-07 12:40:30,185 - INFO - [33mPress CTRL+C to quit[0m
+2025-07-07 12:40:30,186 - INFO -  * Restarting with stat
+2025-07-07 12:40:32,598 - INFO - Połączenie z bazą danych zostało nawiązane pomyślnie.
+2025-07-07 12:40:32,691 - INFO - ✅ Kopia zapasowa zapisana do pliku: backups\kopie_zapasowe_bazy_2025-07-07_12-40.sql
+2025-07-07 12:40:32,697 - WARNING -  * Debugger is active!
+2025-07-07 12:40:32,701 - INFO -  * Debugger PIN: 268-383-297
+2025-07-07 12:45:17,344 - INFO - Połączenie z bazą danych zostało nawiązane pomyślnie.
+2025-07-07 12:45:17,444 - INFO - ✅ Kopia zapasowa zapisana do pliku: backups\kopie_zapasowe_bazy_2025-07-07_12-45.sql
+2025-07-07 12:45:17,446 - INFO - 🗑️ Usunięto starą kopię: kopie_zapasowe_bazy_2025-07-01_20-25.sql
+2025-07-07 12:45:17,457 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.1.14:5000
+2025-07-07 12:45:17,457 - INFO - [33mPress CTRL+C to quit[0m
+2025-07-07 12:45:17,459 - INFO -  * Restarting with stat
+2025-07-07 12:45:20,016 - INFO - Połączenie z bazą danych zostało nawiązane pomyślnie.
+2025-07-07 12:45:20,112 - INFO - ✅ Kopia zapasowa zapisana do pliku: backups\kopie_zapasowe_bazy_2025-07-07_12-45.sql
+2025-07-07 12:45:20,119 - WARNING -  * Debugger is active!
+2025-07-07 12:45:20,123 - INFO -  * Debugger PIN: 268-383-297
+2025-07-07 12:45:38,051 - INFO - Połączenie z bazą danych zostało nawiązane pomyślnie.
+2025-07-07 12:45:38,148 - INFO - ✅ Kopia zapasowa zapisana do pliku: backups\kopie_zapasowe_bazy_2025-07-07_12-45.sql
+2025-07-07 12:45:38,158 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.1.14:5000
+2025-07-07 12:45:38,158 - INFO - [33mPress CTRL+C to quit[0m
+2025-07-07 12:45:38,160 - INFO -  * Restarting with stat
+2025-07-07 12:45:40,669 - INFO - Połączenie z bazą danych zostało nawiązane pomyślnie.
+2025-07-07 12:45:40,764 - INFO - ✅ Kopia zapasowa zapisana do pliku: backups\kopie_zapasowe_bazy_2025-07-07_12-45.sql
+2025-07-07 12:45:40,770 - WARNING -  * Debugger is active!
+2025-07-07 12:45:40,775 - INFO -  * Debugger PIN: 268-383-297
+2025-07-07 12:51:32,198 - INFO - Administrator wszedł na stronę materialów obejm.
+2025-07-07 12:51:32,297 - INFO - 127.0.0.1 - - [07/Jul/2025 12:51:32] "GET /material_obejma HTTP/1.1" 200 -
+2025-07-07 12:51:32,331 - INFO - 127.0.0.1 - - [07/Jul/2025 12:51:32] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-07-07 12:51:32,348 - INFO - 127.0.0.1 - - [07/Jul/2025 12:51:32] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-07-07 12:51:32,372 - INFO - 127.0.0.1 - - [07/Jul/2025 12:51:32] "[36mGET /static/img/maxmetal.png HTTP/1.1[0m" 304 -
+2025-07-07 12:52:02,670 - INFO - Administrator wszedł na stronę główną.
+2025-07-07 12:52:02,807 - INFO - 127.0.0.1 - - [07/Jul/2025 12:52:02] "GET / HTTP/1.1" 200 -
+2025-07-07 12:52:02,838 - INFO - 127.0.0.1 - - [07/Jul/2025 12:52:02] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-07-07 12:52:02,844 - INFO - 127.0.0.1 - - [07/Jul/2025 12:52:02] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-07-07 12:52:02,852 - INFO - 127.0.0.1 - - [07/Jul/2025 12:52:02] "[36mGET /static/img/maxmetal.png HTTP/1.1[0m" 304 -
+2025-07-07 12:52:04,154 - INFO - Administrator wszedł na stronę materialów obejm.
+2025-07-07 12:52:04,156 - INFO - 127.0.0.1 - - [07/Jul/2025 12:52:04] "GET /material_obejma HTTP/1.1" 200 -
+2025-07-07 12:52:04,181 - INFO - 127.0.0.1 - - [07/Jul/2025 12:52:04] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-07-07 12:52:04,193 - INFO - 127.0.0.1 - - [07/Jul/2025 12:52:04] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-07-07 12:52:04,202 - INFO - 127.0.0.1 - - [07/Jul/2025 12:52:04] "[36mGET /static/img/maxmetal.png HTTP/1.1[0m" 304 -
+2025-07-07 12:52:08,156 - INFO - Administrator wszedł na stronę główną.
+2025-07-07 12:52:08,158 - INFO - 127.0.0.1 - - [07/Jul/2025 12:52:08] "GET / HTTP/1.1" 200 -
+2025-07-07 12:52:08,186 - INFO - 127.0.0.1 - - [07/Jul/2025 12:52:08] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-07-07 12:52:08,192 - INFO - 127.0.0.1 - - [07/Jul/2025 12:52:08] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-07-07 12:52:08,196 - INFO - 127.0.0.1 - - [07/Jul/2025 12:52:08] "[36mGET /static/img/maxmetal.png HTTP/1.1[0m" 304 -
+2025-07-07 12:52:08,906 - INFO - Administrator wszedł na stronę dostawców.
+2025-07-07 12:52:08,976 - INFO - 127.0.0.1 - - [07/Jul/2025 12:52:08] "GET /dostawcy HTTP/1.1" 200 -
+2025-07-07 12:52:09,009 - INFO - 127.0.0.1 - - [07/Jul/2025 12:52:09] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-07-07 12:52:09,023 - INFO - 127.0.0.1 - - [07/Jul/2025 12:52:09] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-07-07 12:52:09,030 - INFO - 127.0.0.1 - - [07/Jul/2025 12:52:09] "[36mGET /static/img/maxmetal.png HTTP/1.1[0m" 304 -
+2025-07-07 12:52:09,599 - INFO - Administrator wszedł na stronę główną.
+2025-07-07 12:52:09,601 - INFO - 127.0.0.1 - - [07/Jul/2025 12:52:09] "GET / HTTP/1.1" 200 -
+2025-07-07 12:52:09,624 - INFO - 127.0.0.1 - - [07/Jul/2025 12:52:09] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-07-07 12:52:09,632 - INFO - 127.0.0.1 - - [07/Jul/2025 12:52:09] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-07-07 12:52:09,636 - INFO - 127.0.0.1 - - [07/Jul/2025 12:52:09] "[36mGET /static/img/maxmetal.png HTTP/1.1[0m" 304 -
+2025-07-07 12:52:11,092 - INFO - Administrator wszedł na stronę materialów obejm.
+2025-07-07 12:52:11,094 - INFO - 127.0.0.1 - - [07/Jul/2025 12:52:11] "GET /material_obejma HTTP/1.1" 200 -
+2025-07-07 12:52:11,119 - INFO - 127.0.0.1 - - [07/Jul/2025 12:52:11] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-07-07 12:52:11,135 - INFO - 127.0.0.1 - - [07/Jul/2025 12:52:11] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-07-07 12:52:11,139 - INFO - 127.0.0.1 - - [07/Jul/2025 12:52:11] "[36mGET /static/img/maxmetal.png HTTP/1.1[0m" 304 -
+2025-07-07 12:52:12,337 - INFO - Administrator wszedł na stronę główną.
+2025-07-07 12:52:12,338 - INFO - 127.0.0.1 - - [07/Jul/2025 12:52:12] "GET / HTTP/1.1" 200 -
+2025-07-07 12:52:12,365 - INFO - 127.0.0.1 - - [07/Jul/2025 12:52:12] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-07-07 12:52:12,372 - INFO - 127.0.0.1 - - [07/Jul/2025 12:52:12] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-07-07 12:52:12,377 - INFO - 127.0.0.1 - - [07/Jul/2025 12:52:12] "[36mGET /static/img/maxmetal.png HTTP/1.1[0m" 304 -
+2025-07-07 12:59:02,306 - INFO - Administrator wszedł na stronę ksztaltowania.
+2025-07-07 12:59:02,399 - INFO - 127.0.0.1 - - [07/Jul/2025 12:59:02] "GET /ksztaltowanie HTTP/1.1" 200 -
+2025-07-07 12:59:02,435 - INFO - 127.0.0.1 - - [07/Jul/2025 12:59:02] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-07-07 12:59:02,452 - INFO - 127.0.0.1 - - [07/Jul/2025 12:59:02] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-07-07 12:59:02,466 - INFO - 127.0.0.1 - - [07/Jul/2025 12:59:02] "[36mGET /static/img/maxmetal.png HTTP/1.1[0m" 304 -
+2025-07-07 12:59:05,969 - INFO - Administrator wszedł na stronę dodawania ksztaltowania.
+2025-07-07 12:59:05,981 - INFO - 127.0.0.1 - - [07/Jul/2025 12:59:05] "GET /dodaj_ksztaltowanie HTTP/1.1" 200 -
+2025-07-07 12:59:06,006 - INFO - 127.0.0.1 - - [07/Jul/2025 12:59:06] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-07-07 12:59:06,395 - INFO - 127.0.0.1 - - [07/Jul/2025 12:59:06] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-07-07 13:00:03,120 - INFO - Administrator wszedł na stronę dodawania ksztaltowania.
+2025-07-07 13:00:03,132 - INFO - 127.0.0.1 - - [07/Jul/2025 13:00:03] "GET /dodaj_ksztaltowanie HTTP/1.1" 200 -
+2025-07-07 13:00:03,152 - INFO - 127.0.0.1 - - [07/Jul/2025 13:00:03] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-07-07 13:00:03,168 - INFO - 127.0.0.1 - - [07/Jul/2025 13:00:03] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-07-07 13:01:01,288 - INFO - Administrator wszedł na stronę dodawania ksztaltowania.
+2025-07-07 13:01:01,298 - INFO - 127.0.0.1 - - [07/Jul/2025 13:01:01] "GET /dodaj_ksztaltowanie HTTP/1.1" 200 -
+2025-07-07 13:01:01,320 - INFO - 127.0.0.1 - - [07/Jul/2025 13:01:01] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-07-07 13:01:01,335 - INFO - 127.0.0.1 - - [07/Jul/2025 13:01:01] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-07-07 13:01:34,019 - INFO - Administrator wszedł na stronę dodawania ksztaltowania.
+2025-07-07 13:01:34,030 - INFO - 127.0.0.1 - - [07/Jul/2025 13:01:34] "GET /dodaj_ksztaltowanie HTTP/1.1" 200 -
+2025-07-07 13:01:34,048 - INFO - 127.0.0.1 - - [07/Jul/2025 13:01:34] "GET /static/style.css HTTP/1.1" 200 -
+2025-07-07 13:01:34,066 - INFO - 127.0.0.1 - - [07/Jul/2025 13:01:34] "GET /static/img/logo-duże.png HTTP/1.1" 200 -
+2025-07-07 13:01:53,861 - INFO - Administrator wszedł na stronę dodawania ksztaltowania.
+2025-07-07 13:01:53,873 - INFO - 127.0.0.1 - - [07/Jul/2025 13:01:53] "GET /dodaj_ksztaltowanie HTTP/1.1" 200 -
+2025-07-07 13:01:53,893 - INFO - 127.0.0.1 - - [07/Jul/2025 13:01:53] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-07-07 13:01:53,907 - INFO - 127.0.0.1 - - [07/Jul/2025 13:01:53] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
