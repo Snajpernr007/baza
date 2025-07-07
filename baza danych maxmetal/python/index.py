@@ -2152,7 +2152,7 @@ def update_row_ksztaltowanie2():
         db.session.rollback()
         logger.error(f'Wystąpił błąd podczas aktualizacji: {str(e)}')
         return jsonify({'message': 'Wystąpił błąd podczas aktualizacji!', 'error': str(e)}), 500
-@app.route('ksztaltowanie3')
+@app.route('/ksztaltowanie3')
 def ksztaltowanie3():
     if not g.user:
         return render_template('login.html', user=g.user)
@@ -2162,6 +2162,77 @@ def ksztaltowanie3():
     ksztaltowanie = Ksztaltowanie_3.query.all()
     logger.info(f"{g.user.login} wszedł na stronę ksztaltowania3.")
     return render_template("ksztaltowanie3.html", user=g.user, ksztaltowanie=ksztaltowanie)
+@app.route('/dodaj_ksztaltowanie3')
+def dodaj_ksztaltowanie3():
+    if not g.user:
+        return render_template('login.html', user=g.user)
+    if g.user.id_uprawnienia == 3:
+        return redirect(url_for('home'))
+    
+    logger.info(f"{g.user.login} wszedł na stronę dodawania ksztaltowania3.")
+    return render_template("dodaj_ksztaltowanie3.html", user=g.user, rozmiar=MaterialObejma.query.all())
+@app.route('/dodaj_ksztaltowanie3_do_bazy', methods=['POST'])
+def dodaj_ksztaltowanie3_do_bazy(): 
+    if not g.user:
+        return render_template('login.html', user=g.user)
+    if g.user.id_uprawnienia == 3:
+        return redirect(url_for('home'))
+
+    if request.method == 'POST':
+        godzina_rozpoczencia = request.form.get('godz_min_rozpoczecia')
+        godzina_zakonczenia = request.form.get('godz_min_zakonczenia')
+        data = request.form.get('data')
+        material_id = request.form.get('nazwa_materiału')
+        numer_prodio = request.form.get('prodio')
+        ilosc = request.form.get('ilosc')
+        ilosc_na_stanie = ilosc
+        imie_nazwisko = request.form.get('imie')
+        pracownik = g.user.id
+
+        # Pobierz obiekt materiału
+        material_obj = MaterialObejma.query.get(int(material_id)) if material_id else None
+        if not material_obj:
+            return render_template('ksztaltowanie3.html', error="Nie znaleziono wybranego materiału.", user=g.user)
+
+        # Pobierz rozmiar poprzez relację
+        if not material_obj.rozmiar:
+            return render_template('ksztaltowanie3.html', error="Materiał nie ma przypisanego rozmiaru.", user=g.user)
+
+        rozmiar = material_obj.rozmiar.nazwa
+        wytop = material_obj.nr_wytopu
+
+        # Ustal numer nowego wpisu
+        ostatni = Ksztaltowanie_3.query.order_by(Ksztaltowanie_3.id.desc()).first()
+        nr = str(ostatni.id + 1) if ostatni else "1"
+
+        nazwa = f"{nr}/{numer_prodio}/{rozmiar}/{wytop}/{data}"
+
+        # Utwórz nowy wpis
+        nowy_ksztaltowanie = Ksztaltowanie_3(
+            godzina_rozpoczecia=godzina_rozpoczencia,
+            godzina_zakonczenia=godzina_zakonczenia,
+            data=data,
+            id_materialu=material_id,
+            nr_prodio=numer_prodio,
+            ilosc=ilosc,
+            ilosc_na_stanie=ilosc_na_stanie,
+            nazwa=nazwa,
+            id_pracownik=pracownik,
+            imie_nazwisko=imie_nazwisko
+        )
+        # Aktualizuj stan magazynowy
+        try:
+            material_obj.ilosc_sztuk_na_stanie -= int(ilosc)
+            db.session.add(nowy_ksztaltowanie)
+            db.session.commit()
+
+            logger.info(f"Ksztaltowanie_3 {nazwa} zostało dodane przez {g.user.login}.")
+            return redirect(url_for('ksztaltowanie3'))
+        except Exception as e:
+            db.session.rollback()
+            logger.error(f"Nie udało się zapisać danych: {e}")
+            return render_template('ksztaltowanie3.html', error="Wystąpił błąd przy zapisie danych.", user=g.user)
+        
 @app.route('/malarnia')
 def malarnia():
     if not g.user:
