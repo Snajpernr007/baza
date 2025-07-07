@@ -1860,7 +1860,7 @@ def dodaj_ksztaltowanie1():
         return redirect(url_for('home'))
     
     logger.info(f"{g.user.login} wszedł na stronę dodawania ksztaltowania1.")
-    return render_template("dodaj_ksztaltowanie.html", user=g.user,rozmiar=MaterialObejma.query.all())
+    return render_template("dodaj_ksztaltowanie1.html", user=g.user,rozmiar=MaterialObejma.query.all())
 @app.route('/dodaj_ksztaltowanie1_do_bazy', methods=['POST'])
 def dodaj_ksztaltowanie1_do_bazy():
     if not g.user:
@@ -2001,7 +2001,167 @@ def update_row_ksztaltowanie1():
         db.session.rollback()
         logger.error(f'Wystąpił błąd podczas aktualizacji: {str(e)}')
         return jsonify({'message': 'Wystąpił błąd podczas aktualizacji!', 'error': str(e)}), 500
+@app.route('/ksztaltowanie2')
+def ksztaltowanie2():   
+    if not g.user:
+        return render_template('login.html', user=g.user)
+    if g.user.id_uprawnienia == 3:
+        return redirect(url_for('home'))
+    
+    ksztaltowanie = Ksztaltowanie_2.query.all()
+    logger.info(f"{g.user.login} wszedł na stronę ksztaltowania2.")
+    return render_template("ksztaltowanie2.html", user=g.user, ksztaltowanie=ksztaltowanie)
+@app.route('/dodaj_ksztaltowanie2')
+def dodaj_ksztaltowanie2():
+    if not g.user:
+        return render_template('login.html', user=g.user)
+    if g.user.id_uprawnienia == 3:
+        return redirect(url_for('home'))
+    
+    logger.info(f"{g.user.login} wszedł na stronę dodawania ksztaltowania2.")
+    return render_template("dodaj_ksztaltowanie2.html", user=g.user,rozmiar=MaterialObejma.query.all())
+@app.route('/dodaj_ksztaltowanie2_do_bazy', methods=['POST'])
+def dodaj_ksztaltowanie2_do_bazy():
+    if not g.user:
+        return render_template('login.html', user=g.user)
+    if g.user.id_uprawnienia == 3:
+        return redirect(url_for('home'))
 
+    if request.method == 'POST':
+        godzina_rozpoczencia = request.form.get('godz_min_rozpoczecia')
+        godzina_zakonczenia = request.form.get('godz_min_zakonczenia')
+        data = request.form.get('data')
+        material_id = request.form.get('nazwa_materiału')
+        numer_prodio = request.form.get('prodio')
+        ilosc = request.form.get('ilosc')
+        ilosc_na_stanie = ilosc
+        imie_nazwisko = request.form.get('imie')
+        pracownik = g.user.id
+
+        # Pobierz obiekt materiału
+        material_obj = MaterialObejma.query.get(int(material_id)) if material_id else None
+        if not material_obj:
+            return render_template('ksztaltowanie2.html', error="Nie znaleziono wybranego materiału.", user=g.user)
+
+        # Pobierz rozmiar poprzez relację
+        if not material_obj.rozmiar:
+            return render_template('ksztaltowanie2.html', error="Materiał nie ma przypisanego rozmiaru.", user=g.user)
+
+        rozmiar = material_obj.rozmiar.nazwa
+        wytop = material_obj.nr_wytopu
+
+        # Ustal numer nowego wpisu
+        ostatni = Ksztaltowanie_2.query.order_by(Ksztaltowanie_2.id.desc()).first()
+        nr = str(ostatni.id + 1) if ostatni else "1"
+
+        nazwa = f"{nr}/{numer_prodio}/{rozmiar}/{wytop}/{data}"
+
+        # Utwórz nowy wpis
+        nowy_ksztaltowanie = Ksztaltowanie_2(
+            godzina_rozpoczencia=godzina_rozpoczencia,
+            godzina_zakonczenia=godzina_zakonczenia,
+            data=data,
+            id_materialu=material_id,
+            nr_prodio=numer_prodio,
+            ilosc=ilosc,
+            ilosc_na_stanie=ilosc_na_stanie,
+            nazwa=nazwa,
+            id_pracownik=pracownik,
+            imie_nazwisko=imie_nazwisko
+        )
+        # Aktualizuj stan magazynowy
+        try:
+            material_obj.ilosc_sztuk_na_stanie -= int(ilosc)
+            db.session.add(nowy_ksztaltowanie)
+            db.session.commit()
+
+            logger.info(f"Ksztaltowanie_2 {nazwa} zostało dodane przez {g.user.login}.")
+            return redirect(url_for('ksztaltowanie2'))
+        except Exception as e:
+            db.session.rollback()
+            logger.error(f"Nie udało się zapisać danych: {e}")
+            return render_template('ksztaltowanie2.html', error="Wystąpił błąd przy zapisie danych.", user=g.user)
+@app.route('/update-row-ksztaltowanie2', methods=['POST'])
+def update_row_ksztaltowanie2():
+    if not g.user:
+        return render_template('login.html', user=g.user)
+    
+    if g.user.id_uprawnienia == 3:
+        return redirect(url_for('home'))
+
+    try:
+        dane = request.get_json()
+        logger.info(f'Otrzymane dane do aktualizacji ksztaltowania2: {dane}')
+
+        id = dane.get('column_0')
+        if id is None:
+            return jsonify({'message': 'Id jest wymagane!'}), 400
+
+        ksztaltowanie = Ksztaltowanie_2.query.get(id)
+        if ksztaltowanie is None:
+            return jsonify({'message': 'Rekord nie znaleziony!'}), 404
+
+        # Zapisz poprzednie dane do logów
+        poprzednie_dane = {
+            "id": ksztaltowanie.id,
+            "godzina_rozpoczecia": ksztaltowanie.godzina_rozpoczecia,
+            "godzina_zakonczenia": ksztaltowanie.godzina_zakonczenia,
+            "data": ksztaltowanie.data,
+            "id_materialu": ksztaltowanie.id_materialu,
+            "nr_prodio": ksztaltowanie.nr_prodio,
+            "ilosc": ksztaltowanie.ilosc,
+            "ilosc_na_stanie": ksztaltowanie.ilosc_na_stanie,
+            "nazwa": ksztaltowanie.nazwa
+        }
+        logger.info(f"Poprzednie dane ksztaltowania2 o ID {id}: {poprzednie_dane}")
+
+        # Parsowanie i przypisanie nowych danych
+        try:
+            data_val = dane.get('column_4')
+            if data_val:
+                ksztaltowanie.data = datetime.strptime(data_val, '%Y-%m-%d').date()
+            
+            godz_roz = dane.get('column_5')
+            if godz_roz:
+                ksztaltowanie.godzina_rozpoczecia = datetime.strptime(godz_roz, '%H:%M:%S').time()
+
+            godz_zak = dane.get('column_6')
+            if godz_zak:
+                ksztaltowanie.godzina_zakonczenia = datetime.strptime(godz_zak, '%H:%M:%S').time()
+        except ValueError as e:
+            return jsonify({'message': 'Nieprawidłowy format daty lub czasu!', 'error': str(e)}), 400
+        # Pozostałe pola
+        ksztaltowanie.id_materialu = int(dane.get('column_3', ksztaltowanie.id_materialu))
+        ksztaltowanie.nr_prodio = dane.get('column_9', ksztaltowanie.nr_prodio)
+        ksztaltowanie.ilosc = int(dane.get('column_7', ksztaltowanie.ilosc))
+        ksztaltowanie.ilosc_na_stanie = int(dane.get('column_8', ksztaltowanie.ilosc_na_stanie))
+        ksztaltowanie.nazwa = dane.get('column_1', ksztaltowanie.nazwa)
+        ksztaltowanie.imie_nazwisko = dane.get('column_11', ksztaltowanie.imie_nazwisko)
+        # Sprawdzenie, czy materiał istnieje
+        material = MaterialObejma.query.get(ksztaltowanie.id_materialu) 
+        if material is None:
+            return jsonify({'message': 'Wybrany materiał nie istnieje!'}), 400
+        # Aktualizacja stanu materiału
+        roznica = ksztaltowanie.ilosc_na_stanie - ksztaltowanie.ilosc
+        material.ilosc_sztuk_na_stanie += roznica
+        db.session.add(material)
+        db.session.commit()
+        logger.info(f"Ksztaltowanie_2 o ID {id} zostało zaktualizowane przez {g.user.login}.")
+        return jsonify({'message': 'Rekord zaktualizowany pomyślnie!'}), 200
+    except Exception as e:
+        db.session.rollback()
+        logger.error(f'Wystąpił błąd podczas aktualizacji: {str(e)}')
+        return jsonify({'message': 'Wystąpił błąd podczas aktualizacji!', 'error': str(e)}), 500
+@app.route('ksztaltowanie3')
+def ksztaltowanie3():
+    if not g.user:
+        return render_template('login.html', user=g.user)
+    if g.user.id_uprawnienia == 3:
+        return redirect(url_for('home'))
+    
+    ksztaltowanie = Ksztaltowanie_3.query.all()
+    logger.info(f"{g.user.login} wszedł na stronę ksztaltowania3.")
+    return render_template("ksztaltowanie3.html", user=g.user, ksztaltowanie=ksztaltowanie)
 @app.route('/malarnia')
 def malarnia():
     if not g.user:
