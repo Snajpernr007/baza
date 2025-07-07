@@ -11972,3 +11972,41 @@
 2025-07-07 13:04:09,721 - INFO - 127.0.0.1 - - [07/Jul/2025 13:04:09] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
 2025-07-07 13:04:09,729 - INFO - 127.0.0.1 - - [07/Jul/2025 13:04:09] "GET /static/img/maxmetal.png HTTP/1.1" 200 -
 2025-07-07 13:04:09,745 - INFO - 127.0.0.1 - - [07/Jul/2025 13:04:09] "GET /static/img/logo-male.png HTTP/1.1" 200 -
+2025-07-07 13:09:30,252 - INFO - Administrator wszedł na stronę ksztaltowania.
+2025-07-07 13:09:30,258 - INFO - 127.0.0.1 - - [07/Jul/2025 13:09:30] "GET /ksztaltowanie HTTP/1.1" 200 -
+2025-07-07 13:09:30,290 - INFO - 127.0.0.1 - - [07/Jul/2025 13:09:30] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-07-07 13:09:30,315 - INFO - 127.0.0.1 - - [07/Jul/2025 13:09:30] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-07-07 13:09:30,330 - INFO - 127.0.0.1 - - [07/Jul/2025 13:09:30] "[36mGET /static/img/maxmetal.png HTTP/1.1[0m" 304 -
+2025-07-07 13:09:32,518 - INFO - Administrator wszedł na stronę dodawania ksztaltowania.
+2025-07-07 13:09:32,521 - INFO - 127.0.0.1 - - [07/Jul/2025 13:09:32] "GET /dodaj_ksztaltowanie HTTP/1.1" 200 -
+2025-07-07 13:09:32,549 - INFO - 127.0.0.1 - - [07/Jul/2025 13:09:32] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-07-07 13:09:32,565 - INFO - 127.0.0.1 - - [07/Jul/2025 13:09:32] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-07-07 13:18:38,569 - INFO - Administrator wszedł na stronę główną.
+2025-07-07 13:18:38,570 - INFO - 127.0.0.1 - - [07/Jul/2025 13:18:38] "GET / HTTP/1.1" 200 -
+2025-07-07 13:18:38,596 - INFO - 127.0.0.1 - - [07/Jul/2025 13:18:38] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-07-07 13:18:38,603 - INFO - 127.0.0.1 - - [07/Jul/2025 13:18:38] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-07-07 13:18:38,612 - INFO - 127.0.0.1 - - [07/Jul/2025 13:18:38] "[36mGET /static/img/maxmetal.png HTTP/1.1[0m" 304 -
+2025-07-07 13:18:40,908 - INFO - Administrator wszedł na stronę malarni.
+2025-07-07 13:18:40,912 - INFO - 127.0.0.1 - - [07/Jul/2025 13:18:40] "GET /malarnia HTTP/1.1" 200 -
+2025-07-07 13:18:40,939 - INFO - 127.0.0.1 - - [07/Jul/2025 13:18:40] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-07-07 13:18:40,952 - INFO - 127.0.0.1 - - [07/Jul/2025 13:18:40] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-07-07 13:18:40,955 - INFO - 127.0.0.1 - - [07/Jul/2025 13:18:40] "[36mGET /static/img/maxmetal.png HTTP/1.1[0m" 304 -
+2025-07-07 13:18:41,828 - INFO - Administrator wszedł na stronę główną.
+2025-07-07 13:18:41,829 - INFO - 127.0.0.1 - - [07/Jul/2025 13:18:41] "GET / HTTP/1.1" 200 -
+2025-07-07 13:18:41,864 - INFO - 127.0.0.1 - - [07/Jul/2025 13:18:41] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-07-07 13:18:41,873 - INFO - 127.0.0.1 - - [07/Jul/2025 13:18:41] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-07-07 13:18:41,875 - INFO - 127.0.0.1 - - [07/Jul/2025 13:18:41] "[36mGET /static/img/maxmetal.png HTTP/1.1[0m" 304 -
+2025-07-07 13:34:05,866 - INFO -  * Detected change in 'C:\\Users\\admin\\Documents\\GitHub\\baza\\baza danych maxmetal\\python\\index.py', reloading
+2025-07-07 13:34:11,945 - INFO - Połączenie z bazą danych zostało nawiązane pomyślnie.
+2025-07-07 13:34:12,074 - INFO - ✅ Kopia zapasowa zapisana do pliku: backups\kopie_zapasowe_bazy_2025-07-07_13-34.sql
+2025-07-07 13:34:12,077 - INFO - 🗑️ Usunięto starą kopię: kopie_zapasowe_bazy_2025-07-02_00-25.sql
+2025-07-07 13:34:12,089 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.0.16:5000
+2025-07-07 13:34:12,090 - INFO - [33mPress CTRL+C to quit[0m
+2025-07-07 13:34:12,091 - INFO -  * Restarting with stat
+2025-07-07 13:34:14,670 - INFO - Połączenie z bazą danych zostało nawiązane pomyślnie.
+2025-07-07 13:34:14,776 - INFO - ✅ Kopia zapasowa zapisana do pliku: backups\kopie_zapasowe_bazy_2025-07-07_13-34.sql
+2025-07-07 13:34:14,783 - WARNING -  * Debugger is active!
+2025-07-07 13:34:14,787 - INFO -  * Debugger PIN: 268-383-297

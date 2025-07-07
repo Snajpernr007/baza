@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Maj 07, 2025 at 02:14 PM
+-- Generation Time: Lip 07, 2025 at 01:33 PM
 -- Wersja serwera: 10.4.32-MariaDB
 -- Wersja PHP: 8.2.12
 
@@ -69,10 +69,10 @@ INSERT INTO `dostawcy` (`id`, `nazwa`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktura tabeli dla tabeli `ksztaltowanie`
+-- Struktura tabeli dla tabeli `ksztaltowanie_1`
 --
 
-CREATE TABLE `ksztaltowanie` (
+CREATE TABLE `ksztaltowanie_1` (
   `id` int(11) NOT NULL,
   `rozmiar` varchar(255) DEFAULT NULL,
   `data` date DEFAULT NULL,
@@ -83,7 +83,48 @@ CREATE TABLE `ksztaltowanie` (
   `nr_prodio` varchar(100) DEFAULT NULL,
   `id_materialu` int(11) DEFAULT NULL,
   `id_pracownik` int(11) DEFAULT NULL,
-  `imie_nazwisko` varchar(255) DEFAULT NULL
+  `imie_nazwisko` varchar(255) DEFAULT NULL,
+  `nazwa` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Struktura tabeli dla tabeli `ksztaltowanie_2`
+--
+
+CREATE TABLE `ksztaltowanie_2` (
+  `id` int(11) NOT NULL,
+  `id_ksztaltowanie_1` int(11) DEFAULT NULL,
+  `data` date DEFAULT NULL,
+  `godzina_rozpoczecia` time DEFAULT NULL,
+  `godzina_zakonczenia` time DEFAULT NULL,
+  `ilosc` int(11) DEFAULT NULL,
+  `ilosc_na_stanie` int(11) DEFAULT NULL,
+  `nr_prodio` varchar(100) DEFAULT NULL,
+  `id_pracownik` int(11) DEFAULT NULL,
+  `imie_nazwisko` varchar(255) DEFAULT NULL,
+  `nazwa` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Struktura tabeli dla tabeli `ksztaltowanie_3`
+--
+
+CREATE TABLE `ksztaltowanie_3` (
+  `id` int(11) NOT NULL,
+  `id_ksztaltowanie_2` int(11) DEFAULT NULL,
+  `data` date DEFAULT NULL,
+  `godzina_rozpoczecia` time DEFAULT NULL,
+  `godzina_zakonczenia` time DEFAULT NULL,
+  `ilosc` int(11) DEFAULT NULL,
+  `ilosc_na_stanie` int(11) DEFAULT NULL,
+  `nr_prodio` varchar(100) DEFAULT NULL,
+  `id_pracownik` int(11) DEFAULT NULL,
+  `imie_nazwisko` varchar(255) DEFAULT NULL,
+  `nazwa` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -125,7 +166,7 @@ INSERT INTO `lokalizacja` (`id`, `nazwa`) VALUES
 
 CREATE TABLE `malarnia` (
   `id` int(11) NOT NULL,
-  `id_ksztaltowanie` int(11) DEFAULT NULL,
+  `id_ksztaltowanie_3` int(11) DEFAULT NULL,
   `ilosc` int(11) DEFAULT NULL,
   `ilosc_na_stanie` int(11) DEFAULT NULL,
   `nr_prodio` varchar(100) DEFAULT NULL,
@@ -151,6 +192,19 @@ CREATE TABLE `material_obejma` (
   `id_rozmiaru` int(11) DEFAULT NULL,
   `id_pracownik` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `material_obejma`
+--
+
+INSERT INTO `material_obejma` (`id`, `certyfikat`, `data_dostawy`, `nr_wytopu`, `nr_prodio`, `ilosc_sztuk`, `ilosc_sztuk_na_stanie`, `id_rozmiaru`, `id_pracownik`) VALUES
+(1, NULL, '5464-06-04', '546', '56', 45, -441, 1, 1),
+(2, NULL, '6765-05-07', '765', '756', 756, 756, 1, 1),
+(3, NULL, '2025-05-29', 'erw', 'wer', 43, 12, 1, 1),
+(4, '234', '0234-04-23', '3', '234', 234, 250, 1, 1),
+(5, '213', '0123-03-12', '2131', '2131', 321312, 321312, 1, 1),
+(6, '453', '3543-04-05', '43534', '453345', 3453453, 3453453, 1, 1),
+(7, '321', '0003-02-23', '32', '23', 32, 144, 2, 1);
 
 -- --------------------------------------------------------
 
@@ -197,17 +251,19 @@ CREATE TABLE `profil` (
 --
 
 INSERT INTO `profil` (`id`, `id_tasmy`, `data_produkcji`, `godz_min_rozpoczecia`, `godz_min_zakonczenia`, `zwrot_na_magazyn_kg`, `id_szablon_profile`, `nazwa_klienta_nr_zlecenia_PRODIO`, `ilosc`, `ilosc_na_stanie`, `id_dlugosci`, `id_pracownika`, `Imie_nazwisko_pracownika`, `Data_do_usuwania`) VALUES
-(65, 52, '2025-04-28', '19:16:29', '19:16:44', 3.00, 3, '3422', 243, 243, 1, 1, '432', '2026-04-28'),
+(65, 52, '2025-04-28', '19:16:29', '19:16:44', 3.00, 3, '3422', 243, 238, 1, 1, '432', '2026-04-28'),
 (66, 52, '2025-04-28', '19:16:33', '19:16:50', 2.00, 3, '432', 34, 34, 1, 1, '234', '2026-04-28'),
 (67, 52, '2025-04-28', '19:17:32', '20:42:55', 0.00, 3, '1', 567, 567, 5, 19, '1', '2026-04-28'),
 (68, 52, '2025-04-28', '20:42:33', '20:42:47', 1.00, 3, '453', 534, 534, 5, 1, '543', '2026-04-28'),
 (69, 53, '2025-04-28', '20:43:31', '20:44:07', 0.00, 3, '64', 342, 342, 6, 1, '6', '2026-04-28'),
 (70, 54, '2025-05-06', '12:28:55', '12:29:15', 111.00, 3, '213', 11, 11, 1, 1, '213', '2026-05-06'),
-(71, 54, '2025-05-06', '12:48:34', '12:48:45', 1.00, 3, '213', 123, 123, 1, 19, '123', '2026-05-06'),
+(71, 54, '2025-05-06', '12:48:34', '12:48:45', 1.00, 4, '213', 123, 123, 3, 19, '123', '2026-05-06'),
 (72, 55, '2025-05-06', '14:45:40', '14:48:29', 0.00, 3, '7', 1, 1, 1, 1, '7', '2026-05-06'),
 (73, 55, '2025-05-06', '14:51:25', '14:51:50', 0.00, 3, '76', 1, 1, 1, 1, '567', '2026-05-06'),
-(74, 55, '2025-05-06', '15:34:12', '15:35:22', 59.02, 4, '6', 1, 1, 1, 1, '6', '2026-05-06'),
-(75, 54, '2025-05-07', '12:06:21', NULL, NULL, 3, '45334', NULL, NULL, NULL, 1, '534543', '2026-05-07');
+(74, 55, '2025-05-06', '15:34:12', '15:35:22', 59.02, 4, '6', 1, 1, 3, 1, '6', '2026-05-06'),
+(75, 54, '2025-05-07', '12:06:21', NULL, NULL, 3, '45334', NULL, NULL, NULL, 1, '534543', '2026-05-07'),
+(76, 55, '2025-05-25', '19:08:53', '19:10:26', 30.00, 3, 'warlawen', 60, 60, 6, 1, 'Kuba Kaczmarek', '2026-05-25'),
+(77, 55, '2025-05-27', '12:44:30', '12:46:19', 10.00, 3, 'WZ123', 1000, 1000, 6, 19, 'Jakub Kaczmarek', '2026-05-27');
 
 -- --------------------------------------------------------
 
@@ -219,6 +275,14 @@ CREATE TABLE `rozmiary_obejm` (
   `id` int(11) NOT NULL,
   `nazwa` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `rozmiary_obejm`
+--
+
+INSERT INTO `rozmiary_obejm` (`id`, `nazwa`) VALUES
+(1, '66'),
+(2, 'sda2');
 
 -- --------------------------------------------------------
 
@@ -304,7 +368,7 @@ INSERT INTO `tasma` (`id`, `data_z_etykiety_na_kregu`, `grubosc`, `szerokosc`, `
 (52, '0033-03-21', 0.00, 0.00, 132.00, 0.00, '321', '321', 1, '213', '0123-03-21', 1, 2, 4, '2026-04-27'),
 (53, '2025-06-25', 0.00, 0.00, 5.00, 0.00, '5', '4', 1, '15472', '2025-04-25', 1, 1, 4, '2026-04-28'),
 (54, '0576-06-07', 0.00, 0.00, 765.00, 1.00, '756', '756', 1, '576', '0006-05-07', 1, 5, 4, '2026-04-28'),
-(55, '2025-08-08', 1.52, 77.00, 324.00, 59.02, '342', '234', 1, '234', '0434-04-04', 20, 1, 3, '2026-05-06');
+(55, '2025-08-08', 1.52, 77.00, 324.00, 10.00, '342', '234', 1, '234', '0434-04-04', 20, 1, 3, '2026-05-06');
 
 -- --------------------------------------------------------
 
@@ -345,7 +409,7 @@ CREATE TABLE `uzytkownicy` (
 
 INSERT INTO `uzytkownicy` (`id`, `login`, `haslo`, `id_uprawnienia`) VALUES
 (1, 'Administrator', 'scrypt:32768:8:1$UCBwCJVWPxR43fNh$e822900a3b12c3c4ac274af1701eedd757ba770bba15d8994d2814684fceaed06db771d8ed214e75ec9cb2d9a95ccf7e01b3c4f49bc407c52fe141547a91077b', 1),
-(19, 'test4', 'scrypt:32768:8:1$PQ2il1l6Nw5XvM6y$479d92f3fc6f1591c8ec89c249807369991b49827a039f9bcb4f841030184161ce2d46db35dbb843c37ddd053810ea62ba86537261cb853bd8952714ee48a1fa', 3),
+(19, 'test4', 'scrypt:32768:8:1$GsL9GxyDMPYKUS5M$5bf70ac57ecb3a3bdf1e83b676de9f1534be0c8d1d30c02cb65bb26dd9441c8a4fc4057237df9ce59f91deff5989b5c941eefaca267ee8dfb4298161abadb65e', 3),
 (20, 'test5', 'scrypt:32768:8:1$dNUmTnd7ZwVAjUJx$4e6e57c0802dc3bb5b6d73f051003d51aeb022f920954ceabd89cfd982bc795d86a1549a49ffc6bfdea1eedd444884d45467a94d46e118dd7bc162d9ab90ea41', 1);
 
 -- --------------------------------------------------------
@@ -385,11 +449,27 @@ ALTER TABLE `dostawcy`
   ADD UNIQUE KEY `nazwa` (`nazwa`);
 
 --
--- Indeksy dla tabeli `ksztaltowanie`
+-- Indeksy dla tabeli `ksztaltowanie_1`
 --
-ALTER TABLE `ksztaltowanie`
+ALTER TABLE `ksztaltowanie_1`
   ADD PRIMARY KEY (`id`),
   ADD KEY `id_materialu` (`id_materialu`),
+  ADD KEY `id_pracownik` (`id_pracownik`);
+
+--
+-- Indeksy dla tabeli `ksztaltowanie_2`
+--
+ALTER TABLE `ksztaltowanie_2`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `id_ksztaltowanie_1` (`id_ksztaltowanie_1`),
+  ADD KEY `id_pracownik` (`id_pracownik`);
+
+--
+-- Indeksy dla tabeli `ksztaltowanie_3`
+--
+ALTER TABLE `ksztaltowanie_3`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `id_ksztaltowanie_2` (`id_ksztaltowanie_2`),
   ADD KEY `id_pracownik` (`id_pracownik`);
 
 --
@@ -411,8 +491,8 @@ ALTER TABLE `lokalizacja`
 --
 ALTER TABLE `malarnia`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `id_ksztaltowanie` (`id_ksztaltowanie`),
-  ADD KEY `id_pracownik` (`id_pracownik`);
+  ADD KEY `id_pracownik` (`id_pracownik`),
+  ADD KEY `malarnia_ibfk_1` (`id_ksztaltowanie_3`);
 
 --
 -- Indeksy dla tabeli `material_obejma`
@@ -506,16 +586,28 @@ ALTER TABLE `dostawcy`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
--- AUTO_INCREMENT for table `ksztaltowanie`
+-- AUTO_INCREMENT for table `ksztaltowanie_1`
 --
-ALTER TABLE `ksztaltowanie`
+ALTER TABLE `ksztaltowanie_1`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `ksztaltowanie_2`
+--
+ALTER TABLE `ksztaltowanie_2`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `ksztaltowanie_3`
+--
+ALTER TABLE `ksztaltowanie_3`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `laczenie`
 --
 ALTER TABLE `laczenie`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT for table `lokalizacja`
@@ -527,31 +619,31 @@ ALTER TABLE `lokalizacja`
 -- AUTO_INCREMENT for table `malarnia`
 --
 ALTER TABLE `malarnia`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `material_obejma`
 --
 ALTER TABLE `material_obejma`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `powrot`
 --
 ALTER TABLE `powrot`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `profil`
 --
 ALTER TABLE `profil`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=76;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=78;
 
 --
 -- AUTO_INCREMENT for table `rozmiary_obejm`
 --
 ALTER TABLE `rozmiary_obejm`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `szablon`
@@ -587,18 +679,32 @@ ALTER TABLE `uzytkownicy`
 -- AUTO_INCREMENT for table `zlecenie`
 --
 ALTER TABLE `zlecenie`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- Constraints for dumped tables
 --
 
 --
--- Constraints for table `ksztaltowanie`
+-- Constraints for table `ksztaltowanie_1`
 --
-ALTER TABLE `ksztaltowanie`
-  ADD CONSTRAINT `ksztaltowanie_ibfk_1` FOREIGN KEY (`id_materialu`) REFERENCES `material_obejma` (`id`),
-  ADD CONSTRAINT `ksztaltowanie_ibfk_2` FOREIGN KEY (`id_pracownik`) REFERENCES `uzytkownicy` (`id`);
+ALTER TABLE `ksztaltowanie_1`
+  ADD CONSTRAINT `ksztaltowanie_1_ibfk_1` FOREIGN KEY (`id_materialu`) REFERENCES `material_obejma` (`id`),
+  ADD CONSTRAINT `ksztaltowanie_1_ibfk_2` FOREIGN KEY (`id_pracownik`) REFERENCES `uzytkownicy` (`id`);
+
+--
+-- Constraints for table `ksztaltowanie_2`
+--
+ALTER TABLE `ksztaltowanie_2`
+  ADD CONSTRAINT `ksztaltowanie_2_ibfk_1` FOREIGN KEY (`id_ksztaltowanie_1`) REFERENCES `ksztaltowanie_1` (`id`),
+  ADD CONSTRAINT `ksztaltowanie_2_ibfk_2` FOREIGN KEY (`id_pracownik`) REFERENCES `uzytkownicy` (`id`);
+
+--
+-- Constraints for table `ksztaltowanie_3`
+--
+ALTER TABLE `ksztaltowanie_3`
+  ADD CONSTRAINT `ksztaltowanie_3_ibfk_1` FOREIGN KEY (`id_ksztaltowanie_2`) REFERENCES `ksztaltowanie_2` (`id`),
+  ADD CONSTRAINT `ksztaltowanie_3_ibfk_2` FOREIGN KEY (`id_pracownik`) REFERENCES `uzytkownicy` (`id`);
 
 --
 -- Constraints for table `laczenie`
@@ -611,7 +717,7 @@ ALTER TABLE `laczenie`
 -- Constraints for table `malarnia`
 --
 ALTER TABLE `malarnia`
-  ADD CONSTRAINT `malarnia_ibfk_1` FOREIGN KEY (`id_ksztaltowanie`) REFERENCES `ksztaltowanie` (`id`),
+  ADD CONSTRAINT `malarnia_ibfk_1` FOREIGN KEY (`id_ksztaltowanie_3`) REFERENCES `ksztaltowanie_3` (`id`),
   ADD CONSTRAINT `malarnia_ibfk_2` FOREIGN KEY (`id_pracownik`) REFERENCES `uzytkownicy` (`id`);
 
 --

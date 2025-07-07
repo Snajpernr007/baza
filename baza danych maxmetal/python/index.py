@@ -205,8 +205,8 @@ class MaterialObejma(db.Model):
         return f"<MaterialObejma {self.id} - {self.nr_prodio}>"
 
 
-class Ksztaltowanie(db.Model):
-    __tablename__ = 'ksztaltowanie'
+class Ksztaltowanie1(db.Model):
+    __tablename__ = 'ksztaltowanie_1'
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)
     rozmiar = db.Column(db.String(255))
     data = db.Column(db.Date)
@@ -224,13 +224,56 @@ class Ksztaltowanie(db.Model):
     pracownik = db.relationship('Uzytkownik')
 
     def __repr__(self):
-        return f"<Ksztaltowanie {self.id} - {self.nr_prodio}>"
+        return f"<Ksztaltowanie1 {self.id} - {self.nr_prodio}>"
+
+class Ksztaltowanie2(db.Model):
+    __tablename__ = 'ksztaltowanie_2'
+    id = db.Column(db.Integer, primary_key=True, autoincrement=True)
+    rozmiar = db.Column(db.String(255))
+    data = db.Column(db.Date)
+    godzina_rozpoczecia = db.Column(db.Time)
+    godzina_zakonczenia = db.Column(db.Time)
+    ilosc = db.Column(db.Integer)
+    ilosc_na_stanie = db.Column(db.Integer)
+    nr_prodio = db.Column(db.String(100))
+    id_ksztaltowanie_1 = db.Column(db.Integer, db.ForeignKey('ksztaltowanie_1.id'))
+    id_pracownik = db.Column(db.Integer, db.ForeignKey('uzytkownicy.id'))
+    imie_nazwisko = db.Column(db.String(255))
+    nazwa = db.Column(db.String(255), nullable=True)
+
+    ksztaltowanie_1 = db.relationship('Ksztaltowanie1')
+    pracownik = db.relationship('Uzytkownik')
+
+    def __repr__(self):
+        return f"<Ksztaltowanie2 {self.id} - {self.nr_prodio}>"
+
+class Ksztaltowanie3(db.Model):
+    __tablename__ = 'ksztaltowanie_3'
+    id = db.Column(db.Integer, primary_key=True, autoincrement=True)
+    rozmiar = db.Column(db.String(255))
+    data = db.Column(db.Date)
+    godzina_rozpoczecia = db.Column(db.Time)
+    godzina_zakonczenia = db.Column(db.Time)
+    ilosc = db.Column(db.Integer)
+    ilosc_na_stanie = db.Column(db.Integer)
+    nr_prodio = db.Column(db.String(100))
+    id_ksztaltowanie_2 = db.Column(db.Integer, db.ForeignKey('ksztaltowanie_2.id'))
+    id_pracownik = db.Column(db.Integer, db.ForeignKey('uzytkownicy.id'))
+    imie_nazwisko = db.Column(db.String(255))
+    nazwa = db.Column(db.String(255), nullable=True)
+
+    ksztaltowanie_2 = db.relationship('Ksztaltowanie2')
+    pracownik = db.relationship('Uzytkownik')
+
+    def __repr__(self):
+        return f"<Ksztaltowanie3 {self.id} - {self.nr_prodio}>"
+
 
 
 class Malarnia(db.Model):
     __tablename__ = 'malarnia'
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)
-    id_ksztaltowanie = db.Column(db.Integer, db.ForeignKey('ksztaltowanie.id'))
+    id_ksztaltowanie_3 = db.Column(db.Integer, db.ForeignKey('ksztaltowanie_3.id'))
     ilosc = db.Column(db.Integer)
     ilosc_na_stanie = db.Column(db.Integer)
     nr_prodio = db.Column(db.String(100))
@@ -238,7 +281,7 @@ class Malarnia(db.Model):
     id_pracownik = db.Column(db.Integer, db.ForeignKey('uzytkownicy.id'))
     imie_nazwisko = db.Column(db.String(255))
 
-    ksztaltowanie = db.relationship('Ksztaltowanie')
+    ksztaltowanie_3 = db.relationship('Ksztaltowanie3')
     pracownik = db.relationship('Uzytkownik')
 
     def __repr__(self):
