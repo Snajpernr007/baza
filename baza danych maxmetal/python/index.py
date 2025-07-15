@@ -1845,6 +1845,36 @@ def update_row_material_obejma():
     except Exception as e:
         db.session.rollback()
         return jsonify({'message': 'Wystąpił błąd podczas aktualizacji!', 'error': str(e)}), 500
+@app.route('/usun_material_obejma/<int:id>', methods=['POST'])
+def usun_material_obejma(id):
+    if not g.user:
+        return render_template('login.html', user=g.user)
+    if g.user.id_uprawnienia == 3:
+        return redirect(url_for('home'))
+
+    material = MaterialObejma.query.get_or_404(id)
+
+    try:
+        db.session.delete(material)
+        db.session.commit()
+
+        logger.info(
+            f"Materiał Obejma ID {material.id} usunięty przez {g.user.login}. "
+            f"Szczegóły: certyfikat: {material.certyfikat}, "
+            f"nr prodio: {material.nr_prodio}, "
+            f"nr wytopu: {material.nr_wytopu}, "
+            f"ilość: {material.ilosc_sztuk}, "
+            f"data dostawy: {material.data_dostawy}, "
+            f"rozmiar: {material.rozmiar.nazwa if material.rozmiar else 'Brak'}, "
+            f"pracownik: {material.pracownik.login if material.pracownik else 'Brak'}."
+        )
+        flash('Materiał został usunięty.', 'success')
+    except Exception as e:
+        db.session.rollback()
+        logger.error(f'Błąd przy usuwaniu materiału: {e}')
+        flash(f'Błąd przy usuwaniu: {e}', 'danger')
+
+    return redirect(request.referrer or url_for('home'))
 
 @app.route('/ksztaltowanie1')
 def ksztaltowanie1():
