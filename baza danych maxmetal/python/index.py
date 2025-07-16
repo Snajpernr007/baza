@@ -440,7 +440,7 @@ def home():
     resp.set_cookie('last', request.path)  # Zapisz ostatni URL
 
     return resp
-@app.route('/logi')
+@app.route('/pokaz_logi')
 def pokaz_logi():
     try:
         with open('logs/app.log', 'r', encoding='utf-8') as f:

@@ -14325,3 +14325,30 @@
 2025-07-16 13:36:30,399 - INFO - 127.0.0.1 - - [16/Jul/2025 13:36:30] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
 2025-07-16 13:36:30,428 - INFO - 127.0.0.1 - - [16/Jul/2025 13:36:30] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
 2025-07-16 13:36:30,452 - INFO - 127.0.0.1 - - [16/Jul/2025 13:36:30] "[36mGET /static/img/maxmetal.png HTTP/1.1[0m" 304 -
+2025-07-16 13:49:43,242 - INFO - Administrator wszedł na stronę główną.
+2025-07-16 13:49:43,393 - INFO - 127.0.0.1 - - [16/Jul/2025 13:49:43] "GET / HTTP/1.1" 200 -
+2025-07-16 13:49:43,449 - INFO - 127.0.0.1 - - [16/Jul/2025 13:49:43] "GET /static/style.css HTTP/1.1" 200 -
+2025-07-16 13:49:43,458 - INFO - 127.0.0.1 - - [16/Jul/2025 13:49:43] "GET /static/img/logo-duże.png HTTP/1.1" 200 -
+2025-07-16 13:49:43,469 - INFO - 127.0.0.1 - - [16/Jul/2025 13:49:43] "GET /static/img/maxmetal.png HTTP/1.1" 200 -
+2025-07-16 13:51:14,646 - INFO - Administrator wszedł na stronę główną.
+2025-07-16 13:51:14,832 - INFO - 127.0.0.1 - - [16/Jul/2025 13:51:14] "[35m[1mGET / HTTP/1.1[0m" 500 -
+2025-07-16 13:51:14,911 - INFO - 127.0.0.1 - - [16/Jul/2025 13:51:14] "GET /?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1" 200 -
+2025-07-16 13:51:14,912 - INFO - 127.0.0.1 - - [16/Jul/2025 13:51:14] "GET /?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1" 200 -
+2025-07-16 13:51:14,966 - INFO - 127.0.0.1 - - [16/Jul/2025 13:51:14] "GET /?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+2025-07-16 13:51:14,981 - INFO - 127.0.0.1 - - [16/Jul/2025 13:51:14] "GET /?__debugger__=yes&cmd=resource&f=console.png&s=HgtOTnUgVswj6sYdvesp HTTP/1.1" 200 -
+2025-07-16 13:52:05,774 - INFO -  * Detected change in 'C:\\Users\\admin\\Documents\\GitHub\\baza\\baza danych maxmetal\\python\\index.py', reloading
+2025-07-16 13:52:09,564 - INFO -  * Restarting with stat
+2025-07-16 13:52:12,186 - INFO - Połączenie z bazą danych zostało nawiązane pomyślnie.
+2025-07-16 13:52:12,299 - INFO - ✅ Kopia zapasowa zapisana do pliku: backups\kopie_zapasowe_bazy_2025-07-16_13-52.sql
+2025-07-16 13:52:12,301 - INFO - 🗑️ Usunięto starą kopię: kopie_zapasowe_bazy_2025-07-16_12-56.sql
+2025-07-16 13:52:12,307 - WARNING -  * Debugger is active!
+2025-07-16 13:52:12,311 - INFO -  * Debugger PIN: 268-383-297
+2025-07-16 13:52:23,717 - INFO - Administrator wszedł na stronę główną.
+2025-07-16 13:52:23,879 - INFO - 127.0.0.1 - - [16/Jul/2025 13:52:23] "GET / HTTP/1.1" 200 -
+2025-07-16 13:52:23,927 - INFO - 127.0.0.1 - - [16/Jul/2025 13:52:23] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-07-16 13:52:23,934 - INFO - 127.0.0.1 - - [16/Jul/2025 13:52:23] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-07-16 13:52:23,956 - INFO - 127.0.0.1 - - [16/Jul/2025 13:52:23] "[36mGET /static/img/maxmetal.png HTTP/1.1[0m" 304 -
+2025-07-16 13:52:27,223 - INFO - 127.0.0.1 - - [16/Jul/2025 13:52:27] "GET /pokaz_logi HTTP/1.1" 200 -
+2025-07-16 13:52:27,286 - INFO - 127.0.0.1 - - [16/Jul/2025 13:52:27] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-07-16 13:52:27,295 - INFO - 127.0.0.1 - - [16/Jul/2025 13:52:27] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-07-16 13:52:27,304 - INFO - 127.0.0.1 - - [16/Jul/2025 13:52:27] "[36mGET /static/img/maxmetal.png HTTP/1.1[0m" 304 -
