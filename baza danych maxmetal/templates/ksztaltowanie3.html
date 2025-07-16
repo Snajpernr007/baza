@@ -141,18 +141,18 @@ function openEditModal(row) {
 
         // Zamień komórki na input/select
         cells.forEach((cell, index) => {
-            if (index > 0 && index < cells.length - 1 && index !=10 && index != 2) {
-                if (index === 3) {
+            if (index > 0 && index < cells.length - 1 && index !=10 && index != 3 && index != 4) {
+                if (index === 2) {
                     const currentMaterialId = cell.getAttribute("data-material-id");
                     cell.innerHTML = `<select id="materialSelect" style="width: 100%;"></select>`;
                     populateMaterialy(cell.querySelector("select"), currentMaterialId);
-                } else if (index === 4) {
+                } else if (index === 5) {
                     const value = cell.innerText;
                     cell.innerHTML = `<input type="date" value="${value}" style="width: 100%;">`;
-                } else if (index === 7 || index === 8) {
+                } else if (index === 8 || index === 9) {
                     const value = cell.innerText;
                     cell.innerHTML = `<input type="number" value="${value}" style="width: 100%;">`;
-                }else if (index === 6 || index==5 ) { // Weight fields
+                }else if (index === 6 || index==7 ) { // Weight fields
             const value = cell.innerText;
             cell.innerHTML = `<input type="time" value="${value}" step="2" style="width: 100%;">`;
         } else {
@@ -168,11 +168,11 @@ function openEditModal(row) {
         let isValid = true;
 
         cells.forEach((cell, index) => {
-            if (index > 0 && index < cells.length - 1 && index != 10 && index != 2) {
+            if (index > 0 && index < cells.length - 1 && index != 10 && index != 3 && index != 4) {
                 const input = cell.querySelector("input") || cell.querySelector("select");
                 if (input) {
                     const value = input.value.trim();
-                    if (!value || (index === 3 && value === "")) {
+                    if (!value || (index === 2 && value === "")) {
                         isValid = false;
                     } else {
                         if (input.tagName === "SELECT") {
@@ -186,7 +186,7 @@ function openEditModal(row) {
                         }
                     }
                 }
-            } else if (index === 0 || index >= cells.length - 3) {
+            } else if (index === 0 || index >= cells.length - 3 && index != 4) {
                 updatedData[`column_${index}`] = cell.innerText;
             }
         });
@@ -204,13 +204,13 @@ function openEditModal(row) {
 }
 
 function populateMaterialy(selectElement, selectedValue) {
-    fetch('/get-material')
+    fetch('/get-ksztaltowanie2')
         .then(response => response.json())
         .then(data => {
             data.forEach(material => {
                 const option = document.createElement('option');
-                option.value = material.id.toString();
-                option.textContent = material.nr_wytopu;
+                option.value = ksztaltowanie.id.toString();
+                option.textContent = ksztaltowanie.nazwa;
                 selectElement.appendChild(option);
             });
 
@@ -450,9 +450,9 @@ function sendDataToBackend(data) {
                         <tr>
                             <td>{{ ksztaltowania.id }} </td>
                             <td>{{ ksztaltowania.nazwa }}</td>
-                            <td>{{ksztaltowania.ksztaltowanie_2.nazwa}}</td>
+                            <td data-material-id="{{ ksztaltowania.ksztaltowanie_2.id }}">{{ksztaltowania.ksztaltowanie_2.nazwa}}</td>
                             <td>{{ ksztaltowania.ksztaltowanie_2.ksztaltowanie_1.material.rozmiar.nazwa }}</td>
-                            <td data-material-id="{{ ksztaltowania.ksztaltowanie_2.ksztaltowanie_1.material.id }}">{{ ksztaltowania.ksztaltowanie_2.ksztaltowanie_1.material.nr_wytopu}}</td>
+                            <td >{{ ksztaltowania.ksztaltowanie_2.ksztaltowanie_1.material.nr_wytopu}}</td>
                             <td>{{ ksztaltowania.data }} </td>
                             <td>{{ ksztaltowania.godzina_rozpoczecia }}</td>
                             <td>{{ ksztaltowania.godzina_zakonczenia }} </td>
