@@ -489,7 +489,9 @@ function filterTable() {
 
                             
                             <td><button type="button" class="button" onclick="openEditModal(this.parentElement.parentElement)">Edytuj</button>
-                            <button type="button" class="button">Usuń</button></td>
+                            <form method="POST" style="display:inline;background-color: transparent;width: 0;padding: 0%;" action="{{ url_for('usun_ksztaltowanie1', id=ksztaltowania.id) }}" onsubmit="return confirm('Na pewno chcesz usunąć ten materiał?');">
+                                <button type="submit" class="button">Usuń</button>
+                            </form></td>
                         </tr>
                     {% endfor %}
                 </tbody>

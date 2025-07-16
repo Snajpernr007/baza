@@ -1904,7 +1904,35 @@ def usun_ksztaltowanie1(id):
         flash(f'Błąd przy usuwaniu: {e}', 'danger')
 
     return redirect(request.referrer or url_for('home'))
-    
+
+@app.route('/usun_malarnie/<int:id>', methods=['POST'])
+def usun_malarnie(id):
+    if not g.user:
+        return render_template('login.html', user=g.user)
+    if g.user.id_uprawnienia == 3:
+        return redirect(url_for('home'))
+
+    malarnia = Malarnia.query.get_or_404(id)
+
+    try:
+        db.session.delete(malarnia)
+        db.session.commit()
+
+        logger.info(
+            f"Malarnia ID {malarnia.id} usunięta przez {g.user.login}. "
+            f"Szczegóły: nr prodio: {malarnia.nr_prodio}, "
+            f"data: {malarnia.data}, "
+            f"ilość: {malarnia.ilosc}, "
+            f"pracownik: {malarnia.pracownik.login if malarnia.pracownik else 'Brak'}."
+        )
+        flash('Malarnia została usunięta.', 'success')
+    except Exception as e:
+        db.session.rollback()
+        logger.error(f'Błąd przy usuwaniu malarni: {e}')
+        flash(f'Błąd przy usuwaniu: {e}', 'danger')
+
+    return redirect(request.referrer or url_for('home'))
+
 @app.route('/ksztaltowanie1')
 def ksztaltowanie1():
     if not g.user:
