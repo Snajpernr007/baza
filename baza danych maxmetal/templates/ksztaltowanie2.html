@@ -130,8 +130,8 @@ function openEditModal(row) {
         const filterRow = document.createElement("tr");
         let filterCells = '';
         for (let i = 0; i < cells.length - 2; i++) {
-            if (i === 3) {
-                filterCells += `<td><input type="text" placeholder="Filtruj Material" onkeyup="filterMaterialy(this.value)" style="width: 100%;"></td>`;
+            if (i === 2) {
+                filterCells += `<td><input type="text" placeholder="Filtruj Ksztaltowanie" onkeyup="filterMaterialy(this.value)" style="width: 100%;"></td>`;
             } else {
                 filterCells += `<td></td>`;
             }
@@ -141,18 +141,18 @@ function openEditModal(row) {
 
         // Zamień komórki na input/select
         cells.forEach((cell, index) => {
-            if (index > 0 && index < cells.length - 1 && index !=10 && index != 2) {
-                if (index === 3) {
+            if (index > 0 && index < cells.length - 1 && index !=11 && index != 3) {
+                if (index === 2) {
                     const currentMaterialId = cell.getAttribute("data-material-id");
                     cell.innerHTML = `<select id="materialSelect" style="width: 100%;"></select>`;
                     populateMaterialy(cell.querySelector("select"), currentMaterialId);
-                } else if (index === 4) {
+                } else if (index === 5) {
                     const value = cell.innerText;
                     cell.innerHTML = `<input type="date" value="${value}" style="width: 100%;">`;
-                } else if (index === 7 || index === 8) {
+                } else if (index === 8 || index === 9) {
                     const value = cell.innerText;
                     cell.innerHTML = `<input type="number" value="${value}" style="width: 100%;">`;
-                }else if (index === 6 || index==5 ) { // Weight fields
+                }else if (index === 6 || index==7 ) { // Weight fields
             const value = cell.innerText;
             cell.innerHTML = `<input type="time" value="${value}" step="2" style="width: 100%;">`;
         } else {
@@ -168,11 +168,11 @@ function openEditModal(row) {
         let isValid = true;
 
         cells.forEach((cell, index) => {
-            if (index > 0 && index < cells.length - 1 && index != 10 && index != 2) {
+            if (index > 0 && index < cells.length - 1 && index != 11 && index != 3) {
                 const input = cell.querySelector("input") || cell.querySelector("select");
                 if (input) {
                     const value = input.value.trim();
-                    if (!value || (index === 3 && value === "")) {
+                    if (!value || (index ===2 && value === "")) {
                         isValid = false;
                     } else {
                         if (input.tagName === "SELECT") {
@@ -204,13 +204,13 @@ function openEditModal(row) {
 }
 
 function populateMaterialy(selectElement, selectedValue) {
-    fetch('/get-material')
+    fetch('/get-ksztaltowanie1')
         .then(response => response.json())
         .then(data => {
-            data.forEach(material => {
+            data.forEach(ksztaltowanie => {
                 const option = document.createElement('option');
-                option.value = material.id.toString();
-                option.textContent = material.nr_wytopu;
+                option.value = ksztaltowanie.id.toString();
+                option.textContent = ksztaltowanie.nazwa;
                 selectElement.appendChild(option);
             });
 
@@ -406,6 +406,7 @@ function sendDataToBackend(data) {
                     <tr>
                         <th><input type="text" placeholder="Filtruj ID" onkeyup="filterTable()"></th>
                         <th><input type="text" placeholder="Filtruj Nazwe" onkeyup="filterTable()"></th>
+                        <th><input type="text" placeholder="Filtruj Kształtowanie" onkeyup="filterTable()"></th>
                         <th><input type="text" placeholder="Filtruj Rozmiar" onkeyup="filterTable()"></th>
                         <th><input type="text" placeholder="Filtruj Nr wytopu" onkeyup="filterTable()"></th>
                         <th>OD<input type="date" id="dateFrom" onchange="filterTable()">
@@ -423,16 +424,17 @@ function sendDataToBackend(data) {
                     <tr>
                         <th onclick="sortTable(0)">ID &#9650;&#9660;</th>
                         <th onclick="sortTable(1)">Nazwa</th>
-                        <th onclick="sortTable(2)">Rozmiar &#9650;&#9660;</th>
-                        <th onclick="sortTable(3)">Nr wytopu &#9650;&#9660;</th>
-                        <th onclick="sortTable(4)">Data &#9650;&#9660;</th>
-                        <th onclick="sortTable(5)">Godzina rozpoczecia &#9650;&#9660;</th>
-                        <th onclick="sortTable(6)">Godzina zakończenia &#9650;&#9660;</th>
-                        <th onclick="sortTable(7)">Ilość &#9650;&#9660;</th>
-                        <th onclick="sortTable(8)">Ilość na stanie &#9650;&#9660;</th>
-                        <th onclick="sortTable(9)">Nr prodio &#9650;&#9660;</th>
-                        <th onclick="sortTable(10)">Pracownik &#9650;&#9660;</th>
-                        <th onclick="sortTable(11)">Imię i nazwisko &#9650;&#9660;</th>
+                        <th onclick="sortTable(2)">Kształtowanie &#9650;&#9660;</th>
+                        <th onclick="sortTable(3)">Rozmiar &#9650;&#9660;</th>
+                        <th onclick="sortTable(4)">Nr wytopu &#9650;&#9660;</th>
+                        <th onclick="sortTable(5)">Data &#9650;&#9660;</th>
+                        <th onclick="sortTable(6)">Godzina rozpoczecia &#9650;&#9660;</th>
+                        <th onclick="sortTable(7)">Godzina zakończenia &#9650;&#9660;</th>
+                        <th onclick="sortTable(8)">Ilość &#9650;&#9660;</th>
+                        <th onclick="sortTable(9)">Ilość na stanie &#9650;&#9660;</th>
+                        <th onclick="sortTable(10)">Nr prodio &#9650;&#9660;</th>
+                        <th onclick="sortTable(11)">Pracownik &#9650;&#9660;</th>
+                        <th onclick="sortTable(12)">Imię i nazwisko &#9650;&#9660;</th>
                         
                         
                         <th>Edycja</th>
@@ -443,6 +445,7 @@ function sendDataToBackend(data) {
                         <tr>
                             <td>{{ ksztaltowania.id }} </td>
                             <td>{{ ksztaltowania.nazwa }}</td>
+                            <td>{{ksztaltowania.ksztaltowanie_1.nazwa}}</td>
                             <td>{{ ksztaltowania.ksztaltowanie_1.material.rozmiar.nazwa }}</td>
                             <td data-material-id="{{ ksztaltowania.ksztaltowanie_1.material.id }}">{{ ksztaltowania.ksztaltowanie_1.material.nr_wytopu}}</td>
                             <td>{{ ksztaltowania.data }} </td>

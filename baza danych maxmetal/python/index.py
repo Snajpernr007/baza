@@ -2101,8 +2101,7 @@ def update_row_ksztaltowanie1():
             return jsonify({'message': 'Wybrany materiał nie istnieje!'}), 400
 
         # Aktualizacja stanu materiału
-        roznica = ksztaltowanie.ilosc_na_stanie - ksztaltowanie.ilosc
-        material.ilosc_sztuk_na_stanie += roznica
+        
         db.session.add(material)
 
         db.session.commit()
@@ -2219,7 +2218,7 @@ def update_row_ksztaltowanie2():
             "godzina_rozpoczecia": ksztaltowanie.godzina_rozpoczecia,
             "godzina_zakonczenia": ksztaltowanie.godzina_zakonczenia,
             "data": ksztaltowanie.data,
-            "id_materialu": ksztaltowanie.id_materialu,
+            "ksztaltowanie1": ksztaltowanie.id_ksztaltowanie_1,
             "nr_prodio": ksztaltowanie.nr_prodio,
             "ilosc": ksztaltowanie.ilosc,
             "ilosc_na_stanie": ksztaltowanie.ilosc_na_stanie,
@@ -2229,33 +2228,32 @@ def update_row_ksztaltowanie2():
 
         # Parsowanie i przypisanie nowych danych
         try:
-            data_val = dane.get('column_4')
+            data_val = dane.get('column_5')
             if data_val:
                 ksztaltowanie.data = datetime.strptime(data_val, '%Y-%m-%d').date()
             
-            godz_roz = dane.get('column_5')
+            godz_roz = dane.get('column_6')
             if godz_roz:
                 ksztaltowanie.godzina_rozpoczecia = datetime.strptime(godz_roz, '%H:%M:%S').time()
 
-            godz_zak = dane.get('column_6')
+            godz_zak = dane.get('column_7')
             if godz_zak:
                 ksztaltowanie.godzina_zakonczenia = datetime.strptime(godz_zak, '%H:%M:%S').time()
         except ValueError as e:
             return jsonify({'message': 'Nieprawidłowy format daty lub czasu!', 'error': str(e)}), 400
         # Pozostałe pola
-        ksztaltowanie.id_materialu = int(dane.get('column_3', ksztaltowanie.id_materialu))
-        ksztaltowanie.nr_prodio = dane.get('column_9', ksztaltowanie.nr_prodio)
-        ksztaltowanie.ilosc = int(dane.get('column_7', ksztaltowanie.ilosc))
-        ksztaltowanie.ilosc_na_stanie = int(dane.get('column_8', ksztaltowanie.ilosc_na_stanie))
+        ksztaltowanie.id_ksztaltowanie_1 = int(dane.get('column_2', ksztaltowanie.id_ksztaltowanie_1))
+        ksztaltowanie.nr_prodio = dane.get('column_10', ksztaltowanie.nr_prodio)
+        ksztaltowanie.ilosc = int(dane.get('column_8', ksztaltowanie.ilosc))
+        ksztaltowanie.ilosc_na_stanie = int(dane.get('column_9', ksztaltowanie.ilosc_na_stanie))
         ksztaltowanie.nazwa = dane.get('column_1', ksztaltowanie.nazwa)
-        ksztaltowanie.imie_nazwisko = dane.get('column_11', ksztaltowanie.imie_nazwisko)
+        ksztaltowanie.imie_nazwisko = dane.get('column_12', ksztaltowanie.imie_nazwisko)
         # Sprawdzenie, czy materiał istnieje
-        material = MaterialObejma.query.get(ksztaltowanie.id_materialu) 
+        material = Ksztaltowanie_1.query.get(ksztaltowanie.id_ksztaltowanie_1) 
         if material is None:
             return jsonify({'message': 'Wybrany materiał nie istnieje!'}), 400
         # Aktualizacja stanu materiału
-        roznica = ksztaltowanie.ilosc_na_stanie - ksztaltowanie.ilosc
-        material.ilosc_sztuk_na_stanie += roznica
+        
         db.session.add(material)
         db.session.commit()
         logger.info(f"Ksztaltowanie_2 o ID {id} zostało zaktualizowane przez {g.user.login}.")
