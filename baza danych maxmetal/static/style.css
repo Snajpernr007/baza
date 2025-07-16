@@ -736,3 +736,35 @@ textarea {
   position: fixed;
   min-width: 100%;
 }
+.log-container {
+background: #e6dfdf;
+border: 1px solid #ccc;
+padding: 15px;
+max-height: 80vh;
+overflow-y: scroll;
+white-space: pre-wrap;
+font-weight: bold;
+}
+.log-wejscie { color: #1976d2; 
+font-weight: bold; 
+}    /* niebieski */
+.log-dodanie { 
+font-size: 1.5em;
+color: #388e3c; 
+font-weight: bold; 
+}    /* zielony */
+.log-usuniecie { 
+font-size: 1.5em;
+color: #d32f2f; 
+font-weight: bold; 
+}  /* czerwony */
+.log-edycja {
+color: #f07d2d;
+font-weight: bold;
+font-size: 1.2em;
+}
+.log-container > div:hover {
+  background: #fff3e0;
+  cursor: pointer;
+  transition: background 0.2s;
+}

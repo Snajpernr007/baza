@@ -3,28 +3,183 @@
 <head>
     <meta charset="UTF-8">
     <title>Logi Aplikacji</title>
-    <style>
-        body {
-            background-color: #f0f0f0;
-            font-family: monospace;
-            padding: 20px;
-        }
-        .log-container {
-            background-color: #fff;
-            border: 1px solid #ccc;
-            padding: 15px;
-            max-height: 80vh;
-            overflow-y: scroll;
-            white-space: pre-wrap;
-        }
-    </style>
+    <link rel="stylesheet" href="../static/style.css">
 </head>
 <body>
-    <h1>Logi Aplikacji</h1>
+    <div id="banner">
+            <div id="menu-main"> 
+                <nav role="navigation">
+                    <div id="menuToggle">
+                        <input type="checkbox" id="menuCheckbox">
+                        
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        
+                        <ul id="menu">
+                        {%if g.user.id_uprawnienia==1 or g.user.id_uprawnienia==2%}
+                        <li>
+                            {% if g.user.id_uprawnienia==1 %}
+                            <h3>Administrator</h3>
+                            {% endif %}
+                            <ul>
+                                {% if g.user.id_uprawnienia==1 %}
+                                    <li>
+                                        <a href="{{ url_for('uzytkownik') }}"><label for="menuCheckbox" onclick="this.parentNode.click();">Uzytkownicy</label></a>
+                                    </li>
+                                 {% endif %}
+                                {% if g.user.id_uprawnienia==1 %}
+                                    <li>
+                                        <a href="{{ url_for('uprawnienia') }}"><label for="menuCheckbox" onclick="this.parentNode.click();">Uprawnienia</label></a>
+                                    </li>
+                                {% endif %}
+                            </ul>
+                        </li>
+                        {% endif %}
+                        <h2>Profile</h2>
+                        <ul>
+                                {%if g.user.id_uprawnienia==1 or g.user.id_uprawnienia==2%}
+                                    <li>
+                                        <a href="{{ url_for('tasma') }}"><label for="menuCheckbox" onclick="this.parentNode.click();">Materiały</label></a>
+                                    </li>
+                                 {% endif %}
+                                
+                                    <li>
+                                        <a href="{{ url_for('profil') }}"><label for="menuCheckbox" onclick="this.parentNode.click();">Profile</label></a>
+                                    </li>
+                                {% if g.user.id_uprawnienia==1 %}
+                                    <li>
+                                        <a href="{{ url_for('dostawcy') }}"><label for="menuCheckbox" onclick="this.parentNode.click();">Dostawcy</label></a>
+                                    </li>
+                                {% endif %}
+                                {% if g.user.id_uprawnienia==1 %}
+                                    <li>
+                                        <a href="{{ url_for('szablon') }}"><label for="menuCheckbox" onclick="this.parentNode.click();">Nazwy</label></a>
+                                    </li>
+                                {% endif %}
+                                {% if g.user.id_uprawnienia==1 or g.user.id_uprawnienia==2%}
+                                    <li>
+                                        <a href="{{ url_for('lokalizacja') }}"><label for="menuCheckbox" onclick="this.parentNode.click();">Magazyny</label></a>
+                                    </li>
+                                {% endif %}
+                                {% if g.user.id_uprawnienia==1 or g.user.id_uprawnienia==2%}
+                                    <li>
+                                        <a href="{{ url_for('dlugosci') }}"><label for="menuCheckbox" onclick="this.parentNode.click();">Długości</label></a>
+                                    </li>
+                                {% endif %}
+                                {% if g.user.id_uprawnienia==1 or g.user.id_uprawnienia==2%}
+                                    <li>
+                                        <a href="{{ url_for('szablon_profil') }}"><label for="menuCheckbox" onclick="this.parentNode.click();">Nazwy profili</label></a>
+                                    </li>
+                                {% endif %}
+                                {% if g.user.id_uprawnienia==1 %}
+                                    <li>
+                                        <a href="{{ url_for('zestawienie') }}"><label for="menuCheckbox" onclick="this.parentNode.click();">Zestawienie</label></a>
+                                    </li>
+                                {% endif %}
+                                {% if g.user.id_uprawnienia==1 or g.user.id_uprawnienia==2%}
+                                    <li>
+                                        <a href="{{ url_for('sprzedaz') }}"><label for="menuCheckbox" onclick="this.parentNode.click();">Sprzedaż</label></a>
+                                    </li>
+                                {% endif %}
+                            </ul>
+                            {% if g.user.id==1 %}
+                                <h2>Obejmy Ogniowe</h2>
+                            {% endif %}
+                            <ul>
+                                {% if g.user.id==1 %}
+                                    <li>
+                                        <a href="{{ url_for('rozmiary_obejm') }}"><label for="menuCheckbox" onclick="this.parentNode.click();">Rozmiary</label></a>
+                                    </li>
+                                {% endif %}
+                                {% if g.user.id==1 %}
+                                    <li>
+                                        <a href="{{ url_for('material_obejma') }}"><label for="menuCheckbox" onclick="this.parentNode.click();">Materiały</label></a>
+                                    </li>
+                                {% endif %}
+                                {% if g.user.id==1 %}
+                                    <li>
+                                        <a href="{{ url_for('ksztaltowanie1') }}"><label for="menuCheckbox" onclick="this.parentNode.click();">Kształtowanie 1</label></a>
+                                    </li>
+                                {% endif %}
+                                {% if g.user.id==1 %}
+                                    <li>
+                                        <a href="{{ url_for('ksztaltowanie2') }}"><label for="menuCheckbox" onclick="this.parentNode.click();">Kształtowanie 2</label></a>
+                                    </li>
+                                {% endif %}
+                                {% if g.user.id==1 %}
+                                    <li>
+                                        <a href="{{ url_for('ksztaltowanie3') }}"><label for="menuCheckbox" onclick="this.parentNode.click();">Kształtowanie 3</label></a>
+                                    </li>
+                                {% endif %}
+                                {% if g.user.id==1 %}
+                                    <li>
+                                        <a href="{{ url_for('malarnia') }}"><label for="menuCheckbox" onclick="this.parentNode.click();">Malarnia</label></a>
+                                    </li>
+                                {% endif %}
+                                {% if g.user.id==1 %}
+                                    <li>
+                                        <a href="{{ url_for('powrot') }}"><label for="menuCheckbox" onclick="this.parentNode.click();">Powrót Malarnia</label></a>
+                                    </li>
+                                {% endif %}
+                                {% if g.user.id==1 %}
+                                    <li>
+                                        <a href="{{ url_for('zlecenie') }}"><label for="menuCheckbox" onclick="this.parentNode.click();">Zlecenie</label></a>
+                                    </li>
+                                {% endif %}
+                            </ul>
+                        {% if not g.user %}
+                        
+                            <li>
+                                <a href="{{ url_for('login') }}"><label for="menuCheckbox" onclick="this.parentNode.click();">Zaloguj się!</label></a>
+                            </li>
+                        
+                            
+                        {% else %}
+                        <li>
+                            <h3><a href="{{ url_for('logout') }}"><label for="menuCheckbox" onclick="this.parentNode.click();">Wyloguj się</label></a></h3>
+                        </li>
+                        {% endif %}
+                        <li>
+                            <h3><a href=javascript:history.back();><label for="menuCheckbox" onclick="this.parentNode.click();">Powrót</label></a></h3>
+                        </li>  
+                            
+                            
+                            <li>
+                                <img id="logo1" src="../static/img/logo-duże.png" alt="logo">
+                            </li>
+                        </ul>   
+                    </div>
+                </nav>
+                <div id="logo-banner">
+                    <a href="{{ url_for('home') }}"><img id="logo-duże" src="../static/img/logo-duże.png" alt="logo"></a>
+                </div>
+                
+            </div>
+        </div>
+        <div id="test"></div>
+    <div id="title">
+                <h2 class="witaj">Logi Aplikacji</h2>
+            </div>
     <div class="log-container">
-        {% for linia in logi %}
-            {{ linia }}
-        {% endfor %}
-    </div>
+    {% for linia in logi %}
+        {% if 'wszedł' in linia %}
+            <div class="log-wejscie">{{ linia }}</div>
+        {% elif 'dodał' in linia or 'dodan' in linia %}
+            <div class="log-dodanie">{{ linia }}</div>
+        {% elif 'usunął' in linia or 'usunię' in linia %}
+            <div class="log-usuniecie">{{ linia }}</div>
+        {% elif
+            'Zmiany wprowadzone' in linia
+            or 'Nowe dane' in linia
+            or 'Poprzednie dane' in linia
+            or 'Otrzymane dane' in linia
+        %}
+            <div class="log-edycja">{{ linia }}</div>
+        {% else %}
+            <div>{{ linia }}</div>
+        {% endif %}
+    {% endfor %}
+</div>
 </body>
 </html>
