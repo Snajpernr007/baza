@@ -446,11 +446,16 @@ def pokaz_logi():
         with open('logs/app.log', 'r', encoding='utf-8') as f:
             linie = f.readlines()
 
-        # Odwróć kolejność (najnowsze na górze)
-        linie.reverse()
+        linie.reverse()  # najnowsze na górze
 
-        # Filtrowanie: pomiń wpisy zawierające static, .css, .png itd.
-        filtruj = lambda linia: not re.search(r'/static/|\.css|\.png|\.jpg|\.ico', linia)
+        def filtruj(linia):
+            # Pomijaj techniczne wpisy: GET, POST, static, css, png, jpg, debugger, server info itp.
+            return not re.search(
+                r'(GET|POST) /|/static/|\.css|\.png|\.jpg|\.ico|Debugger|Running on|Press CTRL|Połączenie z bazą|127\.0\.0\.1',
+                linia,
+                re.IGNORECASE
+            )
+
         logi = list(filter(filtruj, linie))
 
     except FileNotFoundError:
