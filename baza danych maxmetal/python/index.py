@@ -208,7 +208,7 @@ class MaterialObejma(db.Model):
 class Ksztaltowanie_1(db.Model):
     __tablename__ = 'ksztaltowanie_1'
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)
-    rozmiar = db.Column(db.String(255))
+    
     data = db.Column(db.Date)
     godzina_rozpoczecia = db.Column(db.Time)
     godzina_zakonczenia = db.Column(db.Time)
@@ -229,7 +229,7 @@ class Ksztaltowanie_1(db.Model):
 class Ksztaltowanie_2(db.Model):
     __tablename__ = 'ksztaltowanie_2'
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)
-    rozmiar = db.Column(db.String(255))
+    
     data = db.Column(db.Date)
     godzina_rozpoczecia = db.Column(db.Time)
     godzina_zakonczenia = db.Column(db.Time)
@@ -250,7 +250,7 @@ class Ksztaltowanie_2(db.Model):
 class Ksztaltowanie_3(db.Model):
     __tablename__ = 'ksztaltowanie_3'
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)
-    rozmiar = db.Column(db.String(255))
+    
     data = db.Column(db.Date)
     godzina_rozpoczecia = db.Column(db.Time)
     godzina_zakonczenia = db.Column(db.Time)
