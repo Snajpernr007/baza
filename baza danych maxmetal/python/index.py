@@ -2399,7 +2399,7 @@ def update_row_ksztaltowanie3():
         ksztaltowanie.nazwa = dane.get('column_1', ksztaltowanie.nazwa)
         ksztaltowanie.imie_nazwisko = dane.get('column_12', ksztaltowanie.imie_nazwisko)
         # Sprawdzenie, czy materiał istnieje
-        material = Ksztaltowanie_2.query.get(ksztaltowanie.ksztaltowanie_2)
+        material = Ksztaltowanie_2.query.get(ksztaltowanie.id_ksztaltowanie_2)
         if material is None:
             return jsonify({'message': 'Wybrany materiał nie istnieje!'}), 400
         # Aktualizacja stanu materiału

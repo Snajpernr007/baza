@@ -207,7 +207,7 @@ function populateMaterialy(selectElement, selectedValue) {
     fetch('/get-ksztaltowanie2')
         .then(response => response.json())
         .then(data => {
-            data.forEach(material => {
+            data.forEach(ksztaltowanie => {
                 const option = document.createElement('option');
                 option.value = ksztaltowanie.id.toString();
                 option.textContent = ksztaltowanie.nazwa;
