@@ -1876,6 +1876,35 @@ def usun_material_obejma(id):
 
     return redirect(request.referrer or url_for('home'))
 
+@app.route('/usun_ksztaltowanie1/<int:id>', methods=['POST'])
+def usun_ksztaltowanie1(id):
+    if not g.user:
+        return render_template('login.html', user=g.user)
+    if g.user.id_uprawnienia == 3:
+        return redirect(url_for('home'))
+
+    ksztaltowanie = Ksztaltowanie_1.query.get_or_404(id)
+
+    try:
+        db.session.delete(ksztaltowanie)
+        db.session.commit()
+
+        logger.info(
+            f"Kształtowanie_1 ID {ksztaltowanie.id} usunięte przez {g.user.login}. "
+            f"Szczegóły: nazwa: {ksztaltowanie.nazwa}, "
+            f"nr prodio: {ksztaltowanie.nr_prodio}, "
+            f"data: {ksztaltowanie.data}, "
+            f"ilość: {ksztaltowanie.ilosc}, "
+            f"pracownik: {ksztaltowanie.pracownik.login if ksztaltowanie.pracownik else 'Brak'}."
+        )
+        flash('Kształtowanie zostało usunięte.', 'success')
+    except Exception as e:
+        db.session.rollback()
+        logger.error(f'Błąd przy usuwaniu kształtowania: {e}')
+        flash(f'Błąd przy usuwaniu: {e}', 'danger')
+
+    return redirect(request.referrer or url_for('home'))
+    
 @app.route('/ksztaltowanie1')
 def ksztaltowanie1():
     if not g.user:
