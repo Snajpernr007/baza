@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Obejmy MaxMetal</title>
+  <link rel="icon" href="../static/img/logo-male.png" />
+  <link rel="stylesheet" href="../static/style.css" />
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      function formatTimeWithSeconds(date) {
+        const hours = String(date.getHours()).padStart(2, "0");
+        const minutes = String(date.getMinutes()).padStart(2, "0");
+        const seconds = String(date.getSeconds()).padStart(2, "0");
+        return `${hours}:${minutes}:${seconds}`;
+      }
+
+      const now = new Date();
+      const today = now.toISOString().split("T")[0];
+      const currentTimeWithSeconds = formatTimeWithSeconds(now);
+
+      const dataProd = document.querySelector('input[name="data"]');
+      const godzStart = document.querySelector('input[name="godz_min_rozpoczecia"]');
+      if (dataProd && godzStart) {
+        dataProd.value = today;
+        godzStart.value = currentTimeWithSeconds;
+      }
+
+      const form = document.getElementById("myForm");
+      if (form) {
+        form.addEventListener("submit", function (event) {
+          event.preventDefault(); // <--- zapobiegamy domyślnemu wysyłaniu
+
+          const endTime = new Date();
+          const godzEnd = document.querySelector('input[name="godz_min_zakonczenia"]');
+          if (godzEnd) {
+            godzEnd.value = formatTimeWithSeconds(endTime);
+          }
+
+          const zwrotInput = document.querySelector('input[name="ilosc"]');
+          if (zwrotInput) {
+            const zwrotNaMagazynKg = parseFloat(zwrotInput.value);
+            let wagaKreguNaStanie = 0;
+
+            const etykietaSelect = document.querySelector('select[name="nazwa_materiału"]');
+            if (etykietaSelect && etykietaSelect.selectedOptions.length > 0) {
+              const selectedOption = etykietaSelect.selectedOptions[0];
+              wagaKreguNaStanie = parseFloat(selectedOption.getAttribute("data-waga-kregu"));
+            } else {
+              wagaKreguNaStanie = parseFloat(zwrotInput.getAttribute("data-waga-kregu"));
+            }
+
+            if (!isNaN(zwrotNaMagazynKg) && !isNaN(wagaKreguNaStanie)) {
+              if (zwrotNaMagazynKg > wagaKreguNaStanie) {
+                alert(`Wartość zwrotu na magazyn nie może być większa niż ${wagaKreguNaStanie} .`);
+                return; // zatrzymujemy wysyłanie
+              }
+            }
+          }
+
+          // Zabezpieczenie przed wielokrotnym kliknięciem
+          const submitButton = form.querySelector('button[type="submit"]');
+          if (submitButton) {
+            submitButton.disabled = true;
+          }
+
+          form.submit(); // ręczne wysłanie po walidacji
+        });
+      }
+    });
+
+    function filtrujMaterial() {
+      const input = document.getElementById("szukaj_material").value.toLowerCase();
+      const select = document.getElementById("nazwa_materiału");
+      const options = select.getElementsByTagName("option");
+
+      for (let option of options) {
+        const text = option.textContent.toLowerCase();
+        option.style.display = text.includes(input) ? "" : "none";
+      }
+    }
+  </script>
+</head>
+<body>
+  <div id="strona">
+    <div id="banner">
+            <div id="logo-banner">
+                    <a href="{{ url_for('home') }}"><img id="logo-duże" src="../static/img/logo-duże.png" alt="logo"></a>
+                </div>
+        </div>
+        <div id="test">
+            
+        </div>
+        <br>
+    <form id="myForm" action="{{ url_for('dodaj_ksztaltowanie2_do_bazy') }}" method="post">
+      <h2>Dodaj Kształt</h2>
+
+      <label for="szukaj_material">Szukaj nr wytopu:</label>
+      <input type="text" id="szukaj_material" onkeyup="filtrujMaterial()" placeholder="Wpisz rozmiar.." /><br />
+
+      <label for="nazwa_materiału">Numer wytopu:</label>
+      <select id="nazwa_materiału" name="nazwa_materiału" required size="5">
+        {% for nazwa_materiału in rozmiar %}
+        {% if nazwa_materiału.ilosc_na_stanie and nazwa_materiału.ilosc_na_stanie > 0 %}
+        <option value="{{ nazwa_materiału.id }}" data-waga-kregu="{{ nazwa_materiału.ilosc_na_stanie }}">
+          {{ nazwa_materiału.nazwa }} na stanie: {{ nazwa_materiału.ilosc_na_stanie }} 
+        </option>
+        {% endif %}
+        {% endfor %}
+      </select><br />
+
+      <input type="hidden" name="data" required /><br />
+      <input type="hidden" name="godz_min_rozpoczecia" required /><br />
+      <input type="hidden" name="godz_min_zakonczenia" required /><br />
+
+      <label for="ilosc">Ilość:</label>
+      <input type="number" name="ilosc" required data-waga-kregu="{{ ilosc }}" /><br />
+
+      <label for="prodio">Nr Prodio:</label>
+      <input type="text" name="prodio" required /><br />
+
+      <label for="imie">Imię i nazwisko:</label>
+      <input type="text" name="imie" required /><br />
+      <button class="button" onclick="window.location.href='{{ url_for('ksztaltowanie2') }}'">Powrót</button>
+      <button type="reset" class="button">Wyczyść</button>
+      <button type="submit" class="button">Zapisz</button>
+    </form>
+  </div>
+</body>
+</html>

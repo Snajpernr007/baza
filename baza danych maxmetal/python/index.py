@@ -23,6 +23,7 @@ import io  # Dodaj ten import
 import openpyxl
 from io import BytesIO
 from datetime import datetime
+import re
 # Utwórz katalog logs, jeśli nie istnieje
 if not os.path.exists('logs'):
     os.makedirs('logs')
@@ -439,7 +440,22 @@ def home():
     resp.set_cookie('last', request.path)  # Zapisz ostatni URL
 
     return resp
+@app.route('/logi')
+def pokaz_logi():
+    try:
+        with open('logs/app.log', 'r', encoding='utf-8') as f:
+            linie = f.readlines()
 
+        # Odwróć kolejność (najnowsze na górze)
+        linie.reverse()
+
+        # Filtrowanie: pomiń wpisy zawierające static, .css, .png itd.
+        filtruj = lambda linia: not re.search(r'/static/|\.css|\.png|\.jpg|\.ico', linia)
+        logi = list(filter(filtruj, linie))
+
+    except FileNotFoundError:
+        logi = ["Plik 'app.log' nie został znaleziony."]
+    return render_template('logi.html', logi=logi, user=g.user)
 @app.route('/go_back')
 def go_back():
     last_url = request.cookies.get('last')  # Pobierz ostatni URL z ciasteczka
@@ -2110,7 +2126,7 @@ def dodaj_ksztaltowanie2():
         return redirect(url_for('home'))
     
     logger.info(f"{g.user.login} wszedł na stronę dodawania ksztaltowania2.")
-    return render_template("dodaj_ksztaltowanie2.html", user=g.user,rozmiar=MaterialObejma.query.all())
+    return render_template("dodaj_ksztaltowanie2.html", user=g.user,rozmiar=Ksztaltowanie_1.query.all())
 @app.route('/dodaj_ksztaltowanie2_do_bazy', methods=['POST'])
 def dodaj_ksztaltowanie2_do_bazy():
     if not g.user:
@@ -2130,16 +2146,16 @@ def dodaj_ksztaltowanie2_do_bazy():
         pracownik = g.user.id
 
         # Pobierz obiekt materiału
-        material_obj = MaterialObejma.query.get(int(material_id)) if material_id else None
+        material_obj = Ksztaltowanie_1.query.get(int(material_id)) if material_id else None
         if not material_obj:
-            return render_template('ksztaltowanie2.html', error="Nie znaleziono wybranego materiału.", user=g.user)
+            return render_template('ksztaltowanie2.html', error="Nie znaleziono wybranego kształtowania.", user=g.user)
 
         # Pobierz rozmiar poprzez relację
-        if not material_obj.rozmiar:
+        if not material_obj.material.rozmiar:
             return render_template('ksztaltowanie2.html', error="Materiał nie ma przypisanego rozmiaru.", user=g.user)
 
-        rozmiar = material_obj.rozmiar.nazwa
-        wytop = material_obj.nr_wytopu
+        rozmiar = material_obj.material.rozmiar.nazwa
+        wytop = material_obj.material.nr_wytopu
 
         # Ustal numer nowego wpisu
         ostatni = Ksztaltowanie_2.query.order_by(Ksztaltowanie_2.id.desc()).first()
@@ -2149,10 +2165,10 @@ def dodaj_ksztaltowanie2_do_bazy():
 
         # Utwórz nowy wpis
         nowy_ksztaltowanie = Ksztaltowanie_2(
-            godzina_rozpoczencia=godzina_rozpoczencia,
+            godzina_rozpoczecia=godzina_rozpoczencia,
             godzina_zakonczenia=godzina_zakonczenia,
             data=data,
-            id_materialu=material_id,
+            id_ksztaltowanie_1=material_id,
             nr_prodio=numer_prodio,
             ilosc=ilosc,
             ilosc_na_stanie=ilosc_na_stanie,
@@ -2162,7 +2178,7 @@ def dodaj_ksztaltowanie2_do_bazy():
         )
         # Aktualizuj stan magazynowy
         try:
-            material_obj.ilosc_sztuk_na_stanie -= int(ilosc)
+            material_obj.ilosc_na_stanie -= int(ilosc)
             db.session.add(nowy_ksztaltowanie)
             db.session.commit()
 
@@ -2261,7 +2277,7 @@ def dodaj_ksztaltowanie3():
         return redirect(url_for('home'))
     
     logger.info(f"{g.user.login} wszedł na stronę dodawania ksztaltowania3.")
-    return render_template("dodaj_ksztaltowanie3.html", user=g.user, rozmiar=MaterialObejma.query.all())
+    return render_template("dodaj_ksztaltowanie3.html", user=g.user, rozmiar=Ksztaltowanie_2.query.all())
 @app.route('/dodaj_ksztaltowanie3_do_bazy', methods=['POST'])
 def dodaj_ksztaltowanie3_do_bazy(): 
     if not g.user:
@@ -2281,16 +2297,16 @@ def dodaj_ksztaltowanie3_do_bazy():
         pracownik = g.user.id
 
         # Pobierz obiekt materiału
-        material_obj = MaterialObejma.query.get(int(material_id)) if material_id else None
+        material_obj = Ksztaltowanie_2.query.get(int(material_id)) if material_id else None
         if not material_obj:
-            return render_template('ksztaltowanie3.html', error="Nie znaleziono wybranego materiału.", user=g.user)
+            return render_template('ksztaltowanie3.html', error="Nie znaleziono wybranego kształtowania2.", user=g.user)
 
         # Pobierz rozmiar poprzez relację
-        if not material_obj.rozmiar:
+        if not material_obj.ksztaltowanie_1.material.rozmiar:
             return render_template('ksztaltowanie3.html', error="Materiał nie ma przypisanego rozmiaru.", user=g.user)
 
-        rozmiar = material_obj.rozmiar.nazwa
-        wytop = material_obj.nr_wytopu
+        rozmiar = material_obj.ksztaltowanie_1.material.rozmiar.nazwa
+        wytop = material_obj.ksztaltowanie_1.material.nr_wytopu
 
         # Ustal numer nowego wpisu
         ostatni = Ksztaltowanie_3.query.order_by(Ksztaltowanie_3.id.desc()).first()
@@ -2303,7 +2319,7 @@ def dodaj_ksztaltowanie3_do_bazy():
             godzina_rozpoczecia=godzina_rozpoczencia,
             godzina_zakonczenia=godzina_zakonczenia,
             data=data,
-            id_materialu=material_id,
+            id_ksztaltowanie_2=material_id,
             nr_prodio=numer_prodio,
             ilosc=ilosc,
             ilosc_na_stanie=ilosc_na_stanie,
@@ -2313,7 +2329,7 @@ def dodaj_ksztaltowanie3_do_bazy():
         )
         # Aktualizuj stan magazynowy
         try:
-            material_obj.ilosc_sztuk_na_stanie -= int(ilosc)
+            material_obj.ilosc_na_stanie -= int(ilosc)
             db.session.add(nowy_ksztaltowanie)
             db.session.commit()
 

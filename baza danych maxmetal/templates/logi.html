@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <title>Logi Aplikacji</title>
+    <style>
+        body {
+            background-color: #f0f0f0;
+            font-family: monospace;
+            padding: 20px;
+        }
+        .log-container {
+            background-color: #fff;
+            border: 1px solid #ccc;
+            padding: 15px;
+            max-height: 80vh;
+            overflow-y: scroll;
+            white-space: pre-wrap;
+        }
+    </style>
+</head>
+<body>
+    <h1>Logi Aplikacji</h1>
+    <div class="log-container">
+        {% for linia in logi %}
+            {{ linia }}
+        {% endfor %}
+    </div>
+</body>
+</html>
