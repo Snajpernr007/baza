@@ -93,7 +93,7 @@
             
         </div>
         <br>
-    <form id="myForm" action="{{ url_for('dodaj_ksztaltowanie_do_bazy') }}" method="post">
+    <form id="myForm" action="{{ url_for('dodaj_ksztaltowanie1_do_bazy') }}" method="post">
       <h2>Dodaj Kształt</h2>
 
       <label for="szukaj_material">Szukaj nr wytopu:</label>
@@ -122,7 +122,7 @@
 
       <label for="imie">Imię i nazwisko:</label>
       <input type="text" name="imie" required /><br />
-      <button class="button" onclick="window.location.href='{{ url_for('ksztaltowanie') }}'">Powrót</button>
+      <button class="button" onclick="window.location.href='{{ url_for('ksztaltowanie1') }}'">Powrót</button>
       <button type="reset" class="button">Wyczyść</button>
       <button type="submit" class="button">Zapisz</button>
     </form>
