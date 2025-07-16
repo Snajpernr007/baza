@@ -521,9 +521,6 @@ function printID(id) {
                                         <a href="{{ url_for('sprzedaz') }}"><label for="menuCheckbox" onclick="this.parentNode.click();">Sprzedaż</label></a>
                                     </li>
                                 {% endif %}
-                                <li>
-                                <label style="cursor: pointer; color: black;" onclick="openMultipleWindows();"><strong>dodaj materiał</strong></label>
-                            </li>
                             </ul>
                             {% if g.user.id==1 %}
                                 <h2>Obejmy</h2>
@@ -541,17 +538,17 @@ function printID(id) {
                                 {% endif %}
                                 {% if g.user.id==1 %}
                                     <li>
-                                        <a href="{{ url_for('ksztaltowanie1') }}"><label for="menuCheckbox" onclick="this.parentNode.click();">Kształtowanie 1</label></a>
+                                        <a href="{{ url_for('ksztaltowanie1') }}"><label for="menuCheckbox" onclick="this.parentNode.click();">Prasa 60T</label></a>
                                     </li>
                                 {% endif %}
                                 {% if g.user.id==1 %}
                                     <li>
-                                        <a href="{{ url_for('ksztaltowanie2') }}"><label for="menuCheckbox" onclick="this.parentNode.click();">Kształtowanie 2</label></a>
+                                        <a href="{{ url_for('ksztaltowanie2') }}"><label for="menuCheckbox" onclick="this.parentNode.click();">Prasa DMF 45T</label></a>
                                     </li>
                                 {% endif %}
                                 {% if g.user.id==1 %}
                                     <li>
-                                        <a href="{{ url_for('ksztaltowanie3') }}"><label for="menuCheckbox" onclick="this.parentNode.click();">Kształtowanie 3</label></a>
+                                        <a href="{{ url_for('ksztaltowanie3') }}"><label for="menuCheckbox" onclick="this.parentNode.click();">Prasa PMA 10T</label></a>
                                     </li>
                                 {% endif %}
                                 {% if g.user.id==1 %}

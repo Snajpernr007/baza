@@ -102,17 +102,17 @@
                                 {% endif %}
                                 {% if g.user.id==1 %}
                                     <li>
-                                        <a href="{{ url_for('ksztaltowanie1') }}"><label for="menuCheckbox" onclick="this.parentNode.click();">Kształtowanie 1</label></a>
+                                        <a href="{{ url_for('ksztaltowanie1') }}"><label for="menuCheckbox" onclick="this.parentNode.click();">Prasa 60T</label></a>
                                     </li>
                                 {% endif %}
                                 {% if g.user.id==1 %}
                                     <li>
-                                        <a href="{{ url_for('ksztaltowanie2') }}"><label for="menuCheckbox" onclick="this.parentNode.click();">Kształtowanie 2</label></a>
+                                        <a href="{{ url_for('ksztaltowanie2') }}"><label for="menuCheckbox" onclick="this.parentNode.click();">Prasa DMF 45T</label></a>
                                     </li>
                                 {% endif %}
                                 {% if g.user.id==1 %}
                                     <li>
-                                        <a href="{{ url_for('ksztaltowanie3') }}"><label for="menuCheckbox" onclick="this.parentNode.click();">Kształtowanie 3</label></a>
+                                        <a href="{{ url_for('ksztaltowanie3') }}"><label for="menuCheckbox" onclick="this.parentNode.click();">Prasa PMA 10T</label></a>
                                     </li>
                                 {% endif %}
                                 {% if g.user.id==1 %}
@@ -173,6 +173,10 @@
                 {% if g.user.id_uprawnienia==1 %}
                 <button class="button" onclick="window.location.href='{{ url_for('uprawnienia') }}'">Uprawnienia</button>
                 {% endif %}
+                {% if g.user.id_uprawnienia==1 %}
+                <button class="button" onclick="window.location.href='{{ url_for('logi') }}'">Logi Aplikacji</button>
+                {% endif %}
+                
             </div>
                 {% endif %}
             <hr>
@@ -230,7 +234,7 @@
                 <button class="button" onclick="window.location.href='{{ url_for('material_obejma') }}'">Materiały</button>
                 {% endif %}
                 {% if g.user.id==1 %}
-                <button class="button" onclick="window.location.href='{{ url_for('ksztaltowanie1') }}'">Kształtowanie 1</button>
+                <button class="button" onclick="window.location.href='{{ url_for('ksztaltowanie1') }}'">Prasa 60T</button>
                 {% endif %}
                 {% if g.user.id==1 %}
                 <button class="button" onclick="window.location.href='{{ url_for('ksztaltowanie2') }}'">Kształtowanie 2</button>
