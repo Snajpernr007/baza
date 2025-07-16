@@ -625,7 +625,10 @@ function printID(id) {
                             DO<input type="date" id="dateToDostawa" onchange="filterTable()"></th>
                         <th><input type="text" placeholder="Filtruj Nazwę Stanowiska" onchange="filterTable()"></th>
                         
-                        <th><button class="button" onclick="resetFilters()">Usuń Filtry</button></th>
+                        <th><button class="button" onclick="resetFilters()">Usuń Filtry</button>
+                        <button class="button" id="toggleNiezuzryte" onclick="toggleNiezuzryte()">Pokaż niezużyte</button>
+                        </th>
+
                     </tr>
                     <tr>
                         <th onclick="sortTable(0)">ID &#9650;&#9660;</th>
@@ -745,5 +748,29 @@ function printID(id) {
         checkbox.checked = false;
     }
 });
+let showingNiezuzryte = false;
+
+function toggleNiezuzryte() {
+    const rows = document.querySelectorAll("#tabela tbody tr");
+    const btn = document.getElementById("toggleNiezuzryte");
+    if (!showingNiezuzryte) {
+        // Pokaż tylko niezużyte
+        rows.forEach(row => {
+            const wagaCell = row.cells[7];
+            if (!wagaCell) return;
+            const waga = parseFloat(wagaCell.textContent.replace(',', '.'));
+            row.style.display = (waga > 0) ? "" : "none";
+        });
+        btn.textContent = "Pokaż wszystkie";
+        showingNiezuzryte = true;
+    } else {
+        // Pokaż wszystkie
+        rows.forEach(row => {
+            row.style.display = "";
+        });
+        btn.textContent = "Pokaż niezużyte";
+        showingNiezuzryte = false;
+    }
+}
 </script>
 </html> 

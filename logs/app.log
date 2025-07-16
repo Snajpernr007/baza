@@ -17680,3 +17680,18 @@
 2025-07-16 10:46:57,796 - INFO - 192.168.1.13 - - [16/Jul/2025 10:46:57] "[35m[1mGET /dodaj_malarnie HTTP/1.1[0m" 500 -
 2025-07-16 10:46:57,809 - INFO - 192.168.1.13 - - [16/Jul/2025 10:46:57] "[36mGET /dodaj_malarnie?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
 2025-07-16 10:46:57,810 - INFO - 192.168.1.13 - - [16/Jul/2025 10:46:57] "[36mGET /dodaj_malarnie?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+2025-07-16 10:47:56,923 - INFO - Administrator wszedł na stronę główną.
+2025-07-16 10:47:57,065 - INFO - 192.168.1.13 - - [16/Jul/2025 10:47:57] "GET / HTTP/1.1" 200 -
+2025-07-16 10:47:57,081 - INFO - 192.168.1.13 - - [16/Jul/2025 10:47:57] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-07-16 10:47:57,081 - INFO - 192.168.1.13 - - [16/Jul/2025 10:47:57] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-07-16 10:47:57,894 - INFO - Administrator wszedł na stronę ksztaltowania1.
+2025-07-16 10:47:57,972 - INFO - 192.168.1.13 - - [16/Jul/2025 10:47:57] "GET /ksztaltowanie1 HTTP/1.1" 200 -
+2025-07-16 10:47:57,990 - INFO - 192.168.1.13 - - [16/Jul/2025 10:47:57] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-07-16 10:47:57,991 - INFO - 192.168.1.13 - - [16/Jul/2025 10:47:57] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-07-16 10:50:50,290 - INFO -  * Detected change in 'C:\\Users\\Windows\\Desktop\\baza\\baza danych maxmetal\\python\\index.py', reloading
+2025-07-16 10:50:54,847 - INFO -  * Restarting with stat
+2025-07-16 10:50:56,898 - INFO - Połączenie z bazą danych zostało nawiązane pomyślnie.
+2025-07-16 10:50:56,967 - WARNING -  * Debugger is active!
+2025-07-16 10:50:56,969 - INFO - ✅ Kopia zapasowa zapisana do pliku: backups\kopie_zapasowe_bazy_2025-07-16_10-50.sql
+2025-07-16 10:50:56,970 - INFO - 🗑️ Usunięto starą kopię: kopie_zapasowe_bazy_2025-07-07_13-51.sql
+2025-07-16 10:50:56,972 - INFO -  * Debugger PIN: 117-503-418
