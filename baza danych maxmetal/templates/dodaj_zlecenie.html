@@ -52,35 +52,89 @@
             <input type="date" name="data" required><br> -->
             <!-- <label for="szukaj_material">Szukaj Rozmiar:</label>
 <input type="text" id="szukaj_material" onkeyup="filtrujMaterial()" placeholder="Wpisz rozmiar.."><br> -->
-            
-
-<label>Obejmy:</label><br>
-{% for nazwa_materiału in rozmiar %}
-  {% if nazwa_materiału.ilosc_na_stanie > 0 %}
-    <label>
-  <input 
-    type="checkbox" 
-    name="nazwa_materiału" 
-    value="{{ nazwa_materiału.id }}" 
-    data-waga-kregu="{{ nazwa_materiału.ilosc_na_stanie }}"
-  >
-  {{ nazwa_materiału.data }} na stanie: {{ nazwa_materiału.ilosc_na_stanie }}
-  <input 
-    type="number" 
-    name="ilosc_{{ nazwa_materiału.id }}" 
-    min="1" 
-    max="{{ nazwa_materiału.ilosc_na_stanie }}" 
-    placeholder="ilość"
-  >
-</label><br>
-  {% endif %}
-{% endfor %}
-            
-            
+<div class="filter-controls">
+  <label for="filter-from">Filtrowanie od:</label>
+  <input type="date" id="filter-from">
+  
+  <label for="filter-to">Filtrowanie do:</label>
+  <input type="date" id="filter-to">
+  
+  <button type="button" id="filter-btn">Filtruj</button>
+  <button type="button" id="reset-filter">Resetuj</button>
+</div><br>  
+  <details id="detale">
+  <summary>Obejmy:</summary>
+  <div class="content scrollable-list">
+    <ul>
+      {% for nazwa_materiału in rozmiar %}
+        {% if nazwa_materiału.ilosc_na_stanie > 0 %}
+          <li>
+            <label>
+              <input 
+                type="checkbox" 
+                name="nazwa_materiału" 
+                value="{{ nazwa_materiału.id }}" 
+                data-waga-kregu="{{ nazwa_materiału.ilosc_na_stanie }}"
+              >
+              {{ nazwa_materiału.data }} na stanie: {{ nazwa_materiału.ilosc_na_stanie }}
+              <input 
+                type="number" 
+                name="ilosc_{{ nazwa_materiału.id }}" 
+                min="1" 
+                max="{{ nazwa_materiału.ilosc_na_stanie }}" 
+                placeholder="ilość"
+              >
+            </label>
+          </li>
+        {% endif %}
+      {% endfor %}
+    </ul>
+  </div>
+</details><br>   
             <button class="button" onclick="window.location.href='{{ url_for('zlecenie') }}'">Powrót</button>
             <button type="reset" class="button">Wyczyść</button>
             <button type="submit" class="button">Zapisz</button>
         </form>
     </div>
 </body>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const fromDateInput = document.getElementById("filter-from");
+  const toDateInput = document.getElementBy("filter-to");
+  const filterBtn = document.getElementById("filter-btn");
+  const resetBtn = document.getElementById("reset-filter");
+
+  filterBtn.addEventListener("click", () => {
+    const from = fromDateInput.value;
+    const to = toDateInput.value;
+
+    const items = document.querySelectorAll(".content li");
+
+    items.forEach(item => {
+      const text = item.textContent.trim();
+      const match = text.match(/\d{4}-\d{2}-\d{2}/); // wyciąga datę z tekstu
+      if (!match) return;
+
+      const itemDate = match[0];
+
+      const isAfterFrom = !from || itemDate >= from;
+      const isBeforeTo = !to || itemDate <= to;
+
+      if (isAfterFrom && isBeforeTo) {
+        item.style.display = "";
+      } else {
+        item.style.display = "none";
+      }
+    });
+  });
+
+  resetBtn.addEventListener("click", () => {
+    fromDateInput.value = "";
+    toDateInput.value = "";
+    document.querySelectorAll(".content li").forEach(item => {
+      item.style.display = "";
+    });
+  });
+});
+</script>
 </html>
