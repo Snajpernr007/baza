@@ -2780,7 +2780,7 @@ def dodaj_zlecenie_do_bazy():
             nr_zamowienia_zew=Nr_zamowienia,
             nr_kartonu=nr_kartonu,
             nr_prodio=numer_prodio,
-            ile_pianki=ilosc_pianki,
+            ile_pianka=ilosc_pianki,
             ile_tasmy=ilosc_tasmy,
             seria_tasmy=seria_tasmy,
             id_pracownik=pracownik,
@@ -2848,7 +2848,7 @@ def update_row_zlecenie():
         if 'col_2' in data:
             zlecenie.nr_prodio = data['col_2']
         if 'col_3' in data:
-            zlecenie.ile_pianki = int(data['col_3']) if data['col_3'].isdigit() else None
+            zlecenie.ile_pianka = int(data['col_3']) if data['col_3'].isdigit() else None
         if 'col_4' in data:
             zlecenie.seria_tasmy = data['col_4']
         if 'col_5' in data:

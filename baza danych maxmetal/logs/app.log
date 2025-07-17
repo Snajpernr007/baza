@@ -15575,3 +15575,31 @@
 2025-07-17 14:54:13,043 - INFO - 127.0.0.1 - - [17/Jul/2025 14:54:13] "GET /static/style.css HTTP/1.1" 200 -
 2025-07-17 14:54:13,056 - INFO - 127.0.0.1 - - [17/Jul/2025 14:54:13] "GET /static/img/logo-duże.png HTTP/1.1" 200 -
 2025-07-17 14:54:13,063 - INFO - 127.0.0.1 - - [17/Jul/2025 14:54:13] "GET /static/img/maxmetal.png HTTP/1.1" 200 -
+2025-07-17 14:58:20,590 - INFO - Administrator wszedł na stronę dodawania zlecenia.
+2025-07-17 14:58:20,599 - INFO - 127.0.0.1 - - [17/Jul/2025 14:58:20] "GET /dodaj_zlecenie HTTP/1.1" 200 -
+2025-07-17 14:58:20,635 - INFO - 127.0.0.1 - - [17/Jul/2025 14:58:20] "GET /static/style.css HTTP/1.1" 200 -
+2025-07-17 14:58:20,653 - INFO - 127.0.0.1 - - [17/Jul/2025 14:58:20] "GET /static/img/logo-duże.png HTTP/1.1" 200 -
+2025-07-17 14:58:51,055 - INFO - Administrator wszedł na stronę główną.
+2025-07-17 14:58:51,211 - INFO - 127.0.0.1 - - [17/Jul/2025 14:58:51] "GET / HTTP/1.1" 200 -
+2025-07-17 14:58:51,317 - INFO - 127.0.0.1 - - [17/Jul/2025 14:58:51] "GET /static/style.css HTTP/1.1" 200 -
+2025-07-17 14:58:51,326 - INFO - 127.0.0.1 - - [17/Jul/2025 14:58:51] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-07-17 14:58:51,332 - INFO - 127.0.0.1 - - [17/Jul/2025 14:58:51] "GET /static/img/maxmetal.png HTTP/1.1" 200 -
+2025-07-17 14:58:52,543 - INFO - Administrator wszedł na stronę zlecenia.
+2025-07-17 14:58:52,544 - INFO - 127.0.0.1 - - [17/Jul/2025 14:58:52] "GET /zlecenie HTTP/1.1" 200 -
+2025-07-17 14:58:52,579 - INFO - 127.0.0.1 - - [17/Jul/2025 14:58:52] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-07-17 14:58:52,593 - INFO - 127.0.0.1 - - [17/Jul/2025 14:58:52] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-07-17 14:58:52,601 - INFO - 127.0.0.1 - - [17/Jul/2025 14:58:52] "[36mGET /static/img/maxmetal.png HTTP/1.1[0m" 304 -
+2025-07-17 14:58:54,241 - INFO - Administrator wszedł na stronę dodawania zlecenia.
+2025-07-17 14:58:54,242 - INFO - 127.0.0.1 - - [17/Jul/2025 14:58:54] "GET /dodaj_zlecenie HTTP/1.1" 200 -
+2025-07-17 14:58:54,272 - INFO - 127.0.0.1 - - [17/Jul/2025 14:58:54] "GET /static/style.css HTTP/1.1" 200 -
+2025-07-17 14:58:54,287 - INFO - 127.0.0.1 - - [17/Jul/2025 14:58:54] "GET /static/img/logo-duże.png HTTP/1.1" 200 -
+2025-07-17 15:02:17,064 - INFO - Połączenie z bazą danych zostało nawiązane pomyślnie.
+2025-07-17 15:02:17,189 - INFO - ✅ Kopia zapasowa zapisana do pliku: backups\kopie_zapasowe_bazy_2025-07-17_15-02.sql
+2025-07-17 15:02:17,191 - INFO - 🗑️ Usunięto starą kopię: kopie_zapasowe_bazy_2025-07-17_13-46.sql
+2025-07-17 15:02:17,204 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.1.80:5000
+2025-07-17 15:02:17,204 - INFO - [33mPress CTRL+C to quit[0m
+2025-07-17 15:02:17,205 - INFO -  * Restarting with stat
+2025-07-17 15:02:20,078 - INFO - Połączenie z bazą danych zostało nawiązane pomyślnie.
