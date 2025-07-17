@@ -3,66 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Profile MaxMetal</title>
+    <title>Obejmy MaxMetal</title>
     <link rel="icon" href="../static/img/logo-male.png">
     <link rel="stylesheet" href="../static/style.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>  <!-- Dodaj jQuery -->
 
-<script>
- $(document).ready(function() {
-        $('#myForm').submit(function(event) {
-            event.preventDefault(); // Zatrzymaj standardowe wysyłanie formularza
-
-            $.ajax({
-                type: 'POST',
-                url: $(this).attr('action'),
-                data: $(this).serialize(),
-                dataType: 'json', // Oczekujemy odpowiedzi w JSON
-                success: function(response) {
-                    alert(response.message); // Proste okienko alert
-                },
-                error: function() {
-                    alert("Wystąpił błąd przy łączeniu z serwerem."); // Obsługa błędu
-                }
-            });
-        });
-    });
-function filtrujDostawcow() {
-        let input = document.getElementById("szukaj_dostawcy").value.toLowerCase();
-        let select = document.getElementById("dostawcy");
-        let options = select.getElementsByTagName("option");
-
-        for (let option of options) {
-            let text = option.textContent.toLowerCase();
-            option.style.display = text.includes(input) ? "" : "none";
-        }
-    }
-    function filtrujMaterial() {
-        let input = document.getElementById("szukaj_material").value.toLowerCase();
-        let select = document.getElementById("nazwa_materiału");
-        let options = select.getElementsByTagName("option");
-
-        for (let option of options) {
-            let text = option.textContent.toLowerCase();
-            option.style.display = text.includes(input) ? "" : "none";
-        }
-    }
-    function filtrujLokalizacja() {
-        let input = document.getElementById("szukaj_lokalizacje").value.toLowerCase();
-        let select = document.getElementById("lokalizacja");
-        let options = select.getElementsByTagName("option");
-
-        for (let option of options) {
-            let text = option.textContent.toLowerCase();
-            option.style.display = text.includes(input) ? "" : "none";
-        }
-    }
-    function zamknijOkno() {
-        setTimeout(function() {
-            window.close();
-        }, 1000);
-    }
-</script>
 </head>
 <body>
     <div id="strona">
@@ -73,70 +18,19 @@ function filtrujDostawcow() {
         </div>
         <div id="test">
             
-        </div><br>
-        <form action="{{ url_for('dodaj_tasma_do_bazy') }}" method="post">
-            <label for="szukaj_dostawcy">Szukaj dostawcy:</label>
-<input type="text" id="szukaj_dostawcy" onkeyup="filtrujDostawcow()" placeholder="Wpisz nazwę dostawcy">
-
-<label for="dostawcy">Dostawcy:</label>
-<select id="dostawcy" name="dostawcy" required size="5">
-    {% for dostawca in dostawcy %}
-        <option value="{{ dostawca.id }}">{{ dostawca.nazwa }}</option>
-    {% endfor %}
-</select><br>
-<label for="szukaj_material">Szukaj materiału:</label>
-<input type="text" id="szukaj_material" onkeyup="filtrujMaterial()" placeholder="Wpisz nazwę materiału">
-
-<label for="nazwa_materiału">Nazwa Materiału:</label>
-<select id="nazwa_materiału" name="nazwa_materiału" required size="5">
-    {% for nazwa_materiału in nazwy_materiału %}
-        <option value="{{ nazwa_materiału.id }}">{{ nazwa_materiału.nazwa }}</option>
-    {% endfor %}
-</select><br>
-
-
-
-    <label for="data_z_etykiety_na_kregu">Data z etykiety na kręgu:</label>
-    <input type="date" name="data_z_etykiety_na_kregu" required><br>
-
-    <!-- <label for="grubosc">Grubość:</label>
-    <input type="number" name="grubosc" step="0.01" required><br>
-
-    <label for="szerokosc">Szerokość:</label>
-    <input type="number" name="szerokosc" step="0.01" required><br> -->
-
-    <label for="waga_kregu">Waga kręgu:</label>
-    <input type="number" name="waga_kregu" step="0.01" required><br>
-
-    <label for="nr_etykieta_paletowa">Nr etykieta paletowa:</label>
-    <input type="text" name="nr_etykieta_paletowa" ><br>
-
-    <label for="nr_z_etykiety_na_kregu">Nr z etykiety na kręgu:</label>
-    <input type="text" name="nr_z_etykiety_na_kregu" required><br>
-
-    <label for="szukaj_lokalizacje">Szukaj lokalizację:</label>
-<input type="text" id="szukaj_lokalizacje" onkeyup="filtrujLokalizacja()" placeholder="Wpisz nazwę lokalizacji">
-
-<label for="lokalizacja">Lokalizacja:</label>
-<select id="lokalizacja" name="lokalizacja" required size="5">
-    {% for lokalizacja in lokalizacje %}
-        <option value="{{ lokalizacja.id }}">{{ lokalizacja.nazwa }}</option>
-    {% endfor %}
-</select><br>
-
-    <label for="nr_faktury_dostawcy">Nr WZ:</label>
-    <input type="text" name="nr_faktury_dostawcy" required><br>
-
-    <label for="data_dostawy">Data dostawy:</label>
-    <input type="date" name="data_dostawy" required><br>
-    <button type="reset" class="button">Wyczyść</button>
-
-    <button type="submit" class="button" id="zamkni" onclick="zamknijOkno()">Dodaj i zamknij</button>
-    <button type="submit" class="button" id="zamkni" >Dodaj</button>
-    
-
-
+        </div>
+        <br>
+        <form id="myForm" action="{{ url_for('dodaj_rozmiar_obejma_do_bazy') }}" method="post">  
+            <!-- do poprawy rozmair na tasma -->
+            
+           
+            <h2>Dodaj ilość taśmy</h2>
+            <label for="nazwa_lokalizacji">Ile:</label>
+            <input type="text" name="rozmiar_obejm" required><br>
+            <button class="button" onclick="window.location.href='{{ url_for('tasma_obejma') }}'">Powrót</button>
+            <button type="reset" class="button">Wyczyść</button>
+            <button type="submit" class="button">Zapisz</button>
         </form>
     </div>
 </body>
-</html> 
+</html>

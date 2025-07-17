@@ -376,7 +376,7 @@ function filterTable() {
                     </tr>
                     <tr>
                         <th onclick="sortTable(0)">ID &#9650;&#9660;</th>
-                        <th onclick="sortTable(1)">Rozmiar &#9650;&#9660;</th>
+                        <th onclick="sortTable(1)">Ile pianki &#9650;&#9660;</th>
                         
                         
                         <th>Edycja</th>
@@ -386,7 +386,7 @@ function filterTable() {
                     {% for pianka in pianki %}
                         <tr>
                             <td>{{ pianka.id }} </td>
-                            <td>{{ pianka.nazwa }}</td>
+                            <td>{{ pianka.ile_pianka }}</td>
 
                             
                             <td><button type="button" class="button" onclick="openEditModal(this.parentElement.parentElement)">Edytuj</button></td>
