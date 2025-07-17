@@ -279,6 +279,11 @@ document.addEventListener("DOMContentLoaded", () => {
                                         <a href="{{ url_for('uprawnienia') }}"><label for="menuCheckbox" onclick="this.parentNode.click();">Uprawnienia</label></a>
                                     </li>
                                 {% endif %}
+                                {% if g.user.id==1 %}
+                                    <li>
+                                        <a href="{{ url_for('pokaz_logi') }}"><label for="menuCheckbox" onclick="this.parentNode.click();">Logi Aplikacji</label></a>
+                                    </li>
+                                {% endif %}
                             </ul>
                         </li>
                         {% endif %}
@@ -333,6 +338,16 @@ document.addEventListener("DOMContentLoaded", () => {
                                 <h2>Obejmy Ogniowe</h2>
                             {% endif %}
                             <ul>
+                                {% if g.user.id==1 %}
+                                    <li>
+                                        <a href="{{ url_for('tasma_obejma') }}"><label for="menuCheckbox" onclick="this.parentNode.click();">Taśmy</label></a>
+                                    </li>
+                                {% endif %}
+                                {% if g.user.id==1 %}
+                                    <li>
+                                        <a href="{{ url_for('pianka_obejma') }}"><label for="menuCheckbox" onclick="this.parentNode.click();">Pianki</label></a>
+                                    </li>
+                                {% endif %}
                                 {% if g.user.id==1 %}
                                     <li>
                                         <a href="{{ url_for('rozmiary_obejm') }}"><label for="menuCheckbox" onclick="this.parentNode.click();">Rozmiary</label></a>
