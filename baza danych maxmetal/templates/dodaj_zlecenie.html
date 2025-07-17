@@ -89,7 +89,7 @@
         <option 
             value="{{ nazwa_materiału.id }}" 
             data-max="{{ nazwa_materiału.ilosc_na_stanie }}">
-            {{ nazwa_materiału.nazwa }}ile: {{ nazwa_materiału.ilosc_na_stanie }}
+            {{ nazwa_materiału.nazwa }} ile: {{ nazwa_materiału.ilosc_na_stanie }}
         </option>
     {% endif %}
     {% endfor %}
@@ -100,11 +100,11 @@
 <input type="text" id="szukaj_material" onkeyup="filtrujMateriale()" placeholder="Wpisz rozmiar.."><br>
 <select id="nazwa_materiał" name="nazwa_materiał" required size="5" onchange="ustawMaksymalnaIlosci()">
     {% for nazwa_materiał in nazwy_materiał %}
-    {% if nazwa_materiału.ilosc_na_stanie > 0 %}
+    {% if nazwa_materiał.ilosc_na_stanie > 0 %}
         <option 
             value="{{ nazwa_materiał.id }}" 
             data-max="{{ nazwa_materiał.ilosc_na_stanie }}">
-            {{ nazwa_materiał.nazwa }}ile: {{ nazwa_materiał.ilosc_na_stanie }}
+            {{ nazwa_materiał.nazwa }} ile: {{ nazwa_materiał.ilosc_na_stanie }}
         </option>
     {% endif %}
     {% endfor %}

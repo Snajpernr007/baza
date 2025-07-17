@@ -2933,7 +2933,7 @@ def dodaj_zlecenie():
         return redirect(url_for('home'))
     rozmiar = Powrot.query.all()
     logger.info(f"{g.user.login} wszedł na stronę dodawania zlecenia.")
-    return render_template("dodaj_zlecenie.html", user=g.user,rozmiar=rozmiar,nazwy_materiału=Pianka.query.all(),nazwy_material=TasmaObejmy.query.all())
+    return render_template("dodaj_zlecenie.html", user=g.user,rozmiar=rozmiar,nazwy_materiału=Pianka.query.all(),nazwy_materiał=TasmaObejmy.query.all())
 @app.route('/dodaj_zlecenie_do_bazy', methods=['POST'])
 def dodaj_zlecenie_do_bazy():
     if not g.user:
