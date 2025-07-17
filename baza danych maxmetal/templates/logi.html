@@ -5,6 +5,22 @@
     <title>MaxMetal</title>
     <link rel="icon" href="../static/img/logo-male.png">
     <link rel="stylesheet" href="../static/style.css">
+    <script>
+        function toggleVisibility(className, btn) {
+    const elements = document.querySelectorAll('.' + className);
+    const isHidden = elements.length > 0 && elements[0].style.display === 'none';
+
+    elements.forEach(el => {
+        el.style.display = isHidden ? '' : 'none';
+    });
+
+    if (isHidden) {
+        btn.textContent = 'Nie pokazuj ' + btn.textContent.replace('Pokazuj ', '').toLowerCase();
+    } else {
+        btn.textContent = 'Pokazuj ' + btn.textContent.replace('Nie pokazuj ', '').toLowerCase();
+    }
+}
+    </script>
 </head>
 <body>
     <div id="banner">
@@ -162,6 +178,13 @@
     <div id="title">
                 <h2 class="witaj">Logi Aplikacji</h2>
             </div>
+            <div class="log-filters">
+    <button onclick="toggleVisibility('log-wejscie', this)">Nie pokazuj wejścia</button>
+    <button onclick="toggleVisibility('log-dodanie', this)">Nie pokazuj dodania</button>
+    <button onclick="toggleVisibility('log-usuniecie', this)">Nie pokazuj usunięcia</button>
+    <button onclick="toggleVisibility('log-edycja', this)">Nie pokazuj edycji</button>
+    <button onclick="toggleVisibility('log-inne', this)">Nie pokazuj reszty</button>
+</div>
     <div class="log-container">
     {% for linia in logi %}
         {% if 'wszedł' in linia %}
@@ -178,7 +201,7 @@
         %}
             <div class="log-edycja">{{ linia }}</div>
         {% else %}
-            <div>{{ linia }}</div>
+            <div class="log-inne">{{ linia }}</div>
         {% endif %}
     {% endfor %}
 </div>

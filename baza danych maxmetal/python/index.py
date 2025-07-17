@@ -463,6 +463,7 @@ def pokaz_logi():
 
     except FileNotFoundError:
         logi = ["Plik 'app.log' nie został znaleziony."]
+    logger.info(f"{g.user.login} wszedł przeglądać logi.")
     return render_template('logi.html', logi=logi, user=g.user)
 @app.route('/go_back')
 def go_back():
