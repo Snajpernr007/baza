@@ -420,11 +420,12 @@ function sendDataToBackend(data) {
                             <th><input type="text" placeholder="Filtruj ID" onchange="filterTable()"></th>
                             <th><input type="text" placeholder="Filtruj Nr Zamówienia" onchange="filterTable()"></th>
                             <th><input type="text" placeholder="Filtruj Prodio" onchange="filterTable()"></th>
+                            <th><input type="text" placeholder="Filtruj Nazwę pianki" onchange="filterTable()"></th>
                             <th><input type="text" placeholder="Filtruj Ilość pianki" onchange="filterTable()"></th>
-                            <th><input type="text" placeholder="Filtruj Serie taśmy" onchange="filterTable()"></th>
+                            <th><input type="text" placeholder="Filtruj Nazwę taśmy" onchange="filterTable()"></th>
                             <th><input type="text" placeholder="Filtruj Ilość taśmy" onchange="filterTable()"></th>
                             <th><input type="text" placeholder="Filtruj Nr kartonu" onchange="filterTable()"></th>
-                            <th><input type="text" placeholder="Filtruj Pracownik" onchange="filterTable()"></th>
+                            <th><input type="text" placeholder="Filtruj Pracownika" onchange="filterTable()"></th>
                             <th><input type="text" placeholder="Filtruj Imię i nazw." onchange="filterTable()"></th>
                             <th><input type="text" placeholder="Filtruj Rozmiar" onchange="filterTable()"></th>
                             <th><input type="text" placeholder="Filtruj Nr wytopu" onchange="filterTable()"></th>
@@ -439,16 +440,17 @@ function sendDataToBackend(data) {
                             <th  onclick="sortCustomTable(0)">ID &#9650;&#9660;</th>
                             <th  onclick="sortCustomTable(1)">Nr zamówienia &#9650;&#9660;</th>
                             <th  onclick="sortCustomTable(2)">Nr prodio &#9650;&#9660;</th>
-                            <th  onclick="sortCustomTable(3)">Ilość pianki &#9650;&#9660;</th>
-                            <th  onclick="sortCustomTable(4)">Seria taśmy &#9650;&#9660;</th>
-                            <th  onclick="sortCustomTable(5)">Ilość taśmy &#9650;&#9660;</th>
-                            <th  onclick="sortCustomTable(6)">Nr kartonu &#9650;&#9660;</th>
-                            <th  onclick="sortCustomTable(7)">Pracownik &#9650;&#9660;</th>
-                            <th  onclick="sortCustomTable(8)">Imię i nazwisko &#9650;&#9660;</th>
-                            <th  onclick="sortCustomTable(9)">Rozmiar &#9650;&#9660;</th>
-                            <th  onclick="sortCustomTable(10)">Nr wytopu &#9650;&#9660;</th>
-                            <th  onclick="sortCustomTable(11)">Data powrotu &#9650;&#9660;</th>
-                            <th  onclick="sortCustomTable(12)">Ilość sztuk &#9650;&#9660;</th>
+                            <th  onclick="sortCustomTable(3)">Nazwa pianki &#9650;&#9660;</th>
+                            <th  onclick="sortCustomTable(4)">Ilość pianki &#9650;&#9660;</th>
+                            <th  onclick="sortCustomTable(5)">Nazwa taśmy &#9650;&#9660;</th>
+                            <th  onclick="sortCustomTable(6)">Ilość taśmy &#9650;&#9660;</th>
+                            <th  onclick="sortCustomTable(7)">Nr kartonu &#9650;&#9660;</th>
+                            <th  onclick="sortCustomTable(8)">Pracownik &#9650;&#9660;</th>
+                            <th  onclick="sortCustomTable(9)">Imię i nazwisko &#9650;&#9660;</th>
+                            <th  onclick="sortCustomTable(10)">Rozmiar &#9650;&#9660;</th>
+                            <th  onclick="sortCustomTable(11)">Nr wytopu &#9650;&#9660;</th>
+                            <th  onclick="sortCustomTable(12)">Data powrotu &#9650;&#9660;</th>
+                            <th  onclick="sortCustomTable(13)">Ilość sztuk &#9650;&#9660;</th>
                             <th>Edycja</th>
                     </tr>
                 </thead>
@@ -480,6 +482,7 @@ function sendDataToBackend(data) {
                             {% if laczenia.id_zlecenie== zlecenia.id%}
                             
                                 <tr  data-child-id="{{ laczenia.id }}" data-parent-id="{{ laczenia.id_zlecenie }}">
+                                    <td></td>
                                     <td></td>
                                     <td></td>
                                     <td></td>
