@@ -617,7 +617,14 @@ def get_malarnia():
 def get_powrot():
     powrot = Powrot.query.all()
     return jsonify([{"id": p.id, "data": p.data.strftime('%Y-%m-%d') if p.data else None, "ilosc": p.ilosc, "ilosc_na_stanie": p.ilosc_na_stanie, "nr_prodio": p.nr_prodio, "id_malowania": p.id_malowania, "id_pracownik": p.id_pracownik, "imie_nazwisko": p.imie_nazwisko} for p in powrot])
-
+@app.route('/get-pianka', methods=['GET'])
+def get_pianka():
+    pianka = Pianka.query.all()
+    return jsonify([{"id": p.id, "nazwa": p.nazwa, "ilosc": p.ilosc, "ilosc_na_stanie": p.ilosc_na_stanie} for p in pianka])
+@app.route('/get-tasma_obejmy', methods=['GET'])
+def get_tasma_obejmy():
+    tasma_obejmy = TasmaObejmy.query.all()
+    return jsonify([{"id": t.id, "nazwa": t.nazwa, "ilosc": t.ilosc, "ilosc_na_stanie": t.ilosc_na_stanie} for t in tasma_obejmy])
 @app.route('/update-row_uzytkownik', methods=['POST'])
 def update_user():
     if g.user.id_uprawnienia != 1:
@@ -1363,10 +1370,9 @@ def zestawienie_obejma():
     if g.user.id_uprawnienia == 3:
         return redirect(url_for('home'))
 
-    materialy = MaterialObejma.query.all()
-    rozmiary = RozmiaryObejm.query.all()
+    
     logger.info(f"{g.user.login} wszedł na stronę zestawienia obejma.")
-    return render_template("zestawienie_obejma.html", user=g.user, materialy=materialy, rozmiary=rozmiary)
+    return render_template("zestawienie_obejma.html", user=g.user,laczenia=Laczenie.query.all(),zlecenia=Zlecenie.query.all())
 
 @app.route('/log-download', methods=['POST'])
 def log_download():
@@ -2988,10 +2994,12 @@ def dodaj_zlecenie_do_bazy():
         ilosc_tasmy = int(request.form.get('ilosc_tasmy') )
         if ilosc_pianki==0 or ilosc_pianki is None:
             for id_pianka in tabelka:
-                ilosc_pianki+=liczba*RozmiaryObejmy.query.get(int(id_pianka)).ile_pianki
+                u=RozmiaryObejm.query.get(int(id_pianka)).ile_pianki
+                ilosc_pianki+=liczba*u
         if ilosc_tasmy==0 or ilosc_tasmy is None:
             for id_tasma in tabelka:
-                ilosc_tasmy+=liczba*RozmiaryObejmy.query.get(int(id_tasma)).ile_tasmy
+                v=RozmiaryObejm.query.get(int(id_tasma)).ile_tasmy
+                ilosc_tasmy+=liczba*v
         # Stwórz zlecenie
         nowy_zlecenie = Zlecenie(
             nr_zamowienia_zew=Nr_zamowienia,

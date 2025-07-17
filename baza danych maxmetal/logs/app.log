@@ -16821,3 +16821,67 @@
 2025-07-17 18:19:01,881 - INFO - 127.0.0.1 - - [17/Jul/2025 18:19:01] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
 2025-07-17 18:19:01,904 - INFO - 127.0.0.1 - - [17/Jul/2025 18:19:01] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
 2025-07-17 18:19:01,913 - INFO - 127.0.0.1 - - [17/Jul/2025 18:19:01] "[36mGET /static/img/maxmetal.png HTTP/1.1[0m" 304 -
+2025-07-17 18:26:33,479 - INFO -  * Detected change in 'C:\\Users\\admin\\Documents\\GitHub\\baza\\baza danych maxmetal\\python\\index.py', reloading
+2025-07-17 18:28:36,769 - INFO -  * Restarting with stat
+2025-07-17 18:28:39,665 - INFO - Połączenie z bazą danych zostało nawiązane pomyślnie.
+2025-07-17 18:28:39,850 - INFO - ✅ Kopia zapasowa zapisana do pliku: backups\kopie_zapasowe_bazy_2025-07-17_18-28.sql
+2025-07-17 18:28:39,851 - INFO - 🗑️ Usunięto starą kopię: kopie_zapasowe_bazy_2025-07-17_17-20.sql
+2025-07-17 18:28:39,859 - WARNING -  * Debugger is active!
+2025-07-17 18:28:39,863 - INFO -  * Debugger PIN: 268-383-297
+2025-07-17 18:30:49,756 - INFO - Administrator wszedł na stronę główną.
+2025-07-17 18:30:49,949 - INFO - 127.0.0.1 - - [17/Jul/2025 18:30:49] "GET / HTTP/1.1" 200 -
+2025-07-17 18:30:50,075 - INFO - 127.0.0.1 - - [17/Jul/2025 18:30:50] "GET /static/style.css HTTP/1.1" 200 -
+2025-07-17 18:30:50,083 - INFO - 127.0.0.1 - - [17/Jul/2025 18:30:50] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-07-17 18:30:50,094 - INFO - 127.0.0.1 - - [17/Jul/2025 18:30:50] "GET /static/img/maxmetal.png HTTP/1.1" 200 -
+2025-07-17 18:37:19,438 - INFO - Połączenie z bazą danych zostało nawiązane pomyślnie.
+2025-07-17 18:37:19,615 - INFO - ✅ Kopia zapasowa zapisana do pliku: backups\kopie_zapasowe_bazy_2025-07-17_18-37.sql
+2025-07-17 18:37:19,617 - INFO - 🗑️ Usunięto starą kopię: kopie_zapasowe_bazy_2025-07-17_17-22.sql
+2025-07-17 18:37:19,631 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.1.80:5000
+2025-07-17 18:37:19,631 - INFO - [33mPress CTRL+C to quit[0m
+2025-07-17 18:37:19,633 - INFO -  * Restarting with stat
+2025-07-17 18:37:22,680 - INFO - Połączenie z bazą danych zostało nawiązane pomyślnie.
+2025-07-17 18:37:22,830 - INFO - ✅ Kopia zapasowa zapisana do pliku: backups\kopie_zapasowe_bazy_2025-07-17_18-37.sql
+2025-07-17 18:37:22,838 - WARNING -  * Debugger is active!
+2025-07-17 18:37:22,842 - INFO -  * Debugger PIN: 268-383-297
+2025-07-17 18:45:07,016 - INFO - Połączenie z bazą danych zostało nawiązane pomyślnie.
+2025-07-17 18:45:07,162 - INFO - ✅ Kopia zapasowa zapisana do pliku: backups\kopie_zapasowe_bazy_2025-07-17_18-45.sql
+2025-07-17 18:45:07,163 - INFO - 🗑️ Usunięto starą kopię: kopie_zapasowe_bazy_2025-07-17_17-23.sql
+2025-07-17 18:45:07,180 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.1.80:5000
+2025-07-17 18:45:07,180 - INFO - [33mPress CTRL+C to quit[0m
+2025-07-17 18:45:07,181 - INFO -  * Restarting with stat
+2025-07-17 18:45:10,416 - INFO - Połączenie z bazą danych zostało nawiązane pomyślnie.
+2025-07-17 18:45:10,599 - INFO - ✅ Kopia zapasowa zapisana do pliku: backups\kopie_zapasowe_bazy_2025-07-17_18-45.sql
+2025-07-17 18:45:10,609 - WARNING -  * Debugger is active!
+2025-07-17 18:45:10,619 - INFO -  * Debugger PIN: 268-383-297
+2025-07-17 18:45:11,080 - INFO - Administrator wszedł na stronę zlecenia.
+2025-07-17 18:45:11,085 - INFO - Administrator wszedł na stronę zlecenia.
+2025-07-17 18:45:11,085 - INFO - Administrator wszedł na stronę zlecenia.
+2025-07-17 18:45:11,087 - INFO - Administrator wszedł na stronę zlecenia.
+2025-07-17 18:45:11,099 - INFO - Administrator wszedł na stronę zlecenia.
+2025-07-17 18:45:11,099 - INFO - Administrator wszedł na stronę zlecenia.
+2025-07-17 18:45:12,006 - INFO - 127.0.0.1 - - [17/Jul/2025 18:45:12] "GET /zlecenie HTTP/1.1" 200 -
+2025-07-17 18:45:12,010 - INFO - 127.0.0.1 - - [17/Jul/2025 18:45:12] "GET /zlecenie HTTP/1.1" 200 -
+2025-07-17 18:45:12,020 - INFO - 127.0.0.1 - - [17/Jul/2025 18:45:12] "GET /zlecenie HTTP/1.1" 200 -
+2025-07-17 18:45:12,026 - INFO - 127.0.0.1 - - [17/Jul/2025 18:45:12] "GET /zlecenie HTTP/1.1" 200 -
+2025-07-17 18:45:12,032 - INFO - 127.0.0.1 - - [17/Jul/2025 18:45:12] "GET /zlecenie HTTP/1.1" 200 -
+2025-07-17 18:45:12,037 - INFO - 127.0.0.1 - - [17/Jul/2025 18:45:12] "GET /zlecenie HTTP/1.1" 200 -
+2025-07-17 18:45:12,094 - INFO - 127.0.0.1 - - [17/Jul/2025 18:45:12] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-07-17 18:45:12,141 - INFO - 127.0.0.1 - - [17/Jul/2025 18:45:12] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-07-17 18:45:12,164 - INFO - 127.0.0.1 - - [17/Jul/2025 18:45:12] "[36mGET /static/img/maxmetal.png HTTP/1.1[0m" 304 -
+2025-07-17 18:45:25,494 - INFO - Administrator wszedł na stronę główną.
+2025-07-17 18:45:25,682 - INFO - 127.0.0.1 - - [17/Jul/2025 18:45:25] "GET / HTTP/1.1" 200 -
+2025-07-17 18:45:25,912 - INFO - 127.0.0.1 - - [17/Jul/2025 18:45:25] "GET /static/style.css HTTP/1.1" 200 -
+2025-07-17 18:45:25,920 - INFO - 127.0.0.1 - - [17/Jul/2025 18:45:25] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-07-17 18:45:26,018 - INFO - 127.0.0.1 - - [17/Jul/2025 18:45:26] "GET /static/img/maxmetal.png HTTP/1.1" 200 -
+2025-07-17 18:45:26,957 - INFO - Administrator wszedł na stronę dodawania zlecenia (taśma obejma).
+2025-07-17 18:45:27,041 - INFO - 127.0.0.1 - - [17/Jul/2025 18:45:27] "GET /tasma_obejma HTTP/1.1" 200 -
+2025-07-17 18:45:27,111 - INFO - 127.0.0.1 - - [17/Jul/2025 18:45:27] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-07-17 18:45:27,128 - INFO - 127.0.0.1 - - [17/Jul/2025 18:45:27] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-07-17 18:45:27,157 - INFO - 127.0.0.1 - - [17/Jul/2025 18:45:27] "[36mGET /static/img/maxmetal.png HTTP/1.1[0m" 304 -
+2025-07-17 18:52:50,043 - INFO -  * Detected change in 'C:\\Users\\admin\\Documents\\GitHub\\baza\\baza danych maxmetal\\python\\index.py', reloading
