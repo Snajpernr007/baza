@@ -20,17 +20,23 @@
             
         </div>
         <br>
-        <form id="myForm" action="{{ url_for('dodaj_rozmiar_obejma_do_bazy') }}" method="post">  
-            <!-- do poprawy rozmair na tasma -->
-            
-           
-            <h2>Dodaj ilość taśmy</h2>
-            <label for="nazwa_lokalizacji">Ile:</label>
-            <input type="text" name="rozmiar_obejm" required><br>
-            <button class="button" onclick="window.location.href='{{ url_for('tasma_obejma') }}'">Powrót</button>
-            <button type="reset" class="button">Wyczyść</button>
-            <button type="submit" class="button">Zapisz</button>
-        </form>
+        <form id="myForm" action="{{ url_for('dodaj_tasma_do_bazy') }}" method="post">
+    <h2>Dodaj taśmę obejmy</h2>
+    <label for="nazwa_tasmy_obejmy">Nazwa taśmy:</label>
+    <input type="text" name="nazwa_tasmy_obejmy" required><br>
+
+    <label for="ilosc">Ilość:</label>
+    <input type="number" name="ilosc" required><br>
+
+    <label for="ilosc_na_stanie">Ilość na stanie:</label>
+    <input type="number" name="ilosc_na_stanie" required><br>
+
+    <!-- Dodaj inne pola jeśli są potrzebne w Twoim modelu -->
+
+    <button class="button" onclick="window.location.href='{{ url_for('tasma_obejma') }}'" type="button">Powrót</button>
+    <button type="reset" class="button">Wyczyść</button>
+    <button type="submit" class="button">Zapisz</button>
+</form>
     </div>
 </body>
 </html>
