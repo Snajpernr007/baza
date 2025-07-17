@@ -257,7 +257,70 @@ function sendDataToBackend(data) {
     })
     .catch(() => alert("Błąd sieci!"));
 }
+function downloadSelected(user) {
+    console.log("Pobieranie wybranych kolumn do Excela");
+    console.log("User:", user);
 
+    const table = document.getElementById('tabela');
+    const headerRow = table.querySelectorAll('thead tr')[1]; // Drugi wiersz nagłówka (z sortowaniem)
+    const headers = Array.from(headerRow.querySelectorAll('th'));
+    const allRows = Array.from(table.querySelectorAll('tbody tr'));
+
+    // Indeksy kolumn, które NIE są ukryte (na podstawie stylu)
+    const visibleColumnIndexes = headers
+        .map((th, idx) => th.style.display === "none" ? null : idx)
+        .filter(idx => idx !== null);
+
+    // Nazwy widocznych kolumn
+    const visibleHeaders = visibleColumnIndexes.map(idx =>
+        headers[idx].innerText.replace(/[▲▼]/g, '').trim()
+    );
+
+    // Widoczne wiersze
+    const visibleRows = allRows.filter(row => row.style.display !== "none");
+
+    // Dane tylko z widocznych kolumn i wierszy
+    const data = visibleRows.map(row => {
+        const cells = Array.from(row.querySelectorAll('td'));
+        return visibleColumnIndexes.map(idx => {
+            const cell = cells[idx];
+            return (cell && cell.style.display !== "none") ? cell.innerText.trim() : '';
+        });
+    });
+
+    console.log("Widoczne nagłówki:", visibleHeaders);
+    console.log("Dane do pobrania:", data);
+
+    // Logowanie do backendu
+    fetch('/log-download', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({ user, columns: visibleHeaders })
+    });
+
+    // Pobranie pliku Excel
+    fetch('/download-excel', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({ headers: visibleHeaders, data })
+    }).then(res => {
+        if (!res.ok) {
+            throw new Error('Nie udało się pobrać pliku Excel. Status: ' + res.status);
+        }
+        return res.blob();
+    }).then(blob => {
+        const url = window.URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = 'raport.xlsx';
+        document.body.appendChild(a);
+        a.click();
+        a.remove();
+    }).catch(error => {
+        console.error('Błąd podczas pobierania pliku:', error);
+        alert('Wystąpił problem podczas pobierania pliku Excel.');
+    });
+}
 
     </script>
 </head>
@@ -406,7 +469,6 @@ function sendDataToBackend(data) {
                 <div id="logo-banner">
                     <a href="{{ url_for('home') }}"><img id="logo-duże" src="../static/img/logo-duże.png" alt="logo"></a>
                 </div>
-                <button class="button2" onclick="window.location.href='{{ url_for('dodaj_zlecenie') }}'">Dodaj Zlecenie</button>
             </div>
         </div>
         <div id="test">
@@ -414,6 +476,14 @@ function sendDataToBackend(data) {
                 <h2 class="witaj">Zestawienie Obejm</h2>
             </div>
         </div>
+            <table id="tabela_on_off">
+                <thead>
+                    <tr>
+                        <th><button class="button" onclick="resetFilters()">Usuń Filtry</button></th>
+                        <th><button class="button" onclick="downloadSelected('{{ user.login }}')">Pobierz do Excel</button></th>
+                    </tr>
+                </thead>
+            </table>
                 <table id="tabela">
                     <thead class="sticky-sort">
                         <tr>
@@ -427,31 +497,171 @@ function sendDataToBackend(data) {
                             <th><input type="text" placeholder="Filtruj Nr kartonu" onchange="filterTable()"></th>
                             <th><input type="text" placeholder="Filtruj Pracownika" onchange="filterTable()"></th>
                             <th><input type="text" placeholder="Filtruj Imię i nazw." onchange="filterTable()"></th>
-                            <th><input type="text" placeholder="Filtruj Rozmiar" onchange="filterTable()"></th>
-                            <th><input type="text" placeholder="Filtruj Nr wytopu" onchange="filterTable()"></th>
-                            <th>OD<input type="date" id="dateDostawyFrom" onchange="filterTable()" style="width: 90px;">
-                                DO<input type="date" id="dateDostawyTo" onchange="filterTable()" style="width: 90px;">
-                            </th>
-                            <th><input type="text" placeholder="Filtruj Ilość sztuk" onchange="filterTable()"></th>
-                            <th><button class="button" onclick="resetFilters()">Usuń filtry</button></th>
+                            <th><input type="text" placeholder="Filtruj ID" onkeyup="filterTable()"></th>
+                            <th><input type="text" placeholder="Filtruj Certyfikat" onkeyup="filterTable()"></th>
+                            <th>OD<input type="date" id="dateFrom" onchange="filterTable()">
+                                    DO<input type="date" id="dateTo" onchange="filterTable()"></th>
+                            <th><input type="text" placeholder="Filtruj Nr wytopu" onkeyup="filterTable()"></th>
+                            <th><input type="text" placeholder="Filtruj Nr Prodio" onkeyup="filterTable()"></th>
+                            <th><input type="text" placeholder="Filtruj Ilość sztuk" onkeyup="filterTable()"></th>
+                            <th><input type="text" placeholder="Filtruj Ilość na stanie" onkeyup="filterTable()"></th>
+                            <th><input type="text" placeholder="Filtruj Rozmiar" onkeyup="filterTable()"></th>
+                            <th><input type="text" placeholder="Filtruj Pracownika" onkeyup="filterTable()"></th>
+                            <th><input type="text" placeholder="Filtruj ID" onkeyup="filterTable()"></th>
+                        <th><input type="text" placeholder="Filtruj Nazwe" onkeyup="filterTable()"></th>
+                        <th><input type="text" placeholder="Filtruj Rozmiar" onkeyup="filterTable()"></th>
+                        <th><input type="text" placeholder="Filtruj Nr wytopu" onkeyup="filterTable()"></th>
+                        <th>OD<input type="date" id="dateFrom" onchange="filterTable()">
+                                DO<input type="date" id="dateTo" onchange="filterTable()"></th>
+                        <th><input type="text" placeholder="Filtruj Godzina rozpoczęcia" onkeyup="filterTable()"></th>
+                        <th><input type="text" placeholder="Filtruj Godzina zakończenia" onkeyup="filterTable()"></th>
+                        <th><input type="text" placeholder="Filtruj Ilość" onkeyup="filterTable()"></th>
+                        <th><input type="text" placeholder="Filtruj Ilość na stanie" onkeyup="filterTable()"></th>
+                        <th><input type="text" placeholder="Filtruj Nr Prodio" onkeyup="filterTable()"></th>
+                        <th><input type="text" placeholder="Filtruj Pracownika" onkeyup="filterTable()"></th>
+                        <th><input type="text" placeholder="Filtruj Imię i nazwisko" onkeyup="filterTable()"></th>
+                                                <th><input type="text" placeholder="Filtruj ID" onkeyup="filterTable()"></th>
+                        <th><input type="text" placeholder="Filtruj Nazwe" onkeyup="filterTable()"></th>
+                        <th><input type="text" placeholder="Filtruj Kształtowanie" onkeyup="filterTable()"></th>
+                        <th><input type="text" placeholder="Filtruj Rozmiar" onkeyup="filterTable()"></th>
+                        <th><input type="text" placeholder="Filtruj Nr wytopu" onkeyup="filterTable()"></th>
+                        <th>OD<input type="date" id="dateFrom" onchange="filterTable()">
+                                DO<input type="date" id="dateTo" onchange="filterTable()"></th>
+                        <th><input type="text" placeholder="Filtruj Godzina rozpoczęcia" onkeyup="filterTable()"></th>
+                        <th><input type="text" placeholder="Filtruj Godzina zakończenia" onkeyup="filterTable()"></th>
+                        <th><input type="text" placeholder="Filtruj Ilość" onkeyup="filterTable()"></th>
+                        <th><input type="text" placeholder="Filtruj Ilość na stanie" onkeyup="filterTable()"></th>
+                        <th><input type="text" placeholder="Filtruj Nr Prodio" onkeyup="filterTable()"></th>
+                        <th><input type="text" placeholder="Filtruj Pracownika" onkeyup="filterTable()"></th>
+                        <th><input type="text" placeholder="Filtruj Imię i nazwisko" onkeyup="filterTable()"></th>
+                                                <th><input type="text" placeholder="Filtruj ID" onkeyup="filterTable()"></th>
+                        <th><input type="text" placeholder="Filtruj Nazwe" onkeyup="filterTable()"></th>
+                        <th><input type="text" placeholder="Filtruj Kształtowanie" onkeyup="filterTable()"></th>
+                        <th><input type="text" placeholder="Filtruj Rozmiar" onkeyup="filterTable()"></th>
+                        <th><input type="text" placeholder="Filtruj Nr wytopu" onkeyup="filterTable()"></th>
+                        <th>OD<input type="date" id="dateFrom" onchange="filterTable()">
+                                DO<input type="date" id="dateTo" onchange="filterTable()"></th>
+                        <th><input type="text" placeholder="Filtruj Godzina rozpoczęcia" onkeyup="filterTable()"></th>
+                        <th><input type="text" placeholder="Filtruj Godzina zakończenia" onkeyup="filterTable()"></th>
+                        <th><input type="text" placeholder="Filtruj Ilość" onkeyup="filterTable()"></th>
+                        <th><input type="text" placeholder="Filtruj Ilość na stanie" onkeyup="filterTable()"></th>
+                        <th><input type="text" placeholder="Filtruj Nr Prodio" onkeyup="filterTable()"></th>
+                        <th><input type="text" placeholder="Filtruj Pracownika" onkeyup="filterTable()"></th>
+                        <th><input type="text" placeholder="Filtruj Imię i nazwisko" onkeyup="filterTable()"></th>
+                                                <th><input type="text" placeholder="Filtruj ID" onkeyup="filterTable()"></th>
+                        <th><input type="text" placeholder="Filtruj Rozmiar" onkeyup="filterTable()"></th>
+                        <th><input type="text" placeholder="Filtruj Nr wytopu" onkeyup="filterTable()"></th>
+                        <th><input type="text" placeholder="Filtruj Partia" onkeyup="filterTable()"></th>
+                        <th><input type="text" placeholder="Filtruj Ilość" onkeyup="filterTable()"></th>
+                        <th><input type="text" placeholder="Filtruj Ilość na stanie" onkeyup="filterTable()"></th>
+                        <th><input type="text" placeholder="Filtruj Nr Prodio" onkeyup="filterTable()"></th>
+                        <th>OD<input type="date" id="dateFrom" onchange="filterTable()">
+                                DO<input type="date" id="dateTo" onchange="filterTable()"></th>
+                        <th><input type="text" placeholder="Filtruj Pracownika" onkeyup="filterTable()"></th>
+                        <th><input type="text" placeholder="Filtruj Imię i nazwisko" onkeyup="filterTable()"></th>
+                                                <th><input type="text" placeholder="Filtruj ID" onkeyup="filterTable()"></th>
+                        <th><input type="text" placeholder="Filtruj Rozmiar" onkeyup="filterTable()"></th>
+                        <th><input type="text" placeholder="Filtruj Nr wytopu" onkeyup="filterTable()"></th>
+                        <th>OD<input type="date" id="dateFrom" onchange="filterTable()">
+                                DO<input type="date" id="dateTo" onchange="filterTable()"></th>
+                        <th><input type="text" placeholder="Filtruj Ilość" onkeyup="filterTable()"></th>
+                        <th><input type="text" placeholder="Filtruj Ilość na stanie" onkeyup="filterTable()"></th>
+                        <th><input type="text" placeholder="Filtruj Nr Prodio" onkeyup="filterTable()"></th>
+                        <th>OD<input type="date" id="dateFrom" onchange="filterTable()">
+                                DO<input type="date" id="dateTo" onchange="filterTable()"></th>
+                        <th><input type="text" placeholder="Filtruj Pracownika" onkeyup="filterTable()"></th>
+                        <th><input type="text" placeholder="Filtruj Imię i nazwisko" onkeyup="filterTable()"></th>
+                        <th><input type="text" placeholder="Filtruj Rozmiar" onkeyup="filterTable()"></th>
+                        <th><input type="text" placeholder="Filtruj Nr wytopu" onkeyup="filterTable()"></th>
+                        <th>OD<input type="date" id="dateFrom" onchange="filterTable()">
+                                DO<input type="date" id="dateTo" onchange="filterTable()"></th>
+                        <th><input type="text" placeholder="Filtruj Ilość" onkeyup="filterTable()"></th>
+                        
                         </tr>
                     
                     <tr>
-                            <th  onclick="sortCustomTable(0)">ID &#9650;&#9660;</th>
-                            <th  onclick="sortCustomTable(1)">Nr zamówienia &#9650;&#9660;</th>
-                            <th  onclick="sortCustomTable(2)">Nr prodio &#9650;&#9660;</th>
-                            <th  onclick="sortCustomTable(3)">Nazwa pianki &#9650;&#9660;</th>
-                            <th  onclick="sortCustomTable(4)">Ilość pianki &#9650;&#9660;</th>
-                            <th  onclick="sortCustomTable(5)">Nazwa taśmy &#9650;&#9660;</th>
-                            <th  onclick="sortCustomTable(6)">Ilość taśmy &#9650;&#9660;</th>
-                            <th  onclick="sortCustomTable(7)">Nr kartonu &#9650;&#9660;</th>
-                            <th  onclick="sortCustomTable(8)">Pracownik &#9650;&#9660;</th>
-                            <th  onclick="sortCustomTable(9)">Imię i nazwisko &#9650;&#9660;</th>
-                            <th  onclick="sortCustomTable(10)">Rozmiar &#9650;&#9660;</th>
-                            <th  onclick="sortCustomTable(11)">Nr wytopu &#9650;&#9660;</th>
-                            <th  onclick="sortCustomTable(12)">Data powrotu &#9650;&#9660;</th>
-                            <th  onclick="sortCustomTable(13)">Ilość sztuk &#9650;&#9660;</th>
-                            <th>Edycja</th>
+                            <th onclick="sortCustomTable(0)">ID &#9650;&#9660;</th>
+                            <th onclick="sortCustomTable(1)">Nr zamówienia &#9650;&#9660;</th>
+                            <th onclick="sortCustomTable(2)">Nr prodio &#9650;&#9660;</th>
+                            <th onclick="sortCustomTable(3)">Nazwa pianki &#9650;&#9660;</th>
+                            <th onclick="sortCustomTable(4)">Ilość pianki &#9650;&#9660;</th>
+                            <th onclick="sortCustomTable(5)">Nazwa taśmy &#9650;&#9660;</th>
+                            <th onclick="sortCustomTable(6)">Ilość taśmy &#9650;&#9660;</th>
+                            <th onclick="sortCustomTable(7)">Nr kartonu &#9650;&#9660;</th>
+                            <th onclick="sortCustomTable(8)">Pracownik &#9650;&#9660;</th>
+                            <th onclick="sortCustomTable(9)">Imię i nazwisko &#9650;&#9660;</th>
+                            <th onclick="sortTable(10)">ID &#9650;&#9660;</th>
+                            <th onclick="sortTable(11)">Certyfikat &#9650;&#9660;</th>
+                            <th onclick="sortTable(12)">Data dostawy &#9650;&#9660;</th>
+                            <th onclick="sortTable(13)">Nr wytopu &#9650;&#9660;</th>
+                            <th onclick="sortTable(14)">Nr prodio &#9650;&#9660;</th>
+                            <th onclick="sortTable(15)">Ilość sztuk &#9650;&#9660;</th>
+                            <th onclick="sortTable(16)">Ilość na stanie &#9650;&#9660;</th>
+                            <th onclick="sortTable(17)">Rozmiar &#9650;&#9660;</th>
+                            <th onclick="sortTable(18)">Pracownik &#9650;&#9660;</th>
+                            <th onclick="sortTable(19)">ID &#9650;&#9660;</th>
+                            <th onclick="sortTable(20)">Nazwa</th>
+                            <th onclick="sortTable(21)">Rozmiar &#9650;&#9660;</th>
+                            <th onclick="sortTable(22)">Nr wytopu &#9650;&#9660;</th>
+                            <th onclick="sortTable(23)">Data &#9650;&#9660;</th>
+                            <th onclick="sortTable(24)">Godzina rozpoczecia &#9650;&#9660;</th>
+                            <th onclick="sortTable(25)">Godzina zakończenia &#9650;&#9660;</th>
+                            <th onclick="sortTable(26)">Ilość &#9650;&#9660;</th>
+                            <th onclick="sortTable(27)">Ilość na stanie &#9650;&#9660;</th>
+                            <th onclick="sortTable(28)">Nr prodio &#9650;&#9660;</th>
+                            <th onclick="sortTable(29)">Pracownik &#9650;&#9660;</th>
+                            <th onclick="sortTable(30)">Imię i nazwisko &#9650;&#9660;</th>
+                            <th onclick="sortTable(31)">ID &#9650;&#9660;</th>
+                            <th onclick="sortTable(32)">Nazwa</th>
+                            <th onclick="sortTable(33)">Kształtowanie &#9650;&#9660;</th>
+                            <th onclick="sortTable(34)">Rozmiar &#9650;&#9660;</th>
+                            <th onclick="sortTable(35)">Nr wytopu &#9650;&#9660;</th>
+                            <th onclick="sortTable(36)">Data &#9650;&#9660;</th>
+                            <th onclick="sortTable(37)">Godzina rozpoczecia &#9650;&#9660;</th>
+                            <th onclick="sortTable(38)">Godzina zakończenia &#9650;&#9660;</th>
+                            <th onclick="sortTable(39)">Ilość &#9650;&#9660;</th>
+                            <th onclick="sortTable(40)">Ilość na stanie &#9650;&#9660;</th>
+                            <th onclick="sortTable(51)">Nr prodio &#9650;&#9660;</th>
+                            <th onclick="sortTable(52)">Pracownik &#9650;&#9660;</th>
+                            <th onclick="sortTable(53)">Imię i nazwisko &#9650;&#9660;</th>
+                            <th onclick="sortTable(54)">ID &#9650;&#9660;</th>
+                            <th onclick="sortTable(55)">Nazwa</th>
+                            <th onclick="sortTable(56)">Kształtowanie &#9650;&#9660;</th>
+                            <th onclick="sortTable(57)">Rozmiar &#9650;&#9660;</th>
+                            <th onclick="sortTable(58)">Nr wytopu &#9650;&#9660;</th>
+                            <th onclick="sortTable(59)">Data &#9650;&#9660;</th>
+                            <th onclick="sortTable(60)">Godzina rozpoczecia &#9650;&#9660;</th>
+                            <th onclick="sortTable(61)">Godzina zakończenia &#9650;&#9660;</th>
+                            <th onclick="sortTable(62)">Ilość &#9650;&#9660;</th>
+                            <th onclick="sortTable(63)">Ilość na stanie &#9650;&#9660;</th>
+                            <th onclick="sortTable(64)">Nr prodio &#9650;&#9660;</th>
+                            <th onclick="sortTable(65)">Pracownik &#9650;&#9660;</th>
+                            <th onclick="sortTable(66)">Imię i nazwisko &#9650;&#9660;</th>
+                            <th onclick="sortTable(67)">ID &#9650;&#9660;</th>
+                            <th onclick="sortTable(68)">Rozmiar &#9650;&#9660;</th>
+                            <th onclick="sortTable(69)">Nr wytopu &#9650;&#9660;</th>
+                            <th onclick="sortTable(70)">Partia &#9650;&#9660;</th>
+                            <th onclick="sortTable(71)">Ilość &#9650;&#9660;</th>
+                            <th onclick="sortTable(72)">Ilość na stanie &#9650;&#9660;</th>
+                            <th onclick="sortTable(73)">Nr prodio &#9650;&#9660;</th>
+                            <th onclick="sortTable(74)">Data &#9650;&#9660;</th>
+                            <th onclick="sortTable(75)">Pracownik &#9650;&#9660;</th>
+                            <th onclick="sortTable(76)">Imię i nazwisko &#9650;&#9660;</th>
+                            <th onclick="sortTable(77)">ID &#9650;&#9660;</th>
+                            <th onclick="sortTable(78)">Rozmiar &#9650;&#9660;</th>
+                            <th onclick="sortTable(79)">Nr wytopu &#9650;&#9660;</th>
+                            <th onclick="sortTable(80)">Data wyjazdu</th>
+                            <th onclick="sortTable(81)">Ilość &#9650;&#9660;</th>
+                            <th onclick="sortTable(82)">Ilość na stanie &#9650;&#9660;</th>
+                            <th onclick="sortTable(83)">Nr prodio &#9650;&#9660;</th>
+                            <th onclick="sortTable(84)">Data powrotu &#9650;&#9660;</th>
+                            <th onclick="sortTable(85)">Pracownik &#9650;&#9660;</th>
+                            <th onclick="sortTable(86)">Imię i nazwisko &#9650;&#9660;</th>
+                            <th onclick="sortTable(87)">Rozmiar &#9650;&#9660;</th>
+                            <th onclick="sortTable(88)">Nr wytopu &#9650;&#9660;</th>
+                            <th onclick="sortTable(89)">Data &#9650;&#9660;</th>
+                            <th onclick="sortTable(90)">Ilość sztuk &#9650;&#9660;</th>
+                            
                     </tr>
                 </thead>
                 <tbody>
@@ -471,11 +681,73 @@ function sendDataToBackend(data) {
                             <td></td>
                             <td></td>
                             <td></td>
-                            <td><button type="button" class="button" onclick="openEditModal(this.parentElement.parentElement)">Edytuj</button>
-                            <form method="POST" style="display:inline;background-color: transparent;width: 0;padding: 0%;" action="{{ url_for('usun_zlecenie', id=zlecenia.id) }}" onsubmit="return confirm('Na pewno chcesz usunąć to zlecenie?');">
-                                <button type="submit" class="button">Usuń</button>
-                            </form></td>
-                                
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>    
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td> 
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td> 
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td> 
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td> 
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td> 
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td> 
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td> 
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td> 
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td> 
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td> 
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td> 
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td> 
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td> 
                         </tr>
                             {% for laczenia in laczenie %}
                             
@@ -569,7 +841,6 @@ function sendDataToBackend(data) {
                                     <td>{{ laczenia.powrot.malarnia.ksztaltowanie_3.ksztaltowanie_2.ksztaltowanie_1.material.nr_wytopu }}</td>
                                     <td>{{ laczenia.powrot.data }}</td>
                                     <td>{{ laczenia.ile_sztuk }}</td>
-                                    <td></td>
                                 </tr>
                             {% endif %}
                             
