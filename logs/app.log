@@ -18618,3 +18618,41 @@
 2025-07-17 13:19:15,893 - INFO - 192.168.1.13 - - [17/Jul/2025 13:19:15] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
 2025-07-17 13:19:15,893 - INFO - 192.168.1.13 - - [17/Jul/2025 13:19:15] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
 2025-07-17 13:19:16,058 - INFO - 192.168.1.13 - - [17/Jul/2025 13:19:16] "[36mGET /static/img/maxmetal.png HTTP/1.1[0m" 304 -
+2025-07-17 13:19:46,379 - INFO - Administrator wszedł na stronę główną.
+2025-07-17 13:19:46,380 - INFO - 192.168.1.13 - - [17/Jul/2025 13:19:46] "GET / HTTP/1.1" 200 -
+2025-07-17 13:19:46,395 - INFO - 192.168.1.13 - - [17/Jul/2025 13:19:46] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-07-17 13:19:46,395 - INFO - 192.168.1.13 - - [17/Jul/2025 13:19:46] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-07-17 13:19:46,407 - INFO - 192.168.1.13 - - [17/Jul/2025 13:19:46] "[36mGET /static/img/maxmetal.png HTTP/1.1[0m" 304 -
+2025-07-17 13:19:51,741 - INFO - Administrator wszedł na stronę zarządzania użytkownikami.
+2025-07-17 13:19:51,823 - INFO - 192.168.1.13 - - [17/Jul/2025 13:19:51] "GET /uzytkownik HTTP/1.1" 200 -
+2025-07-17 13:19:51,844 - INFO - 192.168.1.13 - - [17/Jul/2025 13:19:51] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-07-17 13:19:51,844 - INFO - 192.168.1.13 - - [17/Jul/2025 13:19:51] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-07-17 13:19:57,000 - INFO - Administrator wszedł na stronę ksztaltowania2.
+2025-07-17 13:19:57,082 - INFO - 192.168.1.13 - - [17/Jul/2025 13:19:57] "GET /ksztaltowanie2 HTTP/1.1" 200 -
+2025-07-17 13:19:57,096 - INFO - 192.168.1.13 - - [17/Jul/2025 13:19:57] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-07-17 13:19:57,096 - INFO - 192.168.1.13 - - [17/Jul/2025 13:19:57] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-07-17 13:20:05,246 - INFO - Administrator wszedł na stronę ksztaltowania1.
+2025-07-17 13:20:05,325 - INFO - 192.168.1.13 - - [17/Jul/2025 13:20:05] "GET /ksztaltowanie1 HTTP/1.1" 200 -
+2025-07-17 13:20:05,342 - INFO - 192.168.1.13 - - [17/Jul/2025 13:20:05] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-07-17 13:20:05,342 - INFO - 192.168.1.13 - - [17/Jul/2025 13:20:05] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-07-17 13:20:06,634 - INFO - Administrator wszedł na stronę główną.
+2025-07-17 13:20:06,636 - INFO - 192.168.1.13 - - [17/Jul/2025 13:20:06] "GET / HTTP/1.1" 200 -
+2025-07-17 13:20:06,649 - INFO - 192.168.1.13 - - [17/Jul/2025 13:20:06] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-07-17 13:20:06,650 - INFO - 192.168.1.13 - - [17/Jul/2025 13:20:06] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-07-17 13:20:07,508 - INFO - Administrator wszedł na stronę ksztaltowania2.
+2025-07-17 13:20:07,509 - INFO - 192.168.1.13 - - [17/Jul/2025 13:20:07] "GET /ksztaltowanie2 HTTP/1.1" 200 -
+2025-07-17 13:20:07,527 - INFO - 192.168.1.13 - - [17/Jul/2025 13:20:07] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-07-17 13:20:07,527 - INFO - 192.168.1.13 - - [17/Jul/2025 13:20:07] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-07-17 13:25:06,028 - INFO - Administrator wszedł na stronę ksztaltowania2.
+2025-07-17 13:25:06,111 - INFO - 192.168.1.13 - - [17/Jul/2025 13:25:06] "GET /ksztaltowanie2 HTTP/1.1" 200 -
+2025-07-17 13:25:06,127 - INFO - 192.168.1.13 - - [17/Jul/2025 13:25:06] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-07-17 13:25:06,129 - INFO - 192.168.1.13 - - [17/Jul/2025 13:25:06] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-07-17 13:25:06,161 - INFO - 192.168.1.13 - - [17/Jul/2025 13:25:06] "[36mGET /static/img/logo-male.png HTTP/1.1[0m" 304 -
+2025-07-17 13:25:31,248 - INFO - Administrator wszedł na stronę ksztaltowania2.
+2025-07-17 13:25:31,332 - INFO - 192.168.1.13 - - [17/Jul/2025 13:25:31] "GET /ksztaltowanie2 HTTP/1.1" 200 -
+2025-07-17 13:25:31,346 - INFO - 192.168.1.13 - - [17/Jul/2025 13:25:31] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-07-17 13:25:31,346 - INFO - 192.168.1.13 - - [17/Jul/2025 13:25:31] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-07-17 13:25:31,376 - INFO - 192.168.1.13 - - [17/Jul/2025 13:25:31] "[36mGET /static/img/logo-male.png HTTP/1.1[0m" 304 -
+2025-07-17 13:25:33,194 - INFO - 192.168.1.13 - - [17/Jul/2025 13:25:33] "GET /pokaz_logi HTTP/1.1" 200 -
+2025-07-17 13:25:33,213 - INFO - 192.168.1.13 - - [17/Jul/2025 13:25:33] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-07-17 13:25:33,213 - INFO - 192.168.1.13 - - [17/Jul/2025 13:25:33] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -

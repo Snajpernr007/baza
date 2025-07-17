@@ -283,6 +283,11 @@ function sendDataToBackend(data) {
                                         <a href="{{ url_for('uprawnienia') }}"><label for="menuCheckbox" onclick="this.parentNode.click();">Uprawnienia</label></a>
                                     </li>
                                 {% endif %}
+                                {% if g.user.id_uprawnienia==1 %}
+                                    <li>
+                                        <a href="{{ url_for('pokaz_logi') }}"><label for="menuCheckbox" onclick="this.parentNode.click();">Logi Aplikacji</label></a>
+                                    </li>
+                                {% endif %}
                             </ul>
                         </li>
                         {% endif %}
@@ -399,12 +404,12 @@ function sendDataToBackend(data) {
                 <div id="logo-banner">
                     <a href="{{ url_for('home') }}"><img id="logo-duże" src="../static/img/logo-duże.png" alt="logo"></a>
                 </div>
-                <button class="button2" onclick="window.location.href='{{ url_for('dodaj_ksztaltowanie3') }}'">Dodaj Kształt</button>
+                <button class="button2" onclick="window.location.href='{{ url_for('dodaj_ksztaltowanie3') }}'">Dodaj Wyrób</button>
             </div>
         </div>
         <div id="test">
             <div id="title">
-                <h2 class="witaj">Kształtowanie</h2>
+                <h2 class="witaj">Prasa PMA 10T</h2>
             </div>
             <table id="tabela">
                 <thead class="sticky-sort">
