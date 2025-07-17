@@ -15172,3 +15172,20 @@
 2025-07-17 14:08:36,798 - INFO - 127.0.0.1 - - [17/Jul/2025 14:08:36] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
 2025-07-17 14:08:36,819 - INFO - 127.0.0.1 - - [17/Jul/2025 14:08:36] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
 2025-07-17 14:08:36,828 - INFO - 127.0.0.1 - - [17/Jul/2025 14:08:36] "[36mGET /static/img/maxmetal.png HTTP/1.1[0m" 304 -
+2025-07-17 14:10:50,833 - INFO - Administrator wszedł przeglądać logi.
+2025-07-17 14:10:50,931 - INFO - 127.0.0.1 - - [17/Jul/2025 14:10:50] "GET /pokaz_logi HTTP/1.1" 200 -
+2025-07-17 14:10:50,957 - INFO - 127.0.0.1 - - [17/Jul/2025 14:10:50] "GET /static/style.css HTTP/1.1" 200 -
+2025-07-17 14:10:50,975 - INFO - 127.0.0.1 - - [17/Jul/2025 14:10:50] "GET /static/img/logo-duże.png HTTP/1.1" 200 -
+2025-07-17 14:10:50,977 - INFO - 127.0.0.1 - - [17/Jul/2025 14:10:50] "GET /static/img/maxmetal.png HTTP/1.1" 200 -
+2025-07-17 14:10:51,139 - INFO - 127.0.0.1 - - [17/Jul/2025 14:10:51] "GET /static/img/logo-male.png HTTP/1.1" 200 -
+2025-07-17 14:11:11,659 - INFO - Administrator wszedł przeglądać logi.
+2025-07-17 14:11:11,813 - INFO - 127.0.0.1 - - [17/Jul/2025 14:11:11] "GET /pokaz_logi HTTP/1.1" 200 -
+2025-07-17 14:11:11,889 - INFO - 127.0.0.1 - - [17/Jul/2025 14:11:11] "GET /static/style.css HTTP/1.1" 200 -
+2025-07-17 14:11:11,914 - INFO - 127.0.0.1 - - [17/Jul/2025 14:11:11] "GET /static/img/logo-duże.png HTTP/1.1" 200 -
+2025-07-17 14:11:11,927 - INFO - 127.0.0.1 - - [17/Jul/2025 14:11:11] "GET /static/img/maxmetal.png HTTP/1.1" 200 -
+2025-07-17 14:11:11,935 - INFO - 127.0.0.1 - - [17/Jul/2025 14:11:11] "GET /static/img/logo-male.png HTTP/1.1" 200 -
+2025-07-17 14:11:28,389 - INFO - Administrator wszedł przeglądać logi.
+2025-07-17 14:11:28,494 - INFO - 127.0.0.1 - - [17/Jul/2025 14:11:28] "GET /pokaz_logi HTTP/1.1" 200 -
+2025-07-17 14:11:28,519 - INFO - 127.0.0.1 - - [17/Jul/2025 14:11:28] "GET /static/style.css HTTP/1.1" 200 -
+2025-07-17 14:11:28,534 - INFO - 127.0.0.1 - - [17/Jul/2025 14:11:28] "GET /static/img/logo-duże.png HTTP/1.1" 200 -
+2025-07-17 14:11:28,547 - INFO - 127.0.0.1 - - [17/Jul/2025 14:11:28] "GET /static/img/maxmetal.png HTTP/1.1" 200 -
