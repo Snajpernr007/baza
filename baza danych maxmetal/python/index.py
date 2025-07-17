@@ -342,7 +342,7 @@ class Zlecenie(db.Model):
     id_pianka = db.Column(db.Integer, db.ForeignKey('pianka.id'), nullable=True)
     pianka = db.relationship('Pianka', backref='zlecenia')
     
-    ile_pianki = db.Column(db.Integer)  # <-- dodane pole ile_pianki
+    ile_pianka = db.Column(db.Integer)  # <-- dodane pole ile_pianki
     
     id_tasma = db.Column(db.Integer, db.ForeignKey('tasma_obejmy.id'), nullable=True)
     tasma = db.relationship('TasmaObejmy', backref='zlecenia')
