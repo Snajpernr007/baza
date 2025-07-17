@@ -13,138 +13,160 @@
 // }, 10000); // 10000 ms = 10 sekund
 
 function filterTable() {
-    let table = document.getElementById("tabela");
-    let rows = table.querySelectorAll("tbody tr");
-    let filters = table.querySelectorAll("thead tr:first-child input[type='text']");
+    const rows = document.querySelectorAll("#tabela tbody tr");
 
-    let dateFrom = document.getElementById("dateFrom")?.value;
-    let dateTo = document.getElementById("dateTo")?.value;
+    // Pobierz wartości filtrów
+    const filters = {
+        id: getInput('Filtruj ID'),
+        material: getInput('Filtruj Materiał'),
+        dateFrom: getDate('dateFrom'),
+        dateTo: getDate('dateTo'),
+        godzStart: getInput('Filtruj Godzinę rozpoczęcia'),
+        godzStop: getInput('Filtruj Godzinę zakończenia'),
+        zwrot: getInput('Filtruj Zwrot na magazyn'),
+        nrCzesci: getInput('Filtruj Nr części Klienta'),
+        nazwaKlienta: getInput('Filtruj Nazwę klienta Nr PRODIO'),
+        ilosc: getInput('Filtruj Ilość'),
+        iloscNaStanie: getInput('Filtruj Ilość na stanie'),
+        dlugosc: getInput('Filtruj Długość'),
+        rodzajMaterialu: getInput('Filtruj Rodzaj Materiału'),
+        stanowiskoImieNazwisko: getInput('Filtruj Nazwę Stanowiska i imie i nazwisko'),
+        imieNazwisko: getInput('Filtruj Imie i Nazwisko')
+    };
 
     rows.forEach(row => {
-        let cells = row.querySelectorAll("td");
-        let show = true;
+        const cells = row.querySelectorAll("td");
+        let visible = true;
 
-        // Filtrowanie tekstowe (kolumny poza "Data produkcji")
-        filters.forEach((input, index) => {
-            let value = input.value.toLowerCase();
-            if (value && cells[index]) {
-                let text = cells[index].textContent.toLowerCase();
-                if (!text.includes(value)) {
-                    show = false;
-                }
-            }
-        });
+        if (!matchesText(cells[0], filters.id)) visible = false;
+        if (!matchesText(cells[1], filters.material)) visible = false;
 
-        // Filtrowanie po dacie (kolumna 2 - Data Produkcji)
-        if (show && (dateFrom || dateTo)) {
-            let dateCell = cells[2]?.textContent.trim(); // Zakłada, że data jest w 3. kolumnie (indeks 2)
-            if (dateCell) {
-                let cellDate = new Date(dateCell);
-                if (dateFrom && cellDate < new Date(dateFrom)) show = false;
-                if (dateTo && cellDate > new Date(dateTo)) show = false;
-            }
-        }
+        // Data Produkcji (kolumna 2)
+        if (!matchesDate(cells[2], filters.dateFrom, filters.dateTo)) visible = false;
 
-        row.style.display = show ? "" : "none";
+        if (!matchesText(cells[4], filters.godzStart)) visible = false;
+        if (!matchesText(cells[5], filters.godzStop)) visible = false;
+        if (!matchesText(cells[6], filters.zwrot)) visible = false;
+        if (!matchesText(cells[7], filters.nrCzesci)) visible = false;
+        if (!matchesText(cells[8], filters.nazwaKlienta)) visible = false;
+        if (!matchesText(cells[9], filters.ilosc)) visible = false;
+        if (!matchesText(cells[10], filters.iloscNaStanie)) visible = false;
+        if (!matchesText(cells[11], filters.dlugosc)) visible = false;
+        if (!matchesText(cells[12], filters.rodzajMaterialu)) visible = false;
+        if (!matchesText(cells[13], filters.stanowiskoImieNazwisko)) visible = false;
+        if (!matchesText(cells[14], filters.imieNazwisko)) visible = false;
+
+        row.style.display = visible ? "" : "none";
     });
-}
 
-// Funkcja do filtrowania na podstawie wpisywanego tekstu w danej kolumnie
-function filterColumn(colIndex) {
-    let table = document.getElementById("tabela");
-    let rows = table.getElementsByTagName("tbody")[0].getElementsByTagName("tr");
-    let filterValue = table.querySelectorAll("thead tr:nth-child(1) input")[colIndex].value.toLowerCase();
-
-    for (let row of rows) {
-        let cell = row.cells[colIndex];
-        if (cell && cell.textContent.toLowerCase().indexOf(filterValue) > -1) {
-            row.style.display = "";
-        } else {
-            row.style.display = "none";
-        }
+    function getInput(placeholder) {
+        const el = document.querySelector(`input[placeholder="${placeholder}"]`);
+        return el ? el.value.trim().toLowerCase() : '';
+    }
+    function getDate(id) {
+        const el = document.getElementById(id);
+        return el ? el.value : '';
+    }
+    function matchesText(cell, filterValue) {
+        if (!filterValue) return true;
+        if (!cell) return false;
+        return cell.textContent.trim().toLowerCase().includes(filterValue);
+    }
+    function matchesDate(cell, fromDate, toDate) {
+        if (!cell) return true;
+        const cellText = cell.textContent.trim();
+        if (!cellText) return true;
+        const cellDate = new Date(cellText);
+        if (isNaN(cellDate.getTime())) return true;
+        if (fromDate && cellDate < new Date(fromDate)) return false;
+        if (toDate && cellDate > new Date(toDate)) return false;
+        return true;
     }
 }
 
-// Zaktualizuj wywołanie funkcji filterTable w inputach
 function setupFilters() {
-    let table = document.getElementById("tabela");
-    let filterInputs = table.querySelectorAll("thead tr:nth-child(1) input"); // tylko inputy z pierwszego wiersza
+    const filterInputs = document.querySelectorAll("#tabela thead input");
+    filterInputs.forEach(input => {
+        input.addEventListener("input", filterTable);
+    });
 
-    filterInputs.forEach((input, index) => {
-        input.addEventListener("keyup", function () {
-            filterColumn(index); // teraz index będzie poprawny
-        });
+    const headerCells = document.querySelectorAll("#tabela thead tr:nth-child(2) th");
+    headerCells.forEach((cell, index) => {
+        if (!cell.hasAttribute("hidden")) {
+            cell.addEventListener("click", () => sortTable(index));
+        }
     });
 }
 
+function resetFilters() {
+    const table = document.getElementById("tabela");
+    const filterInputs = table.querySelectorAll("thead input");
+    const rows = table.querySelectorAll("tbody tr");
+    filterInputs.forEach(input => input.value = "");
+    rows.forEach(row => row.style.display = "");
+}
 
-// Wywołaj setupFilters po załadowaniu strony
+let sortStates = [];
+function sortTable(columnIndex) {
+    const table = document.getElementById("tabela");
+    const rows = Array.from(table.rows).slice(2); // Pomija dwa wiersze nagłówka
+    const tbody = table.tBodies[0];
+
+    // Sprawdzamy, czy kolumna już istnieje w tablicy sortStates
+    const existingSortIndex = sortStates.findIndex(sort => sort.columnIndex === columnIndex);
+
+    if (existingSortIndex !== -1) {
+        sortStates[existingSortIndex].ascending = !sortStates[existingSortIndex].ascending;
+    } else {
+        sortStates = [{ columnIndex, ascending: true }];
+    }
+
+    rows.sort((rowA, rowB) => {
+        for (const sort of sortStates) {
+            const cellA = rowA.cells[sort.columnIndex]?.innerText.toLowerCase() || "";
+            const cellB = rowB.cells[sort.columnIndex]?.innerText.toLowerCase() || "";
+
+            // Jeśli liczby
+            let aNum = parseFloat(cellA.replace(',', '.'));
+            let bNum = parseFloat(cellB.replace(',', '.'));
+            if (!isNaN(aNum) && !isNaN(bNum) && cellA.match(/^\d/)) {
+                const comparison = sort.ascending ? aNum - bNum : bNum - aNum;
+                if (comparison !== 0) return comparison;
+            }
+
+            // Jeśli data
+            let aDate = Date.parse(cellA);
+            let bDate = Date.parse(cellB);
+            if (!isNaN(aDate) && !isNaN(bDate) && cellA.match(/\d{4}-\d{2}-\d{2}/)) {
+                const comparison = sort.ascending ? aDate - bDate : bDate - aDate;
+                if (comparison !== 0) return comparison;
+            }
+
+            // Inaczej jako tekst
+            const comparison = sort.ascending
+                ? cellA.localeCompare(cellB)
+                : cellB.localeCompare(cellA);
+            if (comparison !== 0) return comparison;
+        }
+        return 0;
+    });
+
+    // Przypisanie posortowanych wierszy do tabeli
+    tbody.innerHTML = "";
+    rows.forEach(row => tbody.appendChild(row));
+
+    // Resetowanie strzałek i ustawienie odpowiednich w nagłówkach
+    Array.from(table.tHead.rows[1].cells).forEach((cell, index) => {
+        cell.innerHTML = cell.innerHTML.replace(/ ▲| ▼/g, '');
+        const sortState = sortStates.find(sort => sort.columnIndex === index);
+        if (sortState) {
+            cell.innerHTML += sortState.ascending ? ' ▲' : ' ▼';
+        }
+    });
+}
+
+// Uruchom po załadowaniu strony
 document.addEventListener("DOMContentLoaded", setupFilters);
-    function resetFilters() {
-        let table = document.getElementById("tabela");
-        let filterInputs = table.querySelectorAll("thead input");
-        let rows = table.getElementsByTagName("tbody")[0].getElementsByTagName("tr");
-    
-        // Resetuj wszystkie pola filtrów
-        filterInputs.forEach(input => input.value = "");
-    
-        // Przywróć widoczność wszystkich wierszy
-        for (let i = 0; i < rows.length; i++) {
-            rows[i].style.display = "";
-        }
-    }
-    let sortStates = []; // Tablica przechowująca stan sortowania dla każdej kolumny
-    
-    function sortTable(columnIndex) {
-        const table = document.getElementById("tabela");
-        const rows = Array.from(table.rows).slice(2); // Pobieramy wszystkie wiersze poza nagłówkami
-        const tbody = table.tBodies[0];
-    
-        // Sprawdzamy, czy kolumna już istnieje w tablicy sortStates
-        const existingSortIndex = sortStates.findIndex(sort => sort.columnIndex === columnIndex);
-    
-        if (existingSortIndex !== -1) {
-            // Jeśli kolumna jest już sortowana, zmieniamy jej kierunek
-            sortStates[existingSortIndex].ascending = !sortStates[existingSortIndex].ascending;
-        } else {
-            // Jeśli kolumna nie jest jeszcze sortowana, dodajemy ją na początek tablicy
-            sortStates.unshift({ columnIndex, ascending: true });
-        }
-    
-        // Sortowanie wierszy na podstawie stanu w tablicy sortStates
-        rows.sort((rowA, rowB) => {
-            for (const sort of sortStates) {
-                const cellA = rowA.cells[sort.columnIndex]?.innerText.toLowerCase() || "";
-                const cellB = rowB.cells[sort.columnIndex]?.innerText.toLowerCase() || "";
-    
-                if (!isNaN(cellA) && !isNaN(cellB)) {
-                    // Sortowanie liczb
-                    const comparison = sort.ascending ? cellA - cellB : cellB - cellA;
-                    if (comparison !== 0) return comparison;
-                } else {
-                    // Sortowanie tekstowe
-                    const comparison = sort.ascending
-                        ? cellA.localeCompare(cellB)
-                        : cellB.localeCompare(cellA);
-                    if (comparison !== 0) return comparison;
-                }
-            }
-            return 0; // Jeśli wszystkie kolumny są równe, nie zmieniamy kolejności
-        });
-    
-        // Przypisanie posortowanych wierszy do tabeli
-        tbody.innerHTML = "";
-        rows.forEach(row => tbody.appendChild(row));
-    
-        // Resetowanie strzałek i ustawienie odpowiednich w nagłówkach
-        Array.from(table.tHead.rows[1].cells).forEach((cell, index) => {
-            cell.innerHTML = cell.innerHTML.replace(/ ▲| ▼/g, '');
-            const sortState = sortStates.find(sort => sort.columnIndex === index);
-            if (sortState) {
-                cell.innerHTML += sortState.ascending ? ' ▲' : ' ▼';
-            }
-        });
-    }
     function openEditModal(row) {
     const cells = row.querySelectorAll("td");
     const editButton = row.querySelector("button");
@@ -835,4 +857,4 @@ window.open(url, '_blank', windowFeatures); // '_blank' otworzy nowe okno/tab
     }
 });
 </script>
-</html> 
+</html>
