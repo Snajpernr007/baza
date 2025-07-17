@@ -1769,9 +1769,10 @@ def dodaj_rozmiar_obejma_do_bazy():
         return redirect(url_for('home'))
     if request.method == 'POST':
         nazwa = request.form.get('rozmiar_obejm')
+        ilosc_pianki = request.form.get('ilosc_pianki')
+        ilosc_tasmy = request.form.get('ilosc_tasmy')
         
-        
-        nowy_rozmiar = RozmiaryObejm(nazwa=nazwa)
+        nowy_rozmiar = RozmiaryObejm(nazwa=nazwa, ile_pianka=ilosc_pianki, ile_tasma=ilosc_tasmy)
         db.session.add(nowy_rozmiar)
 
     try:
@@ -1805,7 +1806,8 @@ def update_row_rozmiary_obejm():
         logger.info(f"Poprzednie dane rozmiaru obejm o ID {id}: {poprzednie_dane}")
         
         rozmiar.nazwa = dane.get('column_1', rozmiar.nazwa)
-
+        rozmiar.ile_pianka = dane.get('column_2', rozmiar.ile_pianka)
+        rozmiar.ile_tasma = dane.get('column_3', rozmiar.ile_tasma)
         db.session.commit()
         logger.info(f"Rozmiar obejm o ID {id} został zaktualizowany przez {g.user.login}.")
         

@@ -16257,3 +16257,379 @@
 2025-07-17 17:07:43,976 - INFO - 127.0.0.1 - - [17/Jul/2025 17:07:43] "GET /static/style.css HTTP/1.1" 200 -
 2025-07-17 17:07:43,993 - INFO - 127.0.0.1 - - [17/Jul/2025 17:07:43] "GET /static/img/logo-duże.png HTTP/1.1" 200 -
 2025-07-17 17:07:44,032 - INFO - 127.0.0.1 - - [17/Jul/2025 17:07:44] "GET /static/img/maxmetal.png HTTP/1.1" 200 -
+2025-07-17 17:10:14,400 - INFO - Administrator wszedł na stronę główną.
+2025-07-17 17:10:14,565 - INFO - 127.0.0.1 - - [17/Jul/2025 17:10:14] "GET / HTTP/1.1" 200 -
+2025-07-17 17:10:14,639 - INFO - 127.0.0.1 - - [17/Jul/2025 17:10:14] "GET /static/style.css HTTP/1.1" 200 -
+2025-07-17 17:10:14,647 - INFO - 127.0.0.1 - - [17/Jul/2025 17:10:14] "GET /static/img/logo-duże.png HTTP/1.1" 200 -
+2025-07-17 17:10:14,671 - INFO - 127.0.0.1 - - [17/Jul/2025 17:10:14] "GET /static/img/maxmetal.png HTTP/1.1" 200 -
+2025-07-17 17:10:14,678 - INFO - 127.0.0.1 - - [17/Jul/2025 17:10:14] "GET /static/img/logo-male.png HTTP/1.1" 200 -
+2025-07-17 17:10:15,641 - INFO - Administrator wszedł na stronę dodawania zlecenia (taśma obejma).
+2025-07-17 17:10:15,728 - INFO - 127.0.0.1 - - [17/Jul/2025 17:10:15] "GET /tasma_obejma HTTP/1.1" 200 -
+2025-07-17 17:10:15,782 - INFO - 127.0.0.1 - - [17/Jul/2025 17:10:15] "GET /static/style.css HTTP/1.1" 200 -
+2025-07-17 17:10:15,870 - INFO - 127.0.0.1 - - [17/Jul/2025 17:10:15] "GET /static/img/logo-duże.png HTTP/1.1" 200 -
+2025-07-17 17:10:15,875 - INFO - 127.0.0.1 - - [17/Jul/2025 17:10:15] "GET /static/img/maxmetal.png HTTP/1.1" 200 -
+2025-07-17 17:10:15,910 - INFO - 127.0.0.1 - - [17/Jul/2025 17:10:15] "GET /static/img/logo-male.png HTTP/1.1" 200 -
+2025-07-17 17:10:23,095 - INFO - Otrzymane dane do aktualizacji taśmy obejmy: {'column_0': '2', 'column_1': '3', 'column_2': '6', 'column_3': '6', 'column_4': 'Zapisz'}
+2025-07-17 17:10:23,097 - INFO - Poprzednie dane taśmy obejmy o ID 2: {'id': 2, 'nazwa': '432', 'ilosc': 6, 'ilosc_na_stanie': 6}
+2025-07-17 17:10:23,103 - INFO - Taśma obejmy o ID 2 została zaktualizowana przez Administrator.
+2025-07-17 17:10:23,104 - INFO - 127.0.0.1 - - [17/Jul/2025 17:10:23] "POST /update-row-tasma-obejma HTTP/1.1" 200 -
+2025-07-17 17:10:24,955 - INFO - Administrator wszedł na stronę dodawania zlecenia (taśma obejma).
+2025-07-17 17:10:24,956 - INFO - 127.0.0.1 - - [17/Jul/2025 17:10:24] "GET /tasma_obejma HTTP/1.1" 200 -
+2025-07-17 17:10:24,974 - INFO - 127.0.0.1 - - [17/Jul/2025 17:10:24] "GET /static/style.css HTTP/1.1" 200 -
+2025-07-17 17:10:24,984 - INFO - 127.0.0.1 - - [17/Jul/2025 17:10:24] "GET /static/img/logo-duże.png HTTP/1.1" 200 -
+2025-07-17 17:10:24,995 - INFO - 127.0.0.1 - - [17/Jul/2025 17:10:24] "GET /static/img/maxmetal.png HTTP/1.1" 200 -
+2025-07-17 17:10:25,524 - INFO - Administrator wszedł na stronę dodawania zlecenia (taśma obejma).
+2025-07-17 17:10:25,525 - INFO - 127.0.0.1 - - [17/Jul/2025 17:10:25] "GET /tasma_obejma HTTP/1.1" 200 -
+2025-07-17 17:10:25,562 - INFO - 127.0.0.1 - - [17/Jul/2025 17:10:25] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-07-17 17:10:25,577 - INFO - 127.0.0.1 - - [17/Jul/2025 17:10:25] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-07-17 17:10:25,585 - INFO - 127.0.0.1 - - [17/Jul/2025 17:10:25] "[36mGET /static/img/maxmetal.png HTTP/1.1[0m" 304 -
+2025-07-17 17:10:25,977 - INFO - Administrator wszedł na stronę główną.
+2025-07-17 17:10:25,979 - INFO - 127.0.0.1 - - [17/Jul/2025 17:10:25] "GET / HTTP/1.1" 200 -
+2025-07-17 17:10:26,007 - INFO - 127.0.0.1 - - [17/Jul/2025 17:10:26] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-07-17 17:10:26,014 - INFO - 127.0.0.1 - - [17/Jul/2025 17:10:26] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-07-17 17:10:26,023 - INFO - 127.0.0.1 - - [17/Jul/2025 17:10:26] "[36mGET /static/img/maxmetal.png HTTP/1.1[0m" 304 -
+2025-07-17 17:10:27,068 - INFO - Administrator wszedł na stronę dodawania zlecenia (pianka obejma).
+2025-07-17 17:10:27,150 - INFO - 127.0.0.1 - - [17/Jul/2025 17:10:27] "GET /pianka_obejma HTTP/1.1" 200 -
+2025-07-17 17:10:27,174 - INFO - 127.0.0.1 - - [17/Jul/2025 17:10:27] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-07-17 17:10:27,186 - INFO - 127.0.0.1 - - [17/Jul/2025 17:10:27] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-07-17 17:10:27,195 - INFO - 127.0.0.1 - - [17/Jul/2025 17:10:27] "[36mGET /static/img/maxmetal.png HTTP/1.1[0m" 304 -
+2025-07-17 17:10:32,894 - INFO - Otrzymane dane do aktualizacji pianki obejmy: {'column_0': '1', 'column_1': '231', 'column_2': '1236', 'column_3': '123', 'column_4': 'Zapisz'}
+2025-07-17 17:10:32,895 - INFO - Poprzednie dane pianki obejmy o ID 1: {'id': 1, 'nazwa': '231', 'ilosc': 123, 'ilosc_na_stanie': 123}
+2025-07-17 17:10:32,900 - INFO - Pianka obejmy o ID 1 została zaktualizowana przez Administrator.
+2025-07-17 17:10:32,901 - INFO - 127.0.0.1 - - [17/Jul/2025 17:10:32] "POST /update-row-pianka-obejma HTTP/1.1" 200 -
+2025-07-17 17:10:34,768 - INFO - Administrator wszedł na stronę dodawania zlecenia (pianka obejma).
+2025-07-17 17:10:34,769 - INFO - 127.0.0.1 - - [17/Jul/2025 17:10:34] "GET /pianka_obejma HTTP/1.1" 200 -
+2025-07-17 17:10:34,793 - INFO - 127.0.0.1 - - [17/Jul/2025 17:10:34] "GET /static/style.css HTTP/1.1" 200 -
+2025-07-17 17:10:34,805 - INFO - 127.0.0.1 - - [17/Jul/2025 17:10:34] "GET /static/img/logo-duże.png HTTP/1.1" 200 -
+2025-07-17 17:10:34,815 - INFO - 127.0.0.1 - - [17/Jul/2025 17:10:34] "GET /static/img/maxmetal.png HTTP/1.1" 200 -
+2025-07-17 17:10:43,346 - INFO - Administrator wszedł na stronę główną.
+2025-07-17 17:10:43,348 - INFO - 127.0.0.1 - - [17/Jul/2025 17:10:43] "GET / HTTP/1.1" 200 -
+2025-07-17 17:10:43,379 - INFO - 127.0.0.1 - - [17/Jul/2025 17:10:43] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-07-17 17:10:43,388 - INFO - 127.0.0.1 - - [17/Jul/2025 17:10:43] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-07-17 17:10:43,391 - INFO - 127.0.0.1 - - [17/Jul/2025 17:10:43] "[36mGET /static/img/maxmetal.png HTTP/1.1[0m" 304 -
+2025-07-17 17:10:46,616 - INFO - Administrator wszedł na stronę zlecenia.
+2025-07-17 17:10:46,627 - INFO - 127.0.0.1 - - [17/Jul/2025 17:10:46] "GET /zlecenie HTTP/1.1" 200 -
+2025-07-17 17:10:46,655 - INFO - 127.0.0.1 - - [17/Jul/2025 17:10:46] "GET /static/style.css HTTP/1.1" 200 -
+2025-07-17 17:10:46,670 - INFO - 127.0.0.1 - - [17/Jul/2025 17:10:46] "GET /static/img/logo-duże.png HTTP/1.1" 200 -
+2025-07-17 17:10:46,681 - INFO - 127.0.0.1 - - [17/Jul/2025 17:10:46] "GET /static/img/maxmetal.png HTTP/1.1" 200 -
+2025-07-17 17:13:11,227 - INFO - Administrator wszedł na stronę dodawania zlecenia.
+2025-07-17 17:13:11,246 - INFO - 127.0.0.1 - - [17/Jul/2025 17:13:11] "GET /dodaj_zlecenie HTTP/1.1" 200 -
+2025-07-17 17:13:11,303 - INFO - 127.0.0.1 - - [17/Jul/2025 17:13:11] "GET /static/style.css HTTP/1.1" 200 -
+2025-07-17 17:13:11,321 - INFO - 127.0.0.1 - - [17/Jul/2025 17:13:11] "GET /static/img/logo-duże.png HTTP/1.1" 200 -
+2025-07-17 17:13:25,075 - INFO - Zlecenie dodane przez Administrator
+2025-07-17 17:13:25,076 - INFO - 127.0.0.1 - - [17/Jul/2025 17:13:25] "[32mPOST /dodaj_zlecenie_do_bazy HTTP/1.1[0m" 302 -
+2025-07-17 17:13:25,090 - INFO - Administrator wszedł na stronę zlecenia.
+2025-07-17 17:13:25,107 - INFO - 127.0.0.1 - - [17/Jul/2025 17:13:25] "GET /zlecenie HTTP/1.1" 200 -
+2025-07-17 17:13:25,158 - INFO - 127.0.0.1 - - [17/Jul/2025 17:13:25] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-07-17 17:13:25,176 - INFO - 127.0.0.1 - - [17/Jul/2025 17:13:25] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-07-17 17:13:25,188 - INFO - 127.0.0.1 - - [17/Jul/2025 17:13:25] "[36mGET /static/img/maxmetal.png HTTP/1.1[0m" 304 -
+2025-07-17 17:13:40,221 - INFO - Administrator wszedł na stronę dodawania zlecenia.
+2025-07-17 17:13:40,224 - INFO - 127.0.0.1 - - [17/Jul/2025 17:13:40] "GET /dodaj_zlecenie HTTP/1.1" 200 -
+2025-07-17 17:13:40,258 - INFO - 127.0.0.1 - - [17/Jul/2025 17:13:40] "GET /static/style.css HTTP/1.1" 200 -
+2025-07-17 17:13:40,278 - INFO - 127.0.0.1 - - [17/Jul/2025 17:13:40] "GET /static/img/logo-duże.png HTTP/1.1" 200 -
+2025-07-17 17:13:40,289 - INFO - 127.0.0.1 - - [17/Jul/2025 17:13:40] "GET /static/img/logo-male.png HTTP/1.1" 200 -
+2025-07-17 17:15:02,434 - INFO - Zlecenie dodane przez Administrator
+2025-07-17 17:15:02,434 - INFO - 127.0.0.1 - - [17/Jul/2025 17:15:02] "[32mPOST /dodaj_zlecenie_do_bazy HTTP/1.1[0m" 302 -
+2025-07-17 17:15:02,441 - INFO - Administrator wszedł na stronę zlecenia.
+2025-07-17 17:15:02,454 - INFO - 127.0.0.1 - - [17/Jul/2025 17:15:02] "GET /zlecenie HTTP/1.1" 200 -
+2025-07-17 17:15:02,489 - INFO - 127.0.0.1 - - [17/Jul/2025 17:15:02] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-07-17 17:15:02,503 - INFO - 127.0.0.1 - - [17/Jul/2025 17:15:02] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-07-17 17:15:02,513 - INFO - 127.0.0.1 - - [17/Jul/2025 17:15:02] "[36mGET /static/img/maxmetal.png HTTP/1.1[0m" 304 -
+2025-07-17 17:15:09,424 - INFO - Administrator wszedł na stronę główną.
+2025-07-17 17:15:09,425 - INFO - 127.0.0.1 - - [17/Jul/2025 17:15:09] "GET / HTTP/1.1" 200 -
+2025-07-17 17:15:09,457 - INFO - 127.0.0.1 - - [17/Jul/2025 17:15:09] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-07-17 17:15:09,467 - INFO - 127.0.0.1 - - [17/Jul/2025 17:15:09] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-07-17 17:15:09,474 - INFO - 127.0.0.1 - - [17/Jul/2025 17:15:09] "[36mGET /static/img/maxmetal.png HTTP/1.1[0m" 304 -
+2025-07-17 17:15:11,877 - INFO - Administrator wszedł na stronę rozmiarów obejm.
+2025-07-17 17:15:11,963 - INFO - 127.0.0.1 - - [17/Jul/2025 17:15:11] "GET /rozmiary_obejm HTTP/1.1" 200 -
+2025-07-17 17:15:12,078 - INFO - 127.0.0.1 - - [17/Jul/2025 17:15:12] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-07-17 17:15:12,122 - INFO - 127.0.0.1 - - [17/Jul/2025 17:15:12] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-07-17 17:15:12,180 - INFO - 127.0.0.1 - - [17/Jul/2025 17:15:12] "[36mGET /static/img/maxmetal.png HTTP/1.1[0m" 304 -
+2025-07-17 17:15:17,150 - INFO - Otrzymane dane do aktualizacji rozmiaru obejm: {'column_0': '1', 'column_1': '231', 'column_2': '43', 'column_3': '43', 'column_4': 'Zapisz'}
+2025-07-17 17:15:17,152 - INFO - Poprzednie dane rozmiaru obejm o ID 1: {'id': 1, 'nazwa': '231'}
+2025-07-17 17:15:17,153 - INFO - Rozmiar obejm o ID 1 został zaktualizowany przez Administrator.
+2025-07-17 17:15:17,154 - INFO - 127.0.0.1 - - [17/Jul/2025 17:15:17] "POST /update-row-rozmiary_obejm HTTP/1.1" 200 -
+2025-07-17 17:15:19,011 - INFO - Administrator wszedł na stronę rozmiarów obejm.
+2025-07-17 17:15:19,013 - INFO - 127.0.0.1 - - [17/Jul/2025 17:15:19] "GET /rozmiary_obejm HTTP/1.1" 200 -
+2025-07-17 17:15:19,038 - INFO - 127.0.0.1 - - [17/Jul/2025 17:15:19] "GET /static/style.css HTTP/1.1" 200 -
+2025-07-17 17:15:19,053 - INFO - 127.0.0.1 - - [17/Jul/2025 17:15:19] "GET /static/img/logo-duże.png HTTP/1.1" 200 -
+2025-07-17 17:15:19,057 - INFO - 127.0.0.1 - - [17/Jul/2025 17:15:19] "GET /static/img/maxmetal.png HTTP/1.1" 200 -
+2025-07-17 17:15:20,318 - INFO - Administrator wszedł na stronę dodawania rozmiaru obejm.
+2025-07-17 17:15:20,323 - INFO - 127.0.0.1 - - [17/Jul/2025 17:15:20] "GET /dodaj_rozmiar_obejma HTTP/1.1" 200 -
+2025-07-17 17:15:20,352 - INFO - 127.0.0.1 - - [17/Jul/2025 17:15:20] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-07-17 17:15:20,374 - INFO - 127.0.0.1 - - [17/Jul/2025 17:15:20] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-07-17 17:15:22,414 - INFO - Administrator wszedł na stronę główną.
+2025-07-17 17:15:22,415 - INFO - 127.0.0.1 - - [17/Jul/2025 17:15:22] "GET / HTTP/1.1" 200 -
+2025-07-17 17:15:22,447 - INFO - 127.0.0.1 - - [17/Jul/2025 17:15:22] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-07-17 17:15:22,454 - INFO - 127.0.0.1 - - [17/Jul/2025 17:15:22] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-07-17 17:15:22,461 - INFO - 127.0.0.1 - - [17/Jul/2025 17:15:22] "[36mGET /static/img/maxmetal.png HTTP/1.1[0m" 304 -
+2025-07-17 17:18:33,398 - INFO - Połączenie z bazą danych zostało nawiązane pomyślnie.
+2025-07-17 17:18:33,536 - INFO - ✅ Kopia zapasowa zapisana do pliku: backups\kopie_zapasowe_bazy_2025-07-17_17-18.sql
+2025-07-17 17:18:33,537 - INFO - 🗑️ Usunięto starą kopię: kopie_zapasowe_bazy_2025-07-17_16-39.sql
+2025-07-17 17:18:33,570 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.1.80:5000
+2025-07-17 17:18:33,570 - INFO - [33mPress CTRL+C to quit[0m
+2025-07-17 17:18:33,573 - INFO -  * Restarting with stat
+2025-07-17 17:18:36,398 - INFO - Połączenie z bazą danych zostało nawiązane pomyślnie.
+2025-07-17 17:18:36,536 - INFO - ✅ Kopia zapasowa zapisana do pliku: backups\kopie_zapasowe_bazy_2025-07-17_17-18.sql
+2025-07-17 17:18:36,541 - WARNING -  * Debugger is active!
+2025-07-17 17:18:36,546 - INFO -  * Debugger PIN: 268-383-297
+2025-07-17 17:18:59,906 - INFO - Administrator wszedł na stronę rozmiarów obejm.
+2025-07-17 17:19:00,018 - INFO - 127.0.0.1 - - [17/Jul/2025 17:19:00] "GET /rozmiary_obejm HTTP/1.1" 200 -
+2025-07-17 17:19:00,081 - INFO - 127.0.0.1 - - [17/Jul/2025 17:19:00] "GET /static/style.css HTTP/1.1" 200 -
+2025-07-17 17:19:00,111 - INFO - 127.0.0.1 - - [17/Jul/2025 17:19:00] "GET /static/img/logo-duże.png HTTP/1.1" 200 -
+2025-07-17 17:19:00,123 - INFO - 127.0.0.1 - - [17/Jul/2025 17:19:00] "GET /static/img/maxmetal.png HTTP/1.1" 200 -
+2025-07-17 17:19:08,229 - INFO - Otrzymane dane do aktualizacji rozmiaru obejm: {'column_0': '1', 'column_1': '231', 'column_2': '065', 'column_3': '65', 'column_4': 'Zapisz'}
+2025-07-17 17:19:08,232 - INFO - Poprzednie dane rozmiaru obejm o ID 1: {'id': 1, 'nazwa': '231'}
+2025-07-17 17:19:08,232 - ERROR - Wystąpił błąd podczas aktualizacji: 'RozmiaryObejm' object has no attribute 'ilosc_pianki'
+2025-07-17 17:19:08,233 - INFO - 127.0.0.1 - - [17/Jul/2025 17:19:08] "[35m[1mPOST /update-row-rozmiary_obejm HTTP/1.1[0m" 500 -
+2025-07-17 17:19:09,717 - INFO - Administrator wszedł na stronę rozmiarów obejm.
+2025-07-17 17:19:09,719 - INFO - 127.0.0.1 - - [17/Jul/2025 17:19:09] "GET /rozmiary_obejm HTTP/1.1" 200 -
+2025-07-17 17:19:09,744 - INFO - 127.0.0.1 - - [17/Jul/2025 17:19:09] "GET /static/style.css HTTP/1.1" 200 -
+2025-07-17 17:19:09,760 - INFO - 127.0.0.1 - - [17/Jul/2025 17:19:09] "GET /static/img/logo-duże.png HTTP/1.1" 200 -
+2025-07-17 17:19:09,768 - INFO - 127.0.0.1 - - [17/Jul/2025 17:19:09] "[36mGET /static/img/maxmetal.png HTTP/1.1[0m" 304 -
+2025-07-17 17:19:09,779 - INFO - 127.0.0.1 - - [17/Jul/2025 17:19:09] "GET /static/img/logo-male.png HTTP/1.1" 200 -
+2025-07-17 17:19:10,319 - INFO - Administrator wszedł na stronę rozmiarów obejm.
+2025-07-17 17:19:10,320 - INFO - 127.0.0.1 - - [17/Jul/2025 17:19:10] "GET /rozmiary_obejm HTTP/1.1" 200 -
+2025-07-17 17:19:10,343 - INFO - 127.0.0.1 - - [17/Jul/2025 17:19:10] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-07-17 17:19:10,359 - INFO - 127.0.0.1 - - [17/Jul/2025 17:19:10] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-07-17 17:19:10,362 - INFO - 127.0.0.1 - - [17/Jul/2025 17:19:10] "[36mGET /static/img/maxmetal.png HTTP/1.1[0m" 304 -
+2025-07-17 17:19:14,975 - INFO - Otrzymane dane do aktualizacji rozmiaru obejm: {'column_0': '1', 'column_1': '231', 'column_2': '56', 'column_3': '56', 'column_4': 'Zapisz'}
+2025-07-17 17:19:14,976 - INFO - Poprzednie dane rozmiaru obejm o ID 1: {'id': 1, 'nazwa': '231'}
+2025-07-17 17:19:14,977 - ERROR - Wystąpił błąd podczas aktualizacji: 'RozmiaryObejm' object has no attribute 'ilosc_pianki'
+2025-07-17 17:19:14,977 - INFO - 127.0.0.1 - - [17/Jul/2025 17:19:14] "[35m[1mPOST /update-row-rozmiary_obejm HTTP/1.1[0m" 500 -
+2025-07-17 17:19:16,698 - INFO - Administrator wszedł na stronę rozmiarów obejm.
+2025-07-17 17:19:16,699 - INFO - 127.0.0.1 - - [17/Jul/2025 17:19:16] "GET /rozmiary_obejm HTTP/1.1" 200 -
+2025-07-17 17:19:16,724 - INFO - 127.0.0.1 - - [17/Jul/2025 17:19:16] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-07-17 17:19:16,741 - INFO - 127.0.0.1 - - [17/Jul/2025 17:19:16] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-07-17 17:19:16,742 - INFO - 127.0.0.1 - - [17/Jul/2025 17:19:16] "[36mGET /static/img/maxmetal.png HTTP/1.1[0m" 304 -
+2025-07-17 17:19:17,809 - INFO - Administrator wszedł na stronę rozmiarów obejm.
+2025-07-17 17:19:17,810 - INFO - 127.0.0.1 - - [17/Jul/2025 17:19:17] "GET /rozmiary_obejm HTTP/1.1" 200 -
+2025-07-17 17:19:17,830 - INFO - 127.0.0.1 - - [17/Jul/2025 17:19:17] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-07-17 17:19:17,845 - INFO - 127.0.0.1 - - [17/Jul/2025 17:19:17] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-07-17 17:19:17,861 - INFO - 127.0.0.1 - - [17/Jul/2025 17:19:17] "[36mGET /static/img/maxmetal.png HTTP/1.1[0m" 304 -
+2025-07-17 17:19:25,041 - INFO - Administrator wszedł na stronę dodawania rozmiaru obejm.
+2025-07-17 17:19:25,046 - INFO - 127.0.0.1 - - [17/Jul/2025 17:19:25] "GET /dodaj_rozmiar_obejma HTTP/1.1" 200 -
+2025-07-17 17:19:25,094 - INFO - 127.0.0.1 - - [17/Jul/2025 17:19:25] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-07-17 17:19:25,115 - INFO - 127.0.0.1 - - [17/Jul/2025 17:19:25] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-07-17 17:19:28,861 - INFO - 127.0.0.1 - - [17/Jul/2025 17:19:28] "[35m[1mPOST /dodaj_rozmiar_obejma_do_bazy HTTP/1.1[0m" 500 -
+2025-07-17 17:19:28,902 - INFO - 127.0.0.1 - - [17/Jul/2025 17:19:28] "GET /dodaj_rozmiar_obejma_do_bazy?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1" 200 -
+2025-07-17 17:19:28,905 - INFO - 127.0.0.1 - - [17/Jul/2025 17:19:28] "GET /dodaj_rozmiar_obejma_do_bazy?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1" 200 -
+2025-07-17 17:19:28,921 - INFO - 127.0.0.1 - - [17/Jul/2025 17:19:28] "GET /dodaj_rozmiar_obejma_do_bazy?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+2025-07-17 17:19:28,925 - INFO - 127.0.0.1 - - [17/Jul/2025 17:19:28] "GET /dodaj_rozmiar_obejma_do_bazy?__debugger__=yes&cmd=resource&f=console.png&s=ryKiJUpko3YktsBHT2Fz HTTP/1.1" 200 -
+2025-07-17 17:20:31,432 - INFO -  * Detected change in 'C:\\Users\\admin\\Documents\\GitHub\\baza\\baza danych maxmetal\\python\\index.py', reloading
+2025-07-17 17:20:37,136 - INFO - Połączenie z bazą danych zostało nawiązane pomyślnie.
+2025-07-17 17:20:37,284 - INFO - ✅ Kopia zapasowa zapisana do pliku: backups\kopie_zapasowe_bazy_2025-07-17_17-20.sql
+2025-07-17 17:20:37,286 - INFO - 🗑️ Usunięto starą kopię: kopie_zapasowe_bazy_2025-07-17_16-44.sql
+2025-07-17 17:20:37,300 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.1.80:5000
+2025-07-17 17:20:37,300 - INFO - [33mPress CTRL+C to quit[0m
+2025-07-17 17:20:37,301 - INFO -  * Restarting with stat
+2025-07-17 17:20:40,366 - INFO - Połączenie z bazą danych zostało nawiązane pomyślnie.
+2025-07-17 17:20:40,528 - INFO - ✅ Kopia zapasowa zapisana do pliku: backups\kopie_zapasowe_bazy_2025-07-17_17-20.sql
+2025-07-17 17:20:40,541 - WARNING -  * Debugger is active!
+2025-07-17 17:20:40,546 - INFO -  * Debugger PIN: 268-383-297
+2025-07-17 17:20:40,977 - INFO - 127.0.0.1 - - [17/Jul/2025 17:20:40] "[35m[1mPOST /dodaj_rozmiar_obejma_do_bazy HTTP/1.1[0m" 500 -
+2025-07-17 17:20:41,001 - INFO - 127.0.0.1 - - [17/Jul/2025 17:20:41] "[36mGET /dodaj_rozmiar_obejma_do_bazy?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+2025-07-17 17:20:41,003 - INFO - 127.0.0.1 - - [17/Jul/2025 17:20:41] "[36mGET /dodaj_rozmiar_obejma_do_bazy?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+2025-07-17 17:20:41,017 - INFO - 127.0.0.1 - - [17/Jul/2025 17:20:41] "GET /dodaj_rozmiar_obejma_do_bazy?__debugger__=yes&cmd=resource&f=console.png&s=7U3D4l4UfnBdxpAdm7mF HTTP/1.1" 200 -
+2025-07-17 17:21:03,794 - INFO - Administrator wszedł na stronę główną.
+2025-07-17 17:21:03,982 - INFO - 127.0.0.1 - - [17/Jul/2025 17:21:03] "GET / HTTP/1.1" 200 -
+2025-07-17 17:21:04,060 - INFO - 127.0.0.1 - - [17/Jul/2025 17:21:04] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-07-17 17:21:04,068 - INFO - 127.0.0.1 - - [17/Jul/2025 17:21:04] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-07-17 17:21:04,122 - INFO - 127.0.0.1 - - [17/Jul/2025 17:21:04] "[36mGET /static/img/maxmetal.png HTTP/1.1[0m" 304 -
+2025-07-17 17:21:05,883 - INFO - Administrator wszedł na stronę rozmiarów obejm.
+2025-07-17 17:21:05,968 - INFO - 127.0.0.1 - - [17/Jul/2025 17:21:05] "GET /rozmiary_obejm HTTP/1.1" 200 -
+2025-07-17 17:21:06,001 - INFO - 127.0.0.1 - - [17/Jul/2025 17:21:06] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-07-17 17:21:06,014 - INFO - 127.0.0.1 - - [17/Jul/2025 17:21:06] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-07-17 17:21:06,033 - INFO - 127.0.0.1 - - [17/Jul/2025 17:21:06] "[36mGET /static/img/maxmetal.png HTTP/1.1[0m" 304 -
+2025-07-17 17:21:11,327 - INFO - Otrzymane dane do aktualizacji rozmiaru obejm: {'column_0': '1', 'column_1': '231', 'column_2': '2', 'column_3': '2', 'column_4': 'Zapisz'}
+2025-07-17 17:21:11,330 - INFO - Poprzednie dane rozmiaru obejm o ID 1: {'id': 1, 'nazwa': '231'}
+2025-07-17 17:21:11,330 - ERROR - Wystąpił błąd podczas aktualizacji: 'RozmiaryObejm' object has no attribute 'ile_pianki'
+2025-07-17 17:21:11,331 - INFO - 127.0.0.1 - - [17/Jul/2025 17:21:11] "[35m[1mPOST /update-row-rozmiary_obejm HTTP/1.1[0m" 500 -
+2025-07-17 17:21:13,393 - INFO - Administrator wszedł na stronę rozmiarów obejm.
+2025-07-17 17:21:13,394 - INFO - 127.0.0.1 - - [17/Jul/2025 17:21:13] "GET /rozmiary_obejm HTTP/1.1" 200 -
+2025-07-17 17:21:13,418 - INFO - 127.0.0.1 - - [17/Jul/2025 17:21:13] "GET /static/style.css HTTP/1.1" 200 -
+2025-07-17 17:21:13,434 - INFO - 127.0.0.1 - - [17/Jul/2025 17:21:13] "GET /static/img/logo-duże.png HTTP/1.1" 200 -
+2025-07-17 17:21:13,449 - INFO - 127.0.0.1 - - [17/Jul/2025 17:21:13] "GET /static/img/maxmetal.png HTTP/1.1" 200 -
+2025-07-17 17:21:14,017 - INFO - Administrator wszedł na stronę rozmiarów obejm.
+2025-07-17 17:21:14,019 - INFO - 127.0.0.1 - - [17/Jul/2025 17:21:14] "GET /rozmiary_obejm HTTP/1.1" 200 -
+2025-07-17 17:21:14,100 - INFO - 127.0.0.1 - - [17/Jul/2025 17:21:14] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-07-17 17:21:14,127 - INFO - 127.0.0.1 - - [17/Jul/2025 17:21:14] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-07-17 17:21:14,155 - INFO - 127.0.0.1 - - [17/Jul/2025 17:21:14] "[36mGET /static/img/maxmetal.png HTTP/1.1[0m" 304 -
+2025-07-17 17:21:14,235 - INFO - Administrator wszedł na stronę rozmiarów obejm.
+2025-07-17 17:21:14,238 - INFO - 127.0.0.1 - - [17/Jul/2025 17:21:14] "GET /rozmiary_obejm HTTP/1.1" 200 -
+2025-07-17 17:21:14,280 - INFO - 127.0.0.1 - - [17/Jul/2025 17:21:14] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-07-17 17:21:14,294 - INFO - 127.0.0.1 - - [17/Jul/2025 17:21:14] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-07-17 17:21:14,343 - INFO - 127.0.0.1 - - [17/Jul/2025 17:21:14] "[36mGET /static/img/maxmetal.png HTTP/1.1[0m" 304 -
+2025-07-17 17:21:14,496 - INFO - Administrator wszedł na stronę rozmiarów obejm.
+2025-07-17 17:21:14,497 - INFO - 127.0.0.1 - - [17/Jul/2025 17:21:14] "GET /rozmiary_obejm HTTP/1.1" 200 -
+2025-07-17 17:21:14,518 - INFO - 127.0.0.1 - - [17/Jul/2025 17:21:14] "GET /static/style.css HTTP/1.1" 200 -
+2025-07-17 17:21:14,582 - INFO - 127.0.0.1 - - [17/Jul/2025 17:21:14] "GET /static/img/logo-duże.png HTTP/1.1" 200 -
+2025-07-17 17:21:14,596 - INFO - 127.0.0.1 - - [17/Jul/2025 17:21:14] "GET /static/img/maxmetal.png HTTP/1.1" 200 -
+2025-07-17 17:21:14,764 - INFO - Administrator wszedł na stronę rozmiarów obejm.
+2025-07-17 17:21:14,766 - INFO - 127.0.0.1 - - [17/Jul/2025 17:21:14] "GET /rozmiary_obejm HTTP/1.1" 200 -
+2025-07-17 17:21:14,844 - INFO - 127.0.0.1 - - [17/Jul/2025 17:21:14] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-07-17 17:21:14,892 - INFO - 127.0.0.1 - - [17/Jul/2025 17:21:14] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-07-17 17:21:14,899 - INFO - 127.0.0.1 - - [17/Jul/2025 17:21:14] "[36mGET /static/img/maxmetal.png HTTP/1.1[0m" 304 -
+2025-07-17 17:21:15,015 - INFO - Administrator wszedł na stronę rozmiarów obejm.
+2025-07-17 17:21:15,016 - INFO - 127.0.0.1 - - [17/Jul/2025 17:21:15] "GET /rozmiary_obejm HTTP/1.1" 200 -
+2025-07-17 17:21:15,043 - INFO - 127.0.0.1 - - [17/Jul/2025 17:21:15] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-07-17 17:21:15,062 - INFO - 127.0.0.1 - - [17/Jul/2025 17:21:15] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-07-17 17:21:15,072 - INFO - 127.0.0.1 - - [17/Jul/2025 17:21:15] "[36mGET /static/img/maxmetal.png HTTP/1.1[0m" 304 -
+2025-07-17 17:22:29,409 - INFO - Połączenie z bazą danych zostało nawiązane pomyślnie.
+2025-07-17 17:22:29,544 - INFO - ✅ Kopia zapasowa zapisana do pliku: backups\kopie_zapasowe_bazy_2025-07-17_17-22.sql
+2025-07-17 17:22:29,546 - INFO - 🗑️ Usunięto starą kopię: kopie_zapasowe_bazy_2025-07-17_16-45.sql
+2025-07-17 17:22:29,557 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.1.80:5000
+2025-07-17 17:22:29,558 - INFO - [33mPress CTRL+C to quit[0m
+2025-07-17 17:22:29,559 - INFO -  * Restarting with stat
+2025-07-17 17:22:32,248 - INFO - Połączenie z bazą danych zostało nawiązane pomyślnie.
+2025-07-17 17:22:32,382 - INFO - ✅ Kopia zapasowa zapisana do pliku: backups\kopie_zapasowe_bazy_2025-07-17_17-22.sql
+2025-07-17 17:22:32,391 - WARNING -  * Debugger is active!
+2025-07-17 17:22:32,395 - INFO -  * Debugger PIN: 268-383-297
+2025-07-17 17:23:05,330 - INFO - Połączenie z bazą danych zostało nawiązane pomyślnie.
+2025-07-17 17:23:05,468 - INFO - ✅ Kopia zapasowa zapisana do pliku: backups\kopie_zapasowe_bazy_2025-07-17_17-23.sql
+2025-07-17 17:23:05,470 - INFO - 🗑️ Usunięto starą kopię: kopie_zapasowe_bazy_2025-07-17_16-46.sql
+2025-07-17 17:23:05,482 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.1.80:5000
+2025-07-17 17:23:05,483 - INFO - [33mPress CTRL+C to quit[0m
+2025-07-17 17:23:05,484 - INFO -  * Restarting with stat
+2025-07-17 17:23:08,274 - INFO - Połączenie z bazą danych zostało nawiązane pomyślnie.
+2025-07-17 17:23:08,407 - INFO - ✅ Kopia zapasowa zapisana do pliku: backups\kopie_zapasowe_bazy_2025-07-17_17-23.sql
+2025-07-17 17:23:08,415 - WARNING -  * Debugger is active!
+2025-07-17 17:23:08,419 - INFO -  * Debugger PIN: 268-383-297
+2025-07-17 17:23:41,499 - INFO - Administrator wszedł na stronę rozmiarów obejm.
+2025-07-17 17:23:41,600 - INFO - 127.0.0.1 - - [17/Jul/2025 17:23:41] "GET /rozmiary_obejm HTTP/1.1" 200 -
+2025-07-17 17:23:41,676 - INFO - 127.0.0.1 - - [17/Jul/2025 17:23:41] "GET /static/style.css HTTP/1.1" 200 -
+2025-07-17 17:23:41,704 - INFO - 127.0.0.1 - - [17/Jul/2025 17:23:41] "GET /static/img/logo-duże.png HTTP/1.1" 200 -
+2025-07-17 17:23:41,731 - INFO - 127.0.0.1 - - [17/Jul/2025 17:23:41] "GET /static/img/maxmetal.png HTTP/1.1" 200 -
+2025-07-17 17:23:45,365 - INFO - Otrzymane dane do aktualizacji rozmiaru obejm: {'column_0': '1', 'column_1': '231', 'column_2': '32', 'column_3': '23', 'column_4': 'Zapisz'}
+2025-07-17 17:23:45,368 - INFO - Poprzednie dane rozmiaru obejm o ID 1: {'id': 1, 'nazwa': '231'}
+2025-07-17 17:23:45,369 - ERROR - Wystąpił błąd podczas aktualizacji: 'RozmiaryObejm' object has no attribute 'ile_tasmy'
+2025-07-17 17:23:45,370 - INFO - 127.0.0.1 - - [17/Jul/2025 17:23:45] "[35m[1mPOST /update-row-rozmiary_obejm HTTP/1.1[0m" 500 -
+2025-07-17 17:23:46,890 - INFO - Administrator wszedł na stronę rozmiarów obejm.
+2025-07-17 17:23:46,891 - INFO - 127.0.0.1 - - [17/Jul/2025 17:23:46] "GET /rozmiary_obejm HTTP/1.1" 200 -
+2025-07-17 17:23:46,915 - INFO - 127.0.0.1 - - [17/Jul/2025 17:23:46] "GET /static/style.css HTTP/1.1" 200 -
+2025-07-17 17:23:46,931 - INFO - 127.0.0.1 - - [17/Jul/2025 17:23:46] "GET /static/img/logo-duże.png HTTP/1.1" 200 -
+2025-07-17 17:23:46,938 - INFO - 127.0.0.1 - - [17/Jul/2025 17:23:46] "[36mGET /static/img/maxmetal.png HTTP/1.1[0m" 304 -
+2025-07-17 17:23:47,439 - INFO - Administrator wszedł na stronę rozmiarów obejm.
+2025-07-17 17:23:47,441 - INFO - 127.0.0.1 - - [17/Jul/2025 17:23:47] "GET /rozmiary_obejm HTTP/1.1" 200 -
+2025-07-17 17:23:47,465 - INFO - 127.0.0.1 - - [17/Jul/2025 17:23:47] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-07-17 17:23:47,480 - INFO - 127.0.0.1 - - [17/Jul/2025 17:23:47] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-07-17 17:23:47,492 - INFO - 127.0.0.1 - - [17/Jul/2025 17:23:47] "[36mGET /static/img/maxmetal.png HTTP/1.1[0m" 304 -
+2025-07-17 17:23:47,669 - INFO - Administrator wszedł na stronę rozmiarów obejm.
+2025-07-17 17:23:47,670 - INFO - 127.0.0.1 - - [17/Jul/2025 17:23:47] "GET /rozmiary_obejm HTTP/1.1" 200 -
+2025-07-17 17:23:47,697 - INFO - 127.0.0.1 - - [17/Jul/2025 17:23:47] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-07-17 17:23:47,727 - INFO - 127.0.0.1 - - [17/Jul/2025 17:23:47] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-07-17 17:23:47,765 - INFO - 127.0.0.1 - - [17/Jul/2025 17:23:47] "[36mGET /static/img/maxmetal.png HTTP/1.1[0m" 304 -
+2025-07-17 17:24:11,986 - INFO - Administrator wszedł na stronę dodawania rozmiaru obejm.
+2025-07-17 17:24:11,994 - INFO - 127.0.0.1 - - [17/Jul/2025 17:24:11] "GET /dodaj_rozmiar_obejma HTTP/1.1" 200 -
+2025-07-17 17:24:12,041 - INFO - 127.0.0.1 - - [17/Jul/2025 17:24:12] "GET /static/style.css HTTP/1.1" 200 -
+2025-07-17 17:24:12,061 - INFO - 127.0.0.1 - - [17/Jul/2025 17:24:12] "GET /static/img/logo-duże.png HTTP/1.1" 200 -
+2025-07-17 17:24:17,595 - INFO - 127.0.0.1 - - [17/Jul/2025 17:24:17] "[35m[1mPOST /dodaj_rozmiar_obejma_do_bazy HTTP/1.1[0m" 500 -
+2025-07-17 17:24:17,641 - INFO - 127.0.0.1 - - [17/Jul/2025 17:24:17] "[36mGET /dodaj_rozmiar_obejma_do_bazy?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+2025-07-17 17:24:17,642 - INFO - 127.0.0.1 - - [17/Jul/2025 17:24:17] "[36mGET /dodaj_rozmiar_obejma_do_bazy?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+2025-07-17 17:24:17,659 - INFO - 127.0.0.1 - - [17/Jul/2025 17:24:17] "GET /dodaj_rozmiar_obejma_do_bazy?__debugger__=yes&cmd=resource&f=console.png&s=71LVuyGK6JkBckBkL5YF HTTP/1.1" 200 -
+2025-07-17 17:25:14,160 - INFO - Połączenie z bazą danych zostało nawiązane pomyślnie.
+2025-07-17 17:25:14,311 - INFO - ✅ Kopia zapasowa zapisana do pliku: backups\kopie_zapasowe_bazy_2025-07-17_17-25.sql
+2025-07-17 17:25:14,313 - INFO - 🗑️ Usunięto starą kopię: kopie_zapasowe_bazy_2025-07-17_16-56.sql
+2025-07-17 17:25:14,327 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.1.80:5000
+2025-07-17 17:25:14,327 - INFO - [33mPress CTRL+C to quit[0m
+2025-07-17 17:25:14,329 - INFO -  * Restarting with stat
+2025-07-17 17:25:17,233 - INFO - Połączenie z bazą danych zostało nawiązane pomyślnie.
+2025-07-17 17:25:17,387 - INFO - ✅ Kopia zapasowa zapisana do pliku: backups\kopie_zapasowe_bazy_2025-07-17_17-25.sql
+2025-07-17 17:25:17,396 - WARNING -  * Debugger is active!
+2025-07-17 17:25:17,401 - INFO -  * Debugger PIN: 268-383-297
+2025-07-17 17:25:17,801 - INFO - Rozmiar 55 został dodany przez Administrator.
+2025-07-17 17:25:17,802 - INFO - 127.0.0.1 - - [17/Jul/2025 17:25:17] "[32mPOST /dodaj_rozmiar_obejma_do_bazy HTTP/1.1[0m" 302 -
+2025-07-17 17:25:17,810 - INFO - Administrator wszedł na stronę rozmiarów obejm.
+2025-07-17 17:25:17,898 - INFO - 127.0.0.1 - - [17/Jul/2025 17:25:17] "GET /rozmiary_obejm HTTP/1.1" 200 -
+2025-07-17 17:25:17,926 - INFO - 127.0.0.1 - - [17/Jul/2025 17:25:17] "GET /static/style.css HTTP/1.1" 200 -
+2025-07-17 17:25:17,938 - INFO - 127.0.0.1 - - [17/Jul/2025 17:25:17] "GET /static/img/logo-duże.png HTTP/1.1" 200 -
+2025-07-17 17:25:17,947 - INFO - 127.0.0.1 - - [17/Jul/2025 17:25:17] "GET /static/img/maxmetal.png HTTP/1.1" 200 -
+2025-07-17 17:25:23,248 - INFO - Otrzymane dane do aktualizacji rozmiaru obejm: {'column_0': '1', 'column_1': '231', 'column_2': '2', 'column_3': '2', 'column_4': 'Zapisz'}
+2025-07-17 17:25:23,250 - INFO - Poprzednie dane rozmiaru obejm o ID 1: {'id': 1, 'nazwa': '231'}
+2025-07-17 17:25:23,259 - INFO - Rozmiar obejm o ID 1 został zaktualizowany przez Administrator.
+2025-07-17 17:25:23,260 - INFO - 127.0.0.1 - - [17/Jul/2025 17:25:23] "POST /update-row-rozmiary_obejm HTTP/1.1" 200 -
+2025-07-17 17:25:25,556 - INFO - Administrator wszedł na stronę rozmiarów obejm.
+2025-07-17 17:25:25,558 - INFO - 127.0.0.1 - - [17/Jul/2025 17:25:25] "GET /rozmiary_obejm HTTP/1.1" 200 -
+2025-07-17 17:25:25,583 - INFO - 127.0.0.1 - - [17/Jul/2025 17:25:25] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-07-17 17:25:25,602 - INFO - 127.0.0.1 - - [17/Jul/2025 17:25:25] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-07-17 17:25:25,608 - INFO - 127.0.0.1 - - [17/Jul/2025 17:25:25] "[36mGET /static/img/maxmetal.png HTTP/1.1[0m" 304 -
+2025-07-17 17:25:26,022 - INFO - Administrator wszedł na stronę rozmiarów obejm.
+2025-07-17 17:25:26,023 - INFO - 127.0.0.1 - - [17/Jul/2025 17:25:26] "GET /rozmiary_obejm HTTP/1.1" 200 -
+2025-07-17 17:25:26,048 - INFO - 127.0.0.1 - - [17/Jul/2025 17:25:26] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-07-17 17:25:26,063 - INFO - 127.0.0.1 - - [17/Jul/2025 17:25:26] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-07-17 17:25:26,077 - INFO - 127.0.0.1 - - [17/Jul/2025 17:25:26] "[36mGET /static/img/maxmetal.png HTTP/1.1[0m" 304 -
+2025-07-17 17:28:35,926 - INFO - Administrator wszedł na stronę główną.
+2025-07-17 17:28:36,122 - INFO - 127.0.0.1 - - [17/Jul/2025 17:28:36] "GET / HTTP/1.1" 200 -
+2025-07-17 17:28:36,257 - INFO - 127.0.0.1 - - [17/Jul/2025 17:28:36] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-07-17 17:28:36,266 - INFO - 127.0.0.1 - - [17/Jul/2025 17:28:36] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-07-17 17:28:36,280 - INFO - 127.0.0.1 - - [17/Jul/2025 17:28:36] "[36mGET /static/img/maxmetal.png HTTP/1.1[0m" 304 -
+2025-07-17 17:28:37,169 - INFO - Administrator wszedł na stronę dodawania zlecenia (taśma obejma).
+2025-07-17 17:28:37,258 - INFO - 127.0.0.1 - - [17/Jul/2025 17:28:37] "GET /tasma_obejma HTTP/1.1" 200 -
+2025-07-17 17:28:37,394 - INFO - 127.0.0.1 - - [17/Jul/2025 17:28:37] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-07-17 17:28:37,418 - INFO - 127.0.0.1 - - [17/Jul/2025 17:28:37] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-07-17 17:28:37,440 - INFO - 127.0.0.1 - - [17/Jul/2025 17:28:37] "[36mGET /static/img/maxmetal.png HTTP/1.1[0m" 304 -
+2025-07-17 17:28:39,645 - INFO - Administrator wszedł na stronę główną.
+2025-07-17 17:28:39,647 - INFO - 127.0.0.1 - - [17/Jul/2025 17:28:39] "GET / HTTP/1.1" 200 -
+2025-07-17 17:28:39,676 - INFO - 127.0.0.1 - - [17/Jul/2025 17:28:39] "GET /static/style.css HTTP/1.1" 200 -
+2025-07-17 17:28:39,686 - INFO - 127.0.0.1 - - [17/Jul/2025 17:28:39] "GET /static/img/logo-duże.png HTTP/1.1" 200 -
+2025-07-17 17:28:39,693 - INFO - 127.0.0.1 - - [17/Jul/2025 17:28:39] "GET /static/img/maxmetal.png HTTP/1.1" 200 -
+2025-07-17 17:28:42,693 - INFO - Administrator wszedł na stronę dodawania zlecenia (pianka obejma).
+2025-07-17 17:28:42,786 - INFO - 127.0.0.1 - - [17/Jul/2025 17:28:42] "GET /pianka_obejma HTTP/1.1" 200 -
+2025-07-17 17:28:42,932 - INFO - 127.0.0.1 - - [17/Jul/2025 17:28:42] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-07-17 17:28:43,017 - INFO - 127.0.0.1 - - [17/Jul/2025 17:28:43] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-07-17 17:28:43,020 - INFO - 127.0.0.1 - - [17/Jul/2025 17:28:43] "[36mGET /static/img/maxmetal.png HTTP/1.1[0m" 304 -
+2025-07-17 17:28:46,098 - INFO - Administrator wszedł na stronę główną.
+2025-07-17 17:28:46,100 - INFO - 127.0.0.1 - - [17/Jul/2025 17:28:46] "GET / HTTP/1.1" 200 -
+2025-07-17 17:28:46,124 - INFO - 127.0.0.1 - - [17/Jul/2025 17:28:46] "GET /static/style.css HTTP/1.1" 200 -
+2025-07-17 17:28:46,134 - INFO - 127.0.0.1 - - [17/Jul/2025 17:28:46] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-07-17 17:28:46,141 - INFO - 127.0.0.1 - - [17/Jul/2025 17:28:46] "GET /static/img/maxmetal.png HTTP/1.1" 200 -
+2025-07-17 17:28:48,208 - INFO - Administrator wszedł na stronę rozmiarów obejm.
+2025-07-17 17:28:48,287 - INFO - 127.0.0.1 - - [17/Jul/2025 17:28:48] "GET /rozmiary_obejm HTTP/1.1" 200 -
+2025-07-17 17:28:48,316 - INFO - 127.0.0.1 - - [17/Jul/2025 17:28:48] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-07-17 17:28:48,333 - INFO - 127.0.0.1 - - [17/Jul/2025 17:28:48] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-07-17 17:28:48,344 - INFO - 127.0.0.1 - - [17/Jul/2025 17:28:48] "[36mGET /static/img/maxmetal.png HTTP/1.1[0m" 304 -
+2025-07-17 17:28:50,318 - INFO - Administrator wszedł na stronę główną.
+2025-07-17 17:28:50,320 - INFO - 127.0.0.1 - - [17/Jul/2025 17:28:50] "GET / HTTP/1.1" 200 -
+2025-07-17 17:28:50,357 - INFO - 127.0.0.1 - - [17/Jul/2025 17:28:50] "GET /static/style.css HTTP/1.1" 200 -
+2025-07-17 17:28:50,364 - INFO - 127.0.0.1 - - [17/Jul/2025 17:28:50] "GET /static/img/logo-duże.png HTTP/1.1" 200 -
+2025-07-17 17:28:50,376 - INFO - 127.0.0.1 - - [17/Jul/2025 17:28:50] "GET /static/img/maxmetal.png HTTP/1.1" 200 -
+2025-07-17 17:33:33,211 - INFO - Administrator wszedł na stronę dodawania zlecenia (pianka obejma).
+2025-07-17 17:33:33,212 - INFO - 127.0.0.1 - - [17/Jul/2025 17:33:33] "GET /pianka_obejma HTTP/1.1" 200 -
+2025-07-17 17:33:33,254 - INFO - 127.0.0.1 - - [17/Jul/2025 17:33:33] "GET /static/style.css HTTP/1.1" 200 -
+2025-07-17 17:33:33,280 - INFO - 127.0.0.1 - - [17/Jul/2025 17:33:33] "GET /static/img/logo-duże.png HTTP/1.1" 200 -
+2025-07-17 17:33:33,282 - INFO - 127.0.0.1 - - [17/Jul/2025 17:33:33] "GET /static/img/maxmetal.png HTTP/1.1" 200 -
+2025-07-17 17:33:51,834 - INFO - Administrator wszedł na stronę główną.
+2025-07-17 17:33:51,836 - INFO - 127.0.0.1 - - [17/Jul/2025 17:33:51] "GET / HTTP/1.1" 200 -
+2025-07-17 17:33:51,935 - INFO - 127.0.0.1 - - [17/Jul/2025 17:33:51] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-07-17 17:33:51,961 - INFO - 127.0.0.1 - - [17/Jul/2025 17:33:51] "GET /static/img/logo-duże.png HTTP/1.1" 200 -
+2025-07-17 17:33:52,072 - INFO - 127.0.0.1 - - [17/Jul/2025 17:33:52] "GET /static/img/maxmetal.png HTTP/1.1" 200 -
+2025-07-17 17:33:52,976 - INFO - Administrator wszedł na stronę rozmiarów obejm.
+2025-07-17 17:33:52,977 - INFO - 127.0.0.1 - - [17/Jul/2025 17:33:52] "GET /rozmiary_obejm HTTP/1.1" 200 -
+2025-07-17 17:33:53,062 - INFO - 127.0.0.1 - - [17/Jul/2025 17:33:53] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-07-17 17:33:53,078 - INFO - 127.0.0.1 - - [17/Jul/2025 17:33:53] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-07-17 17:33:53,184 - INFO - 127.0.0.1 - - [17/Jul/2025 17:33:53] "[36mGET /static/img/maxmetal.png HTTP/1.1[0m" 304 -
+2025-07-17 17:36:54,531 - INFO - Administrator wszedł na stronę rozmiarów obejm.
+2025-07-17 17:36:54,619 - INFO - 127.0.0.1 - - [17/Jul/2025 17:36:54] "GET /rozmiary_obejm HTTP/1.1" 200 -
+2025-07-17 17:36:54,680 - INFO - 127.0.0.1 - - [17/Jul/2025 17:36:54] "GET /static/style.css HTTP/1.1" 200 -
+2025-07-17 17:36:54,700 - INFO - 127.0.0.1 - - [17/Jul/2025 17:36:54] "GET /static/img/logo-duże.png HTTP/1.1" 200 -
+2025-07-17 17:36:54,706 - INFO - 127.0.0.1 - - [17/Jul/2025 17:36:54] "GET /static/img/maxmetal.png HTTP/1.1" 200 -
+2025-07-17 17:36:58,528 - INFO - Administrator wszedł na stronę główną.
+2025-07-17 17:36:58,529 - INFO - 127.0.0.1 - - [17/Jul/2025 17:36:58] "GET / HTTP/1.1" 200 -
+2025-07-17 17:36:58,616 - INFO - 127.0.0.1 - - [17/Jul/2025 17:36:58] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-07-17 17:36:58,625 - INFO - 127.0.0.1 - - [17/Jul/2025 17:36:58] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-07-17 17:36:58,643 - INFO - 127.0.0.1 - - [17/Jul/2025 17:36:58] "[36mGET /static/img/maxmetal.png HTTP/1.1[0m" 304 -

@@ -15,8 +15,14 @@ function openEditModal(row) {
         // Zamień edytowalne komórki na pola formularza
         cells.forEach((cell, index) => {
             if (index > 0 && index < cells.length - 1) { // Edytowalne: 1 do przedostatniej
+                if(index==2 || index==3){    
+                const value = cell.innerText;
+                cell.innerHTML = `<input type="number" value="${value}" style="width: 100%;">`;
+                } 
+                else{
                 const value = cell.innerText;
                 cell.innerHTML = `<input type="text" value="${value}" style="width: 100%;">`;
+                }
             }
         });
         editButton.innerText = "Zapisz";
@@ -51,7 +57,7 @@ function openEditModal(row) {
 }
 
 function sendDataToBackend(data) {
-    fetch('/update-row-rozmiary_obejm', {
+    fetch('/update-row-tasma-obejma', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
