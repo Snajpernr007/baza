@@ -116,6 +116,179 @@ CREATE TABLE `profil` (
   CONSTRAINT `profil_ibfk_4` FOREIGN KEY (`id_szablon_profile`) REFERENCES `szablon_profile` (`id`) ON DELETE CASCADE
 ) ENGINE=InnoDB AUTO_INCREMENT=79 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+-- Struktura tabeli `rozmiary_obejm`
+CREATE TABLE `rozmiary_obejm` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `nazwa` varchar(255) NOT NULL,
+  `ile_pianka` int(11) NOT NULL,
+  `ile_tasma` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- Struktura tabeli `material_obejma`
+CREATE TABLE `material_obejma` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `certyfikat` varchar(255) DEFAULT NULL,
+  `data_dostawy` date DEFAULT NULL,
+  `nr_wytopu` varchar(100) DEFAULT NULL,
+  `nr_prodio` varchar(100) DEFAULT NULL,
+  `ilosc_sztuk` int(11) DEFAULT NULL,
+  `ilosc_sztuk_na_stanie` int(11) DEFAULT NULL,
+  `id_rozmiaru` int(11) DEFAULT NULL,
+  `id_pracownik` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `id_rozmiaru` (`id_rozmiaru`),
+  KEY `id_pracownik` (`id_pracownik`),
+  CONSTRAINT `material_obejma_ibfk_1` FOREIGN KEY (`id_rozmiaru`) REFERENCES `rozmiary_obejm` (`id`),
+  CONSTRAINT `material_obejma_ibfk_2` FOREIGN KEY (`id_pracownik`) REFERENCES `uzytkownicy` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- Struktura tabeli `ksztaltowanie_1`
+CREATE TABLE `ksztaltowanie_1` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `data` date DEFAULT NULL,
+  `godzina_rozpoczecia` time DEFAULT NULL,
+  `godzina_zakonczenia` time DEFAULT NULL,
+  `ilosc` int(11) DEFAULT NULL,
+  `ilosc_na_stanie` int(11) DEFAULT NULL,
+  `nr_prodio` varchar(100) DEFAULT NULL,
+  `id_materialu` int(11) DEFAULT NULL,
+  `id_pracownik` int(11) DEFAULT NULL,
+  `imie_nazwisko` varchar(255) DEFAULT NULL,
+  `nazwa` varchar(255) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `id_materialu` (`id_materialu`),
+  KEY `id_pracownik` (`id_pracownik`),
+  CONSTRAINT `ksztaltowanie_1_ibfk_1` FOREIGN KEY (`id_materialu`) REFERENCES `material_obejma` (`id`),
+  CONSTRAINT `ksztaltowanie_1_ibfk_2` FOREIGN KEY (`id_pracownik`) REFERENCES `uzytkownicy` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- Struktura tabeli `ksztaltowanie_2`
+CREATE TABLE `ksztaltowanie_2` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id_ksztaltowanie_1` int(11) DEFAULT NULL,
+  `data` date DEFAULT NULL,
+  `godzina_rozpoczecia` time DEFAULT NULL,
+  `godzina_zakonczenia` time DEFAULT NULL,
+  `ilosc` int(11) DEFAULT NULL,
+  `ilosc_na_stanie` int(11) DEFAULT NULL,
+  `nr_prodio` varchar(100) DEFAULT NULL,
+  `id_pracownik` int(11) DEFAULT NULL,
+  `imie_nazwisko` varchar(255) DEFAULT NULL,
+  `nazwa` varchar(255) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `id_ksztaltowanie_1` (`id_ksztaltowanie_1`),
+  KEY `id_pracownik` (`id_pracownik`),
+  CONSTRAINT `ksztaltowanie_2_ibfk_1` FOREIGN KEY (`id_ksztaltowanie_1`) REFERENCES `ksztaltowanie_1` (`id`),
+  CONSTRAINT `ksztaltowanie_2_ibfk_2` FOREIGN KEY (`id_pracownik`) REFERENCES `uzytkownicy` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- Struktura tabeli `ksztaltowanie_3`
+CREATE TABLE `ksztaltowanie_3` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id_ksztaltowanie_2` int(11) DEFAULT NULL,
+  `data` date DEFAULT NULL,
+  `godzina_rozpoczecia` time DEFAULT NULL,
+  `godzina_zakonczenia` time DEFAULT NULL,
+  `ilosc` int(11) DEFAULT NULL,
+  `ilosc_na_stanie` int(11) DEFAULT NULL,
+  `nr_prodio` varchar(100) DEFAULT NULL,
+  `id_pracownik` int(11) DEFAULT NULL,
+  `imie_nazwisko` varchar(255) DEFAULT NULL,
+  `nazwa` varchar(255) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `id_ksztaltowanie_2` (`id_ksztaltowanie_2`),
+  KEY `id_pracownik` (`id_pracownik`),
+  CONSTRAINT `ksztaltowanie_3_ibfk_1` FOREIGN KEY (`id_ksztaltowanie_2`) REFERENCES `ksztaltowanie_2` (`id`),
+  CONSTRAINT `ksztaltowanie_3_ibfk_2` FOREIGN KEY (`id_pracownik`) REFERENCES `uzytkownicy` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- Struktura tabeli `malarnia`
+CREATE TABLE `malarnia` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id_ksztaltowanie_3` int(11) DEFAULT NULL,
+  `ilosc` int(11) DEFAULT NULL,
+  `ilosc_na_stanie` int(11) DEFAULT NULL,
+  `nr_prodio` varchar(100) DEFAULT NULL,
+  `data` date DEFAULT NULL,
+  `id_pracownik` int(11) DEFAULT NULL,
+  `imie_nazwisko` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `id_pracownik` (`id_pracownik`),
+  KEY `malarnia_ibfk_1` (`id_ksztaltowanie_3`),
+  CONSTRAINT `malarnia_ibfk_1` FOREIGN KEY (`id_ksztaltowanie_3`) REFERENCES `ksztaltowanie_3` (`id`),
+  CONSTRAINT `malarnia_ibfk_2` FOREIGN KEY (`id_pracownik`) REFERENCES `uzytkownicy` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- Struktura tabeli `powrot`
+CREATE TABLE `powrot` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `data` date DEFAULT NULL,
+  `ilosc` int(11) DEFAULT NULL,
+  `ilosc_na_stanie` int(11) DEFAULT NULL,
+  `nr_prodio` varchar(100) DEFAULT NULL,
+  `id_malowania` int(11) DEFAULT NULL,
+  `id_pracownik` int(11) DEFAULT NULL,
+  `imie_nazwisko` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `id_malowania` (`id_malowania`),
+  KEY `id_pracownik` (`id_pracownik`),
+  CONSTRAINT `powrot_ibfk_1` FOREIGN KEY (`id_malowania`) REFERENCES `malarnia` (`id`),
+  CONSTRAINT `powrot_ibfk_2` FOREIGN KEY (`id_pracownik`) REFERENCES `uzytkownicy` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- Struktura tabeli `pianka`
+CREATE TABLE `pianka` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `nazwa` varchar(100) NOT NULL,
+  `ilosc` int(11) DEFAULT 0,
+  `ilosc_na_stanie` int(11) DEFAULT 0,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- Struktura tabeli `tasma_obejmy`
+CREATE TABLE `tasma_obejmy` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `nazwa` varchar(100) NOT NULL,
+  `ilosc` int(11) DEFAULT 0,
+  `ilosc_na_stanie` int(11) DEFAULT 0,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- Struktura tabeli `zlecenie`
+CREATE TABLE `zlecenie` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `nr_zamowienia_zew` varchar(100) DEFAULT NULL,
+  `nr_prodio` varchar(100) DEFAULT NULL,
+  `id_pianka` int(11) DEFAULT NULL,
+  `ile_pianka` int(11) NOT NULL,
+  `id_tasma` int(11) DEFAULT NULL,
+  `ile_tasmy` int(11) DEFAULT NULL,
+  `nr_kartonu` varchar(100) DEFAULT NULL,
+  `id_pracownik` int(11) DEFAULT NULL,
+  `imie_nazwisko` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `id_pracownik` (`id_pracownik`),
+  KEY `zlecenie_ibfk_2` (`id_pianka`),
+  KEY `zlecenie_ibfk_3` (`id_tasma`),
+  CONSTRAINT `zlecenie_ibfk_1` FOREIGN KEY (`id_pracownik`) REFERENCES `uzytkownicy` (`id`),
+  CONSTRAINT `zlecenie_ibfk_2` FOREIGN KEY (`id_pianka`) REFERENCES `pianka` (`id`) ON DELETE SET NULL,
+  CONSTRAINT `zlecenie_ibfk_3` FOREIGN KEY (`id_tasma`) REFERENCES `tasma_obejmy` (`id`) ON DELETE SET NULL
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- Struktura tabeli `laczenie`
+CREATE TABLE `laczenie` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id_zlecenie` int(11) DEFAULT NULL,
+  `id_powrot` int(11) DEFAULT NULL,
+  `ile_sztuk` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `id_zlecenie` (`id_zlecenie`),
+  KEY `id_powrot` (`id_powrot`),
+  CONSTRAINT `laczenie_ibfk_1` FOREIGN KEY (`id_zlecenie`) REFERENCES `zlecenie` (`id`),
+  CONSTRAINT `laczenie_ibfk_2` FOREIGN KEY (`id_powrot`) REFERENCES `powrot` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
 -- Dane z tabeli `uprawnienia`
 INSERT INTO `uprawnienia` (id_uprawnienia, nazwa) VALUES ('1', 'Administrator');
 INSERT INTO `uprawnienia` (id_uprawnienia, nazwa) VALUES ('2', 'Zaopatrzeniowiec ');
@@ -177,6 +350,50 @@ INSERT INTO `profil` (id, id_tasmy, data_produkcji, godz_min_rozpoczecia, godz_m
 INSERT INTO `profil` (id, id_tasmy, data_produkcji, godz_min_rozpoczecia, godz_min_zakonczenia, zwrot_na_magazyn_kg, id_szablon_profile, nazwa_klienta_nr_zlecenia_PRODIO, ilosc, ilosc_na_stanie, id_dlugosci, id_pracownika, Imie_nazwisko_pracownika, Data_do_usuwania) VALUES ('76', '55', '2025-05-25', '19:08:53', '19:10:26', '30.00', '3', 'warlawen', '60', '60', '6', '1', 'Kuba Kaczmarek', '2026-05-25');
 INSERT INTO `profil` (id, id_tasmy, data_produkcji, godz_min_rozpoczecia, godz_min_zakonczenia, zwrot_na_magazyn_kg, id_szablon_profile, nazwa_klienta_nr_zlecenia_PRODIO, ilosc, ilosc_na_stanie, id_dlugosci, id_pracownika, Imie_nazwisko_pracownika, Data_do_usuwania) VALUES ('77', '55', '2025-05-27', '12:44:30', '12:46:19', '10.00', '3', 'WZ123', '1000', '1000', '6', '19', 'Jakub Kaczmarek', '2026-05-27');
 INSERT INTO `profil` (id, id_tasmy, data_produkcji, godz_min_rozpoczecia, godz_min_zakonczenia, zwrot_na_magazyn_kg, id_szablon_profile, nazwa_klienta_nr_zlecenia_PRODIO, ilosc, ilosc_na_stanie, id_dlugosci, id_pracownika, Imie_nazwisko_pracownika, Data_do_usuwania) VALUES ('78', '54', '2025-07-17', '14:26:52', '14:27:40', '0.00', '3', '12', '2', '2', '2', '1', '12', '2026-07-17');
+
+-- Dane z tabeli `rozmiary_obejm`
+INSERT INTO `rozmiary_obejm` (id, nazwa, ile_pianka, ile_tasma) VALUES ('1', '231', '2', '2');
+INSERT INTO `rozmiary_obejm` (id, nazwa, ile_pianka, ile_tasma) VALUES ('2', 'sda2', '0', '0');
+INSERT INTO `rozmiary_obejm` (id, nazwa, ile_pianka, ile_tasma) VALUES ('3', '55', '132', '21');
+
+-- Dane z tabeli `material_obejma`
+INSERT INTO `material_obejma` (id, certyfikat, data_dostawy, nr_wytopu, nr_prodio, ilosc_sztuk, ilosc_sztuk_na_stanie, id_rozmiaru, id_pracownik) VALUES ('2', NULL, '6765-05-07', '765', '756', '756', '246', '1', '1');
+INSERT INTO `material_obejma` (id, certyfikat, data_dostawy, nr_wytopu, nr_prodio, ilosc_sztuk, ilosc_sztuk_na_stanie, id_rozmiaru, id_pracownik) VALUES ('8', '435', '0345-05-31', '435', '345', '345', '345', '2', '1');
+INSERT INTO `material_obejma` (id, certyfikat, data_dostawy, nr_wytopu, nr_prodio, ilosc_sztuk, ilosc_sztuk_na_stanie, id_rozmiaru, id_pracownik) VALUES ('9', 'tew', '0013-12-31', '123', '123', '123', '123', '1', '1');
+
+-- Dane z tabeli `ksztaltowanie_1`
+INSERT INTO `ksztaltowanie_1` (id, data, godzina_rozpoczecia, godzina_zakonczenia, ilosc, ilosc_na_stanie, nr_prodio, id_materialu, id_pracownik, imie_nazwisko, nazwa) VALUES ('4', '2025-07-17', '14:14:36', '14:14:41', '23', '0', '23', '2', '1', '23', '1/23/66/765/2025-07-17');
+
+-- Dane z tabeli `ksztaltowanie_2`
+INSERT INTO `ksztaltowanie_2` (id, id_ksztaltowanie_1, data, godzina_rozpoczecia, godzina_zakonczenia, ilosc, ilosc_na_stanie, nr_prodio, id_pracownik, imie_nazwisko, nazwa) VALUES ('3', '4', '2025-07-17', '14:15:12', '14:15:17', '23', '0', '23', '1', '23', '1/23/66/765/2025-07-17');
+
+-- Dane z tabeli `ksztaltowanie_3`
+INSERT INTO `ksztaltowanie_3` (id, id_ksztaltowanie_2, data, godzina_rozpoczecia, godzina_zakonczenia, ilosc, ilosc_na_stanie, nr_prodio, id_pracownik, imie_nazwisko, nazwa) VALUES ('3', '3', '2025-07-17', '14:15:21', '14:15:25', '23', '0', '23', '1', '23', '1/23/66/765/2025-07-17');
+
+-- Dane z tabeli `malarnia`
+INSERT INTO `malarnia` (id, id_ksztaltowanie_3, ilosc, ilosc_na_stanie, nr_prodio, data, id_pracownik, imie_nazwisko) VALUES ('9', '3', '23', '0', '23', '0323-02-23', '1', '2332');
+
+-- Dane z tabeli `powrot`
+INSERT INTO `powrot` (id, data, ilosc, ilosc_na_stanie, nr_prodio, id_malowania, id_pracownik, imie_nazwisko) VALUES ('5', '0332-02-23', '23', '230664', '23', '9', '1', '2323');
+
+-- Dane z tabeli `pianka`
+INSERT INTO `pianka` (id, nazwa, ilosc, ilosc_na_stanie) VALUES ('1', '231', '1236', '123');
+INSERT INTO `pianka` (id, nazwa, ilosc, ilosc_na_stanie) VALUES ('2', '6', '6', '0');
+
+-- Dane z tabeli `tasma_obejmy`
+INSERT INTO `tasma_obejmy` (id, nazwa, ilosc, ilosc_na_stanie) VALUES ('1', '6', '6', '0');
+INSERT INTO `tasma_obejmy` (id, nazwa, ilosc, ilosc_na_stanie) VALUES ('2', '3', '6', '6');
+
+-- Dane z tabeli `zlecenie`
+INSERT INTO `zlecenie` (id, nr_zamowienia_zew, nr_prodio, id_pianka, ile_pianka, id_tasma, ile_tasmy, nr_kartonu, id_pracownik, imie_nazwisko) VALUES ('6', '321', '123', '1', '312', '2', '123', '123', '1', '123');
+INSERT INTO `zlecenie` (id, nr_zamowienia_zew, nr_prodio, id_pianka, ile_pianka, id_tasma, ile_tasmy, nr_kartonu, id_pracownik, imie_nazwisko) VALUES ('7', 'wq', 'wqe', '1', '32', '1', '123', 'weq', '1', 'qwe');
+INSERT INTO `zlecenie` (id, nr_zamowienia_zew, nr_prodio, id_pianka, ile_pianka, id_tasma, ile_tasmy, nr_kartonu, id_pracownik, imie_nazwisko) VALUES ('8', '123', '213', '1', '123', '1', '312', '213', '1', '321');
+INSERT INTO `zlecenie` (id, nr_zamowienia_zew, nr_prodio, id_pianka, ile_pianka, id_tasma, ile_tasmy, nr_kartonu, id_pracownik, imie_nazwisko) VALUES ('9', '6', '6', '2', '6', '1', '6', '6', '1', '6');
+
+-- Dane z tabeli `laczenie`
+INSERT INTO `laczenie` (id, id_zlecenie, id_powrot, ile_sztuk) VALUES ('16', '6', '5', '321');
+INSERT INTO `laczenie` (id, id_zlecenie, id_powrot, ile_sztuk) VALUES ('17', '8', '5', '321');
+INSERT INTO `laczenie` (id, id_zlecenie, id_powrot, ile_sztuk) VALUES ('18', '9', '5', '6');
 
 
 SET FOREIGN_KEY_CHECKS = 1;
