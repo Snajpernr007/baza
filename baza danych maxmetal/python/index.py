@@ -182,6 +182,8 @@ class RozmiaryObejm(db.Model):
     __tablename__ = 'rozmiary_obejm'
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)
     nazwa = db.Column(db.String(255), nullable=False)
+    ile_pianka = db.Column(db.Integer, nullable=False)
+    ile_tasma = db.Column(db.Integer, nullable=False)
 
     def __repr__(self):
         return f"<RozmiaryObejm {self.id} - {self.nazwa}>"
