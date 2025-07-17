@@ -467,7 +467,7 @@ function sendDataToBackend(data) {
 
                             
                             <td><button type="button" class="button" onclick="openEditModal(this.parentElement.parentElement)">Edytuj</button>
-                            <form method="POST" style="display:inline;background-color: transparent;width: 0;padding: 0%;" action="{{ url_for('usun_ksztaltowanie1', id=ksztaltowania.id) }}" onsubmit="return confirm('Na pewno chcesz usunąć ten materiał?');">
+                            <form method="POST" style="display:inline;background-color: transparent;width: 0;padding: 0%;" action="{{ url_for('usun_ksztaltowanie1', id=ksztaltowania.id) }}" onsubmit="return confirm('Na pewno chcesz usunąć ten wpis?');">
                                 <button type="submit" class="button">Usuń</button>
                             </form></td>
                         </tr>

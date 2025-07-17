@@ -14352,3 +14352,730 @@
 2025-07-16 13:52:27,286 - INFO - 127.0.0.1 - - [16/Jul/2025 13:52:27] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
 2025-07-16 13:52:27,295 - INFO - 127.0.0.1 - - [16/Jul/2025 13:52:27] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
 2025-07-16 13:52:27,304 - INFO - 127.0.0.1 - - [16/Jul/2025 13:52:27] "[36mGET /static/img/maxmetal.png HTTP/1.1[0m" 304 -
+2025-07-16 13:53:01,028 - INFO - Administrator wszedł na stronę główną.
+2025-07-16 13:53:01,029 - INFO - 127.0.0.1 - - [16/Jul/2025 13:53:01] "GET / HTTP/1.1" 200 -
+2025-07-16 13:53:01,087 - INFO - 127.0.0.1 - - [16/Jul/2025 13:53:01] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-07-16 13:53:01,093 - INFO - 127.0.0.1 - - [16/Jul/2025 13:53:01] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-07-16 13:53:01,101 - INFO - 127.0.0.1 - - [16/Jul/2025 13:53:01] "[36mGET /static/img/maxmetal.png HTTP/1.1[0m" 304 -
+2025-07-16 23:11:39,261 - INFO - Administrator wszedł na stronę główną.
+2025-07-16 23:11:39,263 - INFO - 127.0.0.1 - - [16/Jul/2025 23:11:39] "GET / HTTP/1.1" 200 -
+2025-07-16 23:11:39,294 - INFO - 127.0.0.1 - - [16/Jul/2025 23:11:39] "GET /static/style.css HTTP/1.1" 200 -
+2025-07-16 23:11:39,303 - INFO - 127.0.0.1 - - [16/Jul/2025 23:11:39] "GET /static/img/logo-duże.png HTTP/1.1" 200 -
+2025-07-16 23:11:39,309 - INFO - 127.0.0.1 - - [16/Jul/2025 23:11:39] "GET /static/img/maxmetal.png HTTP/1.1" 200 -
+2025-07-16 23:11:39,320 - INFO - 127.0.0.1 - - [16/Jul/2025 23:11:39] "GET /static/img/logo-male.png HTTP/1.1" 200 -
+2025-07-17 01:33:45,718 - INFO - ✅ Kopia zapasowa zapisana do pliku: backups\kopie_zapasowe_bazy_2025-07-17_01-33.sql
+2025-07-17 01:33:45,719 - INFO - 🗑️ Usunięto starą kopię: kopie_zapasowe_bazy_2025-07-16_12-57.sql
+2025-07-17 13:11:36,590 - INFO - ✅ Kopia zapasowa zapisana do pliku: backups\kopie_zapasowe_bazy_2025-07-17_13-11.sql
+2025-07-17 13:11:36,591 - INFO - 🗑️ Usunięto starą kopię: kopie_zapasowe_bazy_2025-07-16_12-58.sql
+2025-07-17 13:14:00,009 - INFO - Administrator wszedł na stronę ksztaltowania2.
+2025-07-17 13:14:00,124 - INFO - 127.0.0.1 - - [17/Jul/2025 13:14:00] "GET /ksztaltowanie2 HTTP/1.1" 200 -
+2025-07-17 13:14:00,160 - INFO - 127.0.0.1 - - [17/Jul/2025 13:14:00] "GET /static/style.css HTTP/1.1" 200 -
+2025-07-17 13:14:00,177 - INFO - 127.0.0.1 - - [17/Jul/2025 13:14:00] "GET /static/img/logo-duże.png HTTP/1.1" 200 -
+2025-07-17 13:14:00,189 - INFO - 127.0.0.1 - - [17/Jul/2025 13:14:00] "GET /static/img/maxmetal.png HTTP/1.1" 200 -
+2025-07-17 13:14:01,817 - INFO - Administrator wszedł na stronę główną.
+2025-07-17 13:14:01,819 - INFO - 127.0.0.1 - - [17/Jul/2025 13:14:01] "GET / HTTP/1.1" 200 -
+2025-07-17 13:14:01,849 - INFO - 127.0.0.1 - - [17/Jul/2025 13:14:01] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-07-17 13:14:01,857 - INFO - 127.0.0.1 - - [17/Jul/2025 13:14:01] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-07-17 13:14:01,863 - INFO - 127.0.0.1 - - [17/Jul/2025 13:14:01] "[36mGET /static/img/maxmetal.png HTTP/1.1[0m" 304 -
+2025-07-17 13:14:05,826 - INFO - Administrator wszedł na stronę ksztaltowania1.
+2025-07-17 13:14:05,925 - INFO - 127.0.0.1 - - [17/Jul/2025 13:14:05] "GET /ksztaltowanie1 HTTP/1.1" 200 -
+2025-07-17 13:14:05,952 - INFO - 127.0.0.1 - - [17/Jul/2025 13:14:05] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-07-17 13:14:05,964 - INFO - 127.0.0.1 - - [17/Jul/2025 13:14:05] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-07-17 13:14:05,975 - INFO - 127.0.0.1 - - [17/Jul/2025 13:14:05] "[36mGET /static/img/maxmetal.png HTTP/1.1[0m" 304 -
+2025-07-17 13:14:08,491 - INFO - Administrator wszedł na stronę główną.
+2025-07-17 13:14:08,492 - INFO - 127.0.0.1 - - [17/Jul/2025 13:14:08] "GET / HTTP/1.1" 200 -
+2025-07-17 13:14:08,520 - INFO - 127.0.0.1 - - [17/Jul/2025 13:14:08] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-07-17 13:14:08,530 - INFO - 127.0.0.1 - - [17/Jul/2025 13:14:08] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-07-17 13:14:08,536 - INFO - 127.0.0.1 - - [17/Jul/2025 13:14:08] "[36mGET /static/img/maxmetal.png HTTP/1.1[0m" 304 -
+2025-07-17 13:15:56,007 - INFO - Administrator wszedł na stronę malarni.
+2025-07-17 13:15:56,122 - INFO - 127.0.0.1 - - [17/Jul/2025 13:15:56] "GET /malarnia HTTP/1.1" 200 -
+2025-07-17 13:15:56,158 - INFO - 127.0.0.1 - - [17/Jul/2025 13:15:56] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-07-17 13:15:56,173 - INFO - 127.0.0.1 - - [17/Jul/2025 13:15:56] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-07-17 13:15:56,190 - INFO - 127.0.0.1 - - [17/Jul/2025 13:15:56] "[36mGET /static/img/maxmetal.png HTTP/1.1[0m" 304 -
+2025-07-17 13:15:58,087 - INFO - Administrator wszedł na stronę główną.
+2025-07-17 13:15:58,088 - INFO - 127.0.0.1 - - [17/Jul/2025 13:15:58] "GET / HTTP/1.1" 200 -
+2025-07-17 13:15:58,117 - INFO - 127.0.0.1 - - [17/Jul/2025 13:15:58] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-07-17 13:15:58,124 - INFO - 127.0.0.1 - - [17/Jul/2025 13:15:58] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-07-17 13:15:58,132 - INFO - 127.0.0.1 - - [17/Jul/2025 13:15:58] "[36mGET /static/img/maxmetal.png HTTP/1.1[0m" 304 -
+2025-07-17 13:15:58,896 - INFO - Administrator wszedł na stronę ksztaltowania3.
+2025-07-17 13:15:59,022 - INFO - 127.0.0.1 - - [17/Jul/2025 13:15:59] "GET /ksztaltowanie3 HTTP/1.1" 200 -
+2025-07-17 13:15:59,073 - INFO - 127.0.0.1 - - [17/Jul/2025 13:15:59] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-07-17 13:15:59,102 - INFO - 127.0.0.1 - - [17/Jul/2025 13:15:59] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-07-17 13:15:59,112 - INFO - 127.0.0.1 - - [17/Jul/2025 13:15:59] "[36mGET /static/img/maxmetal.png HTTP/1.1[0m" 304 -
+2025-07-17 13:16:00,355 - INFO - Administrator wszedł na stronę główną.
+2025-07-17 13:16:00,356 - INFO - 127.0.0.1 - - [17/Jul/2025 13:16:00] "GET / HTTP/1.1" 200 -
+2025-07-17 13:16:00,391 - INFO - 127.0.0.1 - - [17/Jul/2025 13:16:00] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-07-17 13:16:00,402 - INFO - 127.0.0.1 - - [17/Jul/2025 13:16:00] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-07-17 13:16:00,416 - INFO - 127.0.0.1 - - [17/Jul/2025 13:16:00] "[36mGET /static/img/maxmetal.png HTTP/1.1[0m" 304 -
+2025-07-17 13:16:01,347 - INFO - Administrator wszedł na stronę malarni.
+2025-07-17 13:16:01,348 - INFO - 127.0.0.1 - - [17/Jul/2025 13:16:01] "GET /malarnia HTTP/1.1" 200 -
+2025-07-17 13:16:01,374 - INFO - 127.0.0.1 - - [17/Jul/2025 13:16:01] "GET /static/style.css HTTP/1.1" 200 -
+2025-07-17 13:16:01,392 - INFO - 127.0.0.1 - - [17/Jul/2025 13:16:01] "GET /static/img/logo-duże.png HTTP/1.1" 200 -
+2025-07-17 13:16:01,396 - INFO - 127.0.0.1 - - [17/Jul/2025 13:16:01] "[36mGET /static/img/maxmetal.png HTTP/1.1[0m" 304 -
+2025-07-17 13:16:02,870 - INFO - Administrator wszedł na stronę dodawania malarni.
+2025-07-17 13:16:02,928 - INFO - 127.0.0.1 - - [17/Jul/2025 13:16:02] "[35m[1mGET /dodaj_malarnie HTTP/1.1[0m" 500 -
+2025-07-17 13:16:02,956 - INFO - 127.0.0.1 - - [17/Jul/2025 13:16:02] "GET /dodaj_malarnie?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1" 200 -
+2025-07-17 13:16:02,958 - INFO - 127.0.0.1 - - [17/Jul/2025 13:16:02] "GET /dodaj_malarnie?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1" 200 -
+2025-07-17 13:16:02,977 - INFO - 127.0.0.1 - - [17/Jul/2025 13:16:02] "GET /dodaj_malarnie?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+2025-07-17 13:16:02,980 - INFO - 127.0.0.1 - - [17/Jul/2025 13:16:02] "GET /dodaj_malarnie?__debugger__=yes&cmd=resource&f=console.png&s=Oazn1HYcL413AXjuySLK HTTP/1.1" 200 -
+2025-07-17 13:18:16,715 - INFO - Administrator wszedł na stronę główną.
+2025-07-17 13:18:16,717 - INFO - 127.0.0.1 - - [17/Jul/2025 13:18:16] "GET / HTTP/1.1" 200 -
+2025-07-17 13:18:16,746 - INFO - 127.0.0.1 - - [17/Jul/2025 13:18:16] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-07-17 13:18:16,753 - INFO - 127.0.0.1 - - [17/Jul/2025 13:18:16] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-07-17 13:18:16,758 - INFO - 127.0.0.1 - - [17/Jul/2025 13:18:16] "[36mGET /static/img/maxmetal.png HTTP/1.1[0m" 304 -
+2025-07-17 13:20:07,478 - INFO - Połączenie z bazą danych zostało nawiązane pomyślnie.
+2025-07-17 13:20:07,616 - INFO - ✅ Kopia zapasowa zapisana do pliku: backups\kopie_zapasowe_bazy_2025-07-17_13-20.sql
+2025-07-17 13:20:07,617 - INFO - 🗑️ Usunięto starą kopię: kopie_zapasowe_bazy_2025-07-16_12-59.sql
+2025-07-17 13:20:07,660 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.1.80:5000
+2025-07-17 13:20:07,660 - INFO - [33mPress CTRL+C to quit[0m
+2025-07-17 13:20:07,664 - INFO -  * Restarting with stat
+2025-07-17 13:20:10,463 - INFO - Połączenie z bazą danych zostało nawiązane pomyślnie.
+2025-07-17 13:20:10,584 - INFO - ✅ Kopia zapasowa zapisana do pliku: backups\kopie_zapasowe_bazy_2025-07-17_13-20.sql
+2025-07-17 13:20:10,590 - WARNING -  * Debugger is active!
+2025-07-17 13:20:10,596 - INFO -  * Debugger PIN: 268-383-297
+2025-07-17 13:20:10,948 - INFO - Administrator wszedł na stronę malarni.
+2025-07-17 13:20:11,057 - INFO - 127.0.0.1 - - [17/Jul/2025 13:20:11] "GET /malarnia HTTP/1.1" 200 -
+2025-07-17 13:20:11,086 - INFO - 127.0.0.1 - - [17/Jul/2025 13:20:11] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-07-17 13:20:11,098 - INFO - 127.0.0.1 - - [17/Jul/2025 13:20:11] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-07-17 13:20:11,108 - INFO - 127.0.0.1 - - [17/Jul/2025 13:20:11] "[36mGET /static/img/maxmetal.png HTTP/1.1[0m" 304 -
+2025-07-17 13:20:18,115 - INFO - Administrator wszedł na stronę dodawania malarni.
+2025-07-17 13:20:18,156 - INFO - 127.0.0.1 - - [17/Jul/2025 13:20:18] "[35m[1mGET /dodaj_malarnie HTTP/1.1[0m" 500 -
+2025-07-17 13:20:18,189 - INFO - 127.0.0.1 - - [17/Jul/2025 13:20:18] "[36mGET /dodaj_malarnie?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+2025-07-17 13:20:18,192 - INFO - 127.0.0.1 - - [17/Jul/2025 13:20:18] "[36mGET /dodaj_malarnie?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+2025-07-17 13:20:18,208 - INFO - 127.0.0.1 - - [17/Jul/2025 13:20:18] "GET /dodaj_malarnie?__debugger__=yes&cmd=resource&f=console.png&s=vf061ilb7DE2IJyG7GVI HTTP/1.1" 200 -
+2025-07-17 13:22:11,830 - INFO - Administrator wszedł na stronę dodawania malarni.
+2025-07-17 13:22:11,857 - INFO - 127.0.0.1 - - [17/Jul/2025 13:22:11] "GET /dodaj_malarnie HTTP/1.1" 200 -
+2025-07-17 13:22:11,879 - INFO - 127.0.0.1 - - [17/Jul/2025 13:22:11] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-07-17 13:22:11,897 - INFO - 127.0.0.1 - - [17/Jul/2025 13:22:11] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-07-17 13:22:35,975 - INFO - 127.0.0.1 - - [17/Jul/2025 13:22:35] "[35m[1mPOST /dodaj_malarnie_do_bazy HTTP/1.1[0m" 500 -
+2025-07-17 13:22:36,004 - INFO - 127.0.0.1 - - [17/Jul/2025 13:22:36] "GET /dodaj_malarnie_do_bazy?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1" 200 -
+2025-07-17 13:22:36,006 - INFO - 127.0.0.1 - - [17/Jul/2025 13:22:36] "GET /dodaj_malarnie_do_bazy?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1" 200 -
+2025-07-17 13:22:36,019 - INFO - 127.0.0.1 - - [17/Jul/2025 13:22:36] "GET /dodaj_malarnie_do_bazy?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+2025-07-17 13:22:36,023 - INFO - 127.0.0.1 - - [17/Jul/2025 13:22:36] "GET /dodaj_malarnie_do_bazy?__debugger__=yes&cmd=resource&f=console.png&s=vf061ilb7DE2IJyG7GVI HTTP/1.1" 200 -
+2025-07-17 13:23:44,469 - INFO - Administrator wszedł na stronę ksztaltowania1.
+2025-07-17 13:23:44,560 - INFO - 127.0.0.1 - - [17/Jul/2025 13:23:44] "GET /ksztaltowanie1 HTTP/1.1" 200 -
+2025-07-17 13:23:44,590 - INFO - 127.0.0.1 - - [17/Jul/2025 13:23:44] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-07-17 13:23:44,600 - INFO - 127.0.0.1 - - [17/Jul/2025 13:23:44] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-07-17 13:23:44,610 - INFO - 127.0.0.1 - - [17/Jul/2025 13:23:44] "[36mGET /static/img/maxmetal.png HTTP/1.1[0m" 304 -
+2025-07-17 13:24:00,627 - INFO - Administrator wszedł na stronę główną.
+2025-07-17 13:24:00,790 - INFO - 127.0.0.1 - - [17/Jul/2025 13:24:00] "GET / HTTP/1.1" 200 -
+2025-07-17 13:24:00,817 - INFO - 127.0.0.1 - - [17/Jul/2025 13:24:00] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-07-17 13:24:00,825 - INFO - 127.0.0.1 - - [17/Jul/2025 13:24:00] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-07-17 13:24:00,829 - INFO - 127.0.0.1 - - [17/Jul/2025 13:24:00] "[36mGET /static/img/maxmetal.png HTTP/1.1[0m" 304 -
+2025-07-17 13:24:01,940 - INFO - Administrator wszedł na stronę profilu.
+2025-07-17 13:24:02,140 - INFO - 127.0.0.1 - - [17/Jul/2025 13:24:02] "GET /profil HTTP/1.1" 200 -
+2025-07-17 13:24:02,182 - INFO - 127.0.0.1 - - [17/Jul/2025 13:24:02] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-07-17 13:24:02,198 - INFO - 127.0.0.1 - - [17/Jul/2025 13:24:02] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-07-17 13:24:02,257 - INFO - 127.0.0.1 - - [17/Jul/2025 13:24:02] "[36mGET /static/img/maxmetal.png HTTP/1.1[0m" 304 -
+2025-07-17 13:24:03,353 - INFO - Administrator wszedł na stronę główną.
+2025-07-17 13:24:03,354 - INFO - 127.0.0.1 - - [17/Jul/2025 13:24:03] "GET / HTTP/1.1" 200 -
+2025-07-17 13:24:03,381 - INFO - 127.0.0.1 - - [17/Jul/2025 13:24:03] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-07-17 13:24:03,388 - INFO - 127.0.0.1 - - [17/Jul/2025 13:24:03] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-07-17 13:24:03,393 - INFO - 127.0.0.1 - - [17/Jul/2025 13:24:03] "[36mGET /static/img/maxmetal.png HTTP/1.1[0m" 304 -
+2025-07-17 13:24:06,106 - INFO - Administrator wszedł na stronę materialów obejm.
+2025-07-17 13:24:06,196 - INFO - 127.0.0.1 - - [17/Jul/2025 13:24:06] "GET /material_obejma HTTP/1.1" 200 -
+2025-07-17 13:24:06,226 - INFO - 127.0.0.1 - - [17/Jul/2025 13:24:06] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-07-17 13:24:06,240 - INFO - 127.0.0.1 - - [17/Jul/2025 13:24:06] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-07-17 13:24:06,250 - INFO - 127.0.0.1 - - [17/Jul/2025 13:24:06] "[36mGET /static/img/maxmetal.png HTTP/1.1[0m" 304 -
+2025-07-17 13:24:07,373 - INFO - Administrator wszedł na stronę główną.
+2025-07-17 13:24:07,374 - INFO - 127.0.0.1 - - [17/Jul/2025 13:24:07] "GET / HTTP/1.1" 200 -
+2025-07-17 13:24:07,401 - INFO - 127.0.0.1 - - [17/Jul/2025 13:24:07] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-07-17 13:24:07,410 - INFO - 127.0.0.1 - - [17/Jul/2025 13:24:07] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-07-17 13:24:07,416 - INFO - 127.0.0.1 - - [17/Jul/2025 13:24:07] "[36mGET /static/img/maxmetal.png HTTP/1.1[0m" 304 -
+2025-07-17 13:24:26,430 - INFO - Administrator wszedł na stronę malarni.
+2025-07-17 13:24:26,431 - INFO - 127.0.0.1 - - [17/Jul/2025 13:24:26] "GET /malarnia HTTP/1.1" 200 -
+2025-07-17 13:24:26,463 - INFO - 127.0.0.1 - - [17/Jul/2025 13:24:26] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-07-17 13:24:26,474 - INFO - 127.0.0.1 - - [17/Jul/2025 13:24:26] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-07-17 13:24:26,482 - INFO - 127.0.0.1 - - [17/Jul/2025 13:24:26] "[36mGET /static/img/maxmetal.png HTTP/1.1[0m" 304 -
+2025-07-17 13:24:27,727 - INFO - Administrator wszedł na stronę dodawania malarni.
+2025-07-17 13:24:27,732 - INFO - 127.0.0.1 - - [17/Jul/2025 13:24:27] "GET /dodaj_malarnie HTTP/1.1" 200 -
+2025-07-17 13:24:27,763 - INFO - 127.0.0.1 - - [17/Jul/2025 13:24:27] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-07-17 13:24:27,778 - INFO - 127.0.0.1 - - [17/Jul/2025 13:24:27] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-07-17 13:24:37,894 - INFO - 127.0.0.1 - - [17/Jul/2025 13:24:37] "[35m[1mPOST /dodaj_malarnie_do_bazy HTTP/1.1[0m" 500 -
+2025-07-17 13:24:37,921 - INFO - 127.0.0.1 - - [17/Jul/2025 13:24:37] "[36mGET /dodaj_malarnie_do_bazy?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+2025-07-17 13:24:37,923 - INFO - 127.0.0.1 - - [17/Jul/2025 13:24:37] "[36mGET /dodaj_malarnie_do_bazy?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+2025-07-17 13:24:37,934 - INFO - 127.0.0.1 - - [17/Jul/2025 13:24:37] "[36mGET /dodaj_malarnie_do_bazy?__debugger__=yes&cmd=resource&f=console.png&s=vf061ilb7DE2IJyG7GVI HTTP/1.1[0m" 304 -
+2025-07-17 13:25:24,975 - INFO - Połączenie z bazą danych zostało nawiązane pomyślnie.
+2025-07-17 13:25:25,084 - INFO - ✅ Kopia zapasowa zapisana do pliku: backups\kopie_zapasowe_bazy_2025-07-17_13-25.sql
+2025-07-17 13:25:25,086 - INFO - 🗑️ Usunięto starą kopię: kopie_zapasowe_bazy_2025-07-16_13-17.sql
+2025-07-17 13:25:25,100 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.1.80:5000
+2025-07-17 13:25:25,100 - INFO - [33mPress CTRL+C to quit[0m
+2025-07-17 13:25:25,102 - INFO -  * Restarting with stat
+2025-07-17 13:25:27,662 - INFO - Połączenie z bazą danych zostało nawiązane pomyślnie.
+2025-07-17 13:25:27,773 - INFO - ✅ Kopia zapasowa zapisana do pliku: backups\kopie_zapasowe_bazy_2025-07-17_13-25.sql
+2025-07-17 13:25:27,781 - WARNING -  * Debugger is active!
+2025-07-17 13:25:27,786 - INFO -  * Debugger PIN: 268-383-297
+2025-07-17 13:25:32,707 - INFO - Malarnia została dodana przez Administrator.
+2025-07-17 13:25:32,708 - INFO - 127.0.0.1 - - [17/Jul/2025 13:25:32] "[32mPOST /dodaj_malarnie_do_bazy HTTP/1.1[0m" 302 -
+2025-07-17 13:25:32,716 - INFO - Administrator wszedł na stronę malarni.
+2025-07-17 13:25:32,864 - INFO - 127.0.0.1 - - [17/Jul/2025 13:25:32] "[35m[1mGET /malarnia HTTP/1.1[0m" 500 -
+2025-07-17 13:25:32,889 - INFO - 127.0.0.1 - - [17/Jul/2025 13:25:32] "GET /malarnia?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1" 200 -
+2025-07-17 13:25:32,899 - INFO - 127.0.0.1 - - [17/Jul/2025 13:25:32] "[36mGET /malarnia?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+2025-07-17 13:25:32,912 - INFO - 127.0.0.1 - - [17/Jul/2025 13:25:32] "GET /malarnia?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+2025-07-17 13:25:32,915 - INFO - 127.0.0.1 - - [17/Jul/2025 13:25:32] "GET /malarnia?__debugger__=yes&cmd=resource&f=console.png&s=7hAzsEoELqJl7CzP5aBp HTTP/1.1" 200 -
+2025-07-17 13:25:39,851 - INFO - Malarnia została dodana przez Administrator.
+2025-07-17 13:25:39,852 - INFO - 127.0.0.1 - - [17/Jul/2025 13:25:39] "[32mPOST /dodaj_malarnie_do_bazy HTTP/1.1[0m" 302 -
+2025-07-17 13:25:39,861 - INFO - Administrator wszedł na stronę malarni.
+2025-07-17 13:25:39,891 - INFO - 127.0.0.1 - - [17/Jul/2025 13:25:39] "[35m[1mGET /malarnia HTTP/1.1[0m" 500 -
+2025-07-17 13:25:39,931 - INFO - 127.0.0.1 - - [17/Jul/2025 13:25:39] "[36mGET /malarnia?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+2025-07-17 13:25:39,933 - INFO - 127.0.0.1 - - [17/Jul/2025 13:25:39] "[36mGET /malarnia?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+2025-07-17 13:25:39,944 - INFO - 127.0.0.1 - - [17/Jul/2025 13:25:39] "[36mGET /malarnia?__debugger__=yes&cmd=resource&f=console.png&s=7hAzsEoELqJl7CzP5aBp HTTP/1.1[0m" 304 -
+2025-07-17 13:33:14,780 - INFO - Połączenie z bazą danych zostało nawiązane pomyślnie.
+2025-07-17 13:35:17,012 - INFO - Połączenie z bazą danych zostało nawiązane pomyślnie.
+2025-07-17 13:35:17,136 - INFO - ✅ Kopia zapasowa zapisana do pliku: backups\kopie_zapasowe_bazy_2025-07-17_13-35.sql
+2025-07-17 13:35:17,138 - INFO - 🗑️ Usunięto starą kopię: kopie_zapasowe_bazy_2025-07-16_13-36.sql
+2025-07-17 13:35:17,138 - INFO - 🗑️ Usunięto starą kopię: kopie_zapasowe_bazy_2025-07-16_13-52.sql
+2025-07-17 13:35:17,151 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.1.80:5000
+2025-07-17 13:35:17,151 - INFO - [33mPress CTRL+C to quit[0m
+2025-07-17 13:35:17,152 - INFO -  * Restarting with stat
+2025-07-17 13:35:20,057 - INFO - Połączenie z bazą danych zostało nawiązane pomyślnie.
+2025-07-17 13:35:20,185 - INFO - ✅ Kopia zapasowa zapisana do pliku: backups\kopie_zapasowe_bazy_2025-07-17_13-35.sql
+2025-07-17 13:35:20,192 - WARNING -  * Debugger is active!
+2025-07-17 13:35:20,196 - INFO -  * Debugger PIN: 268-383-297
+2025-07-17 13:35:21,155 - INFO - Administrator wszedł na stronę malarni.
+2025-07-17 13:35:21,274 - INFO - 127.0.0.1 - - [17/Jul/2025 13:35:21] "GET /malarnia HTTP/1.1" 200 -
+2025-07-17 13:35:21,298 - INFO - 127.0.0.1 - - [17/Jul/2025 13:35:21] "GET /static/style.css HTTP/1.1" 200 -
+2025-07-17 13:35:21,310 - INFO - 127.0.0.1 - - [17/Jul/2025 13:35:21] "GET /static/img/logo-duże.png HTTP/1.1" 200 -
+2025-07-17 13:35:21,340 - INFO - 127.0.0.1 - - [17/Jul/2025 13:35:21] "GET /static/img/maxmetal.png HTTP/1.1" 200 -
+2025-07-17 13:35:21,350 - INFO - 127.0.0.1 - - [17/Jul/2025 13:35:21] "GET /static/img/logo-male.png HTTP/1.1" 200 -
+2025-07-17 13:35:30,054 - INFO - Malarnia ID 8 usunięta przez Administrator. Szczegóły: nr prodio: 23, data: 3333-02-23, ilość: 23, pracownik: Administrator.
+2025-07-17 13:35:30,055 - INFO - 127.0.0.1 - - [17/Jul/2025 13:35:30] "[32mPOST /usun_malarnie/8 HTTP/1.1[0m" 302 -
+2025-07-17 13:35:30,064 - INFO - Administrator wszedł na stronę malarni.
+2025-07-17 13:35:30,071 - INFO - 127.0.0.1 - - [17/Jul/2025 13:35:30] "GET /malarnia HTTP/1.1" 200 -
+2025-07-17 13:35:30,091 - INFO - 127.0.0.1 - - [17/Jul/2025 13:35:30] "GET /static/style.css HTTP/1.1" 200 -
+2025-07-17 13:35:30,103 - INFO - 127.0.0.1 - - [17/Jul/2025 13:35:30] "GET /static/img/logo-duże.png HTTP/1.1" 200 -
+2025-07-17 13:35:30,114 - INFO - 127.0.0.1 - - [17/Jul/2025 13:35:30] "GET /static/img/logo-male.png HTTP/1.1" 200 -
+2025-07-17 13:35:30,118 - INFO - 127.0.0.1 - - [17/Jul/2025 13:35:30] "GET /static/img/maxmetal.png HTTP/1.1" 200 -
+2025-07-17 13:35:33,306 - INFO - 127.0.0.1 - - [17/Jul/2025 13:35:33] "[33mGET /get-ksztaltowanie HTTP/1.1[0m" 404 -
+2025-07-17 13:35:36,566 - INFO - Administrator wszedł na stronę malarni.
+2025-07-17 13:35:36,572 - INFO - 127.0.0.1 - - [17/Jul/2025 13:35:36] "GET /malarnia HTTP/1.1" 200 -
+2025-07-17 13:35:36,595 - INFO - 127.0.0.1 - - [17/Jul/2025 13:35:36] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-07-17 13:35:36,606 - INFO - 127.0.0.1 - - [17/Jul/2025 13:35:36] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-07-17 13:35:36,616 - INFO - 127.0.0.1 - - [17/Jul/2025 13:35:36] "[36mGET /static/img/maxmetal.png HTTP/1.1[0m" 304 -
+2025-07-17 13:36:43,437 - INFO - Administrator wszedł na stronę malarni.
+2025-07-17 13:36:43,542 - INFO - 127.0.0.1 - - [17/Jul/2025 13:36:43] "GET /malarnia HTTP/1.1" 200 -
+2025-07-17 13:36:43,565 - INFO - 127.0.0.1 - - [17/Jul/2025 13:36:43] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-07-17 13:36:43,581 - INFO - 127.0.0.1 - - [17/Jul/2025 13:36:43] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-07-17 13:36:43,604 - INFO - 127.0.0.1 - - [17/Jul/2025 13:36:43] "[36mGET /static/img/maxmetal.png HTTP/1.1[0m" 304 -
+2025-07-17 13:36:45,461 - INFO - 127.0.0.1 - - [17/Jul/2025 13:36:45] "[33mGET /get-ksztaltowanie_3 HTTP/1.1[0m" 404 -
+2025-07-17 13:36:51,038 - INFO - Administrator wszedł na stronę malarni.
+2025-07-17 13:36:51,043 - INFO - 127.0.0.1 - - [17/Jul/2025 13:36:51] "GET /malarnia HTTP/1.1" 200 -
+2025-07-17 13:36:51,066 - INFO - 127.0.0.1 - - [17/Jul/2025 13:36:51] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-07-17 13:36:51,077 - INFO - 127.0.0.1 - - [17/Jul/2025 13:36:51] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-07-17 13:36:51,087 - INFO - 127.0.0.1 - - [17/Jul/2025 13:36:51] "[36mGET /static/img/maxmetal.png HTTP/1.1[0m" 304 -
+2025-07-17 13:36:59,699 - INFO - Administrator wszedł na stronę malarni.
+2025-07-17 13:36:59,815 - INFO - 127.0.0.1 - - [17/Jul/2025 13:36:59] "GET /malarnia HTTP/1.1" 200 -
+2025-07-17 13:36:59,833 - INFO - 127.0.0.1 - - [17/Jul/2025 13:36:59] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-07-17 13:36:59,846 - INFO - 127.0.0.1 - - [17/Jul/2025 13:36:59] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-07-17 13:36:59,865 - INFO - 127.0.0.1 - - [17/Jul/2025 13:36:59] "[36mGET /static/img/maxmetal.png HTTP/1.1[0m" 304 -
+2025-07-17 13:37:00,807 - INFO - 127.0.0.1 - - [17/Jul/2025 13:37:00] "GET /get-ksztaltowanie3 HTTP/1.1" 200 -
+2025-07-17 13:37:03,648 - INFO - Administrator wszedł na stronę malarni.
+2025-07-17 13:37:03,652 - INFO - 127.0.0.1 - - [17/Jul/2025 13:37:03] "GET /malarnia HTTP/1.1" 200 -
+2025-07-17 13:37:03,673 - INFO - 127.0.0.1 - - [17/Jul/2025 13:37:03] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-07-17 13:37:03,685 - INFO - 127.0.0.1 - - [17/Jul/2025 13:37:03] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-07-17 13:37:03,694 - INFO - 127.0.0.1 - - [17/Jul/2025 13:37:03] "[36mGET /static/img/maxmetal.png HTTP/1.1[0m" 304 -
+2025-07-17 13:37:05,443 - INFO - Administrator wszedł na stronę główną.
+2025-07-17 13:37:05,604 - INFO - 127.0.0.1 - - [17/Jul/2025 13:37:05] "GET / HTTP/1.1" 200 -
+2025-07-17 13:37:05,663 - INFO - 127.0.0.1 - - [17/Jul/2025 13:37:05] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-07-17 13:37:05,669 - INFO - 127.0.0.1 - - [17/Jul/2025 13:37:05] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-07-17 13:37:05,684 - INFO - 127.0.0.1 - - [17/Jul/2025 13:37:05] "[36mGET /static/img/maxmetal.png HTTP/1.1[0m" 304 -
+2025-07-17 13:37:06,782 - INFO - Administrator wszedł na stronę ksztaltowania2.
+2025-07-17 13:37:06,881 - INFO - 127.0.0.1 - - [17/Jul/2025 13:37:06] "GET /ksztaltowanie2 HTTP/1.1" 200 -
+2025-07-17 13:37:06,910 - INFO - 127.0.0.1 - - [17/Jul/2025 13:37:06] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-07-17 13:37:06,923 - INFO - 127.0.0.1 - - [17/Jul/2025 13:37:06] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-07-17 13:37:06,929 - INFO - 127.0.0.1 - - [17/Jul/2025 13:37:06] "[36mGET /static/img/maxmetal.png HTTP/1.1[0m" 304 -
+2025-07-17 13:37:08,421 - INFO - Administrator wszedł na stronę główną.
+2025-07-17 13:37:08,423 - INFO - 127.0.0.1 - - [17/Jul/2025 13:37:08] "GET / HTTP/1.1" 200 -
+2025-07-17 13:37:08,450 - INFO - 127.0.0.1 - - [17/Jul/2025 13:37:08] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-07-17 13:37:08,456 - INFO - 127.0.0.1 - - [17/Jul/2025 13:37:08] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-07-17 13:37:08,463 - INFO - 127.0.0.1 - - [17/Jul/2025 13:37:08] "[36mGET /static/img/maxmetal.png HTTP/1.1[0m" 304 -
+2025-07-17 13:37:09,624 - INFO - Administrator wszedł na stronę ksztaltowania3.
+2025-07-17 13:37:09,723 - INFO - 127.0.0.1 - - [17/Jul/2025 13:37:09] "GET /ksztaltowanie3 HTTP/1.1" 200 -
+2025-07-17 13:37:09,749 - INFO - 127.0.0.1 - - [17/Jul/2025 13:37:09] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-07-17 13:37:09,765 - INFO - 127.0.0.1 - - [17/Jul/2025 13:37:09] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-07-17 13:37:09,768 - INFO - 127.0.0.1 - - [17/Jul/2025 13:37:09] "[36mGET /static/img/maxmetal.png HTTP/1.1[0m" 304 -
+2025-07-17 13:37:11,520 - INFO - Administrator wszedł na stronę dodawania ksztaltowania3.
+2025-07-17 13:37:11,532 - INFO - 127.0.0.1 - - [17/Jul/2025 13:37:11] "GET /dodaj_ksztaltowanie3 HTTP/1.1" 200 -
+2025-07-17 13:37:11,559 - INFO - 127.0.0.1 - - [17/Jul/2025 13:37:11] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-07-17 13:37:11,575 - INFO - 127.0.0.1 - - [17/Jul/2025 13:37:11] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-07-17 13:37:18,713 - INFO - Ksztaltowanie_3 2/56/sda2/435/2025-07-17 zostało dodane przez Administrator.
+2025-07-17 13:37:18,714 - INFO - 127.0.0.1 - - [17/Jul/2025 13:37:18] "[32mPOST /dodaj_ksztaltowanie3_do_bazy HTTP/1.1[0m" 302 -
+2025-07-17 13:37:18,721 - INFO - Administrator wszedł na stronę ksztaltowania3.
+2025-07-17 13:37:18,726 - INFO - 127.0.0.1 - - [17/Jul/2025 13:37:18] "GET /ksztaltowanie3 HTTP/1.1" 200 -
+2025-07-17 13:37:18,749 - INFO - 127.0.0.1 - - [17/Jul/2025 13:37:18] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-07-17 13:37:18,760 - INFO - 127.0.0.1 - - [17/Jul/2025 13:37:18] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-07-17 13:37:18,766 - INFO - 127.0.0.1 - - [17/Jul/2025 13:37:18] "[36mGET /static/img/maxmetal.png HTTP/1.1[0m" 304 -
+2025-07-17 13:37:19,819 - INFO - Administrator wszedł na stronę główną.
+2025-07-17 13:37:19,820 - INFO - 127.0.0.1 - - [17/Jul/2025 13:37:19] "GET / HTTP/1.1" 200 -
+2025-07-17 13:37:19,845 - INFO - 127.0.0.1 - - [17/Jul/2025 13:37:19] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-07-17 13:37:19,852 - INFO - 127.0.0.1 - - [17/Jul/2025 13:37:19] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-07-17 13:37:19,856 - INFO - 127.0.0.1 - - [17/Jul/2025 13:37:19] "[36mGET /static/img/maxmetal.png HTTP/1.1[0m" 304 -
+2025-07-17 13:37:21,445 - INFO - Administrator wszedł na stronę malarni.
+2025-07-17 13:37:21,450 - INFO - 127.0.0.1 - - [17/Jul/2025 13:37:21] "GET /malarnia HTTP/1.1" 200 -
+2025-07-17 13:37:21,479 - INFO - 127.0.0.1 - - [17/Jul/2025 13:37:21] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-07-17 13:37:21,492 - INFO - 127.0.0.1 - - [17/Jul/2025 13:37:21] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-07-17 13:37:21,503 - INFO - 127.0.0.1 - - [17/Jul/2025 13:37:21] "[36mGET /static/img/maxmetal.png HTTP/1.1[0m" 304 -
+2025-07-17 13:37:23,804 - INFO - 127.0.0.1 - - [17/Jul/2025 13:37:23] "GET /get-ksztaltowanie3 HTTP/1.1" 200 -
+2025-07-17 13:37:26,215 - INFO - Otrzymane dane do aktualizacji malarni: {'column_0': '7', 'column_3': '2', 'column_4': '23', 'column_5': '23', 'column_6': '23', 'column_7': '3333-02-23', 'column_8': 'Administrator', 'column_9': '23', 'column_10': 'Zapisz Usuń'}
+2025-07-17 13:37:26,217 - INFO - Poprzednie dane malarni o ID 7: {'id': 7, 'data': datetime.date(3333, 2, 23), 'id_ksztaltowanie': 1, 'nr_prodio': '23', 'ilosc': 23, 'ilosc_na_stanie': 23}
+2025-07-17 13:37:26,217 - INFO - Przetwarzanie daty: 3333-02-23
+2025-07-17 13:37:26,225 - INFO - Malarnia o ID 7 została zaktualizowana przez Administrator.
+2025-07-17 13:37:26,225 - INFO - 127.0.0.1 - - [17/Jul/2025 13:37:26] "POST /update-row-malarnia HTTP/1.1" 200 -
+2025-07-17 13:37:28,194 - INFO - 127.0.0.1 - - [17/Jul/2025 13:37:28] "GET /get-ksztaltowanie3 HTTP/1.1" 200 -
+2025-07-17 13:37:28,959 - INFO - Administrator wszedł na stronę malarni.
+2025-07-17 13:37:28,965 - INFO - 127.0.0.1 - - [17/Jul/2025 13:37:28] "GET /malarnia HTTP/1.1" 200 -
+2025-07-17 13:37:28,981 - INFO - 127.0.0.1 - - [17/Jul/2025 13:37:28] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-07-17 13:37:28,992 - INFO - 127.0.0.1 - - [17/Jul/2025 13:37:28] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-07-17 13:37:29,002 - INFO - 127.0.0.1 - - [17/Jul/2025 13:37:29] "[36mGET /static/img/maxmetal.png HTTP/1.1[0m" 304 -
+2025-07-17 13:37:30,085 - INFO - Administrator wszedł na stronę główną.
+2025-07-17 13:37:30,087 - INFO - 127.0.0.1 - - [17/Jul/2025 13:37:30] "GET / HTTP/1.1" 200 -
+2025-07-17 13:37:30,114 - INFO - 127.0.0.1 - - [17/Jul/2025 13:37:30] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-07-17 13:37:30,123 - INFO - 127.0.0.1 - - [17/Jul/2025 13:37:30] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-07-17 13:37:30,126 - INFO - 127.0.0.1 - - [17/Jul/2025 13:37:30] "[36mGET /static/img/maxmetal.png HTTP/1.1[0m" 304 -
+2025-07-17 13:37:57,494 - INFO - Administrator wszedł na stronę powrotu.
+2025-07-17 13:37:57,580 - INFO - 127.0.0.1 - - [17/Jul/2025 13:37:57] "GET /powrot HTTP/1.1" 200 -
+2025-07-17 13:37:57,613 - INFO - 127.0.0.1 - - [17/Jul/2025 13:37:57] "GET /static/style.css HTTP/1.1" 200 -
+2025-07-17 13:37:57,624 - INFO - 127.0.0.1 - - [17/Jul/2025 13:37:57] "GET /static/img/logo-duże.png HTTP/1.1" 200 -
+2025-07-17 13:37:57,636 - INFO - 127.0.0.1 - - [17/Jul/2025 13:37:57] "GET /static/img/logo-male.png HTTP/1.1" 200 -
+2025-07-17 13:37:57,637 - INFO - 127.0.0.1 - - [17/Jul/2025 13:37:57] "GET /static/img/maxmetal.png HTTP/1.1" 200 -
+2025-07-17 13:37:59,375 - INFO - Administrator wszedł na stronę dodawania powrotu.
+2025-07-17 13:37:59,424 - INFO - 127.0.0.1 - - [17/Jul/2025 13:37:59] "[35m[1mGET /dodaj_powrot HTTP/1.1[0m" 500 -
+2025-07-17 13:37:59,457 - INFO - 127.0.0.1 - - [17/Jul/2025 13:37:59] "GET /dodaj_powrot?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1" 200 -
+2025-07-17 13:37:59,459 - INFO - 127.0.0.1 - - [17/Jul/2025 13:37:59] "GET /dodaj_powrot?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1" 200 -
+2025-07-17 13:37:59,477 - INFO - 127.0.0.1 - - [17/Jul/2025 13:37:59] "GET /dodaj_powrot?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+2025-07-17 13:37:59,480 - INFO - 127.0.0.1 - - [17/Jul/2025 13:37:59] "GET /dodaj_powrot?__debugger__=yes&cmd=resource&f=console.png&s=chP0Czt9tZI1KUJ5CCWF HTTP/1.1" 200 -
+2025-07-17 13:38:01,423 - INFO - 127.0.0.1 - - [17/Jul/2025 13:38:01] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-07-17 13:39:24,449 - INFO - Administrator wszedł na stronę dodawania powrotu.
+2025-07-17 13:39:24,480 - INFO - 127.0.0.1 - - [17/Jul/2025 13:39:24] "GET /dodaj_powrot HTTP/1.1" 200 -
+2025-07-17 13:39:24,512 - INFO - 127.0.0.1 - - [17/Jul/2025 13:39:24] "GET /static/style.css HTTP/1.1" 200 -
+2025-07-17 13:39:24,527 - INFO - 127.0.0.1 - - [17/Jul/2025 13:39:24] "GET /static/img/logo-duże.png HTTP/1.1" 200 -
+2025-07-17 13:39:36,486 - INFO - Powrót został dodany przez Administrator.
+2025-07-17 13:39:36,487 - INFO - 127.0.0.1 - - [17/Jul/2025 13:39:36] "[32mPOST /dodaj_powrot_do_bazy HTTP/1.1[0m" 302 -
+2025-07-17 13:39:36,495 - INFO - Administrator wszedł na stronę powrotu.
+2025-07-17 13:39:36,601 - INFO - 127.0.0.1 - - [17/Jul/2025 13:39:36] "GET /powrot HTTP/1.1" 200 -
+2025-07-17 13:39:36,627 - INFO - 127.0.0.1 - - [17/Jul/2025 13:39:36] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-07-17 13:39:36,640 - INFO - 127.0.0.1 - - [17/Jul/2025 13:39:36] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-07-17 13:39:36,647 - INFO - 127.0.0.1 - - [17/Jul/2025 13:39:36] "[36mGET /static/img/maxmetal.png HTTP/1.1[0m" 304 -
+2025-07-17 13:41:23,650 - INFO - Administrator wszedł na stronę główną.
+2025-07-17 13:41:23,651 - INFO - 127.0.0.1 - - [17/Jul/2025 13:41:23] "GET / HTTP/1.1" 200 -
+2025-07-17 13:41:23,680 - INFO - 127.0.0.1 - - [17/Jul/2025 13:41:23] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-07-17 13:41:23,687 - INFO - 127.0.0.1 - - [17/Jul/2025 13:41:23] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-07-17 13:41:23,695 - INFO - 127.0.0.1 - - [17/Jul/2025 13:41:23] "[36mGET /static/img/maxmetal.png HTTP/1.1[0m" 304 -
+2025-07-17 13:41:24,885 - INFO - Administrator wszedł na stronę zlecenia.
+2025-07-17 13:41:25,005 - INFO - 127.0.0.1 - - [17/Jul/2025 13:41:25] "GET /zlecenie HTTP/1.1" 200 -
+2025-07-17 13:41:25,032 - INFO - 127.0.0.1 - - [17/Jul/2025 13:41:25] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-07-17 13:41:25,044 - INFO - 127.0.0.1 - - [17/Jul/2025 13:41:25] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-07-17 13:41:25,051 - INFO - 127.0.0.1 - - [17/Jul/2025 13:41:25] "[36mGET /static/img/maxmetal.png HTTP/1.1[0m" 304 -
+2025-07-17 13:41:26,155 - INFO - Administrator wszedł na stronę dodawania zlecenia.
+2025-07-17 13:41:26,166 - INFO - 127.0.0.1 - - [17/Jul/2025 13:41:26] "GET /dodaj_zlecenie HTTP/1.1" 200 -
+2025-07-17 13:41:26,194 - INFO - 127.0.0.1 - - [17/Jul/2025 13:41:26] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-07-17 13:41:26,209 - INFO - 127.0.0.1 - - [17/Jul/2025 13:41:26] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-07-17 13:41:34,852 - INFO - 127.0.0.1 - - [17/Jul/2025 13:41:34] "POST /dodaj_zlecenie_do_bazy HTTP/1.1" 200 -
+2025-07-17 13:41:34,882 - INFO - 127.0.0.1 - - [17/Jul/2025 13:41:34] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-07-17 13:41:34,897 - INFO - 127.0.0.1 - - [17/Jul/2025 13:41:34] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-07-17 13:41:34,908 - INFO - 127.0.0.1 - - [17/Jul/2025 13:41:34] "[36mGET /static/img/maxmetal.png HTTP/1.1[0m" 304 -
+2025-07-17 13:41:36,714 - INFO - Administrator wszedł na stronę dodawania zlecenia.
+2025-07-17 13:41:36,715 - INFO - 127.0.0.1 - - [17/Jul/2025 13:41:36] "GET /dodaj_zlecenie HTTP/1.1" 200 -
+2025-07-17 13:41:36,743 - INFO - 127.0.0.1 - - [17/Jul/2025 13:41:36] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-07-17 13:41:36,762 - INFO - 127.0.0.1 - - [17/Jul/2025 13:41:36] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-07-17 13:41:44,874 - INFO - Zlecenie dodane przez Administrator
+2025-07-17 13:41:44,874 - INFO - 127.0.0.1 - - [17/Jul/2025 13:41:44] "[32mPOST /dodaj_zlecenie_do_bazy HTTP/1.1[0m" 302 -
+2025-07-17 13:41:44,881 - INFO - Administrator wszedł na stronę zlecenia.
+2025-07-17 13:41:44,890 - INFO - 127.0.0.1 - - [17/Jul/2025 13:41:44] "GET /zlecenie HTTP/1.1" 200 -
+2025-07-17 13:41:44,917 - INFO - 127.0.0.1 - - [17/Jul/2025 13:41:44] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-07-17 13:41:44,928 - INFO - 127.0.0.1 - - [17/Jul/2025 13:41:44] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-07-17 13:41:44,936 - INFO - 127.0.0.1 - - [17/Jul/2025 13:41:44] "[36mGET /static/img/maxmetal.png HTTP/1.1[0m" 304 -
+2025-07-17 13:44:01,630 - INFO -  * Detected change in 'C:\\Users\\admin\\Documents\\GitHub\\baza\\baza danych maxmetal\\python\\index.py', reloading
+2025-07-17 13:44:20,064 - INFO -  * Restarting with stat
+2025-07-17 13:44:22,939 - INFO - Połączenie z bazą danych zostało nawiązane pomyślnie.
+2025-07-17 13:44:23,062 - INFO - ✅ Kopia zapasowa zapisana do pliku: backups\kopie_zapasowe_bazy_2025-07-17_13-44.sql
+2025-07-17 13:44:23,064 - INFO - 🗑️ Usunięto starą kopię: kopie_zapasowe_bazy_2025-07-17_01-33.sql
+2025-07-17 13:44:23,069 - WARNING -  * Debugger is active!
+2025-07-17 13:44:23,073 - INFO -  * Debugger PIN: 268-383-297
+2025-07-17 13:44:29,383 - INFO - Połączenie z bazą danych zostało nawiązane pomyślnie.
+2025-07-17 13:44:29,503 - INFO - ✅ Kopia zapasowa zapisana do pliku: backups\kopie_zapasowe_bazy_2025-07-17_13-44.sql
+2025-07-17 13:44:29,515 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.1.80:5000
+2025-07-17 13:44:29,515 - INFO - [33mPress CTRL+C to quit[0m
+2025-07-17 13:44:29,516 - INFO -  * Restarting with stat
+2025-07-17 13:44:32,349 - INFO - Połączenie z bazą danych zostało nawiązane pomyślnie.
+2025-07-17 13:44:32,478 - INFO - ✅ Kopia zapasowa zapisana do pliku: backups\kopie_zapasowe_bazy_2025-07-17_13-44.sql
+2025-07-17 13:44:32,485 - WARNING -  * Debugger is active!
+2025-07-17 13:44:32,489 - INFO -  * Debugger PIN: 268-383-297
+2025-07-17 13:44:32,865 - INFO - Administrator wszedł na stronę zlecenia.
+2025-07-17 13:44:33,020 - INFO - 127.0.0.1 - - [17/Jul/2025 13:44:33] "GET /zlecenie HTTP/1.1" 200 -
+2025-07-17 13:44:33,044 - INFO - 127.0.0.1 - - [17/Jul/2025 13:44:33] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-07-17 13:44:33,057 - INFO - 127.0.0.1 - - [17/Jul/2025 13:44:33] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-07-17 13:44:33,066 - INFO - 127.0.0.1 - - [17/Jul/2025 13:44:33] "[36mGET /static/img/maxmetal.png HTTP/1.1[0m" 304 -
+2025-07-17 13:44:35,130 - INFO - Zlecenie ID 4 usunięte przez Administrator. Szczegóły: nr prodio: 312, nr zamówienia: 123, pracownik: Administrator.
+2025-07-17 13:44:35,131 - INFO - 127.0.0.1 - - [17/Jul/2025 13:44:35] "[32mPOST /usun_zlecenie/4 HTTP/1.1[0m" 302 -
+2025-07-17 13:44:35,144 - INFO - Administrator wszedł na stronę zlecenia.
+2025-07-17 13:44:35,145 - INFO - 127.0.0.1 - - [17/Jul/2025 13:44:35] "GET /zlecenie HTTP/1.1" 200 -
+2025-07-17 13:44:35,165 - INFO - 127.0.0.1 - - [17/Jul/2025 13:44:35] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-07-17 13:44:35,178 - INFO - 127.0.0.1 - - [17/Jul/2025 13:44:35] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-07-17 13:44:35,184 - INFO - 127.0.0.1 - - [17/Jul/2025 13:44:35] "[36mGET /static/img/maxmetal.png HTTP/1.1[0m" 304 -
+2025-07-17 13:44:35,192 - INFO - 127.0.0.1 - - [17/Jul/2025 13:44:35] "[36mGET /static/img/logo-male.png HTTP/1.1[0m" 304 -
+2025-07-17 13:44:36,213 - INFO - Administrator wszedł na stronę główną.
+2025-07-17 13:44:36,373 - INFO - 127.0.0.1 - - [17/Jul/2025 13:44:36] "GET / HTTP/1.1" 200 -
+2025-07-17 13:44:36,416 - INFO - 127.0.0.1 - - [17/Jul/2025 13:44:36] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-07-17 13:44:36,423 - INFO - 127.0.0.1 - - [17/Jul/2025 13:44:36] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-07-17 13:44:36,437 - INFO - 127.0.0.1 - - [17/Jul/2025 13:44:36] "[36mGET /static/img/maxmetal.png HTTP/1.1[0m" 304 -
+2025-07-17 13:44:37,286 - INFO - Administrator wszedł na stronę powrotu.
+2025-07-17 13:44:37,394 - INFO - 127.0.0.1 - - [17/Jul/2025 13:44:37] "GET /powrot HTTP/1.1" 200 -
+2025-07-17 13:44:37,424 - INFO - 127.0.0.1 - - [17/Jul/2025 13:44:37] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-07-17 13:44:37,434 - INFO - 127.0.0.1 - - [17/Jul/2025 13:44:37] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-07-17 13:44:37,442 - INFO - 127.0.0.1 - - [17/Jul/2025 13:44:37] "[36mGET /static/img/maxmetal.png HTTP/1.1[0m" 304 -
+2025-07-17 13:44:40,393 - INFO - Powrót ID 4 usunięty przez Administrator. Szczegóły: nr prodio: 34, data: 0234-04-23, ilość: 3, pracownik: Administrator.
+2025-07-17 13:44:40,394 - INFO - 127.0.0.1 - - [17/Jul/2025 13:44:40] "[32mPOST /usun_powrot/4 HTTP/1.1[0m" 302 -
+2025-07-17 13:44:40,401 - INFO - Administrator wszedł na stronę powrotu.
+2025-07-17 13:44:40,402 - INFO - 127.0.0.1 - - [17/Jul/2025 13:44:40] "GET /powrot HTTP/1.1" 200 -
+2025-07-17 13:44:40,423 - INFO - 127.0.0.1 - - [17/Jul/2025 13:44:40] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-07-17 13:44:40,434 - INFO - 127.0.0.1 - - [17/Jul/2025 13:44:40] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-07-17 13:44:40,443 - INFO - 127.0.0.1 - - [17/Jul/2025 13:44:40] "[36mGET /static/img/maxmetal.png HTTP/1.1[0m" 304 -
+2025-07-17 13:44:40,450 - INFO - 127.0.0.1 - - [17/Jul/2025 13:44:40] "[36mGET /static/img/logo-male.png HTTP/1.1[0m" 304 -
+2025-07-17 13:44:41,242 - INFO - Administrator wszedł na stronę główną.
+2025-07-17 13:44:41,243 - INFO - 127.0.0.1 - - [17/Jul/2025 13:44:41] "GET / HTTP/1.1" 200 -
+2025-07-17 13:44:41,274 - INFO - 127.0.0.1 - - [17/Jul/2025 13:44:41] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-07-17 13:44:41,283 - INFO - 127.0.0.1 - - [17/Jul/2025 13:44:41] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-07-17 13:44:41,289 - INFO - 127.0.0.1 - - [17/Jul/2025 13:44:41] "[36mGET /static/img/maxmetal.png HTTP/1.1[0m" 304 -
+2025-07-17 13:46:24,056 - INFO - Połączenie z bazą danych zostało nawiązane pomyślnie.
+2025-07-17 13:46:24,180 - INFO - ✅ Kopia zapasowa zapisana do pliku: backups\kopie_zapasowe_bazy_2025-07-17_13-46.sql
+2025-07-17 13:46:24,182 - INFO - 🗑️ Usunięto starą kopię: kopie_zapasowe_bazy_2025-07-17_13-11.sql
+2025-07-17 13:46:24,193 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.1.80:5000
+2025-07-17 13:46:24,194 - INFO - [33mPress CTRL+C to quit[0m
+2025-07-17 13:46:24,195 - INFO -  * Restarting with stat
+2025-07-17 13:46:26,966 - INFO - Połączenie z bazą danych zostało nawiązane pomyślnie.
+2025-07-17 13:46:27,097 - INFO - ✅ Kopia zapasowa zapisana do pliku: backups\kopie_zapasowe_bazy_2025-07-17_13-46.sql
+2025-07-17 13:46:27,105 - WARNING -  * Debugger is active!
+2025-07-17 13:46:27,109 - INFO -  * Debugger PIN: 268-383-297
+2025-07-17 13:46:27,465 - INFO - Administrator wszedł na stronę malarni.
+2025-07-17 13:46:27,588 - INFO - 127.0.0.1 - - [17/Jul/2025 13:46:27] "GET /malarnia HTTP/1.1" 200 -
+2025-07-17 13:46:27,633 - INFO - 127.0.0.1 - - [17/Jul/2025 13:46:27] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-07-17 13:46:27,646 - INFO - 127.0.0.1 - - [17/Jul/2025 13:46:27] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-07-17 13:46:27,653 - INFO - 127.0.0.1 - - [17/Jul/2025 13:46:27] "[36mGET /static/img/maxmetal.png HTTP/1.1[0m" 304 -
+2025-07-17 13:46:28,715 - INFO - Administrator wszedł na stronę główną.
+2025-07-17 13:46:28,873 - INFO - 127.0.0.1 - - [17/Jul/2025 13:46:28] "GET / HTTP/1.1" 200 -
+2025-07-17 13:46:28,917 - INFO - 127.0.0.1 - - [17/Jul/2025 13:46:28] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-07-17 13:46:28,924 - INFO - 127.0.0.1 - - [17/Jul/2025 13:46:28] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-07-17 13:46:28,933 - INFO - 127.0.0.1 - - [17/Jul/2025 13:46:28] "[36mGET /static/img/maxmetal.png HTTP/1.1[0m" 304 -
+2025-07-17 13:46:29,699 - INFO - Administrator wszedł na stronę ksztaltowania3.
+2025-07-17 13:46:29,798 - INFO - 127.0.0.1 - - [17/Jul/2025 13:46:29] "GET /ksztaltowanie3 HTTP/1.1" 200 -
+2025-07-17 13:46:29,823 - INFO - 127.0.0.1 - - [17/Jul/2025 13:46:29] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-07-17 13:46:29,835 - INFO - 127.0.0.1 - - [17/Jul/2025 13:46:29] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-07-17 13:46:29,844 - INFO - 127.0.0.1 - - [17/Jul/2025 13:46:29] "[36mGET /static/img/maxmetal.png HTTP/1.1[0m" 304 -
+2025-07-17 13:46:32,873 - ERROR - Błąd przy usuwaniu kształtowania: (pymysql.err.IntegrityError) (1451, 'Cannot delete or update a parent row: a foreign key constraint fails (`baza_max`.`malarnia`, CONSTRAINT `malarnia_ibfk_1` FOREIGN KEY (`id_ksztaltowanie_3`) REFERENCES `ksztaltowanie_3` (`id`))')
+[SQL: DELETE FROM ksztaltowanie_3 WHERE ksztaltowanie_3.id = %(id)s]
+[parameters: {'id': 2}]
+(Background on this error at: https://sqlalche.me/e/20/gkpj)
+2025-07-17 13:46:32,873 - INFO - 127.0.0.1 - - [17/Jul/2025 13:46:32] "[32mPOST /usun_ksztaltowanie3/2 HTTP/1.1[0m" 302 -
+2025-07-17 13:46:32,881 - INFO - Administrator wszedł na stronę ksztaltowania3.
+2025-07-17 13:46:32,887 - INFO - 127.0.0.1 - - [17/Jul/2025 13:46:32] "GET /ksztaltowanie3 HTTP/1.1" 200 -
+2025-07-17 13:46:32,914 - INFO - 127.0.0.1 - - [17/Jul/2025 13:46:32] "GET /static/style.css HTTP/1.1" 200 -
+2025-07-17 13:46:32,929 - INFO - 127.0.0.1 - - [17/Jul/2025 13:46:32] "GET /static/img/logo-duże.png HTTP/1.1" 200 -
+2025-07-17 13:46:32,935 - INFO - 127.0.0.1 - - [17/Jul/2025 13:46:32] "GET /static/img/maxmetal.png HTTP/1.1" 200 -
+2025-07-17 13:46:32,944 - INFO - 127.0.0.1 - - [17/Jul/2025 13:46:32] "GET /static/img/logo-male.png HTTP/1.1" 200 -
+2025-07-17 13:46:36,908 - ERROR - Błąd przy usuwaniu kształtowania: (pymysql.err.IntegrityError) (1451, 'Cannot delete or update a parent row: a foreign key constraint fails (`baza_max`.`malarnia`, CONSTRAINT `malarnia_ibfk_1` FOREIGN KEY (`id_ksztaltowanie_3`) REFERENCES `ksztaltowanie_3` (`id`))')
+[SQL: DELETE FROM ksztaltowanie_3 WHERE ksztaltowanie_3.id = %(id)s]
+[parameters: {'id': 2}]
+(Background on this error at: https://sqlalche.me/e/20/gkpj)
+2025-07-17 13:46:36,909 - INFO - 127.0.0.1 - - [17/Jul/2025 13:46:36] "[32mPOST /usun_ksztaltowanie3/2 HTTP/1.1[0m" 302 -
+2025-07-17 13:46:36,917 - INFO - Administrator wszedł na stronę ksztaltowania3.
+2025-07-17 13:46:36,923 - INFO - 127.0.0.1 - - [17/Jul/2025 13:46:36] "GET /ksztaltowanie3 HTTP/1.1" 200 -
+2025-07-17 13:46:36,947 - INFO - 127.0.0.1 - - [17/Jul/2025 13:46:36] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-07-17 13:46:36,958 - INFO - 127.0.0.1 - - [17/Jul/2025 13:46:36] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-07-17 13:46:36,970 - INFO - 127.0.0.1 - - [17/Jul/2025 13:46:36] "[36mGET /static/img/logo-male.png HTTP/1.1[0m" 304 -
+2025-07-17 13:46:36,971 - INFO - 127.0.0.1 - - [17/Jul/2025 13:46:36] "[36mGET /static/img/maxmetal.png HTTP/1.1[0m" 304 -
+2025-07-17 13:46:38,134 - INFO - Administrator wszedł na stronę główną.
+2025-07-17 13:46:38,135 - INFO - 127.0.0.1 - - [17/Jul/2025 13:46:38] "GET / HTTP/1.1" 200 -
+2025-07-17 13:46:38,161 - INFO - 127.0.0.1 - - [17/Jul/2025 13:46:38] "GET /static/style.css HTTP/1.1" 200 -
+2025-07-17 13:46:38,167 - INFO - 127.0.0.1 - - [17/Jul/2025 13:46:38] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-07-17 13:46:38,174 - INFO - 127.0.0.1 - - [17/Jul/2025 13:46:38] "GET /static/img/maxmetal.png HTTP/1.1" 200 -
+2025-07-17 13:46:40,156 - INFO - Administrator wszedł na stronę materialów obejm.
+2025-07-17 13:46:40,246 - INFO - 127.0.0.1 - - [17/Jul/2025 13:46:40] "GET /material_obejma HTTP/1.1" 200 -
+2025-07-17 13:46:40,277 - INFO - 127.0.0.1 - - [17/Jul/2025 13:46:40] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-07-17 13:46:40,289 - INFO - 127.0.0.1 - - [17/Jul/2025 13:46:40] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-07-17 13:46:40,296 - INFO - 127.0.0.1 - - [17/Jul/2025 13:46:40] "[36mGET /static/img/maxmetal.png HTTP/1.1[0m" 304 -
+2025-07-17 13:46:41,700 - INFO - Administrator wszedł na stronę główną.
+2025-07-17 13:46:41,701 - INFO - 127.0.0.1 - - [17/Jul/2025 13:46:41] "GET / HTTP/1.1" 200 -
+2025-07-17 13:46:41,735 - INFO - 127.0.0.1 - - [17/Jul/2025 13:46:41] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-07-17 13:46:41,743 - INFO - 127.0.0.1 - - [17/Jul/2025 13:46:41] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-07-17 13:46:41,747 - INFO - 127.0.0.1 - - [17/Jul/2025 13:46:41] "[36mGET /static/img/maxmetal.png HTTP/1.1[0m" 304 -
+2025-07-17 13:46:42,634 - INFO - Administrator wszedł na stronę ksztaltowania1.
+2025-07-17 13:46:42,725 - INFO - 127.0.0.1 - - [17/Jul/2025 13:46:42] "GET /ksztaltowanie1 HTTP/1.1" 200 -
+2025-07-17 13:46:42,761 - INFO - 127.0.0.1 - - [17/Jul/2025 13:46:42] "GET /static/style.css HTTP/1.1" 200 -
+2025-07-17 13:46:42,776 - INFO - 127.0.0.1 - - [17/Jul/2025 13:46:42] "GET /static/img/logo-duże.png HTTP/1.1" 200 -
+2025-07-17 13:46:42,788 - INFO - 127.0.0.1 - - [17/Jul/2025 13:46:42] "GET /static/img/maxmetal.png HTTP/1.1" 200 -
+2025-07-17 13:46:43,578 - INFO - Administrator wszedł na stronę główną.
+2025-07-17 13:46:43,579 - INFO - 127.0.0.1 - - [17/Jul/2025 13:46:43] "GET / HTTP/1.1" 200 -
+2025-07-17 13:46:43,606 - INFO - 127.0.0.1 - - [17/Jul/2025 13:46:43] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-07-17 13:46:43,612 - INFO - 127.0.0.1 - - [17/Jul/2025 13:46:43] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-07-17 13:46:43,619 - INFO - 127.0.0.1 - - [17/Jul/2025 13:46:43] "[36mGET /static/img/maxmetal.png HTTP/1.1[0m" 304 -
+2025-07-17 13:46:44,954 - INFO - Administrator wszedł na stronę ksztaltowania2.
+2025-07-17 13:46:45,052 - INFO - 127.0.0.1 - - [17/Jul/2025 13:46:45] "GET /ksztaltowanie2 HTTP/1.1" 200 -
+2025-07-17 13:46:45,080 - INFO - 127.0.0.1 - - [17/Jul/2025 13:46:45] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-07-17 13:46:45,091 - INFO - 127.0.0.1 - - [17/Jul/2025 13:46:45] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-07-17 13:46:45,098 - INFO - 127.0.0.1 - - [17/Jul/2025 13:46:45] "[36mGET /static/img/maxmetal.png HTTP/1.1[0m" 304 -
+2025-07-17 13:46:48,168 - ERROR - Błąd przy usuwaniu kształtowania: (pymysql.err.IntegrityError) (1451, 'Cannot delete or update a parent row: a foreign key constraint fails (`baza_max`.`ksztaltowanie_3`, CONSTRAINT `ksztaltowanie_3_ibfk_1` FOREIGN KEY (`id_ksztaltowanie_2`) REFERENCES `ksztaltowanie_2` (`id`))')
+[SQL: DELETE FROM ksztaltowanie_2 WHERE ksztaltowanie_2.id = %(id)s]
+[parameters: {'id': 2}]
+(Background on this error at: https://sqlalche.me/e/20/gkpj)
+2025-07-17 13:46:48,169 - INFO - 127.0.0.1 - - [17/Jul/2025 13:46:48] "[32mPOST /usun_ksztaltowanie2/2 HTTP/1.1[0m" 302 -
+2025-07-17 13:46:48,177 - INFO - Administrator wszedł na stronę ksztaltowania2.
+2025-07-17 13:46:48,184 - INFO - 127.0.0.1 - - [17/Jul/2025 13:46:48] "GET /ksztaltowanie2 HTTP/1.1" 200 -
+2025-07-17 13:46:48,204 - INFO - 127.0.0.1 - - [17/Jul/2025 13:46:48] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-07-17 13:46:48,217 - INFO - 127.0.0.1 - - [17/Jul/2025 13:46:48] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-07-17 13:46:48,225 - INFO - 127.0.0.1 - - [17/Jul/2025 13:46:48] "[36mGET /static/img/maxmetal.png HTTP/1.1[0m" 304 -
+2025-07-17 13:46:48,235 - INFO - 127.0.0.1 - - [17/Jul/2025 13:46:48] "[36mGET /static/img/logo-male.png HTTP/1.1[0m" 304 -
+2025-07-17 13:46:56,098 - INFO - Administrator wszedł na stronę ksztaltowania2.
+2025-07-17 13:46:56,103 - INFO - 127.0.0.1 - - [17/Jul/2025 13:46:56] "GET /ksztaltowanie2 HTTP/1.1" 200 -
+2025-07-17 13:46:56,125 - INFO - 127.0.0.1 - - [17/Jul/2025 13:46:56] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-07-17 13:46:56,138 - INFO - 127.0.0.1 - - [17/Jul/2025 13:46:56] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-07-17 13:46:56,147 - INFO - 127.0.0.1 - - [17/Jul/2025 13:46:56] "[36mGET /static/img/maxmetal.png HTTP/1.1[0m" 304 -
+2025-07-17 13:46:58,416 - ERROR - Błąd przy usuwaniu kształtowania: (pymysql.err.IntegrityError) (1451, 'Cannot delete or update a parent row: a foreign key constraint fails (`baza_max`.`ksztaltowanie_3`, CONSTRAINT `ksztaltowanie_3_ibfk_1` FOREIGN KEY (`id_ksztaltowanie_2`) REFERENCES `ksztaltowanie_2` (`id`))')
+[SQL: DELETE FROM ksztaltowanie_2 WHERE ksztaltowanie_2.id = %(id)s]
+[parameters: {'id': 2}]
+(Background on this error at: https://sqlalche.me/e/20/gkpj)
+2025-07-17 13:46:58,417 - INFO - 127.0.0.1 - - [17/Jul/2025 13:46:58] "[32mPOST /usun_ksztaltowanie2/2 HTTP/1.1[0m" 302 -
+2025-07-17 13:46:58,426 - INFO - Administrator wszedł na stronę ksztaltowania2.
+2025-07-17 13:46:58,432 - INFO - 127.0.0.1 - - [17/Jul/2025 13:46:58] "GET /ksztaltowanie2 HTTP/1.1" 200 -
+2025-07-17 13:46:58,448 - INFO - 127.0.0.1 - - [17/Jul/2025 13:46:58] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-07-17 13:46:58,461 - INFO - 127.0.0.1 - - [17/Jul/2025 13:46:58] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-07-17 13:46:58,472 - INFO - 127.0.0.1 - - [17/Jul/2025 13:46:58] "[36mGET /static/img/logo-male.png HTTP/1.1[0m" 304 -
+2025-07-17 13:46:58,479 - INFO - 127.0.0.1 - - [17/Jul/2025 13:46:58] "[36mGET /static/img/maxmetal.png HTTP/1.1[0m" 304 -
+2025-07-17 13:47:33,228 - INFO - Administrator wszedł na stronę główną.
+2025-07-17 13:47:33,230 - INFO - 127.0.0.1 - - [17/Jul/2025 13:47:33] "GET / HTTP/1.1" 200 -
+2025-07-17 13:47:33,261 - INFO - 127.0.0.1 - - [17/Jul/2025 13:47:33] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-07-17 13:47:33,269 - INFO - 127.0.0.1 - - [17/Jul/2025 13:47:33] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-07-17 13:47:33,274 - INFO - 127.0.0.1 - - [17/Jul/2025 13:47:33] "[36mGET /static/img/maxmetal.png HTTP/1.1[0m" 304 -
+2025-07-17 13:47:35,297 - INFO - Administrator wszedł na stronę ksztaltowania1.
+2025-07-17 13:47:35,302 - INFO - 127.0.0.1 - - [17/Jul/2025 13:47:35] "GET /ksztaltowanie1 HTTP/1.1" 200 -
+2025-07-17 13:47:35,331 - INFO - 127.0.0.1 - - [17/Jul/2025 13:47:35] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-07-17 13:47:35,342 - INFO - 127.0.0.1 - - [17/Jul/2025 13:47:35] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-07-17 13:47:35,350 - INFO - 127.0.0.1 - - [17/Jul/2025 13:47:35] "[36mGET /static/img/maxmetal.png HTTP/1.1[0m" 304 -
+2025-07-17 13:47:38,163 - ERROR - Błąd przy usuwaniu kształtowania: (pymysql.err.IntegrityError) (1451, 'Cannot delete or update a parent row: a foreign key constraint fails (`baza_max`.`ksztaltowanie_2`, CONSTRAINT `ksztaltowanie_2_ibfk_1` FOREIGN KEY (`id_ksztaltowanie_1`) REFERENCES `ksztaltowanie_1` (`id`))')
+[SQL: DELETE FROM ksztaltowanie_1 WHERE ksztaltowanie_1.id = %(id)s]
+[parameters: {'id': 3}]
+(Background on this error at: https://sqlalche.me/e/20/gkpj)
+2025-07-17 13:47:38,164 - INFO - 127.0.0.1 - - [17/Jul/2025 13:47:38] "[32mPOST /usun_ksztaltowanie1/3 HTTP/1.1[0m" 302 -
+2025-07-17 13:47:38,173 - INFO - Administrator wszedł na stronę ksztaltowania1.
+2025-07-17 13:47:38,177 - INFO - 127.0.0.1 - - [17/Jul/2025 13:47:38] "GET /ksztaltowanie1 HTTP/1.1" 200 -
+2025-07-17 13:47:38,198 - INFO - 127.0.0.1 - - [17/Jul/2025 13:47:38] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-07-17 13:47:38,212 - INFO - 127.0.0.1 - - [17/Jul/2025 13:47:38] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-07-17 13:47:38,222 - INFO - 127.0.0.1 - - [17/Jul/2025 13:47:38] "[36mGET /static/img/logo-male.png HTTP/1.1[0m" 304 -
+2025-07-17 13:47:38,223 - INFO - 127.0.0.1 - - [17/Jul/2025 13:47:38] "[36mGET /static/img/maxmetal.png HTTP/1.1[0m" 304 -
+2025-07-17 13:47:39,267 - INFO - Administrator wszedł na stronę główną.
+2025-07-17 13:47:39,268 - INFO - 127.0.0.1 - - [17/Jul/2025 13:47:39] "GET / HTTP/1.1" 200 -
+2025-07-17 13:47:39,296 - INFO - 127.0.0.1 - - [17/Jul/2025 13:47:39] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-07-17 13:47:39,302 - INFO - 127.0.0.1 - - [17/Jul/2025 13:47:39] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-07-17 13:47:39,314 - INFO - 127.0.0.1 - - [17/Jul/2025 13:47:39] "[36mGET /static/img/maxmetal.png HTTP/1.1[0m" 304 -
+2025-07-17 13:47:40,411 - INFO - Administrator wszedł na stronę malarni.
+2025-07-17 13:47:40,416 - INFO - 127.0.0.1 - - [17/Jul/2025 13:47:40] "GET /malarnia HTTP/1.1" 200 -
+2025-07-17 13:47:40,443 - INFO - 127.0.0.1 - - [17/Jul/2025 13:47:40] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-07-17 13:47:40,454 - INFO - 127.0.0.1 - - [17/Jul/2025 13:47:40] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-07-17 13:47:40,465 - INFO - 127.0.0.1 - - [17/Jul/2025 13:47:40] "[36mGET /static/img/maxmetal.png HTTP/1.1[0m" 304 -
+2025-07-17 13:47:43,057 - INFO - Malarnia ID 7 usunięta przez Administrator. Szczegóły: nr prodio: 23, data: 3333-02-23, ilość: 23, pracownik: Administrator.
+2025-07-17 13:47:43,058 - INFO - 127.0.0.1 - - [17/Jul/2025 13:47:43] "[32mPOST /usun_malarnie/7 HTTP/1.1[0m" 302 -
+2025-07-17 13:47:43,065 - INFO - Administrator wszedł na stronę malarni.
+2025-07-17 13:47:43,066 - INFO - 127.0.0.1 - - [17/Jul/2025 13:47:43] "GET /malarnia HTTP/1.1" 200 -
+2025-07-17 13:47:43,089 - INFO - 127.0.0.1 - - [17/Jul/2025 13:47:43] "GET /static/style.css HTTP/1.1" 200 -
+2025-07-17 13:47:43,099 - INFO - 127.0.0.1 - - [17/Jul/2025 13:47:43] "GET /static/img/logo-duże.png HTTP/1.1" 200 -
+2025-07-17 13:47:43,109 - INFO - 127.0.0.1 - - [17/Jul/2025 13:47:43] "GET /static/img/logo-male.png HTTP/1.1" 200 -
+2025-07-17 13:47:43,110 - INFO - 127.0.0.1 - - [17/Jul/2025 13:47:43] "GET /static/img/maxmetal.png HTTP/1.1" 200 -
+2025-07-17 13:47:44,047 - INFO - Administrator wszedł na stronę główną.
+2025-07-17 13:47:44,048 - INFO - 127.0.0.1 - - [17/Jul/2025 13:47:44] "GET / HTTP/1.1" 200 -
+2025-07-17 13:47:44,076 - INFO - 127.0.0.1 - - [17/Jul/2025 13:47:44] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-07-17 13:47:44,083 - INFO - 127.0.0.1 - - [17/Jul/2025 13:47:44] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-07-17 13:47:44,089 - INFO - 127.0.0.1 - - [17/Jul/2025 13:47:44] "[36mGET /static/img/maxmetal.png HTTP/1.1[0m" 304 -
+2025-07-17 13:47:44,900 - INFO - Administrator wszedł na stronę ksztaltowania3.
+2025-07-17 13:47:44,905 - INFO - 127.0.0.1 - - [17/Jul/2025 13:47:44] "GET /ksztaltowanie3 HTTP/1.1" 200 -
+2025-07-17 13:47:44,932 - INFO - 127.0.0.1 - - [17/Jul/2025 13:47:44] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-07-17 13:47:44,946 - INFO - 127.0.0.1 - - [17/Jul/2025 13:47:44] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-07-17 13:47:44,963 - INFO - 127.0.0.1 - - [17/Jul/2025 13:47:44] "[36mGET /static/img/maxmetal.png HTTP/1.1[0m" 304 -
+2025-07-17 13:47:47,543 - INFO - Kształtowanie_3 ID 2 usunięte przez Administrator. Szczegóły: nazwa: 2/56/sda2/435/2025-07-17, nr prodio: 56, data: 2025-07-17, ilość: 6, pracownik: Administrator.
+2025-07-17 13:47:47,545 - INFO - 127.0.0.1 - - [17/Jul/2025 13:47:47] "[32mPOST /usun_ksztaltowanie3/2 HTTP/1.1[0m" 302 -
+2025-07-17 13:47:47,551 - INFO - Administrator wszedł na stronę ksztaltowania3.
+2025-07-17 13:47:47,557 - INFO - 127.0.0.1 - - [17/Jul/2025 13:47:47] "GET /ksztaltowanie3 HTTP/1.1" 200 -
+2025-07-17 13:47:47,582 - INFO - 127.0.0.1 - - [17/Jul/2025 13:47:47] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-07-17 13:47:47,595 - INFO - 127.0.0.1 - - [17/Jul/2025 13:47:47] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-07-17 13:47:47,604 - INFO - 127.0.0.1 - - [17/Jul/2025 13:47:47] "[36mGET /static/img/logo-male.png HTTP/1.1[0m" 304 -
+2025-07-17 13:47:47,606 - INFO - 127.0.0.1 - - [17/Jul/2025 13:47:47] "[36mGET /static/img/maxmetal.png HTTP/1.1[0m" 304 -
+2025-07-17 13:47:48,461 - INFO - Administrator wszedł na stronę główną.
+2025-07-17 13:47:48,463 - INFO - 127.0.0.1 - - [17/Jul/2025 13:47:48] "GET / HTTP/1.1" 200 -
+2025-07-17 13:47:48,494 - INFO - 127.0.0.1 - - [17/Jul/2025 13:47:48] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-07-17 13:47:48,502 - INFO - 127.0.0.1 - - [17/Jul/2025 13:47:48] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-07-17 13:47:48,506 - INFO - 127.0.0.1 - - [17/Jul/2025 13:47:48] "[36mGET /static/img/maxmetal.png HTTP/1.1[0m" 304 -
+2025-07-17 13:47:49,381 - INFO - Administrator wszedł na stronę ksztaltowania2.
+2025-07-17 13:47:49,387 - INFO - 127.0.0.1 - - [17/Jul/2025 13:47:49] "GET /ksztaltowanie2 HTTP/1.1" 200 -
+2025-07-17 13:47:49,417 - INFO - 127.0.0.1 - - [17/Jul/2025 13:47:49] "GET /static/style.css HTTP/1.1" 200 -
+2025-07-17 13:47:49,430 - INFO - 127.0.0.1 - - [17/Jul/2025 13:47:49] "GET /static/img/logo-duże.png HTTP/1.1" 200 -
+2025-07-17 13:47:49,435 - INFO - 127.0.0.1 - - [17/Jul/2025 13:47:49] "GET /static/img/maxmetal.png HTTP/1.1" 200 -
+2025-07-17 13:47:49,444 - INFO - 127.0.0.1 - - [17/Jul/2025 13:47:49] "GET /static/img/logo-male.png HTTP/1.1" 200 -
+2025-07-17 13:47:51,335 - ERROR - Błąd przy usuwaniu kształtowania: (pymysql.err.IntegrityError) (1451, 'Cannot delete or update a parent row: a foreign key constraint fails (`baza_max`.`ksztaltowanie_3`, CONSTRAINT `ksztaltowanie_3_ibfk_1` FOREIGN KEY (`id_ksztaltowanie_2`) REFERENCES `ksztaltowanie_2` (`id`))')
+[SQL: DELETE FROM ksztaltowanie_2 WHERE ksztaltowanie_2.id = %(id)s]
+[parameters: {'id': 2}]
+(Background on this error at: https://sqlalche.me/e/20/gkpj)
+2025-07-17 13:47:51,335 - INFO - 127.0.0.1 - - [17/Jul/2025 13:47:51] "[32mPOST /usun_ksztaltowanie2/2 HTTP/1.1[0m" 302 -
+2025-07-17 13:47:51,343 - INFO - Administrator wszedł na stronę ksztaltowania2.
+2025-07-17 13:47:51,350 - INFO - 127.0.0.1 - - [17/Jul/2025 13:47:51] "GET /ksztaltowanie2 HTTP/1.1" 200 -
+2025-07-17 13:47:51,373 - INFO - 127.0.0.1 - - [17/Jul/2025 13:47:51] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-07-17 13:47:51,386 - INFO - 127.0.0.1 - - [17/Jul/2025 13:47:51] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-07-17 13:47:51,393 - INFO - 127.0.0.1 - - [17/Jul/2025 13:47:51] "[36mGET /static/img/maxmetal.png HTTP/1.1[0m" 304 -
+2025-07-17 13:47:51,401 - INFO - 127.0.0.1 - - [17/Jul/2025 13:47:51] "[36mGET /static/img/logo-male.png HTTP/1.1[0m" 304 -
+2025-07-17 13:47:54,510 - INFO - Kształtowanie_2 ID 1 usunięte przez Administrator. Szczegóły: nazwa: 1/132/66/765/2025-07-16, nr prodio: 132, data: 2025-07-16, ilość: 23, pracownik: Administrator.
+2025-07-17 13:47:54,511 - INFO - 127.0.0.1 - - [17/Jul/2025 13:47:54] "[32mPOST /usun_ksztaltowanie2/1 HTTP/1.1[0m" 302 -
+2025-07-17 13:47:54,518 - INFO - Administrator wszedł na stronę ksztaltowania2.
+2025-07-17 13:47:54,523 - INFO - 127.0.0.1 - - [17/Jul/2025 13:47:54] "GET /ksztaltowanie2 HTTP/1.1" 200 -
+2025-07-17 13:47:54,544 - INFO - 127.0.0.1 - - [17/Jul/2025 13:47:54] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-07-17 13:47:54,559 - INFO - 127.0.0.1 - - [17/Jul/2025 13:47:54] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-07-17 13:47:54,568 - INFO - 127.0.0.1 - - [17/Jul/2025 13:47:54] "[36mGET /static/img/logo-male.png HTTP/1.1[0m" 304 -
+2025-07-17 13:47:54,570 - INFO - 127.0.0.1 - - [17/Jul/2025 13:47:54] "[36mGET /static/img/maxmetal.png HTTP/1.1[0m" 304 -
+2025-07-17 13:47:55,517 - INFO - Administrator wszedł na stronę główną.
+2025-07-17 13:47:55,518 - INFO - 127.0.0.1 - - [17/Jul/2025 13:47:55] "GET / HTTP/1.1" 200 -
+2025-07-17 13:47:55,545 - INFO - 127.0.0.1 - - [17/Jul/2025 13:47:55] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-07-17 13:47:55,552 - INFO - 127.0.0.1 - - [17/Jul/2025 13:47:55] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-07-17 13:47:55,559 - INFO - 127.0.0.1 - - [17/Jul/2025 13:47:55] "[36mGET /static/img/maxmetal.png HTTP/1.1[0m" 304 -
+2025-07-17 13:47:57,272 - INFO - Administrator wszedł na stronę ksztaltowania1.
+2025-07-17 13:47:57,276 - INFO - 127.0.0.1 - - [17/Jul/2025 13:47:57] "GET /ksztaltowanie1 HTTP/1.1" 200 -
+2025-07-17 13:47:57,300 - INFO - 127.0.0.1 - - [17/Jul/2025 13:47:57] "GET /static/style.css HTTP/1.1" 200 -
+2025-07-17 13:47:57,317 - INFO - 127.0.0.1 - - [17/Jul/2025 13:47:57] "GET /static/img/logo-duże.png HTTP/1.1" 200 -
+2025-07-17 13:47:57,318 - INFO - 127.0.0.1 - - [17/Jul/2025 13:47:57] "GET /static/img/maxmetal.png HTTP/1.1" 200 -
+2025-07-17 13:47:57,327 - INFO - 127.0.0.1 - - [17/Jul/2025 13:47:57] "GET /static/img/logo-male.png HTTP/1.1" 200 -
+2025-07-17 13:47:59,475 - INFO - Kształtowanie_1 ID 3 usunięte przez Administrator. Szczegóły: nazwa: 3/56/66/765/2025-07-16, nr prodio: 56, data: 2025-07-16, ilość: 7, pracownik: Administrator.
+2025-07-17 13:47:59,476 - INFO - 127.0.0.1 - - [17/Jul/2025 13:47:59] "[32mPOST /usun_ksztaltowanie1/3 HTTP/1.1[0m" 302 -
+2025-07-17 13:47:59,484 - INFO - Administrator wszedł na stronę ksztaltowania1.
+2025-07-17 13:47:59,487 - INFO - 127.0.0.1 - - [17/Jul/2025 13:47:59] "GET /ksztaltowanie1 HTTP/1.1" 200 -
+2025-07-17 13:47:59,505 - INFO - 127.0.0.1 - - [17/Jul/2025 13:47:59] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-07-17 13:47:59,517 - INFO - 127.0.0.1 - - [17/Jul/2025 13:47:59] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-07-17 13:47:59,528 - INFO - 127.0.0.1 - - [17/Jul/2025 13:47:59] "[36mGET /static/img/logo-male.png HTTP/1.1[0m" 304 -
+2025-07-17 13:47:59,528 - INFO - 127.0.0.1 - - [17/Jul/2025 13:47:59] "[36mGET /static/img/maxmetal.png HTTP/1.1[0m" 304 -
+2025-07-17 13:48:00,693 - INFO - Administrator wszedł na stronę główną.
+2025-07-17 13:48:00,694 - INFO - 127.0.0.1 - - [17/Jul/2025 13:48:00] "GET / HTTP/1.1" 200 -
+2025-07-17 13:48:00,722 - INFO - 127.0.0.1 - - [17/Jul/2025 13:48:00] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-07-17 13:48:00,730 - INFO - 127.0.0.1 - - [17/Jul/2025 13:48:00] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-07-17 13:48:00,736 - INFO - 127.0.0.1 - - [17/Jul/2025 13:48:00] "[36mGET /static/img/maxmetal.png HTTP/1.1[0m" 304 -
+2025-07-17 13:48:17,970 - INFO - Administrator wszedł na stronę z listą tasm.
+2025-07-17 13:48:18,161 - INFO - 127.0.0.1 - - [17/Jul/2025 13:48:18] "GET /tasma HTTP/1.1" 200 -
+2025-07-17 13:48:18,190 - INFO - 127.0.0.1 - - [17/Jul/2025 13:48:18] "GET /static/style.css HTTP/1.1" 200 -
+2025-07-17 13:48:18,197 - INFO - 127.0.0.1 - - [17/Jul/2025 13:48:18] "GET /static/img/drukarka.png HTTP/1.1" 200 -
+2025-07-17 13:48:18,204 - INFO - 127.0.0.1 - - [17/Jul/2025 13:48:18] "GET /static/img/logo-duże.png HTTP/1.1" 200 -
+2025-07-17 13:48:18,218 - INFO - 127.0.0.1 - - [17/Jul/2025 13:48:18] "GET /static/img/logo-male.png HTTP/1.1" 200 -
+2025-07-17 13:48:18,220 - INFO - 127.0.0.1 - - [17/Jul/2025 13:48:18] "GET /static/img/maxmetal.png HTTP/1.1" 200 -
+2025-07-17 13:48:19,352 - INFO - Administrator wszedł na stronę główną.
+2025-07-17 13:48:19,353 - INFO - 127.0.0.1 - - [17/Jul/2025 13:48:19] "GET / HTTP/1.1" 200 -
+2025-07-17 13:48:19,381 - INFO - 127.0.0.1 - - [17/Jul/2025 13:48:19] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-07-17 13:48:19,387 - INFO - 127.0.0.1 - - [17/Jul/2025 13:48:19] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-07-17 13:48:19,393 - INFO - 127.0.0.1 - - [17/Jul/2025 13:48:19] "[36mGET /static/img/maxmetal.png HTTP/1.1[0m" 304 -
+2025-07-17 13:48:21,899 - INFO - Administrator wszedł na stronę zestawienia.
+2025-07-17 13:48:22,034 - INFO - 127.0.0.1 - - [17/Jul/2025 13:48:22] "GET /zestawienie HTTP/1.1" 200 -
+2025-07-17 13:48:22,075 - INFO - 127.0.0.1 - - [17/Jul/2025 13:48:22] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-07-17 13:48:22,095 - INFO - 127.0.0.1 - - [17/Jul/2025 13:48:22] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-07-17 13:48:22,109 - INFO - 127.0.0.1 - - [17/Jul/2025 13:48:22] "[36mGET /static/img/drukarka.png HTTP/1.1[0m" 304 -
+2025-07-17 13:48:22,122 - INFO - 127.0.0.1 - - [17/Jul/2025 13:48:22] "[36mGET /static/img/maxmetal.png HTTP/1.1[0m" 304 -
+2025-07-17 13:48:24,200 - INFO - Administrator wszedł na stronę główną.
+2025-07-17 13:48:24,201 - INFO - 127.0.0.1 - - [17/Jul/2025 13:48:24] "GET / HTTP/1.1" 200 -
+2025-07-17 13:48:24,228 - INFO - 127.0.0.1 - - [17/Jul/2025 13:48:24] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-07-17 13:48:24,235 - INFO - 127.0.0.1 - - [17/Jul/2025 13:48:24] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-07-17 13:48:24,242 - INFO - 127.0.0.1 - - [17/Jul/2025 13:48:24] "[36mGET /static/img/maxmetal.png HTTP/1.1[0m" 304 -
+2025-07-17 13:48:25,436 - INFO - Administrator wszedł na stronę z listą tasm.
+2025-07-17 13:48:25,440 - INFO - 127.0.0.1 - - [17/Jul/2025 13:48:25] "GET /tasma HTTP/1.1" 200 -
+2025-07-17 13:48:25,467 - INFO - 127.0.0.1 - - [17/Jul/2025 13:48:25] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-07-17 13:48:25,482 - INFO - 127.0.0.1 - - [17/Jul/2025 13:48:25] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-07-17 13:48:25,492 - INFO - 127.0.0.1 - - [17/Jul/2025 13:48:25] "[36mGET /static/img/drukarka.png HTTP/1.1[0m" 304 -
+2025-07-17 13:48:25,492 - INFO - 127.0.0.1 - - [17/Jul/2025 13:48:25] "[36mGET /static/img/maxmetal.png HTTP/1.1[0m" 304 -
+2025-07-17 13:48:28,352 - ERROR - Błąd przy usuwaniu tasy: Parent instance <Tasma at 0x21faa97f250> is not bound to a Session; lazy load operation of attribute 'lokalizacja' cannot proceed (Background on this error at: https://sqlalche.me/e/20/bhk3)
+2025-07-17 13:48:28,353 - INFO - 127.0.0.1 - - [17/Jul/2025 13:48:28] "[32mPOST /usun_tasma/52 HTTP/1.1[0m" 302 -
+2025-07-17 13:48:28,363 - INFO - Administrator wszedł na stronę z listą tasm.
+2025-07-17 13:48:28,367 - INFO - 127.0.0.1 - - [17/Jul/2025 13:48:28] "GET /tasma HTTP/1.1" 200 -
+2025-07-17 13:48:28,389 - INFO - 127.0.0.1 - - [17/Jul/2025 13:48:28] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-07-17 13:48:28,400 - INFO - 127.0.0.1 - - [17/Jul/2025 13:48:28] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-07-17 13:48:28,410 - INFO - 127.0.0.1 - - [17/Jul/2025 13:48:28] "[36mGET /static/img/drukarka.png HTTP/1.1[0m" 304 -
+2025-07-17 13:48:28,411 - INFO - 127.0.0.1 - - [17/Jul/2025 13:48:28] "[36mGET /static/img/maxmetal.png HTTP/1.1[0m" 304 -
+2025-07-17 13:48:28,420 - INFO - 127.0.0.1 - - [17/Jul/2025 13:48:28] "[36mGET /static/img/logo-male.png HTTP/1.1[0m" 304 -
+2025-07-17 13:55:58,439 - INFO - Połączenie z bazą danych zostało nawiązane pomyślnie.
+2025-07-17 13:55:58,558 - INFO - ✅ Kopia zapasowa zapisana do pliku: backups\kopie_zapasowe_bazy_2025-07-17_13-55.sql
+2025-07-17 13:55:58,560 - INFO - 🗑️ Usunięto starą kopię: kopie_zapasowe_bazy_2025-07-17_13-20.sql
+2025-07-17 13:55:58,571 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.1.80:5000
+2025-07-17 13:55:58,571 - INFO - [33mPress CTRL+C to quit[0m
+2025-07-17 13:55:58,573 - INFO -  * Restarting with stat
+2025-07-17 13:56:01,274 - INFO - Połączenie z bazą danych zostało nawiązane pomyślnie.
+2025-07-17 13:56:01,418 - INFO - ✅ Kopia zapasowa zapisana do pliku: backups\kopie_zapasowe_bazy_2025-07-17_13-56.sql
+2025-07-17 13:56:01,420 - INFO - 🗑️ Usunięto starą kopię: kopie_zapasowe_bazy_2025-07-17_13-25.sql
+2025-07-17 13:56:01,426 - WARNING -  * Debugger is active!
+2025-07-17 13:56:01,432 - INFO -  * Debugger PIN: 268-383-297
+2025-07-17 13:56:04,783 - INFO - Administrator wszedł na stronę z listą tasm.
+2025-07-17 13:56:04,927 - INFO - 127.0.0.1 - - [17/Jul/2025 13:56:04] "GET /tasma HTTP/1.1" 200 -
+2025-07-17 13:56:04,951 - INFO - 127.0.0.1 - - [17/Jul/2025 13:56:04] "GET /static/style.css HTTP/1.1" 200 -
+2025-07-17 13:56:04,962 - INFO - 127.0.0.1 - - [17/Jul/2025 13:56:04] "GET /static/img/logo-duże.png HTTP/1.1" 200 -
+2025-07-17 13:56:04,969 - INFO - 127.0.0.1 - - [17/Jul/2025 13:56:04] "GET /static/img/drukarka.png HTTP/1.1" 200 -
+2025-07-17 13:56:04,979 - INFO - 127.0.0.1 - - [17/Jul/2025 13:56:04] "GET /static/img/maxmetal.png HTTP/1.1" 200 -
+2025-07-17 13:56:05,821 - INFO - Administrator wszedł na stronę główną.
+2025-07-17 13:56:05,981 - INFO - 127.0.0.1 - - [17/Jul/2025 13:56:05] "GET / HTTP/1.1" 200 -
+2025-07-17 13:56:06,031 - INFO - 127.0.0.1 - - [17/Jul/2025 13:56:06] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-07-17 13:56:06,037 - INFO - 127.0.0.1 - - [17/Jul/2025 13:56:06] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-07-17 13:56:06,053 - INFO - 127.0.0.1 - - [17/Jul/2025 13:56:06] "[36mGET /static/img/maxmetal.png HTTP/1.1[0m" 304 -
+2025-07-17 13:56:07,027 - INFO - Administrator wszedł na stronę materialów obejm.
+2025-07-17 13:56:07,112 - INFO - 127.0.0.1 - - [17/Jul/2025 13:56:07] "GET /material_obejma HTTP/1.1" 200 -
+2025-07-17 13:56:07,155 - INFO - 127.0.0.1 - - [17/Jul/2025 13:56:07] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-07-17 13:56:07,169 - INFO - 127.0.0.1 - - [17/Jul/2025 13:56:07] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-07-17 13:56:07,189 - INFO - 127.0.0.1 - - [17/Jul/2025 13:56:07] "[36mGET /static/img/maxmetal.png HTTP/1.1[0m" 304 -
+2025-07-17 13:56:07,662 - INFO - Administrator wszedł na stronę główną.
+2025-07-17 13:56:07,664 - INFO - 127.0.0.1 - - [17/Jul/2025 13:56:07] "GET / HTTP/1.1" 200 -
+2025-07-17 13:56:07,691 - INFO - 127.0.0.1 - - [17/Jul/2025 13:56:07] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-07-17 13:56:07,698 - INFO - 127.0.0.1 - - [17/Jul/2025 13:56:07] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-07-17 13:56:07,705 - INFO - 127.0.0.1 - - [17/Jul/2025 13:56:07] "[36mGET /static/img/maxmetal.png HTTP/1.1[0m" 304 -
+2025-07-17 13:56:09,168 - INFO - Administrator wszedł na stronę ksztaltowania1.
+2025-07-17 13:56:09,257 - INFO - 127.0.0.1 - - [17/Jul/2025 13:56:09] "GET /ksztaltowanie1 HTTP/1.1" 200 -
+2025-07-17 13:56:09,281 - INFO - 127.0.0.1 - - [17/Jul/2025 13:56:09] "GET /static/style.css HTTP/1.1" 200 -
+2025-07-17 13:56:09,292 - INFO - 127.0.0.1 - - [17/Jul/2025 13:56:09] "GET /static/img/logo-duże.png HTTP/1.1" 200 -
+2025-07-17 13:56:09,301 - INFO - 127.0.0.1 - - [17/Jul/2025 13:56:09] "GET /static/img/maxmetal.png HTTP/1.1" 200 -
+2025-07-17 13:56:11,381 - INFO - Kształtowanie_1 ID 2 usunięte przez Administrator. Szczegóły: nazwa: 1/234/66/765/2025-07-16, nr prodio: 2346, data: 2025-07-16, ilość: 432, pracownik: Administrator.
+2025-07-17 13:56:11,383 - INFO - 127.0.0.1 - - [17/Jul/2025 13:56:11] "[32mPOST /usun_ksztaltowanie1/2 HTTP/1.1[0m" 302 -
+2025-07-17 13:56:11,389 - INFO - Administrator wszedł na stronę ksztaltowania1.
+2025-07-17 13:56:11,390 - INFO - 127.0.0.1 - - [17/Jul/2025 13:56:11] "GET /ksztaltowanie1 HTTP/1.1" 200 -
+2025-07-17 13:56:11,410 - INFO - 127.0.0.1 - - [17/Jul/2025 13:56:11] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-07-17 13:56:11,426 - INFO - 127.0.0.1 - - [17/Jul/2025 13:56:11] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-07-17 13:56:11,431 - INFO - 127.0.0.1 - - [17/Jul/2025 13:56:11] "[36mGET /static/img/maxmetal.png HTTP/1.1[0m" 304 -
+2025-07-17 13:56:11,439 - INFO - 127.0.0.1 - - [17/Jul/2025 13:56:11] "[36mGET /static/img/logo-male.png HTTP/1.1[0m" 304 -
+2025-07-17 13:56:12,154 - INFO - Administrator wszedł na stronę główną.
+2025-07-17 13:56:12,156 - INFO - 127.0.0.1 - - [17/Jul/2025 13:56:12] "GET / HTTP/1.1" 200 -
+2025-07-17 13:56:12,188 - INFO - 127.0.0.1 - - [17/Jul/2025 13:56:12] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-07-17 13:56:12,194 - INFO - 127.0.0.1 - - [17/Jul/2025 13:56:12] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-07-17 13:56:12,200 - INFO - 127.0.0.1 - - [17/Jul/2025 13:56:12] "[36mGET /static/img/maxmetal.png HTTP/1.1[0m" 304 -
+2025-07-17 13:56:13,137 - INFO - Administrator wszedł na stronę ksztaltowania2.
+2025-07-17 13:56:13,231 - INFO - 127.0.0.1 - - [17/Jul/2025 13:56:13] "GET /ksztaltowanie2 HTTP/1.1" 200 -
+2025-07-17 13:56:13,276 - INFO - 127.0.0.1 - - [17/Jul/2025 13:56:13] "GET /static/style.css HTTP/1.1" 200 -
+2025-07-17 13:56:13,291 - INFO - 127.0.0.1 - - [17/Jul/2025 13:56:13] "GET /static/img/logo-duże.png HTTP/1.1" 200 -
+2025-07-17 13:56:13,317 - INFO - 127.0.0.1 - - [17/Jul/2025 13:56:13] "GET /static/img/maxmetal.png HTTP/1.1" 200 -
+2025-07-17 13:56:13,341 - INFO - 127.0.0.1 - - [17/Jul/2025 13:56:13] "GET /static/img/logo-male.png HTTP/1.1" 200 -
+2025-07-17 13:56:13,881 - INFO - Administrator wszedł na stronę główną.
+2025-07-17 13:56:13,882 - INFO - 127.0.0.1 - - [17/Jul/2025 13:56:13] "GET / HTTP/1.1" 200 -
+2025-07-17 13:56:13,908 - INFO - 127.0.0.1 - - [17/Jul/2025 13:56:13] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-07-17 13:56:13,915 - INFO - 127.0.0.1 - - [17/Jul/2025 13:56:13] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-07-17 13:56:13,919 - INFO - 127.0.0.1 - - [17/Jul/2025 13:56:13] "[36mGET /static/img/maxmetal.png HTTP/1.1[0m" 304 -
+2025-07-17 13:56:14,803 - INFO - Administrator wszedł na stronę powrotu.
+2025-07-17 13:56:14,909 - INFO - 127.0.0.1 - - [17/Jul/2025 13:56:14] "GET /powrot HTTP/1.1" 200 -
+2025-07-17 13:56:14,956 - INFO - 127.0.0.1 - - [17/Jul/2025 13:56:14] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-07-17 13:56:14,982 - INFO - 127.0.0.1 - - [17/Jul/2025 13:56:14] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-07-17 13:56:15,001 - INFO - 127.0.0.1 - - [17/Jul/2025 13:56:15] "[36mGET /static/img/maxmetal.png HTTP/1.1[0m" 304 -
+2025-07-17 13:56:15,494 - INFO - Administrator wszedł na stronę główną.
+2025-07-17 13:56:15,495 - INFO - 127.0.0.1 - - [17/Jul/2025 13:56:15] "GET / HTTP/1.1" 200 -
+2025-07-17 13:56:15,527 - INFO - 127.0.0.1 - - [17/Jul/2025 13:56:15] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-07-17 13:56:15,535 - INFO - 127.0.0.1 - - [17/Jul/2025 13:56:15] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-07-17 13:56:15,539 - INFO - 127.0.0.1 - - [17/Jul/2025 13:56:15] "[36mGET /static/img/maxmetal.png HTTP/1.1[0m" 304 -

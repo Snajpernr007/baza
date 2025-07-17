@@ -87,7 +87,7 @@
 }
 
 function populateKsztaltowania(selectElement, selectedValue) {
-    fetch('/get-ksztaltowanie')
+    fetch('/get-ksztaltowanie3')
         .then(response => response.json())
         .then(data => {
             data.forEach(ksztaltowanie => {
@@ -473,9 +473,9 @@ function filterTable() {
                     {% for malarnie in malarnia %}
                         <tr>
                             <td>{{ malarnie.id }} </td>
-                            <td>{{ malarnie.ksztaltowanie.material.rozmiar.nazwa }}</td>
-                            <td>{{ malarnie.ksztaltowanie.material.nr_wytopu}}</td>
-                            <td data-ksztaltowanie-id="{{ malarnie.ksztaltowanie.id }}">{{ malarnie.ksztaltowanie.nazwa }} </td>
+                            <td>{{ malarnie.ksztaltowanie_3.ksztaltowanie_2.ksztaltowanie_1.material.rozmiar.nazwa }}</td>
+                            <td>{{ malarnie.ksztaltowanie_3.ksztaltowanie_2.ksztaltowanie_1.material.nr_wytopu}}</td>
+                            <td data-ksztaltowanie-id="{{ malarnie.ksztaltowanie_3.id }}">{{ malarnie.ksztaltowanie_3.nazwa }} </td>
                             <td>{{ malarnie.ilosc }} </td>
                             <td>{{ malarnie.ilosc_na_stanie }}</td>
                             <td>{{ malarnie.nr_prodio }}</td>
@@ -489,7 +489,7 @@ function filterTable() {
 
                             
                             <td><button type="button" class="button" onclick="openEditModal(this.parentElement.parentElement)">Edytuj</button>
-                            <form method="POST" style="display:inline;background-color: transparent;width: 0;padding: 0%;" action="{{ url_for('usun_ksztaltowanie1', id=ksztaltowania.id) }}" onsubmit="return confirm('Na pewno chcesz usunąć ten materiał?');">
+                            <form method="POST" style="display:inline;background-color: transparent;width: 0;padding: 0%;" action="{{ url_for('usun_malarnie', id=malarnie.id) }}" onsubmit="return confirm('Na pewno chcesz usunąć ten malarnie?');">
                                 <button type="submit" class="button">Usuń</button>
                             </form></td>
                         </tr>

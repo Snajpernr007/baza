@@ -56,7 +56,7 @@
         <option 
             value="{{ nazwa_materiału.id }}" 
             data-max="{{ nazwa_materiału.ilosc_na_stanie }}">
-            {{ nazwa_materiału.nazwa }} nr_wytopu {{ nazwa_materiału.material.numer_wytopu }} rozmiar {{ nazwa_materiału.material.rozmiar.nazwa }} na stanie: {{ nazwa_materiału.ilosc_na_stanie }}
+            {{ nazwa_materiału.nazwa }} nr_wytopu {{ nazwa_materiału.ksztaltowanie_2.ksztaltowanie_1.material.numer_wytopu }} rozmiar {{ nazwa_materiału.ksztaltowanie_2.ksztaltowanie_1.material.rozmiar.nazwa }} na stanie: {{ nazwa_materiału.ilosc_na_stanie }}
         </option>
     {% endif %}
     {% endfor %}

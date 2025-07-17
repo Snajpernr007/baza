@@ -201,6 +201,7 @@ class MaterialObejma(db.Model):
 
     rozmiar = db.relationship('RozmiaryObejm')
     pracownik = db.relationship('Uzytkownik')
+    ksztaltowania_1 = db.relationship('Ksztaltowanie_1', back_populates='material', cascade="all, delete-orphan")
 
     def __repr__(self):
         return f"<MaterialObejma {self.id} - {self.nr_prodio}>"
@@ -209,7 +210,6 @@ class MaterialObejma(db.Model):
 class Ksztaltowanie_1(db.Model):
     __tablename__ = 'ksztaltowanie_1'
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)
-    
     data = db.Column(db.Date)
     godzina_rozpoczecia = db.Column(db.Time)
     godzina_zakonczenia = db.Column(db.Time)
@@ -221,16 +221,17 @@ class Ksztaltowanie_1(db.Model):
     imie_nazwisko = db.Column(db.String(255))
     nazwa = db.Column(db.String(255), nullable=True)
 
-    material = db.relationship('MaterialObejma')
+    material = db.relationship('MaterialObejma', back_populates='ksztaltowania_1')
     pracownik = db.relationship('Uzytkownik')
+    ksztaltowania_2 = db.relationship('Ksztaltowanie_2', back_populates='ksztaltowanie_1', cascade="all, delete-orphan")
 
     def __repr__(self):
         return f"<Ksztaltowanie_1 {self.id} - {self.nr_prodio}>"
 
+
 class Ksztaltowanie_2(db.Model):
     __tablename__ = 'ksztaltowanie_2'
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)
-    
     data = db.Column(db.Date)
     godzina_rozpoczecia = db.Column(db.Time)
     godzina_zakonczenia = db.Column(db.Time)
@@ -242,16 +243,17 @@ class Ksztaltowanie_2(db.Model):
     imie_nazwisko = db.Column(db.String(255))
     nazwa = db.Column(db.String(255), nullable=True)
 
-    ksztaltowanie_1 = db.relationship('Ksztaltowanie_1')
+    ksztaltowanie_1 = db.relationship('Ksztaltowanie_1', back_populates='ksztaltowania_2')
     pracownik = db.relationship('Uzytkownik')
+    ksztaltowania_3 = db.relationship('Ksztaltowanie_3', back_populates='ksztaltowanie_2', cascade="all, delete-orphan")
 
     def __repr__(self):
         return f"<Ksztaltowanie_2 {self.id} - {self.nr_prodio}>"
 
+
 class Ksztaltowanie_3(db.Model):
     __tablename__ = 'ksztaltowanie_3'
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)
-    
     data = db.Column(db.Date)
     godzina_rozpoczecia = db.Column(db.Time)
     godzina_zakonczenia = db.Column(db.Time)
@@ -263,12 +265,12 @@ class Ksztaltowanie_3(db.Model):
     imie_nazwisko = db.Column(db.String(255))
     nazwa = db.Column(db.String(255), nullable=True)
 
-    ksztaltowanie_2 = db.relationship('Ksztaltowanie_2')
+    ksztaltowanie_2 = db.relationship('Ksztaltowanie_2', back_populates='ksztaltowania_3')
     pracownik = db.relationship('Uzytkownik')
+    malowania = db.relationship('Malarnia', back_populates='ksztaltowanie_3', cascade="all, delete-orphan")
 
     def __repr__(self):
         return f"<Ksztaltowanie_3 {self.id} - {self.nr_prodio}>"
-
 
 
 class Malarnia(db.Model):
@@ -282,8 +284,9 @@ class Malarnia(db.Model):
     id_pracownik = db.Column(db.Integer, db.ForeignKey('uzytkownicy.id'))
     imie_nazwisko = db.Column(db.String(255))
 
-    ksztaltowanie_3 = db.relationship('Ksztaltowanie_3')
+    ksztaltowanie_3 = db.relationship('Ksztaltowanie_3', back_populates='malowania')
     pracownik = db.relationship('Uzytkownik')
+    powroty = db.relationship('Powrot', back_populates='malarnia', cascade="all, delete-orphan")
 
     def __repr__(self):
         return f"<Malarnia {self.id} - {self.nr_prodio}>"
@@ -300,8 +303,9 @@ class Powrot(db.Model):
     id_pracownik = db.Column(db.Integer, db.ForeignKey('uzytkownicy.id'))
     imie_nazwisko = db.Column(db.String(255))
 
-    malarnia = db.relationship('Malarnia')
+    malarnia = db.relationship('Malarnia', back_populates='powroty')
     pracownik = db.relationship('Uzytkownik')
+    laczenia = db.relationship('Laczenie', back_populates='powrot', cascade="all, delete-orphan")
 
     def __repr__(self):
         return f"<Powrot {self.id} - {self.nr_prodio}>"
@@ -320,12 +324,11 @@ class Zlecenie(db.Model):
     imie_nazwisko = db.Column(db.String(255))
 
     pracownik = db.relationship('Uzytkownik')
-
-    # <-- dodaj tę linijkę:
     laczenie = db.relationship('Laczenie', back_populates='zlecenie', cascade="all, delete-orphan")
 
     def __repr__(self):
         return f"<Zlecenie {self.id} - {self.nr_prodio}>"
+
 
 class Laczenie(db.Model):
     __tablename__ = 'laczenie'
@@ -335,7 +338,7 @@ class Laczenie(db.Model):
     ile_sztuk = db.Column(db.Integer)
 
     zlecenie = db.relationship('Zlecenie', back_populates='laczenie')
-    powrot = db.relationship('Powrot')
+    powrot = db.relationship('Powrot', back_populates='laczenia')
 
     def __repr__(self):
         return f"<Laczenie {self.id} - {self.ile_sztuk} szt.>"
@@ -1926,33 +1929,7 @@ def usun_ksztaltowanie1(id):
 
     return redirect(request.referrer or url_for('home'))
 
-@app.route('/usun_malarnie/<int:id>', methods=['POST'])
-def usun_malarnie(id):
-    if not g.user:
-        return render_template('login.html', user=g.user)
-    if g.user.id_uprawnienia == 3:
-        return redirect(url_for('home'))
 
-    malarnia = Malarnia.query.get_or_404(id)
-
-    try:
-        db.session.delete(malarnia)
-        db.session.commit()
-
-        logger.info(
-            f"Malarnia ID {malarnia.id} usunięta przez {g.user.login}. "
-            f"Szczegóły: nr prodio: {malarnia.nr_prodio}, "
-            f"data: {malarnia.data}, "
-            f"ilość: {malarnia.ilosc}, "
-            f"pracownik: {malarnia.pracownik.login if malarnia.pracownik else 'Brak'}."
-        )
-        flash('Malarnia została usunięta.', 'success')
-    except Exception as e:
-        db.session.rollback()
-        logger.error(f'Błąd przy usuwaniu malarni: {e}')
-        flash(f'Błąd przy usuwaniu: {e}', 'danger')
-
-    return redirect(request.referrer or url_for('home'))
 
 @app.route('/ksztaltowanie1')
 def ksztaltowanie1():
@@ -2262,6 +2239,34 @@ def update_row_ksztaltowanie2():
         db.session.rollback()
         logger.error(f'Wystąpił błąd podczas aktualizacji: {str(e)}')
         return jsonify({'message': 'Wystąpił błąd podczas aktualizacji!', 'error': str(e)}), 500
+@app.route('/usun_ksztaltowanie2/<int:id>', methods=['POST'])
+def usun_ksztaltowanie2(id):
+    if not g.user:
+        return render_template('login.html', user=g.user)
+    if g.user.id_uprawnienia == 3:
+        return redirect(url_for('home'))
+
+    ksztaltowanie = Ksztaltowanie_2.query.get_or_404(id)
+
+    try:
+        db.session.delete(ksztaltowanie)
+        db.session.commit()
+
+        logger.info(
+            f"Kształtowanie_2 ID {ksztaltowanie.id} usunięte przez {g.user.login}. "
+            f"Szczegóły: nazwa: {ksztaltowanie.nazwa}, "
+            f"nr prodio: {ksztaltowanie.nr_prodio}, "
+            f"data: {ksztaltowanie.data}, "
+            f"ilość: {ksztaltowanie.ilosc}, "
+            f"pracownik: {ksztaltowanie.pracownik.login if ksztaltowanie.pracownik else 'Brak'}."
+        )
+        flash('Kształtowanie zostało usunięte.', 'success')
+    except Exception as e:
+        db.session.rollback()
+        logger.error(f'Błąd przy usuwaniu kształtowania: {e}')
+        flash(f'Błąd przy usuwaniu: {e}', 'danger')
+
+    return redirect(request.referrer or url_for('home'))
 @app.route('/ksztaltowanie3')
 def ksztaltowanie3():
     if not g.user:
@@ -2412,7 +2417,34 @@ def update_row_ksztaltowanie3():
         db.session.rollback()
         logger.error(f'Wystąpił błąd podczas aktualizacji: {str(e)}')
         return jsonify({'message': 'Wystąpił błąd podczas aktualizacji!', 'error': str(e)}), 500
+@app.route('/usun_ksztaltowanie3/<int:id>', methods=['POST'])
+def usun_ksztaltowanie3(id):
+    if not g.user:
+        return render_template('login.html', user=g.user)
+    if g.user.id_uprawnienia == 3:
+        return redirect(url_for('home'))
 
+    ksztaltowanie = Ksztaltowanie_3.query.get_or_404(id)
+
+    try:
+        db.session.delete(ksztaltowanie)
+        db.session.commit()
+
+        logger.info(
+            f"Kształtowanie_3 ID {ksztaltowanie.id} usunięte przez {g.user.login}. "
+            f"Szczegóły: nazwa: {ksztaltowanie.nazwa}, "
+            f"nr prodio: {ksztaltowanie.nr_prodio}, "
+            f"data: {ksztaltowanie.data}, "
+            f"ilość: {ksztaltowanie.ilosc}, "
+            f"pracownik: {ksztaltowanie.pracownik.login if ksztaltowanie.pracownik else 'Brak'}."
+        )
+        flash('Kształtowanie zostało usunięte.', 'success')
+    except Exception as e:
+        db.session.rollback()
+        logger.error(f'Błąd przy usuwaniu kształtowania: {e}')
+        flash(f'Błąd przy usuwaniu: {e}', 'danger')
+
+    return redirect(request.referrer or url_for('home'))
 @app.route('/malarnia')
 def malarnia():
     if not g.user:
@@ -2448,7 +2480,7 @@ def dodaj_malarnie_do_bazy():
 
     nowa_malarnia = Malarnia(
         data=data,
-        id_ksztaltowanie=id_ksztaltowanie,
+        id_ksztaltowanie_3=id_ksztaltowanie,
         nr_prodio=numer_prodio,
         ilosc=ilosc,
         ilosc_na_stanie=ilosc,
@@ -2493,7 +2525,7 @@ def update_row_malarnia():
         poprzednie_dane = {
             "id": malarnia.id,
             "data": malarnia.data,
-            "id_ksztaltowanie": malarnia.id_ksztaltowanie,
+            "id_ksztaltowanie": malarnia.id_ksztaltowanie_3,
             "nr_prodio": malarnia.nr_prodio,
             "ilosc": malarnia.ilosc,
             "ilosc_na_stanie": malarnia.ilosc_na_stanie
@@ -2505,7 +2537,7 @@ def update_row_malarnia():
         if data_val:
                 logger.info(f"Przetwarzanie daty: {data_val}")
                 malarnia.data = datetime.strptime(data_val, '%Y-%m-%d').date()
-        malarnia.id_ksztaltowanie = int(dane.get('column_3', malarnia.id_ksztaltowanie))
+        malarnia.id_ksztaltowanie_3 = int(dane.get('column_3', malarnia.id_ksztaltowanie_3))
         malarnia.nr_prodio = dane.get('column_6', malarnia.nr_prodio)
         malarnia.ilosc = int(dane.get('column_4', malarnia.ilosc))
         malarnia.ilosc_na_stanie = int(dane.get('column_5', malarnia.ilosc_na_stanie))
@@ -2519,6 +2551,33 @@ def update_row_malarnia():
         db.session.rollback()
         logger.error(f'Wystąpił błąd podczas aktualizacji: {str(e)}')
         return jsonify({'message': 'Wystąpił błąd podczas aktualizacji!', 'error': str(e)}), 500
+@app.route('/usun_malarnie/<int:id>', methods=['POST'])
+def usun_malarnie(id):
+    if not g.user:
+        return render_template('login.html', user=g.user)
+    if g.user.id_uprawnienia == 3:
+        return redirect(url_for('home'))
+
+    malarnia = Malarnia.query.get_or_404(id)
+
+    try:
+        db.session.delete(malarnia)
+        db.session.commit()
+
+        logger.info(
+            f"Malarnia ID {malarnia.id} usunięta przez {g.user.login}. "
+            f"Szczegóły: nr prodio: {malarnia.nr_prodio}, "
+            f"data: {malarnia.data}, "
+            f"ilość: {malarnia.ilosc}, "
+            f"pracownik: {malarnia.pracownik.login if malarnia.pracownik else 'Brak'}."
+        )
+        flash('Malarnia została usunięta.', 'success')
+    except Exception as e:
+        db.session.rollback()
+        logger.error(f'Błąd przy usuwaniu malarni: {e}')
+        flash(f'Błąd przy usuwaniu: {e}', 'danger')
+
+    return redirect(request.referrer or url_for('home'))
 @app.route('/powrot')
 def powrot():
     if not g.user:
@@ -2616,7 +2675,33 @@ def update_row_powrot():
         db.session.rollback()
         logger.error(f'Wystąpił błąd podczas aktualizacji: {str(e)}')
         return jsonify({'message': 'Wystąpił błąd podczas aktualizacji!', 'error': str(e)}), 500        
+@app.route('/usun_powrot/<int:id>', methods=['POST'])
+def usun_powrot(id):
+    if not g.user:
+        return render_template('login.html', user=g.user)
+    if g.user.id_uprawnienia == 3:
+        return redirect(url_for('home'))
 
+    powrot = Powrot.query.get_or_404(id)
+
+    try:
+        db.session.delete(powrot)
+        db.session.commit()
+
+        logger.info(
+            f"Powrót ID {powrot.id} usunięty przez {g.user.login}. "
+            f"Szczegóły: nr prodio: {powrot.nr_prodio}, "
+            f"data: {powrot.data}, "
+            f"ilość: {powrot.ilosc}, "
+            f"pracownik: {powrot.pracownik.login if powrot.pracownik else 'Brak'}."
+        )
+        flash('Powrót został usunięty.', 'success')
+    except Exception as e:
+        db.session.rollback()
+        logger.error(f'Błąd przy usuwaniu powrotu: {e}')
+        flash(f'Błąd przy usuwaniu: {e}', 'danger')
+
+    return redirect(request.referrer or url_for('home'))
 @app.route('/zlecenie')
 def zlecenie():
     if not g.user:
@@ -2787,7 +2872,34 @@ def update_row_zlecenie():
     except Exception as e:
         db.session.rollback()
         return jsonify({'error': f'Błąd podczas aktualizacji: {str(e)}'}), 500
+@app.route('/usun_zlecenie/<int:id>', methods=['POST'])
+def usun_zlecenie(id):
+    if not g.user:
+        return render_template('login.html', user=g.user)
+    if g.user.id_uprawnienia == 3:
+        return redirect(url_for('home'))
 
+    zlecenie = Zlecenie.query.get_or_404(id)
+
+    try:
+        # Usuwamy wszystkie powiązania laczenia
+        Laczenie.query.filter_by(id_zlecenie=id).delete()
+        db.session.delete(zlecenie)
+        db.session.commit()
+
+        logger.info(
+            f"Zlecenie ID {zlecenie.id} usunięte przez {g.user.login}. "
+            f"Szczegóły: nr prodio: {zlecenie.nr_prodio}, "
+            f"nr zamówienia: {zlecenie.nr_zamowienia_zew}, "
+            f"pracownik: {zlecenie.pracownik.login if zlecenie.pracownik else 'Brak'}."
+        )
+        flash('Zlecenie zostało usunięte.', 'success')
+    except Exception as e:
+        db.session.rollback()
+        logger.error(f'Błąd przy usuwaniu zlecenia: {e}')
+        flash(f'Błąd przy usuwaniu: {e}', 'danger')
+
+    return redirect(request.referrer or url_for('home'))
         
 
 if __name__ == "__main__":

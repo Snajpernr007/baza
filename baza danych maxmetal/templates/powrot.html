@@ -435,8 +435,8 @@ document.addEventListener("DOMContentLoaded", () => {
                     {% for powroty in powrot %}
                         <tr>
                             <td>{{ powroty.id }} </td>
-                            <td>{{ powroty.malarnia.ksztaltowanie.material.rozmiar.nazwa }}</td>
-                            <td>{{ powroty.malarnia.ksztaltowanie.material.nr_wytopu}}</td>
+                            <td>{{ powroty.malarnia.ksztaltowanie_3.ksztaltowanie_2.ksztaltowanie_1.material.rozmiar.nazwa }}</td>
+                            <td>{{ powroty.malarnia.ksztaltowanie_3.ksztaltowanie_2.ksztaltowanie_1.material.nr_wytopu}}</td>
                             <td data-malarnia-id="{{ powroty.malarnia.id }}">{{ powroty.malarnia.data}}</td>
                             <td>{{ powroty.ilosc }} </td>
                             <td>{{ powroty.ilosc_na_stanie }}</td>
@@ -447,7 +447,9 @@ document.addEventListener("DOMContentLoaded", () => {
                             <td>{{ powroty.imie_nazwisko}}</td>
 
                             <td><button type="button" class="button" onclick="openEditModal(this.parentElement.parentElement)">Edytuj</button>
-                            <button type="button" class="button">Usuń</button></td>
+                            <form method="POST" style="display:inline;background-color: transparent;width: 0;padding: 0%;" action="{{ url_for('usun_powrot', id=powroty.id) }}" onsubmit="return confirm('Na pewno chcesz usunąć ten powrót?');">
+                                <button type="submit" class="button">Usuń</button>
+                            </form></td>
                         </tr>
                     {% endfor %}
                 </tbody>

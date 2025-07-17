@@ -469,7 +469,9 @@ function sendDataToBackend(data) {
                             <td></td>
                             <td></td>
                             <td><button type="button" class="button" onclick="openEditModal(this.parentElement.parentElement)">Edytuj</button>
-                            <button type="button" class="button">Usuń</button></td>
+                            <form method="POST" style="display:inline;background-color: transparent;width: 0;padding: 0%;" action="{{ url_for('usun_zlecenie', id=zlecenia.id) }}" onsubmit="return confirm('Na pewno chcesz usunąć to zlecenie?');">
+                                <button type="submit" class="button">Usuń</button>
+                            </form></td>
                                 
                         </tr>
                             {% for laczenia in laczenie %}
@@ -486,8 +488,8 @@ function sendDataToBackend(data) {
                                     <td></td>
                                     <td></td>
                                     <td></td>
-                                    <td >{{ laczenia.powrot.malarnia.ksztaltowanie.material.rozmiar.nazwa }}</td>
-                                    <td >{{ laczenia.powrot.malarnia.ksztaltowanie.material.nr_wytopu }}</td>
+                                    <td >{{ laczenia.powrot.malarnia.ksztaltowanie_3.ksztaltowanie_2.ksztaltowanie_1.material.rozmiar.nazwa }}</td>
+                                    <td >{{ laczenia.powrot.malarnia.ksztaltowanie_3.ksztaltowanie_2.ksztaltowanie_1.material.nr_wytopu }}</td>
                                     <td data-malarnia-id="{{ laczenia.powrot.id }}">{{ laczenia.powrot.data }}</td>
                                     <td >{{ laczenia.ile_sztuk }}</td>
                                     <td></td>
