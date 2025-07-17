@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile MaxMetal</title>
+    <link rel="icon" href="../static/img/logo-male.png">
+    <link rel="stylesheet" href="../static/style.css">
+     <script>
+// Filtrowanie
+function filterTable() {
+    const table = document.getElementById("tabela");
+    const filterInputs = table.querySelectorAll("thead tr:first-child input[type='text']");
+    const dateFrom = document.getElementById("dateDostawyFrom")?.value;
+    const dateTo = document.getElementById("dateDostawyTo")?.value;
+    const rows = table.tBodies[0].rows;
+
+    for (let i = 0; i < rows.length; i++) {
+        const cells = rows[i].cells;
+        let isRowVisible = true;
+
+        // Filtrowanie po inputach tekstowych (pomijamy kolumnę z datą - index 11)
+        for (let j = 0; j < filterInputs.length; j++) {
+            // Kolumna daty to index 11, więc po 11-tym filtrze przesuwamy index o 1
+            let cellIndex = j < 11 ? j : j + 1;
+            const filter = filterInputs[j].value.toLowerCase();
+            if (filter && cells[cellIndex]) {
+                const cellValue = cells[cellIndex].textContent.toLowerCase();
+                if (!cellValue.includes(filter)) {
+                    isRowVisible = false;
+                    break;
+                }
+            }
+        }
+
+        // Filtrowanie po dacie (kolumna 11)
+        if (isRowVisible && (dateFrom || dateTo)) {
+            let dateCell = cells[11]?.textContent.trim();
+            if (dateCell) {
+                let cellDate = new Date(dateCell);
+                if (dateFrom && cellDate < new Date(dateFrom)) isRowVisible = false;
+                if (dateTo && cellDate > new Date(dateTo)) isRowVisible = false;
+            }
+        }
+
+        rows[i].style.display = isRowVisible ? "" : "none";
+    }
+}
+
+// Reset filtrów
+function resetFilters() {
+    const table = document.getElementById("tabela");
+    const filterInputs = table.querySelectorAll("thead tr:first-child input[type='text'], thead tr:first-child input[type='date']");
+    filterInputs.forEach(input => input.value = "");
+    filterTable();
+}
+
+// Sortowanie
+let sortStates = [];
+function sortCustomTable(columnIndex) {
+    const table = document.getElementById("tabela");
+    const rows = Array.from(table.tBodies[0].rows);
+    const tbody = table.tBodies[0];
+
+    // Sprawdzamy, czy kolumna już istnieje w tablicy sortStates
+    const existingSortIndex = sortStates.findIndex(sort => sort.columnIndex === columnIndex);
+
+    if (existingSortIndex !== -1) {
+        // Jeśli kolumna jest już sortowana, zmieniamy jej kierunek
+        sortStates[existingSortIndex].ascending = !sortStates[existingSortIndex].ascending;
+    } else {
+        // Jeśli kolumna nie jest jeszcze sortowana, dodajemy ją na początek tablicy
+        sortStates.unshift({ columnIndex, ascending: true });
+    }
+
+    // Sortowanie wierszy na podstawie stanu w tablicy sortStates
+    rows.sort((rowA, rowB) => {
+        for (const sort of sortStates) {
+            const cellA = rowA.cells[sort.columnIndex]?.innerText.toLowerCase() || "";
+            const cellB = rowB.cells[sort.columnIndex]?.innerText.toLowerCase() || "";
+
+            // Jeśli to kolumna z datą (kolumna 11), porównuj jako daty
+            if (sort.columnIndex === 11) {
+                let aDate = new Date(cellA);
+                let bDate = new Date(cellB);
+                if (!isNaN(aDate) && !isNaN(bDate)) {
+                    const comparison = sort.ascending ? aDate - bDate : bDate - aDate;
+                    if (comparison !== 0) return comparison;
+                }
+            }
+
+            // Jeśli liczby
+            let aNum = parseFloat(cellA.replace(',', '.'));
+            let bNum = parseFloat(cellB.replace(',', '.'));
+            if (!isNaN(aNum) && !isNaN(bNum) && cellA.match(/^\d/)) {
+                const comparison = sort.ascending ? aNum - bNum : bNum - aNum;
+                if (comparison !== 0) return comparison;
+            }
+
+            // Inaczej jako tekst
+            const comparison = sort.ascending
+                ? cellA.localeCompare(cellB)
+                : cellB.localeCompare(cellA);
+            if (comparison !== 0) return comparison;
+        }
+        return 0;
+    });
+
+    // Przypisanie posortowanych wierszy do tabeli
+    tbody.innerHTML = "";
+    rows.forEach(row => tbody.appendChild(row));
+
+    // Resetowanie strzałek i ustawienie odpowiednich w nagłówkach
+    Array.from(table.tHead.rows[1].cells).forEach((cell, index) => {
+        cell.innerHTML = cell.innerHTML.replace(/ ▲| ▼/g, '');
+        const sortState = sortStates.find(sort => sort.columnIndex === index);
+        if (sortState) {
+            cell.innerHTML += sortState.ascending ? ' ▲' : ' ▼';
+        }
+    });
+}
+
+function openEditModal(row) {
+    const cells = row.querySelectorAll("td");
+    const editButton = row.querySelector("button");
+    const parentId = row.dataset.parentId;
+
+    if (editButton.innerText === "Edytuj") {
+        const addBtn = document.createElement("button");
+        addBtn.innerText = "Dodaj powrót";
+        addBtn.type = "button";
+        addBtn.className = "button";
+        addBtn.onclick = () => addChildRow(row);
+        cells[cells.length - 1].appendChild(addBtn);
+
+        cells.forEach((cell, i) => {
+            if (i > 0 && i < cells.length - 5 && i !== 7) {
+                const value = cell.innerText;
+                if (i === 3 || i === 5) {
+                    cell.innerHTML = `<input type="number" value="${value}" style="width:100%;">`;
+                } else {
+                    cell.innerHTML = `<input type="text" value="${value}" style="width:100%;">`;
+                }
+            }
+        });
+        editButton.innerText = "Zapisz";
+
+        document.querySelectorAll(`tr[data-child-id]`).forEach(childRow => {
+            if (childRow.previousElementSibling.dataset.parentId === parentId) {
+                const cc = childRow.querySelectorAll("td");
+                const [rozmiar, nrWytopu, data, ilosc] = [9,10,11,12].map(i => cc[i]?.innerText.trim() || "");
+
+                const currentMalarnieId = cc[11]?.getAttribute("data-malarnia-id") || "";
+                cc[11].innerHTML = `<select style="width: 100%;"></select>`;
+                const select = cc[11].querySelector("select");
+                if (select) {
+                    populateMalarnii(select, currentMalarnieId);
+                }
+                cc[8].innerHTML = `<input type="date" placeholder="Filtruj Malarnie" style="width: 100%;" oninput="filterMalarnii(this)">`;
+
+                cc[12].innerHTML = `<input type="number" value="${ilosc}" style="width:100%;">`;
+                cc[13].innerHTML = `<button type="button" onclick="removeChildRow(this)">Usuń</button>`;
+            }
+        });
+
+    } else {
+        const updated = {};
+        cells.forEach((cell, i) => {
+            if (i > 0 && i < cells.length - 5 && i !== 7) {
+                const inp = cell.querySelector("input") || cell.querySelector("select");
+                if (inp) updated[`col_${i}`] = inp.value.trim();
+            } else if (i === 0) {
+                updated.id = cell.innerText;
+            }
+        });
+
+        updated.children = [];
+        document.querySelectorAll(`tr[data-child-id]`).forEach(childRow => {
+            if (childRow.previousElementSibling.dataset.parentId === parentId) {
+                const cc = childRow.querySelectorAll("td");
+                updated.children.push({
+    id: childRow.getAttribute("data-child-id") === "new" ? null : childRow.getAttribute("data-child-id"),
+    // usuń lub zmień drugie id, np.:
+    parent_id: childRow.getAttribute("data-parent-id"),
+    data: cc[11].querySelector("select")?.value,
+    ile_sztuk: cc[12].querySelector("input")?.value.trim()
+});
+            }
+        });
+
+        sendDataToBackend(updated);
+        editButton.innerText = "Edytuj";
+        document.querySelectorAll(`tr[data-child-id]`).forEach(r => {
+            if (r.previousElementSibling.dataset.parentId === parentId) r.remove();
+        });
+    }
+}
+function filterMalarnii(input) {
+    const filterDate = input.value; // np. "2025-06-17"
+    const select = input.parentElement.nextElementSibling.querySelector("select");
+    if (!select) return;
+
+    for (let i = 0; i < select.options.length; i++) {
+        const optionDate = select.options[i].text;  // zakładam, że text to np. "2025-06-17"
+        // Pokaż opcję, jeśli data dokładnie pasuje lub jeśli filtr jest pusty (wszystko pokazuj)
+        select.options[i].style.display = (!filterDate || optionDate === filterDate) ? "" : "none";
+    }
+}
+function populateMalarnii(selectElement, selectedValue) {
+    fetch('/get-powrot')
+        .then(response => response.json())
+        .then(data => {
+            data.forEach(malarnia => {
+                const option = document.createElement('option');
+                option.value = malarnia.id.toString();
+                option.textContent = malarnia.data;
+                selectElement.appendChild(option);
+            });
+            if (selectedValue) {
+                selectElement.value = selectedValue.toString();
+            }
+        })
+        .catch(error => console.error('Błąd podczas pobierania malarnii:', error));
+}
+
+function addChildRow(parentRow) {
+    const newRow = document.createElement("tr");
+    newRow.setAttribute("data-child-id", "new");
+    newRow.innerHTML = `
+        <td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+        <td></td>
+        <td><select style="width:100%;"></select></td>
+        <td><input type="number" placeholder="Ilość" style="width:100%;"></td>
+        <td><button type="button" class="button" onclick="removeChildRow(this)">Usuń</button></td>
+    `;
+    parentRow.parentElement.insertBefore(newRow, parentRow.nextSibling);
+
+    const select = newRow.querySelector("select");
+    populateMalarnii(select, null);
+}
+
+function removeChildRow(btn) {
+    btn.closest("tr").remove();
+}
+
+function sendDataToBackend(data) {
+    fetch('/update-row-zlecenie', {
+        method: 'POST',
+        headers: {'Content-Type':'application/json'},
+        body: JSON.stringify(data)
+    })
+    .then(r => r.json())
+    .then(res => {
+        if (res.error) alert("Błąd: "+res.error);
+        else alert(res.message || "Zapisano!");
+        location.reload();
+    })
+    .catch(() => alert("Błąd sieci!"));
+}
+
+
+    </script>
+</head>
+<body>
+    <div id="strona">
+        <div id="banner">
+            <div id="menu-main">
+                <nav role="navigation">
+                    <div id="menuToggle">
+                        <input type="checkbox" id="menuCheckbox">
+                        
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        
+                        <ul id="menu">
+                        {%if g.user.id_uprawnienia==1 or g.user.id_uprawnienia==2%}
+                        <li>
+                            {% if g.user.id_uprawnienia==1 %}
+                            <h3>Administrator</h3>
+                            {% endif %}
+                            <ul>
+                                {% if g.user.id_uprawnienia==1 %}
+                                    <li>
+                                        <a href="{{ url_for('uzytkownik') }}"><label for="menuCheckbox" onclick="this.parentNode.click();">Uzytkownicy</label></a>
+                                    </li>
+                                 {% endif %}
+                                {% if g.user.id_uprawnienia==1 %}
+                                    <li>
+                                        <a href="{{ url_for('uprawnienia') }}"><label for="menuCheckbox" onclick="this.parentNode.click();">Uprawnienia</label></a>
+                                    </li>
+                                {% endif %}
+                            </ul>
+                        </li>
+                        {% endif %}
+                        <h2>Profile</h2>
+                        <ul>
+                                {%if g.user.id_uprawnienia==1 or g.user.id_uprawnienia==2%}
+                                    <li>
+                                        <a href="{{ url_for('tasma') }}"><label for="menuCheckbox" onclick="this.parentNode.click();">Materiały</label></a>
+                                    </li>
+                                 {% endif %}
+                                
+                                    <li>
+                                        <a href="{{ url_for('profil') }}"><label for="menuCheckbox" onclick="this.parentNode.click();">Profile</label></a>
+                                    </li>
+                                {% if g.user.id_uprawnienia==1 %}
+                                    <li>
+                                        <a href="{{ url_for('dostawcy') }}"><label for="menuCheckbox" onclick="this.parentNode.click();">Dostawcy</label></a>
+                                    </li>
+                                {% endif %}
+                                {% if g.user.id_uprawnienia==1 %}
+                                    <li>
+                                        <a href="{{ url_for('szablon') }}"><label for="menuCheckbox" onclick="this.parentNode.click();">Nazwy</label></a>
+                                    </li>
+                                {% endif %}
+                                {% if g.user.id_uprawnienia==1 or g.user.id_uprawnienia==2%}
+                                    <li>
+                                        <a href="{{ url_for('lokalizacja') }}"><label for="menuCheckbox" onclick="this.parentNode.click();">Magazyny</label></a>
+                                    </li>
+                                {% endif %}
+                                {% if g.user.id_uprawnienia==1 or g.user.id_uprawnienia==2%}
+                                    <li>
+                                        <a href="{{ url_for('dlugosci') }}"><label for="menuCheckbox" onclick="this.parentNode.click();">Długości</label></a>
+                                    </li>
+                                {% endif %}
+                                {% if g.user.id_uprawnienia==1 or g.user.id_uprawnienia==2%}
+                                    <li>
+                                        <a href="{{ url_for('szablon_profil') }}"><label for="menuCheckbox" onclick="this.parentNode.click();">Nazwy profili</label></a>
+                                    </li>
+                                {% endif %}
+                                {% if g.user.id_uprawnienia==1 %}
+                                    <li>
+                                        <a href="{{ url_for('zestawienie') }}"><label for="menuCheckbox" onclick="this.parentNode.click();">Zestawienie</label></a>
+                                    </li>
+                                {% endif %}
+                                {% if g.user.id_uprawnienia==1 or g.user.id_uprawnienia==2%}
+                                    <li>
+                                        <a href="{{ url_for('sprzedaz') }}"><label for="menuCheckbox" onclick="this.parentNode.click();">Sprzedaż</label></a>
+                                    </li>
+                                {% endif %}
+                            </ul>
+                            {% if g.user.id==1 %}
+                                <h2>Obejmy Ogniowe</h2>
+                            {% endif %}
+                            <ul>
+                                {% if g.user.id==1 %}
+                                    <li>
+                                        <a href="{{ url_for('rozmiary_obejm') }}"><label for="menuCheckbox" onclick="this.parentNode.click();">Rozmiary</label></a>
+                                    </li>
+                                {% endif %}
+                                {% if g.user.id==1 %}
+                                    <li>
+                                        <a href="{{ url_for('material_obejma') }}"><label for="menuCheckbox" onclick="this.parentNode.click();">Materiały</label></a>
+                                    </li>
+                                {% endif %}
+                                {% if g.user.id==1 %}
+                                    <li>
+                                        <a href="{{ url_for('ksztaltowanie1') }}"><label for="menuCheckbox" onclick="this.parentNode.click();">Prasa 60T</label></a>
+                                    </li>
+                                {% endif %}
+                                {% if g.user.id==1 %}
+                                    <li>
+                                        <a href="{{ url_for('ksztaltowanie2') }}"><label for="menuCheckbox" onclick="this.parentNode.click();">Prasa DMF 45T</label></a>
+                                    </li>
+                                {% endif %}
+                                {% if g.user.id==1 %}
+                                    <li>
+                                        <a href="{{ url_for('ksztaltowanie3') }}"><label for="menuCheckbox" onclick="this.parentNode.click();">Prasa PMA 10T</label></a>
+                                    </li>
+                                {% endif %}
+                                {% if g.user.id==1 %}
+                                    <li>
+                                        <a href="{{ url_for('malarnia') }}"><label for="menuCheckbox" onclick="this.parentNode.click();">Malarnia</label></a>
+                                    </li>
+                                {% endif %}
+                                {% if g.user.id==1 %}
+                                    <li>
+                                        <a href="{{ url_for('powrot') }}"><label for="menuCheckbox" onclick="this.parentNode.click();">Powrót Malarnia</label></a>
+                                    </li>
+                                {% endif %}
+                            </ul>
+                        {% if not g.user %}
+                        
+                            <li>
+                                <a href="{{ url_for('login') }}"><label for="menuCheckbox" onclick="this.parentNode.click();">Zaloguj się!</label></a>
+                            </li>
+                        
+                            
+                        {% else %}
+                        <li>
+                            <h3><a href="{{ url_for('logout') }}"><label for="menuCheckbox" onclick="this.parentNode.click();">Wyloguj się</label></a></h3>
+                        </li>
+                        {% endif %}
+                        <li>
+                            <h3><a href=javascript:history.back();><label for="menuCheckbox" onclick="this.parentNode.click();">Powrót</label></a></h3>
+                        </li>  
+                            
+                            
+                            <li>
+                                <img id="logo1" src="../static/img/logo-duże.png" alt="logo">
+                            </li>
+                        </ul>   
+                    </div>
+                </nav>
+                <div id="logo-banner">
+                    <a href="{{ url_for('home') }}"><img id="logo-duże" src="../static/img/logo-duże.png" alt="logo"></a>
+                </div>
+                <button class="button2" onclick="window.location.href='{{ url_for('dodaj_zlecenie') }}'">Dodaj Zlecenie</button>
+            </div>
+        </div>
+        <div id="test">
+            <div id="title">
+                <h2 class="witaj">Zlecenie</h2>
+            </div>
+        </div>
+                <table id="tabela">
+                    <thead class="sticky-sort">
+                        <tr>
+                            <th><input type="text" placeholder="Filtruj ID" onchange="filterTable()"></th>
+                            <th><input type="text" placeholder="Filtruj Nr Zamówienia" onchange="filterTable()"></th>
+                            <th><input type="text" placeholder="Filtruj Prodio" onchange="filterTable()"></th>
+                            <th><input type="text" placeholder="Filtruj Nazwę pianki" onchange="filterTable()"></th>
+                            <th><input type="text" placeholder="Filtruj Ilość pianki" onchange="filterTable()"></th>
+                            <th><input type="text" placeholder="Filtruj Nazwę taśmy" onchange="filterTable()"></th>
+                            <th><input type="text" placeholder="Filtruj Ilość taśmy" onchange="filterTable()"></th>
+                            <th><input type="text" placeholder="Filtruj Nr kartonu" onchange="filterTable()"></th>
+                            <th><input type="text" placeholder="Filtruj Pracownika" onchange="filterTable()"></th>
+                            <th><input type="text" placeholder="Filtruj Imię i nazw." onchange="filterTable()"></th>
+                            <th><input type="text" placeholder="Filtruj Rozmiar" onchange="filterTable()"></th>
+                            <th><input type="text" placeholder="Filtruj Nr wytopu" onchange="filterTable()"></th>
+                            <th>OD<input type="date" id="dateDostawyFrom" onchange="filterTable()" style="width: 90px;">
+                                DO<input type="date" id="dateDostawyTo" onchange="filterTable()" style="width: 90px;">
+                            </th>
+                            <th><input type="text" placeholder="Filtruj Ilość sztuk" onchange="filterTable()"></th>
+                            <th><button class="button" onclick="resetFilters()">Usuń filtry</button></th>
+                        </tr>
+                    
+                    <tr>
+                            <th  onclick="sortCustomTable(0)">ID &#9650;&#9660;</th>
+                            <th  onclick="sortCustomTable(1)">Nr zamówienia &#9650;&#9660;</th>
+                            <th  onclick="sortCustomTable(2)">Nr prodio &#9650;&#9660;</th>
+                            <th  onclick="sortCustomTable(3)">Nazwa pianki &#9650;&#9660;</th>
+                            <th  onclick="sortCustomTable(4)">Ilość pianki &#9650;&#9660;</th>
+                            <th  onclick="sortCustomTable(5)">Nazwa taśmy &#9650;&#9660;</th>
+                            <th  onclick="sortCustomTable(6)">Ilość taśmy &#9650;&#9660;</th>
+                            <th  onclick="sortCustomTable(7)">Nr kartonu &#9650;&#9660;</th>
+                            <th  onclick="sortCustomTable(8)">Pracownik &#9650;&#9660;</th>
+                            <th  onclick="sortCustomTable(9)">Imię i nazwisko &#9650;&#9660;</th>
+                            <th  onclick="sortCustomTable(10)">Rozmiar &#9650;&#9660;</th>
+                            <th  onclick="sortCustomTable(11)">Nr wytopu &#9650;&#9660;</th>
+                            <th  onclick="sortCustomTable(12)">Data powrotu &#9650;&#9660;</th>
+                            <th  onclick="sortCustomTable(13)">Ilość sztuk &#9650;&#9660;</th>
+                            <th>Edycja</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for zlecenia in zlecenie %}
+                        <tr data-parent-id="{{ zlecenia.id }}">
+                            <td  >{{ zlecenia.id }}</td>
+                            <td >{{ zlecenia.nr_zamowienia_zew }}</td>
+                            <td >{{ zlecenia.nr_prodio }}</td>
+                            <td >{{ zlecenia.pianka.nazwa }}</td>
+                            <td >{{ zlecenia.ile_pianka }}</td>
+                            <td >{{ zlecenia.tasma.nazwa }}</td>
+                            <td >{{ zlecenia.ile_tasmy }}</td>
+                            <td >{{ zlecenia.nr_kartonu }}</td>
+                            <td >{{ zlecenia.pracownik.login }}</td>
+                            <td >{{ zlecenia.imie_nazwisko }}</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td><button type="button" class="button" onclick="openEditModal(this.parentElement.parentElement)">Edytuj</button>
+                            <form method="POST" style="display:inline;background-color: transparent;width: 0;padding: 0%;" action="{{ url_for('usun_zlecenie', id=zlecenia.id) }}" onsubmit="return confirm('Na pewno chcesz usunąć to zlecenie?');">
+                                <button type="submit" class="button">Usuń</button>
+                            </form></td>
+                                
+                        </tr>
+                            {% for laczenia in laczenie %}
+                            
+                            {% if laczenia.id_zlecenie== zlecenia.id%}
+                            
+                                <tr  data-child-id="{{ laczenia.id }}" data-parent-id="{{ laczenia.id_zlecenie }}">
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td >{{ laczenia.powrot.malarnia.ksztaltowanie_3.ksztaltowanie_2.ksztaltowanie_1.material.rozmiar.nazwa }}</td>
+                                    <td >{{ laczenia.powrot.malarnia.ksztaltowanie_3.ksztaltowanie_2.ksztaltowanie_1.material.nr_wytopu }}</td>
+                                    <td data-malarnia-id="{{ laczenia.powrot.id }}">{{ laczenia.powrot.data }}</td>
+                                    <td >{{ laczenia.ile_sztuk }}</td>
+                                    <td></td>
+                                </tr>
+                            {% endif %}
+                            
+                            {% endfor %}
+                            
+                        
+                    {% endfor %}
+                </tbody>
+            </table>
+    </div>
+</body>
+<script>
+    document.addEventListener('click', function(event) {
+    const menu = document.getElementById('menuToggle');
+    const checkbox = document.getElementById('menuCheckbox');
+    if (!menu.contains(event.target) && checkbox.checked) {
+        checkbox.checked = false;
+    }
+});
+</script>
+</html>
