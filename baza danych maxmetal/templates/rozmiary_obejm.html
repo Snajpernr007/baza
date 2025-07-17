@@ -365,6 +365,8 @@ function filterTable() {
                     <tr>
                         <th><input type="text" placeholder="Filtruj ID" onkeyup="filterColumn(0)"></th>
                         <th><input type="text" placeholder="Filtruj Rozmiar" onkeyup="filterColumn(1)"></th>
+                        <th><input type="text" placeholder="Filtruj ilość pianki" onkeyup="filterColumn(2)"></th>
+                        <th><input type="text" placeholder="Filtruj ilość tasmy" onkeyup="filterColumn(3)"></th>
                         
                         
                         <th><button class="button" onclick="resetFilters()">Usuń Filtry</button></th>
@@ -372,6 +374,8 @@ function filterTable() {
                     <tr>
                         <th onclick="sortTable(0)">ID &#9650;&#9660;</th>
                         <th onclick="sortTable(1)">Rozmiar &#9650;&#9660;</th>
+                        <th onclick="sortTable(2)">Ile pianki &#9650;&#9660;</th>
+                        <th onclick="sortTable(3)">Ile tasmy &#9650;&#9660;</th>
                         
                         
                         <th>Edycja</th>
@@ -382,6 +386,8 @@ function filterTable() {
                         <tr>
                             <td>{{ rozmiar.id }} </td>
                             <td>{{ rozmiar.nazwa }}</td>
+                            <td>{{ rozmiar.ile_pianka }}</td>
+                            <td>{{ rozmiar.ile_tasma  }}</td>
 
                             
                             <td><button type="button" class="button" onclick="openEditModal(this.parentElement.parentElement)">Edytuj</button></td>
