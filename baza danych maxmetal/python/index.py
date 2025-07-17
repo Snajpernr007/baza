@@ -401,7 +401,18 @@ def zapisz_do_pliku_sql():
                     'dlugosci',
                     'tasma',
                     'szablon_profile',
-                    'profil'
+                    'profil',
+                    'rozmiary_obejm',
+                    'material_obejma',
+                    'ksztaltowanie_1',
+                    'ksztaltowanie_2',
+                    'ksztaltowanie_3',
+                    'malarnia',
+                    'powrot',
+                    'pianka',
+                    'tasma_obejmy',
+                    'zlecenie',
+                    'laczenie'
                 ]
 
                 for tabela in kolejnosc_tabel:
@@ -2958,51 +2969,78 @@ def dodaj_zlecenie():
 @app.route('/dodaj_zlecenie_do_bazy', methods=['POST'])
 def dodaj_zlecenie_do_bazy():
     if not g.user:
-        return render_template('login.html', user=g.user)
+        return redirect(url_for('login'))  # Bezpieczniejsze niż render login.html bez danych
+
     if g.user.id_uprawnienia == 3:
         return redirect(url_for('home'))
 
     try:
-        Nr_zamowienia = request.form.get('Nr_zamowienia')
+        # Pobieranie danych z formularza
+        nr_zamowienia = request.form.get('Nr_zamowienia')
         nr_kartonu = request.form.get('nr_kartonu')
         numer_prodio = request.form.get('prodio')
-        
         id_pianka = request.form.get('nazwa_materiału')
         id_tasma = request.form.get('nazwa_materiał')
-        imie_nazwisko = request.form.get('imie')  # nie jako int
+        imie_nazwisko = request.form.get('imie')
         pracownik = g.user.id
-        
-        # Pobierz zaznaczone materiały (checkboxy)
+
+        # Lista zaznaczonych materiałów (checkboxy)
         id_powrot_list = request.form.getlist('nazwa_materiałue')
         if not id_powrot_list:
             return render_template('zlecenie.html', error="Nie wybrano żadnych materiałów.", user=g.user)
-        liczba=0
-        tabelka=[]
-        for ilosci in id_powrot_list:
-            ilosc_key = f'ilosc_{ilosci}'
-            ilosc_str = request.form.get(ilosc_key)
-            if not ilosc_str:
+
+        liczba = 0
+        id_rozmiarow = []
+
+        # Zlicz ilość sztuk i pobierz ID rozmiarów
+        for id_powrot in id_powrot_list:
+            ilosc_str = request.form.get(f'ilosc_{id_powrot}')
+            if not ilosc_str or not ilosc_str.isdigit():
                 continue
-            try:
-                ile_sztuk = int(ilosc_str)
-            except ValueError:
-                continue
-            liczba+=ile_sztuk
-            powrot = Powrot.query.get(int(ilosci))
-            tabelka.append({powrot.id_malowania.id_ksztaltowanie_3.id_ksztaltowanie_2.id_ksztaltowanie_1.id_materialu.id_rozmiaru.id})
-        ilosc_pianki = int(request.form.get('ilosc_pianki') )
-        ilosc_tasmy = int(request.form.get('ilosc_tasmy') )
-        if ilosc_pianki==0 or ilosc_pianki is None:
-            for id_pianka in tabelka:
-                u=RozmiaryObejm.query.get(int(id_pianka)).ile_pianki
-                ilosc_pianki+=liczba*u
-        if ilosc_tasmy==0 or ilosc_tasmy is None:
-            for id_tasma in tabelka:
-                v=RozmiaryObejm.query.get(int(id_tasma)).ile_tasmy
-                ilosc_tasmy+=liczba*v
-        # Stwórz zlecenie
-        nowy_zlecenie = Zlecenie(
-            nr_zamowienia_zew=Nr_zamowienia,
+            ile_sztuk = int(ilosc_str)
+            liczba += ile_sztuk
+
+            powrot = Powrot.query.get(int(id_powrot))
+            if powrot:
+                id_rozmiaru = (
+                    powrot.malarnia.ksztaltowanie_3
+                          .ksztaltowanie_2.ksztaltowanie_1
+                          .material.rozmiar.id
+                )
+                id_rozmiarow.append(id_rozmiaru)
+
+        # Parsowanie ilości pianki i taśmy z formularza (bezpiecznie)
+        def parse_ilosc(field):
+            val = request.form.get(field)
+            return int(val) if val and val.isdigit() else 0
+
+        ilosc_pianki = parse_ilosc('ilosc_pianki')
+        ilosc_tasmy = parse_ilosc('ilosc_tasmy')
+
+        # Automatyczne wyliczenie ilości pianki/taśmy jeśli nie podano
+        if ilosc_pianki == 0:
+            for id_rozmiaru in id_rozmiarow:
+                rozmiar = RozmiaryObejm.query.get(id_rozmiaru)
+                if rozmiar:
+                    ilosc_pianki += liczba * rozmiar.ile_pianka
+
+        if ilosc_tasmy == 0:
+            for id_rozmiaru in id_rozmiarow:
+                rozmiar = RozmiaryObejm.query.get(id_rozmiaru)
+                if rozmiar:
+                    ilosc_tasmy += liczba * rozmiar.ile_tasma
+
+        # Walidacja stanów magazynowych (opcjonalna, ale zalecana)
+        pianka = Pianka.query.get(int(id_pianka)) if id_pianka else None
+        tasma = TasmaObejmy.query.get(int(id_tasma)) if id_tasma else None
+        
+        if (pianka and pianka.ilosc_na_stanie < ilosc_pianki) or \
+           (tasma and tasma.ilosc_na_stanie < ilosc_tasmy):
+            return render_template('zlecenie.html', error="Brak wystarczającej ilości materiałów na stanie.", user=g.user)
+
+        # Tworzenie zlecenia
+        nowe_zlecenie = Zlecenie(
+            nr_zamowienia_zew=nr_zamowienia,
             nr_kartonu=nr_kartonu,
             nr_prodio=numer_prodio,
             ile_pianka=ilosc_pianki,
@@ -3012,34 +3050,30 @@ def dodaj_zlecenie_do_bazy():
             id_pracownik=pracownik,
             imie_nazwisko=imie_nazwisko
         )
-        db.session.add(nowy_zlecenie)
-        db.session.flush()  # Uzyskaj ID nowego zlecenia zanim dodamy powiązania
-        tasma = TasmaObejmy.query.get(int(id_tasma))
-        pianka = Pianka.query.get(int(id_pianka))
+        db.session.add(nowe_zlecenie)
+        db.session.flush()  # Pozyskanie ID nowego zlecenia
+
+        # Aktualizacja stanów
         if tasma:
             tasma.ilosc_na_stanie -= ilosc_tasmy
             db.session.add(tasma)
         if pianka:
             pianka.ilosc_na_stanie -= ilosc_pianki
             db.session.add(pianka)
-        # Dodaj powiązania z materiałami (Laczenie)
-        for id_powrot in id_powrot_list:
-            ilosc_key = f'ilosc_{id_powrot}'
-            ilosc_str = request.form.get(ilosc_key)
-            if not ilosc_str:
-                continue
-            try:
-                ile_sztuk = int(ilosc_str)
-            except ValueError:
-                continue
 
+        # Dodanie powiązanych materiałów (Laczenie)
+        for id_powrot in id_powrot_list:
+            ilosc_str = request.form.get(f'ilosc_{id_powrot}')
+            if not ilosc_str or not ilosc_str.isdigit():
+                continue
+            ile_sztuk = int(ilosc_str)
             powrot = Powrot.query.get(int(id_powrot))
+
             if not powrot or ile_sztuk > powrot.ilosc_na_stanie:
                 continue
-            
 
             laczenie = Laczenie(
-                id_zlecenie=nowy_zlecenie.id,
+                id_zlecenie=nowe_zlecenie.id,
                 id_powrot=powrot.id,
                 ile_sztuk=ile_sztuk
             )
@@ -3056,6 +3090,7 @@ def dodaj_zlecenie_do_bazy():
         db.session.rollback()
         logger.error(f"Błąd przy dodawaniu zlecenia: {e}")
         return render_template('zlecenie.html', error="Błąd przy dodawaniu zlecenia.", user=g.user)
+
 
 
 @app.route('/update-row-zlecenie', methods=['POST'])
