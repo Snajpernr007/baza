@@ -15493,3 +15493,85 @@
 2025-07-17 14:29:42,561 - INFO - 127.0.0.1 - - [17/Jul/2025 14:29:42] "GET /static/style.css HTTP/1.1" 200 -
 2025-07-17 14:29:42,577 - INFO - 127.0.0.1 - - [17/Jul/2025 14:29:42] "GET /static/img/logo-duże.png HTTP/1.1" 200 -
 2025-07-17 14:29:42,579 - INFO - 127.0.0.1 - - [17/Jul/2025 14:29:42] "GET /static/img/maxmetal.png HTTP/1.1" 200 -
+2025-07-17 14:30:07,066 - INFO - Administrator wszedł na stronę główną.
+2025-07-17 14:30:07,067 - INFO - 127.0.0.1 - - [17/Jul/2025 14:30:07] "GET / HTTP/1.1" 200 -
+2025-07-17 14:30:07,096 - INFO - 127.0.0.1 - - [17/Jul/2025 14:30:07] "GET /static/style.css HTTP/1.1" 200 -
+2025-07-17 14:30:07,103 - INFO - 127.0.0.1 - - [17/Jul/2025 14:30:07] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-07-17 14:30:07,107 - INFO - 127.0.0.1 - - [17/Jul/2025 14:30:07] "GET /static/img/maxmetal.png HTTP/1.1" 200 -
+2025-07-17 14:30:55,786 - INFO - Administrator wszedł na stronę zlecenia.
+2025-07-17 14:30:55,793 - INFO - 127.0.0.1 - - [17/Jul/2025 14:30:55] "GET /zlecenie HTTP/1.1" 200 -
+2025-07-17 14:30:55,822 - INFO - 127.0.0.1 - - [17/Jul/2025 14:30:55] "GET /static/style.css HTTP/1.1" 200 -
+2025-07-17 14:30:55,833 - INFO - 127.0.0.1 - - [17/Jul/2025 14:30:55] "GET /static/img/logo-duże.png HTTP/1.1" 200 -
+2025-07-17 14:30:55,841 - INFO - 127.0.0.1 - - [17/Jul/2025 14:30:55] "GET /static/img/maxmetal.png HTTP/1.1" 200 -
+2025-07-17 14:30:55,851 - INFO - 127.0.0.1 - - [17/Jul/2025 14:30:55] "GET /static/img/logo-male.png HTTP/1.1" 200 -
+2025-07-17 14:30:59,620 - INFO - Administrator wszedł na stronę główną.
+2025-07-17 14:30:59,621 - INFO - 127.0.0.1 - - [17/Jul/2025 14:30:59] "GET / HTTP/1.1" 200 -
+2025-07-17 14:30:59,651 - INFO - 127.0.0.1 - - [17/Jul/2025 14:30:59] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-07-17 14:30:59,660 - INFO - 127.0.0.1 - - [17/Jul/2025 14:30:59] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-07-17 14:30:59,663 - INFO - 127.0.0.1 - - [17/Jul/2025 14:30:59] "[36mGET /static/img/maxmetal.png HTTP/1.1[0m" 304 -
+2025-07-17 14:31:00,785 - INFO - Administrator wszedł na stronę rozmiarów obejm.
+2025-07-17 14:31:00,786 - INFO - 127.0.0.1 - - [17/Jul/2025 14:31:00] "GET /rozmiary_obejm HTTP/1.1" 200 -
+2025-07-17 14:31:00,817 - INFO - 127.0.0.1 - - [17/Jul/2025 14:31:00] "GET /static/style.css HTTP/1.1" 200 -
+2025-07-17 14:31:00,830 - INFO - 127.0.0.1 - - [17/Jul/2025 14:31:00] "GET /static/img/logo-duże.png HTTP/1.1" 200 -
+2025-07-17 14:31:00,836 - INFO - 127.0.0.1 - - [17/Jul/2025 14:31:00] "GET /static/img/maxmetal.png HTTP/1.1" 200 -
+2025-07-17 14:31:00,846 - INFO - 127.0.0.1 - - [17/Jul/2025 14:31:00] "GET /static/img/logo-male.png HTTP/1.1" 200 -
+2025-07-17 14:32:12,384 - INFO - Administrator wszedł na stronę główną.
+2025-07-17 14:32:12,385 - INFO - 127.0.0.1 - - [17/Jul/2025 14:32:12] "GET / HTTP/1.1" 200 -
+2025-07-17 14:32:12,410 - INFO - 127.0.0.1 - - [17/Jul/2025 14:32:12] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-07-17 14:32:12,417 - INFO - 127.0.0.1 - - [17/Jul/2025 14:32:12] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-07-17 14:32:12,422 - INFO - 127.0.0.1 - - [17/Jul/2025 14:32:12] "[36mGET /static/img/maxmetal.png HTTP/1.1[0m" 304 -
+2025-07-17 14:32:14,235 - INFO - Administrator wszedł na stronę uprawnień.
+2025-07-17 14:32:14,314 - INFO - 127.0.0.1 - - [17/Jul/2025 14:32:14] "GET /uprawnienia HTTP/1.1" 200 -
+2025-07-17 14:32:14,341 - INFO - 127.0.0.1 - - [17/Jul/2025 14:32:14] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-07-17 14:32:14,347 - INFO - 127.0.0.1 - - [17/Jul/2025 14:32:14] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-07-17 14:32:14,353 - INFO - 127.0.0.1 - - [17/Jul/2025 14:32:14] "[36mGET /static/img/maxmetal.png HTTP/1.1[0m" 304 -
+2025-07-17 14:32:15,194 - INFO - Administrator wszedł na stronę główną.
+2025-07-17 14:32:15,195 - INFO - 127.0.0.1 - - [17/Jul/2025 14:32:15] "GET / HTTP/1.1" 200 -
+2025-07-17 14:32:15,227 - INFO - 127.0.0.1 - - [17/Jul/2025 14:32:15] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-07-17 14:32:15,234 - INFO - 127.0.0.1 - - [17/Jul/2025 14:32:15] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-07-17 14:32:15,241 - INFO - 127.0.0.1 - - [17/Jul/2025 14:32:15] "[36mGET /static/img/maxmetal.png HTTP/1.1[0m" 304 -
+2025-07-17 14:39:24,132 - INFO - Administrator wszedł na stronę zlecenia.
+2025-07-17 14:39:24,137 - INFO - 127.0.0.1 - - [17/Jul/2025 14:39:24] "GET /zlecenie HTTP/1.1" 200 -
+2025-07-17 14:39:24,174 - INFO - 127.0.0.1 - - [17/Jul/2025 14:39:24] "GET /static/style.css HTTP/1.1" 200 -
+2025-07-17 14:39:24,193 - INFO - 127.0.0.1 - - [17/Jul/2025 14:39:24] "GET /static/img/logo-duże.png HTTP/1.1" 200 -
+2025-07-17 14:39:24,196 - INFO - 127.0.0.1 - - [17/Jul/2025 14:39:24] "GET /static/img/maxmetal.png HTTP/1.1" 200 -
+2025-07-17 14:39:24,207 - INFO - 127.0.0.1 - - [17/Jul/2025 14:39:24] "GET /static/img/logo-male.png HTTP/1.1" 200 -
+2025-07-17 14:39:26,274 - INFO - Administrator wszedł na stronę główną.
+2025-07-17 14:39:26,275 - INFO - 127.0.0.1 - - [17/Jul/2025 14:39:26] "GET / HTTP/1.1" 200 -
+2025-07-17 14:39:26,303 - INFO - 127.0.0.1 - - [17/Jul/2025 14:39:26] "GET /static/style.css HTTP/1.1" 200 -
+2025-07-17 14:39:26,312 - INFO - 127.0.0.1 - - [17/Jul/2025 14:39:26] "GET /static/img/logo-duże.png HTTP/1.1" 200 -
+2025-07-17 14:39:26,314 - INFO - 127.0.0.1 - - [17/Jul/2025 14:39:26] "GET /static/img/maxmetal.png HTTP/1.1" 200 -
+2025-07-17 14:39:34,306 - INFO - Administrator wszedł na stronę zlecenia.
+2025-07-17 14:39:34,313 - INFO - 127.0.0.1 - - [17/Jul/2025 14:39:34] "GET /zlecenie HTTP/1.1" 200 -
+2025-07-17 14:39:34,341 - INFO - 127.0.0.1 - - [17/Jul/2025 14:39:34] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-07-17 14:39:34,356 - INFO - 127.0.0.1 - - [17/Jul/2025 14:39:34] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-07-17 14:39:34,367 - INFO - 127.0.0.1 - - [17/Jul/2025 14:39:34] "[36mGET /static/img/maxmetal.png HTTP/1.1[0m" 304 -
+2025-07-17 14:39:35,627 - INFO - Administrator wszedł na stronę główną.
+2025-07-17 14:39:35,628 - INFO - 127.0.0.1 - - [17/Jul/2025 14:39:35] "GET / HTTP/1.1" 200 -
+2025-07-17 14:39:35,658 - INFO - 127.0.0.1 - - [17/Jul/2025 14:39:35] "GET /static/style.css HTTP/1.1" 200 -
+2025-07-17 14:39:35,665 - INFO - 127.0.0.1 - - [17/Jul/2025 14:39:35] "GET /static/img/logo-duże.png HTTP/1.1" 200 -
+2025-07-17 14:39:35,672 - INFO - 127.0.0.1 - - [17/Jul/2025 14:39:35] "GET /static/img/maxmetal.png HTTP/1.1" 200 -
+2025-07-17 14:51:06,201 - INFO - 127.0.0.1 - - [17/Jul/2025 14:51:06] "[35m[1mGET /zlecenie HTTP/1.1[0m" 500 -
+2025-07-17 14:51:06,237 - INFO - 127.0.0.1 - - [17/Jul/2025 14:51:06] "GET /zlecenie?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1" 200 -
+2025-07-17 14:51:06,242 - INFO - 127.0.0.1 - - [17/Jul/2025 14:51:06] "GET /zlecenie?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1" 200 -
+2025-07-17 14:51:06,277 - INFO - 127.0.0.1 - - [17/Jul/2025 14:51:06] "GET /zlecenie?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+2025-07-17 14:51:06,321 - INFO - 127.0.0.1 - - [17/Jul/2025 14:51:06] "GET /zlecenie?__debugger__=yes&cmd=resource&f=console.png&s=aeJTmJGDGAbTE0yml2Ub HTTP/1.1" 200 -
+2025-07-17 14:51:08,663 - INFO - 127.0.0.1 - - [17/Jul/2025 14:51:08] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-07-17 14:54:07,993 - INFO - Połączenie z bazą danych zostało nawiązane pomyślnie.
+2025-07-17 14:54:08,140 - INFO - ✅ Kopia zapasowa zapisana do pliku: backups\kopie_zapasowe_bazy_2025-07-17_14-54.sql
+2025-07-17 14:54:08,143 - INFO - 🗑️ Usunięto starą kopię: kopie_zapasowe_bazy_2025-07-17_13-44.sql
+2025-07-17 14:54:08,150 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.1.80:5000
+2025-07-17 14:54:08,150 - INFO - [33mPress CTRL+C to quit[0m
+2025-07-17 14:54:08,152 - INFO -  * Restarting with stat
+2025-07-17 14:54:11,026 - INFO - Połączenie z bazą danych zostało nawiązane pomyślnie.
+2025-07-17 14:54:11,154 - INFO - ✅ Kopia zapasowa zapisana do pliku: backups\kopie_zapasowe_bazy_2025-07-17_14-54.sql
+2025-07-17 14:54:11,161 - WARNING -  * Debugger is active!
+2025-07-17 14:54:11,166 - INFO -  * Debugger PIN: 268-383-297
+2025-07-17 14:54:12,880 - INFO - Administrator wszedł na stronę zlecenia.
+2025-07-17 14:54:13,011 - INFO - 127.0.0.1 - - [17/Jul/2025 14:54:13] "GET /zlecenie HTTP/1.1" 200 -
+2025-07-17 14:54:13,043 - INFO - 127.0.0.1 - - [17/Jul/2025 14:54:13] "GET /static/style.css HTTP/1.1" 200 -
+2025-07-17 14:54:13,056 - INFO - 127.0.0.1 - - [17/Jul/2025 14:54:13] "GET /static/img/logo-duże.png HTTP/1.1" 200 -
+2025-07-17 14:54:13,063 - INFO - 127.0.0.1 - - [17/Jul/2025 14:54:13] "GET /static/img/maxmetal.png HTTP/1.1" 200 -

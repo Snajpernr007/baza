@@ -311,23 +311,53 @@ class Powrot(db.Model):
         return f"<Powrot {self.id} - {self.nr_prodio}>"
 
 
+class Pianka(db.Model):
+    __tablename__ = 'pianka'
+    id = db.Column(db.Integer, primary_key=True, autoincrement=True)
+    nazwa = db.Column(db.String(100), nullable=False)
+    ilosc = db.Column(db.Integer, default=0)
+    ilosc_na_stanie = db.Column(db.Integer, default=0)
+
+    def __repr__(self):
+        return f"<Pianka {self.nazwa}>"
+
+
+class TasmaObejmy(db.Model):
+    __tablename__ = 'tasma_obejmy'
+    id = db.Column(db.Integer, primary_key=True, autoincrement=True)
+    nazwa = db.Column(db.String(100), nullable=False)
+    ilosc = db.Column(db.Integer, default=0)
+    ilosc_na_stanie = db.Column(db.Integer, default=0)
+
+    def __repr__(self):
+        return f"<TasmaObejmy {self.nazwa}>"
+
+
 class Zlecenie(db.Model):
     __tablename__ = 'zlecenie'
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)
     nr_zamowienia_zew = db.Column(db.String(100))
     nr_prodio = db.Column(db.String(100))
-    ile_pianki = db.Column(db.Integer)
-    seria_tasmy = db.Column(db.String(100))
+    
+    id_pianka = db.Column(db.Integer, db.ForeignKey('pianka.id'), nullable=True)
+    pianka = db.relationship('Pianka', backref='zlecenia')
+    
+    ile_pianki = db.Column(db.Integer)  # <-- dodane pole ile_pianki
+    
+    id_tasma = db.Column(db.Integer, db.ForeignKey('tasma_obejmy.id'), nullable=True)
+    tasma = db.relationship('TasmaObejmy', backref='zlecenia')
+    
     ile_tasmy = db.Column(db.Integer)
     nr_kartonu = db.Column(db.String(100))
     id_pracownik = db.Column(db.Integer, db.ForeignKey('uzytkownicy.id'))
     imie_nazwisko = db.Column(db.String(255))
-
+    
     pracownik = db.relationship('Uzytkownik')
     laczenie = db.relationship('Laczenie', back_populates='zlecenie', cascade="all, delete-orphan")
 
     def __repr__(self):
         return f"<Zlecenie {self.id} - {self.nr_prodio}>"
+
 
 
 class Laczenie(db.Model):
