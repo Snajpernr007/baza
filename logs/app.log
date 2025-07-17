@@ -21982,3 +21982,5 @@
 2025-07-17 18:56:53,201 - INFO - 192.168.1.13 - - [17/Jul/2025 18:56:53] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
 2025-07-17 18:56:53,201 - INFO - 192.168.1.13 - - [17/Jul/2025 18:56:53] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
 2025-07-17 18:56:53,211 - INFO - 192.168.1.13 - - [17/Jul/2025 18:56:53] "[36mGET /static/img/maxmetal.png HTTP/1.1[0m" 304 -
+2025-07-17 19:00:19,271 - INFO -  * Detected change in 'C:\\Users\\Windows\\Desktop\\baza\\baza danych maxmetal\\python\\index.py', reloading
+2025-07-17 19:00:28,008 - INFO -  * Restarting with stat
