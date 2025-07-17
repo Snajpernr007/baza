@@ -15922,3 +15922,264 @@
 2025-07-17 16:45:21,433 - INFO - 127.0.0.1 - - [17/Jul/2025 16:45:21] "GET /dodaj_tasma_do_bazy?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1" 200 -
 2025-07-17 16:45:21,450 - INFO - 127.0.0.1 - - [17/Jul/2025 16:45:21] "GET /dodaj_tasma_do_bazy?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
 2025-07-17 16:45:21,452 - INFO - 127.0.0.1 - - [17/Jul/2025 16:45:21] "GET /dodaj_tasma_do_bazy?__debugger__=yes&cmd=resource&f=console.png&s=Wqt3vYHFveLe5cyPbYhd HTTP/1.1" 200 -
+2025-07-17 16:46:28,673 - INFO - Połączenie z bazą danych zostało nawiązane pomyślnie.
+2025-07-17 16:46:28,809 - INFO - ✅ Kopia zapasowa zapisana do pliku: backups\kopie_zapasowe_bazy_2025-07-17_16-46.sql
+2025-07-17 16:46:28,812 - INFO - 🗑️ Usunięto starą kopię: kopie_zapasowe_bazy_2025-07-17_15-42.sql
+2025-07-17 16:46:28,828 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.1.80:5000
+2025-07-17 16:46:28,828 - INFO - [33mPress CTRL+C to quit[0m
+2025-07-17 16:46:28,830 - INFO -  * Restarting with stat
+2025-07-17 16:46:31,567 - INFO - Połączenie z bazą danych zostało nawiązane pomyślnie.
+2025-07-17 16:46:31,702 - INFO - ✅ Kopia zapasowa zapisana do pliku: backups\kopie_zapasowe_bazy_2025-07-17_16-46.sql
+2025-07-17 16:46:31,712 - WARNING -  * Debugger is active!
+2025-07-17 16:46:31,720 - INFO -  * Debugger PIN: 268-383-297
+2025-07-17 16:47:13,744 - INFO - Administrator wszedł na stronę dodawania zlecenia (taśma obejma).
+2025-07-17 16:47:13,837 - INFO - 127.0.0.1 - - [17/Jul/2025 16:47:13] "GET /tasma_obejma HTTP/1.1" 200 -
+2025-07-17 16:47:13,883 - INFO - 127.0.0.1 - - [17/Jul/2025 16:47:13] "GET /static/style.css HTTP/1.1" 200 -
+2025-07-17 16:47:13,901 - INFO - 127.0.0.1 - - [17/Jul/2025 16:47:13] "GET /static/img/logo-duże.png HTTP/1.1" 200 -
+2025-07-17 16:47:13,921 - INFO - 127.0.0.1 - - [17/Jul/2025 16:47:13] "GET /static/img/maxmetal.png HTTP/1.1" 200 -
+2025-07-17 16:47:15,331 - INFO - Administrator wszedł na stronę dodawania taśmy obejmy.
+2025-07-17 16:47:15,335 - INFO - 127.0.0.1 - - [17/Jul/2025 16:47:15] "GET /dodaj_tasma_obejma HTTP/1.1" 200 -
+2025-07-17 16:47:15,361 - INFO - 127.0.0.1 - - [17/Jul/2025 16:47:15] "GET /static/style.css HTTP/1.1" 200 -
+2025-07-17 16:47:15,377 - INFO - 127.0.0.1 - - [17/Jul/2025 16:47:15] "GET /static/img/logo-duże.png HTTP/1.1" 200 -
+2025-07-17 16:47:17,913 - INFO - 127.0.0.1 - - [17/Jul/2025 16:47:17] "[35m[1mPOST /dodaj_tasma_do_bazy HTTP/1.1[0m" 500 -
+2025-07-17 16:47:17,939 - INFO - 127.0.0.1 - - [17/Jul/2025 16:47:17] "[36mGET /dodaj_tasma_do_bazy?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+2025-07-17 16:47:17,941 - INFO - 127.0.0.1 - - [17/Jul/2025 16:47:17] "[36mGET /dodaj_tasma_do_bazy?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+2025-07-17 16:47:17,954 - INFO - 127.0.0.1 - - [17/Jul/2025 16:47:17] "GET /dodaj_tasma_do_bazy?__debugger__=yes&cmd=resource&f=console.png&s=sJd2mmDUYFfikDBRoC02 HTTP/1.1" 200 -
+2025-07-17 16:48:37,333 - INFO - Administrator wszedł na stronę główną.
+2025-07-17 16:48:37,502 - INFO - 127.0.0.1 - - [17/Jul/2025 16:48:37] "GET / HTTP/1.1" 200 -
+2025-07-17 16:48:37,554 - INFO - 127.0.0.1 - - [17/Jul/2025 16:48:37] "GET /static/style.css HTTP/1.1" 200 -
+2025-07-17 16:48:37,560 - INFO - 127.0.0.1 - - [17/Jul/2025 16:48:37] "GET /static/img/logo-duże.png HTTP/1.1" 200 -
+2025-07-17 16:48:37,587 - INFO - 127.0.0.1 - - [17/Jul/2025 16:48:37] "GET /static/img/maxmetal.png HTTP/1.1" 200 -
+2025-07-17 16:48:38,529 - INFO - Administrator wszedł na stronę dodawania zlecenia (pianka obejma).
+2025-07-17 16:48:38,615 - INFO - 127.0.0.1 - - [17/Jul/2025 16:48:38] "GET /pianka_obejma HTTP/1.1" 200 -
+2025-07-17 16:48:38,660 - INFO - 127.0.0.1 - - [17/Jul/2025 16:48:38] "GET /static/style.css HTTP/1.1" 200 -
+2025-07-17 16:48:38,679 - INFO - 127.0.0.1 - - [17/Jul/2025 16:48:38] "GET /static/img/logo-duże.png HTTP/1.1" 200 -
+2025-07-17 16:48:38,707 - INFO - 127.0.0.1 - - [17/Jul/2025 16:48:38] "GET /static/img/maxmetal.png HTTP/1.1" 200 -
+2025-07-17 16:48:38,759 - INFO - 127.0.0.1 - - [17/Jul/2025 16:48:38] "GET /static/img/logo-male.png HTTP/1.1" 200 -
+2025-07-17 16:48:39,354 - INFO - Administrator wszedł na stronę dodawania pianki obejmy.
+2025-07-17 16:48:39,358 - INFO - 127.0.0.1 - - [17/Jul/2025 16:48:39] "GET /dodaj_pianka_obejma HTTP/1.1" 200 -
+2025-07-17 16:48:39,396 - INFO - 127.0.0.1 - - [17/Jul/2025 16:48:39] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-07-17 16:48:39,411 - INFO - 127.0.0.1 - - [17/Jul/2025 16:48:39] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-07-17 16:48:45,612 - INFO - 127.0.0.1 - - [17/Jul/2025 16:48:45] "[35m[1mPOST /dodaj_tasma_do_bazy HTTP/1.1[0m" 500 -
+2025-07-17 16:48:45,640 - INFO - 127.0.0.1 - - [17/Jul/2025 16:48:45] "[36mGET /dodaj_tasma_do_bazy?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+2025-07-17 16:48:45,642 - INFO - 127.0.0.1 - - [17/Jul/2025 16:48:45] "[36mGET /dodaj_tasma_do_bazy?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+2025-07-17 16:48:45,658 - INFO - 127.0.0.1 - - [17/Jul/2025 16:48:45] "[36mGET /dodaj_tasma_do_bazy?__debugger__=yes&cmd=resource&f=console.png&s=sJd2mmDUYFfikDBRoC02 HTTP/1.1[0m" 304 -
+2025-07-17 16:49:52,785 - INFO - 127.0.0.1 - - [17/Jul/2025 16:49:52] "[35m[1mPOST /dodaj_tasma_do_bazy HTTP/1.1[0m" 500 -
+2025-07-17 16:49:52,814 - INFO - 127.0.0.1 - - [17/Jul/2025 16:49:52] "GET /dodaj_tasma_do_bazy?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1" 200 -
+2025-07-17 16:49:52,817 - INFO - 127.0.0.1 - - [17/Jul/2025 16:49:52] "GET /dodaj_tasma_do_bazy?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1" 200 -
+2025-07-17 16:49:52,830 - INFO - 127.0.0.1 - - [17/Jul/2025 16:49:52] "GET /dodaj_tasma_do_bazy?__debugger__=yes&cmd=resource&f=console.png&s=sJd2mmDUYFfikDBRoC02 HTTP/1.1" 200 -
+2025-07-17 16:49:55,423 - INFO - 127.0.0.1 - - [17/Jul/2025 16:49:55] "[35m[1mPOST /dodaj_tasma_do_bazy HTTP/1.1[0m" 500 -
+2025-07-17 16:49:55,447 - INFO - 127.0.0.1 - - [17/Jul/2025 16:49:55] "[36mGET /dodaj_tasma_do_bazy?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+2025-07-17 16:49:55,453 - INFO - 127.0.0.1 - - [17/Jul/2025 16:49:55] "[36mGET /dodaj_tasma_do_bazy?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+2025-07-17 16:49:55,463 - INFO - 127.0.0.1 - - [17/Jul/2025 16:49:55] "[36mGET /dodaj_tasma_do_bazy?__debugger__=yes&cmd=resource&f=console.png&s=sJd2mmDUYFfikDBRoC02 HTTP/1.1[0m" 304 -
+2025-07-17 16:50:00,799 - INFO - Administrator wszedł na stronę dodawania pianki obejmy.
+2025-07-17 16:50:00,837 - INFO - 127.0.0.1 - - [17/Jul/2025 16:50:00] "[35m[1mGET /dodaj_pianka_obejma HTTP/1.1[0m" 500 -
+2025-07-17 16:50:00,864 - INFO - 127.0.0.1 - - [17/Jul/2025 16:50:00] "GET /dodaj_pianka_obejma?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1" 200 -
+2025-07-17 16:50:00,865 - INFO - 127.0.0.1 - - [17/Jul/2025 16:50:00] "GET /dodaj_pianka_obejma?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1" 200 -
+2025-07-17 16:50:00,879 - INFO - 127.0.0.1 - - [17/Jul/2025 16:50:00] "GET /dodaj_pianka_obejma?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+2025-07-17 16:50:00,885 - INFO - 127.0.0.1 - - [17/Jul/2025 16:50:00] "GET /dodaj_pianka_obejma?__debugger__=yes&cmd=resource&f=console.png&s=sJd2mmDUYFfikDBRoC02 HTTP/1.1" 200 -
+2025-07-17 16:50:16,686 - INFO - Administrator wszedł na stronę główną.
+2025-07-17 16:50:16,687 - INFO - 127.0.0.1 - - [17/Jul/2025 16:50:16] "GET / HTTP/1.1" 200 -
+2025-07-17 16:50:16,720 - INFO - 127.0.0.1 - - [17/Jul/2025 16:50:16] "GET /static/style.css HTTP/1.1" 200 -
+2025-07-17 16:50:16,728 - INFO - 127.0.0.1 - - [17/Jul/2025 16:50:16] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-07-17 16:50:16,733 - INFO - 127.0.0.1 - - [17/Jul/2025 16:50:16] "GET /static/img/maxmetal.png HTTP/1.1" 200 -
+2025-07-17 16:50:17,568 - INFO - Administrator wszedł na stronę dodawania zlecenia (taśma obejma).
+2025-07-17 16:50:17,569 - INFO - 127.0.0.1 - - [17/Jul/2025 16:50:17] "GET /tasma_obejma HTTP/1.1" 200 -
+2025-07-17 16:50:17,620 - INFO - 127.0.0.1 - - [17/Jul/2025 16:50:17] "GET /static/style.css HTTP/1.1" 200 -
+2025-07-17 16:50:17,642 - INFO - 127.0.0.1 - - [17/Jul/2025 16:50:17] "GET /static/img/logo-duże.png HTTP/1.1" 200 -
+2025-07-17 16:50:17,656 - INFO - 127.0.0.1 - - [17/Jul/2025 16:50:17] "GET /static/img/maxmetal.png HTTP/1.1" 200 -
+2025-07-17 16:50:17,684 - INFO - 127.0.0.1 - - [17/Jul/2025 16:50:17] "GET /static/img/logo-male.png HTTP/1.1" 200 -
+2025-07-17 16:50:18,804 - INFO - Administrator wszedł na stronę dodawania taśmy obejmy.
+2025-07-17 16:50:18,837 - INFO - 127.0.0.1 - - [17/Jul/2025 16:50:18] "[35m[1mGET /dodaj_tasma_obejma HTTP/1.1[0m" 500 -
+2025-07-17 16:50:18,863 - INFO - 127.0.0.1 - - [17/Jul/2025 16:50:18] "GET /dodaj_tasma_obejma?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1" 200 -
+2025-07-17 16:50:18,865 - INFO - 127.0.0.1 - - [17/Jul/2025 16:50:18] "GET /dodaj_tasma_obejma?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1" 200 -
+2025-07-17 16:50:18,881 - INFO - 127.0.0.1 - - [17/Jul/2025 16:50:18] "GET /dodaj_tasma_obejma?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+2025-07-17 16:50:18,887 - INFO - 127.0.0.1 - - [17/Jul/2025 16:50:18] "GET /dodaj_tasma_obejma?__debugger__=yes&cmd=resource&f=console.png&s=sJd2mmDUYFfikDBRoC02 HTTP/1.1" 200 -
+2025-07-17 16:50:39,501 - INFO - Administrator wszedł na stronę dodawania taśmy obejmy.
+2025-07-17 16:50:39,505 - INFO - 127.0.0.1 - - [17/Jul/2025 16:50:39] "GET /dodaj_tasma_obejma HTTP/1.1" 200 -
+2025-07-17 16:50:39,534 - INFO - 127.0.0.1 - - [17/Jul/2025 16:50:39] "GET /static/style.css HTTP/1.1" 200 -
+2025-07-17 16:50:39,549 - INFO - 127.0.0.1 - - [17/Jul/2025 16:50:39] "GET /static/img/logo-duże.png HTTP/1.1" 200 -
+2025-07-17 16:50:41,931 - INFO - Taśma obejmy '6' została dodana przez Administrator.
+2025-07-17 16:50:41,932 - INFO - 127.0.0.1 - - [17/Jul/2025 16:50:41] "[32mPOST /dodaj_tasma_obejmy_do_bazy HTTP/1.1[0m" 302 -
+2025-07-17 16:50:41,940 - INFO - Administrator wszedł na stronę dodawania zlecenia (taśma obejma).
+2025-07-17 16:50:41,942 - INFO - 127.0.0.1 - - [17/Jul/2025 16:50:41] "GET /tasma_obejma HTTP/1.1" 200 -
+2025-07-17 16:50:41,972 - INFO - 127.0.0.1 - - [17/Jul/2025 16:50:41] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-07-17 16:50:41,983 - INFO - 127.0.0.1 - - [17/Jul/2025 16:50:41] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-07-17 16:50:41,989 - INFO - 127.0.0.1 - - [17/Jul/2025 16:50:41] "[36mGET /static/img/maxmetal.png HTTP/1.1[0m" 304 -
+2025-07-17 16:50:41,996 - INFO - 127.0.0.1 - - [17/Jul/2025 16:50:41] "[36mGET /static/img/logo-male.png HTTP/1.1[0m" 304 -
+2025-07-17 16:51:14,407 - INFO - Administrator wszedł na stronę główną.
+2025-07-17 16:51:14,409 - INFO - 127.0.0.1 - - [17/Jul/2025 16:51:14] "GET / HTTP/1.1" 200 -
+2025-07-17 16:51:14,431 - INFO - 127.0.0.1 - - [17/Jul/2025 16:51:14] "GET /static/style.css HTTP/1.1" 200 -
+2025-07-17 16:51:14,442 - INFO - 127.0.0.1 - - [17/Jul/2025 16:51:14] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-07-17 16:51:14,449 - INFO - 127.0.0.1 - - [17/Jul/2025 16:51:14] "GET /static/img/maxmetal.png HTTP/1.1" 200 -
+2025-07-17 16:51:14,459 - INFO - 127.0.0.1 - - [17/Jul/2025 16:51:14] "GET /static/img/logo-male.png HTTP/1.1" 200 -
+2025-07-17 16:51:15,419 - INFO - Administrator wszedł na stronę dodawania zlecenia (taśma obejma).
+2025-07-17 16:51:15,420 - INFO - 127.0.0.1 - - [17/Jul/2025 16:51:15] "GET /tasma_obejma HTTP/1.1" 200 -
+2025-07-17 16:51:15,447 - INFO - 127.0.0.1 - - [17/Jul/2025 16:51:15] "GET /static/style.css HTTP/1.1" 200 -
+2025-07-17 16:51:15,460 - INFO - 127.0.0.1 - - [17/Jul/2025 16:51:15] "GET /static/img/logo-duże.png HTTP/1.1" 200 -
+2025-07-17 16:51:15,469 - INFO - 127.0.0.1 - - [17/Jul/2025 16:51:15] "GET /static/img/maxmetal.png HTTP/1.1" 200 -
+2025-07-17 16:51:18,427 - INFO - Administrator wszedł na stronę główną.
+2025-07-17 16:51:18,429 - INFO - 127.0.0.1 - - [17/Jul/2025 16:51:18] "GET / HTTP/1.1" 200 -
+2025-07-17 16:51:18,452 - INFO - 127.0.0.1 - - [17/Jul/2025 16:51:18] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-07-17 16:51:18,459 - INFO - 127.0.0.1 - - [17/Jul/2025 16:51:18] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-07-17 16:51:18,463 - INFO - 127.0.0.1 - - [17/Jul/2025 16:51:18] "[36mGET /static/img/maxmetal.png HTTP/1.1[0m" 304 -
+2025-07-17 16:51:19,344 - INFO - Administrator wszedł na stronę dodawania zlecenia (pianka obejma).
+2025-07-17 16:51:19,345 - INFO - 127.0.0.1 - - [17/Jul/2025 16:51:19] "GET /pianka_obejma HTTP/1.1" 200 -
+2025-07-17 16:51:19,371 - INFO - 127.0.0.1 - - [17/Jul/2025 16:51:19] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-07-17 16:51:19,383 - INFO - 127.0.0.1 - - [17/Jul/2025 16:51:19] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-07-17 16:51:19,393 - INFO - 127.0.0.1 - - [17/Jul/2025 16:51:19] "[36mGET /static/img/maxmetal.png HTTP/1.1[0m" 304 -
+2025-07-17 16:51:20,494 - INFO - Administrator wszedł na stronę główną.
+2025-07-17 16:51:20,495 - INFO - 127.0.0.1 - - [17/Jul/2025 16:51:20] "GET / HTTP/1.1" 200 -
+2025-07-17 16:51:20,523 - INFO - 127.0.0.1 - - [17/Jul/2025 16:51:20] "GET /static/style.css HTTP/1.1" 200 -
+2025-07-17 16:51:20,529 - INFO - 127.0.0.1 - - [17/Jul/2025 16:51:20] "GET /static/img/logo-duże.png HTTP/1.1" 200 -
+2025-07-17 16:51:20,536 - INFO - 127.0.0.1 - - [17/Jul/2025 16:51:20] "GET /static/img/maxmetal.png HTTP/1.1" 200 -
+2025-07-17 16:51:21,397 - INFO - Administrator wszedł na stronę dodawania zlecenia (taśma obejma).
+2025-07-17 16:51:21,398 - INFO - 127.0.0.1 - - [17/Jul/2025 16:51:21] "GET /tasma_obejma HTTP/1.1" 200 -
+2025-07-17 16:51:21,426 - INFO - 127.0.0.1 - - [17/Jul/2025 16:51:21] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-07-17 16:51:21,442 - INFO - 127.0.0.1 - - [17/Jul/2025 16:51:21] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-07-17 16:51:21,453 - INFO - 127.0.0.1 - - [17/Jul/2025 16:51:21] "[36mGET /static/img/maxmetal.png HTTP/1.1[0m" 304 -
+2025-07-17 16:51:24,165 - INFO - Administrator wszedł na stronę dodawania taśmy obejmy.
+2025-07-17 16:51:24,166 - INFO - 127.0.0.1 - - [17/Jul/2025 16:51:24] "GET /dodaj_tasma_obejma HTTP/1.1" 200 -
+2025-07-17 16:51:24,192 - INFO - 127.0.0.1 - - [17/Jul/2025 16:51:24] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-07-17 16:51:24,207 - INFO - 127.0.0.1 - - [17/Jul/2025 16:51:24] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-07-17 16:51:27,124 - INFO - Taśma obejmy '432' została dodana przez Administrator.
+2025-07-17 16:51:27,125 - INFO - 127.0.0.1 - - [17/Jul/2025 16:51:27] "[32mPOST /dodaj_tasma_obejmy_do_bazy HTTP/1.1[0m" 302 -
+2025-07-17 16:51:27,132 - INFO - Administrator wszedł na stronę dodawania zlecenia (taśma obejma).
+2025-07-17 16:51:27,134 - INFO - 127.0.0.1 - - [17/Jul/2025 16:51:27] "GET /tasma_obejma HTTP/1.1" 200 -
+2025-07-17 16:51:27,156 - INFO - 127.0.0.1 - - [17/Jul/2025 16:51:27] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-07-17 16:51:27,167 - INFO - 127.0.0.1 - - [17/Jul/2025 16:51:27] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-07-17 16:51:27,178 - INFO - 127.0.0.1 - - [17/Jul/2025 16:51:27] "[36mGET /static/img/logo-male.png HTTP/1.1[0m" 304 -
+2025-07-17 16:51:27,179 - INFO - 127.0.0.1 - - [17/Jul/2025 16:51:27] "[36mGET /static/img/maxmetal.png HTTP/1.1[0m" 304 -
+2025-07-17 16:51:35,581 - INFO - Administrator wszedł na stronę główną.
+2025-07-17 16:51:35,582 - INFO - 127.0.0.1 - - [17/Jul/2025 16:51:35] "GET / HTTP/1.1" 200 -
+2025-07-17 16:51:35,607 - INFO - 127.0.0.1 - - [17/Jul/2025 16:51:35] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-07-17 16:51:35,614 - INFO - 127.0.0.1 - - [17/Jul/2025 16:51:35] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-07-17 16:51:35,624 - INFO - 127.0.0.1 - - [17/Jul/2025 16:51:35] "[36mGET /static/img/maxmetal.png HTTP/1.1[0m" 304 -
+2025-07-17 16:51:37,135 - INFO - Administrator wszedł na stronę rozmiarów obejm.
+2025-07-17 16:51:37,211 - INFO - 127.0.0.1 - - [17/Jul/2025 16:51:37] "GET /rozmiary_obejm HTTP/1.1" 200 -
+2025-07-17 16:51:37,237 - INFO - 127.0.0.1 - - [17/Jul/2025 16:51:37] "GET /static/style.css HTTP/1.1" 200 -
+2025-07-17 16:51:37,246 - INFO - 127.0.0.1 - - [17/Jul/2025 16:51:37] "GET /static/img/logo-duże.png HTTP/1.1" 200 -
+2025-07-17 16:51:37,256 - INFO - 127.0.0.1 - - [17/Jul/2025 16:51:37] "GET /static/img/maxmetal.png HTTP/1.1" 200 -
+2025-07-17 16:51:40,879 - INFO - Administrator wszedł na stronę główną.
+2025-07-17 16:51:40,880 - INFO - 127.0.0.1 - - [17/Jul/2025 16:51:40] "GET / HTTP/1.1" 200 -
+2025-07-17 16:51:40,908 - INFO - 127.0.0.1 - - [17/Jul/2025 16:51:40] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-07-17 16:51:40,914 - INFO - 127.0.0.1 - - [17/Jul/2025 16:51:40] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-07-17 16:51:40,920 - INFO - 127.0.0.1 - - [17/Jul/2025 16:51:40] "[36mGET /static/img/maxmetal.png HTTP/1.1[0m" 304 -
+2025-07-17 16:51:42,070 - INFO - Administrator wszedł na stronę dodawania zlecenia (taśma obejma).
+2025-07-17 16:51:42,071 - INFO - 127.0.0.1 - - [17/Jul/2025 16:51:42] "GET /tasma_obejma HTTP/1.1" 200 -
+2025-07-17 16:51:42,096 - INFO - 127.0.0.1 - - [17/Jul/2025 16:51:42] "GET /static/style.css HTTP/1.1" 200 -
+2025-07-17 16:51:42,107 - INFO - 127.0.0.1 - - [17/Jul/2025 16:51:42] "GET /static/img/logo-duże.png HTTP/1.1" 200 -
+2025-07-17 16:51:42,115 - INFO - 127.0.0.1 - - [17/Jul/2025 16:51:42] "GET /static/img/maxmetal.png HTTP/1.1" 200 -
+2025-07-17 16:52:26,196 - INFO - Administrator wszedł na stronę główną.
+2025-07-17 16:52:26,198 - INFO - 127.0.0.1 - - [17/Jul/2025 16:52:26] "GET / HTTP/1.1" 200 -
+2025-07-17 16:52:26,226 - INFO - 127.0.0.1 - - [17/Jul/2025 16:52:26] "GET /static/style.css HTTP/1.1" 200 -
+2025-07-17 16:52:26,233 - INFO - 127.0.0.1 - - [17/Jul/2025 16:52:26] "GET /static/img/logo-duże.png HTTP/1.1" 200 -
+2025-07-17 16:52:26,242 - INFO - 127.0.0.1 - - [17/Jul/2025 16:52:26] "GET /static/img/maxmetal.png HTTP/1.1" 200 -
+2025-07-17 16:52:27,764 - INFO - Administrator wszedł na stronę dodawania zlecenia (pianka obejma).
+2025-07-17 16:52:27,765 - INFO - 127.0.0.1 - - [17/Jul/2025 16:52:27] "GET /pianka_obejma HTTP/1.1" 200 -
+2025-07-17 16:52:27,793 - INFO - 127.0.0.1 - - [17/Jul/2025 16:52:27] "GET /static/style.css HTTP/1.1" 200 -
+2025-07-17 16:52:27,804 - INFO - 127.0.0.1 - - [17/Jul/2025 16:52:27] "GET /static/img/logo-duże.png HTTP/1.1" 200 -
+2025-07-17 16:52:27,814 - INFO - 127.0.0.1 - - [17/Jul/2025 16:52:27] "GET /static/img/maxmetal.png HTTP/1.1" 200 -
+2025-07-17 16:52:28,952 - INFO - Administrator wszedł na stronę dodawania pianki obejmy.
+2025-07-17 16:52:28,956 - INFO - 127.0.0.1 - - [17/Jul/2025 16:52:28] "GET /dodaj_pianka_obejma HTTP/1.1" 200 -
+2025-07-17 16:52:28,983 - INFO - 127.0.0.1 - - [17/Jul/2025 16:52:28] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-07-17 16:52:28,998 - INFO - 127.0.0.1 - - [17/Jul/2025 16:52:28] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-07-17 16:53:55,267 - INFO - Administrator wszedł na stronę główną.
+2025-07-17 16:53:55,269 - INFO - 127.0.0.1 - - [17/Jul/2025 16:53:55] "GET / HTTP/1.1" 200 -
+2025-07-17 16:53:55,307 - INFO - 127.0.0.1 - - [17/Jul/2025 16:53:55] "GET /static/style.css HTTP/1.1" 200 -
+2025-07-17 16:53:55,315 - INFO - 127.0.0.1 - - [17/Jul/2025 16:53:55] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-07-17 16:53:55,322 - INFO - 127.0.0.1 - - [17/Jul/2025 16:53:55] "GET /static/img/maxmetal.png HTTP/1.1" 200 -
+2025-07-17 16:53:56,589 - INFO - Administrator wszedł na stronę dodawania zlecenia (taśma obejma).
+2025-07-17 16:53:56,698 - INFO - 127.0.0.1 - - [17/Jul/2025 16:53:56] "[35m[1mGET /tasma_obejma HTTP/1.1[0m" 500 -
+2025-07-17 16:53:56,740 - INFO - 127.0.0.1 - - [17/Jul/2025 16:53:56] "GET /tasma_obejma?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1" 200 -
+2025-07-17 16:53:56,742 - INFO - 127.0.0.1 - - [17/Jul/2025 16:53:56] "GET /tasma_obejma?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1" 200 -
+2025-07-17 16:53:56,769 - INFO - 127.0.0.1 - - [17/Jul/2025 16:53:56] "GET /tasma_obejma?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+2025-07-17 16:53:56,782 - INFO - 127.0.0.1 - - [17/Jul/2025 16:53:56] "GET /tasma_obejma?__debugger__=yes&cmd=resource&f=console.png&s=sJd2mmDUYFfikDBRoC02 HTTP/1.1" 200 -
+2025-07-17 16:54:11,813 - INFO - Administrator wszedł na stronę dodawania zlecenia (taśma obejma).
+2025-07-17 16:54:11,895 - INFO - 127.0.0.1 - - [17/Jul/2025 16:54:11] "GET /tasma_obejma HTTP/1.1" 200 -
+2025-07-17 16:54:11,916 - INFO - 127.0.0.1 - - [17/Jul/2025 16:54:11] "GET /static/style.css HTTP/1.1" 200 -
+2025-07-17 16:54:11,926 - INFO - 127.0.0.1 - - [17/Jul/2025 16:54:11] "GET /static/img/logo-duże.png HTTP/1.1" 200 -
+2025-07-17 16:54:11,937 - INFO - 127.0.0.1 - - [17/Jul/2025 16:54:11] "GET /static/img/maxmetal.png HTTP/1.1" 200 -
+2025-07-17 16:54:13,164 - INFO - Administrator wszedł na stronę główną.
+2025-07-17 16:54:13,166 - INFO - 127.0.0.1 - - [17/Jul/2025 16:54:13] "GET / HTTP/1.1" 200 -
+2025-07-17 16:54:13,194 - INFO - 127.0.0.1 - - [17/Jul/2025 16:54:13] "GET /static/style.css HTTP/1.1" 200 -
+2025-07-17 16:54:13,201 - INFO - 127.0.0.1 - - [17/Jul/2025 16:54:13] "GET /static/img/logo-duże.png HTTP/1.1" 200 -
+2025-07-17 16:54:13,217 - INFO - 127.0.0.1 - - [17/Jul/2025 16:54:13] "GET /static/img/maxmetal.png HTTP/1.1" 200 -
+2025-07-17 16:54:13,267 - INFO - 127.0.0.1 - - [17/Jul/2025 16:54:13] "GET /static/img/logo-male.png HTTP/1.1" 200 -
+2025-07-17 16:54:14,023 - INFO - Administrator wszedł na stronę dodawania zlecenia (pianka obejma).
+2025-07-17 16:54:14,101 - INFO - 127.0.0.1 - - [17/Jul/2025 16:54:14] "GET /pianka_obejma HTTP/1.1" 200 -
+2025-07-17 16:54:14,150 - INFO - 127.0.0.1 - - [17/Jul/2025 16:54:14] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-07-17 16:54:14,165 - INFO - 127.0.0.1 - - [17/Jul/2025 16:54:14] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-07-17 16:54:14,187 - INFO - 127.0.0.1 - - [17/Jul/2025 16:54:14] "[36mGET /static/img/maxmetal.png HTTP/1.1[0m" 304 -
+2025-07-17 16:54:14,951 - INFO - Administrator wszedł na stronę dodawania pianki obejmy.
+2025-07-17 16:54:14,952 - INFO - 127.0.0.1 - - [17/Jul/2025 16:54:14] "GET /dodaj_pianka_obejma HTTP/1.1" 200 -
+2025-07-17 16:54:14,984 - INFO - 127.0.0.1 - - [17/Jul/2025 16:54:14] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-07-17 16:54:14,998 - INFO - 127.0.0.1 - - [17/Jul/2025 16:54:14] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-07-17 16:54:17,375 - ERROR - Nie udało się zapisać pianki obejmy: (pymysql.err.IntegrityError) (1048, "Column 'nazwa' cannot be null")
+[SQL: INSERT INTO pianka (nazwa, ilosc, ilosc_na_stanie) VALUES (%(nazwa)s, %(ilosc)s, %(ilosc_na_stanie)s)]
+[parameters: {'nazwa': None, 'ilosc': '123', 'ilosc_na_stanie': '123'}]
+(Background on this error at: https://sqlalche.me/e/20/gkpj)
+2025-07-17 16:54:17,376 - INFO - 127.0.0.1 - - [17/Jul/2025 16:54:17] "POST /dodaj_pianka_obejmy_do_bazy HTTP/1.1" 200 -
+2025-07-17 16:54:17,400 - INFO - 127.0.0.1 - - [17/Jul/2025 16:54:17] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-07-17 16:54:17,415 - INFO - 127.0.0.1 - - [17/Jul/2025 16:54:17] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-07-17 16:54:17,423 - INFO - 127.0.0.1 - - [17/Jul/2025 16:54:17] "[36mGET /static/img/logo-male.png HTTP/1.1[0m" 304 -
+2025-07-17 16:54:19,964 - ERROR - Nie udało się zapisać pianki obejmy: (pymysql.err.IntegrityError) (1048, "Column 'nazwa' cannot be null")
+[SQL: INSERT INTO pianka (nazwa, ilosc, ilosc_na_stanie) VALUES (%(nazwa)s, %(ilosc)s, %(ilosc_na_stanie)s)]
+[parameters: {'nazwa': None, 'ilosc': '123', 'ilosc_na_stanie': '123'}]
+(Background on this error at: https://sqlalche.me/e/20/gkpj)
+2025-07-17 16:54:19,965 - INFO - 127.0.0.1 - - [17/Jul/2025 16:54:19] "POST /dodaj_pianka_obejmy_do_bazy HTTP/1.1" 200 -
+2025-07-17 16:54:19,990 - INFO - 127.0.0.1 - - [17/Jul/2025 16:54:19] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-07-17 16:54:20,005 - INFO - 127.0.0.1 - - [17/Jul/2025 16:54:20] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-07-17 16:54:20,016 - INFO - 127.0.0.1 - - [17/Jul/2025 16:54:20] "[36mGET /static/img/logo-male.png HTTP/1.1[0m" 304 -
+2025-07-17 16:54:22,034 - INFO - Administrator wszedł na stronę główną.
+2025-07-17 16:54:22,035 - INFO - 127.0.0.1 - - [17/Jul/2025 16:54:22] "GET / HTTP/1.1" 200 -
+2025-07-17 16:54:22,068 - INFO - 127.0.0.1 - - [17/Jul/2025 16:54:22] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-07-17 16:54:22,079 - INFO - 127.0.0.1 - - [17/Jul/2025 16:54:22] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-07-17 16:54:22,082 - INFO - 127.0.0.1 - - [17/Jul/2025 16:54:22] "GET /static/img/maxmetal.png HTTP/1.1" 200 -
+2025-07-17 16:54:23,203 - INFO - Administrator wszedł na stronę dodawania zlecenia (pianka obejma).
+2025-07-17 16:54:23,204 - INFO - 127.0.0.1 - - [17/Jul/2025 16:54:23] "GET /pianka_obejma HTTP/1.1" 200 -
+2025-07-17 16:54:23,234 - INFO - 127.0.0.1 - - [17/Jul/2025 16:54:23] "GET /static/style.css HTTP/1.1" 200 -
+2025-07-17 16:54:23,251 - INFO - 127.0.0.1 - - [17/Jul/2025 16:54:23] "GET /static/img/logo-duże.png HTTP/1.1" 200 -
+2025-07-17 16:54:23,252 - INFO - 127.0.0.1 - - [17/Jul/2025 16:54:23] "GET /static/img/maxmetal.png HTTP/1.1" 200 -
+2025-07-17 16:54:23,262 - INFO - 127.0.0.1 - - [17/Jul/2025 16:54:23] "GET /static/img/logo-male.png HTTP/1.1" 200 -
+2025-07-17 16:54:25,031 - INFO - Administrator wszedł na stronę dodawania zlecenia (pianka obejma).
+2025-07-17 16:54:25,032 - INFO - 127.0.0.1 - - [17/Jul/2025 16:54:25] "GET /pianka_obejma HTTP/1.1" 200 -
+2025-07-17 16:54:25,054 - INFO - 127.0.0.1 - - [17/Jul/2025 16:54:25] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-07-17 16:54:25,067 - INFO - 127.0.0.1 - - [17/Jul/2025 16:54:25] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-07-17 16:54:25,079 - INFO - 127.0.0.1 - - [17/Jul/2025 16:54:25] "[36mGET /static/img/maxmetal.png HTTP/1.1[0m" 304 -
+2025-07-17 16:54:26,486 - INFO - Administrator wszedł na stronę dodawania pianki obejmy.
+2025-07-17 16:54:26,486 - INFO - 127.0.0.1 - - [17/Jul/2025 16:54:26] "GET /dodaj_pianka_obejma HTTP/1.1" 200 -
+2025-07-17 16:54:26,511 - INFO - 127.0.0.1 - - [17/Jul/2025 16:54:26] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-07-17 16:54:26,528 - INFO - 127.0.0.1 - - [17/Jul/2025 16:54:26] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-07-17 16:56:26,150 - INFO -  * Detected change in 'C:\\Users\\admin\\Documents\\GitHub\\baza\\baza danych maxmetal\\python\\index.py', reloading
+2025-07-17 16:56:30,841 - INFO -  * Restarting with stat
+2025-07-17 16:56:33,697 - INFO - Połączenie z bazą danych zostało nawiązane pomyślnie.
+2025-07-17 16:56:33,844 - INFO - ✅ Kopia zapasowa zapisana do pliku: backups\kopie_zapasowe_bazy_2025-07-17_16-56.sql
+2025-07-17 16:56:33,846 - INFO - 🗑️ Usunięto starą kopię: kopie_zapasowe_bazy_2025-07-17_16-25.sql
+2025-07-17 16:56:33,852 - WARNING -  * Debugger is active!
+2025-07-17 16:56:33,857 - INFO -  * Debugger PIN: 268-383-297
+2025-07-17 16:56:34,264 - INFO - Administrator wszedł na stronę główną.
+2025-07-17 16:56:34,436 - INFO - 127.0.0.1 - - [17/Jul/2025 16:56:34] "GET / HTTP/1.1" 200 -
+2025-07-17 16:56:34,473 - INFO - 127.0.0.1 - - [17/Jul/2025 16:56:34] "GET /static/style.css HTTP/1.1" 200 -
+2025-07-17 16:56:34,480 - INFO - 127.0.0.1 - - [17/Jul/2025 16:56:34] "GET /static/img/logo-duże.png HTTP/1.1" 200 -
+2025-07-17 16:56:34,514 - INFO - 127.0.0.1 - - [17/Jul/2025 16:56:34] "GET /static/img/maxmetal.png HTTP/1.1" 200 -
+2025-07-17 16:56:36,596 - INFO - Administrator wszedł na stronę dodawania zlecenia (pianka obejma).
+2025-07-17 16:56:36,683 - INFO - 127.0.0.1 - - [17/Jul/2025 16:56:36] "GET /pianka_obejma HTTP/1.1" 200 -
+2025-07-17 16:56:36,726 - INFO - 127.0.0.1 - - [17/Jul/2025 16:56:36] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-07-17 16:56:36,741 - INFO - 127.0.0.1 - - [17/Jul/2025 16:56:36] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-07-17 16:56:36,750 - INFO - 127.0.0.1 - - [17/Jul/2025 16:56:36] "[36mGET /static/img/maxmetal.png HTTP/1.1[0m" 304 -
+2025-07-17 16:56:37,488 - INFO - Administrator wszedł na stronę dodawania pianki obejmy.
+2025-07-17 16:56:37,493 - INFO - 127.0.0.1 - - [17/Jul/2025 16:56:37] "GET /dodaj_pianka_obejma HTTP/1.1" 200 -
+2025-07-17 16:56:37,522 - INFO - 127.0.0.1 - - [17/Jul/2025 16:56:37] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-07-17 16:56:37,539 - INFO - 127.0.0.1 - - [17/Jul/2025 16:56:37] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-07-17 16:56:39,333 - INFO - Pianka obejmy '231' została dodana przez Administrator.
+2025-07-17 16:56:39,335 - INFO - 127.0.0.1 - - [17/Jul/2025 16:56:39] "[32mPOST /dodaj_pianka_obejmy_do_bazy HTTP/1.1[0m" 302 -
+2025-07-17 16:56:39,342 - INFO - Administrator wszedł na stronę dodawania zlecenia (pianka obejma).
+2025-07-17 16:56:39,343 - INFO - 127.0.0.1 - - [17/Jul/2025 16:56:39] "GET /pianka_obejma HTTP/1.1" 200 -
+2025-07-17 16:56:39,368 - INFO - 127.0.0.1 - - [17/Jul/2025 16:56:39] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-07-17 16:56:39,384 - INFO - 127.0.0.1 - - [17/Jul/2025 16:56:39] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-07-17 16:56:39,406 - INFO - 127.0.0.1 - - [17/Jul/2025 16:56:39] "[36mGET /static/img/maxmetal.png HTTP/1.1[0m" 304 -
+2025-07-17 16:56:39,414 - INFO - 127.0.0.1 - - [17/Jul/2025 16:56:39] "[36mGET /static/img/logo-male.png HTTP/1.1[0m" 304 -

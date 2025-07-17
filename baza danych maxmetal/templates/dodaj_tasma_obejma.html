@@ -20,7 +20,7 @@
             
         </div>
         <br>
-        <form id="myForm" action="{{ url_for('dodaj_tasma_do_bazy') }}" method="post">
+        <form id="myForm" action="{{ url_for('dodaj_tasma_obejmy_do_bazy') }}" method="post">
     <h2>Dodaj taśmę obejmy</h2>
     <label for="nazwa_tasmy_obejmy">Nazwa taśmy:</label>
     <input type="text" name="nazwa_tasmy_obejmy" required><br>
@@ -28,8 +28,7 @@
     <label for="ilosc">Ilość:</label>
     <input type="number" name="ilosc" required><br>
 
-    <label for="ilosc_na_stanie">Ilość na stanie:</label>
-    <input type="number" name="ilosc_na_stanie" required><br>
+   
 
     <!-- Dodaj inne pola jeśli są potrzebne w Twoim modelu -->
 

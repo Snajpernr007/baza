@@ -2765,7 +2765,7 @@ def dodaj_tasma_obejmy_do_bazy():
     if request.method == 'POST':
         nazwa = request.form.get('nazwa_tasmy_obejmy')
         ilosc = request.form.get('ilosc')
-        ilosc_na_stanie = request.form.get('ilosc_na_stanie')
+        ilosc_na_stanie = request.form.get('ilosc')
 
         nowa_tasma_obejmy = TasmaObejmy(
             nazwa=nazwa,
@@ -2851,9 +2851,9 @@ def dodaj_pianka_obejmy_do_bazy():
     if g.user.id_uprawnienia != 1 and g.user.id_uprawnienia != 2:
         return redirect(url_for('home'))
     if request.method == 'POST':
-        nazwa = request.form.get('nazwa_pianki_obejmy')
+        nazwa = request.form.get('nazwa_tasmy_obejmy')
         ilosc = request.form.get('ilosc')
-        ilosc_na_stanie = request.form.get('ilosc_na_stanie')
+        ilosc_na_stanie = request.form.get('ilosc')
 
         nowa_pianka_obejmy = Pianka(
             nazwa=nazwa,

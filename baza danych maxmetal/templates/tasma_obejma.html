@@ -387,12 +387,12 @@ function filterTable() {
                     </tr>
                 </thead>
                 <tbody>
-                    {% for tasma in tasmy %}
+                    {% for tasma in materialy %}
                         <tr>
-                            <td>{{ pianka.id }} </td>
-                            <td>{{ pianka.nazwa }}</td>
-                            <td>{{ pianka.ilosc }}</td>
-                            <td>{{ pianka.ilosc_na_stanie }}</td>
+                            <td>{{ tasma.id }} </td>
+                            <td>{{ tasma.nazwa }}</td>
+                            <td>{{ tasma.ilosc }}</td>
+                            <td>{{ tasma.ilosc_na_stanie }}</td>
 
                             
                             <td><button type="button" class="button" onclick="openEditModal(this.parentElement.parentElement)">Edytuj</button></td>
