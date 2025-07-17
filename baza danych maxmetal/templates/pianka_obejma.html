@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Obejmy MaxMetal</title>
+    <link rel="icon" href="../static/img/logo-male.png">
+    <link rel="stylesheet" href="../static/style.css">
+    <script>
+function openEditModal(row) {
+    const cells = row.querySelectorAll("td");
+    const editButton = row.querySelector("button");
+
+    if (editButton.innerText === "Edytuj") {
+        // Zamień edytowalne komórki na pola formularza
+        cells.forEach((cell, index) => {
+            if (index > 0 && index < cells.length - 1) { // Edytowalne: 1 do przedostatniej
+                const value = cell.innerText;
+                cell.innerHTML = `<input type="text" value="${value}" style="width: 100%;">`;
+            }
+        });
+        editButton.innerText = "Zapisz";
+    } else if (editButton.innerText === "Zapisz") {
+        // Zbierz dane z formularza
+        const updatedData = {};
+        let isValid = true;
+        
+        cells.forEach((cell, index) => {
+            if (index > 0 && index < cells.length - 1) {
+                const input = cell.querySelector("input");
+                if (input) {
+                    const value = input.value.trim();
+                    if (!value) {
+                        isValid = false; // Walidacja: sprawdź, czy pole nie jest puste
+                    }
+                    updatedData[`column_${index}`] = value;
+                    cell.innerText = value; // Zapisz nowe wartości
+                }
+            } else if (index === 0 || index >= cells.length - 1) {
+                updatedData[`column_${index}`] = cell.innerText;
+            }
+        });
+
+        if (isValid) {
+            sendDataToBackend(updatedData);
+            editButton.innerText = "Edytuj";
+        } else {
+            alert("Proszę wypełnić wszystkie edytowalne pola.");
+        }
+    }
+}
+
+function sendDataToBackend(data) {
+    fetch('/update-row-rozmiary_obejm', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+    })
+    .then(response => response.json())
+    .then(result => {
+        console.log("Wynik z backendu:", result);
+        alert("Dane zostały pomyślnie zapisane!");
+    })
+    .catch(error => {
+        console.error("Błąd podczas wysyłania danych:", error);
+        alert("Wystąpił błąd podczas zapisywania danych!");
+    });
+}
+        function filterTable() {
+    let table = document.getElementById("tabela");
+    let filterInputs = table.querySelectorAll("thead input");
+    let rows = table.getElementsByTagName("tbody")[0].getElementsByTagName("tr");
+
+    // Pętla przez wszystkie wiersze tabeli
+    for (let i = 0; i < rows.length; i++) {
+        let cells = rows[i].getElementsByTagName("td");
+        let isRowVisible = true; // Flaga określająca, czy wiersz ma być widoczny
+
+        // Pętla przez wszystkie kolumny i odpowiednie filtry
+        for (let columnIndex = 0; columnIndex < filterInputs.length; columnIndex++) {
+            let filter = filterInputs[columnIndex].value.toLowerCase();
+            if (cells[columnIndex]) {
+                let cellValue = cells[columnIndex].textContent || cells[columnIndex].innerText;
+                if (filter && !cellValue.toLowerCase().includes(filter)) {
+                    isRowVisible = false; // Ukryj wiersz, jeśli nie spełnia filtru
+                    break; // Przerywamy, gdy znajdziemy filtr, który nie pasuje
+                }
+            }
+        }
+        rows[i].style.display = isRowVisible ? "" : "none"; // Ustaw widoczność wiersza
+    }
+}
+
+// Zaktualizuj wywołanie funkcji filterTable w inputach
+function setupFilters() {
+    let filterInputs = document.querySelectorAll("thead input");
+    filterInputs.forEach((input, index) => {
+        input.addEventListener("keyup", filterTable); // Używamy nowej funkcji filterTable
+    });
+}
+
+// Wywołaj setupFilters po załadowaniu strony
+document.addEventListener("DOMContentLoaded", setupFilters);
+    function resetFilters() {
+        let table = document.getElementById("tabela");
+        let filterInputs = table.querySelectorAll("thead input");
+        let rows = table.getElementsByTagName("tbody")[0].getElementsByTagName("tr");
+    
+        // Resetuj wszystkie pola filtrów
+        filterInputs.forEach(input => input.value = "");
+    
+        // Przywróć widoczność wszystkich wierszy
+        for (let i = 0; i < rows.length; i++) {
+            rows[i].style.display = "";
+        }
+    }
+    let sortStates = []; // Tablica przechowująca stan sortowania dla każdej kolumny
+
+function sortTable(columnIndex) {
+    const table = document.getElementById("tabela");
+    const rows = Array.from(table.rows).slice(2); // Pobieramy wszystkie wiersze poza nagłówkami
+    const tbody = table.tBodies[0];
+
+    // Sprawdzamy, czy kolumna już istnieje w tablicy sortStates
+    const existingSortIndex = sortStates.findIndex(sort => sort.columnIndex === columnIndex);
+
+    if (existingSortIndex !== -1) {
+        // Jeśli kolumna jest już sortowana, zmieniamy jej kierunek
+        sortStates[existingSortIndex].ascending = !sortStates[existingSortIndex].ascending;
+    } else {
+        // Jeśli kolumna nie jest jeszcze sortowana, dodajemy ją na początek tablicy
+        sortStates.unshift({ columnIndex, ascending: true });
+    }
+
+    // Sortowanie wierszy na podstawie stanu w tablicy sortStates
+    rows.sort((rowA, rowB) => {
+        for (const sort of sortStates) {
+            const cellA = rowA.cells[sort.columnIndex]?.innerText.toLowerCase() || "";
+            const cellB = rowB.cells[sort.columnIndex]?.innerText.toLowerCase() || "";
+
+            if (!isNaN(cellA) && !isNaN(cellB)) {
+                // Sortowanie liczb
+                const comparison = sort.ascending ? cellA - cellB : cellB - cellA;
+                if (comparison !== 0) return comparison;
+            } else {
+                // Sortowanie tekstowe
+                const comparison = sort.ascending
+                    ? cellA.localeCompare(cellB)
+                    : cellB.localeCompare(cellA);
+                if (comparison !== 0) return comparison;
+            }
+        }
+        return 0; // Jeśli wszystkie kolumny są równe, nie zmieniamy kolejności
+    });
+
+    // Przypisanie posortowanych wierszy do tabeli
+    tbody.innerHTML = "";
+    rows.forEach(row => tbody.appendChild(row));
+
+    // Resetowanie strzałek i ustawienie odpowiednich w nagłówkach
+    Array.from(table.tHead.rows[1].cells).forEach((cell, index) => {
+        cell.innerHTML = cell.innerHTML.replace(/ ▲| ▼/g, '');
+        const sortState = sortStates.find(sort => sort.columnIndex === index);
+        if (sortState) {
+            cell.innerHTML += sortState.ascending ? ' ▲' : ' ▼';
+        }
+    });
+}
+function filterTable() {
+    let table = document.getElementById("tabela");
+    let rows = table.querySelectorAll("tbody tr");
+    let filters = table.querySelectorAll("thead tr:first-child input[type='text']");
+
+    let dateFrom = document.getElementById("dateFrom")?.value;
+    let dateTo = document.getElementById("dateTo")?.value;
+
+    rows.forEach(row => {
+        let cells = row.querySelectorAll("td");
+        let show = true;
+
+        // Filtrowanie tekstowe (kolumny poza "Data produkcji")
+        filters.forEach((input, index) => {
+            let value = input.value.toLowerCase();
+            if (value && cells[index]) {
+                let text = cells[index].textContent.toLowerCase();
+                if (!text.includes(value)) {
+                    show = false;
+                }
+            }
+        });
+
+        // Filtrowanie po dacie (kolumna 2 - Data Produkcji)
+        if (show && (dateFrom || dateTo)) {
+            let dateCell = cells[2]?.textContent.trim(); // Zakłada, że data jest w 3. kolumnie (indeks 2)
+            if (dateCell) {
+                let cellDate = new Date(dateCell);
+                if (dateFrom && cellDate < new Date(dateFrom)) show = false;
+                if (dateTo && cellDate > new Date(dateTo)) show = false;
+            }
+        }
+
+        row.style.display = show ? "" : "none";
+    });
+}
+
+
+    </script>
+</head>
+<body>
+    <div id="strona">
+        <div id="banner">
+            <div id="menu-main">
+                <nav role="navigation">
+                    <div id="menuToggle">
+                        <input type="checkbox" id="menuCheckbox">
+                        
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        
+                        <ul id="menu">
+                        {%if g.user.id_uprawnienia==1 or g.user.id_uprawnienia==2%}
+                        <li>
+                            {% if g.user.id_uprawnienia==1 %}
+                            <h3>Administrator</h3>
+                            {% endif %}
+                            <ul>
+                                {% if g.user.id_uprawnienia==1 %}
+                                    <li>
+                                        <a href="{{ url_for('uzytkownik') }}"><label for="menuCheckbox" onclick="this.parentNode.click();">Uzytkownicy</label></a>
+                                    </li>
+                                 {% endif %}
+                                {% if g.user.id_uprawnienia==1 %}
+                                    <li>
+                                        <a href="{{ url_for('uprawnienia') }}"><label for="menuCheckbox" onclick="this.parentNode.click();">Uprawnienia</label></a>
+                                    </li>
+                                {% endif %}
+                            </ul>
+                        </li>
+                        {% endif %}
+                        <h2>Profile</h2>
+                        <ul>
+                                {%if g.user.id_uprawnienia==1 or g.user.id_uprawnienia==2%}
+                                    <li>
+                                        <a href="{{ url_for('tasma') }}"><label for="menuCheckbox" onclick="this.parentNode.click();">Materiały</label></a>
+                                    </li>
+                                 {% endif %}
+                                
+                                    <li>
+                                        <a href="{{ url_for('profil') }}"><label for="menuCheckbox" onclick="this.parentNode.click();">Profile</label></a>
+                                    </li>
+                                {% if g.user.id_uprawnienia==1 %}
+                                    <li>
+                                        <a href="{{ url_for('dostawcy') }}"><label for="menuCheckbox" onclick="this.parentNode.click();">Dostawcy</label></a>
+                                    </li>
+                                {% endif %}
+                                {% if g.user.id_uprawnienia==1 %}
+                                    <li>
+                                        <a href="{{ url_for('szablon') }}"><label for="menuCheckbox" onclick="this.parentNode.click();">Nazwy</label></a>
+                                    </li>
+                                {% endif %}
+                                {% if g.user.id_uprawnienia==1 or g.user.id_uprawnienia==2%}
+                                    <li>
+                                        <a href="{{ url_for('lokalizacja') }}"><label for="menuCheckbox" onclick="this.parentNode.click();">Magazyny</label></a>
+                                    </li>
+                                {% endif %}
+                                {% if g.user.id_uprawnienia==1 or g.user.id_uprawnienia==2%}
+                                    <li>
+                                        <a href="{{ url_for('dlugosci') }}"><label for="menuCheckbox" onclick="this.parentNode.click();">Długości</label></a>
+                                    </li>
+                                {% endif %}
+                                {% if g.user.id_uprawnienia==1 or g.user.id_uprawnienia==2%}
+                                    <li>
+                                        <a href="{{ url_for('szablon_profil') }}"><label for="menuCheckbox" onclick="this.parentNode.click();">Nazwy profili</label></a>
+                                    </li>
+                                {% endif %}
+                                {% if g.user.id_uprawnienia==1 %}
+                                    <li>
+                                        <a href="{{ url_for('zestawienie') }}"><label for="menuCheckbox" onclick="this.parentNode.click();">Zestawienie</label></a>
+                                    </li>
+                                {% endif %}
+                                {% if g.user.id_uprawnienia==1 or g.user.id_uprawnienia==2%}
+                                    <li>
+                                        <a href="{{ url_for('sprzedaz') }}"><label for="menuCheckbox" onclick="this.parentNode.click();">Sprzedaż</label></a>
+                                    </li>
+                                {% endif %}
+                            </ul>
+                            {% if g.user.id==1 %}
+                                <h2>Obejmy</h2>
+                            {% endif %}
+                            <ul>
+                                {% if g.user.id==1 %}
+                                    <li>
+                                        <a href="{{ url_for('tasma_obejma') }}"><label for="menuCheckbox" onclick="this.parentNode.click();">Taśma</label></a>
+                                    </li>
+                                {% endif %}
+                                {% if g.user.id==1 %}
+                                    <li>
+                                        <a href="{{ url_for('material_obejma') }}"><label for="menuCheckbox" onclick="this.parentNode.click();">Materiały</label></a>
+                                    </li>
+                                {% endif %}
+                                {% if g.user.id==1 %}
+                                    <li>
+                                        <a href="{{ url_for('ksztaltowanie1') }}"><label for="menuCheckbox" onclick="this.parentNode.click();">Prasa 60T</label></a>
+                                    </li>
+                                {% endif %}
+                                {% if g.user.id==1 %}
+                                    <li>
+                                        <a href="{{ url_for('ksztaltowanie2') }}"><label for="menuCheckbox" onclick="this.parentNode.click();">Prasa DMF 45T</label></a>
+                                    </li>
+                                {% endif %}
+                                {% if g.user.id==1 %}
+                                    <li>
+                                        <a href="{{ url_for('ksztaltowanie3') }}"><label for="menuCheckbox" onclick="this.parentNode.click();">Prasa PMA 10T</label></a>
+                                    </li>
+                                {% endif %}
+                                {% if g.user.id==1 %}
+                                    <li>
+                                        <a href="{{ url_for('malarnia') }}"><label for="menuCheckbox" onclick="this.parentNode.click();">Malarnia</label></a>
+                                    </li>
+                                {% endif %}
+                                {% if g.user.id==1 %}
+                                    <li>
+                                        <a href="{{ url_for('powrot') }}"><label for="menuCheckbox" onclick="this.parentNode.click();">Powrót Malarnia</label></a>
+                                    </li>
+                                {% endif %}
+                                {% if g.user.id==1 %}
+                                    <li>
+                                        <a href="{{ url_for('zlecenie') }}"><label for="menuCheckbox" onclick="this.parentNode.click();">Zlecenie</label></a>
+                                    </li>
+                                {% endif %}
+                            </ul>
+                        {% if not g.user %}
+                        
+                            <li>
+                                <a href="{{ url_for('login') }}"><label for="menuCheckbox" onclick="this.parentNode.click();">Zaloguj się!</label></a>
+                            </li>
+                        
+                            
+                        {% else %}
+                        <li>
+                            <h3><a href="{{ url_for('logout') }}"><label for="menuCheckbox" onclick="this.parentNode.click();">Wyloguj się</label></a></h3>
+                        </li>
+                        {% endif %}
+                        <li>
+                            <h3><a href=javascript:history.back();><label for="menuCheckbox" onclick="this.parentNode.click();">Powrót</label></a></h3>
+                        </li>  
+                            
+                            
+                            <li>
+                                <img id="logo1" src="../static/img/logo-duże.png" alt="logo">
+                            </li>
+                        </ul>   
+                    </div>
+                </nav>
+                <div id="logo-banner">
+                    <a href="{{ url_for('home') }}"><img id="logo-duże" src="../static/img/logo-duże.png" alt="logo"></a>
+                </div>
+                <button class="button2" onclick="window.location.href='{{ url_for('dodaj_pianka_obejma') }}'">Dodaj Piankę</button>
+            </div>
+        </div>
+        <div id="test">
+             <div id="title">
+                <h2 class="witaj">Pianka</h2>
+            </div>
+            <table id="tabela">
+                <thead class="sticky-sort">
+                    <tr>
+                        <th><input type="text" placeholder="Filtruj ID" onkeyup="filterColumn(0)"></th>
+                        <th><input type="text" placeholder="Filtruj Rozmiar" onkeyup="filterColumn(1)"></th>
+                        
+                        
+                        <th><button class="button" onclick="resetFilters()">Usuń Filtry</button></th>
+                    </tr>
+                    <tr>
+                        <th onclick="sortTable(0)">ID &#9650;&#9660;</th>
+                        <th onclick="sortTable(1)">Rozmiar &#9650;&#9660;</th>
+                        
+                        
+                        <th>Edycja</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for pianka in pianki %}
+                        <tr>
+                            <td>{{ pianka.id }} </td>
+                            <td>{{ pianka.nazwa }}</td>
+
+                            
+                            <td><button type="button" class="button" onclick="openEditModal(this.parentElement.parentElement)">Edytuj</button></td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+<script>
+    document.addEventListener('click', function(event) {
+    const menu = document.getElementById('menuToggle');
+    const checkbox = document.getElementById('menuCheckbox');
+    if (!menu.contains(event.target) && checkbox.checked) {
+        checkbox.checked = false;
+    }
+});
+</script>
+</html> 

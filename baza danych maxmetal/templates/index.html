@@ -233,6 +233,12 @@
                     
             <div class="man-container">
                 {% if g.user.id==1 %}
+                <button class="button" onclick="window.location.href='{{ url_for('tasma_obejma') }}'">Taśma</button>
+                {% endif %}
+                {% if g.user.id==1 %}
+                <button class="button" onclick="window.location.href='{{ url_for('pianka_obejma') }}'">Pianka</button>
+                {% endif %}
+                {% if g.user.id==1 %}
                 <button class="button" onclick="window.location.href='{{ url_for('rozmiary_obejm') }}'">Rozmiary</button>
                 {% endif %}
                 {% if g.user.id==1 %}

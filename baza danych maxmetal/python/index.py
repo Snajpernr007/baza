@@ -2744,6 +2744,47 @@ def zlecenie():
     laczenie = Laczenie.query.all()
     logger.info(f"{g.user.login} wszedł na stronę zlecenia.")
     return render_template("zlecenie.html", user=g.user, zlecenie=zlecenie, laczenie=laczenie)
+
+@app.route('/tasma_obejma')
+def tasma_obejma():
+    if not g.user:
+        return render_template('login.html', user=g.user)
+    if g.user.id_uprawnienia == 3:
+        return redirect(url_for('home'))
+    tasmy = TasmaObejmy.query.all()
+    logger.info(f"{g.user.login} wszedł na stronę dodawania zlecenia (taśma obejma).")
+    return render_template("tasma_obejma.html", user=g.user, materialy=tasmy, typ='tasma')
+
+@app.route('/dodaj_tasma_obejma')
+def dodaj_tasma_obejma():
+    if not g.user:
+        return render_template('login.html', user=g.user)
+    if g.user.id_uprawnienia == 3:
+        return redirect(url_for('home'))
+    tasmy = TasmaObejmy.query.all()
+    logger.info(f"{g.user.login} wszedł na stronę dodawania taśmy obejmy.")
+    return render_template("dodaj_tasma_obejma.html", user=g.user, tasmy=tasmy)
+
+@app.route('/pianka_obejma')
+def pianka_obejma():
+    if not g.user:
+        return render_template('login.html', user=g.user)
+    if g.user.id_uprawnienia == 3:
+        return redirect(url_for('home'))
+    pianki = Pianka.query.all()
+    logger.info(f"{g.user.login} wszedł na stronę dodawania zlecenia (pianka obejma).")
+    return render_template("pianka_obejma.html", user=g.user, materialy=pianki, typ='pianka')
+
+@app.route('/dodaj_pianka_obejma')
+def dodaj_pianka_obejma():
+    if not g.user:
+        return render_template('login.html', user=g.user)
+    if g.user.id_uprawnienia == 3:
+        return redirect(url_for('home'))
+    pianki = Pianka.query.all()
+    logger.info(f"{g.user.login} wszedł na stronę dodawania pianki obejmy.")
+    return render_template("dodaj_pianka_obejma.html", user=g.user, pianki=pianki)
+
 @app.route('/dodaj_zlecenie')
 def dodaj_zlecenie():
     if not g.user:
