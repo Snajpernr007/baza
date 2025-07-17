@@ -235,7 +235,7 @@ CREATE TABLE `powrot` (
   KEY `id_pracownik` (`id_pracownik`),
   CONSTRAINT `powrot_ibfk_1` FOREIGN KEY (`id_malowania`) REFERENCES `malarnia` (`id`),
   CONSTRAINT `powrot_ibfk_2` FOREIGN KEY (`id_pracownik`) REFERENCES `uzytkownicy` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- Struktura tabeli `pianka`
 CREATE TABLE `pianka` (
@@ -274,7 +274,7 @@ CREATE TABLE `zlecenie` (
   CONSTRAINT `zlecenie_ibfk_1` FOREIGN KEY (`id_pracownik`) REFERENCES `uzytkownicy` (`id`),
   CONSTRAINT `zlecenie_ibfk_2` FOREIGN KEY (`id_pianka`) REFERENCES `pianka` (`id`) ON DELETE SET NULL,
   CONSTRAINT `zlecenie_ibfk_3` FOREIGN KEY (`id_tasma`) REFERENCES `tasma_obejmy` (`id`) ON DELETE SET NULL
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- Struktura tabeli `laczenie`
 CREATE TABLE `laczenie` (
@@ -287,7 +287,7 @@ CREATE TABLE `laczenie` (
   KEY `id_powrot` (`id_powrot`),
   CONSTRAINT `laczenie_ibfk_1` FOREIGN KEY (`id_zlecenie`) REFERENCES `zlecenie` (`id`),
   CONSTRAINT `laczenie_ibfk_2` FOREIGN KEY (`id_powrot`) REFERENCES `powrot` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=29 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- Dane z tabeli `uprawnienia`
 INSERT INTO `uprawnienia` (id_uprawnienia, nazwa) VALUES ('1', 'Administrator');
@@ -371,29 +371,36 @@ INSERT INTO `ksztaltowanie_2` (id, id_ksztaltowanie_1, data, godzina_rozpoczecia
 INSERT INTO `ksztaltowanie_3` (id, id_ksztaltowanie_2, data, godzina_rozpoczecia, godzina_zakonczenia, ilosc, ilosc_na_stanie, nr_prodio, id_pracownik, imie_nazwisko, nazwa) VALUES ('3', '3', '2025-07-17', '14:15:21', '14:15:25', '23', '0', '23', '1', '23', '1/23/66/765/2025-07-17');
 
 -- Dane z tabeli `malarnia`
-INSERT INTO `malarnia` (id, id_ksztaltowanie_3, ilosc, ilosc_na_stanie, nr_prodio, data, id_pracownik, imie_nazwisko) VALUES ('9', '3', '23', '0', '23', '0323-02-23', '1', '2332');
+INSERT INTO `malarnia` (id, id_ksztaltowanie_3, ilosc, ilosc_na_stanie, nr_prodio, data, id_pracownik, imie_nazwisko) VALUES ('9', '3', '23', '22', '23', '0323-02-23', '1', '2332');
 
 -- Dane z tabeli `powrot`
-INSERT INTO `powrot` (id, data, ilosc, ilosc_na_stanie, nr_prodio, id_malowania, id_pracownik, imie_nazwisko) VALUES ('5', '0332-02-23', '23', '230664', '23', '9', '1', '2323');
+INSERT INTO `powrot` (id, data, ilosc, ilosc_na_stanie, nr_prodio, id_malowania, id_pracownik, imie_nazwisko) VALUES ('5', '0332-02-23', '23', '230539', '23', '9', '1', '2323');
+INSERT INTO `powrot` (id, data, ilosc, ilosc_na_stanie, nr_prodio, id_malowania, id_pracownik, imie_nazwisko) VALUES ('6', '0123-03-12', '23', '0', '132', '9', '1', '123');
 
 -- Dane z tabeli `pianka`
-INSERT INTO `pianka` (id, nazwa, ilosc, ilosc_na_stanie) VALUES ('1', '231', '1236', '123');
+INSERT INTO `pianka` (id, nazwa, ilosc, ilosc_na_stanie) VALUES ('1', '231', '1236', '117');
 INSERT INTO `pianka` (id, nazwa, ilosc, ilosc_na_stanie) VALUES ('2', '6', '6', '0');
 
 -- Dane z tabeli `tasma_obejmy`
 INSERT INTO `tasma_obejmy` (id, nazwa, ilosc, ilosc_na_stanie) VALUES ('1', '6', '6', '0');
-INSERT INTO `tasma_obejmy` (id, nazwa, ilosc, ilosc_na_stanie) VALUES ('2', '3', '6', '6');
+INSERT INTO `tasma_obejmy` (id, nazwa, ilosc, ilosc_na_stanie) VALUES ('2', '3', '6', '0');
 
 -- Dane z tabeli `zlecenie`
-INSERT INTO `zlecenie` (id, nr_zamowienia_zew, nr_prodio, id_pianka, ile_pianka, id_tasma, ile_tasmy, nr_kartonu, id_pracownik, imie_nazwisko) VALUES ('6', '321', '123', '1', '312', '2', '123', '123', '1', '123');
+INSERT INTO `zlecenie` (id, nr_zamowienia_zew, nr_prodio, id_pianka, ile_pianka, id_tasma, ile_tasmy, nr_kartonu, id_pracownik, imie_nazwisko) VALUES ('6', '321', '123', '1', '2', '2', '2', '2', '1', '123');
 INSERT INTO `zlecenie` (id, nr_zamowienia_zew, nr_prodio, id_pianka, ile_pianka, id_tasma, ile_tasmy, nr_kartonu, id_pracownik, imie_nazwisko) VALUES ('7', 'wq', 'wqe', '1', '32', '1', '123', 'weq', '1', 'qwe');
 INSERT INTO `zlecenie` (id, nr_zamowienia_zew, nr_prodio, id_pianka, ile_pianka, id_tasma, ile_tasmy, nr_kartonu, id_pracownik, imie_nazwisko) VALUES ('8', '123', '213', '1', '123', '1', '312', '213', '1', '321');
 INSERT INTO `zlecenie` (id, nr_zamowienia_zew, nr_prodio, id_pianka, ile_pianka, id_tasma, ile_tasmy, nr_kartonu, id_pracownik, imie_nazwisko) VALUES ('9', '6', '6', '2', '6', '1', '6', '6', '1', '6');
+INSERT INTO `zlecenie` (id, nr_zamowienia_zew, nr_prodio, id_pianka, ile_pianka, id_tasma, ile_tasmy, nr_kartonu, id_pracownik, imie_nazwisko) VALUES ('10', '34', '234', '1', '231', '2', '2', '3', '1', 'Administrator');
+INSERT INTO `zlecenie` (id, nr_zamowienia_zew, nr_prodio, id_pianka, ile_pianka, id_tasma, ile_tasmy, nr_kartonu, id_pracownik, imie_nazwisko) VALUES ('11', '123', '123', '1', '2312', '2', '22', '2', '1', '132');
 
 -- Dane z tabeli `laczenie`
-INSERT INTO `laczenie` (id, id_zlecenie, id_powrot, ile_sztuk) VALUES ('16', '6', '5', '321');
+INSERT INTO `laczenie` (id, id_zlecenie, id_powrot, ile_sztuk) VALUES ('16', '6', '5', '0');
 INSERT INTO `laczenie` (id, id_zlecenie, id_powrot, ile_sztuk) VALUES ('17', '8', '5', '321');
 INSERT INTO `laczenie` (id, id_zlecenie, id_powrot, ile_sztuk) VALUES ('18', '9', '5', '6');
+INSERT INTO `laczenie` (id, id_zlecenie, id_powrot, ile_sztuk) VALUES ('21', '10', '5', '0');
+INSERT INTO `laczenie` (id, id_zlecenie, id_powrot, ile_sztuk) VALUES ('26', '11', '5', '66');
+INSERT INTO `laczenie` (id, id_zlecenie, id_powrot, ile_sztuk) VALUES ('27', '11', '5', '243');
+INSERT INTO `laczenie` (id, id_zlecenie, id_powrot, ile_sztuk) VALUES ('28', '11', '5', '65');
 
 
 SET FOREIGN_KEY_CHECKS = 1;

@@ -161,7 +161,7 @@ CREATE TABLE `ksztaltowanie_1` (
   KEY `id_pracownik` (`id_pracownik`),
   CONSTRAINT `ksztaltowanie_1_ibfk_1` FOREIGN KEY (`id_materialu`) REFERENCES `material_obejma` (`id`),
   CONSTRAINT `ksztaltowanie_1_ibfk_2` FOREIGN KEY (`id_pracownik`) REFERENCES `uzytkownicy` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- Struktura tabeli `ksztaltowanie_2`
 CREATE TABLE `ksztaltowanie_2` (
@@ -287,7 +287,7 @@ CREATE TABLE `laczenie` (
   KEY `id_powrot` (`id_powrot`),
   CONSTRAINT `laczenie_ibfk_1` FOREIGN KEY (`id_zlecenie`) REFERENCES `zlecenie` (`id`),
   CONSTRAINT `laczenie_ibfk_2` FOREIGN KEY (`id_powrot`) REFERENCES `powrot` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=29 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- Dane z tabeli `uprawnienia`
 INSERT INTO `uprawnienia` (id_uprawnienia, nazwa) VALUES ('1', 'Administrator');
@@ -363,6 +363,7 @@ INSERT INTO `material_obejma` (id, certyfikat, data_dostawy, nr_wytopu, nr_prodi
 
 -- Dane z tabeli `ksztaltowanie_1`
 INSERT INTO `ksztaltowanie_1` (id, data, godzina_rozpoczecia, godzina_zakonczenia, ilosc, ilosc_na_stanie, nr_prodio, id_materialu, id_pracownik, imie_nazwisko, nazwa) VALUES ('4', '2025-07-17', '14:14:36', '14:14:41', '23', '0', '23', '2', '1', '23', '1/23/66/765/2025-07-17');
+INSERT INTO `ksztaltowanie_1` (id, data, godzina_rozpoczecia, godzina_zakonczenia, ilosc, ilosc_na_stanie, nr_prodio, id_materialu, id_pracownik, imie_nazwisko, nazwa) VALUES ('5', '2025-07-17', '20:49:00', '20:49:34', '23', '23', '23', '2', NULL, '232', 'Nazwa z innej tabeli lub logiki');
 
 -- Dane z tabeli `ksztaltowanie_2`
 INSERT INTO `ksztaltowanie_2` (id, id_ksztaltowanie_1, data, godzina_rozpoczecia, godzina_zakonczenia, ilosc, ilosc_na_stanie, nr_prodio, id_pracownik, imie_nazwisko, nazwa) VALUES ('3', '4', '2025-07-17', '14:15:12', '14:15:17', '23', '0', '23', '1', '23', '1/23/66/765/2025-07-17');
@@ -391,15 +392,16 @@ INSERT INTO `zlecenie` (id, nr_zamowienia_zew, nr_prodio, id_pianka, ile_pianka,
 INSERT INTO `zlecenie` (id, nr_zamowienia_zew, nr_prodio, id_pianka, ile_pianka, id_tasma, ile_tasmy, nr_kartonu, id_pracownik, imie_nazwisko) VALUES ('8', '123', '213', '1', '123', '1', '312', '213', '1', '321');
 INSERT INTO `zlecenie` (id, nr_zamowienia_zew, nr_prodio, id_pianka, ile_pianka, id_tasma, ile_tasmy, nr_kartonu, id_pracownik, imie_nazwisko) VALUES ('9', '6', '6', '2', '6', '1', '6', '6', '1', '6');
 INSERT INTO `zlecenie` (id, nr_zamowienia_zew, nr_prodio, id_pianka, ile_pianka, id_tasma, ile_tasmy, nr_kartonu, id_pracownik, imie_nazwisko) VALUES ('10', '34', '234', '1', '231', '2', '2', '3', '1', 'Administrator');
-INSERT INTO `zlecenie` (id, nr_zamowienia_zew, nr_prodio, id_pianka, ile_pianka, id_tasma, ile_tasmy, nr_kartonu, id_pracownik, imie_nazwisko) VALUES ('11', '123', '123', '1', '231', '2', '2', '2', '1', '132');
+INSERT INTO `zlecenie` (id, nr_zamowienia_zew, nr_prodio, id_pianka, ile_pianka, id_tasma, ile_tasmy, nr_kartonu, id_pracownik, imie_nazwisko) VALUES ('11', '123', '123', '1', '2312', '2', '22', '2', '1', '132');
 
 -- Dane z tabeli `laczenie`
 INSERT INTO `laczenie` (id, id_zlecenie, id_powrot, ile_sztuk) VALUES ('16', '6', '5', '0');
 INSERT INTO `laczenie` (id, id_zlecenie, id_powrot, ile_sztuk) VALUES ('17', '8', '5', '321');
 INSERT INTO `laczenie` (id, id_zlecenie, id_powrot, ile_sztuk) VALUES ('18', '9', '5', '6');
 INSERT INTO `laczenie` (id, id_zlecenie, id_powrot, ile_sztuk) VALUES ('21', '10', '5', '0');
-INSERT INTO `laczenie` (id, id_zlecenie, id_powrot, ile_sztuk) VALUES ('23', '11', '5', '7');
-INSERT INTO `laczenie` (id, id_zlecenie, id_powrot, ile_sztuk) VALUES ('24', '11', '5', '7');
+INSERT INTO `laczenie` (id, id_zlecenie, id_powrot, ile_sztuk) VALUES ('26', '11', '5', '66');
+INSERT INTO `laczenie` (id, id_zlecenie, id_powrot, ile_sztuk) VALUES ('27', '11', '5', '243');
+INSERT INTO `laczenie` (id, id_zlecenie, id_powrot, ile_sztuk) VALUES ('28', '11', '5', '65');
 
 
 SET FOREIGN_KEY_CHECKS = 1;

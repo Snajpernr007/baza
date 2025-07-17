@@ -2019,66 +2019,88 @@ def dodaj_ksztaltowanie1():
 @app.route('/dodaj_ksztaltowanie1_do_bazy', methods=['POST'])
 def dodaj_ksztaltowanie1_do_bazy():
     if not g.user:
-        return render_template('login.html', user=g.user)
-    if g.user.id_uprawnienia == 3:
-        return redirect(url_for('home'))
+        return redirect(url_for('login'))
 
-    if request.method == 'POST':
-        godzina_rozpoczencia = request.form.get('godz_min_rozpoczecia')
-        godzina_zakonczenia = request.form.get('godz_min_zakonczenia')
-        data = request.form.get('data')
-        material_id = request.form.get('nazwa_materiału')
-        numer_prodio = request.form.get('prodio')
-        ilosc = request.form.get('ilosc')
-        ilosc_na_stanie = ilosc
+    try:
+        data_str = request.form.get('data')
+        godz_rozp_str = request.form.get('godz_min_rozpoczecia')
+        id_materialu = int(request.form.get('nazwa_materiału'))
+        nr_prodio = request.form.get('prodio')
         imie_nazwisko = request.form.get('imie')
-        pracownik = g.user.id
-
-        # Pobierz obiekt materiału
-        material_obj = MaterialObejma.query.get(int(material_id)) if material_id else None
+        material_obj = MaterialObejma.query.get(int(id_materialu)) if id_materialu else None
         if not material_obj:
-            return render_template('ksztaltowanie1.html', error="Nie znaleziono wybranego materiału.", user=g.user)
+            return render_template('ksztaltowanie2.html', error="Nie znaleziono wybranego kształtowania.", user=g.user)
 
         # Pobierz rozmiar poprzez relację
         if not material_obj.rozmiar:
-            return render_template('ksztaltowanie1.html', error="Materiał nie ma przypisanego rozmiaru.", user=g.user)
+            return render_template('ksztaltowanie2.html', error="Materiał nie ma przypisanego rozmiaru.", user=g.user)
 
         rozmiar = material_obj.rozmiar.nazwa
         wytop = material_obj.nr_wytopu
 
         # Ustal numer nowego wpisu
-        ostatni = Ksztaltowanie_1.query.order_by(Ksztaltowanie_1.id.desc()).first()
+        ostatni = Ksztaltowanie_2.query.order_by(Ksztaltowanie_2.id.desc()).first()
         nr = str(ostatni.id + 1) if ostatni else "1"
 
-        nazwa = f"{nr}/{numer_prodio}/{rozmiar}/{wytop}/{data}"
+        
 
-        # Utwórz nowy wpis
-        nowy_ksztaltowanie = Ksztaltowanie_1(
-            godzina_rozpoczecia=godzina_rozpoczencia,
-            godzina_zakonczenia=godzina_zakonczenia,
-            data=data,
-            id_materialu=material_id,
-            nr_prodio=numer_prodio,
-            ilosc=ilosc,
-            ilosc_na_stanie=ilosc_na_stanie,
+        data_val = datetime.strptime(data_str, '%Y-%m-%d').date()
+        godz_rozp = datetime.strptime(godz_rozp_str, '%H:%M:%S').time()
+        nazwa = f"{nr}/{nr_prodio}/{rozmiar}/{wytop}/{data_val}"
+        nowy = Ksztaltowanie_1(
+            data=data_val,
+            godzina_rozpoczecia=godz_rozp,
+            id_materialu=id_materialu,
+            nr_prodio=nr_prodio,
             nazwa=nazwa,
-            id_pracownik=pracownik,
-            imie_nazwisko=imie_nazwisko
+            imie_nazwisko=imie_nazwisko,
+            ilosc=None,
+            ilosc_na_stanie=None,
+            godzina_zakonczenia=None,
+            id_pracownik=g.user.id
+
+
         )
+        db.session.add(nowy)
+        db.session.commit()
+        return redirect(url_for('ksztaltowanie1'))
+    except Exception as e:
+        db.session.rollback()
+        logger.error(f'Błąd przy dodawaniu: {e}')
+        return "Błąd przy dodawaniu", 500
 
-        # Aktualizuj stan magazynowy
-        try:
-            material_obj.ilosc_sztuk_na_stanie -= int(ilosc)
-            db.session.add(nowy_ksztaltowanie)
-            db.session.commit()
+# --- Zakończenie kształtowania (aktualizacja istniejącego) ---
 
-            logger.info(f"Ksztaltowanie_1 {nazwa} zostało dodane przez {g.user.login}.")
-            return redirect(url_for('ksztaltowanie1'))
+@app.route('/zakoncz-ksztaltowanie1/<int:id>', methods=['POST'])
+def zakoncz_ksztaltowanie1(id):
+    if not g.user:
+        return jsonify({'message': 'Brak uprawnień'}), 401
 
-        except Exception as e:
-            db.session.rollback()
-            logger.error(f"Nie udało się zapisać danych: {e}")
-            return render_template('ksztaltowanie1.html', error="Wystąpił błąd przy zapisie danych.", user=g.user)
+    ksztaltowanie = Ksztaltowanie_1.query.get_or_404(id)
+    if ksztaltowanie.godzina_zakonczenia is not None:
+        return jsonify({'message': 'Ten wpis jest już zakończony.'}), 400
+
+    dane = request.get_json()
+    try:
+        godz_zak = dane.get('godzina_zakonczenia')
+        ilosc = dane.get('ilosc')
+        ilosc_na_stanie = dane.get('ilosc_na_stanie')
+
+        if godz_zak:
+            ksztaltowanie.godzina_zakonczenia = datetime.strptime(godz_zak, '%H:%M:%S').time()
+        else:
+            ksztaltowanie.godzina_zakonczenia = datetime.now().time()
+
+        if ilosc is not None:
+            ksztaltowanie.ilosc = int(ilosc)
+        if ilosc_na_stanie is not None:
+            ksztaltowanie.ilosc_na_stanie = int(ilosc)
+
+        db.session.commit()
+        return jsonify({'message': 'Zakończono pomyślnie!'}), 200
+    except Exception as e:
+        db.session.rollback()
+        return jsonify({'message': 'Błąd podczas zakończenia', 'error': str(e)}), 500
 
 @app.route('/update-row-ksztaltowanie1', methods=['POST'])
 def update_row_ksztaltowanie1():
@@ -2137,6 +2159,7 @@ def update_row_ksztaltowanie1():
         ksztaltowanie.ilosc_na_stanie = int(dane.get('column_8', ksztaltowanie.ilosc_na_stanie))
         ksztaltowanie.nazwa = dane.get('column_1', ksztaltowanie.nazwa)
         ksztaltowanie.imie_nazwisko = dane.get('column_11', ksztaltowanie.imie_nazwisko)
+
 
         # Sprawdzenie, czy materiał istnieje
         material = MaterialObejma.query.get(ksztaltowanie.id_materialu)
