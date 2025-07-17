@@ -11,8 +11,22 @@
 function filterTable() {
     const table = document.getElementById("tabela");
     const filterInputs = table.querySelectorAll("thead tr:first-child input[type='text']");
-    const dateFrom = document.getElementById("dateDostawyFrom")?.value;
-    const dateTo = document.getElementById("dateDostawyTo")?.value;
+    const dateFrom1 = document.getElementById("dateFrom1")?.value;
+    const dateTo1 = document.getElementById("dateTo1")?.value;
+    const dateFrom2 = document.getElementById("dateFrom2")?.value;
+    const dateTo2 = document.getElementById("dateTo2")?.value;
+    const dateFrom3 = document.getElementById("dateFrom3")?.value;
+    const dateTo3 = document.getElementById("dateTo3")?.value;
+    const dateFrom4 = document.getElementById("dateFrom4")?.value;
+    const dateTo4 = document.getElementById("dateTo4")?.value;
+    const dateFrom5 = document.getElementById("dateFrom5")?.value;
+    const dateTo5 = document.getElementById("dateTo5")?.value;
+    const dateFrom6 = document.getElementById("dateFrom6")?.value;
+    const dateTo6 = document.getElementById("dateTo6")?.value;
+    const dateFrom7 = document.getElementById("dateFrom7")?.value;
+    const dateTo7 = document.getElementById("dateTo7")?.value;
+    const dateFrom8 = document.getElementById("dateFrom8")?.value;
+    const dateTo8 = document.getElementById("dateTo8")?.value;
     const rows = table.tBodies[0].rows;
 
     for (let i = 0; i < rows.length; i++) {
@@ -499,8 +513,8 @@ function downloadSelected(user) {
                             <th><input type="text" placeholder="Filtruj Imię i nazw." onchange="filterTable()"></th>
                             <th><input type="text" placeholder="Filtruj ID" onkeyup="filterTable()"></th>
                             <th><input type="text" placeholder="Filtruj Certyfikat" onkeyup="filterTable()"></th>
-                            <th>OD<input type="date" id="dateFrom" onchange="filterTable()">
-                                    DO<input type="date" id="dateTo" onchange="filterTable()"></th>
+                            <th>OD<input type="date" id="dateFrom1" onchange="filterTable()">
+                                    DO<input type="date" id="dateTo1" onchange="filterTable()"></th>
                             <th><input type="text" placeholder="Filtruj Nr wytopu" onkeyup="filterTable()"></th>
                             <th><input type="text" placeholder="Filtruj Nr Prodio" onkeyup="filterTable()"></th>
                             <th><input type="text" placeholder="Filtruj Ilość sztuk" onkeyup="filterTable()"></th>
@@ -508,74 +522,74 @@ function downloadSelected(user) {
                             <th><input type="text" placeholder="Filtruj Rozmiar" onkeyup="filterTable()"></th>
                             <th><input type="text" placeholder="Filtruj Pracownika" onkeyup="filterTable()"></th>
                             <th><input type="text" placeholder="Filtruj ID" onkeyup="filterTable()"></th>
-                        <th><input type="text" placeholder="Filtruj Nazwe" onkeyup="filterTable()"></th>
-                        <th><input type="text" placeholder="Filtruj Rozmiar" onkeyup="filterTable()"></th>
-                        <th><input type="text" placeholder="Filtruj Nr wytopu" onkeyup="filterTable()"></th>
-                        <th>OD<input type="date" id="dateFrom" onchange="filterTable()">
-                                DO<input type="date" id="dateTo" onchange="filterTable()"></th>
-                        <th><input type="text" placeholder="Filtruj Godzina rozpoczęcia" onkeyup="filterTable()"></th>
-                        <th><input type="text" placeholder="Filtruj Godzina zakończenia" onkeyup="filterTable()"></th>
-                        <th><input type="text" placeholder="Filtruj Ilość" onkeyup="filterTable()"></th>
-                        <th><input type="text" placeholder="Filtruj Ilość na stanie" onkeyup="filterTable()"></th>
-                        <th><input type="text" placeholder="Filtruj Nr Prodio" onkeyup="filterTable()"></th>
-                        <th><input type="text" placeholder="Filtruj Pracownika" onkeyup="filterTable()"></th>
-                        <th><input type="text" placeholder="Filtruj Imię i nazwisko" onkeyup="filterTable()"></th>
-                                                <th><input type="text" placeholder="Filtruj ID" onkeyup="filterTable()"></th>
-                        <th><input type="text" placeholder="Filtruj Nazwe" onkeyup="filterTable()"></th>
-                        <th><input type="text" placeholder="Filtruj Kształtowanie" onkeyup="filterTable()"></th>
-                        <th><input type="text" placeholder="Filtruj Rozmiar" onkeyup="filterTable()"></th>
-                        <th><input type="text" placeholder="Filtruj Nr wytopu" onkeyup="filterTable()"></th>
-                        <th>OD<input type="date" id="dateFrom" onchange="filterTable()">
-                                DO<input type="date" id="dateTo" onchange="filterTable()"></th>
-                        <th><input type="text" placeholder="Filtruj Godzina rozpoczęcia" onkeyup="filterTable()"></th>
-                        <th><input type="text" placeholder="Filtruj Godzina zakończenia" onkeyup="filterTable()"></th>
-                        <th><input type="text" placeholder="Filtruj Ilość" onkeyup="filterTable()"></th>
-                        <th><input type="text" placeholder="Filtruj Ilość na stanie" onkeyup="filterTable()"></th>
-                        <th><input type="text" placeholder="Filtruj Nr Prodio" onkeyup="filterTable()"></th>
-                        <th><input type="text" placeholder="Filtruj Pracownika" onkeyup="filterTable()"></th>
-                        <th><input type="text" placeholder="Filtruj Imię i nazwisko" onkeyup="filterTable()"></th>
-                                                <th><input type="text" placeholder="Filtruj ID" onkeyup="filterTable()"></th>
-                        <th><input type="text" placeholder="Filtruj Nazwe" onkeyup="filterTable()"></th>
-                        <th><input type="text" placeholder="Filtruj Kształtowanie" onkeyup="filterTable()"></th>
-                        <th><input type="text" placeholder="Filtruj Rozmiar" onkeyup="filterTable()"></th>
-                        <th><input type="text" placeholder="Filtruj Nr wytopu" onkeyup="filterTable()"></th>
-                        <th>OD<input type="date" id="dateFrom" onchange="filterTable()">
-                                DO<input type="date" id="dateTo" onchange="filterTable()"></th>
-                        <th><input type="text" placeholder="Filtruj Godzina rozpoczęcia" onkeyup="filterTable()"></th>
-                        <th><input type="text" placeholder="Filtruj Godzina zakończenia" onkeyup="filterTable()"></th>
-                        <th><input type="text" placeholder="Filtruj Ilość" onkeyup="filterTable()"></th>
-                        <th><input type="text" placeholder="Filtruj Ilość na stanie" onkeyup="filterTable()"></th>
-                        <th><input type="text" placeholder="Filtruj Nr Prodio" onkeyup="filterTable()"></th>
-                        <th><input type="text" placeholder="Filtruj Pracownika" onkeyup="filterTable()"></th>
-                        <th><input type="text" placeholder="Filtruj Imię i nazwisko" onkeyup="filterTable()"></th>
-                                                <th><input type="text" placeholder="Filtruj ID" onkeyup="filterTable()"></th>
-                        <th><input type="text" placeholder="Filtruj Rozmiar" onkeyup="filterTable()"></th>
-                        <th><input type="text" placeholder="Filtruj Nr wytopu" onkeyup="filterTable()"></th>
-                        <th><input type="text" placeholder="Filtruj Partia" onkeyup="filterTable()"></th>
-                        <th><input type="text" placeholder="Filtruj Ilość" onkeyup="filterTable()"></th>
-                        <th><input type="text" placeholder="Filtruj Ilość na stanie" onkeyup="filterTable()"></th>
-                        <th><input type="text" placeholder="Filtruj Nr Prodio" onkeyup="filterTable()"></th>
-                        <th>OD<input type="date" id="dateFrom" onchange="filterTable()">
-                                DO<input type="date" id="dateTo" onchange="filterTable()"></th>
-                        <th><input type="text" placeholder="Filtruj Pracownika" onkeyup="filterTable()"></th>
-                        <th><input type="text" placeholder="Filtruj Imię i nazwisko" onkeyup="filterTable()"></th>
-                                                <th><input type="text" placeholder="Filtruj ID" onkeyup="filterTable()"></th>
-                        <th><input type="text" placeholder="Filtruj Rozmiar" onkeyup="filterTable()"></th>
-                        <th><input type="text" placeholder="Filtruj Nr wytopu" onkeyup="filterTable()"></th>
-                        <th>OD<input type="date" id="dateFrom" onchange="filterTable()">
-                                DO<input type="date" id="dateTo" onchange="filterTable()"></th>
-                        <th><input type="text" placeholder="Filtruj Ilość" onkeyup="filterTable()"></th>
-                        <th><input type="text" placeholder="Filtruj Ilość na stanie" onkeyup="filterTable()"></th>
-                        <th><input type="text" placeholder="Filtruj Nr Prodio" onkeyup="filterTable()"></th>
-                        <th>OD<input type="date" id="dateFrom" onchange="filterTable()">
-                                DO<input type="date" id="dateTo" onchange="filterTable()"></th>
-                        <th><input type="text" placeholder="Filtruj Pracownika" onkeyup="filterTable()"></th>
-                        <th><input type="text" placeholder="Filtruj Imię i nazwisko" onkeyup="filterTable()"></th>
-                        <th><input type="text" placeholder="Filtruj Rozmiar" onkeyup="filterTable()"></th>
-                        <th><input type="text" placeholder="Filtruj Nr wytopu" onkeyup="filterTable()"></th>
-                        <th>OD<input type="date" id="dateFrom" onchange="filterTable()">
-                                DO<input type="date" id="dateTo" onchange="filterTable()"></th>
-                        <th><input type="text" placeholder="Filtruj Ilość" onkeyup="filterTable()"></th>
+                            <th><input type="text" placeholder="Filtruj Nazwe" onkeyup="filterTable()"></th>
+                            <th><input type="text" placeholder="Filtruj Rozmiar" onkeyup="filterTable()"></th>
+                            <th><input type="text" placeholder="Filtruj Nr wytopu" onkeyup="filterTable()"></th>
+                            <th>OD<input type="date" id="dateFrom2" onchange="filterTable()">
+                                    DO<input type="date" id="dateTo2" onchange="filterTable()"></th>
+                            <th><input type="text" placeholder="Filtruj Godzina rozpoczęcia" onkeyup="filterTable()"></th>
+                            <th><input type="text" placeholder="Filtruj Godzina zakończenia" onkeyup="filterTable()"></th>
+                            <th><input type="text" placeholder="Filtruj Ilość" onkeyup="filterTable()"></th>
+                            <th><input type="text" placeholder="Filtruj Ilość na stanie" onkeyup="filterTable()"></th>
+                            <th><input type="text" placeholder="Filtruj Nr Prodio" onkeyup="filterTable()"></th>
+                            <th><input type="text" placeholder="Filtruj Pracownika" onkeyup="filterTable()"></th>
+                            <th><input type="text" placeholder="Filtruj Imię i nazwisko" onkeyup="filterTable()"></th>
+                            <th><input type="text" placeholder="Filtruj ID" onkeyup="filterTable()"></th>
+                            <th><input type="text" placeholder="Filtruj Nazwe" onkeyup="filterTable()"></th>
+                            <th><input type="text" placeholder="Filtruj Kształtowanie" onkeyup="filterTable()"></th>
+                            <th><input type="text" placeholder="Filtruj Rozmiar" onkeyup="filterTable()"></th>
+                            <th><input type="text" placeholder="Filtruj Nr wytopu" onkeyup="filterTable()"></th>
+                            <th>OD<input type="date" id="dateFrom3" onchange="filterTable()">
+                                    DO<input type="date" id="dateTo3" onchange="filterTable()"></th>
+                            <th><input type="text" placeholder="Filtruj Godzina rozpoczęcia" onkeyup="filterTable()"></th>
+                            <th><input type="text" placeholder="Filtruj Godzina zakończenia" onkeyup="filterTable()"></th>
+                            <th><input type="text" placeholder="Filtruj Ilość" onkeyup="filterTable()"></th>
+                            <th><input type="text" placeholder="Filtruj Ilość na stanie" onkeyup="filterTable()"></th>
+                            <th><input type="text" placeholder="Filtruj Nr Prodio" onkeyup="filterTable()"></th>
+                            <th><input type="text" placeholder="Filtruj Pracownika" onkeyup="filterTable()"></th>
+                            <th><input type="text" placeholder="Filtruj Imię i nazwisko" onkeyup="filterTable()"></th>
+                            <th><input type="text" placeholder="Filtruj ID" onkeyup="filterTable()"></th>
+                            <th><input type="text" placeholder="Filtruj Nazwe" onkeyup="filterTable()"></th>
+                            <th><input type="text" placeholder="Filtruj Kształtowanie" onkeyup="filterTable()"></th>
+                            <th><input type="text" placeholder="Filtruj Rozmiar" onkeyup="filterTable()"></th>
+                            <th><input type="text" placeholder="Filtruj Nr wytopu" onkeyup="filterTable()"></th>
+                            <th>OD<input type="date" id="dateFrom4" onchange="filterTable()">
+                                    DO<input type="date" id="dateTo4" onchange="filterTable()"></th>
+                            <th><input type="text" placeholder="Filtruj Godzina rozpoczęcia" onkeyup="filterTable()"></th>
+                            <th><input type="text" placeholder="Filtruj Godzina zakończenia" onkeyup="filterTable()"></th>
+                            <th><input type="text" placeholder="Filtruj Ilość" onkeyup="filterTable()"></th>
+                            <th><input type="text" placeholder="Filtruj Ilość na stanie" onkeyup="filterTable()"></th>
+                            <th><input type="text" placeholder="Filtruj Nr Prodio" onkeyup="filterTable()"></th>
+                            <th><input type="text" placeholder="Filtruj Pracownika" onkeyup="filterTable()"></th>
+                            <th><input type="text" placeholder="Filtruj Imię i nazwisko" onkeyup="filterTable()"></th>
+                            <th><input type="text" placeholder="Filtruj ID" onkeyup="filterTable()"></th>
+                            <th><input type="text" placeholder="Filtruj Rozmiar" onkeyup="filterTable()"></th>
+                            <th><input type="text" placeholder="Filtruj Nr wytopu" onkeyup="filterTable()"></th>
+                            <th><input type="text" placeholder="Filtruj Partia" onkeyup="filterTable()"></th>
+                            <th><input type="text" placeholder="Filtruj Ilość" onkeyup="filterTable()"></th>
+                            <th><input type="text" placeholder="Filtruj Ilość na stanie" onkeyup="filterTable()"></th>
+                            <th><input type="text" placeholder="Filtruj Nr Prodio" onkeyup="filterTable()"></th>
+                            <th>OD<input type="date" id="dateFrom5" onchange="filterTable()">
+                                    DO<input type="date" id="dateTo5" onchange="filterTable()"></th>
+                            <th><input type="text" placeholder="Filtruj Pracownika" onkeyup="filterTable()"></th>
+                            <th><input type="text" placeholder="Filtruj Imię i nazwisko" onkeyup="filterTable()"></th>
+                            <th><input type="text" placeholder="Filtruj ID" onkeyup="filterTable()"></th>
+                            <th><input type="text" placeholder="Filtruj Rozmiar" onkeyup="filterTable()"></th>
+                            <th><input type="text" placeholder="Filtruj Nr wytopu" onkeyup="filterTable()"></th>
+                            <th>OD<input type="date" id="dateFrom6" onchange="filterTable()">
+                                    DO<input type="date" id="dateTo6" onchange="filterTable()"></th>
+                            <th><input type="text" placeholder="Filtruj Ilość" onkeyup="filterTable()"></th>
+                            <th><input type="text" placeholder="Filtruj Ilość na stanie" onkeyup="filterTable()"></th>
+                            <th><input type="text" placeholder="Filtruj Nr Prodio" onkeyup="filterTable()"></th>
+                            <th>OD<input type="date" id="dateFrom7" onchange="filterTable()">
+                                    DO<input type="date" id="dateTo7" onchange="filterTable()"></th>
+                            <th><input type="text" placeholder="Filtruj Pracownika" onkeyup="filterTable()"></th>
+                            <th><input type="text" placeholder="Filtruj Imię i nazwisko" onkeyup="filterTable()"></th>
+                            <th><input type="text" placeholder="Filtruj Rozmiar" onkeyup="filterTable()"></th>
+                            <th><input type="text" placeholder="Filtruj Nr wytopu" onkeyup="filterTable()"></th>
+                            <th>OD<input type="date" id="dateFrom8" onchange="filterTable()">
+                                    DO<input type="date" id="dateTo8" onchange="filterTable()"></th>
+                            <th><input type="text" placeholder="Filtruj Ilość" onkeyup="filterTable()"></th>
                         
                         </tr>
                     
