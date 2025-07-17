@@ -132,11 +132,34 @@ function openEditModal(row) {
         addBtn.className = "button";
         addBtn.onclick = () => addChildRow(row);
         cells[cells.length - 1].appendChild(addBtn);
-
+    const filterRow = document.createElement("tr");
+        let filterCells = '';
+        for (let i = 0; i < cells.length - 2; i++) {
+            if (i === 3) {
+                filterCells += `<td><input type="text" placeholder="Filtruj Piankę" onkeyup="filterPianki(this.value)" style="width: 100%;"></td>`;
+            }
+            else if (i === 5) {
+                filterCells += `<td><input type="text" placeholder="Filtruj Taśmę" onkeyup="filterTasmy(this.value)" style="width: 100%;"></td>`;
+            }else {
+                filterCells += `<td></td>`;
+            }
+        }
+        filterRow.innerHTML = filterCells;
+        row.parentElement.insertBefore(filterRow, row);
         cells.forEach((cell, i) => {
-            if (i > 0 && i < cells.length - 5 && i !== 7) {
+            if (i > 0 && i < cells.length - 5 && i !== 8) {
                 const value = cell.innerText;
-                if (i === 3 || i === 5) {
+                if (i==3){
+                    const currentPiankaId = cell.getAttribute("data-pianka-id");
+                    cell.innerHTML = `<select id="piankaSelect" style="width: 100%;"></select>`;
+                    populatePianki(cell.querySelector("select"), currentPiankaId);
+                }
+                else if (i==5){
+                    const currentTasmaId = cell.getAttribute("data-tasma-id");
+                    cell.innerHTML = `<select id="tasmaSelect" style="width: 100%;"></select>`;
+                    populateTasmy(cell.querySelector("select"), currentTasmaId);
+                }
+                else if (i === 4 || i === 6) {
                     cell.innerHTML = `<input type="number" value="${value}" style="width:100%;">`;
                 } else {
                     cell.innerHTML = `<input type="text" value="${value}" style="width:100%;">`;
@@ -148,18 +171,18 @@ function openEditModal(row) {
         document.querySelectorAll(`tr[data-child-id]`).forEach(childRow => {
             if (childRow.previousElementSibling.dataset.parentId === parentId) {
                 const cc = childRow.querySelectorAll("td");
-                const [rozmiar, nrWytopu, data, ilosc] = [9,10,11,12].map(i => cc[i]?.innerText.trim() || "");
+                const [rozmiar, nrWytopu, data, ilosc] = [10,11,12,13].map(i => cc[i]?.innerText.trim() || "");
 
                 const currentMalarnieId = cc[11]?.getAttribute("data-malarnia-id") || "";
-                cc[11].innerHTML = `<select style="width: 100%;"></select>`;
+                cc[11].innerHTML = `<select id="malarniaSelect" style="width: 100%;"></select>`;
                 const select = cc[11].querySelector("select");
                 if (select) {
                     populateMalarnii(select, currentMalarnieId);
                 }
-                cc[8].innerHTML = `<input type="date" placeholder="Filtruj Malarnie" style="width: 100%;" oninput="filterMalarnii(this)">`;
+                cc[9].innerHTML = `<input type="date" placeholder="Filtruj Malarnie" style="width: 100%;" oninput="filterMalarnii(this.value)">`;
 
                 cc[12].innerHTML = `<input type="number" value="${ilosc}" style="width:100%;">`;
-                cc[13].innerHTML = `<button type="button" onclick="removeChildRow(this)">Usuń</button>`;
+                cc[13].innerHTML = `<button type="button" class="button" onclick="removeChildRow(this)">Usuń</button>`;
             }
         });
 
@@ -196,14 +219,33 @@ function openEditModal(row) {
     }
 }
 function filterMalarnii(input) {
-    const filterDate = input.value; // np. "2025-06-17"
-    const select = input.parentElement.nextElementSibling.querySelector("select");
+    const filter = input.toLowerCase();
+    const select = document.getElementById("malarniaSelect");
     if (!select) return;
 
     for (let i = 0; i < select.options.length; i++) {
-        const optionDate = select.options[i].text;  // zakładam, że text to np. "2025-06-17"
-        // Pokaż opcję, jeśli data dokładnie pasuje lub jeśli filtr jest pusty (wszystko pokazuj)
-        select.options[i].style.display = (!filterDate || optionDate === filterDate) ? "" : "none";
+        const optionText = select.options[i].textContent.toLowerCase();
+        select.options[i].style.display = optionText.includes(filter) ? "" : "none";
+    }
+}
+function filterPianki(input) {
+    const filter = input.toLowerCase();
+    const select = document.getElementById("piankaSelect");
+    if (!select) return;
+
+    for (let i = 0; i < select.options.length; i++) {
+        const optionText = select.options[i].textContent.toLowerCase();
+        select.options[i].style.display = optionText.includes(filter) ? "" : "none";
+    }
+}
+function filterTasmy(input) {
+    const filter = input.toLowerCase();
+    const select = document.getElementById("tasmaSelect");
+    if (!select) return;
+
+    for (let i = 0; i < select.options.length; i++) {
+        const optionText = select.options[i].textContent.toLowerCase();
+        select.options[i].style.display = optionText.includes(filter) ? "" : "none";
     }
 }
 function populateMalarnii(selectElement, selectedValue) {
@@ -222,10 +264,46 @@ function populateMalarnii(selectElement, selectedValue) {
         })
         .catch(error => console.error('Błąd podczas pobierania malarnii:', error));
 }
+function populatePianki(selectElement, selectedValue) {
+    fetch('/get-pianka')
+        .then(response => response.json())
+        .then(data => {
+            data.forEach(pianka => {
+                const option = document.createElement('option');
+                option.value = pianka.id.toString();
+                option.textContent = pianka.nazwa;
+                
+                selectElement.appendChild(option);
+            });
+            if (selectedValue) {
+                selectElement.value = selectedValue.toString();
+            }
+        })
+        .catch(error => console.error('Błąd podczas pobierania pianek:', error));
+}
+function populateTasmy(selectElement, selectedValue) {
+    fetch('/get-tasma_obejmy')
+        .then(response => response.json())
+        .then(data => {
+            data.forEach(tasma_obejmy => {
+                const option = document.createElement('option');
+                option.value = tasma_obejmy.id.toString();
+                option.textContent = tasma_obejmy.nazwa;
+               
+                selectElement.appendChild(option);
+            });
+            if (selectedValue) {
+                selectElement.value = selectedValue.toString();
+            }
+        })
+        .catch(error => console.error('Błąd podczas pobierania taśm:', error));
+}
 
 function addChildRow(parentRow) {
     const newRow = document.createElement("tr");
     newRow.setAttribute("data-child-id", "new");
+    newRow.setAttribute("data-parent-id", parentRow.dataset.parentId);  // <== DODANE
+
     newRow.innerHTML = `
         <td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
         <td></td>
@@ -233,6 +311,7 @@ function addChildRow(parentRow) {
         <td><input type="number" placeholder="Ilość" style="width:100%;"></td>
         <td><button type="button" class="button" onclick="removeChildRow(this)">Usuń</button></td>
     `;
+
     parentRow.parentElement.insertBefore(newRow, parentRow.nextSibling);
 
     const select = newRow.querySelector("select");
@@ -460,9 +539,9 @@ function sendDataToBackend(data) {
                             <td  >{{ zlecenia.id }}</td>
                             <td >{{ zlecenia.nr_zamowienia_zew }}</td>
                             <td >{{ zlecenia.nr_prodio }}</td>
-                            <td >{{ zlecenia.pianka.nazwa }}</td>
+                            <td data-pianka-id="{{zlecenia.pianka.id}}">{{ zlecenia.pianka.nazwa }}</td>
                             <td >{{ zlecenia.ile_pianka }}</td>
-                            <td >{{ zlecenia.tasma.nazwa }}</td>
+                            <td data-tasma-id="{{zlecenia.tasma.id}}">{{ zlecenia.tasma.nazwa }}</td>
                             <td >{{ zlecenia.ile_tasmy }}</td>
                             <td >{{ zlecenia.nr_kartonu }}</td>
                             <td >{{ zlecenia.pracownik.login }}</td>

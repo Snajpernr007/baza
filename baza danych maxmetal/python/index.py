@@ -24,6 +24,7 @@ import openpyxl
 from io import BytesIO
 from datetime import datetime
 import re
+import json
 # Utwórz katalog logs, jeśli nie istnieje
 if not os.path.exists('logs'):
     os.makedirs('logs')
@@ -3103,55 +3104,59 @@ def update_row_zlecenie():
     if not zlecenie_id:
         return jsonify({'error': 'Brak ID zlecenia'}), 400
 
-    # Znajdź istniejące zlecenie
     zlecenie = Zlecenie.query.get(zlecenie_id)
     if not zlecenie:
         return jsonify({'error': 'Nie znaleziono zlecenia'}), 404
 
     try:
-        # Aktualizuj pola zlecenia - dopasuj klucze z frontu do kolumn modeli
-        # Zakładam, że col_1 -> nr_zamowienia_zew, col_2 -> nr_prodio itd., dopasuj wg własnego frontu
-        # Na przykład:
         if 'col_1' in data:
             zlecenie.nr_zamowienia_zew = data['col_1']
         if 'col_2' in data:
             zlecenie.nr_prodio = data['col_2']
         if 'col_3' in data:
-            zlecenie.ile_pianka = int(data['col_3']) if data['col_3'].isdigit() else None
-        if 'col_4' in data:
-            zlecenie.seria_tasmy = data['col_4']
-        if 'col_5' in data:
-            zlecenie.ile_tasmy = int(data['col_5']) if data['col_5'].isdigit() else None
-        if 'col_6' in data:
-            zlecenie.nr_kartonu = data['col_6']
-        if 'col_7' in data:
-            # Jeśli masz id_pracownik jako input tekstowy to konwertuj na int lub wyszukaj w bazie
             try:
-                zlecenie.id_pracownik = int(data['col_7'])
+                zlecenie.id_pianka = int(data['col_3'])
             except:
                 pass
+        if 'col_4' in data:
+            zlecenie.ile_pianka = int(data['col_4']) if data['col_4'].isdigit() else 0
+        if 'col_5' in data:
+            try:
+                zlecenie.id_tasma = int(data['col_5'])
+            except:
+                pass
+        if 'col_6' in data:
+            zlecenie.ile_tasmy = int(data['col_6']) if data['col_6'].isdigit() else 0
+        if 'col_7' in data:
+            zlecenie.nr_kartonu = data['col_7']
         if 'col_8' in data:
-            zlecenie.imie_nazwisko = data['col_8']
+            try:
+                zlecenie.id_pracownik = int(data['col_8'])
+            except:
+                pass
+        if 'col_9' in data:
+            zlecenie.imie_nazwisko = data['col_9']
 
-        # Obsługa dzieci (laczenie)
+        # Obsługa dzieci (powroty / laczenie)
         sent_children = data.get('children', [])
 
-        # Pobierz istniejące laczenia dla tego zlecenia
-        existing_laczenia = {str(laczenie.id): laczenie for laczenie in zlecenie.laczenie}
+        # ⬇️ DEBUG: Wypisz children w konsoli
+        print("[DEBUG] Otrzymane powroty (children):")
+        print(json.dumps(sent_children, indent=2, ensure_ascii=False))
 
-        # Przechowuj ID laczen do usunięcia, które nie są w przesłanych children
+        existing_laczenia = {str(laczenie.id): laczenie for laczenie in zlecenie.laczenie}
         sent_ids = set()
+
         for child in sent_children:
             child_id = child.get('id')
             sent_ids.add(child_id)
             id_powrot = int(child.get('data')) if child.get('data') else None
             ile_sztuk = int(child.get('ile_sztuk')) if child.get('ile_sztuk') and child.get('ile_sztuk').isdigit() else 0
-        
+
             if not id_powrot:
                 continue
-            
+
             if not child_id:
-                # Nowy wpis laczenia
                 nowy = Laczenie(id_zlecenie=zlecenie.id, id_powrot=id_powrot, ile_sztuk=ile_sztuk)
                 db.session.add(nowy)
             else:
@@ -3160,7 +3165,7 @@ def update_row_zlecenie():
                     laczenie.id_powrot = id_powrot
                     laczenie.ile_sztuk = ile_sztuk
 
-        # Usuwanie laczen, które nie ma w sent_children (opcjonalnie)
+        # Usuń nieobecne laczenia
         for existing_id in existing_laczenia.keys():
             if existing_id not in sent_ids and existing_id != "new":
                 db.session.delete(existing_laczenia[existing_id])
