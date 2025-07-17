@@ -1355,6 +1355,19 @@ def zestawienie():
 
     logger.info(f"{g.user.login} wszedł na stronę zestawienia.")
     return render_template("zestawienie.html", user=g.user, profil=Profil.query.all(), tasma=Tasma.query.all())
+
+@app.route('/zestawienie_obejma')
+def zestawienie_obejma():
+    if not g.user:
+        return render_template('login.html', user=g.user)
+    if g.user.id_uprawnienia == 3:
+        return redirect(url_for('home'))
+
+    materialy = MaterialObejma.query.all()
+    rozmiary = RozmiaryObejm.query.all()
+    logger.info(f"{g.user.login} wszedł na stronę zestawienia obejma.")
+    return render_template("zestawienie_obejma.html", user=g.user, materialy=materialy, rozmiary=rozmiary)
+
 @app.route('/log-download', methods=['POST'])
 def log_download():
     data = request.json

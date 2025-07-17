@@ -21732,3 +21732,28 @@
 2025-07-17 18:08:14,019 - INFO - 192.168.1.13 - - [17/Jul/2025 18:08:14] "GET / HTTP/1.1" 200 -
 2025-07-17 18:08:14,034 - INFO - 192.168.1.13 - - [17/Jul/2025 18:08:14] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
 2025-07-17 18:08:14,034 - INFO - 192.168.1.13 - - [17/Jul/2025 18:08:14] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-07-17 18:19:52,912 - INFO -  * Detected change in 'C:\\Users\\Windows\\Desktop\\baza\\baza danych maxmetal\\python\\index.py', reloading
+2025-07-17 18:20:01,853 - INFO -  * Restarting with stat
+2025-07-17 18:20:05,586 - INFO - Połączenie z bazą danych zostało nawiązane pomyślnie.
+2025-07-17 18:20:05,659 - INFO - ✅ Kopia zapasowa zapisana do pliku: backups\kopie_zapasowe_bazy_2025-07-17_18-20.sql
+2025-07-17 18:20:05,660 - INFO - 🗑️ Usunięto starą kopię: kopie_zapasowe_bazy_2025-07-17_15-52.sql
+2025-07-17 18:20:06,510 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.1.13:5000
+2025-07-17 18:20:06,510 - INFO - [33mPress CTRL+C to quit[0m
+2025-07-17 18:20:06,511 - INFO -  * Restarting with stat
+2025-07-17 18:20:08,547 - INFO - Połączenie z bazą danych zostało nawiązane pomyślnie.
+2025-07-17 18:20:08,619 - INFO - ✅ Kopia zapasowa zapisana do pliku: backups\kopie_zapasowe_bazy_2025-07-17_18-20.sql
+2025-07-17 18:20:08,624 - WARNING -  * Debugger is active!
+2025-07-17 18:20:08,628 - INFO -  * Debugger PIN: 849-168-113
+2025-07-17 18:20:20,136 - INFO - Administrator wszedł na stronę główną.
+2025-07-17 18:20:20,299 - INFO - 192.168.1.13 - - [17/Jul/2025 18:20:20] "GET / HTTP/1.1" 200 -
+2025-07-17 18:20:20,313 - INFO - 192.168.1.13 - - [17/Jul/2025 18:20:20] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-07-17 18:20:20,316 - INFO - 192.168.1.13 - - [17/Jul/2025 18:20:20] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-07-17 18:20:20,325 - INFO - 192.168.1.13 - - [17/Jul/2025 18:20:20] "[36mGET /static/img/maxmetal.png HTTP/1.1[0m" 304 -
+2025-07-17 18:20:20,365 - INFO - 192.168.1.13 - - [17/Jul/2025 18:20:20] "[36mGET /static/img/logo-male.png HTTP/1.1[0m" 304 -
+2025-07-17 18:20:27,751 - INFO - 192.168.1.13 - - [17/Jul/2025 18:20:27] "[33mGET /logi HTTP/1.1[0m" 404 -
+2025-07-17 18:20:37,409 - INFO - 192.168.1.13 - - [17/Jul/2025 18:20:37] "[33mGET /zestawienie_obejma HTTP/1.1[0m" 404 -
+2025-07-17 18:23:12,596 - INFO -  * Detected change in 'C:\\Users\\Windows\\Desktop\\baza\\baza danych maxmetal\\python\\index.py', reloading
+2025-07-17 18:23:15,450 - INFO -  * Restarting with stat
