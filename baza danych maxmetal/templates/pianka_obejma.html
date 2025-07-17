@@ -369,14 +369,18 @@ function filterTable() {
                 <thead class="sticky-sort">
                     <tr>
                         <th><input type="text" placeholder="Filtruj ID" onkeyup="filterColumn(0)"></th>
-                        <th><input type="text" placeholder="Filtruj Rozmiar" onkeyup="filterColumn(1)"></th>
+                        <th><input type="text" placeholder="Filtruj nazwe" onkeyup="filterColumn(1)"></th>
+                        <th><input type="text" placeholder="Filtruj ilość pianki" onkeyup="filterColumn(2)"></th>
+                        <th><input type="text" placeholder="Filtruj ilość pianki na stanie" onkeyup="filterColumn(3)"></th>
                         
                         
                         <th><button class="button" onclick="resetFilters()">Usuń Filtry</button></th>
                     </tr>
                     <tr>
                         <th onclick="sortTable(0)">ID &#9650;&#9660;</th>
+                        <th onclick="sortTable(1)">Nazwa &#9650;&#9660;</th>
                         <th onclick="sortTable(1)">Ile pianki &#9650;&#9660;</th>
+                        <th onclick="sortTable(1)">Ile pianki na stanie &#9650;&#9660;</th>
                         
                         
                         <th>Edycja</th>
@@ -386,7 +390,9 @@ function filterTable() {
                     {% for pianka in pianki %}
                         <tr>
                             <td>{{ pianka.id }} </td>
-                            <td>{{ pianka.ile_pianka }}</td>
+                            <td>{{ pianka.nazwa }}</td>
+                            <td>{{ pianka.ilosc }}</td>
+                            <td>{{ pianka.ilosc_na_stanie }}</td>
 
                             
                             <td><button type="button" class="button" onclick="openEditModal(this.parentElement.parentElement)">Edytuj</button></td>
