@@ -2947,18 +2947,38 @@ def dodaj_zlecenie_do_bazy():
         Nr_zamowienia = request.form.get('Nr_zamowienia')
         nr_kartonu = request.form.get('nr_kartonu')
         numer_prodio = request.form.get('prodio')
-        ilosc_pianki = int(request.form.get('ilosc_pianki') or 0)
-        ilosc_tasmy = int(request.form.get('ilosc_tasmy') or 0)
+        
         id_pianka = request.form.get('nazwa_materiału')
         id_tasma = request.form.get('nazwa_materiał')
         imie_nazwisko = request.form.get('imie')  # nie jako int
         pracownik = g.user.id
-
+        
         # Pobierz zaznaczone materiały (checkboxy)
-        id_powrot_list = request.form.getlist('nazwa_materiału')
+        id_powrot_list = request.form.getlist('nazwa_materiałue')
         if not id_powrot_list:
             return render_template('zlecenie.html', error="Nie wybrano żadnych materiałów.", user=g.user)
-
+        liczba=0
+        tabelka=[]
+        for ilosci in id_powrot_list:
+            ilosc_key = f'ilosc_{ilosci}'
+            ilosc_str = request.form.get(ilosc_key)
+            if not ilosc_str:
+                continue
+            try:
+                ile_sztuk = int(ilosc_str)
+            except ValueError:
+                continue
+            liczba+=ile_sztuk
+            powrot = Powrot.query.get(int(ilosci))
+            tabelka.append({powrot.id_malowania.id_ksztaltowanie_3.id_ksztaltowanie_2.id_ksztaltowanie_1.id_materialu.id_rozmiaru.id})
+        ilosc_pianki = int(request.form.get('ilosc_pianki') )
+        ilosc_tasmy = int(request.form.get('ilosc_tasmy') )
+        if ilosc_pianki==0 or ilosc_pianki is None:
+            for id_pianka in tabelka:
+                ilosc_pianki+=liczba*RozmiaryObejmy.query.get(int(id_pianka)).ile_pianki
+        if ilosc_tasmy==0 or ilosc_tasmy is None:
+            for id_tasma in tabelka:
+                ilosc_tasmy+=liczba*RozmiaryObejmy.query.get(int(id_tasma)).ile_tasmy
         # Stwórz zlecenie
         nowy_zlecenie = Zlecenie(
             nr_zamowienia_zew=Nr_zamowienia,
@@ -2973,7 +2993,14 @@ def dodaj_zlecenie_do_bazy():
         )
         db.session.add(nowy_zlecenie)
         db.session.flush()  # Uzyskaj ID nowego zlecenia zanim dodamy powiązania
-
+        tasma = TasmaObejmy.query.get(int(id_tasma))
+        pianka = Pianka.query.get(int(id_pianka))
+        if tasma:
+            tasma.ilosc_na_stanie -= ilosc_tasmy
+            db.session.add(tasma)
+        if pianka:
+            pianka.ilosc_na_stanie -= ilosc_pianki
+            db.session.add(pianka)
         # Dodaj powiązania z materiałami (Laczenie)
         for id_powrot in id_powrot_list:
             ilosc_key = f'ilosc_{id_powrot}'
@@ -2988,6 +3015,7 @@ def dodaj_zlecenie_do_bazy():
             powrot = Powrot.query.get(int(id_powrot))
             if not powrot or ile_sztuk > powrot.ilosc_na_stanie:
                 continue
+            
 
             laczenie = Laczenie(
                 id_zlecenie=nowy_zlecenie.id,

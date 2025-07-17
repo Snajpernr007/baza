@@ -95,7 +95,7 @@
     {% endfor %}
 </select>
 <label for="ilosc_pianki" name="ilosc">Ilość pianki:</label>
-            <input type="number" name="ilosc_pianki" required><br>
+            <input type="number" name="ilosc_pianki" ><br>
             <label for="szukaj_materiale">Szukaj Taśmę:</label>
 <input type="text" id="szukaj_material" onkeyup="filtrujMateriale()" placeholder="Wpisz rozmiar.."><br>
 <select id="nazwa_materiał" name="nazwa_materiał" required size="5" onchange="ustawMaksymalnaIlosci()">
@@ -110,7 +110,7 @@
     {% endfor %}
 </select>
 <label for="ilosc_tasmy" name="ilosc_tasmy">Ilość taśmy:</label>
-            <input type="number" name="ilosc_tasmy" required><br>
+            <input type="number" name="ilosc_tasmy" ><br>
 <div class="filter-controls">
   <label for="filter-from">Filtrowanie od:</label>
   <input type="date" id="filter-from">
@@ -125,22 +125,22 @@
   <summary>Obejmy:</summary>
   <div class="content scrollable-list">
     <ul>
-      {% for nazwa_materiału in rozmiar %}
-        {% if nazwa_materiału.ilosc_na_stanie > 0 %}
+      {% for nazwa_materiałue in rozmiar %}
+        {% if nazwa_materiałue.ilosc_na_stanie > 0 %}
           <li>
             <label>
               <input 
                 type="checkbox" 
-                name="nazwa_materiału" 
-                value="{{ nazwa_materiału.id }}" 
-                data-waga-kregu="{{ nazwa_materiału.ilosc_na_stanie }}"
+                name="nazwa_materiałue" 
+                value="{{ nazwa_materiałue.id }}" 
+                data-waga-kregu="{{ nazwa_materiałue.ilosc_na_stanie }}"
               >
-              {{ nazwa_materiału.data }} na stanie: {{ nazwa_materiału.ilosc_na_stanie }}
+              {{ nazwa_materiałue.data }} na stanie: {{ nazwa_materiałue.ilosc_na_stanie }}
               <input 
                 type="number" 
-                name="ilosc_{{ nazwa_materiału.id }}" 
+                name="ilosc_{{ nazwa_materiałue.id }}" 
                 min="1" 
-                max="{{ nazwa_materiału.ilosc_na_stanie }}" 
+                max="{{ nazwa_materiałue.ilosc_na_stanie }}" 
                 placeholder="ilość"
               >
             </label>
