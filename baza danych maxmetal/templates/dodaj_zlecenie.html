@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="../static/style.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>  <!-- Dodaj jQuery -->
 <script>
-        function filtrujMaterial() {
+   function filtrujMaterial() {
         let input = document.getElementById("szukaj_material").value.toLowerCase();
         let select = document.getElementById("nazwa_materiału");
         let options = select.getElementsByTagName("option");
@@ -17,7 +17,41 @@
             let text = option.textContent.toLowerCase();
             option.style.display = text.includes(input) ? "" : "none";
         }
+    
     }
+
+
+    function ustawMaksymalnaIlosc() {
+    const select = document.getElementById("nazwa_materiału");
+    const selectedOption = select.options[select.selectedIndex];
+    const maxIlosc = selectedOption.getAttribute("data-max");
+    
+    const inputIlosc = document.getElementById("ilosc");
+    inputIlosc.max = maxIlosc;
+    inputIlosc.value = '';  // czyści pole ilości przy zmianie opcji
+}
+   function filtrujMateriale() {
+        let input = document.getElementById("szukaj_materiale").value.toLowerCase();
+        let select = document.getElementById("nazwa_materiał");
+        let options = select.getElementsByTagName("option");
+
+        for (let option of options) {
+            let text = option.textContent.toLowerCase();
+            option.style.display = text.includes(input) ? "" : "none";
+        }
+    
+    }
+
+
+    function ustawMaksymalnaIlosci() {
+    const select = document.getElementById("nazwa_materiał");
+    const selectedOption = select.options[select.selectedIndex];
+    const maxIlosc = selectedOption.getAttribute("data-maxe");
+    
+    const inputIlosc = document.getElementById("ilosc");
+    inputIlosc.max = maxIlosc;
+    inputIlosc.value = '';  // czyści pole ilości przy zmianie opcji
+}
 </script>
 </head>
 <body>
@@ -40,18 +74,43 @@
             <input type="text" name="nr_kartonu" required><br>
             <label for="prodio" name="prodio">Nr Prodio:</label>
             <input type="text" name="prodio" required><br>
-            <label for="ilosc_pianki" name="ilosc">Ilość pianki:</label>
-            <input type="number" name="ilosc_pianki" required><br>
-            <label for="seria_tasmy" name="seria_tasmy">Seria taśmy:</label>
-            <input type="text" name="seria_tasmy" required><br>
-            <label for="ilosc_tasmy" name="ilosc_tasmy">Ilość taśmy:</label>
-            <input type="number" name="ilosc_tasmy" required><br>
+            
+            
+            
             <label for="imie">Imię i nazwisko:</label>
             <input type="text" name="imie" required><br>
             <!-- <label for="data">Data powrotu:</label>
             <input type="date" name="data" required><br> -->
-            <!-- <label for="szukaj_material">Szukaj Rozmiar:</label>
-<input type="text" id="szukaj_material" onkeyup="filtrujMaterial()" placeholder="Wpisz rozmiar.."><br> -->
+            <label for="szukaj_material">Szukaj Piankę:</label>
+<input type="text" id="szukaj_material" onkeyup="filtrujMaterial()" placeholder="Wpisz rozmiar.."><br>
+<select id="nazwa_materiału" name="nazwa_materiału" required size="5" onchange="ustawMaksymalnaIlosc()">
+    {% for nazwa_materiału in nazwy_materiału %}
+    {% if nazwa_materiału.ilosc_na_stanie > 0 %}
+        <option 
+            value="{{ nazwa_materiału.id }}" 
+            data-max="{{ nazwa_materiału.ilosc_na_stanie }}">
+            {{ nazwa_materiału.nazwa }}ile: {{ nazwa_materiału.ilosc_na_stanie }}
+        </option>
+    {% endif %}
+    {% endfor %}
+</select>
+<label for="ilosc_pianki" name="ilosc">Ilość pianki:</label>
+            <input type="number" name="ilosc_pianki" required><br>
+            <label for="szukaj_materiale">Szukaj Taśmę:</label>
+<input type="text" id="szukaj_material" onkeyup="filtrujMateriale()" placeholder="Wpisz rozmiar.."><br>
+<select id="nazwa_materiał" name="nazwa_materiał" required size="5" onchange="ustawMaksymalnaIlosci()">
+    {% for nazwa_materiał in nazwy_materiał %}
+    {% if nazwa_materiału.ilosc_na_stanie > 0 %}
+        <option 
+            value="{{ nazwa_materiał.id }}" 
+            data-max="{{ nazwa_materiał.ilosc_na_stanie }}">
+            {{ nazwa_materiał.nazwa }}ile: {{ nazwa_materiał.ilosc_na_stanie }}
+        </option>
+    {% endif %}
+    {% endfor %}
+</select>
+<label for="ilosc_tasmy" name="ilosc_tasmy">Ilość taśmy:</label>
+            <input type="number" name="ilosc_tasmy" required><br>
 <div class="filter-controls">
   <label for="filter-from">Filtrowanie od:</label>
   <input type="date" id="filter-from">

@@ -2735,17 +2735,6 @@ def usun_powrot(id):
         flash(f'Błąd przy usuwaniu: {e}', 'danger')
 
     return redirect(request.referrer or url_for('home'))
-@app.route('/zlecenie')
-def zlecenie():
-    if not g.user:
-        return render_template('login.html', user=g.user)
-    if g.user.id_uprawnienia == 3:
-        return redirect(url_for('home'))
-    
-    zlecenie = Zlecenie.query.all()
-    laczenie = Laczenie.query.all()
-    logger.info(f"{g.user.login} wszedł na stronę zlecenia.")
-    return render_template("zlecenie.html", user=g.user, zlecenie=zlecenie, laczenie=laczenie)
 
 @app.route('/tasma_obejma')
 def tasma_obejma():
@@ -2766,7 +2755,76 @@ def dodaj_tasma_obejma():
     tasmy = TasmaObejmy.query.all()
     logger.info(f"{g.user.login} wszedł na stronę dodawania taśmy obejmy.")
     return render_template("dodaj_tasma_obejma.html", user=g.user, tasmy=tasmy)
+@app.route('/dodaj_tasma_obejmy_do_bazy', methods=['POST'])
+def dodaj_tasma_obejmy_do_bazy():
+    if not g.user:
+        return render_template('login.html', user=g.user)
+    if g.user.id_uprawnienia != 1 and g.user.id_uprawnienia != 2:
+        return redirect(url_for('home'))
 
+    if request.method == 'POST':
+        nazwa = request.form.get('nazwa_tasmy_obejmy')
+        ilosc = request.form.get('ilosc')
+        ilosc_na_stanie = request.form.get('ilosc_na_stanie')
+
+        nowa_tasma_obejmy = TasmaObejmy(
+            nazwa=nazwa,
+            ilosc=ilosc,
+            ilosc_na_stanie=ilosc_na_stanie
+        )
+        db.session.add(nowa_tasma_obejmy)
+
+        try:
+            db.session.commit()
+            logger.info(f"Taśma obejmy '{nazwa}' została dodana przez {g.user.login}.")
+            flash('Taśma obejmy została dodana.', 'success')
+            return redirect(url_for('tasma_obejma'))
+        except Exception as e:
+            db.session.rollback()
+            logger.error(f"Nie udało się zapisać taśmy obejmy: {e}")
+            flash(f'Błąd przy dodawaniu taśmy obejmy: {e}', 'danger')
+            return render_template('dodaj_tasma_obejma.html', user=g.user)
+@app.route('/update-row-tasma-obejma', methods=['POST'])
+def update_row_tasma_obejma():
+    if not g.user:
+        return render_template('login.html', user=g.user)
+    if g.user.id_uprawnienia != 1 and g.user.id_uprawnienia != 2:
+        return redirect(url_for('home'))
+    try:
+        dane = request.get_json()
+        logger.info(f'Otrzymane dane do aktualizacji taśmy obejmy: {dane}')
+
+        id = dane.get('column_0')
+        if id is None:
+            return jsonify({'message': 'Id jest wymagane!'}), 400
+
+        tasma = TasmaObejmy.query.get(id)
+        if tasma is None:
+            return jsonify({'message': 'Rekord nie znaleziony!'}), 404
+
+        # Zapisz poprzednie dane do logów
+        poprzednie_dane = {
+            "id": tasma.id,
+            "nazwa": tasma.nazwa,
+            "ilosc": tasma.ilosc,
+            "ilosc_na_stanie": tasma.ilosc_na_stanie
+        }
+        logger.info(f"Poprzednie dane taśmy obejmy o ID {id}: {poprzednie_dane}")
+
+        # Aktualizacja pól
+        tasma.nazwa = dane.get('column_1', tasma.nazwa)
+        tasma.ilosc = int(dane.get('column_2', tasma.ilosc))
+        tasma.ilosc_na_stanie = int(dane.get('column_3', tasma.ilosc_na_stanie))
+
+        db.session.commit()
+        logger.info(f"Taśma obejmy o ID {id} została zaktualizowana przez {g.user.login}.")
+        
+        return jsonify({'message': 'Rekord zaktualizowany pomyślnie!'}), 200
+    except Exception as e:
+        db.session.rollback()
+        logger.error(f'Wystąpił błąd podczas aktualizacji: {str(e)}')
+        return jsonify({'message': 'Wystąpił błąd podczas aktualizacji!', 'error': str(e)}), 500
+    
 @app.route('/pianka_obejma')
 def pianka_obejma():
     if not g.user:
@@ -2786,6 +2844,86 @@ def dodaj_pianka_obejma():
     pianki = Pianka.query.all()
     logger.info(f"{g.user.login} wszedł na stronę dodawania pianki obejmy.")
     return render_template("dodaj_pianka_obejma.html", user=g.user, pianki=pianki)
+@app.route('/dodaj_pianka_obejmy_do_bazy', methods=['POST'])
+def dodaj_pianka_obejmy_do_bazy():
+    if not g.user:
+        return render_template('login.html', user=g.user)
+    if g.user.id_uprawnienia != 1 and g.user.id_uprawnienia != 2:
+        return redirect(url_for('home'))
+    if request.method == 'POST':
+        nazwa = request.form.get('nazwa_pianki_obejmy')
+        ilosc = request.form.get('ilosc')
+        ilosc_na_stanie = request.form.get('ilosc_na_stanie')
+
+        nowa_pianka_obejmy = Pianka(
+            nazwa=nazwa,
+            ilosc=ilosc,
+            ilosc_na_stanie=ilosc_na_stanie
+        )
+        db.session.add(nowa_pianka_obejmy)
+
+        try:
+            db.session.commit()
+            logger.info(f"Pianka obejmy '{nazwa}' została dodana przez {g.user.login}.")
+            flash('Pianka obejmy została dodana.', 'success')
+            return redirect(url_for('pianka_obejma'))
+        except Exception as e:
+            db.session.rollback()
+            logger.error(f"Nie udało się zapisać pianki obejmy: {e}")
+            flash(f'Błąd przy dodawaniu pianki obejmy: {e}', 'danger')
+            return render_template('dodaj_pianka_obejma.html', user=g.user)
+@app.route('/update-row-pianka-obejma', methods=['POST'])
+def update_row_pianka_obejma():
+    if not g.user:
+        return render_template('login.html', user=g.user)
+    if g.user.id_uprawnienia != 1 and g.user.id_uprawnienia != 2:
+        return redirect(url_for('home'))
+    try:
+        dane = request.get_json()
+        logger.info(f'Otrzymane dane do aktualizacji pianki obejmy: {dane}')
+
+        id = dane.get('column_0')
+        if id is None:
+            return jsonify({'message': 'Id jest wymagane!'}), 400
+
+        pianka = Pianka.query.get(id)
+        if pianka is None:
+            return jsonify({'message': 'Rekord nie znaleziony!'}), 404
+
+        # Zapisz poprzednie dane do logów
+        poprzednie_dane = {
+            "id": pianka.id,
+            "nazwa": pianka.nazwa,
+            "ilosc": pianka.ilosc,
+            "ilosc_na_stanie": pianka.ilosc_na_stanie
+        }
+        logger.info(f"Poprzednie dane pianki obejmy o ID {id}: {poprzednie_dane}")
+
+        # Aktualizacja pól
+        pianka.nazwa = dane.get('column_1', pianka.nazwa)
+        pianka.ilosc = int(dane.get('column_2', pianka.ilosc))
+        pianka.ilosc_na_stanie = int(dane.get('column_3', pianka.ilosc_na_stanie))
+
+        db.session.commit()
+        logger.info(f"Pianka obejmy o ID {id} została zaktualizowana przez {g.user.login}.")
+        
+        return jsonify({'message': 'Rekord zaktualizowany pomyślnie!'}), 200
+    except Exception as e:
+        db.session.rollback()
+        logger.error(f'Wystąpił błąd podczas aktualizacji: {str(e)}')
+        return jsonify({'message': 'Wystąpił błąd podczas aktualizacji!', 'error': str(e)}), 500
+
+@app.route('/zlecenie')
+def zlecenie():
+    if not g.user:
+        return render_template('login.html', user=g.user)
+    if g.user.id_uprawnienia == 3:
+        return redirect(url_for('home'))
+    
+    zlecenie = Zlecenie.query.all()
+    laczenie = Laczenie.query.all()
+    logger.info(f"{g.user.login} wszedł na stronę zlecenia.")
+    return render_template("zlecenie.html", user=g.user, zlecenie=zlecenie, laczenie=laczenie)
 
 @app.route('/dodaj_zlecenie')
 def dodaj_zlecenie():
@@ -2795,7 +2933,7 @@ def dodaj_zlecenie():
         return redirect(url_for('home'))
     rozmiar = Powrot.query.all()
     logger.info(f"{g.user.login} wszedł na stronę dodawania zlecenia.")
-    return render_template("dodaj_zlecenie.html", user=g.user,rozmiar=rozmiar)
+    return render_template("dodaj_zlecenie.html", user=g.user,rozmiar=rozmiar,nazwy_materiału=Pianka.query.all(),nazwy_material=TasmaObejmy.query.all())
 @app.route('/dodaj_zlecenie_do_bazy', methods=['POST'])
 def dodaj_zlecenie_do_bazy():
     if not g.user:
@@ -2809,7 +2947,8 @@ def dodaj_zlecenie_do_bazy():
         numer_prodio = request.form.get('prodio')
         ilosc_pianki = int(request.form.get('ilosc_pianki') or 0)
         ilosc_tasmy = int(request.form.get('ilosc_tasmy') or 0)
-        seria_tasmy = request.form.get('seria_tasmy')
+        id_pianka = request.form.get('nazwa_materiału')
+        id_tasma = request.form.get('nazwa_materiał')
         imie_nazwisko = request.form.get('imie')  # nie jako int
         pracownik = g.user.id
 
@@ -2825,7 +2964,8 @@ def dodaj_zlecenie_do_bazy():
             nr_prodio=numer_prodio,
             ile_pianka=ilosc_pianki,
             ile_tasmy=ilosc_tasmy,
-            seria_tasmy=seria_tasmy,
+            id_pianka=id_pianka,
+            id_tasma=id_tasma,
             id_pracownik=pracownik,
             imie_nazwisko=imie_nazwisko
         )

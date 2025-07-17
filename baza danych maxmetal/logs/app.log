@@ -15811,3 +15811,114 @@
 2025-07-17 15:42:48,122 - INFO - ✅ Kopia zapasowa zapisana do pliku: backups\kopie_zapasowe_bazy_2025-07-17_15-42.sql
 2025-07-17 15:42:48,130 - WARNING -  * Debugger is active!
 2025-07-17 15:42:48,136 - INFO -  * Debugger PIN: 268-383-297
+2025-07-17 15:44:23,023 - INFO - Administrator wszedł na stronę główną.
+2025-07-17 15:44:23,194 - INFO - 127.0.0.1 - - [17/Jul/2025 15:44:23] "GET / HTTP/1.1" 200 -
+2025-07-17 15:44:23,226 - INFO - 127.0.0.1 - - [17/Jul/2025 15:44:23] "GET /static/style.css HTTP/1.1" 200 -
+2025-07-17 15:44:23,233 - INFO - 127.0.0.1 - - [17/Jul/2025 15:44:23] "GET /static/img/logo-duże.png HTTP/1.1" 200 -
+2025-07-17 15:44:23,240 - INFO - 127.0.0.1 - - [17/Jul/2025 15:44:23] "GET /static/img/maxmetal.png HTTP/1.1" 200 -
+2025-07-17 16:24:41,103 - INFO -  * Detected change in 'C:\\Users\\admin\\Documents\\GitHub\\baza\\baza danych maxmetal\\python\\index.py', reloading
+2025-07-17 16:25:09,516 - INFO -  * Restarting with stat
+2025-07-17 16:25:12,491 - INFO - Połączenie z bazą danych zostało nawiązane pomyślnie.
+2025-07-17 16:25:12,696 - INFO - ✅ Kopia zapasowa zapisana do pliku: backups\kopie_zapasowe_bazy_2025-07-17_16-25.sql
+2025-07-17 16:25:12,697 - INFO - 🗑️ Usunięto starą kopię: kopie_zapasowe_bazy_2025-07-17_13-57.sql
+2025-07-17 16:25:12,707 - WARNING -  * Debugger is active!
+2025-07-17 16:25:12,712 - INFO -  * Debugger PIN: 268-383-297
+2025-07-17 16:28:10,044 - INFO -  * Detected change in 'C:\\Users\\admin\\Documents\\GitHub\\baza\\baza danych maxmetal\\python\\index.py', reloading
+2025-07-17 16:28:12,387 - INFO -  * Restarting with stat
+2025-07-17 16:28:15,158 - INFO - Połączenie z bazą danych zostało nawiązane pomyślnie.
+2025-07-17 16:28:15,291 - INFO - ✅ Kopia zapasowa zapisana do pliku: backups\kopie_zapasowe_bazy_2025-07-17_16-28.sql
+2025-07-17 16:28:15,293 - INFO - 🗑️ Usunięto starą kopię: kopie_zapasowe_bazy_2025-07-17_13-58.sql
+2025-07-17 16:28:15,299 - WARNING -  * Debugger is active!
+2025-07-17 16:28:15,305 - INFO -  * Debugger PIN: 268-383-297
+2025-07-17 16:28:33,671 - INFO - Administrator wszedł na stronę zlecenia.
+2025-07-17 16:28:33,810 - INFO - 127.0.0.1 - - [17/Jul/2025 16:28:33] "GET /zlecenie HTTP/1.1" 200 -
+2025-07-17 16:28:33,857 - INFO - 127.0.0.1 - - [17/Jul/2025 16:28:33] "GET /static/style.css HTTP/1.1" 200 -
+2025-07-17 16:28:33,873 - INFO - 127.0.0.1 - - [17/Jul/2025 16:28:33] "GET /static/img/logo-duże.png HTTP/1.1" 200 -
+2025-07-17 16:28:33,882 - INFO - 127.0.0.1 - - [17/Jul/2025 16:28:33] "GET /static/img/maxmetal.png HTTP/1.1" 200 -
+2025-07-17 16:28:34,951 - INFO - Administrator wszedł na stronę dodawania zlecenia.
+2025-07-17 16:28:34,960 - INFO - 127.0.0.1 - - [17/Jul/2025 16:28:34] "GET /dodaj_zlecenie HTTP/1.1" 200 -
+2025-07-17 16:28:34,986 - INFO - 127.0.0.1 - - [17/Jul/2025 16:28:34] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-07-17 16:28:35,002 - INFO - 127.0.0.1 - - [17/Jul/2025 16:28:35] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-07-17 16:30:33,211 - INFO - Administrator wszedł na stronę główną.
+2025-07-17 16:30:33,411 - INFO - 127.0.0.1 - - [17/Jul/2025 16:30:33] "GET / HTTP/1.1" 200 -
+2025-07-17 16:30:33,473 - INFO - 127.0.0.1 - - [17/Jul/2025 16:30:33] "GET /static/style.css HTTP/1.1" 200 -
+2025-07-17 16:30:33,480 - INFO - 127.0.0.1 - - [17/Jul/2025 16:30:33] "GET /static/img/logo-duże.png HTTP/1.1" 200 -
+2025-07-17 16:30:33,506 - INFO - 127.0.0.1 - - [17/Jul/2025 16:30:33] "GET /static/img/maxmetal.png HTTP/1.1" 200 -
+2025-07-17 16:30:33,515 - INFO - 127.0.0.1 - - [17/Jul/2025 16:30:33] "GET /static/img/logo-male.png HTTP/1.1" 200 -
+2025-07-17 16:30:34,977 - INFO - Administrator wszedł na stronę dodawania zlecenia (pianka obejma).
+2025-07-17 16:30:35,054 - INFO - 127.0.0.1 - - [17/Jul/2025 16:30:35] "GET /pianka_obejma HTTP/1.1" 200 -
+2025-07-17 16:30:35,089 - INFO - 127.0.0.1 - - [17/Jul/2025 16:30:35] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-07-17 16:30:35,102 - INFO - 127.0.0.1 - - [17/Jul/2025 16:30:35] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-07-17 16:30:35,107 - INFO - 127.0.0.1 - - [17/Jul/2025 16:30:35] "[36mGET /static/img/maxmetal.png HTTP/1.1[0m" 304 -
+2025-07-17 16:30:43,197 - INFO - Administrator wszedł na stronę główną.
+2025-07-17 16:30:43,199 - INFO - 127.0.0.1 - - [17/Jul/2025 16:30:43] "GET / HTTP/1.1" 200 -
+2025-07-17 16:30:43,237 - INFO - 127.0.0.1 - - [17/Jul/2025 16:30:43] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-07-17 16:30:43,244 - INFO - 127.0.0.1 - - [17/Jul/2025 16:30:43] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-07-17 16:30:43,253 - INFO - 127.0.0.1 - - [17/Jul/2025 16:30:43] "[36mGET /static/img/maxmetal.png HTTP/1.1[0m" 304 -
+2025-07-17 16:30:44,440 - INFO - Administrator wszedł na stronę dodawania zlecenia (taśma obejma).
+2025-07-17 16:30:44,519 - INFO - 127.0.0.1 - - [17/Jul/2025 16:30:44] "GET /tasma_obejma HTTP/1.1" 200 -
+2025-07-17 16:30:44,549 - INFO - 127.0.0.1 - - [17/Jul/2025 16:30:44] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-07-17 16:30:44,559 - INFO - 127.0.0.1 - - [17/Jul/2025 16:30:44] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-07-17 16:30:44,571 - INFO - 127.0.0.1 - - [17/Jul/2025 16:30:44] "[36mGET /static/img/maxmetal.png HTTP/1.1[0m" 304 -
+2025-07-17 16:30:46,450 - INFO - Administrator wszedł na stronę dodawania taśmy obejmy.
+2025-07-17 16:30:46,455 - INFO - 127.0.0.1 - - [17/Jul/2025 16:30:46] "GET /dodaj_tasma_obejma HTTP/1.1" 200 -
+2025-07-17 16:30:46,479 - INFO - 127.0.0.1 - - [17/Jul/2025 16:30:46] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-07-17 16:30:46,494 - INFO - 127.0.0.1 - - [17/Jul/2025 16:30:46] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-07-17 16:30:47,313 - INFO - Administrator wszedł na stronę główną.
+2025-07-17 16:30:47,315 - INFO - 127.0.0.1 - - [17/Jul/2025 16:30:47] "GET / HTTP/1.1" 200 -
+2025-07-17 16:30:47,345 - INFO - 127.0.0.1 - - [17/Jul/2025 16:30:47] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-07-17 16:30:47,353 - INFO - 127.0.0.1 - - [17/Jul/2025 16:30:47] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-07-17 16:30:47,358 - INFO - 127.0.0.1 - - [17/Jul/2025 16:30:47] "[36mGET /static/img/maxmetal.png HTTP/1.1[0m" 304 -
+2025-07-17 16:39:44,572 - INFO -  * Detected change in 'C:\\Users\\admin\\Documents\\GitHub\\baza\\baza danych maxmetal\\python\\index.py', reloading
+2025-07-17 16:39:47,388 - INFO -  * Restarting with stat
+2025-07-17 16:39:50,330 - INFO - Połączenie z bazą danych zostało nawiązane pomyślnie.
+2025-07-17 16:39:50,466 - INFO - ✅ Kopia zapasowa zapisana do pliku: backups\kopie_zapasowe_bazy_2025-07-17_16-39.sql
+2025-07-17 16:39:50,467 - INFO - 🗑️ Usunięto starą kopię: kopie_zapasowe_bazy_2025-07-17_14-54.sql
+2025-07-17 16:39:50,472 - WARNING -  * Debugger is active!
+2025-07-17 16:39:50,476 - INFO -  * Debugger PIN: 268-383-297
+2025-07-17 16:39:52,652 - INFO - Administrator wszedł na stronę zlecenia.
+2025-07-17 16:39:52,795 - INFO - 127.0.0.1 - - [17/Jul/2025 16:39:52] "GET /zlecenie HTTP/1.1" 200 -
+2025-07-17 16:39:52,851 - INFO - 127.0.0.1 - - [17/Jul/2025 16:39:52] "GET /static/style.css HTTP/1.1" 200 -
+2025-07-17 16:39:52,867 - INFO - 127.0.0.1 - - [17/Jul/2025 16:39:52] "GET /static/img/logo-duże.png HTTP/1.1" 200 -
+2025-07-17 16:39:52,887 - INFO - 127.0.0.1 - - [17/Jul/2025 16:39:52] "GET /static/img/maxmetal.png HTTP/1.1" 200 -
+2025-07-17 16:39:53,954 - INFO - Administrator wszedł na stronę dodawania zlecenia.
+2025-07-17 16:39:53,972 - INFO - 127.0.0.1 - - [17/Jul/2025 16:39:53] "GET /dodaj_zlecenie HTTP/1.1" 200 -
+2025-07-17 16:39:54,001 - INFO - 127.0.0.1 - - [17/Jul/2025 16:39:54] "GET /static/style.css HTTP/1.1" 200 -
+2025-07-17 16:39:54,017 - INFO - 127.0.0.1 - - [17/Jul/2025 16:39:54] "GET /static/img/logo-duże.png HTTP/1.1" 200 -
+2025-07-17 16:39:56,920 - INFO - Administrator wszedł na stronę główną.
+2025-07-17 16:39:57,084 - INFO - 127.0.0.1 - - [17/Jul/2025 16:39:57] "GET / HTTP/1.1" 200 -
+2025-07-17 16:39:57,145 - INFO - 127.0.0.1 - - [17/Jul/2025 16:39:57] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-07-17 16:39:57,152 - INFO - 127.0.0.1 - - [17/Jul/2025 16:39:57] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-07-17 16:39:57,170 - INFO - 127.0.0.1 - - [17/Jul/2025 16:39:57] "GET /static/img/maxmetal.png HTTP/1.1" 200 -
+2025-07-17 16:44:58,551 - INFO - Połączenie z bazą danych zostało nawiązane pomyślnie.
+2025-07-17 16:44:58,692 - INFO - ✅ Kopia zapasowa zapisana do pliku: backups\kopie_zapasowe_bazy_2025-07-17_16-44.sql
+2025-07-17 16:44:58,694 - INFO - 🗑️ Usunięto starą kopię: kopie_zapasowe_bazy_2025-07-17_15-02.sql
+2025-07-17 16:44:58,707 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.1.80:5000
+2025-07-17 16:44:58,707 - INFO - [33mPress CTRL+C to quit[0m
+2025-07-17 16:44:58,709 - INFO -  * Restarting with stat
+2025-07-17 16:45:01,513 - INFO - Połączenie z bazą danych zostało nawiązane pomyślnie.
+2025-07-17 16:45:01,652 - INFO - ✅ Kopia zapasowa zapisana do pliku: backups\kopie_zapasowe_bazy_2025-07-17_16-45.sql
+2025-07-17 16:45:01,654 - INFO - 🗑️ Usunięto starą kopię: kopie_zapasowe_bazy_2025-07-17_15-04.sql
+2025-07-17 16:45:01,657 - WARNING -  * Debugger is active!
+2025-07-17 16:45:01,661 - INFO -  * Debugger PIN: 268-383-297
+2025-07-17 16:45:02,038 - INFO - Administrator wszedł na stronę dodawania zlecenia (taśma obejma).
+2025-07-17 16:45:02,131 - INFO - 127.0.0.1 - - [17/Jul/2025 16:45:02] "GET /tasma_obejma HTTP/1.1" 200 -
+2025-07-17 16:45:02,201 - INFO - 127.0.0.1 - - [17/Jul/2025 16:45:02] "GET /static/style.css HTTP/1.1" 200 -
+2025-07-17 16:45:02,214 - INFO - 127.0.0.1 - - [17/Jul/2025 16:45:02] "GET /static/img/logo-duże.png HTTP/1.1" 200 -
+2025-07-17 16:45:02,221 - INFO - 127.0.0.1 - - [17/Jul/2025 16:45:02] "GET /static/img/maxmetal.png HTTP/1.1" 200 -
+2025-07-17 16:45:03,701 - INFO - Administrator wszedł na stronę dodawania taśmy obejmy.
+2025-07-17 16:45:03,705 - INFO - 127.0.0.1 - - [17/Jul/2025 16:45:03] "GET /dodaj_tasma_obejma HTTP/1.1" 200 -
+2025-07-17 16:45:03,736 - INFO - 127.0.0.1 - - [17/Jul/2025 16:45:03] "GET /static/style.css HTTP/1.1" 200 -
+2025-07-17 16:45:03,751 - INFO - 127.0.0.1 - - [17/Jul/2025 16:45:03] "GET /static/img/logo-duże.png HTTP/1.1" 200 -
+2025-07-17 16:45:13,222 - INFO - Administrator wszedł na stronę dodawania taśmy obejmy.
+2025-07-17 16:45:13,225 - INFO - 127.0.0.1 - - [17/Jul/2025 16:45:13] "GET /dodaj_tasma_obejma HTTP/1.1" 200 -
+2025-07-17 16:45:13,255 - INFO - 127.0.0.1 - - [17/Jul/2025 16:45:13] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-07-17 16:45:13,274 - INFO - 127.0.0.1 - - [17/Jul/2025 16:45:13] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-07-17 16:45:21,407 - INFO - 127.0.0.1 - - [17/Jul/2025 16:45:21] "[35m[1mPOST /dodaj_tasma_do_bazy HTTP/1.1[0m" 500 -
+2025-07-17 16:45:21,432 - INFO - 127.0.0.1 - - [17/Jul/2025 16:45:21] "GET /dodaj_tasma_do_bazy?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1" 200 -
+2025-07-17 16:45:21,433 - INFO - 127.0.0.1 - - [17/Jul/2025 16:45:21] "GET /dodaj_tasma_do_bazy?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1" 200 -
+2025-07-17 16:45:21,450 - INFO - 127.0.0.1 - - [17/Jul/2025 16:45:21] "GET /dodaj_tasma_do_bazy?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+2025-07-17 16:45:21,452 - INFO - 127.0.0.1 - - [17/Jul/2025 16:45:21] "GET /dodaj_tasma_do_bazy?__debugger__=yes&cmd=resource&f=console.png&s=Wqt3vYHFveLe5cyPbYhd HTTP/1.1" 200 -
