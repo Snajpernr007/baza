@@ -36,6 +36,11 @@
                                         <a href="{{ url_for('uprawnienia') }}"><label for="menuCheckbox" onclick="this.parentNode.click();">Uprawnienia</label></a>
                                     </li>
                                 {% endif %}
+                                {% if g.user.id_uprawnienia==1 %}
+                                    <li>
+                                        <a href="{{ url_for('pokaz_logi') }}"><label for="menuCheckbox" onclick="this.parentNode.click();">Logi Aplikcji</label></a>
+                                    </li>
+                                {% endif %}
                             </ul>
                         </li>
                         {% endif %}
@@ -237,10 +242,10 @@
                 <button class="button" onclick="window.location.href='{{ url_for('ksztaltowanie1') }}'">Prasa 60T</button>
                 {% endif %}
                 {% if g.user.id==1 %}
-                <button class="button" onclick="window.location.href='{{ url_for('ksztaltowanie2') }}'">Kształtowanie 2</button>
+                <button class="button" onclick="window.location.href='{{ url_for('ksztaltowanie2') }}'">Prasa DMF 45T</button>
                 {% endif %}
                 {% if g.user.id==1 %}
-                <button class="button" onclick="window.location.href='{{ url_for('ksztaltowanie3') }}'">Kształtowanie 3 </button>
+                <button class="button" onclick="window.location.href='{{ url_for('ksztaltowanie3') }}'">Prasa PMA 10T</button>
                 {% endif %}
                 {% if g.user.id==1 %}
                 <button class="button" onclick="window.location.href='{{ url_for('malarnia') }}'">Malarnia</button>
