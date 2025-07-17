@@ -2084,7 +2084,7 @@ def zakoncz_ksztaltowanie1(id):
     try:
         godz_zak = dane.get('godzina_zakonczenia')
         ilosc = dane.get('ilosc')
-        ilosc_na_stanie = dane.get('ilosc_na_stanie')
+        ilosc_na_stanie = dane.get('ilosc')
 
         if godz_zak:
             ksztaltowanie.godzina_zakonczenia = datetime.strptime(godz_zak, '%H:%M:%S').time()
@@ -2095,7 +2095,8 @@ def zakoncz_ksztaltowanie1(id):
             ksztaltowanie.ilosc = int(ilosc)
         if ilosc_na_stanie is not None:
             ksztaltowanie.ilosc_na_stanie = int(ilosc)
-
+        material= MaterialObejma.query.get(ksztaltowanie.id_materialu)
+        material.ilosc_sztuk_na_stanie -= ksztaltowanie.ilosc
         db.session.commit()
         return jsonify({'message': 'Zakończono pomyślnie!'}), 200
     except Exception as e:

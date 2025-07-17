@@ -7,11 +7,11 @@
     <link rel="icon" href="../static/img/logo-male.png">
     <link rel="stylesheet" href="../static/style.css">
     <script>
-        function zakonczKsztaltowanie(id) {
+        function zakonczKsztaltowanie(id,ile) {
   if(!confirm('Czy na pewno zakończyć?')) return;
 
-  let ilosc = prompt("Podaj ilość:");
-  if(!ilosc || isNaN(ilosc)) {
+  let ilosc = prompt("Podaj ilość na stanie"+ile+":");
+  if(!ilosc || isNaN(ilosc) || ilosc>ile) {
     alert("Niepoprawna ilość!");
     return;
   }
@@ -500,7 +500,7 @@ function sendDataToBackend(data) {
 
                             
                             <td>{% if not ksztaltowania.godzina_zakonczenia %}
-    <button  type="button" class="button" onclick="zakonczKsztaltowanie({{ ksztaltowania.id }})">Zakończ</button>
+    <button  type="button" class="button" onclick="zakonczKsztaltowanie({{ ksztaltowania.id }},{{ ksztaltowania.material.ilosc_sztuk_na_stanie }})">Zakończ</button>
     {% else %}
     <button type="button" class="button" onclick="openEditModal(this.parentElement.parentElement)">Edytuj</button>
     {% endif %}
