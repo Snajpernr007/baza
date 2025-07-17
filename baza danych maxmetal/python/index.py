@@ -1372,7 +1372,7 @@ def zestawienie_obejma():
 
     
     logger.info(f"{g.user.login} wszedł na stronę zestawienia obejma.")
-    return render_template("zestawienie_obejma.html", user=g.user,laczenia=Laczenie.query.all(),zlecenia=Zlecenie.query.all())
+    return render_template("zestawienie_obejma.html", user=g.user,laczenie=Laczenie.query.all(),zlecenie=Zlecenie.query.all())
 
 @app.route('/log-download', methods=['POST'])
 def log_download():

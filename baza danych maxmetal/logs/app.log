@@ -16885,3 +16885,73 @@
 2025-07-17 18:45:27,128 - INFO - 127.0.0.1 - - [17/Jul/2025 18:45:27] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
 2025-07-17 18:45:27,157 - INFO - 127.0.0.1 - - [17/Jul/2025 18:45:27] "[36mGET /static/img/maxmetal.png HTTP/1.1[0m" 304 -
 2025-07-17 18:52:50,043 - INFO -  * Detected change in 'C:\\Users\\admin\\Documents\\GitHub\\baza\\baza danych maxmetal\\python\\index.py', reloading
+2025-07-17 18:52:54,728 - INFO - Połączenie z bazą danych zostało nawiązane pomyślnie.
+2025-07-17 18:52:54,905 - INFO - ✅ Kopia zapasowa zapisana do pliku: backups\kopie_zapasowe_bazy_2025-07-17_18-52.sql
+2025-07-17 18:52:54,907 - INFO - 🗑️ Usunięto starą kopię: kopie_zapasowe_bazy_2025-07-17_17-25.sql
+2025-07-17 18:52:54,919 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.1.80:5000
+2025-07-17 18:52:54,920 - INFO - [33mPress CTRL+C to quit[0m
+2025-07-17 18:52:54,921 - INFO -  * Restarting with stat
+2025-07-17 18:52:58,139 - INFO - Połączenie z bazą danych zostało nawiązane pomyślnie.
+2025-07-17 18:52:58,280 - INFO - ✅ Kopia zapasowa zapisana do pliku: backups\kopie_zapasowe_bazy_2025-07-17_18-52.sql
+2025-07-17 18:52:58,286 - WARNING -  * Debugger is active!
+2025-07-17 18:52:58,291 - INFO -  * Debugger PIN: 268-383-297
+2025-07-17 18:53:01,673 - INFO - Administrator wszedł na stronę główną.
+2025-07-17 18:53:01,881 - INFO - 127.0.0.1 - - [17/Jul/2025 18:53:01] "GET / HTTP/1.1" 200 -
+2025-07-17 18:53:02,008 - INFO - 127.0.0.1 - - [17/Jul/2025 18:53:02] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-07-17 18:53:02,018 - INFO - 127.0.0.1 - - [17/Jul/2025 18:53:02] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-07-17 18:53:02,049 - INFO - 127.0.0.1 - - [17/Jul/2025 18:53:02] "[36mGET /static/img/maxmetal.png HTTP/1.1[0m" 304 -
+2025-07-17 18:53:03,113 - INFO - Administrator wszedł na stronę zlecenia.
+2025-07-17 18:53:03,284 - INFO - 127.0.0.1 - - [17/Jul/2025 18:53:03] "GET /zlecenie HTTP/1.1" 200 -
+2025-07-17 18:53:03,419 - INFO - 127.0.0.1 - - [17/Jul/2025 18:53:03] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-07-17 18:53:03,463 - INFO - 127.0.0.1 - - [17/Jul/2025 18:53:03] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-07-17 18:53:03,529 - INFO - 127.0.0.1 - - [17/Jul/2025 18:53:03] "[36mGET /static/img/maxmetal.png HTTP/1.1[0m" 304 -
+2025-07-17 18:56:42,669 - INFO - Administrator wszedł na stronę dodawania zlecenia.
+2025-07-17 18:56:42,695 - INFO - 127.0.0.1 - - [17/Jul/2025 18:56:42] "GET /dodaj_zlecenie HTTP/1.1" 200 -
+2025-07-17 18:56:42,828 - INFO - 127.0.0.1 - - [17/Jul/2025 18:56:42] "GET /static/style.css HTTP/1.1" 200 -
+2025-07-17 18:56:43,058 - INFO - 127.0.0.1 - - [17/Jul/2025 18:56:43] "GET /static/img/logo-duże.png HTTP/1.1" 200 -
+2025-07-17 18:56:57,361 - ERROR - Błąd przy dodawaniu zlecenia: 'int' object has no attribute 'id_ksztaltowanie_3'
+2025-07-17 18:56:57,365 - INFO - 127.0.0.1 - - [17/Jul/2025 18:56:57] "POST /dodaj_zlecenie_do_bazy HTTP/1.1" 200 -
+2025-07-17 18:56:57,462 - INFO - 127.0.0.1 - - [17/Jul/2025 18:56:57] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-07-17 18:56:57,481 - INFO - 127.0.0.1 - - [17/Jul/2025 18:56:57] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-07-17 18:56:57,492 - INFO - 127.0.0.1 - - [17/Jul/2025 18:56:57] "[36mGET /static/img/maxmetal.png HTTP/1.1[0m" 304 -
+2025-07-17 18:57:04,220 - ERROR - Błąd przy dodawaniu zlecenia: 'int' object has no attribute 'id_ksztaltowanie_3'
+2025-07-17 18:57:04,223 - INFO - 127.0.0.1 - - [17/Jul/2025 18:57:04] "POST /dodaj_zlecenie_do_bazy HTTP/1.1" 200 -
+2025-07-17 18:57:04,275 - INFO - 127.0.0.1 - - [17/Jul/2025 18:57:04] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-07-17 18:57:04,296 - INFO - 127.0.0.1 - - [17/Jul/2025 18:57:04] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-07-17 18:57:04,311 - INFO - 127.0.0.1 - - [17/Jul/2025 18:57:04] "[36mGET /static/img/maxmetal.png HTTP/1.1[0m" 304 -
+2025-07-17 18:57:05,016 - INFO - Administrator wszedł na stronę główną.
+2025-07-17 18:57:05,017 - INFO - 127.0.0.1 - - [17/Jul/2025 18:57:05] "GET / HTTP/1.1" 200 -
+2025-07-17 18:57:05,088 - INFO - 127.0.0.1 - - [17/Jul/2025 18:57:05] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-07-17 18:57:05,095 - INFO - 127.0.0.1 - - [17/Jul/2025 18:57:05] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-07-17 18:57:05,108 - INFO - 127.0.0.1 - - [17/Jul/2025 18:57:05] "[36mGET /static/img/maxmetal.png HTTP/1.1[0m" 304 -
+2025-07-17 18:57:06,531 - INFO - Administrator wszedł na stronę zlecenia.
+2025-07-17 18:57:06,544 - INFO - 127.0.0.1 - - [17/Jul/2025 18:57:06] "GET /zlecenie HTTP/1.1" 200 -
+2025-07-17 18:57:06,603 - INFO - 127.0.0.1 - - [17/Jul/2025 18:57:06] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-07-17 18:57:06,625 - INFO - 127.0.0.1 - - [17/Jul/2025 18:57:06] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-07-17 18:57:06,633 - INFO - 127.0.0.1 - - [17/Jul/2025 18:57:06] "[36mGET /static/img/maxmetal.png HTTP/1.1[0m" 304 -
+2025-07-17 18:57:46,008 - INFO - Administrator wszedł na stronę zestawienia obejma.
+2025-07-17 18:57:46,778 - INFO - 127.0.0.1 - - [17/Jul/2025 18:57:46] "GET /zestawienie_obejma HTTP/1.1" 200 -
+2025-07-17 18:57:46,845 - INFO - 127.0.0.1 - - [17/Jul/2025 18:57:46] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-07-17 18:57:46,869 - INFO - 127.0.0.1 - - [17/Jul/2025 18:57:46] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-07-17 18:57:46,890 - INFO - 127.0.0.1 - - [17/Jul/2025 18:57:46] "[36mGET /static/img/maxmetal.png HTTP/1.1[0m" 304 -
+2025-07-17 18:58:49,802 - INFO - Połączenie z bazą danych zostało nawiązane pomyślnie.
+2025-07-17 18:58:49,959 - INFO - ✅ Kopia zapasowa zapisana do pliku: backups\kopie_zapasowe_bazy_2025-07-17_18-58.sql
+2025-07-17 18:58:49,961 - INFO - 🗑️ Usunięto starą kopię: kopie_zapasowe_bazy_2025-07-17_17-58.sql
+2025-07-17 18:58:49,977 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.1.80:5000
+2025-07-17 18:58:49,977 - INFO - [33mPress CTRL+C to quit[0m
+2025-07-17 18:58:49,978 - INFO -  * Restarting with stat
+2025-07-17 18:58:53,003 - INFO - Połączenie z bazą danych zostało nawiązane pomyślnie.
+2025-07-17 18:58:53,162 - INFO - ✅ Kopia zapasowa zapisana do pliku: backups\kopie_zapasowe_bazy_2025-07-17_18-58.sql
+2025-07-17 18:58:53,171 - WARNING -  * Debugger is active!
+2025-07-17 18:58:53,177 - INFO -  * Debugger PIN: 268-383-297
+2025-07-17 18:58:53,567 - INFO - Administrator wszedł na stronę zestawienia obejma.
+2025-07-17 18:58:54,421 - INFO - 127.0.0.1 - - [17/Jul/2025 18:58:54] "GET /zestawienie_obejma HTTP/1.1" 200 -
+2025-07-17 18:58:54,486 - INFO - 127.0.0.1 - - [17/Jul/2025 18:58:54] "GET /static/style.css HTTP/1.1" 200 -
+2025-07-17 18:58:54,503 - INFO - 127.0.0.1 - - [17/Jul/2025 18:58:54] "GET /static/img/logo-duże.png HTTP/1.1" 200 -
+2025-07-17 18:58:54,523 - INFO - 127.0.0.1 - - [17/Jul/2025 18:58:54] "GET /static/img/maxmetal.png HTTP/1.1" 200 -
