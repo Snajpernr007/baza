@@ -189,7 +189,7 @@
     {% for linia in logi %}
         {% if 'wszedł' in linia %}
             <div class="log-wejscie">{{ linia }}</div>
-        {% elif 'dodał' in linia or 'dodan' in linia %}
+        {% elif 'dodał' in linia or 'dodan' in linia or 'Zakończenie' in linia or 'Szczegóły' in linia %}
             <div class="log-dodanie">{{ linia }}</div>
         {% elif 'usunął' in linia or 'usunię' in linia %}
             <div class="log-usuniecie">{{ linia }}</div>
