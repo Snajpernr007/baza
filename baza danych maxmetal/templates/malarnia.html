@@ -454,17 +454,17 @@ function filterTable() {
             <table id="tabela">
                 <thead class="sticky-sort">
                     <tr>
-                        <th><input type="text" placeholder="Filtruj ID" onkeyup="filterColumn(0)"></th>
-                        <th><input type="text" placeholder="Filtruj Rozmiar" onkeyup="filterColumn(1)"></th>
-                        <th><input type="text" placeholder="Filtruj Nr wytopu" onkeyup="filterColumn(2)"></th>
-                        <th><input type="text" placeholder="Filtruj Partia" onkeyup="filterColumn(3)"></th>
-                        <th><input type="text" placeholder="Filtruj Ilość" onkeyup="filterColumn(4)"></th>
-                        <th><input type="text" placeholder="Filtruj Ilość na stanie" onkeyup="filterColumn(5)"></th>
-                        <th><input type="text" placeholder="Filtruj Nr Prodio" onkeyup="filterColumn(6)"></th>
+                        <th><input type="text" placeholder="Filtruj ID" onkeyup="FilterTable(0)"></th>
+                        <th><input type="text" placeholder="Filtruj Rozmiar" onkeyup="FilterTable(1)"></th>
+                        <th><input type="text" placeholder="Filtruj Nr wytopu" onkeyup="FilterTable(2)"></th>
+                        <th><input type="text" placeholder="Filtruj Partia" onkeyup="FilterTable(3)"></th>
+                        <th><input type="text" placeholder="Filtruj Ilość" onkeyup="FilterTable(4)"></th>
+                        <th><input type="text" placeholder="Filtruj Ilość na stanie" onkeyup="FilterTable(5)"></th>
+                        <th><input type="text" placeholder="Filtruj Nr Prodio" onkeyup="FilterTable(6)"></th>
                         <th>OD<input type="date" id="dateFrom" onchange="filterTable(7)">
                                 DO<input type="date" id="dateTo" onchange="filterTable(7)"></th>
-                        <th><input type="text" placeholder="Filtruj Pracownika" onkeyup="filterColumn(8)"></th>
-                        <th><input type="text" placeholder="Filtruj Imię i nazwisko" onkeyup="filterColumn(9)"></th>
+                        <th><input type="text" placeholder="Filtruj Pracownika" onkeyup="FilterTable(8)"></th>
+                        <th><input type="text" placeholder="Filtruj Imię i nazwisko" onkeyup="FilterTable(9)"></th>
                         
                         <th><button class="button" onclick="resetFilters()">Usuń Filtry</button></th>
                     </tr>

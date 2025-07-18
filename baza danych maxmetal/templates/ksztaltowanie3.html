@@ -57,7 +57,7 @@
 
         // Filtrowanie po dacie (kolumna 4)
         if (isRowVisible && (dateFrom || dateTo)) {
-            let dateCell = cells[4]?.textContent.trim();
+            let dateCell = cells[5]?.textContent.trim();
             if (dateCell) {
                 let cellDate = new Date(dateCell);
                 if (dateFrom && cellDate < new Date(dateFrom)) isRowVisible = false;
