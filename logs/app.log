@@ -22466,3 +22466,188 @@
 2025-07-17 21:44:06,894 - INFO - 192.168.1.13 - - [17/Jul/2025 21:44:06] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
 2025-07-17 21:44:21,272 - INFO -  * Detected change in 'C:\\Users\\Windows\\Desktop\\baza\\baza danych maxmetal\\python\\index.py', reloading
 2025-07-17 21:44:28,197 - INFO -  * Restarting with stat
+2025-07-17 21:44:31,407 - INFO - Połączenie z bazą danych zostało nawiązane pomyślnie.
+2025-07-17 21:44:31,491 - INFO - ✅ Kopia zapasowa zapisana do pliku: backups\kopie_zapasowe_bazy_2025-07-17_21-44.sql
+2025-07-17 21:44:31,492 - INFO - 🗑️ Usunięto starą kopię: kopie_zapasowe_bazy_2025-07-17_18-23.sql
+2025-07-17 21:44:32,327 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.1.13:5000
+2025-07-17 21:44:32,327 - INFO - [33mPress CTRL+C to quit[0m
+2025-07-17 21:44:32,328 - INFO -  * Restarting with stat
+2025-07-17 21:44:34,350 - INFO - Połączenie z bazą danych zostało nawiązane pomyślnie.
+2025-07-17 21:44:34,430 - WARNING -  * Debugger is active!
+2025-07-17 21:44:34,434 - INFO - ✅ Kopia zapasowa zapisana do pliku: backups\kopie_zapasowe_bazy_2025-07-17_21-44.sql
+2025-07-17 21:44:34,435 - INFO -  * Debugger PIN: 849-168-113
+2025-07-17 21:45:32,226 - INFO - Administrator wszedł na stronę ksztaltowania1.
+2025-07-17 21:45:32,328 - INFO - 192.168.1.13 - - [17/Jul/2025 21:45:32] "GET /ksztaltowanie1 HTTP/1.1" 200 -
+2025-07-17 21:45:32,345 - INFO - 192.168.1.13 - - [17/Jul/2025 21:45:32] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-07-17 21:45:32,349 - INFO - 192.168.1.13 - - [17/Jul/2025 21:45:32] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-07-17 21:45:32,384 - INFO - 192.168.1.13 - - [17/Jul/2025 21:45:32] "[36mGET /static/img/logo-male.png HTTP/1.1[0m" 304 -
+2025-07-17 21:45:35,496 - INFO - Administrator wszedł na stronę dodawania ksztaltowania1.
+2025-07-17 21:45:35,508 - INFO - 192.168.1.13 - - [17/Jul/2025 21:45:35] "GET /dodaj_ksztaltowanie1 HTTP/1.1" 200 -
+2025-07-17 21:45:35,528 - INFO - 192.168.1.13 - - [17/Jul/2025 21:45:35] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-07-17 21:45:35,528 - INFO - 192.168.1.13 - - [17/Jul/2025 21:45:35] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-07-17 21:45:41,023 - INFO - 192.168.1.13 - - [17/Jul/2025 21:45:41] "[32mPOST /dodaj_ksztaltowanie1_do_bazy HTTP/1.1[0m" 302 -
+2025-07-17 21:45:41,027 - INFO - Administrator wszedł na stronę ksztaltowania1.
+2025-07-17 21:45:41,030 - INFO - 192.168.1.13 - - [17/Jul/2025 21:45:41] "GET /ksztaltowanie1 HTTP/1.1" 200 -
+2025-07-17 21:45:41,050 - INFO - 192.168.1.13 - - [17/Jul/2025 21:45:41] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-07-17 21:45:41,050 - INFO - 192.168.1.13 - - [17/Jul/2025 21:45:41] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-07-17 21:45:59,424 - INFO - 192.168.1.13 - - [17/Jul/2025 21:45:59] "POST /zakoncz-ksztaltowanie1/7 HTTP/1.1" 200 -
+2025-07-17 21:46:00,912 - INFO - Administrator wszedł na stronę ksztaltowania1.
+2025-07-17 21:46:00,915 - INFO - 192.168.1.13 - - [17/Jul/2025 21:46:00] "GET /ksztaltowanie1 HTTP/1.1" 200 -
+2025-07-17 21:46:00,930 - INFO - 192.168.1.13 - - [17/Jul/2025 21:46:00] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-07-17 21:46:00,931 - INFO - 192.168.1.13 - - [17/Jul/2025 21:46:00] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-07-17 21:46:00,961 - INFO - 192.168.1.13 - - [17/Jul/2025 21:46:00] "[36mGET /static/img/logo-male.png HTTP/1.1[0m" 304 -
+2025-07-17 21:46:49,016 - INFO - Administrator wszedł na stronę dodawania ksztaltowania1.
+2025-07-17 21:46:49,019 - INFO - 192.168.1.13 - - [17/Jul/2025 21:46:49] "GET /dodaj_ksztaltowanie1 HTTP/1.1" 200 -
+2025-07-17 21:46:49,040 - INFO - 192.168.1.13 - - [17/Jul/2025 21:46:49] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-07-17 21:46:49,041 - INFO - 192.168.1.13 - - [17/Jul/2025 21:46:49] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-07-17 21:47:08,170 - INFO - 192.168.1.13 - - [17/Jul/2025 21:47:08] "[32mPOST /dodaj_ksztaltowanie1_do_bazy HTTP/1.1[0m" 302 -
+2025-07-17 21:47:08,177 - INFO - Administrator wszedł na stronę ksztaltowania1.
+2025-07-17 21:47:08,181 - INFO - 192.168.1.13 - - [17/Jul/2025 21:47:08] "GET /ksztaltowanie1 HTTP/1.1" 200 -
+2025-07-17 21:47:08,200 - INFO - 192.168.1.13 - - [17/Jul/2025 21:47:08] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-07-17 21:47:08,201 - INFO - 192.168.1.13 - - [17/Jul/2025 21:47:08] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-07-17 21:47:19,545 - INFO - 192.168.1.13 - - [17/Jul/2025 21:47:19] "POST /zakoncz-ksztaltowanie1/8 HTTP/1.1" 200 -
+2025-07-17 21:47:21,161 - INFO - Administrator wszedł na stronę ksztaltowania1.
+2025-07-17 21:47:21,165 - INFO - 192.168.1.13 - - [17/Jul/2025 21:47:21] "GET /ksztaltowanie1 HTTP/1.1" 200 -
+2025-07-17 21:47:21,179 - INFO - 192.168.1.13 - - [17/Jul/2025 21:47:21] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-07-17 21:47:21,179 - INFO - 192.168.1.13 - - [17/Jul/2025 21:47:21] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-07-17 21:47:21,210 - INFO - 192.168.1.13 - - [17/Jul/2025 21:47:21] "[36mGET /static/img/logo-male.png HTTP/1.1[0m" 304 -
+2025-07-17 21:47:29,406 - INFO - Administrator wszedł na stronę główną.
+2025-07-17 21:47:29,562 - INFO - 192.168.1.13 - - [17/Jul/2025 21:47:29] "GET / HTTP/1.1" 200 -
+2025-07-17 21:47:29,581 - INFO - 192.168.1.13 - - [17/Jul/2025 21:47:29] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-07-17 21:47:29,581 - INFO - 192.168.1.13 - - [17/Jul/2025 21:47:29] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-07-17 21:47:30,681 - INFO - Administrator wszedł na stronę profilu.
+2025-07-17 21:47:30,862 - INFO - 192.168.1.13 - - [17/Jul/2025 21:47:30] "GET /profil HTTP/1.1" 200 -
+2025-07-17 21:47:30,882 - INFO - 192.168.1.13 - - [17/Jul/2025 21:47:30] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-07-17 21:47:30,882 - INFO - 192.168.1.13 - - [17/Jul/2025 21:47:30] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-07-17 21:47:32,542 - INFO - Administrator wszedł na stronę profilu.
+2025-07-17 21:47:32,550 - INFO - 192.168.1.13 - - [17/Jul/2025 21:47:32] "GET /profil HTTP/1.1" 200 -
+2025-07-17 21:47:32,563 - INFO - 192.168.1.13 - - [17/Jul/2025 21:47:32] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-07-17 21:47:32,563 - INFO - 192.168.1.13 - - [17/Jul/2025 21:47:32] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-07-17 21:47:32,599 - INFO - 192.168.1.13 - - [17/Jul/2025 21:47:32] "[36mGET /static/img/logo-male.png HTTP/1.1[0m" 304 -
+2025-07-17 21:55:48,861 - INFO - Administrator wszedł na stronę główną.
+2025-07-17 21:55:48,863 - INFO - 192.168.1.13 - - [17/Jul/2025 21:55:48] "GET / HTTP/1.1" 200 -
+2025-07-17 21:55:48,882 - INFO - 192.168.1.13 - - [17/Jul/2025 21:55:48] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-07-17 21:55:48,886 - INFO - 192.168.1.13 - - [17/Jul/2025 21:55:48] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-07-17 21:55:50,041 - INFO - Administrator wszedł na stronę z listą tasm.
+2025-07-17 21:55:50,201 - INFO - 192.168.1.13 - - [17/Jul/2025 21:55:50] "GET /tasma HTTP/1.1" 200 -
+2025-07-17 21:55:50,224 - INFO - 192.168.1.13 - - [17/Jul/2025 21:55:50] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-07-17 21:55:50,225 - INFO - 192.168.1.13 - - [17/Jul/2025 21:55:50] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-07-17 21:55:50,230 - INFO - 192.168.1.13 - - [17/Jul/2025 21:55:50] "[36mGET /static/img/drukarka.png HTTP/1.1[0m" 304 -
+2025-07-17 21:57:03,920 - INFO - Administrator wszedł na stronę dodawania tasy.
+2025-07-17 21:57:03,929 - INFO - 192.168.1.13 - - [17/Jul/2025 21:57:03] "GET /dodaj_tasma HTTP/1.1" 200 -
+2025-07-17 21:57:03,944 - INFO - 192.168.1.13 - - [17/Jul/2025 21:57:03] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-07-17 21:57:03,946 - INFO - 192.168.1.13 - - [17/Jul/2025 21:57:03] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-07-17 21:57:45,378 - INFO - Taśma została dodana przez użytkownika Administrator. Szczegóły taśmy: Dostawca ID: 2, Szablon ID: 6, Data z etykiety: 2025-06-04, Grubość: 1.00, Szerokość: 1.00, Waga kręgu: 4, Waga na stanie: 4, Nr etykieta paletowa: 554, Nr z etykiety: 23, Lokalizacja ID: 1, Nr faktury dostawcy: 457, Data dostawy: 2025-07-18.
+2025-07-17 21:57:45,378 - INFO - 192.168.1.13 - - [17/Jul/2025 21:57:45] "[35m[1mPOST /dodaj_tasma_do_bazy HTTP/1.1[0m" 204 -
+2025-07-17 21:57:48,646 - INFO - Taśma została dodana przez użytkownika Administrator. Szczegóły taśmy: Dostawca ID: 2, Szablon ID: 6, Data z etykiety: 2025-06-04, Grubość: 1.00, Szerokość: 1.00, Waga kręgu: 4, Waga na stanie: 4, Nr etykieta paletowa: 554, Nr z etykiety: 23, Lokalizacja ID: 1, Nr faktury dostawcy: 457, Data dostawy: 2025-07-18.
+2025-07-17 21:57:48,647 - INFO - 192.168.1.13 - - [17/Jul/2025 21:57:48] "[35m[1mPOST /dodaj_tasma_do_bazy HTTP/1.1[0m" 204 -
+2025-07-17 21:57:49,483 - INFO - Taśma została dodana przez użytkownika Administrator. Szczegóły taśmy: Dostawca ID: 2, Szablon ID: 6, Data z etykiety: 2025-06-04, Grubość: 1.00, Szerokość: 1.00, Waga kręgu: 4, Waga na stanie: 4, Nr etykieta paletowa: 554, Nr z etykiety: 23, Lokalizacja ID: 1, Nr faktury dostawcy: 457, Data dostawy: 2025-07-18.
+2025-07-17 21:57:49,484 - INFO - 192.168.1.13 - - [17/Jul/2025 21:57:49] "[35m[1mPOST /dodaj_tasma_do_bazy HTTP/1.1[0m" 204 -
+2025-07-17 21:57:51,347 - INFO - Taśma została dodana przez użytkownika Administrator. Szczegóły taśmy: Dostawca ID: 2, Szablon ID: 6, Data z etykiety: 2025-06-04, Grubość: 1.00, Szerokość: 1.00, Waga kręgu: 4, Waga na stanie: 4, Nr etykieta paletowa: 554, Nr z etykiety: 23, Lokalizacja ID: 1, Nr faktury dostawcy: 457, Data dostawy: 2025-07-18.
+2025-07-17 21:57:51,348 - INFO - 192.168.1.13 - - [17/Jul/2025 21:57:51] "[35m[1mPOST /dodaj_tasma_do_bazy HTTP/1.1[0m" 204 -
+2025-07-17 21:57:52,161 - INFO - Taśma została dodana przez użytkownika Administrator. Szczegóły taśmy: Dostawca ID: 2, Szablon ID: 6, Data z etykiety: 2025-06-04, Grubość: 1.00, Szerokość: 1.00, Waga kręgu: 4, Waga na stanie: 4, Nr etykieta paletowa: 554, Nr z etykiety: 23, Lokalizacja ID: 1, Nr faktury dostawcy: 457, Data dostawy: 2025-07-18.
+2025-07-17 21:57:52,161 - INFO - 192.168.1.13 - - [17/Jul/2025 21:57:52] "[35m[1mPOST /dodaj_tasma_do_bazy HTTP/1.1[0m" 204 -
+2025-07-17 21:57:57,541 - INFO - Administrator wszedł na stronę główną.
+2025-07-17 21:57:57,544 - INFO - 192.168.1.13 - - [17/Jul/2025 21:57:57] "GET / HTTP/1.1" 200 -
+2025-07-17 21:57:57,583 - INFO - 192.168.1.13 - - [17/Jul/2025 21:57:57] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-07-17 21:57:57,585 - INFO - 192.168.1.13 - - [17/Jul/2025 21:57:57] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-07-17 21:57:59,665 - INFO - Administrator wszedł na stronę z listą tasm.
+2025-07-17 21:57:59,669 - INFO - 192.168.1.13 - - [17/Jul/2025 21:57:59] "GET /tasma HTTP/1.1" 200 -
+2025-07-17 21:57:59,687 - INFO - 192.168.1.13 - - [17/Jul/2025 21:57:59] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-07-17 21:57:59,688 - INFO - 192.168.1.13 - - [17/Jul/2025 21:57:59] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-07-17 21:57:59,692 - INFO - 192.168.1.13 - - [17/Jul/2025 21:57:59] "[36mGET /static/img/drukarka.png HTTP/1.1[0m" 304 -
+2025-07-17 21:58:05,869 - INFO - Administrator wszedł na stronę główną.
+2025-07-17 21:58:05,870 - INFO - 192.168.1.13 - - [17/Jul/2025 21:58:05] "GET / HTTP/1.1" 200 -
+2025-07-17 21:58:05,888 - INFO - 192.168.1.13 - - [17/Jul/2025 21:58:05] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-07-17 21:58:05,888 - INFO - 192.168.1.13 - - [17/Jul/2025 21:58:05] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-07-17 21:58:06,696 - INFO - Administrator wszedł przeglądać logi.
+2025-07-17 21:58:06,844 - INFO - 192.168.1.13 - - [17/Jul/2025 21:58:06] "GET /pokaz_logi HTTP/1.1" 200 -
+2025-07-17 21:58:06,860 - INFO - 192.168.1.13 - - [17/Jul/2025 21:58:06] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-07-17 21:58:06,860 - INFO - 192.168.1.13 - - [17/Jul/2025 21:58:06] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-07-17 21:58:18,885 - INFO - Administrator wszedł na stronę główną.
+2025-07-17 21:58:18,886 - INFO - 192.168.1.13 - - [17/Jul/2025 21:58:18] "GET / HTTP/1.1" 200 -
+2025-07-17 21:58:18,906 - INFO - 192.168.1.13 - - [17/Jul/2025 21:58:18] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-07-17 21:58:18,906 - INFO - 192.168.1.13 - - [17/Jul/2025 21:58:18] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-07-17 21:58:22,048 - INFO - Administrator wszedł przeglądać logi.
+2025-07-17 21:58:22,057 - INFO - 192.168.1.13 - - [17/Jul/2025 21:58:22] "GET /pokaz_logi HTTP/1.1" 200 -
+2025-07-17 21:58:22,076 - INFO - 192.168.1.13 - - [17/Jul/2025 21:58:22] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-07-17 21:58:22,076 - INFO - 192.168.1.13 - - [17/Jul/2025 21:58:22] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-07-17 21:58:26,492 - INFO - Administrator wszedł na stronę główną.
+2025-07-17 21:58:26,494 - INFO - 192.168.1.13 - - [17/Jul/2025 21:58:26] "GET / HTTP/1.1" 200 -
+2025-07-17 21:58:26,524 - INFO - 192.168.1.13 - - [17/Jul/2025 21:58:26] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-07-17 21:58:26,526 - INFO - 192.168.1.13 - - [17/Jul/2025 21:58:26] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-07-17 21:58:27,288 - INFO - Administrator wszedł na stronę z listą tasm.
+2025-07-17 21:58:27,291 - INFO - 192.168.1.13 - - [17/Jul/2025 21:58:27] "GET /tasma HTTP/1.1" 200 -
+2025-07-17 21:58:27,310 - INFO - 192.168.1.13 - - [17/Jul/2025 21:58:27] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-07-17 21:58:27,310 - INFO - 192.168.1.13 - - [17/Jul/2025 21:58:27] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-07-17 21:58:27,311 - INFO - 192.168.1.13 - - [17/Jul/2025 21:58:27] "[36mGET /static/img/drukarka.png HTTP/1.1[0m" 304 -
+2025-07-17 21:58:28,479 - INFO - Administrator wszedł na stronę dodawania tasy.
+2025-07-17 21:58:28,481 - INFO - 192.168.1.13 - - [17/Jul/2025 21:58:28] "GET /dodaj_tasma HTTP/1.1" 200 -
+2025-07-17 21:58:28,496 - INFO - 192.168.1.13 - - [17/Jul/2025 21:58:28] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-07-17 21:58:28,496 - INFO - 192.168.1.13 - - [17/Jul/2025 21:58:28] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-07-17 21:58:56,590 - INFO - Taśma została dodana przez użytkownika Administrator. Szczegóły taśmy: Dostawca ID: 1, Szablon ID: 1, Data z etykiety: 2025-06-19, Grubość: 77.00, Szerokość: 3.00, Waga kręgu: 4, Waga na stanie: 4, Nr etykieta paletowa: 5542, Nr z etykiety: 3, Lokalizacja ID: 1, Nr faktury dostawcy: 456, Data dostawy: 2025-07-18.
+2025-07-17 21:58:56,591 - INFO - 192.168.1.13 - - [17/Jul/2025 21:58:56] "[35m[1mPOST /dodaj_tasma_do_bazy HTTP/1.1[0m" 204 -
+2025-07-17 21:58:57,820 - INFO - Taśma została dodana przez użytkownika Administrator. Szczegóły taśmy: Dostawca ID: 1, Szablon ID: 1, Data z etykiety: 2025-06-19, Grubość: 77.00, Szerokość: 3.00, Waga kręgu: 4, Waga na stanie: 4, Nr etykieta paletowa: 5542, Nr z etykiety: 3, Lokalizacja ID: 1, Nr faktury dostawcy: 456, Data dostawy: 2025-07-18.
+2025-07-17 21:58:57,820 - INFO - 192.168.1.13 - - [17/Jul/2025 21:58:57] "[35m[1mPOST /dodaj_tasma_do_bazy HTTP/1.1[0m" 204 -
+2025-07-17 21:58:58,476 - INFO - Taśma została dodana przez użytkownika Administrator. Szczegóły taśmy: Dostawca ID: 1, Szablon ID: 1, Data z etykiety: 2025-06-19, Grubość: 77.00, Szerokość: 3.00, Waga kręgu: 4, Waga na stanie: 4, Nr etykieta paletowa: 5542, Nr z etykiety: 3, Lokalizacja ID: 1, Nr faktury dostawcy: 456, Data dostawy: 2025-07-18.
+2025-07-17 21:58:58,476 - INFO - 192.168.1.13 - - [17/Jul/2025 21:58:58] "[35m[1mPOST /dodaj_tasma_do_bazy HTTP/1.1[0m" 204 -
+2025-07-17 21:58:58,656 - INFO - Taśma została dodana przez użytkownika Administrator. Szczegóły taśmy: Dostawca ID: 1, Szablon ID: 1, Data z etykiety: 2025-06-19, Grubość: 77.00, Szerokość: 3.00, Waga kręgu: 4, Waga na stanie: 4, Nr etykieta paletowa: 5542, Nr z etykiety: 3, Lokalizacja ID: 1, Nr faktury dostawcy: 456, Data dostawy: 2025-07-18.
+2025-07-17 21:58:58,657 - INFO - 192.168.1.13 - - [17/Jul/2025 21:58:58] "[35m[1mPOST /dodaj_tasma_do_bazy HTTP/1.1[0m" 204 -
+2025-07-17 21:58:58,856 - INFO - Taśma została dodana przez użytkownika Administrator. Szczegóły taśmy: Dostawca ID: 1, Szablon ID: 1, Data z etykiety: 2025-06-19, Grubość: 77.00, Szerokość: 3.00, Waga kręgu: 4, Waga na stanie: 4, Nr etykieta paletowa: 5542, Nr z etykiety: 3, Lokalizacja ID: 1, Nr faktury dostawcy: 456, Data dostawy: 2025-07-18.
+2025-07-17 21:58:58,857 - INFO - 192.168.1.13 - - [17/Jul/2025 21:58:58] "[35m[1mPOST /dodaj_tasma_do_bazy HTTP/1.1[0m" 204 -
+2025-07-17 21:58:59,370 - INFO - Taśma została dodana przez użytkownika Administrator. Szczegóły taśmy: Dostawca ID: 1, Szablon ID: 1, Data z etykiety: 2025-06-19, Grubość: 77.00, Szerokość: 3.00, Waga kręgu: 4, Waga na stanie: 4, Nr etykieta paletowa: 5542, Nr z etykiety: 3, Lokalizacja ID: 1, Nr faktury dostawcy: 456, Data dostawy: 2025-07-18.
+2025-07-17 21:58:59,371 - INFO - 192.168.1.13 - - [17/Jul/2025 21:58:59] "[35m[1mPOST /dodaj_tasma_do_bazy HTTP/1.1[0m" 204 -
+2025-07-17 21:58:59,859 - INFO - Taśma została dodana przez użytkownika Administrator. Szczegóły taśmy: Dostawca ID: 1, Szablon ID: 1, Data z etykiety: 2025-06-19, Grubość: 77.00, Szerokość: 3.00, Waga kręgu: 4, Waga na stanie: 4, Nr etykieta paletowa: 5542, Nr z etykiety: 3, Lokalizacja ID: 1, Nr faktury dostawcy: 456, Data dostawy: 2025-07-18.
+2025-07-17 21:58:59,860 - INFO - 192.168.1.13 - - [17/Jul/2025 21:58:59] "[35m[1mPOST /dodaj_tasma_do_bazy HTTP/1.1[0m" 204 -
+2025-07-17 21:59:00,306 - INFO - Taśma została dodana przez użytkownika Administrator. Szczegóły taśmy: Dostawca ID: 1, Szablon ID: 1, Data z etykiety: 2025-06-19, Grubość: 77.00, Szerokość: 3.00, Waga kręgu: 4, Waga na stanie: 4, Nr etykieta paletowa: 5542, Nr z etykiety: 3, Lokalizacja ID: 1, Nr faktury dostawcy: 456, Data dostawy: 2025-07-18.
+2025-07-17 21:59:00,307 - INFO - 192.168.1.13 - - [17/Jul/2025 21:59:00] "[35m[1mPOST /dodaj_tasma_do_bazy HTTP/1.1[0m" 204 -
+2025-07-17 21:59:00,513 - INFO - Taśma została dodana przez użytkownika Administrator. Szczegóły taśmy: Dostawca ID: 1, Szablon ID: 1, Data z etykiety: 2025-06-19, Grubość: 77.00, Szerokość: 3.00, Waga kręgu: 4, Waga na stanie: 4, Nr etykieta paletowa: 5542, Nr z etykiety: 3, Lokalizacja ID: 1, Nr faktury dostawcy: 456, Data dostawy: 2025-07-18.
+2025-07-17 21:59:00,514 - INFO - 192.168.1.13 - - [17/Jul/2025 21:59:00] "[35m[1mPOST /dodaj_tasma_do_bazy HTTP/1.1[0m" 204 -
+2025-07-17 21:59:00,705 - INFO - Taśma została dodana przez użytkownika Administrator. Szczegóły taśmy: Dostawca ID: 1, Szablon ID: 1, Data z etykiety: 2025-06-19, Grubość: 77.00, Szerokość: 3.00, Waga kręgu: 4, Waga na stanie: 4, Nr etykieta paletowa: 5542, Nr z etykiety: 3, Lokalizacja ID: 1, Nr faktury dostawcy: 456, Data dostawy: 2025-07-18.
+2025-07-17 21:59:00,705 - INFO - 192.168.1.13 - - [17/Jul/2025 21:59:00] "[35m[1mPOST /dodaj_tasma_do_bazy HTTP/1.1[0m" 204 -
+2025-07-17 21:59:05,473 - INFO - Taśma została dodana przez użytkownika Administrator. Szczegóły taśmy: Dostawca ID: 1, Szablon ID: 1, Data z etykiety: 2025-06-19, Grubość: 77.00, Szerokość: 3.00, Waga kręgu: 4, Waga na stanie: 4, Nr etykieta paletowa: 5542, Nr z etykiety: 3, Lokalizacja ID: 1, Nr faktury dostawcy: 456, Data dostawy: 2025-07-18.
+2025-07-17 21:59:05,473 - INFO - 192.168.1.13 - - [17/Jul/2025 21:59:05] "[35m[1mPOST /dodaj_tasma_do_bazy HTTP/1.1[0m" 204 -
+2025-07-17 21:59:06,449 - INFO - Taśma została dodana przez użytkownika Administrator. Szczegóły taśmy: Dostawca ID: 1, Szablon ID: 1, Data z etykiety: 2025-06-19, Grubość: 77.00, Szerokość: 3.00, Waga kręgu: 4, Waga na stanie: 4, Nr etykieta paletowa: 5542, Nr z etykiety: 3, Lokalizacja ID: 1, Nr faktury dostawcy: 456, Data dostawy: 2025-07-18.
+2025-07-17 21:59:06,450 - INFO - 192.168.1.13 - - [17/Jul/2025 21:59:06] "[35m[1mPOST /dodaj_tasma_do_bazy HTTP/1.1[0m" 204 -
+2025-07-17 21:59:06,772 - INFO - Taśma została dodana przez użytkownika Administrator. Szczegóły taśmy: Dostawca ID: 1, Szablon ID: 1, Data z etykiety: 2025-06-19, Grubość: 77.00, Szerokość: 3.00, Waga kręgu: 4, Waga na stanie: 4, Nr etykieta paletowa: 5542, Nr z etykiety: 3, Lokalizacja ID: 1, Nr faktury dostawcy: 456, Data dostawy: 2025-07-18.
+2025-07-17 21:59:06,773 - INFO - 192.168.1.13 - - [17/Jul/2025 21:59:06] "[35m[1mPOST /dodaj_tasma_do_bazy HTTP/1.1[0m" 204 -
+2025-07-17 21:59:07,008 - INFO - Taśma została dodana przez użytkownika Administrator. Szczegóły taśmy: Dostawca ID: 1, Szablon ID: 1, Data z etykiety: 2025-06-19, Grubość: 77.00, Szerokość: 3.00, Waga kręgu: 4, Waga na stanie: 4, Nr etykieta paletowa: 5542, Nr z etykiety: 3, Lokalizacja ID: 1, Nr faktury dostawcy: 456, Data dostawy: 2025-07-18.
+2025-07-17 21:59:07,009 - INFO - 192.168.1.13 - - [17/Jul/2025 21:59:07] "[35m[1mPOST /dodaj_tasma_do_bazy HTTP/1.1[0m" 204 -
+2025-07-17 21:59:07,578 - INFO - Taśma została dodana przez użytkownika Administrator. Szczegóły taśmy: Dostawca ID: 1, Szablon ID: 1, Data z etykiety: 2025-06-19, Grubość: 77.00, Szerokość: 3.00, Waga kręgu: 4, Waga na stanie: 4, Nr etykieta paletowa: 5542, Nr z etykiety: 3, Lokalizacja ID: 1, Nr faktury dostawcy: 456, Data dostawy: 2025-07-18.
+2025-07-17 21:59:07,578 - INFO - 192.168.1.13 - - [17/Jul/2025 21:59:07] "[35m[1mPOST /dodaj_tasma_do_bazy HTTP/1.1[0m" 204 -
+2025-07-17 21:59:07,772 - INFO - Taśma została dodana przez użytkownika Administrator. Szczegóły taśmy: Dostawca ID: 1, Szablon ID: 1, Data z etykiety: 2025-06-19, Grubość: 77.00, Szerokość: 3.00, Waga kręgu: 4, Waga na stanie: 4, Nr etykieta paletowa: 5542, Nr z etykiety: 3, Lokalizacja ID: 1, Nr faktury dostawcy: 456, Data dostawy: 2025-07-18.
+2025-07-17 21:59:07,772 - INFO - 192.168.1.13 - - [17/Jul/2025 21:59:07] "[35m[1mPOST /dodaj_tasma_do_bazy HTTP/1.1[0m" 204 -
+2025-07-17 21:59:07,961 - INFO - Taśma została dodana przez użytkownika Administrator. Szczegóły taśmy: Dostawca ID: 1, Szablon ID: 1, Data z etykiety: 2025-06-19, Grubość: 77.00, Szerokość: 3.00, Waga kręgu: 4, Waga na stanie: 4, Nr etykieta paletowa: 5542, Nr z etykiety: 3, Lokalizacja ID: 1, Nr faktury dostawcy: 456, Data dostawy: 2025-07-18.
+2025-07-17 21:59:07,962 - INFO - 192.168.1.13 - - [17/Jul/2025 21:59:07] "[35m[1mPOST /dodaj_tasma_do_bazy HTTP/1.1[0m" 204 -
+2025-07-17 21:59:08,137 - INFO - Taśma została dodana przez użytkownika Administrator. Szczegóły taśmy: Dostawca ID: 1, Szablon ID: 1, Data z etykiety: 2025-06-19, Grubość: 77.00, Szerokość: 3.00, Waga kręgu: 4, Waga na stanie: 4, Nr etykieta paletowa: 5542, Nr z etykiety: 3, Lokalizacja ID: 1, Nr faktury dostawcy: 456, Data dostawy: 2025-07-18.
+2025-07-17 21:59:08,137 - INFO - 192.168.1.13 - - [17/Jul/2025 21:59:08] "[35m[1mPOST /dodaj_tasma_do_bazy HTTP/1.1[0m" 204 -
+2025-07-17 21:59:09,052 - INFO - Administrator wszedł na stronę główną.
+2025-07-17 21:59:09,053 - INFO - 192.168.1.13 - - [17/Jul/2025 21:59:09] "GET / HTTP/1.1" 200 -
+2025-07-17 21:59:09,073 - INFO - 192.168.1.13 - - [17/Jul/2025 21:59:09] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-07-17 21:59:09,076 - INFO - 192.168.1.13 - - [17/Jul/2025 21:59:09] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-07-17 21:59:10,081 - INFO - Administrator wszedł przeglądać logi.
+2025-07-17 21:59:10,089 - INFO - 192.168.1.13 - - [17/Jul/2025 21:59:10] "GET /pokaz_logi HTTP/1.1" 200 -
+2025-07-17 21:59:10,107 - INFO - 192.168.1.13 - - [17/Jul/2025 21:59:10] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-07-17 21:59:10,107 - INFO - 192.168.1.13 - - [17/Jul/2025 21:59:10] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-07-17 21:59:40,556 - INFO - Administrator wszedł na stronę główną.
+2025-07-17 21:59:40,558 - INFO - 192.168.1.13 - - [17/Jul/2025 21:59:40] "GET / HTTP/1.1" 200 -
+2025-07-17 21:59:40,582 - INFO - 192.168.1.13 - - [17/Jul/2025 21:59:40] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-07-17 21:59:40,583 - INFO - 192.168.1.13 - - [17/Jul/2025 21:59:40] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-07-17 22:09:12,664 - INFO - Administrator wszedł na stronę profilu.
+2025-07-17 22:09:12,844 - INFO - 192.168.1.13 - - [17/Jul/2025 22:09:12] "GET /profil HTTP/1.1" 200 -
+2025-07-17 22:09:12,861 - INFO - 192.168.1.13 - - [17/Jul/2025 22:09:12] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-07-17 22:09:12,861 - INFO - 192.168.1.13 - - [17/Jul/2025 22:09:12] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-07-17 22:09:12,882 - INFO - 192.168.1.13 - - [17/Jul/2025 22:09:12] "[36mGET /static/img/maxmetal.png HTTP/1.1[0m" 304 -
+2025-07-17 22:09:40,094 - INFO - Administrator wszedł na stronę główną.
+2025-07-17 22:09:40,096 - INFO - 192.168.1.13 - - [17/Jul/2025 22:09:40] "GET / HTTP/1.1" 200 -
+2025-07-17 22:09:40,112 - INFO - 192.168.1.13 - - [17/Jul/2025 22:09:40] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-07-17 22:09:40,112 - INFO - 192.168.1.13 - - [17/Jul/2025 22:09:40] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-07-17 22:09:40,123 - INFO - 192.168.1.13 - - [17/Jul/2025 22:09:40] "[36mGET /static/img/maxmetal.png HTTP/1.1[0m" 304 -
+2025-07-17 22:09:41,479 - INFO - Administrator wszedł na stronę z listą tasm.
+2025-07-17 22:09:41,484 - INFO - 192.168.1.13 - - [17/Jul/2025 22:09:41] "GET /tasma HTTP/1.1" 200 -
+2025-07-17 22:09:41,499 - INFO - 192.168.1.13 - - [17/Jul/2025 22:09:41] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-07-17 22:09:41,499 - INFO - 192.168.1.13 - - [17/Jul/2025 22:09:41] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-07-17 22:09:41,506 - INFO - 192.168.1.13 - - [17/Jul/2025 22:09:41] "[36mGET /static/img/drukarka.png HTTP/1.1[0m" 304 -
