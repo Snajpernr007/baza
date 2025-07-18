@@ -2039,7 +2039,8 @@ def dodaj_ksztaltowanie1_do_bazy():
         wytop = material_obj.nr_wytopu
 
         # Ustal numer nowego wpisu
-        ostatni = Ksztaltowanie_2.query.order_by(Ksztaltowanie_2.id.desc()).first()
+        ostatni = Ksztaltowanie_1.query.order_by(Ksztaltowanie_1.id.desc()).first()
+
         nr = str(ostatni.id + 1) if ostatni else "1"
 
         
@@ -2207,11 +2208,11 @@ def dodaj_ksztaltowanie2_do_bazy():
 
     if request.method == 'POST':
         godzina_rozpoczencia = request.form.get('godz_min_rozpoczecia')
-        godzina_zakonczenia = request.form.get('godz_min_zakonczenia')
+        godzina_zakonczenia = None
         data = request.form.get('data')
         material_id = request.form.get('nazwa_materiału')
         numer_prodio = request.form.get('prodio')
-        ilosc = request.form.get('ilosc')
+        ilosc = None
         ilosc_na_stanie = ilosc
         imie_nazwisko = request.form.get('imie')
         pracownik = g.user.id
@@ -2249,7 +2250,7 @@ def dodaj_ksztaltowanie2_do_bazy():
         )
         # Aktualizuj stan magazynowy
         try:
-            material_obj.ilosc_na_stanie -= int(ilosc)
+           
             db.session.add(nowy_ksztaltowanie)
             db.session.commit()
 
@@ -2259,6 +2260,39 @@ def dodaj_ksztaltowanie2_do_bazy():
             db.session.rollback()
             logger.error(f"Nie udało się zapisać danych: {e}")
             return render_template('ksztaltowanie2.html', error="Wystąpił błąd przy zapisie danych.", user=g.user)
+@app.route('/zakoncz-ksztaltowanie2/<int:id>', methods=['POST'])
+def zakoncz_ksztaltowanie2(id):
+    if not g.user:
+        return jsonify({'message': 'Brak uprawnień'}), 401
+
+    ksztaltowanie = Ksztaltowanie_2.query.get_or_404(id)
+    if ksztaltowanie.godzina_zakonczenia is not None:
+        return jsonify({'message': 'Ten wpis jest już zakończony.'}), 400
+
+    dane = request.get_json()
+    try:
+        godz_zak = dane.get('godzina_zakonczenia')
+        ilosc = dane.get('ilosc')
+        ilosc_na_stanie = dane.get('ilosc')
+
+        if godz_zak:
+            ksztaltowanie.godzina_zakonczenia = datetime.strptime(godz_zak, '%H:%M:%S').time()
+        else:
+            ksztaltowanie.godzina_zakonczenia = datetime.now().time()
+
+        if ilosc is not None:
+            ksztaltowanie.ilosc = int(ilosc)
+        if ilosc_na_stanie is not None:
+            ksztaltowanie.ilosc_na_stanie = int(ilosc_na_stanie)
+
+        material= Ksztaltowanie_1.query.get(ksztaltowanie.id_ksztaltowanie_1)
+        material.ilosc_na_stanie -= ksztaltowanie.ilosc
+        db.session.commit()
+        return jsonify({'message': 'Zakończono pomyślnie!'}), 200
+    except Exception as e:
+        db.session.rollback()
+        return jsonify({'message': 'Błąd podczas zakończenia', 'error': str(e)}), 500
+
 @app.route('/update-row-ksztaltowanie2', methods=['POST'])
 def update_row_ksztaltowanie2():
     if not g.user:
@@ -2385,11 +2419,11 @@ def dodaj_ksztaltowanie3_do_bazy():
 
     if request.method == 'POST':
         godzina_rozpoczencia = request.form.get('godz_min_rozpoczecia')
-        godzina_zakonczenia = request.form.get('godz_min_zakonczenia')
+        godzina_zakonczenia = None
         data = request.form.get('data')
         material_id = request.form.get('nazwa_materiału')
         numer_prodio = request.form.get('prodio')
-        ilosc = request.form.get('ilosc')
+        ilosc = None
         ilosc_na_stanie = ilosc
         imie_nazwisko = request.form.get('imie')
         pracownik = g.user.id
@@ -2427,7 +2461,7 @@ def dodaj_ksztaltowanie3_do_bazy():
         )
         # Aktualizuj stan magazynowy
         try:
-            material_obj.ilosc_na_stanie -= int(ilosc)
+            
             db.session.add(nowy_ksztaltowanie)
             db.session.commit()
 
@@ -2437,6 +2471,38 @@ def dodaj_ksztaltowanie3_do_bazy():
             db.session.rollback()
             logger.error(f"Nie udało się zapisać danych: {e}")
             return render_template('ksztaltowanie3.html', error="Wystąpił błąd przy zapisie danych.", user=g.user)
+@app.route('/zakoncz-ksztaltowanie3/<int:id>', methods=['POST'])
+def zakoncz_ksztaltowanie3(id):
+    if not g.user:
+        return jsonify({'message': 'Brak uprawnień'}), 401
+
+    ksztaltowanie = Ksztaltowanie_3.query.get_or_404(id)
+    if ksztaltowanie.godzina_zakonczenia is not None:
+        return jsonify({'message': 'Ten wpis jest już zakończony.'}), 400
+
+    dane = request.get_json()
+    try:
+        godz_zak = dane.get('godzina_zakonczenia')
+        ilosc = dane.get('ilosc')
+        ilosc_na_stanie = dane.get('ilosc')
+
+        if godz_zak:
+            ksztaltowanie.godzina_zakonczenia = datetime.strptime(godz_zak, '%H:%M:%S').time()
+        else:
+            ksztaltowanie.godzina_zakonczenia = datetime.now().time()
+
+        if ilosc is not None:
+            ksztaltowanie.ilosc = int(ilosc)
+        if ilosc_na_stanie is not None:
+            ksztaltowanie.ilosc_na_stanie = int(ilosc_na_stanie)
+
+        material= Ksztaltowanie_2.query.get(ksztaltowanie.id_ksztaltowanie_2)
+        material.ilosc_na_stanie -= ksztaltowanie.ilosc
+        db.session.commit()
+        return jsonify({'message': 'Zakończono pomyślnie!'}), 200
+    except Exception as e:
+        db.session.rollback()
+        return jsonify({'message': 'Błąd podczas zakończenia', 'error': str(e)}), 500
 @app.route('/update-row-ksztaltowanie3', methods=['POST'])
 def update_row_ksztaltowanie3():
     if not g.user:

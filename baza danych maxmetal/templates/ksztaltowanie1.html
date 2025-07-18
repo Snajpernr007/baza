@@ -10,7 +10,7 @@
         function zakonczKsztaltowanie(id,ile) {
   if(!confirm('Czy na pewno zakończyć?')) return;
 
-  let ilosc = prompt("Podaj ilość na stanie"+ile+":");
+  let ilosc = prompt("Podaj ilość na stanie "+ile+":");
   if(!ilosc || isNaN(ilosc) || ilosc>ile) {
     alert("Niepoprawna ilość!");
     return;

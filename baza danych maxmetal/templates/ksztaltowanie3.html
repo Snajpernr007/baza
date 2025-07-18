@@ -7,6 +7,29 @@
     <link rel="icon" href="../static/img/logo-male.png">
     <link rel="stylesheet" href="../static/style.css">
     <script>
+                       function zakonczKsztaltowanie(id,ile) {
+  if(!confirm('Czy na pewno zakończyć?')) return;
+
+  let ilosc = prompt("Podaj ilość na stanie "+ile+":");
+  if(!ilosc || isNaN(ilosc) || ilosc>ile) {
+    alert("Niepoprawna ilość!");
+    return;
+  }
+
+  
+
+  fetch(`/zakoncz-ksztaltowanie3/${id}`, {
+    method: 'POST',
+    headers: {'Content-Type': 'application/json'},
+    body: JSON.stringify({ilosc: ilosc})
+  })
+  .then(res => res.json())
+  .then(data => {
+    alert(data.message);
+    if(data.message === 'Zakończono pomyślnie!') location.reload();
+  })
+  .catch(() => alert('Błąd podczas zakończenia'));
+}
         function filterTable() {
     const table = document.getElementById("tabela");
     const filterInputs = table.querySelectorAll("thead tr:first-child input[type='text']");
@@ -479,7 +502,11 @@ function sendDataToBackend(data) {
                             <td>{{ ksztaltowania.imie_nazwisko}}</td>
 
                             
-                            <td><button type="button" class="button" onclick="openEditModal(this.parentElement.parentElement)">Edytuj</button>
+                            <td><td>{% if not ksztaltowania.godzina_zakonczenia %}
+    <button  type="button" class="button" onclick="zakonczKsztaltowanie({{ ksztaltowania.id }},{{ ksztaltowania.ksztaltowanie_2.ilosc_na_stanie }})">Zakończ</button>
+    {% else %}
+    <button type="button" class="button" onclick="openEditModal(this.parentElement.parentElement)">Edytuj</button>
+    {% endif %}
                             <form method="POST" style="display:inline;background-color: transparent;width: 0;padding: 0%;" action="{{ url_for('usun_ksztaltowanie3', id=ksztaltowania.id) }}" onsubmit="return confirm('Na pewno chcesz usunąć ten wpis?');">
                                 <button type="submit" class="button">Usuń</button>
                             </form></td>

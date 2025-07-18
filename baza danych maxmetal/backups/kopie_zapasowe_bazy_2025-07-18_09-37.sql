@@ -161,7 +161,7 @@ CREATE TABLE `ksztaltowanie_1` (
   KEY `id_pracownik` (`id_pracownik`),
   CONSTRAINT `ksztaltowanie_1_ibfk_1` FOREIGN KEY (`id_materialu`) REFERENCES `material_obejma` (`id`),
   CONSTRAINT `ksztaltowanie_1_ibfk_2` FOREIGN KEY (`id_pracownik`) REFERENCES `uzytkownicy` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- Struktura tabeli `ksztaltowanie_2`
 CREATE TABLE `ksztaltowanie_2` (
@@ -181,7 +181,7 @@ CREATE TABLE `ksztaltowanie_2` (
   KEY `id_pracownik` (`id_pracownik`),
   CONSTRAINT `ksztaltowanie_2_ibfk_1` FOREIGN KEY (`id_ksztaltowanie_1`) REFERENCES `ksztaltowanie_1` (`id`),
   CONSTRAINT `ksztaltowanie_2_ibfk_2` FOREIGN KEY (`id_pracownik`) REFERENCES `uzytkownicy` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- Struktura tabeli `ksztaltowanie_3`
 CREATE TABLE `ksztaltowanie_3` (
@@ -357,17 +357,22 @@ INSERT INTO `rozmiary_obejm` (id, nazwa, ile_pianka, ile_tasma) VALUES ('2', 'sd
 INSERT INTO `rozmiary_obejm` (id, nazwa, ile_pianka, ile_tasma) VALUES ('3', '55', '132', '21');
 
 -- Dane z tabeli `material_obejma`
-INSERT INTO `material_obejma` (id, certyfikat, data_dostawy, nr_wytopu, nr_prodio, ilosc_sztuk, ilosc_sztuk_na_stanie, id_rozmiaru, id_pracownik) VALUES ('2', NULL, '6765-05-07', '765', '756', '756', '246', '1', '1');
-INSERT INTO `material_obejma` (id, certyfikat, data_dostawy, nr_wytopu, nr_prodio, ilosc_sztuk, ilosc_sztuk_na_stanie, id_rozmiaru, id_pracownik) VALUES ('8', '435', '0345-05-31', '435', '345', '345', '345', '2', '1');
-INSERT INTO `material_obejma` (id, certyfikat, data_dostawy, nr_wytopu, nr_prodio, ilosc_sztuk, ilosc_sztuk_na_stanie, id_rozmiaru, id_pracownik) VALUES ('9', 'tew', '0013-12-31', '123', '123', '123', '123', '1', '1');
+INSERT INTO `material_obejma` (id, certyfikat, data_dostawy, nr_wytopu, nr_prodio, ilosc_sztuk, ilosc_sztuk_na_stanie, id_rozmiaru, id_pracownik) VALUES ('2', NULL, '6765-05-07', '765', '756', '756', '0', '1', '1');
+INSERT INTO `material_obejma` (id, certyfikat, data_dostawy, nr_wytopu, nr_prodio, ilosc_sztuk, ilosc_sztuk_na_stanie, id_rozmiaru, id_pracownik) VALUES ('8', '435', '0345-05-31', '435', '345', '345', '0', '2', '1');
+INSERT INTO `material_obejma` (id, certyfikat, data_dostawy, nr_wytopu, nr_prodio, ilosc_sztuk, ilosc_sztuk_na_stanie, id_rozmiaru, id_pracownik) VALUES ('9', 'tew', '0013-12-31', '123', '123', '123', '0', '1', '1');
 
 -- Dane z tabeli `ksztaltowanie_1`
 INSERT INTO `ksztaltowanie_1` (id, data, godzina_rozpoczecia, godzina_zakonczenia, ilosc, ilosc_na_stanie, nr_prodio, id_materialu, id_pracownik, imie_nazwisko, nazwa) VALUES ('4', '2025-07-17', '14:14:36', '14:14:41', '23', '0', '23', '2', '1', '23', '1/23/66/765/2025-07-17');
 INSERT INTO `ksztaltowanie_1` (id, data, godzina_rozpoczecia, godzina_zakonczenia, ilosc, ilosc_na_stanie, nr_prodio, id_materialu, id_pracownik, imie_nazwisko, nazwa) VALUES ('5', '2025-07-17', '20:49:00', '20:49:34', '23', '23', '23', '2', NULL, '232', 'Nazwa z innej tabeli lub logiki');
 INSERT INTO `ksztaltowanie_1` (id, data, godzina_rozpoczecia, godzina_zakonczenia, ilosc, ilosc_na_stanie, nr_prodio, id_materialu, id_pracownik, imie_nazwisko, nazwa) VALUES ('6', '2025-07-17', '20:58:53', '20:59:14', '34', NULL, '34', '2', '1', '3', '4/34/231/765/2025-07-17');
+INSERT INTO `ksztaltowanie_1` (id, data, godzina_rozpoczecia, godzina_zakonczenia, ilosc, ilosc_na_stanie, nr_prodio, id_materialu, id_pracownik, imie_nazwisko, nazwa) VALUES ('7', '2025-07-17', '21:53:26', '21:57:20', '246', NULL, '21', '2', '1', '1', '4/21/231/765/2025-07-17');
+INSERT INTO `ksztaltowanie_1` (id, data, godzina_rozpoczecia, godzina_zakonczenia, ilosc, ilosc_na_stanie, nr_prodio, id_materialu, id_pracownik, imie_nazwisko, nazwa) VALUES ('8', '2025-07-17', '21:58:24', '21:58:36', '-123213123', '123', '123', '9', '1', '123', '4/123/231/123/2025-07-17');
+INSERT INTO `ksztaltowanie_1` (id, data, godzina_rozpoczecia, godzina_zakonczenia, ilosc, ilosc_na_stanie, nr_prodio, id_materialu, id_pracownik, imie_nazwisko, nazwa) VALUES ('9', '2025-07-18', '9:37:03', '9:37:15', '345', '345', '123', '8', '1', '123', '9/123/sda2/435/2025-07-18');
 
 -- Dane z tabeli `ksztaltowanie_2`
 INSERT INTO `ksztaltowanie_2` (id, id_ksztaltowanie_1, data, godzina_rozpoczecia, godzina_zakonczenia, ilosc, ilosc_na_stanie, nr_prodio, id_pracownik, imie_nazwisko, nazwa) VALUES ('3', '4', '2025-07-17', '14:15:12', '14:15:17', '23', '0', '23', '1', '23', '1/23/66/765/2025-07-17');
+INSERT INTO `ksztaltowanie_2` (id, id_ksztaltowanie_1, data, godzina_rozpoczecia, godzina_zakonczenia, ilosc, ilosc_na_stanie, nr_prodio, id_pracownik, imie_nazwisko, nazwa) VALUES ('4', '8', '2025-07-18', '9:34:25', '9:36:43', '123213123', '123213123', '213', '1', '123', '4/213/231/123/2025-07-18');
+INSERT INTO `ksztaltowanie_2` (id, id_ksztaltowanie_1, data, godzina_rozpoczecia, godzina_zakonczenia, ilosc, ilosc_na_stanie, nr_prodio, id_pracownik, imie_nazwisko, nazwa) VALUES ('5', '8', '2025-07-18', '9:35:59', '9:36:19', '123', '123', '123', '1', '123', '5/123/231/123/2025-07-18');
 
 -- Dane z tabeli `ksztaltowanie_3`
 INSERT INTO `ksztaltowanie_3` (id, id_ksztaltowanie_2, data, godzina_rozpoczecia, godzina_zakonczenia, ilosc, ilosc_na_stanie, nr_prodio, id_pracownik, imie_nazwisko, nazwa) VALUES ('3', '3', '2025-07-17', '14:15:21', '14:15:25', '23', '0', '23', '1', '23', '1/23/66/765/2025-07-17');
