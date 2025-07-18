@@ -19016,3 +19016,125 @@
 2025-07-18 13:01:10,522 - WARNING -  * Debugger is active!
 2025-07-18 13:01:10,528 - INFO -  * Debugger PIN: 268-383-297
 2025-07-18 13:01:10,530 - INFO - ✅ Kopia zapasowa zapisana do pliku: backups\kopie_zapasowe_bazy_2025-07-18_13-01.sql
+2025-07-18 13:42:57,749 - INFO - Administrator wszedł na stronę uprawnień.
+2025-07-18 13:42:57,839 - INFO - 127.0.0.1 - - [18/Jul/2025 13:42:57] "GET /uprawnienia HTTP/1.1" 200 -
+2025-07-18 13:42:57,865 - INFO - 127.0.0.1 - - [18/Jul/2025 13:42:57] "GET /static/style.css HTTP/1.1" 200 -
+2025-07-18 13:42:57,872 - INFO - 127.0.0.1 - - [18/Jul/2025 13:42:57] "GET /static/img/logo-duże.png HTTP/1.1" 200 -
+2025-07-18 13:42:57,877 - INFO - 127.0.0.1 - - [18/Jul/2025 13:42:57] "GET /static/img/maxmetal.png HTTP/1.1" 200 -
+2025-07-18 13:42:57,885 - INFO - 127.0.0.1 - - [18/Jul/2025 13:42:57] "GET /static/img/logo-male.png HTTP/1.1" 200 -
+2025-07-18 13:45:24,313 - INFO - Administrator wszedł na stronę główną.
+2025-07-18 13:45:24,475 - INFO - 127.0.0.1 - - [18/Jul/2025 13:45:24] "GET / HTTP/1.1" 200 -
+2025-07-18 13:45:24,508 - INFO - 127.0.0.1 - - [18/Jul/2025 13:45:24] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-07-18 13:45:24,515 - INFO - 127.0.0.1 - - [18/Jul/2025 13:45:24] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-07-18 13:45:24,520 - INFO - 127.0.0.1 - - [18/Jul/2025 13:45:24] "[36mGET /static/img/maxmetal.png HTTP/1.1[0m" 304 -
+2025-07-18 13:45:26,644 - INFO - Administrator wszedł na stronę zestawienia.
+2025-07-18 13:45:26,773 - INFO - 127.0.0.1 - - [18/Jul/2025 13:45:26] "GET /zestawienie HTTP/1.1" 200 -
+2025-07-18 13:45:26,803 - INFO - 127.0.0.1 - - [18/Jul/2025 13:45:26] "GET /static/style.css HTTP/1.1" 200 -
+2025-07-18 13:45:26,810 - INFO - 127.0.0.1 - - [18/Jul/2025 13:45:26] "[36mGET /static/img/drukarka.png HTTP/1.1[0m" 304 -
+2025-07-18 13:45:26,824 - INFO - 127.0.0.1 - - [18/Jul/2025 13:45:26] "GET /static/img/logo-duże.png HTTP/1.1" 200 -
+2025-07-18 13:45:26,836 - INFO - 127.0.0.1 - - [18/Jul/2025 13:45:26] "GET /static/img/maxmetal.png HTTP/1.1" 200 -
+2025-07-18 13:45:26,843 - INFO - 127.0.0.1 - - [18/Jul/2025 13:45:26] "GET /static/img/logo-male.png HTTP/1.1" 200 -
+2025-07-18 13:47:08,421 - INFO - Administrator wszedł na stronę główną.
+2025-07-18 13:47:08,423 - INFO - 127.0.0.1 - - [18/Jul/2025 13:47:08] "GET / HTTP/1.1" 200 -
+2025-07-18 13:47:08,449 - INFO - 127.0.0.1 - - [18/Jul/2025 13:47:08] "GET /static/style.css HTTP/1.1" 200 -
+2025-07-18 13:47:08,455 - INFO - 127.0.0.1 - - [18/Jul/2025 13:47:08] "GET /static/img/logo-duże.png HTTP/1.1" 200 -
+2025-07-18 13:47:08,462 - INFO - 127.0.0.1 - - [18/Jul/2025 13:47:08] "[36mGET /static/img/maxmetal.png HTTP/1.1[0m" 304 -
+2025-07-18 13:47:09,649 - INFO - Administrator wszedł na stronę uprawnień.
+2025-07-18 13:47:09,650 - INFO - 127.0.0.1 - - [18/Jul/2025 13:47:09] "GET /uprawnienia HTTP/1.1" 200 -
+2025-07-18 13:47:09,674 - INFO - 127.0.0.1 - - [18/Jul/2025 13:47:09] "GET /static/style.css HTTP/1.1" 200 -
+2025-07-18 13:47:09,681 - INFO - 127.0.0.1 - - [18/Jul/2025 13:47:09] "GET /static/img/logo-duże.png HTTP/1.1" 200 -
+2025-07-18 13:47:09,685 - INFO - 127.0.0.1 - - [18/Jul/2025 13:47:09] "[36mGET /static/img/maxmetal.png HTTP/1.1[0m" 304 -
+2025-07-18 13:52:44,546 - INFO - Połączenie z bazą danych zostało nawiązane pomyślnie.
+2025-07-18 13:52:44,683 - INFO - ✅ Kopia zapasowa zapisana do pliku: backups\kopie_zapasowe_bazy_2025-07-18_13-52.sql
+2025-07-18 13:52:44,683 - INFO - 🗑️ Usunięto starą kopię: kopie_zapasowe_bazy_2025-07-18_11-53.sql
+2025-07-18 13:52:44,706 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.1.80:5000
+2025-07-18 13:52:44,706 - INFO - [33mPress CTRL+C to quit[0m
+2025-07-18 13:52:44,709 - INFO -  * Restarting with stat
+2025-07-18 13:52:47,245 - INFO - Połączenie z bazą danych zostało nawiązane pomyślnie.
+2025-07-18 13:52:47,401 - WARNING -  * Debugger is active!
+2025-07-18 13:52:47,406 - INFO -  * Debugger PIN: 268-383-297
+2025-07-18 13:52:47,409 - INFO - ✅ Kopia zapasowa zapisana do pliku: backups\kopie_zapasowe_bazy_2025-07-18_13-52.sql
+2025-07-18 13:52:47,757 - INFO - Administrator wszedł na stronę uprawnień.
+2025-07-18 13:52:47,814 - INFO - 127.0.0.1 - - [18/Jul/2025 13:52:47] "[35m[1mGET /uprawnienia HTTP/1.1[0m" 500 -
+2025-07-18 13:52:47,834 - INFO - 127.0.0.1 - - [18/Jul/2025 13:52:47] "GET /uprawnienia?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1" 200 -
+2025-07-18 13:52:47,835 - INFO - 127.0.0.1 - - [18/Jul/2025 13:52:47] "GET /uprawnienia?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1" 200 -
+2025-07-18 13:52:47,851 - INFO - 127.0.0.1 - - [18/Jul/2025 13:52:47] "GET /uprawnienia?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+2025-07-18 13:52:47,855 - INFO - 127.0.0.1 - - [18/Jul/2025 13:52:47] "GET /uprawnienia?__debugger__=yes&cmd=resource&f=console.png&s=d7HtYDmuOkRV9SltfYYG HTTP/1.1" 200 -
+2025-07-18 13:53:51,775 - INFO - Administrator wszedł na stronę uprawnień.
+2025-07-18 13:53:51,815 - INFO - 127.0.0.1 - - [18/Jul/2025 13:53:51] "[35m[1mGET /uprawnienia HTTP/1.1[0m" 500 -
+2025-07-18 13:53:51,833 - INFO - 127.0.0.1 - - [18/Jul/2025 13:53:51] "[36mGET /uprawnienia?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+2025-07-18 13:53:51,834 - INFO - 127.0.0.1 - - [18/Jul/2025 13:53:51] "GET /uprawnienia?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1" 200 -
+2025-07-18 13:53:51,846 - INFO - 127.0.0.1 - - [18/Jul/2025 13:53:51] "GET /uprawnienia?__debugger__=yes&cmd=resource&f=console.png&s=d7HtYDmuOkRV9SltfYYG HTTP/1.1" 200 -
+2025-07-18 13:53:52,100 - INFO - Administrator wszedł na stronę uprawnień.
+2025-07-18 13:53:52,131 - INFO - 127.0.0.1 - - [18/Jul/2025 13:53:52] "[35m[1mGET /uprawnienia HTTP/1.1[0m" 500 -
+2025-07-18 13:53:52,149 - INFO - 127.0.0.1 - - [18/Jul/2025 13:53:52] "[36mGET /uprawnienia?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+2025-07-18 13:53:52,150 - INFO - 127.0.0.1 - - [18/Jul/2025 13:53:52] "[36mGET /uprawnienia?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+2025-07-18 13:53:52,158 - INFO - 127.0.0.1 - - [18/Jul/2025 13:53:52] "[36mGET /uprawnienia?__debugger__=yes&cmd=resource&f=console.png&s=d7HtYDmuOkRV9SltfYYG HTTP/1.1[0m" 304 -
+2025-07-18 13:53:52,576 - INFO - Administrator wszedł na stronę uprawnień.
+2025-07-18 13:53:52,611 - INFO - 127.0.0.1 - - [18/Jul/2025 13:53:52] "[35m[1mGET /uprawnienia HTTP/1.1[0m" 500 -
+2025-07-18 13:53:52,642 - INFO - 127.0.0.1 - - [18/Jul/2025 13:53:52] "[36mGET /uprawnienia?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+2025-07-18 13:53:52,653 - INFO - 127.0.0.1 - - [18/Jul/2025 13:53:52] "[36mGET /uprawnienia?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+2025-07-18 13:53:52,679 - INFO - 127.0.0.1 - - [18/Jul/2025 13:53:52] "[36mGET /uprawnienia?__debugger__=yes&cmd=resource&f=console.png&s=d7HtYDmuOkRV9SltfYYG HTTP/1.1[0m" 304 -
+2025-07-18 13:53:52,884 - INFO - Administrator wszedł na stronę uprawnień.
+2025-07-18 13:53:52,913 - INFO - 127.0.0.1 - - [18/Jul/2025 13:53:52] "[35m[1mGET /uprawnienia HTTP/1.1[0m" 500 -
+2025-07-18 13:53:52,930 - INFO - 127.0.0.1 - - [18/Jul/2025 13:53:52] "[36mGET /uprawnienia?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+2025-07-18 13:53:52,932 - INFO - 127.0.0.1 - - [18/Jul/2025 13:53:52] "GET /uprawnienia?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1" 200 -
+2025-07-18 13:53:52,943 - INFO - 127.0.0.1 - - [18/Jul/2025 13:53:52] "GET /uprawnienia?__debugger__=yes&cmd=resource&f=console.png&s=d7HtYDmuOkRV9SltfYYG HTTP/1.1" 200 -
+2025-07-18 13:53:53,209 - INFO - Administrator wszedł na stronę uprawnień.
+2025-07-18 13:53:53,239 - INFO - 127.0.0.1 - - [18/Jul/2025 13:53:53] "[35m[1mGET /uprawnienia HTTP/1.1[0m" 500 -
+2025-07-18 13:53:53,255 - INFO - 127.0.0.1 - - [18/Jul/2025 13:53:53] "[36mGET /uprawnienia?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+2025-07-18 13:53:53,257 - INFO - 127.0.0.1 - - [18/Jul/2025 13:53:53] "[36mGET /uprawnienia?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+2025-07-18 13:53:53,268 - INFO - 127.0.0.1 - - [18/Jul/2025 13:53:53] "[36mGET /uprawnienia?__debugger__=yes&cmd=resource&f=console.png&s=d7HtYDmuOkRV9SltfYYG HTTP/1.1[0m" 304 -
+2025-07-18 13:55:12,533 - INFO - Administrator wszedł na stronę uprawnień.
+2025-07-18 13:55:12,652 - INFO - 127.0.0.1 - - [18/Jul/2025 13:55:12] "[35m[1mGET /uprawnienia HTTP/1.1[0m" 500 -
+2025-07-18 13:55:12,794 - INFO - 127.0.0.1 - - [18/Jul/2025 13:55:12] "[36mGET /uprawnienia?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+2025-07-18 13:55:12,795 - INFO - 127.0.0.1 - - [18/Jul/2025 13:55:12] "[36mGET /uprawnienia?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+2025-07-18 13:55:12,845 - INFO - 127.0.0.1 - - [18/Jul/2025 13:55:12] "[36mGET /uprawnienia?__debugger__=yes&cmd=resource&f=console.png&s=d7HtYDmuOkRV9SltfYYG HTTP/1.1[0m" 304 -
+2025-07-18 13:55:13,681 - INFO - Administrator wszedł na stronę uprawnień.
+2025-07-18 13:55:13,704 - INFO - 127.0.0.1 - - [18/Jul/2025 13:55:13] "[35m[1mGET /uprawnienia HTTP/1.1[0m" 500 -
+2025-07-18 13:55:13,721 - INFO - 127.0.0.1 - - [18/Jul/2025 13:55:13] "[36mGET /uprawnienia?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+2025-07-18 13:55:13,723 - INFO - 127.0.0.1 - - [18/Jul/2025 13:55:13] "[36mGET /uprawnienia?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+2025-07-18 13:55:13,734 - INFO - 127.0.0.1 - - [18/Jul/2025 13:55:13] "[36mGET /uprawnienia?__debugger__=yes&cmd=resource&f=console.png&s=d7HtYDmuOkRV9SltfYYG HTTP/1.1[0m" 304 -
+2025-07-18 13:55:14,105 - INFO - Administrator wszedł na stronę uprawnień.
+2025-07-18 13:55:14,127 - INFO - 127.0.0.1 - - [18/Jul/2025 13:55:14] "[35m[1mGET /uprawnienia HTTP/1.1[0m" 500 -
+2025-07-18 13:55:14,143 - INFO - 127.0.0.1 - - [18/Jul/2025 13:55:14] "[36mGET /uprawnienia?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+2025-07-18 13:55:14,150 - INFO - 127.0.0.1 - - [18/Jul/2025 13:55:14] "[36mGET /uprawnienia?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+2025-07-18 13:55:14,157 - INFO - 127.0.0.1 - - [18/Jul/2025 13:55:14] "[36mGET /uprawnienia?__debugger__=yes&cmd=resource&f=console.png&s=d7HtYDmuOkRV9SltfYYG HTTP/1.1[0m" 304 -
+2025-07-18 13:55:14,807 - INFO - Administrator wszedł na stronę uprawnień.
+2025-07-18 13:55:14,830 - INFO - 127.0.0.1 - - [18/Jul/2025 13:55:14] "[35m[1mGET /uprawnienia HTTP/1.1[0m" 500 -
+2025-07-18 13:55:14,850 - INFO - 127.0.0.1 - - [18/Jul/2025 13:55:14] "[36mGET /uprawnienia?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+2025-07-18 13:55:14,852 - INFO - 127.0.0.1 - - [18/Jul/2025 13:55:14] "[36mGET /uprawnienia?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+2025-07-18 13:55:14,861 - INFO - 127.0.0.1 - - [18/Jul/2025 13:55:14] "[36mGET /uprawnienia?__debugger__=yes&cmd=resource&f=console.png&s=d7HtYDmuOkRV9SltfYYG HTTP/1.1[0m" 304 -
+2025-07-18 13:55:15,214 - INFO - Administrator wszedł na stronę uprawnień.
+2025-07-18 13:55:15,236 - INFO - 127.0.0.1 - - [18/Jul/2025 13:55:15] "[35m[1mGET /uprawnienia HTTP/1.1[0m" 500 -
+2025-07-18 13:55:15,256 - INFO - 127.0.0.1 - - [18/Jul/2025 13:55:15] "[36mGET /uprawnienia?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+2025-07-18 13:55:15,258 - INFO - 127.0.0.1 - - [18/Jul/2025 13:55:15] "[36mGET /uprawnienia?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+2025-07-18 13:55:15,272 - INFO - 127.0.0.1 - - [18/Jul/2025 13:55:15] "[36mGET /uprawnienia?__debugger__=yes&cmd=resource&f=console.png&s=d7HtYDmuOkRV9SltfYYG HTTP/1.1[0m" 304 -
+2025-07-18 13:55:15,574 - INFO - Administrator wszedł na stronę uprawnień.
+2025-07-18 13:55:15,603 - INFO - 127.0.0.1 - - [18/Jul/2025 13:55:15] "[35m[1mGET /uprawnienia HTTP/1.1[0m" 500 -
+2025-07-18 13:55:15,621 - INFO - 127.0.0.1 - - [18/Jul/2025 13:55:15] "[36mGET /uprawnienia?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+2025-07-18 13:55:15,622 - INFO - 127.0.0.1 - - [18/Jul/2025 13:55:15] "[36mGET /uprawnienia?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+2025-07-18 13:55:15,633 - INFO - 127.0.0.1 - - [18/Jul/2025 13:55:15] "[36mGET /uprawnienia?__debugger__=yes&cmd=resource&f=console.png&s=d7HtYDmuOkRV9SltfYYG HTTP/1.1[0m" 304 -
+2025-07-18 13:55:53,343 - INFO - Administrator wszedł na stronę uprawnień.
+2025-07-18 13:55:53,473 - INFO - 127.0.0.1 - - [18/Jul/2025 13:55:53] "GET /uprawnienia HTTP/1.1" 200 -
+2025-07-18 13:55:53,534 - INFO - 127.0.0.1 - - [18/Jul/2025 13:55:53] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-07-18 13:55:53,540 - INFO - 127.0.0.1 - - [18/Jul/2025 13:55:53] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-07-18 13:55:53,553 - INFO - 127.0.0.1 - - [18/Jul/2025 13:55:53] "[36mGET /static/img/maxmetal.png HTTP/1.1[0m" 304 -
+2025-07-18 13:56:49,912 - INFO - Administrator wszedł na stronę uprawnień.
+2025-07-18 13:56:50,029 - INFO - 127.0.0.1 - - [18/Jul/2025 13:56:50] "GET /uprawnienia HTTP/1.1" 200 -
+2025-07-18 13:56:50,053 - INFO - 127.0.0.1 - - [18/Jul/2025 13:56:50] "GET /static/style.css HTTP/1.1" 200 -
+2025-07-18 13:56:50,062 - INFO - 127.0.0.1 - - [18/Jul/2025 13:56:50] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-07-18 13:56:50,086 - INFO - 127.0.0.1 - - [18/Jul/2025 13:56:50] "GET /static/img/maxmetal.png HTTP/1.1" 200 -
+2025-07-18 13:57:27,890 - INFO - Administrator wszedł na stronę uprawnień.
+2025-07-18 13:57:28,007 - INFO - 127.0.0.1 - - [18/Jul/2025 13:57:28] "GET /uprawnienia HTTP/1.1" 200 -
+2025-07-18 13:57:28,027 - INFO - 127.0.0.1 - - [18/Jul/2025 13:57:28] "GET /static/style.css HTTP/1.1" 200 -
+2025-07-18 13:57:28,035 - INFO - 127.0.0.1 - - [18/Jul/2025 13:57:28] "GET /static/img/logo-duże.png HTTP/1.1" 200 -
+2025-07-18 13:57:28,038 - INFO - 127.0.0.1 - - [18/Jul/2025 13:57:28] "GET /static/img/maxmetal.png HTTP/1.1" 200 -
+2025-07-18 13:57:58,155 - INFO - Administrator wszedł na stronę uprawnień.
+2025-07-18 13:57:58,273 - INFO - 127.0.0.1 - - [18/Jul/2025 13:57:58] "GET /uprawnienia HTTP/1.1" 200 -
+2025-07-18 13:57:58,305 - INFO - 127.0.0.1 - - [18/Jul/2025 13:57:58] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-07-18 13:57:58,312 - INFO - 127.0.0.1 - - [18/Jul/2025 13:57:58] "[36mGET /static/img/logo-duże.png HTTP/1.1[0m" 304 -
+2025-07-18 13:57:58,326 - INFO - 127.0.0.1 - - [18/Jul/2025 13:57:58] "[36mGET /static/img/maxmetal.png HTTP/1.1[0m" 304 -

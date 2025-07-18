@@ -1738,7 +1738,7 @@ def uprawnienia():
 
     uprawnienia = Uprawnienia.query.all()
     logger.info(f"{g.user.login} wszedł na stronę uprawnień.")
-    return render_template("uprawnienia.html", user=g.user, uprawnienia=uprawnienia)
+    return render_template("uprawnienia.html", user=g.user, uprawnienia=uprawnienia,podlaczenie=Podlaczenie.query.all())
 @app.route('/rozmiary_obejm')
 def rozmiary_obejm():
     if not g.user or not g.user.ma_range_id(46):

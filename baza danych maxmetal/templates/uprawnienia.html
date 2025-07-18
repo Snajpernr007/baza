@@ -177,6 +177,29 @@
             </div>
         </div>
         <hr>
+        <table id="tabela">
+            <tbody>
+        {%for uprawnienie in uprawnienia%}
+        <tr>
+            <td>{{uprawnienie.id_uprawnienia}}</td>
+        <td>{{uprawnienie.nazwa}}</td>
+        <td></td>
+        <td></td>
+        
+        </tr>
+        {%for podlaczenia in podlaczenie%}
+        {%if podlaczenia.uprawnienia_id == uprawnienie.id%}
+        <tr>
+            <td></td>
+            <td></td>
+            <td>{{podlaczenia.id}}</td>
+            <td>{{podlaczenia.ranga.nazwa}}</td>
+        {%endif%}
+        {%endfor%}
+        {%endfor%}
+        </tr>
+        </tbody>
+        </table>
     </div>
 </body>
 <script>
