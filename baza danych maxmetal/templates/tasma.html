@@ -145,7 +145,7 @@ function toggleNiezuzryte() {
     const btn = document.getElementById("toggleNiezuzryte");
     showingNiezuzryte = !showingNiezuzryte;
     filterTable(); // Zawsze wywołuj filtrację po zmianie trybu
-    btn.textContent = showingNiezuzryte ? "Pokaż wszystkie" : "Pokaż niezużyte";
+    btn.textContent = showingNiezuzryte ? "Pokaż wszystkie" : "Ukryj niezużyte";
 }
 
 // Zaktualizuj wywołanie funkcji filterTable w inputach
@@ -657,7 +657,7 @@ function printID(id) {
                         <th><input type="text" placeholder="Filtruj Nazwę Stanowiska" onchange="filterTable()"></th>
                         
                         <th><button class="button" onclick="resetFilters()">Usuń Filtry</button>
-                        <button class="button" id="toggleNiezuzryte" onclick="toggleNiezuzryte()">Pokaż niezużyte</button>
+                        <button class="button" id="toggleNiezuzryte" onclick="toggleNiezuzryte()">Ukryj niezużyte</button>
                         </th>
 
                     </tr>

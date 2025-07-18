@@ -13,38 +13,67 @@ function filterTable() {
     const filterInputs = table.querySelectorAll("thead tr:first-child input[type='text']");
     const dateFrom = document.getElementById("dateDostawyFrom")?.value;
     const dateTo = document.getElementById("dateDostawyTo")?.value;
-    const rows = table.tBodies[0].rows;
+    const rows = Array.from(table.tBodies[0].rows);
 
-    for (let i = 0; i < rows.length; i++) {
-        const cells = rows[i].cells;
-        let isRowVisible = true;
+    // Mapowanie parentId -> [dzieci]
+    const childrenByParent = {};
+    rows.forEach(row => {
+        if (row.hasAttribute("data-child-id")) {
+            const parentId = row.getAttribute("data-parent-id");
+            if (!childrenByParent[parentId]) childrenByParent[parentId] = [];
+            childrenByParent[parentId].push(row);
+        }
+    });
 
-        // Filtrowanie po inputach tekstowych (pomijamy kolumnę z datą - index 11)
-        for (let j = 0; j < filterInputs.length; j++) {
-            // Kolumna daty to index 11, więc po 11-tym filtrze przesuwamy index o 1
-            let cellIndex = j < 11 ? j : j + 1;
-            const filter = filterInputs[j].value.toLowerCase();
-            if (filter && cells[cellIndex]) {
-                const cellValue = cells[cellIndex].textContent.toLowerCase();
-                if (!cellValue.includes(filter)) {
-                    isRowVisible = false;
-                    break;
+    // Przebieg po rodzicach
+    rows.forEach(row => {
+        if (!row.hasAttribute("data-child-id")) {
+            const parentId = row.getAttribute("data-parent-id");
+            const children = childrenByParent[parentId] || [];
+            let groupVisible = true;
+
+            // Sprawdzamy każdy filtr osobno
+            for (let j = 0; j < filterInputs.length; j++) {
+                const filter = filterInputs[j].value.trim().toLowerCase();
+                if (filter) {
+                    // Czy rodzic spełnia filtr w tej kolumnie?
+                    const parentCell = row.cells[j];
+                    let parentMatch = parentCell && parentCell.textContent.trim().toLowerCase().includes(filter);
+
+                    // Czy jakiekolwiek dziecko spełnia filtr w tej kolumnie?
+                    let childMatch = children.some(child => {
+                        const childCell = child.cells[j];
+                        return childCell && childCell.textContent.trim().toLowerCase().includes(filter);
+                    });
+
+                    if (!parentMatch && !childMatch) {
+                        groupVisible = false;
+                        break;
+                    }
                 }
             }
-        }
 
-        // Filtrowanie po dacie (kolumna 11)
-        if (isRowVisible && (dateFrom || dateTo)) {
-            let dateCell = cells[11]?.textContent.trim();
-            if (dateCell) {
-                let cellDate = new Date(dateCell);
-                if (dateFrom && cellDate < new Date(dateFrom)) isRowVisible = false;
-                if (dateTo && cellDate > new Date(dateTo)) isRowVisible = false;
+            // Sprawdź datę (kolumna 12)
+            if (groupVisible && (dateFrom || dateTo)) {
+                // Czy jakiekolwiek dziecko spełnia filtr daty?
+                let dateMatch = children.some(child => {
+                    let dateCell = child.cells[12]?.textContent.trim();
+                    if (dateCell) {
+                        let cellDate = new Date(dateCell);
+                        if (dateFrom && cellDate < new Date(dateFrom)) return false;
+                        if (dateTo && cellDate > new Date(dateTo)) return false;
+                        return true;
+                    }
+                    return false;
+                });
+                if (!dateMatch) groupVisible = false;
             }
-        }
 
-        rows[i].style.display = isRowVisible ? "" : "none";
-    }
+            // Ustaw widoczność rodzica i dzieci
+            row.style.display = groupVisible ? "" : "none";
+            children.forEach(child => child.style.display = groupVisible ? "" : "none");
+        }
+    });
 }
 
 // Reset filtrów

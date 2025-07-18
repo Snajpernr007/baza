@@ -7,29 +7,68 @@
     <link rel="icon" href="../static/img/logo-male.png">
     <link rel="stylesheet" href="../static/style.css">
     <script>
-        function filterTable() {
+        let showingDostepne = false;
+
+function filterTable() {
     let table = document.getElementById("tabela");
-    let filterInputs = table.querySelectorAll("thead input");
-    let rows = table.getElementsByTagName("tbody")[0].getElementsByTagName("tr");
+    let rows = table.querySelectorAll("tbody tr");
+    // Pobieramy tylko inputy tekstowe (bez inputów typu date)
+    let filters = [
+        document.querySelector('input[placeholder="Filtruj ID"]'),
+        document.querySelector('input[placeholder="Filtruj Certyfikat"]'),
+        document.querySelector('input[placeholder="Filtruj Nr wytopu"]'),
+        document.querySelector('input[placeholder="Filtruj Nr Prodio"]'),
+        document.querySelector('input[placeholder="Filtruj Ilość sztuk"]'),
+        document.querySelector('input[placeholder="Filtruj Ilość na stanie"]'),
+        document.querySelector('input[placeholder="Filtruj Rozmiar"]'),
+        document.querySelector('input[placeholder="Filtruj Pracownika"]')
+    ];
 
-    // Pętla przez wszystkie wiersze tabeli
-    for (let i = 0; i < rows.length; i++) {
-        let cells = rows[i].getElementsByTagName("td");
-        let isRowVisible = true; // Flaga określająca, czy wiersz ma być widoczny
+    let dateFrom = document.getElementById("dateFrom")?.value;
+    let dateTo = document.getElementById("dateTo")?.value;
 
-        // Pętla przez wszystkie kolumny i odpowiednie filtry
-        for (let columnIndex = 0; columnIndex < filterInputs.length; columnIndex++) {
-            let filter = filterInputs[columnIndex].value.toLowerCase();
-            if (cells[columnIndex]) {
-                let cellValue = cells[columnIndex].textContent || cells[columnIndex].innerText;
-                if (filter && !cellValue.toLowerCase().includes(filter)) {
-                    isRowVisible = false; // Ukryj wiersz, jeśli nie spełnia filtru
-                    break; // Przerywamy, gdy znajdziemy filtr, który nie pasuje
+    rows.forEach(row => {
+        let cells = row.querySelectorAll("td");
+        let show = true;
+
+        // Filtrowanie tekstowe (pomijamy kolumnę z datą - index 2)
+        filters.forEach((input, i) => {
+            let cellIndex = i < 2 ? i : i + 1;
+            let value = input.value.toLowerCase();
+            if (value && cells[cellIndex]) {
+                let text = cells[cellIndex].textContent.toLowerCase();
+                if (!text.includes(value)) {
+                    show = false;
                 }
             }
+        });
+
+        // Filtrowanie po dacie (kolumna 2)
+        if (show && (dateFrom || dateTo)) {
+            let dateCell = cells[2]?.textContent.trim();
+            if (dateCell) {
+                let cellDate = new Date(dateCell);
+                if (dateFrom && cellDate < new Date(dateFrom)) show = false;
+                if (dateTo && cellDate > new Date(dateTo)) show = false;
+            }
         }
-        rows[i].style.display = isRowVisible ? "" : "none"; // Ustaw widoczność wiersza
-    }
+
+        // Filtrowanie po ilości na stanie (kolumna 6)
+        if (showingDostepne) {
+            let iloscNaStanieCell = cells[6];
+            let iloscNaStanie = iloscNaStanieCell ? parseFloat(iloscNaStanieCell.textContent.replace(',', '.')) : 0;
+            if (!(iloscNaStanie > 0)) show = false;
+        }
+
+        row.style.display = show ? "" : "none";
+    });
+}
+
+function toggleDostepne() {
+    const btn = document.getElementById("toggleDostepne");
+    showingDostepne = !showingDostepne;
+    filterTable();
+    btn.textContent = showingDostepne ? "Pokaż wszystkie" : "Pokaż tylko dostępne";
 }
 
 // Zaktualizuj wywołanie funkcji filterTable w inputach
@@ -105,54 +144,6 @@ function sortTable(columnIndex) {
         if (sortState) {
             cell.innerHTML += sortState.ascending ? ' ▲' : ' ▼';
         }
-    });
-}
-function filterTable() {
-    let table = document.getElementById("tabela");
-    let rows = table.querySelectorAll("tbody tr");
-    // Pobieramy tylko inputy tekstowe (bez inputów typu date)
-    let filters = [
-        document.querySelector('input[placeholder="Filtruj ID"]'),
-        document.querySelector('input[placeholder="Filtruj Certyfikat"]'),
-        document.querySelector('input[placeholder="Filtruj Nr wytopu"]'),
-        document.querySelector('input[placeholder="Filtruj Nr Prodio"]'),
-        document.querySelector('input[placeholder="Filtruj Ilość sztuk"]'),
-        document.querySelector('input[placeholder="Filtruj Ilość na stanie"]'),
-        document.querySelector('input[placeholder="Filtruj Rozmiar"]'),
-        document.querySelector('input[placeholder="Filtruj Pracownika"]')
-    ];
-
-    let dateFrom = document.getElementById("dateFrom")?.value;
-    let dateTo = document.getElementById("dateTo")?.value;
-
-    rows.forEach(row => {
-        let cells = row.querySelectorAll("td");
-        let show = true;
-
-        // Filtrowanie tekstowe (pomijamy kolumnę z datą - index 2)
-        filters.forEach((input, i) => {
-            // Kolumna daty to index 2, więc po 2-gim filtrze przesuwamy index o 1
-            let cellIndex = i < 2 ? i : i + 1;
-            let value = input.value.toLowerCase();
-            if (value && cells[cellIndex]) {
-                let text = cells[cellIndex].textContent.toLowerCase();
-                if (!text.includes(value)) {
-                    show = false;
-                }
-            }
-        });
-
-        // Filtrowanie po dacie (kolumna 2)
-        if (show && (dateFrom || dateTo)) {
-            let dateCell = cells[2]?.textContent.trim();
-            if (dateCell) {
-                let cellDate = new Date(dateCell);
-                if (dateFrom && cellDate < new Date(dateFrom)) show = false;
-                if (dateTo && cellDate > new Date(dateTo)) show = false;
-            }
-        }
-
-        row.style.display = show ? "" : "none";
     });
 }
 function openEditModal(row) {
@@ -465,7 +456,9 @@ function sendDataToBackend(data) {
                         <th><input type="text" placeholder="Filtruj Rozmiar" onkeyup="filterTable()"></th>
                         <th><input type="text" placeholder="Filtruj Pracownika" onkeyup="filterTable()"></th>
                         
-                        <th><button class="button" onclick="resetFilters()">Usuń Filtry</button></th>
+                        <th><button class="button" onclick="resetFilters()">Usuń Filtry</button>
+                        <button class="button" id="toggleDostepne" onclick="toggleDostepne()">Pokaż tylko dostępne</button>
+                        </th>
                     </tr>
                     <tr>
                         <th onclick="sortTable(0)">ID &#9650;&#9660;</th>
