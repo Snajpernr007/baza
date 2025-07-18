@@ -7,6 +7,25 @@ CREATE TABLE `uprawnienia` (
   PRIMARY KEY (`id_uprawnienia`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+-- Struktura tabeli `rangi`
+CREATE TABLE `rangi` (
+  `id_ranga` int(11) NOT NULL AUTO_INCREMENT,
+  `nazwa` varchar(255) NOT NULL,
+  PRIMARY KEY (`id_ranga`)
+) ENGINE=InnoDB AUTO_INCREMENT=78 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- Struktura tabeli `podlaczenie`
+CREATE TABLE `podlaczenie` (
+  `id` int(11) NOT NULL,
+  `id_uprawnienia` int(11) DEFAULT NULL,
+  `id_ranga` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `id_uprawnienia` (`id_uprawnienia`),
+  KEY `id_ranga` (`id_ranga`),
+  CONSTRAINT `podlaczenie_ibfk_1` FOREIGN KEY (`id_uprawnienia`) REFERENCES `uprawnienia` (`id_uprawnienia`),
+  CONSTRAINT `podlaczenie_ibfk_2` FOREIGN KEY (`id_ranga`) REFERENCES `rangi` (`id_ranga`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
 -- Struktura tabeli `uzytkownicy`
 CREATE TABLE `uzytkownicy` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -161,7 +180,7 @@ CREATE TABLE `ksztaltowanie_1` (
   KEY `id_pracownik` (`id_pracownik`),
   CONSTRAINT `ksztaltowanie_1_ibfk_1` FOREIGN KEY (`id_materialu`) REFERENCES `material_obejma` (`id`),
   CONSTRAINT `ksztaltowanie_1_ibfk_2` FOREIGN KEY (`id_pracownik`) REFERENCES `uzytkownicy` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- Struktura tabeli `ksztaltowanie_2`
 CREATE TABLE `ksztaltowanie_2` (
@@ -181,7 +200,7 @@ CREATE TABLE `ksztaltowanie_2` (
   KEY `id_pracownik` (`id_pracownik`),
   CONSTRAINT `ksztaltowanie_2_ibfk_1` FOREIGN KEY (`id_ksztaltowanie_1`) REFERENCES `ksztaltowanie_1` (`id`),
   CONSTRAINT `ksztaltowanie_2_ibfk_2` FOREIGN KEY (`id_pracownik`) REFERENCES `uzytkownicy` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- Struktura tabeli `ksztaltowanie_3`
 CREATE TABLE `ksztaltowanie_3` (
@@ -201,7 +220,7 @@ CREATE TABLE `ksztaltowanie_3` (
   KEY `id_pracownik` (`id_pracownik`),
   CONSTRAINT `ksztaltowanie_3_ibfk_1` FOREIGN KEY (`id_ksztaltowanie_2`) REFERENCES `ksztaltowanie_2` (`id`),
   CONSTRAINT `ksztaltowanie_3_ibfk_2` FOREIGN KEY (`id_pracownik`) REFERENCES `uzytkownicy` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- Struktura tabeli `malarnia`
 CREATE TABLE `malarnia` (
@@ -294,6 +313,195 @@ INSERT INTO `uprawnienia` (id_uprawnienia, nazwa) VALUES ('1', 'Administrator');
 INSERT INTO `uprawnienia` (id_uprawnienia, nazwa) VALUES ('2', 'Zaopatrzeniowiec ');
 INSERT INTO `uprawnienia` (id_uprawnienia, nazwa) VALUES ('3', 'Pracownik');
 
+-- Dane z tabeli `rangi`
+INSERT INTO `rangi` (id_ranga, nazwa) VALUES ('1', 'dostep_aplikacja');
+INSERT INTO `rangi` (id_ranga, nazwa) VALUES ('2', 'uzytkownik');
+INSERT INTO `rangi` (id_ranga, nazwa) VALUES ('3', 'zobacz_inne_profile');
+INSERT INTO `rangi` (id_ranga, nazwa) VALUES ('4', 'dodaj_uzytkownik');
+INSERT INTO `rangi` (id_ranga, nazwa) VALUES ('5', 'edytuj_uzytkownik');
+INSERT INTO `rangi` (id_ranga, nazwa) VALUES ('6', 'uprawnienia');
+INSERT INTO `rangi` (id_ranga, nazwa) VALUES ('7', 'dodaj_uprawnienie');
+INSERT INTO `rangi` (id_ranga, nazwa) VALUES ('8', 'edytuj_uprawnienie');
+INSERT INTO `rangi` (id_ranga, nazwa) VALUES ('9', 'logi');
+INSERT INTO `rangi` (id_ranga, nazwa) VALUES ('10', 'logi_wejscia');
+INSERT INTO `rangi` (id_ranga, nazwa) VALUES ('11', 'logi_edycji');
+INSERT INTO `rangi` (id_ranga, nazwa) VALUES ('12', 'logi_dodania');
+INSERT INTO `rangi` (id_ranga, nazwa) VALUES ('13', 'logi_usuniecia');
+INSERT INTO `rangi` (id_ranga, nazwa) VALUES ('14', 'logi_reszta');
+INSERT INTO `rangi` (id_ranga, nazwa) VALUES ('15', 'materialy_profile');
+INSERT INTO `rangi` (id_ranga, nazwa) VALUES ('16', 'dodaj_materialy_profile');
+INSERT INTO `rangi` (id_ranga, nazwa) VALUES ('17', 'edytuj_materialy_profile');
+INSERT INTO `rangi` (id_ranga, nazwa) VALUES ('18', 'usun_materialy_profile');
+INSERT INTO `rangi` (id_ranga, nazwa) VALUES ('19', 'profil');
+INSERT INTO `rangi` (id_ranga, nazwa) VALUES ('20', 'dodaj_profil');
+INSERT INTO `rangi` (id_ranga, nazwa) VALUES ('21', 'edytuj_profil');
+INSERT INTO `rangi` (id_ranga, nazwa) VALUES ('22', 'usun_profil');
+INSERT INTO `rangi` (id_ranga, nazwa) VALUES ('23', 'dostawca');
+INSERT INTO `rangi` (id_ranga, nazwa) VALUES ('24', 'dodaj_dostawca');
+INSERT INTO `rangi` (id_ranga, nazwa) VALUES ('25', 'edytuj_dostawca');
+INSERT INTO `rangi` (id_ranga, nazwa) VALUES ('26', 'gatunek_tasm');
+INSERT INTO `rangi` (id_ranga, nazwa) VALUES ('27', 'dodaj_gatunek_tasm');
+INSERT INTO `rangi` (id_ranga, nazwa) VALUES ('28', 'edytuj_gatunek_tasm');
+INSERT INTO `rangi` (id_ranga, nazwa) VALUES ('29', 'magazyn');
+INSERT INTO `rangi` (id_ranga, nazwa) VALUES ('30', 'dodaj_magazyn');
+INSERT INTO `rangi` (id_ranga, nazwa) VALUES ('31', 'edytuj_magazyn');
+INSERT INTO `rangi` (id_ranga, nazwa) VALUES ('32', 'dlugosc');
+INSERT INTO `rangi` (id_ranga, nazwa) VALUES ('33', 'dodaj_dlugosc');
+INSERT INTO `rangi` (id_ranga, nazwa) VALUES ('34', 'edytuj_dlugosc');
+INSERT INTO `rangi` (id_ranga, nazwa) VALUES ('35', 'nazwa_profilu');
+INSERT INTO `rangi` (id_ranga, nazwa) VALUES ('36', 'dodaj_nazwa_profilu');
+INSERT INTO `rangi` (id_ranga, nazwa) VALUES ('37', 'edytuj_nazwa_profilu');
+INSERT INTO `rangi` (id_ranga, nazwa) VALUES ('38', 'zestawienie_profile');
+INSERT INTO `rangi` (id_ranga, nazwa) VALUES ('39', 'sprzedaz');
+INSERT INTO `rangi` (id_ranga, nazwa) VALUES ('40', 'tasma');
+INSERT INTO `rangi` (id_ranga, nazwa) VALUES ('41', 'dodaj_tasma');
+INSERT INTO `rangi` (id_ranga, nazwa) VALUES ('42', 'edytuj_tasma');
+INSERT INTO `rangi` (id_ranga, nazwa) VALUES ('43', 'pianka');
+INSERT INTO `rangi` (id_ranga, nazwa) VALUES ('44', 'dodaj_pianka');
+INSERT INTO `rangi` (id_ranga, nazwa) VALUES ('45', 'edytuj_pianka');
+INSERT INTO `rangi` (id_ranga, nazwa) VALUES ('46', 'rozmiar');
+INSERT INTO `rangi` (id_ranga, nazwa) VALUES ('47', 'dodaj_rozmiar');
+INSERT INTO `rangi` (id_ranga, nazwa) VALUES ('48', 'edytuj_rozmiar');
+INSERT INTO `rangi` (id_ranga, nazwa) VALUES ('49', 'material_obejmy');
+INSERT INTO `rangi` (id_ranga, nazwa) VALUES ('50', 'dodaj_materialy_obejmy');
+INSERT INTO `rangi` (id_ranga, nazwa) VALUES ('51', 'edytuj_materialy_obejmy');
+INSERT INTO `rangi` (id_ranga, nazwa) VALUES ('52', 'usun_materialy_obejmy');
+INSERT INTO `rangi` (id_ranga, nazwa) VALUES ('53', 'prasa_60t');
+INSERT INTO `rangi` (id_ranga, nazwa) VALUES ('54', 'dodaj_prasa_60t');
+INSERT INTO `rangi` (id_ranga, nazwa) VALUES ('55', 'edytuj_prasa_60t');
+INSERT INTO `rangi` (id_ranga, nazwa) VALUES ('56', 'usun_prasa_60t');
+INSERT INTO `rangi` (id_ranga, nazwa) VALUES ('57', 'prasa_dmf_45t');
+INSERT INTO `rangi` (id_ranga, nazwa) VALUES ('58', 'dodaj_prasa_dmf_45t');
+INSERT INTO `rangi` (id_ranga, nazwa) VALUES ('59', 'edytuj_prasa_dmf_45t');
+INSERT INTO `rangi` (id_ranga, nazwa) VALUES ('60', 'usun_prasa_dmf_45t');
+INSERT INTO `rangi` (id_ranga, nazwa) VALUES ('61', 'prasa_pma_10t');
+INSERT INTO `rangi` (id_ranga, nazwa) VALUES ('62', 'dodaj_prasa_pma_10t');
+INSERT INTO `rangi` (id_ranga, nazwa) VALUES ('63', 'edytuj_prasa_pma_10t');
+INSERT INTO `rangi` (id_ranga, nazwa) VALUES ('64', 'usun_prasa_pma_10t');
+INSERT INTO `rangi` (id_ranga, nazwa) VALUES ('65', 'malarnia');
+INSERT INTO `rangi` (id_ranga, nazwa) VALUES ('66', 'dodaj_malarnia');
+INSERT INTO `rangi` (id_ranga, nazwa) VALUES ('67', 'edytuj_malarnia');
+INSERT INTO `rangi` (id_ranga, nazwa) VALUES ('68', 'usun_malarnia');
+INSERT INTO `rangi` (id_ranga, nazwa) VALUES ('69', 'powrot_malarnia');
+INSERT INTO `rangi` (id_ranga, nazwa) VALUES ('70', 'dodaj_powrot_malarnia');
+INSERT INTO `rangi` (id_ranga, nazwa) VALUES ('71', 'edytuj_powrot_malarnia');
+INSERT INTO `rangi` (id_ranga, nazwa) VALUES ('72', 'usun_powrot_malarnia');
+INSERT INTO `rangi` (id_ranga, nazwa) VALUES ('73', 'zlecenie');
+INSERT INTO `rangi` (id_ranga, nazwa) VALUES ('74', 'dodaj_zlecenie');
+INSERT INTO `rangi` (id_ranga, nazwa) VALUES ('75', 'edytuj_zlecenie');
+INSERT INTO `rangi` (id_ranga, nazwa) VALUES ('76', 'usun_zlecenie');
+INSERT INTO `rangi` (id_ranga, nazwa) VALUES ('77', 'zestawienie_obejmy');
+
+-- Dane z tabeli `podlaczenie`
+INSERT INTO `podlaczenie` (id, id_uprawnienia, id_ranga) VALUES ('1', '1', '1');
+INSERT INTO `podlaczenie` (id, id_uprawnienia, id_ranga) VALUES ('2', '1', '2');
+INSERT INTO `podlaczenie` (id, id_uprawnienia, id_ranga) VALUES ('3', '1', '3');
+INSERT INTO `podlaczenie` (id, id_uprawnienia, id_ranga) VALUES ('4', '1', '4');
+INSERT INTO `podlaczenie` (id, id_uprawnienia, id_ranga) VALUES ('5', '1', '5');
+INSERT INTO `podlaczenie` (id, id_uprawnienia, id_ranga) VALUES ('6', '1', '6');
+INSERT INTO `podlaczenie` (id, id_uprawnienia, id_ranga) VALUES ('7', '1', '7');
+INSERT INTO `podlaczenie` (id, id_uprawnienia, id_ranga) VALUES ('8', '1', '8');
+INSERT INTO `podlaczenie` (id, id_uprawnienia, id_ranga) VALUES ('9', '1', '9');
+INSERT INTO `podlaczenie` (id, id_uprawnienia, id_ranga) VALUES ('10', '1', '10');
+INSERT INTO `podlaczenie` (id, id_uprawnienia, id_ranga) VALUES ('11', '1', '11');
+INSERT INTO `podlaczenie` (id, id_uprawnienia, id_ranga) VALUES ('12', '1', '12');
+INSERT INTO `podlaczenie` (id, id_uprawnienia, id_ranga) VALUES ('13', '1', '13');
+INSERT INTO `podlaczenie` (id, id_uprawnienia, id_ranga) VALUES ('14', '1', '14');
+INSERT INTO `podlaczenie` (id, id_uprawnienia, id_ranga) VALUES ('15', '1', '15');
+INSERT INTO `podlaczenie` (id, id_uprawnienia, id_ranga) VALUES ('16', '1', '16');
+INSERT INTO `podlaczenie` (id, id_uprawnienia, id_ranga) VALUES ('17', '1', '17');
+INSERT INTO `podlaczenie` (id, id_uprawnienia, id_ranga) VALUES ('18', '1', '18');
+INSERT INTO `podlaczenie` (id, id_uprawnienia, id_ranga) VALUES ('19', '1', '19');
+INSERT INTO `podlaczenie` (id, id_uprawnienia, id_ranga) VALUES ('20', '1', '20');
+INSERT INTO `podlaczenie` (id, id_uprawnienia, id_ranga) VALUES ('21', '1', '21');
+INSERT INTO `podlaczenie` (id, id_uprawnienia, id_ranga) VALUES ('22', '1', '22');
+INSERT INTO `podlaczenie` (id, id_uprawnienia, id_ranga) VALUES ('23', '1', '23');
+INSERT INTO `podlaczenie` (id, id_uprawnienia, id_ranga) VALUES ('24', '1', '24');
+INSERT INTO `podlaczenie` (id, id_uprawnienia, id_ranga) VALUES ('25', '1', '25');
+INSERT INTO `podlaczenie` (id, id_uprawnienia, id_ranga) VALUES ('26', '1', '26');
+INSERT INTO `podlaczenie` (id, id_uprawnienia, id_ranga) VALUES ('27', '1', '27');
+INSERT INTO `podlaczenie` (id, id_uprawnienia, id_ranga) VALUES ('28', '1', '28');
+INSERT INTO `podlaczenie` (id, id_uprawnienia, id_ranga) VALUES ('29', '1', '29');
+INSERT INTO `podlaczenie` (id, id_uprawnienia, id_ranga) VALUES ('30', '1', '30');
+INSERT INTO `podlaczenie` (id, id_uprawnienia, id_ranga) VALUES ('31', '1', '31');
+INSERT INTO `podlaczenie` (id, id_uprawnienia, id_ranga) VALUES ('32', '1', '32');
+INSERT INTO `podlaczenie` (id, id_uprawnienia, id_ranga) VALUES ('33', '1', '33');
+INSERT INTO `podlaczenie` (id, id_uprawnienia, id_ranga) VALUES ('34', '1', '34');
+INSERT INTO `podlaczenie` (id, id_uprawnienia, id_ranga) VALUES ('35', '1', '35');
+INSERT INTO `podlaczenie` (id, id_uprawnienia, id_ranga) VALUES ('36', '1', '36');
+INSERT INTO `podlaczenie` (id, id_uprawnienia, id_ranga) VALUES ('37', '1', '37');
+INSERT INTO `podlaczenie` (id, id_uprawnienia, id_ranga) VALUES ('38', '1', '38');
+INSERT INTO `podlaczenie` (id, id_uprawnienia, id_ranga) VALUES ('39', '1', '39');
+INSERT INTO `podlaczenie` (id, id_uprawnienia, id_ranga) VALUES ('40', '1', '40');
+INSERT INTO `podlaczenie` (id, id_uprawnienia, id_ranga) VALUES ('41', '1', '41');
+INSERT INTO `podlaczenie` (id, id_uprawnienia, id_ranga) VALUES ('42', '1', '42');
+INSERT INTO `podlaczenie` (id, id_uprawnienia, id_ranga) VALUES ('43', '1', '43');
+INSERT INTO `podlaczenie` (id, id_uprawnienia, id_ranga) VALUES ('44', '1', '44');
+INSERT INTO `podlaczenie` (id, id_uprawnienia, id_ranga) VALUES ('45', '1', '45');
+INSERT INTO `podlaczenie` (id, id_uprawnienia, id_ranga) VALUES ('46', '1', '46');
+INSERT INTO `podlaczenie` (id, id_uprawnienia, id_ranga) VALUES ('47', '1', '47');
+INSERT INTO `podlaczenie` (id, id_uprawnienia, id_ranga) VALUES ('48', '1', '48');
+INSERT INTO `podlaczenie` (id, id_uprawnienia, id_ranga) VALUES ('49', '1', '49');
+INSERT INTO `podlaczenie` (id, id_uprawnienia, id_ranga) VALUES ('50', '1', '50');
+INSERT INTO `podlaczenie` (id, id_uprawnienia, id_ranga) VALUES ('51', '1', '51');
+INSERT INTO `podlaczenie` (id, id_uprawnienia, id_ranga) VALUES ('52', '1', '52');
+INSERT INTO `podlaczenie` (id, id_uprawnienia, id_ranga) VALUES ('53', '1', '53');
+INSERT INTO `podlaczenie` (id, id_uprawnienia, id_ranga) VALUES ('54', '1', '54');
+INSERT INTO `podlaczenie` (id, id_uprawnienia, id_ranga) VALUES ('55', '1', '55');
+INSERT INTO `podlaczenie` (id, id_uprawnienia, id_ranga) VALUES ('56', '1', '56');
+INSERT INTO `podlaczenie` (id, id_uprawnienia, id_ranga) VALUES ('57', '1', '57');
+INSERT INTO `podlaczenie` (id, id_uprawnienia, id_ranga) VALUES ('58', '1', '58');
+INSERT INTO `podlaczenie` (id, id_uprawnienia, id_ranga) VALUES ('59', '1', '59');
+INSERT INTO `podlaczenie` (id, id_uprawnienia, id_ranga) VALUES ('60', '1', '60');
+INSERT INTO `podlaczenie` (id, id_uprawnienia, id_ranga) VALUES ('61', '1', '61');
+INSERT INTO `podlaczenie` (id, id_uprawnienia, id_ranga) VALUES ('62', '1', '62');
+INSERT INTO `podlaczenie` (id, id_uprawnienia, id_ranga) VALUES ('63', '1', '63');
+INSERT INTO `podlaczenie` (id, id_uprawnienia, id_ranga) VALUES ('64', '1', '64');
+INSERT INTO `podlaczenie` (id, id_uprawnienia, id_ranga) VALUES ('65', '1', '65');
+INSERT INTO `podlaczenie` (id, id_uprawnienia, id_ranga) VALUES ('66', '1', '66');
+INSERT INTO `podlaczenie` (id, id_uprawnienia, id_ranga) VALUES ('67', '1', '67');
+INSERT INTO `podlaczenie` (id, id_uprawnienia, id_ranga) VALUES ('68', '1', '68');
+INSERT INTO `podlaczenie` (id, id_uprawnienia, id_ranga) VALUES ('69', '1', '69');
+INSERT INTO `podlaczenie` (id, id_uprawnienia, id_ranga) VALUES ('70', '1', '70');
+INSERT INTO `podlaczenie` (id, id_uprawnienia, id_ranga) VALUES ('71', '1', '71');
+INSERT INTO `podlaczenie` (id, id_uprawnienia, id_ranga) VALUES ('72', '1', '72');
+INSERT INTO `podlaczenie` (id, id_uprawnienia, id_ranga) VALUES ('73', '1', '73');
+INSERT INTO `podlaczenie` (id, id_uprawnienia, id_ranga) VALUES ('74', '1', '74');
+INSERT INTO `podlaczenie` (id, id_uprawnienia, id_ranga) VALUES ('75', '1', '75');
+INSERT INTO `podlaczenie` (id, id_uprawnienia, id_ranga) VALUES ('76', '1', '76');
+INSERT INTO `podlaczenie` (id, id_uprawnienia, id_ranga) VALUES ('77', '1', '77');
+INSERT INTO `podlaczenie` (id, id_uprawnienia, id_ranga) VALUES ('78', '2', '1');
+INSERT INTO `podlaczenie` (id, id_uprawnienia, id_ranga) VALUES ('79', '2', '2');
+INSERT INTO `podlaczenie` (id, id_uprawnienia, id_ranga) VALUES ('80', '2', '15');
+INSERT INTO `podlaczenie` (id, id_uprawnienia, id_ranga) VALUES ('81', '2', '16');
+INSERT INTO `podlaczenie` (id, id_uprawnienia, id_ranga) VALUES ('82', '2', '17');
+INSERT INTO `podlaczenie` (id, id_uprawnienia, id_ranga) VALUES ('83', '2', '18');
+INSERT INTO `podlaczenie` (id, id_uprawnienia, id_ranga) VALUES ('84', '2', '19');
+INSERT INTO `podlaczenie` (id, id_uprawnienia, id_ranga) VALUES ('85', '2', '20');
+INSERT INTO `podlaczenie` (id, id_uprawnienia, id_ranga) VALUES ('86', '2', '21');
+INSERT INTO `podlaczenie` (id, id_uprawnienia, id_ranga) VALUES ('87', '2', '22');
+INSERT INTO `podlaczenie` (id, id_uprawnienia, id_ranga) VALUES ('88', '2', '23');
+INSERT INTO `podlaczenie` (id, id_uprawnienia, id_ranga) VALUES ('89', '2', '24');
+INSERT INTO `podlaczenie` (id, id_uprawnienia, id_ranga) VALUES ('90', '2', '25');
+INSERT INTO `podlaczenie` (id, id_uprawnienia, id_ranga) VALUES ('91', '2', '26');
+INSERT INTO `podlaczenie` (id, id_uprawnienia, id_ranga) VALUES ('92', '2', '27');
+INSERT INTO `podlaczenie` (id, id_uprawnienia, id_ranga) VALUES ('93', '2', '28');
+INSERT INTO `podlaczenie` (id, id_uprawnienia, id_ranga) VALUES ('94', '2', '29');
+INSERT INTO `podlaczenie` (id, id_uprawnienia, id_ranga) VALUES ('95', '2', '30');
+INSERT INTO `podlaczenie` (id, id_uprawnienia, id_ranga) VALUES ('96', '2', '31');
+INSERT INTO `podlaczenie` (id, id_uprawnienia, id_ranga) VALUES ('97', '2', '32');
+INSERT INTO `podlaczenie` (id, id_uprawnienia, id_ranga) VALUES ('98', '2', '33');
+INSERT INTO `podlaczenie` (id, id_uprawnienia, id_ranga) VALUES ('99', '2', '34');
+INSERT INTO `podlaczenie` (id, id_uprawnienia, id_ranga) VALUES ('100', '2', '35');
+INSERT INTO `podlaczenie` (id, id_uprawnienia, id_ranga) VALUES ('101', '2', '36');
+INSERT INTO `podlaczenie` (id, id_uprawnienia, id_ranga) VALUES ('102', '2', '37');
+INSERT INTO `podlaczenie` (id, id_uprawnienia, id_ranga) VALUES ('103', '2', '38');
+INSERT INTO `podlaczenie` (id, id_uprawnienia, id_ranga) VALUES ('104', '2', '39');
+INSERT INTO `podlaczenie` (id, id_uprawnienia, id_ranga) VALUES ('105', '3', '1');
+INSERT INTO `podlaczenie` (id, id_uprawnienia, id_ranga) VALUES ('106', '3', '19');
+INSERT INTO `podlaczenie` (id, id_uprawnienia, id_ranga) VALUES ('107', '3', '20');
+INSERT INTO `podlaczenie` (id, id_uprawnienia, id_ranga) VALUES ('108', '3', '21');
+
 -- Dane z tabeli `uzytkownicy`
 INSERT INTO `uzytkownicy` (id, login, haslo, id_uprawnienia) VALUES ('1', 'Administrator', 'scrypt:32768:8:1$UCBwCJVWPxR43fNh$e822900a3b12c3c4ac274af1701eedd757ba770bba15d8994d2814684fceaed06db771d8ed214e75ec9cb2d9a95ccf7e01b3c4f49bc407c52fe141547a91077b', '1');
 INSERT INTO `uzytkownicy` (id, login, haslo, id_uprawnienia) VALUES ('19', 'test4', 'scrypt:32768:8:1$GsL9GxyDMPYKUS5M$5bf70ac57ecb3a3bdf1e83b676de9f1534be0c8d1d30c02cb65bb26dd9441c8a4fc4057237df9ce59f91deff5989b5c941eefaca267ee8dfb4298161abadb65e', '3');
@@ -358,21 +566,26 @@ INSERT INTO `rozmiary_obejm` (id, nazwa, ile_pianka, ile_tasma) VALUES ('3', '55
 
 -- Dane z tabeli `material_obejma`
 INSERT INTO `material_obejma` (id, certyfikat, data_dostawy, nr_wytopu, nr_prodio, ilosc_sztuk, ilosc_sztuk_na_stanie, id_rozmiaru, id_pracownik) VALUES ('2', NULL, '6765-05-07', '765', '756', '756', '0', '1', '1');
-INSERT INTO `material_obejma` (id, certyfikat, data_dostawy, nr_wytopu, nr_prodio, ilosc_sztuk, ilosc_sztuk_na_stanie, id_rozmiaru, id_pracownik) VALUES ('8', '435', '0345-05-31', '435', '345', '345', '345', '2', '1');
+INSERT INTO `material_obejma` (id, certyfikat, data_dostawy, nr_wytopu, nr_prodio, ilosc_sztuk, ilosc_sztuk_na_stanie, id_rozmiaru, id_pracownik) VALUES ('8', '435', '0345-05-31', '435', '345', '345', '0', '2', '1');
 INSERT INTO `material_obejma` (id, certyfikat, data_dostawy, nr_wytopu, nr_prodio, ilosc_sztuk, ilosc_sztuk_na_stanie, id_rozmiaru, id_pracownik) VALUES ('9', 'tew', '0013-12-31', '123', '123', '123', '0', '1', '1');
 
 -- Dane z tabeli `ksztaltowanie_1`
 INSERT INTO `ksztaltowanie_1` (id, data, godzina_rozpoczecia, godzina_zakonczenia, ilosc, ilosc_na_stanie, nr_prodio, id_materialu, id_pracownik, imie_nazwisko, nazwa) VALUES ('4', '2025-07-17', '14:14:36', '14:14:41', '23', '0', '23', '2', '1', '23', '1/23/66/765/2025-07-17');
-INSERT INTO `ksztaltowanie_1` (id, data, godzina_rozpoczecia, godzina_zakonczenia, ilosc, ilosc_na_stanie, nr_prodio, id_materialu, id_pracownik, imie_nazwisko, nazwa) VALUES ('5', '2025-07-17', '20:49:00', '20:49:34', '23', '23', '23', '2', NULL, '232', 'Nazwa z innej tabeli lub logiki');
+INSERT INTO `ksztaltowanie_1` (id, data, godzina_rozpoczecia, godzina_zakonczenia, ilosc, ilosc_na_stanie, nr_prodio, id_materialu, id_pracownik, imie_nazwisko, nazwa) VALUES ('5', '2025-07-17', '20:49:00', '20:49:34', '23', '0', '23', '2', NULL, '232', 'Nazwa z innej tabeli lub logiki');
 INSERT INTO `ksztaltowanie_1` (id, data, godzina_rozpoczecia, godzina_zakonczenia, ilosc, ilosc_na_stanie, nr_prodio, id_materialu, id_pracownik, imie_nazwisko, nazwa) VALUES ('6', '2025-07-17', '20:58:53', '20:59:14', '34', NULL, '34', '2', '1', '3', '4/34/231/765/2025-07-17');
 INSERT INTO `ksztaltowanie_1` (id, data, godzina_rozpoczecia, godzina_zakonczenia, ilosc, ilosc_na_stanie, nr_prodio, id_materialu, id_pracownik, imie_nazwisko, nazwa) VALUES ('7', '2025-07-17', '21:53:26', '21:57:20', '246', NULL, '21', '2', '1', '1', '4/21/231/765/2025-07-17');
-INSERT INTO `ksztaltowanie_1` (id, data, godzina_rozpoczecia, godzina_zakonczenia, ilosc, ilosc_na_stanie, nr_prodio, id_materialu, id_pracownik, imie_nazwisko, nazwa) VALUES ('8', '2025-07-17', '21:58:24', '21:58:36', '123', '123', '123', '9', '1', '123', '4/123/231/123/2025-07-17');
+INSERT INTO `ksztaltowanie_1` (id, data, godzina_rozpoczecia, godzina_zakonczenia, ilosc, ilosc_na_stanie, nr_prodio, id_materialu, id_pracownik, imie_nazwisko, nazwa) VALUES ('8', '2025-07-17', '21:58:24', '21:58:36', '-123213123', '123', '123', '9', '1', '123', '4/123/231/123/2025-07-17');
+INSERT INTO `ksztaltowanie_1` (id, data, godzina_rozpoczecia, godzina_zakonczenia, ilosc, ilosc_na_stanie, nr_prodio, id_materialu, id_pracownik, imie_nazwisko, nazwa) VALUES ('9', '2025-07-18', '9:37:03', '9:37:15', '345', '345', '123', '8', '1', '123', '9/123/sda2/435/2025-07-18');
 
 -- Dane z tabeli `ksztaltowanie_2`
 INSERT INTO `ksztaltowanie_2` (id, id_ksztaltowanie_1, data, godzina_rozpoczecia, godzina_zakonczenia, ilosc, ilosc_na_stanie, nr_prodio, id_pracownik, imie_nazwisko, nazwa) VALUES ('3', '4', '2025-07-17', '14:15:12', '14:15:17', '23', '0', '23', '1', '23', '1/23/66/765/2025-07-17');
+INSERT INTO `ksztaltowanie_2` (id, id_ksztaltowanie_1, data, godzina_rozpoczecia, godzina_zakonczenia, ilosc, ilosc_na_stanie, nr_prodio, id_pracownik, imie_nazwisko, nazwa) VALUES ('4', '8', '2025-07-18', '9:34:25', '9:36:43', '123213123', '121980992', '213', '1', '123', '4/213/231/123/2025-07-18');
+INSERT INTO `ksztaltowanie_2` (id, id_ksztaltowanie_1, data, godzina_rozpoczecia, godzina_zakonczenia, ilosc, ilosc_na_stanie, nr_prodio, id_pracownik, imie_nazwisko, nazwa) VALUES ('5', '8', '2025-07-18', '9:35:59', '9:36:19', '123', '123', '123', '1', '123', '5/123/231/123/2025-07-18');
+INSERT INTO `ksztaltowanie_2` (id, id_ksztaltowanie_1, data, godzina_rozpoczecia, godzina_zakonczenia, ilosc, ilosc_na_stanie, nr_prodio, id_pracownik, imie_nazwisko, nazwa) VALUES ('6', '5', '2025-07-18', '9:38:34', '9:38:52', '23', '23', '123', '1', '123', '6/123/231/765/2025-07-18');
 
 -- Dane z tabeli `ksztaltowanie_3`
 INSERT INTO `ksztaltowanie_3` (id, id_ksztaltowanie_2, data, godzina_rozpoczecia, godzina_zakonczenia, ilosc, ilosc_na_stanie, nr_prodio, id_pracownik, imie_nazwisko, nazwa) VALUES ('3', '3', '2025-07-17', '14:15:21', '14:15:25', '23', '0', '23', '1', '23', '1/23/66/765/2025-07-17');
+INSERT INTO `ksztaltowanie_3` (id, id_ksztaltowanie_2, data, godzina_rozpoczecia, godzina_zakonczenia, ilosc, ilosc_na_stanie, nr_prodio, id_pracownik, imie_nazwisko, nazwa) VALUES ('4', '4', '2025-07-18', '9:42:36', '9:42:55', '1232131', '1232131', '123', '1', '123', '4/123/231/123/2025-07-18');
 
 -- Dane z tabeli `malarnia`
 INSERT INTO `malarnia` (id, id_ksztaltowanie_3, ilosc, ilosc_na_stanie, nr_prodio, data, id_pracownik, imie_nazwisko) VALUES ('9', '3', '23', '22', '23', '0323-02-23', '1', '2332');

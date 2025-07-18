@@ -81,6 +81,29 @@ class Dlugosci(db.Model):
     profil = db.relationship('Profil', back_populates='dlugosci')
     def __repr__(self):
         return f"<Dlugosci {self.id} - {self.nazwa}>"
+    
+class Ranga(db.Model):
+    __tablename__ = 'rangi'
+    id_ranga = db.Column(db.Integer, primary_key=True)
+    nazwa = db.Column(db.String(255), nullable=False)
+
+    podlaczenia = db.relationship('Podlaczenie', back_populates='ranga')
+
+    def __repr__(self):
+        return f"<Ranga {self.id_ranga} - {self.nazwa}>"
+
+class Podlaczenie(db.Model):
+    __tablename__ = 'podlaczenie'
+    id = db.Column(db.Integer, primary_key=True)
+    id_uprawnienia = db.Column(db.Integer, db.ForeignKey('uprawnienia.id_uprawnienia'), nullable=False)
+    id_ranga = db.Column(db.Integer, db.ForeignKey('rangi.id_ranga'), nullable=False)
+
+    uprawnienia = db.relationship('Uprawnienia', back_populates='podlaczenia')
+    ranga = db.relationship('Ranga', back_populates='podlaczenia')
+
+    def __repr__(self):
+        return f"<Podlaczenie {self.id} - Uprawnienie {self.id_uprawnienia}, Ranga {self.id_ranga}>"
+
 class Uzytkownik(db.Model):
     __tablename__ = 'uzytkownicy'
     id = db.Column(db.Integer, primary_key=True)
@@ -94,16 +117,23 @@ class Uzytkownik(db.Model):
 
     def __repr__(self):
         return f"<Użytkownik {self.id} - {self.login}>"
-
+    def ma_range_id(self, id_ranga):
+    
+        if not self.uprawnienia or not self.uprawnienia.podlaczenia:
+            return False
+        return any(p.ranga.id_ranga == id_ranga for p in self.uprawnienia.podlaczenia)
 class Uprawnienia(db.Model):
     __tablename__ = 'uprawnienia'
     id_uprawnienia = db.Column(db.Integer, primary_key=True)
     nazwa = db.Column(db.String(255), nullable=False)
 
     uzytkownicy = db.relationship('Uzytkownik', back_populates='uprawnienia')
+    podlaczenia = db.relationship('Podlaczenie', back_populates='uprawnienia')
 
     def __repr__(self):
         return f"<Uprawnienia {self.id_uprawnienia} - {self.nazwa}>"
+    
+
 
 class Tasma(db.Model):
     __tablename__ = 'tasma'
@@ -395,6 +425,8 @@ def zapisz_do_pliku_sql():
 
                 kolejnosc_tabel = [
                     'uprawnienia',
+                    'rangi',
+                    'podlaczenie',
                     'uzytkownicy',
                     'dostawcy',
                     'szablon',
@@ -478,7 +510,7 @@ def load_logged_in_user():
 
 @app.route('/')
 def home():
-    if not g.user:
+    if not g.user or not g.user.ma_range_id(1):
         logger.info("Nieautoryzowany dostęp do strony głównej.")
         return render_template('login.html', user=g.user)
     
@@ -489,6 +521,9 @@ def home():
     return resp
 @app.route('/pokaz_logi')
 def pokaz_logi():
+    if not g.user or not g.user.ma_range_id(9):
+        logger.info("Nieautoryzowany dostęp do logów.")
+        return render_template('home.html', user=g.user)
     try:
         with open('logs/app.log', 'r', encoding='utf-8') as f:
             linie = f.readlines()
@@ -522,9 +557,7 @@ def go_back():
 
 @app.route('/rejestracja_do_bazy', methods=['POST'])
 def rejestracja_do_bazy():
-    if not g.user:
-        return render_template('login.html', user=g.user)
-    if g.user.id_uprawnienia != 1:
+    if not g.user or not g.user.ma_range_id(4):
         return redirect(url_for('home'))
     
     if request.method == 'POST':
@@ -639,7 +672,7 @@ def get_tasma_obejmy():
     return jsonify([{"id": t.id, "nazwa": t.nazwa, "ilosc": t.ilosc, "ilosc_na_stanie": t.ilosc_na_stanie} for t in tasma_obejmy])
 @app.route('/update-row_uzytkownik', methods=['POST'])
 def update_user():
-    if g.user.id_uprawnienia != 1:
+    if not g.user or not g.user.ma_range_id(5):
         return redirect(url_for('home'))
     
     data = request.json
@@ -675,9 +708,7 @@ def update_user():
 
 @app.route('/usun_uzytkownik/<int:id>', methods=['POST'])
 def usun_uzytkownik(id):
-    if not g.user:
-        return render_template('login.html', user=g.user)
-    if g.user.id_uprawnienia != 1:
+    if not g.user or not g.user.ma_range_id(5):
         return redirect(url_for('home'))
     uzytkownik = Uzytkownik.query.get_or_404(id)
 
@@ -732,9 +763,7 @@ def logout():
 
 @app.route('/uzytkownik')
 def uzytkownik():
-    if not g.user:
-        return render_template('login.html', user=g.user)
-    if g.user.id_uprawnienia != 1:
+    if not g.user or not g.user.ma_range_id(2):
         return redirect(url_for('home'))
     
     logger.info(f"{g.user.login} wszedł na stronę zarządzania użytkownikami.")
@@ -742,9 +771,7 @@ def uzytkownik():
 
 @app.route('/register')
 def register():
-    if not g.user:
-        return render_template('login.html', user=g.user)
-    if g.user.id_uprawnienia != 1:
+    if not g.user or not g.user.ma_range_id(4):
         return redirect(url_for('home'))
     
     logger.info(f"{g.user.login} wszedł na stronę rejestracji użytkownika.")
@@ -752,9 +779,7 @@ def register():
 
 @app.route('/usun_tasma/<int:id>', methods=['POST'])
 def usun_tasma(id):
-    if not g.user:
-        return render_template('login.html', user=g.user)
-    if g.user.id_uprawnienia ==3:
+    if not g.user or not g.user.ma_range_id(18):
         return redirect(url_for('home'))
     
     tasma = Tasma.query.get_or_404(id)
@@ -788,9 +813,7 @@ def usun_tasma(id):
 
 @app.route('/tasma')
 def tasma():
-    if not g.user:
-        return render_template('login.html', user=g.user)
-    if g.user.id_uprawnienia != 1 and g.user.id_uprawnienia != 2:
+    if not g.user or not g.user.ma_range_id(15):
         return redirect(url_for('home'))
 
     if g.user.uprawnienia.id_uprawnienia == 1 or g.user.uprawnienia.id_uprawnienia == 2:
@@ -803,9 +826,7 @@ def tasma():
 
 @app.route('/update-row', methods=['POST'])
 def update_row():
-    if not g.user:
-        return render_template('login.html', user=g.user)
-    if g.user.id_uprawnienia != 1 and g.user.id_uprawnienia != 2:
+    if not g.user or not g.user.ma_range_id(17):
         return redirect(url_for('home'))
 
     try:
@@ -880,9 +901,7 @@ def update_row():
 
 @app.route('/dodaj_tasma')
 def dodaj_tasma():
-    if not g.user:
-        return render_template('login.html', user=g.user)
-    if g.user.id_uprawnienia != 1 and g.user.id_uprawnienia != 2:
+    if not g.user or not g.user.ma_range_id(16):
         return redirect(url_for('home'))
     
     logger.info(f"{g.user.login} wszedł na stronę dodawania tasy.")
@@ -890,9 +909,7 @@ def dodaj_tasma():
 
 @app.route('/dodaj_tasma_do_bazy', methods=['POST'])
 def dodaj_tasma_do_bazy():
-    if not g.user:
-        return render_template('login.html', user=g.user)
-    if g.user.id_uprawnienia != 1 and g.user.id_uprawnienia != 2:
+    if not g.user or not g.user.ma_range_id(16):
         return redirect(url_for('home'))
     
     if request.method == 'POST':
@@ -943,7 +960,7 @@ def dodaj_tasma_do_bazy():
 
 @app.route('/profil')
 def profil():
-    if not g.user:
+    if not g.user or not g.user.ma_range_id(19):
         return render_template('login.html', user=g.user)
 
     profil = Profil.query.all()
@@ -962,9 +979,7 @@ currentDate5=(date.today() - timedelta(days=5)).strftime('%Y-%m-%d'),
 
 @app.route('/usun_profil/<int:id>', methods=['POST'])
 def usun_profil(id):
-    if not g.user:
-        return render_template('login.html', user=g.user)
-    if g.user.id_uprawnienia ==3:
+    if not g.user or not g.user.ma_range_id(22):
         return redirect(url_for('home'))
     
     profil = Profil.query.get_or_404(id)
@@ -994,8 +1009,8 @@ def usun_profil(id):
 
 @app.route('/update-row_profil', methods=['POST'])
 def update_row_profil():
-    if not g.user:
-        return render_template('login.html', user=g.user)
+    if not g.user or not g.user.ma_range_id(17):
+        return redirect(url_for('home'))
 
     try:
         dane = request.get_json()
@@ -1071,8 +1086,8 @@ def update_row_profil():
 
 @app.route('/dodaj_profil')
 def dodaj_profil():
-    if not g.user:
-        return render_template('login.html', user=g.user)
+    if not g.user or not g.user.ma_range_id(20):
+        return redirect(url_for('home'))
     
     tasmy = Tasma.query.all()
     dlugosci = Dlugosci.query.all()
@@ -1082,8 +1097,8 @@ def dodaj_profil():
 
 @app.route('/dodaj_lub_zakonczenie_profilu', methods=['GET', 'POST'])
 def dodaj_lub_zakonczenie_profilu():
-    if not g.user:
-        return render_template('login.html')
+    if not g.user or not g.user.ma_range_id(20):
+        return redirect(url_for('home'))
 
     profil_id = request.form.get('profil_id')
 
@@ -1157,8 +1172,8 @@ def dodaj_lub_zakonczenie_profilu():
         return f"Błąd zapisu: {e}"
 @app.route('/dodaj_profil_do_bazy', methods=['GET', 'POST'])
 def dodaj_profil_do_bazy():
-    if not g.user:
-        return render_template('login.html')
+    if not g.user or not g.user.ma_range_id(20):
+        return redirect(url_for('home'))
 
     # Odbierz 'profil_id' z formularza (z ukrytego pola)
     profil_id = request.form.get('profil_id')
@@ -1183,9 +1198,7 @@ def dodaj_profil_do_bazy():
     )
 @app.route('/dostawcy')
 def dostawcy():
-    if not g.user:
-        return render_template('login.html', user=g.user)
-    if g.user.id_uprawnienia ==3:
+    if not g.user or not g.user.ma_range_id(23):
         return redirect(url_for('home'))
     
     dostawcy = Dostawcy.query.all()
@@ -1194,9 +1207,7 @@ def dostawcy():
 
 @app.route('/dodaj_dostawce')
 def dodaj_dostawce():
-    if not g.user:
-        return render_template('login.html', user=g.user)
-    if g.user.id_uprawnienia ==3:
+    if not g.user or not g.user.ma_range_id(24):
         return redirect(url_for('home'))
 
     logger.info(f"{g.user.login} wszedł na stronę dodawania dostawcy.")
@@ -1204,9 +1215,7 @@ def dodaj_dostawce():
 
 @app.route('/dodaj_dostawce_do_bazy', methods=['POST'])
 def dodaj_dostawce_do_bazy():
-    if not g.user:
-        return render_template('login.html', user=g.user)
-    if g.user.id_uprawnienia ==3:
+    if not g.user or not g.user.ma_range_id(24):
         return redirect(url_for('home'))
     
     if request.method == 'POST':
@@ -1226,10 +1235,7 @@ def dodaj_dostawce_do_bazy():
 
 @app.route('/update-row-dostawcy', methods=['POST'])
 def update_row_dostawcy():
-    if not g.user:
-        return render_template('login.html', user=g.user)
-    
-    if g.user.id_uprawnienia == 3:
+    if not g.user or not g.user.ma_range_id(25):
         return redirect(url_for('home'))
 
     try:
@@ -1262,9 +1268,7 @@ def update_row_dostawcy():
         return jsonify({'message': 'Wystąpił błąd podczas aktualizacji!', 'error': str(e)}), 500
 @app.route('/szablon')
 def szablon():
-    if not g.user:
-        return render_template('login.html', user=g.user)
-    if g.user.id_uprawnienia == 3:
+    if not g.user or not g.user.ma_range_id(26):
         return redirect(url_for('home'))
     
     szablon = Szablon.query.all()
@@ -1273,9 +1277,7 @@ def szablon():
 
 @app.route('/dodaj_szablon')
 def dodaj_szablon():
-    if not g.user:
-        return render_template('login.html', user=g.user)
-    if g.user.id_uprawnienia == 3:
+    if not g.user or not g.user.ma_range_id(27):
         return redirect(url_for('home'))
 
     logger.info(f"{g.user.login} wszedł na stronę dodawania szablonu.")
@@ -1283,9 +1285,7 @@ def dodaj_szablon():
 
 @app.route('/dodaj_szablon_do_bazy', methods=['POST'])
 def dodaj_szablon_do_bazy():
-    if not g.user:
-        return render_template('login.html', user=g.user)
-    if g.user.id_uprawnienia == 3:
+    if not g.user or not g.user.ma_range_id(27):
         return redirect(url_for('home'))
     
     if request.method == 'POST':
@@ -1311,9 +1311,7 @@ def dodaj_szablon_do_bazy():
 
 @app.route('/update-row-szablon', methods=['POST'])
 def update_row_szablon():
-    if not g.user:
-        return render_template('login.html', user=g.user)
-    if g.user.id_uprawnienia ==3:
+    if not g.user or not g.user.ma_range_id(28):
         return redirect(url_for('home'))
     
     try:
@@ -1367,9 +1365,7 @@ def update_row_szablon():
 
 @app.route('/zestawienie')
 def zestawienie():
-    if not g.user:
-        return render_template('login.html', user=g.user)
-    if g.user.id_uprawnienia != 1:
+    if not g.user or not g.user.ma_range_id(38):
         return redirect(url_for('home'))
 
     logger.info(f"{g.user.login} wszedł na stronę zestawienia.")
@@ -1377,9 +1373,7 @@ def zestawienie():
 
 @app.route('/zestawienie_obejma')
 def zestawienie_obejma():
-    if not g.user:
-        return render_template('login.html', user=g.user)
-    if g.user.id_uprawnienia == 3:
+    if not g.user or not g.user.ma_range_id(77):
         return redirect(url_for('home'))
 
     
@@ -1430,9 +1424,7 @@ def download_excel():
         return jsonify({"error": "Wystąpił błąd podczas generowania pliku Excel."}), 500  # Zwraca status 500
 @app.route('/lokalizacja')
 def lokalizacja():
-    if not g.user:
-        return render_template('login.html', user=g.user)
-    if g.user.id_uprawnienia ==3:
+    if not g.user or not g.user.ma_range_id(29):
         return redirect(url_for('home'))
     
     lokalizacja = Lokalizacja.query.all()
@@ -1441,9 +1433,7 @@ def lokalizacja():
 
 @app.route('/dodaj_lokalizacje')
 def dodaj_lokalizacje():
-    if not g.user:
-        return render_template('login.html', user=g.user)
-    if g.user.id_uprawnienia ==3:
+    if not g.user or not g.user.ma_range_id(30):
         return redirect(url_for('home'))
 
     logger.info(f"{g.user.login} wszedł na stronę dodawania lokzlizacji.")
@@ -1451,9 +1441,7 @@ def dodaj_lokalizacje():
 
 @app.route('/dodaj_lokalizacje_do_bazy', methods=['POST'])
 def dodaj_lokalizacje_do_bazy():
-    if not g.user:
-        return render_template('login.html', user=g.user)
-    if g.user.id_uprawnienia ==3:
+    if not g.user or not g.user.ma_range_id(30):
         return redirect(url_for('home'))
     
     if request.method == 'POST':
@@ -1473,9 +1461,7 @@ def dodaj_lokalizacje_do_bazy():
 
 @app.route('/update-row-lokalizacje', methods=['POST'])
 def update_row_lokalizacje():
-    if not g.user:
-        return render_template('login.html', user=g.user)
-    if g.user.id_uprawnienia ==3:
+    if not g.user or not g.user.ma_range_id(31):
         return redirect(url_for('home'))
     
     try:
@@ -1502,9 +1488,7 @@ def update_row_lokalizacje():
         return jsonify({'message': 'Wystąpił błąd podczas aktualizacji!', 'error': str(e)}), 500
 @app.route('/dlugosci')
 def dlugosci():
-    if not g.user:
-        return render_template('login.html', user=g.user)
-    if g.user.id_uprawnienia ==3:
+    if not g.user or not g.user.ma_range_id(32):
         return redirect(url_for('home'))
     
     dlugosc = Dlugosci.query.all()
@@ -1513,9 +1497,7 @@ def dlugosci():
 
 @app.route('/dodaj_dlugosci')
 def dodaj_dlugosci():
-    if not g.user:
-        return render_template('login.html', user=g.user)
-    if g.user.id_uprawnienia ==3:
+    if not g.user or not g.user.ma_range_id(33):
         return redirect(url_for('home'))
 
     logger.info(f"{g.user.login} wszedł na stronę dodawania lokzlizacji.")
@@ -1523,9 +1505,7 @@ def dodaj_dlugosci():
 
 @app.route('/dodaj_dlugosci_do_bazy', methods=['POST'])
 def dodaj_dlugosci_do_bazy():
-    if not g.user:
-        return render_template('login.html', user=g.user)
-    if g.user.id_uprawnienia ==3:
+    if not g.user or not g.user.ma_range_id(33):
         return redirect(url_for('home'))
     
     if request.method == 'POST':
@@ -1545,9 +1525,7 @@ def dodaj_dlugosci_do_bazy():
 
 @app.route('/update-row-dlugosci', methods=['POST'])
 def update_row_dlugosci():
-    if not g.user:
-        return render_template('login.html', user=g.user)
-    if g.user.id_uprawnienia ==3:
+    if not g.user or not g.user.ma_range_id(34):
         return redirect(url_for('home'))
     
     try:
@@ -1574,9 +1552,7 @@ def update_row_dlugosci():
         return jsonify({'message': 'Wystąpił błąd podczas aktualizacji!', 'error': str(e)}), 500
 @app.route('/szablon_profil')
 def szablon_profil():
-    if not g.user:
-        return render_template('login.html', user=g.user)
-    if g.user.id_uprawnienia ==3:
+    if not g.user or not g.user.ma_range_id(35):
         return redirect(url_for('home'))
     
     szablon_profil = Szablon_profil.query.all()
@@ -1584,18 +1560,14 @@ def szablon_profil():
     return render_template("szablon_profil.html", user=g.user, szablon_profil=szablon_profil)
 @app.route('/dodaj_szablon_profil')
 def dodaj_szablon_profil():
-    if not g.user:
-        return render_template('login.html', user=g.user)
-    if g.user.id_uprawnienia ==3:
+    if not g.user or not g.user.ma_range_id(36):
         return redirect(url_for('home'))
 
     logger.info(f"{g.user.login} wszedł na stronę dodawania szablonu.")
     return render_template("dodaj_szablon_profil.html", user=g.user)
 @app.route('/dodaj_szablon_profil_do_bazy', methods=['POST'])
 def dodaj_szablon_profil_do_bazy():
-    if not g.user:
-        return render_template('login.html', user=g.user)
-    if g.user.id_uprawnienia ==3:
+    if not g.user or not g.user.ma_range_id(36):
         return redirect(url_for('home'))
     
     if request.method == 'POST':
@@ -1615,9 +1587,7 @@ def dodaj_szablon_profil_do_bazy():
             return render_template('szablon_profil.html', error="Wystąpił błąd przy zapisywaniu danych.", user=g.user)
 @app.route('/update-row-szablon_profil', methods=['POST'])
 def update_row_szablon_profil():
-    if not g.user:
-        return render_template('login.html', user=g.user)
-    if g.user.id_uprawnienia ==3:
+    if not g.user or not g.user.ma_range_id(37):
         return redirect(url_for('home'))
     
     try:
@@ -1650,9 +1620,7 @@ def update_row_szablon_profil():
         return jsonify({'message': 'Wystąpił błąd podczas aktualizacji!', 'error': str(e)}), 500
 @app.route('/sprzedaz', methods=["GET", "POST"])
 def sprzedaz():
-    if not g.user:
-        return render_template('login.html', user=g.user)
-    if g.user.id_uprawnienia == 3:
+    if not g.user or not g.user.ma_range_id(39):
         return redirect(url_for('home'))
 
     wszystkie_profile = []
@@ -1739,8 +1707,8 @@ def sprzedaz():
 
 @app.route('/wez_profile', methods=["POST"])
 def wez_profile():
-    if not g.user:
-        return redirect(url_for('login'))
+    if not g.user or not g.user.ma_range_id(39):
+        return redirect(url_for('home'))
 
     profile = Profil.query.all()
     for profil in profile:
@@ -1765,9 +1733,7 @@ def wez_profile():
     return redirect(url_for('sprzedaz'))
 @app.route('/uprawnienia')
 def uprawnienia():
-    if not g.user:
-        return render_template('login.html', user=g.user)
-    if g.user.id_uprawnienia != 1:
+    if not g.user or not g.user.ma_range_id(6):
         return redirect(url_for('home'))
 
     uprawnienia = Uprawnienia.query.all()
@@ -1775,9 +1741,7 @@ def uprawnienia():
     return render_template("uprawnienia.html", user=g.user, uprawnienia=uprawnienia)
 @app.route('/rozmiary_obejm')
 def rozmiary_obejm():
-    if not g.user:
-        return render_template('login.html', user=g.user)
-    if g.user.id_uprawnienia == 3:
+    if not g.user or not g.user.ma_range_id(46):
         return redirect(url_for('home'))
     
     rozmiary = RozmiaryObejm.query.all()
@@ -1785,18 +1749,14 @@ def rozmiary_obejm():
     return render_template("rozmiary_obejm.html", user=g.user, rozmiary=rozmiary)
 @app.route('/dodaj_rozmiar_obejma')
 def dodaj_rozmiar_obejma():
-    if not g.user:
-        return render_template('login.html', user=g.user)
-    if g.user.id_uprawnienia == 3:
+    if not g.user or not g.user.ma_range_id(47):
         return redirect(url_for('home'))
     
     logger.info(f"{g.user.login} wszedł na stronę dodawania rozmiaru obejm.")
     return render_template("dodaj_rozmiar_obejma.html", user=g.user)
 @app.route('/dodaj_rozmiar_obejma_do_bazy', methods=['POST'])
 def dodaj_rozmiar_obejma_do_bazy():
-    if not g.user:
-        return render_template('login.html', user=g.user)
-    if g.user.id_uprawnienia == 3:
+    if not g.user or not g.user.ma_range_id(47):
         return redirect(url_for('home'))
     if request.method == 'POST':
         nazwa = request.form.get('rozmiar_obejm')
@@ -1816,9 +1776,7 @@ def dodaj_rozmiar_obejma_do_bazy():
         return render_template('rozmiary_obejm.html', error="Wystąpił błąd przy zapisywaniu danych.", user=g.user)
 @app.route('/update-row-rozmiary_obejm', methods=['POST'])
 def update_row_rozmiary_obejm():
-    if not g.user:
-        return render_template('login.html', user=g.user)
-    if g.user.id_uprawnienia == 3:
+    if not g.user or not g.user.ma_range_id(48):
         return redirect(url_for('home'))
     
     try:
@@ -1849,9 +1807,7 @@ def update_row_rozmiary_obejm():
         return jsonify({'message': 'Wystąpił błąd podczas aktualizacji!', 'error': str(e)}), 500
 @app.route('/material_obejma')
 def material_obejma():
-    if not g.user:
-        return render_template('login.html', user=g.user)
-    if g.user.id_uprawnienia == 3:
+    if not g.user or not g.user.ma_range_id(49):
         return redirect(url_for('home'))
     
     meterial = MaterialObejma.query.all()
@@ -1859,18 +1815,14 @@ def material_obejma():
     return render_template("material_obejma.html", user=g.user, meterial=meterial)
 @app.route('/dodaj_material_obejma')
 def dodaj_material_obejma():
-    if not g.user:
-        return render_template('login.html', user=g.user)
-    if g.user.id_uprawnienia == 3:
+    if not g.user or not g.user.ma_range_id(50):
         return redirect(url_for('home'))
     
     logger.info(f"{g.user.login} wszedł na stronę dodawania materiału obejm.")
     return render_template("dodaj_material_obejma.html", user=g.user, rozmiar=RozmiaryObejm.query.all())
 @app.route('/dodaj_material_obejma_do_bazy', methods=['POST'])
 def dodaj_material_obejma_do_bazy():
-    if not g.user:
-        return render_template('login.html', user=g.user)
-    if g.user.id_uprawnienia == 3:
+    if not g.user or not g.user.ma_range_id(50):
         return redirect(url_for('home'))
     if request.method == 'POST':
         certyfikat = request.form.get('certyfikat')
@@ -1896,10 +1848,8 @@ def dodaj_material_obejma_do_bazy():
             return render_template('material_obejma.html', error="Wystąpił błąd przy zapisywaniu danych.", user=g.user)
 @app.route('/update-row-material_obejma', methods=['POST'])
 def update_row_material_obejma():
-    if not g.user:
-        return jsonify({'message': 'Brak dostępu!'}), 401
-    if g.user.id_uprawnienia == 3:
-        return jsonify({'message': 'Brak uprawnień!'}), 403
+    if not g.user or not g.user.ma_range_id(51):
+        return redirect(url_for('home'))
     
     try:
         dane = request.get_json()
@@ -1937,9 +1887,7 @@ def update_row_material_obejma():
         return jsonify({'message': 'Wystąpił błąd podczas aktualizacji!', 'error': str(e)}), 500
 @app.route('/usun_material_obejma/<int:id>', methods=['POST'])
 def usun_material_obejma(id):
-    if not g.user:
-        return render_template('login.html', user=g.user)
-    if g.user.id_uprawnienia == 3:
+    if not g.user or not g.user.ma_range_id(52):
         return redirect(url_for('home'))
 
     material = MaterialObejma.query.get_or_404(id)
@@ -1968,9 +1916,7 @@ def usun_material_obejma(id):
 
 @app.route('/usun_ksztaltowanie1/<int:id>', methods=['POST'])
 def usun_ksztaltowanie1(id):
-    if not g.user:
-        return render_template('login.html', user=g.user)
-    if g.user.id_uprawnienia == 3:
+    if not g.user or not g.user.ma_range_id(56):
         return redirect(url_for('home'))
 
     ksztaltowanie = Ksztaltowanie_1.query.get_or_404(id)
@@ -1999,9 +1945,7 @@ def usun_ksztaltowanie1(id):
 
 @app.route('/ksztaltowanie1')
 def ksztaltowanie1():
-    if not g.user:
-        return render_template('login.html', user=g.user)
-    if g.user.id_uprawnienia == 3:
+    if not g.user or not g.user.ma_range_id(53):
         return redirect(url_for('home'))
     
     ksztaltowanie = Ksztaltowanie_1.query.all()
@@ -2009,17 +1953,15 @@ def ksztaltowanie1():
     return render_template("ksztaltowanie1.html", user=g.user, ksztaltowanie=ksztaltowanie)
 @app.route('/dodaj_ksztaltowanie1')
 def dodaj_ksztaltowanie1():
-    if not g.user:
-        return render_template('login.html', user=g.user)
-    if g.user.id_uprawnienia == 3:
+    if not g.user or not g.user.ma_range_id(52):
         return redirect(url_for('home'))
     
     logger.info(f"{g.user.login} wszedł na stronę dodawania ksztaltowania1.")
     return render_template("dodaj_ksztaltowanie1.html", user=g.user,rozmiar=MaterialObejma.query.all())
 @app.route('/dodaj_ksztaltowanie1_do_bazy', methods=['POST'])
 def dodaj_ksztaltowanie1_do_bazy():
-    if not g.user:
-        return redirect(url_for('login'))
+    if not g.user or not g.user.ma_range_id(52):
+        return redirect(url_for('home'))
 
     try:
         data_str = request.form.get('data')
@@ -2074,8 +2016,8 @@ def dodaj_ksztaltowanie1_do_bazy():
 
 @app.route('/zakoncz-ksztaltowanie1/<int:id>', methods=['POST'])
 def zakoncz_ksztaltowanie1(id):
-    if not g.user:
-        return jsonify({'message': 'Brak uprawnień'}), 401
+    if not g.user or not g.user.ma_range_id(52):
+        return redirect(url_for('home'))
 
     ksztaltowanie = Ksztaltowanie_1.query.get_or_404(id)
     if ksztaltowanie.godzina_zakonczenia is not None:
@@ -2106,10 +2048,7 @@ def zakoncz_ksztaltowanie1(id):
 
 @app.route('/update-row-ksztaltowanie1', methods=['POST'])
 def update_row_ksztaltowanie1():
-    if not g.user:
-        return render_template('login.html', user=g.user)
-    
-    if g.user.id_uprawnienia == 3:
+    if not g.user or not g.user.ma_range_id(55):
         return redirect(url_for('home'))
 
     try:
@@ -2182,9 +2121,7 @@ def update_row_ksztaltowanie1():
         return jsonify({'message': 'Wystąpił błąd podczas aktualizacji!', 'error': str(e)}), 500
 @app.route('/ksztaltowanie2')
 def ksztaltowanie2():   
-    if not g.user:
-        return render_template('login.html', user=g.user)
-    if g.user.id_uprawnienia == 3:
+    if not g.user or not g.user.ma_range_id(57):
         return redirect(url_for('home'))
     
     ksztaltowanie = Ksztaltowanie_2.query.all()
@@ -2192,18 +2129,14 @@ def ksztaltowanie2():
     return render_template("ksztaltowanie2.html", user=g.user, ksztaltowanie=ksztaltowanie)
 @app.route('/dodaj_ksztaltowanie2')
 def dodaj_ksztaltowanie2():
-    if not g.user:
-        return render_template('login.html', user=g.user)
-    if g.user.id_uprawnienia == 3:
+    if not g.user or not g.user.ma_range_id(58):
         return redirect(url_for('home'))
     
     logger.info(f"{g.user.login} wszedł na stronę dodawania ksztaltowania2.")
     return render_template("dodaj_ksztaltowanie2.html", user=g.user,rozmiar=Ksztaltowanie_1.query.all())
 @app.route('/dodaj_ksztaltowanie2_do_bazy', methods=['POST'])
 def dodaj_ksztaltowanie2_do_bazy():
-    if not g.user:
-        return render_template('login.html', user=g.user)
-    if g.user.id_uprawnienia == 3:
+    if not g.user or not g.user.ma_range_id(58):
         return redirect(url_for('home'))
 
     if request.method == 'POST':
@@ -2262,8 +2195,8 @@ def dodaj_ksztaltowanie2_do_bazy():
             return render_template('ksztaltowanie2.html', error="Wystąpił błąd przy zapisie danych.", user=g.user)
 @app.route('/zakoncz-ksztaltowanie2/<int:id>', methods=['POST'])
 def zakoncz_ksztaltowanie2(id):
-    if not g.user:
-        return jsonify({'message': 'Brak uprawnień'}), 401
+    if not g.user or not g.user.ma_range_id(58):
+        return redirect(url_for('home'))
 
     ksztaltowanie = Ksztaltowanie_2.query.get_or_404(id)
     if ksztaltowanie.godzina_zakonczenia is not None:
@@ -2295,10 +2228,7 @@ def zakoncz_ksztaltowanie2(id):
 
 @app.route('/update-row-ksztaltowanie2', methods=['POST'])
 def update_row_ksztaltowanie2():
-    if not g.user:
-        return render_template('login.html', user=g.user)
-    
-    if g.user.id_uprawnienia == 3:
+    if not g.user or not g.user.ma_range_id(59):
         return redirect(url_for('home'))
 
     try:
@@ -2365,9 +2295,7 @@ def update_row_ksztaltowanie2():
         return jsonify({'message': 'Wystąpił błąd podczas aktualizacji!', 'error': str(e)}), 500
 @app.route('/usun_ksztaltowanie2/<int:id>', methods=['POST'])
 def usun_ksztaltowanie2(id):
-    if not g.user:
-        return render_template('login.html', user=g.user)
-    if g.user.id_uprawnienia == 3:
+    if not g.user or not g.user.ma_range_id(60):
         return redirect(url_for('home'))
 
     ksztaltowanie = Ksztaltowanie_2.query.get_or_404(id)
@@ -2393,9 +2321,7 @@ def usun_ksztaltowanie2(id):
     return redirect(request.referrer or url_for('home'))
 @app.route('/ksztaltowanie3')
 def ksztaltowanie3():
-    if not g.user:
-        return render_template('login.html', user=g.user)
-    if g.user.id_uprawnienia == 3:
+    if not g.user or not g.user.ma_range_id(61):
         return redirect(url_for('home'))
     
     ksztaltowanie = Ksztaltowanie_3.query.all()
@@ -2403,18 +2329,14 @@ def ksztaltowanie3():
     return render_template("ksztaltowanie3.html", user=g.user, ksztaltowanie=ksztaltowanie)
 @app.route('/dodaj_ksztaltowanie3')
 def dodaj_ksztaltowanie3():
-    if not g.user:
-        return render_template('login.html', user=g.user)
-    if g.user.id_uprawnienia == 3:
+    if not g.user or not g.user.ma_range_id(62):
         return redirect(url_for('home'))
     
     logger.info(f"{g.user.login} wszedł na stronę dodawania ksztaltowania3.")
     return render_template("dodaj_ksztaltowanie3.html", user=g.user, rozmiar=Ksztaltowanie_2.query.all())
 @app.route('/dodaj_ksztaltowanie3_do_bazy', methods=['POST'])
 def dodaj_ksztaltowanie3_do_bazy(): 
-    if not g.user:
-        return render_template('login.html', user=g.user)
-    if g.user.id_uprawnienia == 3:
+    if not g.user or not g.user.ma_range_id(62):
         return redirect(url_for('home'))
 
     if request.method == 'POST':
@@ -2473,8 +2395,8 @@ def dodaj_ksztaltowanie3_do_bazy():
             return render_template('ksztaltowanie3.html', error="Wystąpił błąd przy zapisie danych.", user=g.user)
 @app.route('/zakoncz-ksztaltowanie3/<int:id>', methods=['POST'])
 def zakoncz_ksztaltowanie3(id):
-    if not g.user:
-        return jsonify({'message': 'Brak uprawnień'}), 401
+    if not g.user or not g.user.ma_range_id(62):
+        return redirect(url_for('home'))
 
     ksztaltowanie = Ksztaltowanie_3.query.get_or_404(id)
     if ksztaltowanie.godzina_zakonczenia is not None:
@@ -2505,10 +2427,7 @@ def zakoncz_ksztaltowanie3(id):
         return jsonify({'message': 'Błąd podczas zakończenia', 'error': str(e)}), 500
 @app.route('/update-row-ksztaltowanie3', methods=['POST'])
 def update_row_ksztaltowanie3():
-    if not g.user:
-        return render_template('login.html', user=g.user)
-    
-    if g.user.id_uprawnienia == 3:
+    if not g.user or not g.user.ma_range_id(63):
         return redirect(url_for('home'))
 
     try:
@@ -2575,9 +2494,7 @@ def update_row_ksztaltowanie3():
         return jsonify({'message': 'Wystąpił błąd podczas aktualizacji!', 'error': str(e)}), 500
 @app.route('/usun_ksztaltowanie3/<int:id>', methods=['POST'])
 def usun_ksztaltowanie3(id):
-    if not g.user:
-        return render_template('login.html', user=g.user)
-    if g.user.id_uprawnienia == 3:
+    if not g.user or not g.user.ma_range_id(64):
         return redirect(url_for('home'))
 
     ksztaltowanie = Ksztaltowanie_3.query.get_or_404(id)
@@ -2603,9 +2520,7 @@ def usun_ksztaltowanie3(id):
     return redirect(request.referrer or url_for('home'))
 @app.route('/malarnia')
 def malarnia():
-    if not g.user:
-        return render_template('login.html', user=g.user)
-    if g.user.id_uprawnienia == 3:
+    if not g.user or not g.user.ma_range_id(65):
         return redirect(url_for('home'))
     
     malarnia = Malarnia.query.all()
@@ -2613,18 +2528,14 @@ def malarnia():
     return render_template("malarnia.html", user=g.user, malarnia=malarnia)
 @app.route('/dodaj_malarnie')
 def dodaj_malarnie():
-    if not g.user:
-        return render_template('login.html', user=g.user)
-    if g.user.id_uprawnienia == 3:
+    if not g.user or not g.user.ma_range_id(66):
         return redirect(url_for('home'))
     
     logger.info(f"{g.user.login} wszedł na stronę dodawania malarni.")
     return render_template("dodaj_malarnie.html", user=g.user,nazwy_materiału=Ksztaltowanie_3.query.all())
 @app.route('/dodaj_malarnie_do_bazy', methods=['POST'])
 def dodaj_malarnie_do_bazy():
-    if not g.user:
-        return render_template('login.html', user=g.user)
-    if g.user.id_uprawnienia == 3:
+    if not g.user or not g.user.ma_range_id(66):
         return redirect(url_for('home'))
 
     data = request.form.get('data')
@@ -2661,9 +2572,7 @@ def dodaj_malarnie_do_bazy():
         return render_template('malarnia.html', error="Wystąpił błąd przy zapisywaniu danych.", user=g.user)
 @app.route('/update-row-malarnia', methods=['POST'])
 def update_row_malarnia():
-    if not g.user:
-        return render_template('login.html', user=g.user)
-    if g.user.id_uprawnienia == 3:
+    if not g.user or not g.user.ma_range_id(67):
         return redirect(url_for('home'))
     
     try:
@@ -2709,9 +2618,7 @@ def update_row_malarnia():
         return jsonify({'message': 'Wystąpił błąd podczas aktualizacji!', 'error': str(e)}), 500
 @app.route('/usun_malarnie/<int:id>', methods=['POST'])
 def usun_malarnie(id):
-    if not g.user:
-        return render_template('login.html', user=g.user)
-    if g.user.id_uprawnienia == 3:
+    if not g.user or not g.user.ma_range_id(68):
         return redirect(url_for('home'))
 
     malarnia = Malarnia.query.get_or_404(id)
@@ -2736,9 +2643,7 @@ def usun_malarnie(id):
     return redirect(request.referrer or url_for('home'))
 @app.route('/powrot')
 def powrot():
-    if not g.user:
-        return render_template('login.html', user=g.user)
-    if g.user.id_uprawnienia == 3:
+    if not g.user or not g.user.ma_range_id(69):
         return redirect(url_for('home'))
     
     powrot = Powrot.query.all()
@@ -2746,18 +2651,14 @@ def powrot():
     return render_template("powrot.html", user=g.user, powrot=powrot)
 @app.route('/dodaj_powrot')
 def dodaj_powrot():
-    if not g.user:
-        return render_template('login.html', user=g.user)
-    if g.user.id_uprawnienia == 3:
+    if not g.user or not g.user.ma_range_id(70):
         return redirect(url_for('home'))
     
     logger.info(f"{g.user.login} wszedł na stronę dodawania powrotu.")
     return render_template("dodaj_powrot.html", user=g.user,nazwy_materiału=Malarnia.query.all())
 @app.route('/dodaj_powrot_do_bazy', methods=['POST'])
 def dodaj_powrot_do_bazy():
-    if not g.user:
-        return render_template('login.html', user=g.user)
-    if g.user.id_uprawnienia == 3:
+    if not g.user or not g.user.ma_range_id(70):
         return redirect(url_for('home'))
     
     if request.method == 'POST':
@@ -2785,9 +2686,7 @@ def dodaj_powrot_do_bazy():
             return render_template('powrot.html', error="Wystąpił błąd przy zapisywaniu danych.", user=g.user)
 @app.route('/update-row-powrot', methods=['POST'])
 def update_row_powrot():
-    if not g.user:
-        return render_template('login.html', user=g.user)
-    if g.user.id_uprawnienia == 3:
+    if not g.user or not g.user.ma_range_id(71):
         return redirect(url_for('home'))
     
     try:
@@ -2833,9 +2732,7 @@ def update_row_powrot():
         return jsonify({'message': 'Wystąpił błąd podczas aktualizacji!', 'error': str(e)}), 500        
 @app.route('/usun_powrot/<int:id>', methods=['POST'])
 def usun_powrot(id):
-    if not g.user:
-        return render_template('login.html', user=g.user)
-    if g.user.id_uprawnienia == 3:
+    if not g.user or not g.user.ma_range_id(72):
         return redirect(url_for('home'))
 
     powrot = Powrot.query.get_or_404(id)
@@ -2861,9 +2758,7 @@ def usun_powrot(id):
 
 @app.route('/tasma_obejma')
 def tasma_obejma():
-    if not g.user:
-        return render_template('login.html', user=g.user)
-    if g.user.id_uprawnienia == 3:
+    if not g.user or not g.user.ma_range_id(40):
         return redirect(url_for('home'))
     tasmy = TasmaObejmy.query.all()
     logger.info(f"{g.user.login} wszedł na stronę dodawania zlecenia (taśma obejma).")
@@ -2871,18 +2766,14 @@ def tasma_obejma():
 
 @app.route('/dodaj_tasma_obejma')
 def dodaj_tasma_obejma():
-    if not g.user:
-        return render_template('login.html', user=g.user)
-    if g.user.id_uprawnienia == 3:
+    if not g.user or not g.user.ma_range_id(41):
         return redirect(url_for('home'))
     tasmy = TasmaObejmy.query.all()
     logger.info(f"{g.user.login} wszedł na stronę dodawania taśmy obejmy.")
     return render_template("dodaj_tasma_obejma.html", user=g.user, tasmy=tasmy)
 @app.route('/dodaj_tasma_obejmy_do_bazy', methods=['POST'])
 def dodaj_tasma_obejmy_do_bazy():
-    if not g.user:
-        return render_template('login.html', user=g.user)
-    if g.user.id_uprawnienia != 1 and g.user.id_uprawnienia != 2:
+    if not g.user or not g.user.ma_range_id(41):
         return redirect(url_for('home'))
 
     if request.method == 'POST':
@@ -2909,9 +2800,7 @@ def dodaj_tasma_obejmy_do_bazy():
             return render_template('dodaj_tasma_obejma.html', user=g.user)
 @app.route('/update-row-tasma-obejma', methods=['POST'])
 def update_row_tasma_obejma():
-    if not g.user:
-        return render_template('login.html', user=g.user)
-    if g.user.id_uprawnienia != 1 and g.user.id_uprawnienia != 2:
+    if not g.user or not g.user.ma_range_id(42):
         return redirect(url_for('home'))
     try:
         dane = request.get_json()
@@ -2950,9 +2839,7 @@ def update_row_tasma_obejma():
     
 @app.route('/pianka_obejma')
 def pianka_obejma():
-    if not g.user:
-        return render_template('login.html', user=g.user)
-    if g.user.id_uprawnienia == 3:
+    if not g.user or not g.user.ma_range_id(43):
         return redirect(url_for('home'))
     pianki = Pianka.query.all()
     logger.info(f"{g.user.login} wszedł na stronę dodawania zlecenia (pianka obejma).")
@@ -2960,18 +2847,14 @@ def pianka_obejma():
 
 @app.route('/dodaj_pianka_obejma')
 def dodaj_pianka_obejma():
-    if not g.user:
-        return render_template('login.html', user=g.user)
-    if g.user.id_uprawnienia == 3:
+    if not g.user or not g.user.ma_range_id(44):
         return redirect(url_for('home'))
     pianki = Pianka.query.all()
     logger.info(f"{g.user.login} wszedł na stronę dodawania pianki obejmy.")
     return render_template("dodaj_pianka_obejma.html", user=g.user, pianki=pianki)
 @app.route('/dodaj_pianka_obejmy_do_bazy', methods=['POST'])
 def dodaj_pianka_obejmy_do_bazy():
-    if not g.user:
-        return render_template('login.html', user=g.user)
-    if g.user.id_uprawnienia != 1 and g.user.id_uprawnienia != 2:
+    if not g.user or not g.user.ma_range_id(44):
         return redirect(url_for('home'))
     if request.method == 'POST':
         nazwa = request.form.get('nazwa_tasmy_obejmy')
@@ -2997,9 +2880,7 @@ def dodaj_pianka_obejmy_do_bazy():
             return render_template('dodaj_pianka_obejma.html', user=g.user)
 @app.route('/update-row-pianka-obejma', methods=['POST'])
 def update_row_pianka_obejma():
-    if not g.user:
-        return render_template('login.html', user=g.user)
-    if g.user.id_uprawnienia != 1 and g.user.id_uprawnienia != 2:
+    if not g.user or not g.user.ma_range_id(45):
         return redirect(url_for('home'))
     try:
         dane = request.get_json()
@@ -3038,9 +2919,7 @@ def update_row_pianka_obejma():
 
 @app.route('/zlecenie')
 def zlecenie():
-    if not g.user:
-        return render_template('login.html', user=g.user)
-    if g.user.id_uprawnienia == 3:
+    if not g.user or not g.user.ma_range_id(73):
         return redirect(url_for('home'))
     
     zlecenie = Zlecenie.query.all()
@@ -3050,19 +2929,14 @@ def zlecenie():
 
 @app.route('/dodaj_zlecenie')
 def dodaj_zlecenie():
-    if not g.user:
-        return render_template('login.html', user=g.user)
-    if g.user.id_uprawnienia == 3:
+    if not g.user or not g.user.ma_range_id(74):
         return redirect(url_for('home'))
     rozmiar = Powrot.query.all()
     logger.info(f"{g.user.login} wszedł na stronę dodawania zlecenia.")
     return render_template("dodaj_zlecenie.html", user=g.user,rozmiar=rozmiar,nazwy_materiału=Pianka.query.all(),nazwy_materiał=TasmaObejmy.query.all())
 @app.route('/dodaj_zlecenie_do_bazy', methods=['POST'])
 def dodaj_zlecenie_do_bazy():
-    if not g.user:
-        return redirect(url_for('login'))  # Bezpieczniejsze niż render login.html bez danych
-
-    if g.user.id_uprawnienia == 3:
+    if not g.user or not g.user.ma_range_id(74):
         return redirect(url_for('home'))
 
     try:
@@ -3186,6 +3060,8 @@ def dodaj_zlecenie_do_bazy():
 
 @app.route('/update-row-zlecenie', methods=['POST'])
 def update_row_zlecenie():
+    if not g.user or not g.user.ma_range_id(75):
+        return redirect(url_for('home'))
     data = request.get_json()
     if not data:
         return jsonify({'error': 'Brak danych'}), 400
@@ -3269,9 +3145,7 @@ def update_row_zlecenie():
         return jsonify({'error': f'Błąd podczas aktualizacji: {str(e)}'}), 500
 @app.route('/usun_zlecenie/<int:id>', methods=['POST'])
 def usun_zlecenie(id):
-    if not g.user:
-        return render_template('login.html', user=g.user)
-    if g.user.id_uprawnienia == 3:
+    if not g.user or not g.user.ma_range_id(76):
         return redirect(url_for('home'))
 
     zlecenie = Zlecenie.query.get_or_404(id)
