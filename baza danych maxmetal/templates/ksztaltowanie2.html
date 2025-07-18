@@ -502,7 +502,7 @@ function sendDataToBackend(data) {
                             <td>{{ ksztaltowania.imie_nazwisko}}</td>
 
                             
-                            <td><td>{% if not ksztaltowania.godzina_zakonczenia %}
+                            <td>{% if not ksztaltowania.godzina_zakonczenia %}
     <button  type="button" class="button" onclick="zakonczKsztaltowanie({{ ksztaltowania.id }},{{ ksztaltowania.ksztaltowanie_1.ilosc_na_stanie }})">Zakończ</button>
     {% else %}
     <button type="button" class="button" onclick="openEditModal(this.parentElement.parentElement)">Edytuj</button>
