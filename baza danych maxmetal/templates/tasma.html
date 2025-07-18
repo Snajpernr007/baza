@@ -12,6 +12,8 @@
 //     location.reload();
 // }, 10000); // 10000 ms = 10 sekund
 
+let showingNiezuzryte = false;
+
 function filterTable() {
     const rows = document.querySelectorAll("#tabela tbody tr");
 
@@ -98,6 +100,15 @@ function filterTable() {
 
             row.style.display = visible ? "" : "none";
         }
+        if (showingNiezuzryte) {
+        rows.forEach(row => {
+            if (row.style.display === "none") return;
+            const wagaCell = row.cells[7];
+            if (!wagaCell) return;
+            const waga = parseFloat(wagaCell.textContent.replace(',', '.'));
+            if (!(waga > 0)) row.style.display = "none";
+        });
+        } 
     });
 
     function getInput(placeholder) {
@@ -129,6 +140,14 @@ function filterTable() {
         return true;
     }
 }
+
+function toggleNiezuzryte() {
+    const btn = document.getElementById("toggleNiezuzryte");
+    showingNiezuzryte = !showingNiezuzryte;
+    filterTable(); // Zawsze wywołuj filtrację po zmianie trybu
+    btn.textContent = showingNiezuzryte ? "Pokaż wszystkie" : "Pokaż niezużyte";
+}
+
 // Zaktualizuj wywołanie funkcji filterTable w inputach
 function setupFilters() {
     let inputs = document.querySelectorAll("thead input");
@@ -622,8 +641,8 @@ function printID(id) {
                         <th><input type="text" placeholder="Filtruj ID" onchange="filterTable()"></th>
                         <th><input type="text" placeholder="Filtruj Dostawcę" onchange="filterTable()"></th>
                         <th><input type="text" placeholder="Filtruj Materiał" onchange="filterTable()"></th>
-                        <th>  OD<input type="date" id="dateFromKrag" onchange="filterTable()">
-                            DO<input type="date" id="dateToKrag" onchange="filterTable()"></th>
+                        <th>  OD<input type="date" id="dateKraguFrom" onchange="filterTable()">
+                            DO<input type="date" id="dateKreguTo" onchange="filterTable()"></th>
                             
                         <th><input type="text" placeholder="Filtruj Grubość" onchange="filterTable()"></th>
                         <th><input type="text" placeholder="Filtruj Szerokość" onchange="filterTable()"></th>
@@ -633,8 +652,8 @@ function printID(id) {
                         <th><input type="text" placeholder="Filtruj Etyk. Kręgu" onchange="filterTable()"></th>
                         <th><input type="text" placeholder="Filtruj Lokalizację" onchange="filterTable()"></th>
                         <th><input type="text" placeholder="Filtruj Nr WZ" onchange="filterTable()"></th>
-                        <th>  OD<input type="date" id="dateFromDostawa" onchange="filterTable()">
-                            DO<input type="date" id="dateToDostawa" onchange="filterTable()"></th>
+                        <th>  OD<input type="date" id="dateDostawyFrom" onchange="filterTable()">
+                            DO<input type="date" id="dateDostawyTo" onchange="filterTable()"></th>
                         <th><input type="text" placeholder="Filtruj Nazwę Stanowiska" onchange="filterTable()"></th>
                         
                         <th><button class="button" onclick="resetFilters()">Usuń Filtry</button>
@@ -760,29 +779,26 @@ function printID(id) {
         checkbox.checked = false;
     }
 });
-let showingNiezuzryte = false;
+// let showingNiezuzryte = false;
 
-function toggleNiezuzryte() {
-    const rows = document.querySelectorAll("#tabela tbody tr");
-    const btn = document.getElementById("toggleNiezuzryte");
-    if (!showingNiezuzryte) {
-        // Pokaż tylko niezużyte
-        rows.forEach(row => {
-            const wagaCell = row.cells[7];
-            if (!wagaCell) return;
-            const waga = parseFloat(wagaCell.textContent.replace(',', '.'));
-            row.style.display = (waga > 0) ? "" : "none";
-        });
-        btn.textContent = "Pokaż wszystkie";
-        showingNiezuzryte = true;
-    } else {
-        // Pokaż wszystkie
-        rows.forEach(row => {
-            row.style.display = "";
-        });
-        btn.textContent = "Pokaż niezużyte";
-        showingNiezuzryte = false;
-    }
-}
+// function filterTable() {
+//     const rows = document.querySelectorAll("#tabela tbody tr");
+//     const btn = document.getElementById("toggleNiezuzryte");
+//     if (showingNiezuzryte) {
+//         rows.forEach(row => {
+//             if (row.style.display === "none") return;
+//             const wagaCell = row.cells[7];
+//             if (!wagaCell) return;
+//             const waga = parseFloat(wagaCell.textContent.replace(',', '.'));
+//             if (!(waga > 0)) row.style.display = "none";
+//         });
+//     } 
+// }
+// function toggleNiezuzryte() {
+//     const btn = document.getElementById("toggleNiezuzryte");
+//     showingNiezuzryte = !showingNiezuzryte;
+//     filterTable(); // Zawsze wywołuj filtrację po zmianie trybu
+//     btn.textContent = showingNiezuzryte ? "Pokaż wszystkie" : "Pokaż niezużyte";
+// }
 </script>
 </html> 
