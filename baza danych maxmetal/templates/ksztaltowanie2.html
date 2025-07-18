@@ -57,7 +57,7 @@
 
         // Filtrowanie po dacie (kolumna 4)
         if (isRowVisible && (dateFrom || dateTo)) {
-            let dateCell = cells[4]?.textContent.trim();
+            let dateCell = cells[5]?.textContent.trim();
             if (dateCell) {
                 let cellDate = new Date(dateCell);
                 if (dateFrom && cellDate < new Date(dateFrom)) isRowVisible = false;
@@ -502,7 +502,7 @@ function sendDataToBackend(data) {
                             <td>{{ ksztaltowania.imie_nazwisko}}</td>
 
                             
-                            <td>{% if not ksztaltowania.godzina_zakonczenia %}
+                            <td><td>{% if not ksztaltowania.godzina_zakonczenia %}
     <button  type="button" class="button" onclick="zakonczKsztaltowanie({{ ksztaltowania.id }},{{ ksztaltowania.ksztaltowanie_1.ilosc_na_stanie }})">Zakończ</button>
     {% else %}
     <button type="button" class="button" onclick="openEditModal(this.parentElement.parentElement)">Edytuj</button>
